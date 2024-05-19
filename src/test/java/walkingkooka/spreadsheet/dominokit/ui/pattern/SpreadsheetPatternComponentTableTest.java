@@ -378,30 +378,10 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         final SpreadsheetPatternComponentTable table = SpreadsheetPatternComponentTable.empty();
         table.refresh(
                 "dd/mm/yyyy",
-                new FakeSpreadsheetPatternDialogComponentContext() {
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString("/1/Spreadsheet123/cell/A1/format-pattern/date");
-                    }
-
-                    @Override
-                    public SpreadsheetPatternKind patternKind() {
-                        return SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
-                    }
-
-                    @Override
-                    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return DATE_FORMATTER_CONTEXT;
-                    }
-
-                    @Override
-                    public void debug(final Object... values) {
-                        System.out.println(
-                                Arrays.toString(values)
-                        );
-                    }
-                }
+                this.spreadsheetPatternDialogComponentContext(
+                        "/1/Spreadsheet123/cell/A1/format-pattern/date",
+                        DATE_FORMATTER_CONTEXT
+                )
         );
         this.treePrintAndCheck(
                 table,
@@ -472,30 +452,10 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         final SpreadsheetPatternComponentTable table = SpreadsheetPatternComponentTable.empty();
         table.refresh(
                 "dd/mm/yyyy",
-                new FakeSpreadsheetPatternDialogComponentContext() {
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString("/1/Spreadsheet123/cell/A1/parse-pattern/date");
-                    }
-
-                    @Override
-                    public SpreadsheetPatternKind patternKind() {
-                        return SpreadsheetPatternKind.DATE_PARSE_PATTERN;
-                    }
-
-                    @Override
-                    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return DATE_FORMATTER_CONTEXT;
-                    }
-
-                    @Override
-                    public void debug(final Object... values) {
-                        System.out.println(
-                                Arrays.toString(values)
-                        );
-                    }
-                }
+                this.spreadsheetPatternDialogComponentContext(
+                        "/1/Spreadsheet123/cell/A1/parse-pattern/date",
+                        DATE_FORMATTER_CONTEXT
+                )
         );
         this.treePrintAndCheck(
                 table,
@@ -568,30 +528,10 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         final SpreadsheetPatternComponentTable table = SpreadsheetPatternComponentTable.empty();
         table.refresh(
                 "dd/mm/yyyy hh:mm",
-                new FakeSpreadsheetPatternDialogComponentContext() {
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString("/1/Spreadsheet123/cell/A1/format-pattern/date-time");
-                    }
-
-                    @Override
-                    public SpreadsheetPatternKind patternKind() {
-                        return SpreadsheetPatternKind.DATE_TIME_FORMAT_PATTERN;
-                    }
-
-                    @Override
-                    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return DATE_TIME_FORMATTER_CONTEXT;
-                    }
-
-                    @Override
-                    public void debug(final Object... values) {
-                        System.out.println(
-                                Arrays.toString(values)
-                        );
-                    }
-                }
+                this.spreadsheetPatternDialogComponentContext(
+                        "/1/Spreadsheet123/cell/A1/format-pattern/date-time",
+                        DATE_TIME_FORMATTER_CONTEXT
+                )
         );
         this.treePrintAndCheck(
                 table,
@@ -662,30 +602,10 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         final SpreadsheetPatternComponentTable table = SpreadsheetPatternComponentTable.empty();
         table.refresh(
                 "dd/mm/yyyy hh:mm",
-                new FakeSpreadsheetPatternDialogComponentContext() {
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString("/1/Spreadsheet123/cell/A1/parse-pattern/date-time");
-                    }
-
-                    @Override
-                    public SpreadsheetPatternKind patternKind() {
-                        return SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN;
-                    }
-
-                    @Override
-                    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return DATE_TIME_FORMATTER_CONTEXT;
-                    }
-
-                    @Override
-                    public void debug(final Object... values) {
-                        System.out.println(
-                                Arrays.toString(values)
-                        );
-                    }
-                }
+                this.spreadsheetPatternDialogComponentContext(
+                        "/1/Spreadsheet123/cell/A1/parse-pattern/date-time",
+                        DATE_TIME_FORMATTER_CONTEXT
+                )
         );
         this.treePrintAndCheck(
                 table,
@@ -758,30 +678,10 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         final SpreadsheetPatternComponentTable table = SpreadsheetPatternComponentTable.empty();
         table.refresh(
                 "$#.00",
-                new FakeSpreadsheetPatternDialogComponentContext() {
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString("/1/Spreadsheet123/cell/A1/format-pattern/number");
-                    }
-
-                    @Override
-                    public SpreadsheetPatternKind patternKind() {
-                        return SpreadsheetPatternKind.NUMBER_FORMAT_PATTERN;
-                    }
-
-                    @Override
-                    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return NUMBER_FORMATTER_CONTEXT;
-                    }
-
-                    @Override
-                    public void debug(final Object... values) {
-                        System.out.println(
-                                Arrays.toString(values)
-                        );
-                    }
-                }
+                this.spreadsheetPatternDialogComponentContext(
+                        "/1/Spreadsheet123/cell/A1/format-pattern/number",
+                        NUMBER_FORMATTER_CONTEXT
+                )
         );
         this.treePrintAndCheck(
                 table,
@@ -858,30 +758,10 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         final SpreadsheetPatternComponentTable table = SpreadsheetPatternComponentTable.empty();
         table.refresh(
                 "$#.00",
-                new FakeSpreadsheetPatternDialogComponentContext() {
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString("/1/Spreadsheet123/cell/A1/parse-pattern/number");
-                    }
-
-                    @Override
-                    public SpreadsheetPatternKind patternKind() {
-                        return SpreadsheetPatternKind.NUMBER_PARSE_PATTERN;
-                    }
-
-                    @Override
-                    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return NUMBER_FORMATTER_CONTEXT;
-                    }
-
-                    @Override
-                    public void debug(final Object... values) {
-                        System.out.println(
-                                Arrays.toString(values)
-                        );
-                    }
-                }
+                this.spreadsheetPatternDialogComponentContext(
+                        "/1/Spreadsheet123/cell/A1/parse-pattern/number",
+                        NUMBER_FORMATTER_CONTEXT
+                )
         );
         this.treePrintAndCheck(
                 table,
@@ -950,30 +830,10 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         final SpreadsheetPatternComponentTable table = SpreadsheetPatternComponentTable.empty();
         table.refresh(
                 "@",
-                new FakeSpreadsheetPatternDialogComponentContext() {
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString("/1/Spreadsheet123/cell/A1/format-pattern/text");
-                    }
-
-                    @Override
-                    public SpreadsheetPatternKind patternKind() {
-                        return SpreadsheetPatternKind.TEXT_FORMAT_PATTERN;
-                    }
-
-                    @Override
-                    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return TEXT_FORMATTER_CONTEXT;
-                    }
-
-                    @Override
-                    public void debug(final Object... values) {
-                        System.out.println(
-                                Arrays.toString(values)
-                        );
-                    }
-                }
+                this.spreadsheetPatternDialogComponentContext(
+                        "/1/Spreadsheet123/cell/A1/format-pattern/text",
+                        TEXT_FORMATTER_CONTEXT
+                )
         );
         this.treePrintAndCheck(
                 table,
@@ -997,7 +857,6 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         );
     }
 
-
     // time.............................................................................................................
 
     @Test
@@ -1005,30 +864,10 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         final SpreadsheetPatternComponentTable table = SpreadsheetPatternComponentTable.empty();
         table.refresh(
                 "hh:mm:ss",
-                new FakeSpreadsheetPatternDialogComponentContext() {
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString("/1/Spreadsheet123/cell/A1/format-pattern/time");
-                    }
-
-                    @Override
-                    public SpreadsheetPatternKind patternKind() {
-                        return SpreadsheetPatternKind.TIME_FORMAT_PATTERN;
-                    }
-
-                    @Override
-                    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return TIME_FORMATTER_CONTEXT;
-                    }
-
-                    @Override
-                    public void debug(final Object... values) {
-                        System.out.println(
-                                Arrays.toString(values)
-                        );
-                    }
-                }
+                this.spreadsheetPatternDialogComponentContext(
+                        "/1/Spreadsheet123/cell/A1/format-pattern/time",
+                        TIME_FORMATTER_CONTEXT
+                )
         );
         this.treePrintAndCheck(
                 table,
@@ -1087,30 +926,10 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         final SpreadsheetPatternComponentTable table = SpreadsheetPatternComponentTable.empty();
         table.refresh(
                 "hh:mm:ss",
-                new FakeSpreadsheetPatternDialogComponentContext() {
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString("/1/Spreadsheet123/cell/A1/parse-pattern/time");
-                    }
-
-                    @Override
-                    public SpreadsheetPatternKind patternKind() {
-                        return SpreadsheetPatternKind.TIME_PARSE_PATTERN;
-                    }
-
-                    @Override
-                    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return TIME_FORMATTER_CONTEXT;
-                    }
-
-                    @Override
-                    public void debug(final Object... values) {
-                        System.out.println(
-                                Arrays.toString(values)
-                        );
-                    }
-                }
+                this.spreadsheetPatternDialogComponentContext(
+                        "/1/Spreadsheet123/cell/A1/parse-pattern/time",
+                        TIME_FORMATTER_CONTEXT
+                )
         );
         this.treePrintAndCheck(
                 table,
@@ -1162,6 +981,34 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
                         "            SpreadsheetTextNodeComponent\n" +
                         "              6:01:02 PM\n"
         );
+    }
+
+    private SpreadsheetPatternDialogComponentContext spreadsheetPatternDialogComponentContext(final String historyToken,
+                                                                                              final SpreadsheetFormatterContext formatterContext) {
+        return new FakeSpreadsheetPatternDialogComponentContext() {
+
+            @Override
+            public HistoryToken historyToken() {
+                return HistoryToken.parseString(historyToken);
+            }
+
+            @Override
+            public SpreadsheetPatternKind patternKind() {
+                return this.historyToken().patternKind().get();
+            }
+
+            @Override
+            public SpreadsheetFormatterContext spreadsheetFormatterContext() {
+                return formatterContext;
+            }
+
+            @Override
+            public void debug(final Object... values) {
+                System.out.println(
+                        Arrays.toString(values)
+                );
+            }
+        };
     }
 
     // ClassVisibility..................................................................................................
