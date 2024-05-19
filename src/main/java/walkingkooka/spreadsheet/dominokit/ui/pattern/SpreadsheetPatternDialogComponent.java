@@ -257,7 +257,8 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
                 .orElse("");
     }
 
-    private void setPatternText(final String patternText) {
+    // @VisibleForTesting
+    void setPatternText(final String patternText) {
         this.patternTextBox.setValue(
                 Optional.of(patternText)
         );
