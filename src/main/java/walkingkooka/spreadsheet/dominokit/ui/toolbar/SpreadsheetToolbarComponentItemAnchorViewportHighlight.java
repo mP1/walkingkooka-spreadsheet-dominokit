@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
-import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightHistoryToken;
@@ -26,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightSaveHi
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
@@ -34,8 +32,7 @@ import java.util.Optional;
 
 final class SpreadsheetToolbarComponentItemAnchorViewportHighlight extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorViewportHighlight>
         implements NopComponentLifecycleOpenGiveFocus,
-        NopComponentLifecycleRefresh,
-        VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemAnchorViewportHighlight> {
+        NopComponentLifecycleRefresh {
 
     static SpreadsheetToolbarComponentItemAnchorViewportHighlight with(final AppContext context) {
         Objects.requireNonNull(context, "context");

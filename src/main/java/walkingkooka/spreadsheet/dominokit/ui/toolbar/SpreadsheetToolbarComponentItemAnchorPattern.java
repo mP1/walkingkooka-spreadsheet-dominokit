@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
-import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -26,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -40,8 +38,7 @@ abstract class SpreadsheetToolbarComponentItemAnchorPattern<P extends Spreadshee
         extends SpreadsheetToolbarComponentItemAnchor<C>
         implements SpreadsheetCellComponentLifecycle,
         NopComponentLifecycleRefresh,
-        NopComponentLifecycleOpenGiveFocus,
-        VisibleComponentLifecycle<HTMLElement, C> {
+        NopComponentLifecycleOpenGiveFocus {
 
     SpreadsheetToolbarComponentItemAnchorPattern(final String id,
                                                  final Optional<Icon<?>> icon,

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.Event;
-import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -26,15 +25,13 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 
 import java.util.Objects;
 import java.util.Optional;
 
 final class SpreadsheetToolbarComponentItemAnchorReload extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorReload>
         implements NopComponentLifecycleOpenGiveFocus,
-        NopComponentLifecycleRefresh,
-        VisibleComponentLifecycle<HTMLElement, SpreadsheetToolbarComponentItemAnchorReload> {
+        NopComponentLifecycleRefresh {
 
     static SpreadsheetToolbarComponentItemAnchorReload with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
