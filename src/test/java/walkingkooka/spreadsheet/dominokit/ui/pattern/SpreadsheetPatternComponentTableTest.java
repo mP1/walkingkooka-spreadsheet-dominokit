@@ -43,6 +43,334 @@ import java.util.Locale;
 public final class SpreadsheetPatternComponentTableTest implements ClassTesting<SpreadsheetPatternComponentTable>,
         TreePrintableTesting {
 
+    private final static SpreadsheetFormatterContext DATE_FORMATTER_CONTEXT = new FakeSpreadsheetFormatterContext() {
+
+        @Override
+        public <T> T convertOrFail(final Object value,
+                                   final Class<T> target) {
+            return (T) LocalDateTime.of(
+                    (LocalDate) value,
+                    LocalTime.NOON
+            );
+        }
+
+        @Override
+        public Locale locale() {
+            return this.context.locale();
+        }
+
+        // cell / DateTimeContext
+
+        @Override
+        public List<String> ampms() {
+            return this.context.ampms();
+        }
+
+        @Override
+        public String ampm(int hourOfDay) {
+            return this.context.ampm(hourOfDay);
+        }
+
+        @Override
+        public int defaultYear() {
+            return this.context.defaultYear();
+        }
+
+        @Override
+        public List<String> monthNames() {
+            return this.context.monthNames();
+        }
+
+        @Override
+        public String monthName(int month) {
+            return this.context.monthName(month);
+        }
+
+        @Override
+        public List<String> monthNameAbbreviations() {
+            return this.context.monthNameAbbreviations();
+        }
+
+        @Override
+        public String monthNameAbbreviation(final int month) {
+            return this.context.monthNameAbbreviation(month);
+        }
+
+        @Override
+        public LocalDateTime now() {
+            return this.context.now();
+        }
+
+        @Override
+        public int twoDigitYear() {
+            return this.context.twoDigitYear();
+        }
+
+        @Override
+        public List<String> weekDayNames() {
+            return this.context.weekDayNames();
+        }
+
+        @Override
+        public String weekDayName(final int day) {
+            return this.context.weekDayName(day);
+        }
+
+        @Override
+        public List<String> weekDayNameAbbreviations() {
+            return this.context.weekDayNameAbbreviations();
+        }
+
+        @Override
+        public String weekDayNameAbbreviation(final int day) {
+            return this.context.weekDayNameAbbreviation(day);
+        }
+
+        private final DateTimeContext context = DateTimeContexts.locale(
+                Locale.forLanguageTag("EN-AU"), // cell / locale
+                1950, // cell / default year
+                50,
+                () -> LocalDateTime.of(
+                        1999,
+                        12,
+                        31,
+                        12,
+                        58,
+                        59
+                )
+        );
+    };
+
+    private final static SpreadsheetFormatterContext DATE_TIME_FORMATTER_CONTEXT = new FakeSpreadsheetFormatterContext() {
+
+        @Override
+        public <T> T convertOrFail(final Object value,
+                                   final Class<T> target) {
+            return (T) target.cast(value);
+        }
+
+        @Override
+        public Locale locale() {
+            return this.context.locale();
+        }
+
+        // cell / DateTimeContext
+
+        @Override
+        public List<String> ampms() {
+            return this.context.ampms();
+        }
+
+        @Override
+        public String ampm(int hourOfDay) {
+            return this.context.ampm(hourOfDay);
+        }
+
+        @Override
+        public int defaultYear() {
+            return this.context.defaultYear();
+        }
+
+        @Override
+        public List<String> monthNames() {
+            return this.context.monthNames();
+        }
+
+        @Override
+        public String monthName(int month) {
+            return this.context.monthName(month);
+        }
+
+        @Override
+        public List<String> monthNameAbbreviations() {
+            return this.context.monthNameAbbreviations();
+        }
+
+        @Override
+        public String monthNameAbbreviation(final int month) {
+            return this.context.monthNameAbbreviation(month);
+        }
+
+        @Override
+        public LocalDateTime now() {
+            return this.context.now();
+        }
+
+        @Override
+        public int twoDigitYear() {
+            return this.context.twoDigitYear();
+        }
+
+        @Override
+        public List<String> weekDayNames() {
+            return this.context.weekDayNames();
+        }
+
+        @Override
+        public String weekDayName(final int day) {
+            return this.context.weekDayName(day);
+        }
+
+        @Override
+        public List<String> weekDayNameAbbreviations() {
+            return this.context.weekDayNameAbbreviations();
+        }
+
+        @Override
+        public String weekDayNameAbbreviation(final int day) {
+            return this.context.weekDayNameAbbreviation(day);
+        }
+
+        private final DateTimeContext context = DateTimeContexts.locale(
+                Locale.forLanguageTag("EN-AU"), // cell / locale
+                1950, // cell / default year
+                50,
+                () -> LocalDateTime.of(
+                        1999,
+                        12,
+                        31,
+                        12,
+                        58,
+                        59
+                )
+        );
+    };
+
+    private final static SpreadsheetFormatterContext NUMBER_FORMATTER_CONTEXT = new FakeSpreadsheetFormatterContext() {
+        @Override
+        public boolean canConvert(final Object value,
+                                  final Class<?> type) {
+            return true;
+        }
+
+        @Override
+        public <T> T convertOrFail(final Object value,
+                                   final Class<T> target) {
+            return (T) target.cast(value);
+        }
+
+        @Override
+        public int generalFormatNumberDigitCount() {
+            return SpreadsheetFormatterContext.DEFAULT_GENERAL_FORMAT_NUMBER_DIGIT_COUNT;
+        }
+
+        @Override
+        public Locale locale() {
+            return this.context.locale();
+        }
+
+        @Override
+        public ExpressionNumberKind expressionNumberKind() {
+            return ExpressionNumberKind.BIG_DECIMAL;
+        }
+
+        @Override
+        public String currencySymbol() {
+            return this.context.currencySymbol();
+        }
+
+        @Override
+        public char decimalSeparator() {
+            return this.context.decimalSeparator();
+        }
+
+        @Override
+        public String exponentSymbol() {
+            return this.context.exponentSymbol();
+        }
+
+        @Override
+        public char groupSeparator() {
+            return this.context.groupSeparator();
+        }
+
+        @Override
+        public MathContext mathContext() {
+            return this.context.mathContext();
+        }
+
+        @Override
+        public char negativeSign() {
+            return this.context.negativeSign();
+        }
+
+        @Override
+        public char percentageSymbol() {
+            return this.context.percentageSymbol();
+        }
+
+        @Override
+        public char positiveSign() {
+            return this.positiveSign();
+        }
+
+        private final DecimalNumberContext context = DecimalNumberContexts.american(MathContext.DECIMAL32);
+    };
+
+    private final static SpreadsheetFormatterContext TEXT_FORMATTER_CONTEXT = new FakeSpreadsheetFormatterContext() {
+
+        @Override
+        public boolean canConvert(final Object value,
+                                  final Class<?> type) {
+            return true;
+        }
+
+        @Override
+        public <T> T convertOrFail(final Object value,
+                                   final Class<T> target) {
+            return (T) target.cast(value);
+        }
+    };
+
+    private final static SpreadsheetFormatterContext TIME_FORMATTER_CONTEXT = new FakeSpreadsheetFormatterContext() {
+
+        @Override
+        public <T> T convertOrFail(final Object value,
+                                   final Class<T> target) {
+            return (T)
+                    LocalDateTime.of(
+                            LocalDate.of(2000, 1, 1),
+                            LocalTime.class.cast(value)
+                    );
+        }
+
+        @Override
+        public Locale locale() {
+            return this.context.locale();
+        }
+
+        // cell / DateTimeContext
+
+        @Override
+        public List<String> ampms() {
+            return this.context.ampms();
+        }
+
+        @Override
+        public String ampm(int hourOfDay) {
+            return this.context.ampm(hourOfDay);
+        }
+
+        @Override
+        public LocalDateTime now() {
+            return this.context.now();
+        }
+
+        private final DateTimeContext context = DateTimeContexts.locale(
+                Locale.forLanguageTag("EN-AU"), // cell / locale
+                1950, // cell / default year
+                50,
+                () -> LocalDateTime.of(
+                        1999,
+                        12,
+                        31,
+                        12,
+                        58,
+                        59
+                )
+        );
+    };
+
     // date.............................................................................................................
 
     @Test
@@ -64,103 +392,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
 
                     @Override
                     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return new FakeSpreadsheetFormatterContext() {
-
-                            @Override
-                            public <T> T convertOrFail(final Object value,
-                                                       final Class<T> target) {
-                                return (T) LocalDateTime.of(
-                                        (LocalDate) value,
-                                        LocalTime.NOON
-                                );
-                            }
-
-                            @Override
-                            public Locale locale() {
-                                return this.context.locale();
-                            }
-
-                            // DateTimeContext
-
-                            @Override
-                            public List<String> ampms() {
-                                return this.context.ampms();
-                            }
-
-                            @Override
-                            public String ampm(int hourOfDay) {
-                                return this.context.ampm(hourOfDay);
-                            }
-
-                            @Override
-                            public int defaultYear() {
-                                return this.context.defaultYear();
-                            }
-
-                            @Override
-                            public List<String> monthNames() {
-                                return this.context.monthNames();
-                            }
-
-                            @Override
-                            public String monthName(int month) {
-                                return this.context.monthName(month);
-                            }
-
-                            @Override
-                            public List<String> monthNameAbbreviations() {
-                                return this.context.monthNameAbbreviations();
-                            }
-
-                            @Override
-                            public String monthNameAbbreviation(final int month) {
-                                return this.context.monthNameAbbreviation(month);
-                            }
-
-                            @Override
-                            public LocalDateTime now() {
-                                return this.context.now();
-                            }
-
-                            @Override
-                            public int twoDigitYear() {
-                                return this.context.twoDigitYear();
-                            }
-
-                            @Override
-                            public List<String> weekDayNames() {
-                                return this.context.weekDayNames();
-                            }
-
-                            @Override
-                            public String weekDayName(final int day) {
-                                return this.context.weekDayName(day);
-                            }
-
-                            @Override
-                            public List<String> weekDayNameAbbreviations() {
-                                return this.context.weekDayNameAbbreviations();
-                            }
-
-                            @Override
-                            public String weekDayNameAbbreviation(final int day) {
-                                return this.context.weekDayNameAbbreviation(day);
-                            }
-
-                            private final DateTimeContext context = DateTimeContexts.locale(
-                                    Locale.forLanguageTag("EN-AU"), // locale
-                                    1950, // default year
-                                    50,
-                                    () -> LocalDateTime.of(
-                                            1999,
-                                            12,
-                                            31,
-                                            12,
-                                            58,
-                                            59
-                                    )
-                            );
-                        };
+                        return DATE_FORMATTER_CONTEXT;
                     }
 
                     @Override
@@ -254,103 +486,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
 
                     @Override
                     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return new FakeSpreadsheetFormatterContext() {
-
-                            @Override
-                            public <T> T convertOrFail(final Object value,
-                                                       final Class<T> target) {
-                                return (T) LocalDateTime.of(
-                                        (LocalDate) value,
-                                        LocalTime.NOON
-                                );
-                            }
-
-                            @Override
-                            public Locale locale() {
-                                return this.context.locale();
-                            }
-
-                            // DateTimeContext
-
-                            @Override
-                            public List<String> ampms() {
-                                return this.context.ampms();
-                            }
-
-                            @Override
-                            public String ampm(int hourOfDay) {
-                                return this.context.ampm(hourOfDay);
-                            }
-
-                            @Override
-                            public int defaultYear() {
-                                return this.context.defaultYear();
-                            }
-
-                            @Override
-                            public List<String> monthNames() {
-                                return this.context.monthNames();
-                            }
-
-                            @Override
-                            public String monthName(int month) {
-                                return this.context.monthName(month);
-                            }
-
-                            @Override
-                            public List<String> monthNameAbbreviations() {
-                                return this.context.monthNameAbbreviations();
-                            }
-
-                            @Override
-                            public String monthNameAbbreviation(final int month) {
-                                return this.context.monthNameAbbreviation(month);
-                            }
-
-                            @Override
-                            public LocalDateTime now() {
-                                return this.context.now();
-                            }
-
-                            @Override
-                            public int twoDigitYear() {
-                                return this.context.twoDigitYear();
-                            }
-
-                            @Override
-                            public List<String> weekDayNames() {
-                                return this.context.weekDayNames();
-                            }
-
-                            @Override
-                            public String weekDayName(final int day) {
-                                return this.context.weekDayName(day);
-                            }
-
-                            @Override
-                            public List<String> weekDayNameAbbreviations() {
-                                return this.context.weekDayNameAbbreviations();
-                            }
-
-                            @Override
-                            public String weekDayNameAbbreviation(final int day) {
-                                return this.context.weekDayNameAbbreviation(day);
-                            }
-
-                            private final DateTimeContext context = DateTimeContexts.locale(
-                                    Locale.forLanguageTag("EN-AU"), // locale
-                                    1950, // default year
-                                    50,
-                                    () -> LocalDateTime.of(
-                                            1999,
-                                            12,
-                                            31,
-                                            12,
-                                            58,
-                                            59
-                                    )
-                            );
-                        };
+                        return DATE_FORMATTER_CONTEXT;
                     }
 
                     @Override
@@ -446,101 +582,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
 
                     @Override
                     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return new FakeSpreadsheetFormatterContext() {
-
-                            @Override
-                            public <T> T convertOrFail(final Object value,
-                                                       final Class<T> target) {
-                                return (T) target.cast(value);
-                            }
-
-                            @Override
-                            public Locale locale() {
-                                return this.context.locale();
-                            }
-
-                            // DateTimeContext
-
-                            @Override
-                            public List<String> ampms() {
-                                return this.context.ampms();
-                            }
-
-                            @Override
-                            public String ampm(int hourOfDay) {
-                                return this.context.ampm(hourOfDay);
-                            }
-
-                            @Override
-                            public int defaultYear() {
-                                return this.context.defaultYear();
-                            }
-
-                            @Override
-                            public List<String> monthNames() {
-                                return this.context.monthNames();
-                            }
-
-                            @Override
-                            public String monthName(int month) {
-                                return this.context.monthName(month);
-                            }
-
-                            @Override
-                            public List<String> monthNameAbbreviations() {
-                                return this.context.monthNameAbbreviations();
-                            }
-
-                            @Override
-                            public String monthNameAbbreviation(final int month) {
-                                return this.context.monthNameAbbreviation(month);
-                            }
-
-                            @Override
-                            public LocalDateTime now() {
-                                return this.context.now();
-                            }
-
-                            @Override
-                            public int twoDigitYear() {
-                                return this.context.twoDigitYear();
-                            }
-
-                            @Override
-                            public List<String> weekDayNames() {
-                                return this.context.weekDayNames();
-                            }
-
-                            @Override
-                            public String weekDayName(final int day) {
-                                return this.context.weekDayName(day);
-                            }
-
-                            @Override
-
-                            public List<String> weekDayNameAbbreviations() {
-                                return this.context.weekDayNameAbbreviations();
-                            }
-
-                            @Override
-                            public String weekDayNameAbbreviation(final int day) {
-                                return this.context.weekDayNameAbbreviation(day);
-                            }
-
-                            private final DateTimeContext context = DateTimeContexts.locale(
-                                    Locale.forLanguageTag("EN-AU"), // locale
-                                    1950, // default year
-                                    50,
-                                    () -> LocalDateTime.of(
-                                            1999,
-                                            12,
-                                            31,
-                                            12,
-                                            58,
-                                            59
-                                    )
-                            );
-                        };
+                        return DATE_TIME_FORMATTER_CONTEXT;
                     }
 
                     @Override
@@ -634,100 +676,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
 
                     @Override
                     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return new FakeSpreadsheetFormatterContext() {
-
-                            @Override
-                            public <T> T convertOrFail(final Object value,
-                                                       final Class<T> target) {
-                                return (T) target.cast(value);
-                            }
-
-                            @Override
-                            public Locale locale() {
-                                return this.context.locale();
-                            }
-
-                            // DateTimeContext
-
-                            @Override
-                            public List<String> ampms() {
-                                return this.context.ampms();
-                            }
-
-                            @Override
-                            public String ampm(int hourOfDay) {
-                                return this.context.ampm(hourOfDay);
-                            }
-
-                            @Override
-                            public int defaultYear() {
-                                return this.context.defaultYear();
-                            }
-
-                            @Override
-                            public List<String> monthNames() {
-                                return this.context.monthNames();
-                            }
-
-                            @Override
-                            public String monthName(int month) {
-                                return this.context.monthName(month);
-                            }
-
-                            @Override
-                            public List<String> monthNameAbbreviations() {
-                                return this.context.monthNameAbbreviations();
-                            }
-
-                            @Override
-                            public String monthNameAbbreviation(final int month) {
-                                return this.context.monthNameAbbreviation(month);
-                            }
-
-                            @Override
-                            public LocalDateTime now() {
-                                return this.context.now();
-                            }
-
-                            @Override
-                            public int twoDigitYear() {
-                                return this.context.twoDigitYear();
-                            }
-
-                            @Override
-                            public List<String> weekDayNames() {
-                                return this.context.weekDayNames();
-                            }
-
-                            @Override
-                            public String weekDayName(final int day) {
-                                return this.context.weekDayName(day);
-                            }
-
-                            @Override
-                            public List<String> weekDayNameAbbreviations() {
-                                return this.context.weekDayNameAbbreviations();
-                            }
-
-                            @Override
-                            public String weekDayNameAbbreviation(final int day) {
-                                return this.context.weekDayNameAbbreviation(day);
-                            }
-
-                            private final DateTimeContext context = DateTimeContexts.locale(
-                                    Locale.forLanguageTag("EN-AU"), // locale
-                                    1950, // default year
-                                    50,
-                                    () -> LocalDateTime.of(
-                                            1999,
-                                            12,
-                                            31,
-                                            12,
-                                            58,
-                                            59
-                                    )
-                            );
-                        };
+                        return DATE_TIME_FORMATTER_CONTEXT;
                     }
 
                     @Override
@@ -823,77 +772,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
 
                     @Override
                     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return new FakeSpreadsheetFormatterContext() {
-
-                            @Override
-                            public boolean canConvert(final Object value,
-                                                      final Class<?> type) {
-                                return true;
-                            }
-
-                            @Override
-                            public <T> T convertOrFail(final Object value,
-                                                       final Class<T> target) {
-                                return (T) target.cast(value);
-                            }
-
-                            @Override
-                            public int generalFormatNumberDigitCount() {
-                                return SpreadsheetFormatterContext.DEFAULT_GENERAL_FORMAT_NUMBER_DIGIT_COUNT;
-                            }
-
-                            @Override
-                            public Locale locale() {
-                                return this.context.locale();
-                            }
-
-                            @Override
-                            public ExpressionNumberKind expressionNumberKind() {
-                                return ExpressionNumberKind.BIG_DECIMAL;
-                            }
-
-                            @Override
-                            public String currencySymbol() {
-                                return this.context.currencySymbol();
-                            }
-
-                            @Override
-                            public char decimalSeparator() {
-                                return this.context.decimalSeparator();
-                            }
-
-                            @Override
-                            public String exponentSymbol() {
-                                return this.context.exponentSymbol();
-                            }
-
-                            @Override
-                            public char groupSeparator() {
-                                return this.context.groupSeparator();
-                            }
-
-                            @Override
-                            public MathContext mathContext() {
-                                return this.context.mathContext();
-                            }
-
-                            @Override
-                            public char negativeSign() {
-                                return this.context.negativeSign();
-                            }
-
-                            @Override
-                            public char percentageSymbol() {
-                                return this.context.percentageSymbol();
-                            }
-
-                            @Override
-                            public char positiveSign() {
-                                return this.positiveSign();
-                            }
-
-                            private final DecimalNumberContext context = DecimalNumberContexts.american(MathContext.DECIMAL32);
-                        };
+                        return NUMBER_FORMATTER_CONTEXT;
                     }
 
                     @Override
@@ -993,77 +872,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
 
                     @Override
                     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return new FakeSpreadsheetFormatterContext() {
-
-                            @Override
-                            public boolean canConvert(final Object value,
-                                                      final Class<?> type) {
-                                return true;
-                            }
-
-                            @Override
-                            public <T> T convertOrFail(final Object value,
-                                                       final Class<T> target) {
-                                return (T) target.cast(value);
-                            }
-
-                            @Override
-                            public int generalFormatNumberDigitCount() {
-                                return SpreadsheetFormatterContext.DEFAULT_GENERAL_FORMAT_NUMBER_DIGIT_COUNT;
-                            }
-
-                            @Override
-                            public Locale locale() {
-                                return this.context.locale();
-                            }
-
-                            @Override
-                            public ExpressionNumberKind expressionNumberKind() {
-                                return ExpressionNumberKind.BIG_DECIMAL;
-                            }
-
-                            @Override
-                            public String currencySymbol() {
-                                return this.context.currencySymbol();
-                            }
-
-                            @Override
-                            public char decimalSeparator() {
-                                return this.context.decimalSeparator();
-                            }
-
-                            @Override
-                            public String exponentSymbol() {
-                                return this.context.exponentSymbol();
-                            }
-
-                            @Override
-                            public char groupSeparator() {
-                                return this.context.groupSeparator();
-                            }
-
-                            @Override
-                            public MathContext mathContext() {
-                                return this.context.mathContext();
-                            }
-
-                            @Override
-                            public char negativeSign() {
-                                return this.context.negativeSign();
-                            }
-
-                            @Override
-                            public char percentageSymbol() {
-                                return this.context.percentageSymbol();
-                            }
-
-                            @Override
-                            public char positiveSign() {
-                                return this.positiveSign();
-                            }
-
-                            private final DecimalNumberContext context = DecimalNumberContexts.american(MathContext.DECIMAL32);
-                        };
+                        return NUMBER_FORMATTER_CONTEXT;
                     }
 
                     @Override
@@ -1155,20 +964,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
 
                     @Override
                     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return new FakeSpreadsheetFormatterContext() {
-
-                            @Override
-                            public boolean canConvert(final Object value,
-                                                      final Class<?> type) {
-                                return true;
-                            }
-
-                            @Override
-                            public <T> T convertOrFail(final Object value,
-                                                       final Class<T> target) {
-                                return (T) target.cast(value);
-                            }
-                        };
+                        return TEXT_FORMATTER_CONTEXT;
                     }
 
                     @Override
@@ -1223,54 +1019,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
 
                     @Override
                     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return new FakeSpreadsheetFormatterContext() {
-
-                            @Override
-                            public <T> T convertOrFail(final Object value,
-                                                       final Class<T> target) {
-                                return (T)
-                                        LocalDateTime.of(
-                                                LocalDate.of(2000, 1, 1),
-                                                LocalTime.class.cast(value)
-                                        );
-                            }
-
-                            @Override
-                            public Locale locale() {
-                                return this.context.locale();
-                            }
-
-                            // DateTimeContext
-
-                            @Override
-                            public List<String> ampms() {
-                                return this.context.ampms();
-                            }
-
-                            @Override
-                            public String ampm(int hourOfDay) {
-                                return this.context.ampm(hourOfDay);
-                            }
-
-                            @Override
-                            public LocalDateTime now() {
-                                return this.context.now();
-                            }
-
-                            private final DateTimeContext context = DateTimeContexts.locale(
-                                    Locale.forLanguageTag("EN-AU"), // locale
-                                    1950, // default year
-                                    50,
-                                    () -> LocalDateTime.of(
-                                            1999,
-                                            12,
-                                            31,
-                                            12,
-                                            58,
-                                            59
-                                    )
-                            );
-                        };
+                        return TIME_FORMATTER_CONTEXT;
                     }
 
                     @Override
@@ -1352,54 +1101,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
 
                     @Override
                     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-                        return new FakeSpreadsheetFormatterContext() {
-
-                            @Override
-                            public <T> T convertOrFail(final Object value,
-                                                       final Class<T> target) {
-                                return (T)
-                                        LocalDateTime.of(
-                                                LocalDate.of(2000, 1, 1),
-                                                LocalTime.class.cast(value)
-                                        );
-                            }
-
-                            @Override
-                            public Locale locale() {
-                                return this.context.locale();
-                            }
-
-                            // DateTimeContext
-
-                            @Override
-                            public List<String> ampms() {
-                                return this.context.ampms();
-                            }
-
-                            @Override
-                            public String ampm(int hourOfDay) {
-                                return this.context.ampm(hourOfDay);
-                            }
-
-                            @Override
-                            public LocalDateTime now() {
-                                return this.context.now();
-                            }
-
-                            private final DateTimeContext context = DateTimeContexts.locale(
-                                    Locale.forLanguageTag("EN-AU"), // locale
-                                    1950, // default year
-                                    50,
-                                    () -> LocalDateTime.of(
-                                            1999,
-                                            12,
-                                            31,
-                                            12,
-                                            58,
-                                            59
-                                    )
-                            );
-                        };
+                        return TIME_FORMATTER_CONTEXT;
                     }
 
                     @Override
