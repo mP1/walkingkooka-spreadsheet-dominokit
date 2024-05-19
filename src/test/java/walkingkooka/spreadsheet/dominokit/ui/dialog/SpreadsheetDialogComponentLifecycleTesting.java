@@ -17,44 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.dialog;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.text.printer.TreePrintableTesting;
+import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycleTesting;
 
-public interface SpreadsheetDialogComponentLifecycleTesting<T extends SpreadsheetDialogComponentLifecycle> extends ClassTesting<T>,
-        TreePrintableTesting {
-
-    HistoryToken NOT_MATCHED = HistoryToken.parseString("/not-matched-123");
-
-    default void onHistoryTokenChangeAndCheck(final T dialog,
-                                              final AppContext context,
-                                              final String expected) {
-        this.checkEquals(
-                false,
-                dialog.isMatch(NOT_MATCHED),
-                () -> "should not be matched " + NOT_MATCHED
-        );
-
-        onHistoryTokenChangeAndCheck(
-                dialog,
-                NOT_MATCHED,
-                context,
-                expected
-        );
-    }
-
-    default void onHistoryTokenChangeAndCheck(final T dialog,
-                                              final HistoryToken previous,
-                                              final AppContext context,
-                                              final String expected) {
-        dialog.onHistoryTokenChange(
-                previous,
-                context
-        );
-        this.treePrintAndCheck(
-                dialog,
-                expected
-        );
-    }
+public interface SpreadsheetDialogComponentLifecycleTesting<T extends SpreadsheetDialogComponentLifecycle> extends ComponentLifecycleTesting<T> {
 }
