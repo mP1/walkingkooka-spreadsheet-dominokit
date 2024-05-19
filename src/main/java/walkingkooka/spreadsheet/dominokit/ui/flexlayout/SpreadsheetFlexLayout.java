@@ -68,6 +68,16 @@ public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
 
     private final boolean column;
 
+    // displayBlock.....................................................................................................
+
+    @Override
+    public SpreadsheetFlexLayout displayBlock() {
+        this.element()
+                .style
+                .display = "block";
+        return this;
+    }
+
     // id...............................................................................................................
 
     @Override
