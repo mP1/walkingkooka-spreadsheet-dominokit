@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
+import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
@@ -56,8 +57,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     }
 
     private SpreadsheetToolbarComponent(final AppContext context) {
-        this.components = this.components(context);
-        this.flexLayout = this.createFlexLayout();
+        this.flexLayout = this.createFlexLayout(context);
 
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
@@ -94,18 +94,15 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     /**
      * Creates a {@link SpreadsheetFlexLayout} and populates it with the toolbar icons etc.
      */
-    private SpreadsheetFlexLayout createFlexLayout() {
-        final SpreadsheetFlexLayout flexLayout = SpreadsheetFlexLayout.row()
-                .displayBlock(); // without this the toolbar rows have a undesirable line "height" instead of meeting.
-
-        for (final SpreadsheetToolbarComponentItem<?> component : this.components) {
-            flexLayout.appendChild(component);
-        }
-
-        return flexLayout;
+    private SpreadsheetFlexLayout createFlexLayout(final AppContext context) {
+        return SpreadsheetFlexLayout.row()
+                .displayBlock() // without this the toolbar rows have a undesirable line "height" instead of meeting.
+                .appendChildren(
+                        components(context)
+                );
     }
 
-    private List<SpreadsheetToolbarComponentItem<?>> components(final AppContext context) {
+    private static List<SpreadsheetToolbarComponentItem<?>> components(final AppContext context) {
         return Lists.of(
                 SpreadsheetToolbarComponentItem.bold(context),
                 SpreadsheetToolbarComponentItem.italics(context),
@@ -143,11 +140,6 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
                 SpreadsheetToolbarComponentItem.swagger(context)
         );
     }
-
-    /**
-     * The UI components within the toolbar thqt react to selection changes and also support updates.
-     */
-    private final List<SpreadsheetToolbarComponentItem<?>> components;
 
     // SpreadsheetDeltaFetcherWatcher..........................................................................................
 
@@ -196,8 +188,9 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
 
     @Override
     public void refresh(final AppContext context) {
-        for (final SpreadsheetToolbarComponentItem<?> component : this.components) {
-            component.refresh(
+        for (final IsElement<?> component : this.flexLayout.children()) {
+            final SpreadsheetToolbarComponentItem<?> item = (SpreadsheetToolbarComponentItem<?>) component;
+            item.refresh(
                     context
             );
         }
