@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.historytokenanchor;
 
 import org.dominokit.domino.ui.icons.Icon;
+import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.Url;
 import walkingkooka.reflect.ClassTesting;
@@ -27,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
+import walkingkooka.spreadsheet.dominokit.ui.tooltip.SpreadsheetTooltipComponent;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
@@ -219,6 +221,29 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
                         "    \"Item 1\" id=menu-item-1-MenuItem\n" +
                         "    \"Item 2\" id=menu-item-2-MenuItem\n" +
                         "    \"Item 3\" id=menu-item-3-MenuItem\n"
+        );
+    }
+
+    // Tooltip..........................................................................................................
+
+    @Test
+    public void testSpreadsheetTooltipComponent() {
+        final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
+                .setTextContent("Hello")
+                .setHref(
+                        Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                );
+        final SpreadsheetTooltipComponent tooltip = SpreadsheetTooltipComponent.attach(
+                anchor,
+                "Tooltip123",
+                DropDirection.BOTTOM_MIDDLE
+        );
+
+        this.treePrintAndCheck(
+                anchor,
+                "\"Hello\" [#/1/SpreadsheetName234/cell/A1]\n" +
+                        "  SpreadsheetTooltipComponent\n" +
+                        "    \"Tooltip123\"\n"
         );
     }
 
