@@ -68,6 +68,14 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
         );
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public final C setCssText(final String css) {
+        this.anchor.setCssText(css);
+        return (C) this;
+    }
+
     // IsElement........................................................................................................
 
     @Override
