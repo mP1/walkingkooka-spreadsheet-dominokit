@@ -34,6 +34,8 @@ import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -48,7 +50,8 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopNoResponseWatcher,
-        SpreadsheetDeltaFetcherWatcher {
+        SpreadsheetDeltaFetcherWatcher,
+        TreePrintable {
 
     public static SpreadsheetToolbarComponent with(final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -204,6 +207,18 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     @Override
     public boolean shouldLogLifecycleChanges() {
         return false; // child items return false
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.flexLayout.printTree(printer);
+        }
+        printer.outdent();
     }
 
     // element..........................................................................................................
