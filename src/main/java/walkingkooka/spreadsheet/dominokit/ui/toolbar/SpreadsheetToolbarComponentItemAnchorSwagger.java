@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
-import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import walkingkooka.net.Url;
@@ -59,15 +58,9 @@ final class SpreadsheetToolbarComponentItemAnchorSwagger extends SpreadsheetTool
 
         final HistoryTokenAnchorComponent anchor = this.anchor;
 
-        final CSSStyleDeclaration style = anchor.iconBefore()
+        anchor.iconBefore()
                 .get()
-                .elementStyle();
-        style.setProperty("max-width", "18px");
-        style.setProperty("max-height", "18px");
-        style.setProperty("position", "relative");
-        style.setProperty("top", "4px");
-        style.setProperty("left", "-1px");
-
+                .cssText("position: relative; left: -1px; top: 4px; max-width: 18px; max-height: 18px;");
         anchor.setHref(Url.parseRelative("/api-doc/index.html"));
         anchor.setTarget("_blank");
     }
