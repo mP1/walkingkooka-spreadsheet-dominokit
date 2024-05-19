@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentRefreshable;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.ui.tooltip.SpreadsheetTooltipComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
@@ -212,7 +213,8 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
                         .isPresent()
         );
 
-        anchor.setTooltip(
+        SpreadsheetTooltipComponent.attach(
+                anchor,
                 newTooltip,
                 DropDirection.BOTTOM_MIDDLE
         );

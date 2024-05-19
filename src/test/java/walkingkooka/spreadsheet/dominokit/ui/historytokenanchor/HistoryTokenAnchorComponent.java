@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui.historytokenanchor;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
-import org.dominokit.domino.ui.menu.direction.DropDirection;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
@@ -201,14 +200,6 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     }
 
     private Optional<Icon<?>> iconAfter = Optional.empty();
-
-    // tooltip..........................................................................................................
-
-    @Override
-    public HistoryTokenAnchorComponent setTooltip(final String text,
-                                                  final DropDirection dropDirection) {
-        return this;
-    }
 
     // events..........................................................................................................
 
