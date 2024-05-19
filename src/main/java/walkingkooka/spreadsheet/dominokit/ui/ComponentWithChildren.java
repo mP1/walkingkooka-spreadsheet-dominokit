@@ -37,7 +37,7 @@ public interface ComponentWithChildren<C extends Component<E>, E extends Element
     /**
      * Appends all the given children.
      */
-    default C appendChildren(final List<IsElement<?>> children) {
+    default C appendChildren(final List<? extends IsElement<?>> children) {
         Objects.requireNonNull(children, "children");
 
         for (final IsElement<?> child : children) {
