@@ -51,6 +51,8 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
                 tooltipText
         ).setPosition(DropDirection.BOTTOM_MIDDLE);
 
+        context.addHistoryTokenWatcher(this);
+
         this.context = context;
     }
 
