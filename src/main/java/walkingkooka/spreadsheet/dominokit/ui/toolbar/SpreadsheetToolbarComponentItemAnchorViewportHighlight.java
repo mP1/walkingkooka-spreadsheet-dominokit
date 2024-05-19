@@ -52,7 +52,7 @@ final class SpreadsheetToolbarComponentItemAnchorViewportHighlight extends Sprea
                         SpreadsheetIcons.highlight()
                 ),
                 "Highlight",
-                "",
+                "Highlight",
                 context
         );
         this.context = context;
