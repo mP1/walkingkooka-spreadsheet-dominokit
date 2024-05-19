@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.tooltip;
 
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
-import walkingkooka.spreadsheet.dominokit.ui.Component;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -29,7 +28,7 @@ import java.util.Objects;
  */
 public final class SpreadsheetTooltipComponent {
 
-    public static SpreadsheetTooltipComponent attach(final Component<?> component,
+    public static SpreadsheetTooltipComponent attach(final SpreadsheetTooltipComponentTarget component,
                                                      final String text,
                                                      final DropDirection direction) {
         Objects.requireNonNull(component, "component");
@@ -43,13 +42,16 @@ public final class SpreadsheetTooltipComponent {
         );
     }
 
-    private SpreadsheetTooltipComponent(final Component<?> component,
+    private SpreadsheetTooltipComponent(final SpreadsheetTooltipComponentTarget component,
                                         final String text,
                                         final DropDirection direction) {
         this.tooltip = Tooltip.create(
                 component.element(),
                 text
         ).setPosition(direction);
+
+        component.tooltipAttached(this);
+        this.component = component;
     }
 
     public SpreadsheetTooltipComponent setTextContent(final String text) {
@@ -64,7 +66,10 @@ public final class SpreadsheetTooltipComponent {
      */
     public void detach() {
         this.tooltip.detach();
+        this.component.tooltipDetached();
     }
 
     private final Tooltip tooltip;
+
+    private final SpreadsheetTooltipComponentTarget component;
 }
