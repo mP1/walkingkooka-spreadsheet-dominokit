@@ -17,7 +17,10 @@
 
 package org.dominokit.domino.ui.icons;
 
-public class Icon<T extends Icon<T>> {
+import elemental2.dom.HTMLElement;
+import org.dominokit.domino.ui.IsElement;
+
+public class Icon<T extends Icon<T>> implements IsElement<HTMLElement> {
 
     public Icon(final String name) {
         this.name = name;
@@ -29,8 +32,13 @@ public class Icon<T extends Icon<T>> {
 
     private final String name;
 
-    public Icon<T> cssText(final String css) {
+    public IsElement<HTMLElement> cssText(final String css) {
         // ignored
-        return this;
+        return (T) this;
+    }
+
+    @Override
+    public HTMLElement element() {
+        throw new UnsupportedOperationException();
     }
 }
