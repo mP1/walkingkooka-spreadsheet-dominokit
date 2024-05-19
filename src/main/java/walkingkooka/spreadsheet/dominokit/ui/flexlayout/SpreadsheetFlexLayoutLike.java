@@ -41,6 +41,12 @@ public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivE
      */
     boolean isColumn();
 
+    /**
+     * Sets the style property display to block. Normally a {@link SpreadsheetFlexLayout} display=flex with a few additional
+     * flex properties.
+     */
+    SpreadsheetFlexLayout displayBlock();
+
     // CanBeEmpty.......................................................................................................
 
     @Override

@@ -49,6 +49,11 @@ public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike,
     private final boolean column;
 
     @Override
+    public SpreadsheetFlexLayout displayBlock() {
+        return this;
+    }
+
+    @Override
     public SpreadsheetFlexLayout setId(final String id) {
         this.id = id;
         return this;
