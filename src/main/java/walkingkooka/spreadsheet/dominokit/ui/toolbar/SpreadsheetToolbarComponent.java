@@ -23,9 +23,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -35,7 +33,6 @@ import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -199,22 +196,10 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
 
     @Override
     public void refresh(final AppContext context) {
-        final HistoryToken historyToken = context.historyToken();
-        if (historyToken instanceof SpreadsheetCellHistoryToken) {
-
-            final SpreadsheetSelection nonLabelSelection = context.spreadsheetViewportCache()
-                    .resolveIfLabel(
-                            historyToken.cast(SpreadsheetCellHistoryToken.class)
-                                    .anchoredSelection()
-                                    .selection()
-                    );
-            if (nonLabelSelection.isCellReference() || nonLabelSelection.isCellRangeReference()) {
-                for (final SpreadsheetToolbarComponentItem<?> component : this.components) {
-                    component.refresh(
-                            context
-                    );
-                }
-            }
+        for (final SpreadsheetToolbarComponentItem<?> component : this.components) {
+            component.refresh(
+                    context
+            );
         }
     }
 
