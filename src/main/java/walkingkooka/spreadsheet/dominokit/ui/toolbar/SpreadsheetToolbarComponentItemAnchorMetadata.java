@@ -17,14 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
-import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 
 import java.util.Optional;
 
@@ -35,8 +33,7 @@ abstract class SpreadsheetToolbarComponentItemAnchorMetadata<T extends Spreadshe
         extends SpreadsheetToolbarComponentItemAnchor<T>
         implements SpreadsheetCellComponentLifecycle,
         NopComponentLifecycleOpenGiveFocus,
-        NopComponentLifecycleRefresh,
-        VisibleComponentLifecycle<HTMLElement, T> {
+        NopComponentLifecycleRefresh {
 
     SpreadsheetToolbarComponentItemAnchorMetadata(final String id,
                                                   final Optional<Icon<?>> icon,

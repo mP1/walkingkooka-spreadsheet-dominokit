@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextAlign;
@@ -40,7 +41,8 @@ import java.util.Optional;
  */
 abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarComponentItem<C>> implements HtmlElementComponent<HTMLElement, C>,
         ComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired {
+        LoadedSpreadsheetMetadataRequired,
+        VisibleComponentLifecycle<HTMLElement, C> {
 
     static SpreadsheetToolbarComponentItem<?> bold(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
