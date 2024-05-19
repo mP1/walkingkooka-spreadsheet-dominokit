@@ -65,8 +65,6 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
 
-        this.setVisibility(false); // initially hidden.
-
         this.context = context;
     }
 
