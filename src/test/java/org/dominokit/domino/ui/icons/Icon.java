@@ -23,10 +23,14 @@ public class Icon<T extends Icon<T>> {
         this.name = name;
     }
 
-
     public String getName() {
         return this.name;
     }
 
     private final String name;
+
+    public Icon<T> cssText(final String css) {
+        // ignored
+        return this;
+    }
 }
