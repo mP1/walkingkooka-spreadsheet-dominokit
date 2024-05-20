@@ -21,13 +21,17 @@ import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.layout.AppLayout;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 
 import java.util.Objects;
 
-public final class SpreadsheetAppLayout extends AppLayout implements VisibleComponentLifecycle<HTMLDivElement, SpreadsheetAppLayout> {
+public final class SpreadsheetAppLayout extends AppLayout implements
+        ComponentLifecycle,
+        HtmlElementComponent<HTMLDivElement, SpreadsheetAppLayout> {
 
     public static SpreadsheetAppLayout empty() {
         return new SpreadsheetAppLayout();
@@ -35,6 +39,13 @@ public final class SpreadsheetAppLayout extends AppLayout implements VisibleComp
 
     private SpreadsheetAppLayout() {
         super();
+    }
+
+    @Override
+    public boolean isOpen() {
+        return Doms.isVisibilityHidden(
+                this.element()
+        );
     }
 
     @Override
@@ -48,6 +59,14 @@ public final class SpreadsheetAppLayout extends AppLayout implements VisibleComp
     }
 
     @Override
+    public void open(final AppContext context) {
+        Doms.setVisibility(
+                this.element(),
+                true
+        );
+    }
+
+    @Override
     public void refresh(final AppContext context) {
         // do nothing only want AppLayout to be hidden when not SpreadsheetNameHistoryToken
     }
@@ -55,6 +74,14 @@ public final class SpreadsheetAppLayout extends AppLayout implements VisibleComp
     @Override
     public void openGiveFocus(final AppContext context) {
         // do nothing
+    }
+
+    @Override
+    public void close(final AppContext context) {
+        Doms.setVisibility(
+                this.element(),
+                false
+        );
     }
 
     @Override
