@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.ui;
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.CanBeEmpty;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Objects;
@@ -97,5 +99,24 @@ public interface ComponentWithChildren<C extends Component<E>, E extends Element
         }
 
         return hide;
+    }
+
+    /**
+     * Prints the children belonging to this {@link Component}.
+     */
+    default void printTreeChildren(final IndentingPrinter printer) {
+        printer.indent();
+        {
+
+            for (final IsElement<?> child : this.children()) {
+                TreePrintable.printTreeOrToString(
+                        child,
+                        printer
+                );
+                printer.lineStart();
+            }
+
+        }
+        printer.outdent();
     }
 }
