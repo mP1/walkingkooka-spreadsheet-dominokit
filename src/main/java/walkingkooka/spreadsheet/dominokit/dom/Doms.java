@@ -21,13 +21,9 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 import jsinterop.base.Js;
-import org.dominokit.domino.ui.IsElement;
-import org.dominokit.domino.ui.elements.DivElement;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.tree.text.TextNode;
 
-import java.util.List;
 import java.util.Objects;
 
 public final class Doms implements PublicStaticHelper {
@@ -86,19 +82,6 @@ public final class Doms implements PublicStaticHelper {
                         VISIBLE :
                         HIDDEN
         );
-    }
-
-    /**
-     * Creates a DIV and appends each of the {@link IsElement}.
-     */
-    public static elemental2.dom.Node div(final List<? extends IsElement<?>> isElements) {
-        DivElement div = ElementsFactory.elements.div();
-
-        for (final IsElement<?> isElement : isElements) {
-            div.appendChild(isElement);
-        }
-
-        return div.element();
     }
 
     /**
