@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextNode;
@@ -154,20 +153,6 @@ abstract class SpreadsheetPatternComponentTableRowProviderNumber extends Spreads
                 pattern.map(SpreadsheetPattern::formatter)
                         .orElse(SpreadsheetFormatters.emptyText()),
                 zero
-        );
-
-        context.debug(
-                this.getClass().getSimpleName() +
-                        " " +
-                        label +
-                        " " +
-                        CharSequences.quoteAndEscape(patternText) +
-                        " " +
-                        formattedPositive +
-                        " " +
-                        formattedNegative +
-                        " " +
-                        formattedZero
         );
 
         return SpreadsheetPatternComponentTableRow.with(
