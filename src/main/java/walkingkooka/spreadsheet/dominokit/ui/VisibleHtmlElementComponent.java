@@ -18,11 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.HTMLElement;
+import walkingkooka.spreadsheet.dominokit.dom.Doms;
 
 public interface VisibleHtmlElementComponent<E extends HTMLElement, C extends VisibleHtmlElementComponent<E, C>> extends VisibleHtmlElementComponentLike<E, C> {
 
     @Override
     default C setVisibility(final boolean visibility) {
+        Doms.setVisibility(
+                this.element(),
+                visibility
+        );
         return (C) this;
     }
 }

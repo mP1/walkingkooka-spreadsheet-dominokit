@@ -18,24 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.dominokit.dom.Doms;
 
 /**
- * A {@link Component} that adds a few helpers to get/set the visibility of this component. A matching interface in test/.
+ * A {@link Component} where the setter does nothing this assumes a flag is also updaated in the component.
  */
 public interface VisibleHtmlElementComponent<E extends HTMLElement, C extends VisibleHtmlElementComponent<E, C>> extends VisibleHtmlElementComponentLike<E, C> {
 
     @Override
-    default boolean isVisibilityHidden() {
-        return Doms.isVisibilityHidden(this.element());
-    }
-
-    @Override
     default C setVisibility(final boolean visibility) {
-        Doms.setVisibility(
-                this.element(),
-                visibility
-        );
         return (C) this;
     }
 }
