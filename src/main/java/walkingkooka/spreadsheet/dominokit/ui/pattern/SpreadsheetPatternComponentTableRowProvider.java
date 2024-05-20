@@ -22,7 +22,6 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.List;
@@ -217,8 +216,6 @@ abstract class SpreadsheetPatternComponentTableRowProvider implements BiFunction
                                         v
                                 ).toTextNode()
                         ).collect(Collectors.toList());
-
-        context.debug(this.getClass().getSimpleName() + " " + label + " " + CharSequences.quoteAndEscape(patternText) + " " + formatted);
 
         return SpreadsheetPatternComponentTableRow.with(
                 label,
