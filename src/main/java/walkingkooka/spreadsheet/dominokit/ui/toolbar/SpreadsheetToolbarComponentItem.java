@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
+import walkingkooka.CanBeEmpty;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -42,7 +43,8 @@ import java.util.Optional;
 abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarComponentItem<C>> implements HtmlElementComponent<HTMLElement, C>,
         ComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
-        VisibleHtmlElementComponent<HTMLElement, C> {
+        VisibleHtmlElementComponent<HTMLElement, C>,
+        CanBeEmpty {
 
     static SpreadsheetToolbarComponentItem<?> bold(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
@@ -308,6 +310,13 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
 
     SpreadsheetToolbarComponentItem() {
         this.open = false;
+    }
+
+    // CanBeEmpty.......................................................................................................
+
+    @Override
+    public final boolean isEmpty() {
+        return false == this.isOpen();
     }
 
     // node.............................................................................................................
