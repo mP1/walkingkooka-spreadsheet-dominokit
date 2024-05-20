@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.ui.VisibleComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.ui.VisibleHtmlElementComponent;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextAlign;
@@ -42,7 +42,7 @@ import java.util.Optional;
 abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarComponentItem<C>> implements HtmlElementComponent<HTMLElement, C>,
         ComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
-        VisibleComponentLifecycle<HTMLElement, C> {
+        VisibleHtmlElementComponent<HTMLElement, C> {
 
     static SpreadsheetToolbarComponentItem<?> bold(final HistoryTokenContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
@@ -304,6 +304,13 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
+    // ctor.............................................................................................................
+
+    SpreadsheetToolbarComponentItem() {
+        this.setVisibility(false);
+        this.open = false;
+    }
+
     // node.............................................................................................................
 
     @Override
@@ -315,7 +322,27 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
      * The root {@link HTMLElement}
      */
     public abstract HTMLElement element();
-    
+
+    // ComponentLifecycle...............................................................................................
+    @Override
+    public final boolean isOpen() {
+        return this.open;
+    }
+
+    @Override
+    public final void open(final AppContext context) {
+        this.setVisibility(true);
+        this.open = true;
+    }
+
+    @Override
+    public final void close(final AppContext context) {
+        this.setVisibility(false);
+        this.open = false;
+    }
+
+    private boolean open;
+
     @Override
     public final boolean shouldLogLifecycleChanges() {
         return false;
