@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.dom;
 
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
+import elemental2.dom.HTMLElement;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.DivElement;
@@ -27,6 +28,7 @@ import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.List;
+import java.util.Objects;
 
 public final class Doms implements PublicStaticHelper {
 
@@ -57,6 +59,33 @@ public final class Doms implements PublicStaticHelper {
      */
     public static elemental2.dom.Text textNode(final String text) {
         return DomGlobal.document.createTextNode(text);
+    }
+
+    // visibility.......................................................................................................
+
+    private final static String VISIBILITY = "visibility";
+    private final static String HIDDEN = "hidden";
+    private final static String VISIBLE = "visible";
+
+    public static boolean isVisibilityHidden(final HTMLElement element) {
+        Objects.requireNonNull(element, "element");
+
+        return HIDDEN.equals(
+                element.style
+                        .getPropertyValue(VISIBILITY)
+        );
+    }
+
+    public static void setVisibility(final HTMLElement element,
+                                     final boolean visibility) {
+        Objects.requireNonNull(element, "element");
+
+        element.style.set(
+                VISIBILITY,
+                visibility ?
+                        VISIBLE :
+                        HIDDEN
+        );
     }
 
     /**
