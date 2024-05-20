@@ -86,17 +86,13 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
         texts.clear();
 
         // pattern will be null when pattern is empty
-        if (null == pattern) {
-            context.debug(this.getClass().getSimpleName() + ".refresh no components");
-        } else {
+        if (null != pattern) {
             pattern.components(
                     (kind, tokenPatternText) -> {
                         tokenKinds.add(kind);
                         texts.add(tokenPatternText);
                     }
             );
-
-            context.debug(this.getClass().getSimpleName() + ".refresh " + texts.size() + " text ", texts);
 
             if (false == errorPattern.isEmpty()) {
                 texts.add(errorPattern);
