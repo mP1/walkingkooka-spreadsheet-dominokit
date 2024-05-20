@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnch
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatParserTokenKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -64,8 +63,6 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
      */
     void refresh(final Consumer<String> setPatternText,
                  final SpreadsheetPatternDialogComponentContext context) {
-        context.debug(this.getClass().getSimpleName() + ".refresh");
-
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
         final List<SpreadsheetPatternComponentElementAppenderLink> links = this.links;
         links.clear();
@@ -137,7 +134,6 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
         final HistoryToken historyToken = context.historyToken();
 
         final List<SpreadsheetPatternComponentElementAppenderLink> links = this.links;
-        context.debug(this.getClass().getSimpleName() + ".refreshLinks " + links.size() + " links patternText: " + CharSequences.quoteAndEscape(patternText));
 
         for (final SpreadsheetPatternComponentElementAppenderLink link : links) {
             String savePatternText = null;
