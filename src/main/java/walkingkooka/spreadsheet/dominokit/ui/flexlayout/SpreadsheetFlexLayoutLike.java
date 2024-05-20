@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.ui.flexlayout;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.IsElement;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.CharSequences;
@@ -69,28 +68,19 @@ public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivE
         printer.indent();
         {
             printer.println(this.isColumn() ? "COLUMN" : "ROW");
-            printer.indent();
             {
                 final String id = this.id();
                 if (false == CharSequences.isNullOrEmpty(id)) {
-                    printer.println("id=" + id);
                     printer.indent();
+                    printer.println("id=" + id);
                 }
 
-
-                for (final IsElement<?> child : this.children()) {
-                    TreePrintable.printTreeOrToString(
-                            child,
-                            printer
-                    );
-                    printer.lineStart();
-                }
+                this.printTreeChildren(printer);
 
                 if (false == CharSequences.isNullOrEmpty(id)) {
                     printer.outdent();
                 }
             }
-            printer.outdent();
         }
         printer.outdent();
     }
