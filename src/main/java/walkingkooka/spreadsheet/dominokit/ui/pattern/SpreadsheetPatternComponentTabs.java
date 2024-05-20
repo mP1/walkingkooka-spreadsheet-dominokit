@@ -107,7 +107,6 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
 
             if (match) {
                 tabs.setTab(i);
-                context.debug(this.getClass().getSimpleName() + ".patternKindTabsRefresh setTab=" + i + " " + kind);
             } else {
                 final HistoryToken historyToken = context.historyToken();
                 final HistoryToken historyTokenWithPatternKind = historyToken.setPatternKind(
@@ -116,8 +115,6 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
                 anchor.setHistoryToken(
                         Optional.of(historyTokenWithPatternKind)
                 );
-
-                context.debug(this.getClass().getSimpleName() + ".patternKindTabsRefresh " + historyTokenWithPatternKind);
             }
 
             i++;
