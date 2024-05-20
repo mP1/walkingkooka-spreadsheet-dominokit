@@ -19,24 +19,11 @@ package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
-import walkingkooka.spreadsheet.dominokit.dom.Doms;
 
 /**
- * A {@link Component} that adds a few helpers to get/set {@link #VISIBILITY}.
+ * A {@link Component} that adds a few helpers relating to {@link HTMLElement} and {@link Node}.
  */
 public interface HtmlElementComponent<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends Component<E> {
-
-    default boolean isVisibilityHidden() {
-        return Doms.isVisibilityHidden(this.element());
-    }
-
-    default C setVisibility(final boolean visibility) {
-        Doms.setVisibility(
-                this.element(),
-                visibility
-        );
-        return (C) this;
-    }
 
     // setCssText.......................................................................................................
 
