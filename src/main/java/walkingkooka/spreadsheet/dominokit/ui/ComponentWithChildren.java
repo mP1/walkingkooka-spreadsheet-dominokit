@@ -102,13 +102,20 @@ public interface ComponentWithChildren<C extends Component<E>, E extends Element
     }
 
     /**
-     * Prints the children belonging to this {@link Component}.
+     * Prints the children belonging to this {@link Component}. Note that empty children will be skipped and nothing printed for them.
      */
     default void printTreeChildren(final IndentingPrinter printer) {
         printer.indent();
         {
 
             for (final IsElement<?> child : this.children()) {
+                if (child instanceof CanBeEmpty) {
+                    final CanBeEmpty canBeEmpty = (CanBeEmpty) child;
+                    if (canBeEmpty.isEmpty()) {
+                        continue;
+                    }
+                }
+
                 TreePrintable.printTreeOrToString(
                         child,
                         printer
