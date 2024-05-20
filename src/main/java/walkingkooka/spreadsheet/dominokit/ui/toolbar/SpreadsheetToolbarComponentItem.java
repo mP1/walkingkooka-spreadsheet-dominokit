@@ -307,7 +307,6 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     // ctor.............................................................................................................
 
     SpreadsheetToolbarComponentItem() {
-        this.setVisibility(false);
         this.open = false;
     }
 

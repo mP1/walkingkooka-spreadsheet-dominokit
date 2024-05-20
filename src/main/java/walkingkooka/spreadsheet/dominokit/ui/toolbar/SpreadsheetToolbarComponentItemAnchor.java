@@ -54,6 +54,8 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
         context.addHistoryTokenWatcher(this);
 
         this.context = context;
+
+        this.setVisibility(false); // can only set visibility after anchor created.
     }
 
     abstract void onFocus(final Event event);
