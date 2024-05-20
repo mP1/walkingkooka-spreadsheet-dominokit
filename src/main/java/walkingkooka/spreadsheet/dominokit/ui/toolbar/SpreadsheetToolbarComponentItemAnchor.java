@@ -90,6 +90,6 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
 
     @Override
     public final String toString() {
-        return this.element().id;
+        return this.anchor.toString();
     }
 }
