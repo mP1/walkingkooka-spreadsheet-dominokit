@@ -29,19 +29,19 @@ import java.util.function.Consumer;
 public final class SpreadsheetValidators implements PublicStaticHelper {
 
     /**
-     * {@see SpreadsheetTextBoxConsumerValidator}
-     */
-    public static Validator<Optional<String>> consumer(final Consumer<String> consumer) {
-        return SpreadsheetTextBoxConsumerValidator.with(consumer);
-    }
-
-    /**
      * {@see SpreadsheetTextBoxOptionalValidator}
      */
     public static Validator<Optional<String>> optional(final Validator<Optional<String>> validator) {
         return SpreadsheetOptionalStringValidator.with(validator);
     }
 
+    /**
+     * {@see TryCatchConsumerStringValidator}
+     */
+    public static Validator<Optional<String>> tryCatch(final Consumer<String> consumer) {
+        return TryCatchConsumerStringValidator.with(consumer);
+    }
+    
     /**
      * Stop creation
      */

@@ -63,7 +63,7 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
 
         this.parser = parser;
         this.setValidator(
-                SpreadsheetValidators.consumer(parser::apply)
+                SpreadsheetValidators.tryCatch(parser::apply)
         );
         this.validate();
         return this;
