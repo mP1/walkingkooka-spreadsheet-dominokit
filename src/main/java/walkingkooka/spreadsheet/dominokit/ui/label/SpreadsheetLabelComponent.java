@@ -105,7 +105,7 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
         return this;
     }
 
-    public String stringValue() {
+    public Optional<String> stringValue() {
         return this.suggestBox.stringValue();
     }
 

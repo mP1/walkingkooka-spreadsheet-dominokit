@@ -32,6 +32,7 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.HasText;
 
 import java.util.List;
@@ -139,8 +140,14 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         return this;
     }
 
-    public String stringValue() {
-        return this.suggestBox.getStringValue();
+    public Optional<String> stringValue() {
+        final String text = this.suggestBox.getStringValue();
+
+        return Optional.ofNullable(
+                CharSequences.isNullOrEmpty(text) ?
+                        null :
+                        text
+        );
     }
 
     // Value............................................................................................................
