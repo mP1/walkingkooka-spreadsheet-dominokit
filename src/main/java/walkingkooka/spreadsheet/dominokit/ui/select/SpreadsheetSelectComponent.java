@@ -50,6 +50,8 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         this.select.addValidator(SpreadsheetSelectComponentValidator.with(this));
     }
 
+    // id...............................................................................................................
+
     @Override
     public SpreadsheetSelectComponent<T> setId(final String id) {
         this.select.setId(id);
@@ -60,6 +62,8 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     public String id() {
         return this.select.getId();
     }
+
+    // label............................................................................................................
 
     @Override
     public SpreadsheetSelectComponent<T> setLabel(final String label) {
@@ -72,62 +76,7 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         return this.select.getLabel();
     }
 
-    @Override
-    public SpreadsheetSelectComponent<T> optional() {
-        this.required = false;
-        return this;
-    }
-
-    @Override
-    public SpreadsheetSelectComponent<T> required() {
-        this.required = true;
-        return this;
-    }
-
-    @Override
-    public boolean isRequired() {
-        return this.required;
-    }
-
-    boolean required;
-
-    @Override
-    public boolean isDisabled() {
-        return this.select.isDisabled();
-    }
-
-    @Override
-    public SpreadsheetSelectComponent<T> setDisabled(final boolean disabled) {
-        this.select.setDisabled(disabled);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetSelectComponent<T> validate() {
-        this.select.validate();
-        return this;
-    }
-
-    @Override
-    public List<String> errors() {
-        return this.select.getErrors();
-    }
-
-    @Override
-    public SpreadsheetSelectComponent<T> setErrors(final List<String> errors) {
-        Objects.requireNonNull(errors, "errors");
-
-        this.select.invalidate(
-                Lists.immutable(errors)
-        );
-        return this;
-    }
-
-    @Override
-    public SpreadsheetSelectComponent<T> focus() {
-        this.select.focus();
-        return this;
-    }
+    // helperText.......................................................................................................
 
     @Override
     public SpreadsheetSelectComponent<T> alwaysShowHelperText() {
@@ -142,88 +91,6 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     @Override
     public Optional<String> helperText() {
         return Optional.empty();
-    }
-
-    @Override
-    public SpreadsheetSelectComponent<T> hideMarginBottom() {
-        this.select.setMarginBottom("");
-        return this;
-    }
-
-    @Override
-    public SpreadsheetSelectComponent<T> removeBorders() {
-        this.select.getInputElement()
-                .parent()
-                .setBorder("0")
-                .setCssProperty("border-radius", 0);
-        return this;
-    }
-
-    public SpreadsheetSelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.select.addChangeListener(
-                (oldValue, newValue) -> listener.onValueChanged(
-                        Optional.ofNullable(oldValue),
-                        Optional.ofNullable(newValue)
-                )
-        );
-        return this;
-    }
-
-    @Override
-    public SpreadsheetSelectComponent<T> addFocusListener(final EventListener listener) {
-        this.select.addEventListener(
-                EventType.focus,
-                listener
-        );
-        return this;
-    }
-
-    @Override
-    public SpreadsheetSelectComponent<T> addKeydownListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.select.addEventListener(
-                EventType.keydown,
-                listener
-        );
-        return this;
-    }
-
-    @Override
-    public SpreadsheetSelectComponent<T> addKeyupListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.select.addEventListener(
-                EventType.keyup,
-                listener
-        );
-        return this;
-    }
-
-    // setCssText.......................................................................................................
-
-    @Override
-    public SpreadsheetSelectComponent<T> setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.select.cssText(css);
-        return this;
-    }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.select.element();
-    }
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     // Value............................................................................................................
@@ -276,14 +143,161 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         );
     }
 
-    private final Select<T> select;
-
     private static String checkText(final String text) {
         return Objects.requireNonNull(text, "text");
     }
 
     private static <T> T checkValue(final T value) {
         return Objects.requireNonNull(value, "value");
+    }
+
+    // validation.......................................................................................................
+
+    @Override
+    public SpreadsheetSelectComponent<T> optional() {
+        this.required = false;
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSelectComponent<T> required() {
+        this.required = true;
+        return this;
+    }
+
+    @Override
+    public boolean isRequired() {
+        return this.required;
+    }
+
+    boolean required;
+
+    @Override
+    public boolean isDisabled() {
+        return this.select.isDisabled();
+    }
+
+    @Override
+    public SpreadsheetSelectComponent<T> setDisabled(final boolean disabled) {
+        this.select.setDisabled(disabled);
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSelectComponent<T> validate() {
+        this.select.validate();
+        return this;
+    }
+
+    @Override
+    public List<String> errors() {
+        return this.select.getErrors();
+    }
+
+    @Override
+    public SpreadsheetSelectComponent<T> setErrors(final List<String> errors) {
+        Objects.requireNonNull(errors, "errors");
+
+        this.select.invalidate(
+                Lists.immutable(errors)
+        );
+        return this;
+    }
+
+    // events...........................................................................................................
+
+    public SpreadsheetSelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
+        Objects.requireNonNull(listener, "listener");
+
+        this.select.addChangeListener(
+                (oldValue, newValue) -> listener.onValueChanged(
+                        Optional.ofNullable(oldValue),
+                        Optional.ofNullable(newValue)
+                )
+        );
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSelectComponent<T> addFocusListener(final EventListener listener) {
+        this.select.addEventListener(
+                EventType.focus,
+                listener
+        );
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSelectComponent<T> addKeydownListener(final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+
+        this.select.addEventListener(
+                EventType.keydown,
+                listener
+        );
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSelectComponent<T> addKeyupListener(final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+
+        this.select.addEventListener(
+                EventType.keyup,
+                listener
+        );
+        return this;
+    }
+
+    // focus............................................................................................................
+
+    @Override
+    public SpreadsheetSelectComponent<T> focus() {
+        this.select.focus();
+        return this;
+    }
+
+    // styling..........................................................................................................
+
+    @Override
+    public SpreadsheetSelectComponent<T> hideMarginBottom() {
+        this.select.setMarginBottom("");
+        return this;
+    }
+
+    @Override
+    public SpreadsheetSelectComponent<T> removeBorders() {
+        this.select.getInputElement()
+                .parent()
+                .setBorder("0")
+                .setCssProperty("border-radius", 0);
+        return this;
+    }
+
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetSelectComponent<T> setCssText(final String css) {
+        Objects.requireNonNull(css, "css");
+
+        this.select.cssText(css);
+        return this;
+    }
+
+    // IsElement........................................................................................................
+
+    @Override
+    public HTMLFieldSetElement element() {
+        return this.select.element();
+    }
+
+    private final Select<T> select;
+
+    // node.............................................................................................................
+
+    @Override
+    public Node node() {
+        return this.element();
     }
 
     // Object...........................................................................................................
