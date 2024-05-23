@@ -31,7 +31,6 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.validator.SpreadsheetValidators;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -207,7 +206,9 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         this.required = false;
         return this.setValidator(
                 SpreadsheetValidators.optional(
-                        SpreadsheetValidators.tryCatch(SpreadsheetSelection::labelName)
+                        SpreadsheetValidators.tryCatch(
+                                this.parser::apply
+                        )
                 )
         );
     }
@@ -216,7 +217,9 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     public SpreadsheetSuggestBoxComponent<T> required() {
         this.required = true;
         return this.setValidator(
-                SpreadsheetValidators.tryCatch(SpreadsheetSelection::labelName)
+                SpreadsheetValidators.tryCatch(
+                        this.parser::apply
+                )
         );
     }
 
