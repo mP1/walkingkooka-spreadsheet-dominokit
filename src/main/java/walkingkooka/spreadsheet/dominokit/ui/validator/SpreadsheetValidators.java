@@ -39,7 +39,7 @@ public final class SpreadsheetValidators implements PublicStaticHelper {
      * {@see SpreadsheetTextBoxOptionalValidator}
      */
     public static Validator<Optional<String>> optional(final Validator<Optional<String>> validator) {
-        return SpreadsheetTextBoxOptionalValidator.with(validator);
+        return SpreadsheetOptionalStringValidator.with(validator);
     }
 
     /**

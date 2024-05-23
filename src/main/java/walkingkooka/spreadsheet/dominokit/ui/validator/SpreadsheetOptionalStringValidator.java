@@ -28,18 +28,18 @@ import java.util.Optional;
  * A {@link Validator} that only sends non empty {@link String} to a wrapped {@link Validator}.
  * This has the effect of making string values optional.
  */
-final class SpreadsheetTextBoxOptionalValidator implements Validator<Optional<String>> {
+final class SpreadsheetOptionalStringValidator implements Validator<Optional<String>> {
 
     /**
      * Factory
      */
-    static SpreadsheetTextBoxOptionalValidator with(final Validator<Optional<String>> validator) {
+    static SpreadsheetOptionalStringValidator with(final Validator<Optional<String>> validator) {
         Objects.requireNonNull(validator, "validator");
 
-        return new SpreadsheetTextBoxOptionalValidator(validator);
+        return new SpreadsheetOptionalStringValidator(validator);
     }
 
-    private SpreadsheetTextBoxOptionalValidator(final Validator<Optional<String>> validator) {
+    private SpreadsheetOptionalStringValidator(final Validator<Optional<String>> validator) {
         super();
         this.validator = validator;
     }
