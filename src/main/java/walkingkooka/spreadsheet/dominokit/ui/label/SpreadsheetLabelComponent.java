@@ -117,6 +117,22 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
         );
     }
 
+    // StringValue......................................................................................................
+
+    public SpreadsheetLabelComponent setStringValue(final Optional<String> value) {
+        Objects.requireNonNull(value, "value");
+
+        this.suggestBox.withValue(
+                value.orElse(""),
+                true // silent
+        );
+        return this;
+    }
+
+    public String stringValue() {
+        return this.suggestBox.getStringValue();
+    }
+
     // Value............................................................................................................
 
     @Override
