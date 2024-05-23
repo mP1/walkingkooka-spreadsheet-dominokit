@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.label;
+package walkingkooka.spreadsheet.dominokit.ui.suggestbox;
 
 import org.dominokit.domino.ui.elements.SpanElement;
 import org.dominokit.domino.ui.forms.suggest.SuggestBox;
@@ -29,16 +29,16 @@ import java.util.Optional;
 /**
  * Reads the text of the input for the {@link SuggestBox} and attempts to parse the text. Any caught {@link Exception#getMessage()} becomes the validation failure message.
  */
-final class SpreadsheetLabelComponentSuggestBoxValidator implements Validator<SuggestBox<String, SpanElement, SuggestOption<String>>> {
+final class SpreadsheetSuggestBoxComponentValidator implements Validator<SuggestBox<String, SpanElement, SuggestOption<String>>> {
 
     /**
      * Factory
      */
-    static SpreadsheetLabelComponentSuggestBoxValidator with(final Validator<Optional<String>> validator) {
-        return new SpreadsheetLabelComponentSuggestBoxValidator(validator);
+    static SpreadsheetSuggestBoxComponentValidator with(final Validator<Optional<String>> validator) {
+        return new SpreadsheetSuggestBoxComponentValidator(validator);
     }
 
-    private SpreadsheetLabelComponentSuggestBoxValidator(final Validator<Optional<String>> validator) {
+    private SpreadsheetSuggestBoxComponentValidator(final Validator<Optional<String>> validator) {
         super();
         this.validator = validator;
     }
