@@ -37,12 +37,7 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
                         .setLabel("Label123")
                         .setValidator(
                                 SpreadsheetValidators.optional(
-                                        new Validator<Optional<String>>() {
-                                            @Override
-                                            public ValidationResult isValid(final Optional<String> component) {
-                                                throw new UnsupportedOperationException();
-                                            }
-                                        }
+                                        SpreadsheetValidators.fake()
                                 )
                         ),
                 "SpreadsheetTextBox\n" +
@@ -60,12 +55,7 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
                         )
                         .setValidator(
                                 SpreadsheetValidators.optional(
-                                        new Validator<Optional<String>>() {
-                                            @Override
-                                            public ValidationResult isValid(final Optional<String> component) {
-                                                throw new UnsupportedOperationException();
-                                            }
-                                        }
+                                        SpreadsheetValidators.fake()
                                 )
                         ).setValue(Optional.empty()),
                 "SpreadsheetTextBox\n" +
