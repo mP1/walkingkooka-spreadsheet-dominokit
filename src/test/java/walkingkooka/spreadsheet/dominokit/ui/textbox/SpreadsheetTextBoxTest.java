@@ -31,6 +31,49 @@ import java.util.Optional;
 public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLFieldSetElement, String, SpreadsheetTextBox> {
 
     @Test
+    public void testOptionalValidationPass() {
+        this.treePrintAndCheck(
+                SpreadsheetTextBox.empty()
+                        .setLabel("Label123")
+                        .setValidator(
+                                SpreadsheetValidators.optional(
+                                        new Validator<Optional<String>>() {
+                                            @Override
+                                            public ValidationResult isValid(final Optional<String> component) {
+                                                throw new UnsupportedOperationException();
+                                            }
+                                        }
+                                )
+                        ),
+                "SpreadsheetTextBox\n" +
+                        "  Label123 []\n"
+        );
+    }
+
+    @Test
+    public void testOptionalEmptyValueValidationPass() {
+        this.treePrintAndCheck(
+                SpreadsheetTextBox.empty()
+                        .setLabel("Label123")
+                        .setValue(
+                                Optional.of("!")
+                        )
+                        .setValidator(
+                                SpreadsheetValidators.optional(
+                                        new Validator<Optional<String>>() {
+                                            @Override
+                                            public ValidationResult isValid(final Optional<String> component) {
+                                                throw new UnsupportedOperationException();
+                                            }
+                                        }
+                                )
+                        ).setValue(Optional.empty()),
+                "SpreadsheetTextBox\n" +
+                        "  Label123 []\n"
+        );
+    }
+
+    @Test
     public void testValidationPass() {
         this.treePrintAndCheck(
                 SpreadsheetTextBox.empty()
