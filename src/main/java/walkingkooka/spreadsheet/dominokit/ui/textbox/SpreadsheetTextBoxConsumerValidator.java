@@ -28,20 +28,20 @@ import java.util.function.Consumer;
 /**
  * A {@link Validator} that invokes {@link Consumer#accept(Object)}, catching any exceptions and using that as the fail message.
  */
-final class SpreadsheetTextBoxStringParserValidator implements Validator<Optional<String>> {
+final class SpreadsheetTextBoxConsumerValidator implements Validator<Optional<String>> {
 
     /**
      * Factory
      */
-    static SpreadsheetTextBoxStringParserValidator with(final Consumer<String> parser) {
-        Objects.requireNonNull(parser, "parser");
+    static SpreadsheetTextBoxConsumerValidator with(final Consumer<String> consumer) {
+        Objects.requireNonNull(consumer, "consumer");
 
-        return new SpreadsheetTextBoxStringParserValidator(parser);
+        return new SpreadsheetTextBoxConsumerValidator(consumer);
     }
 
-    private SpreadsheetTextBoxStringParserValidator(final Consumer<String> parser) {
+    private SpreadsheetTextBoxConsumerValidator(final Consumer<String> consumer) {
         super();
-        this.parser = parser;
+        this.consumer = consumer;
     }
 
     @Override
@@ -49,7 +49,7 @@ final class SpreadsheetTextBoxStringParserValidator implements Validator<Optiona
         ValidationResult result;
 
         try {
-            this.parser.accept(
+            this.consumer.accept(
                     value.orElse("")
             );
             result = ValidationResult.valid();
@@ -61,10 +61,10 @@ final class SpreadsheetTextBoxStringParserValidator implements Validator<Optiona
         return result;
     }
 
-    private final Consumer<String> parser;
+    private final Consumer<String> consumer;
 
     @Override
     public String toString() {
-        return this.parser.toString();
+        return this.consumer.toString();
     }
 }

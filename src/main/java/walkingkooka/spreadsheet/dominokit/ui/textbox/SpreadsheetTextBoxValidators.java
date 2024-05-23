@@ -29,17 +29,17 @@ import java.util.function.Consumer;
 public final class SpreadsheetTextBoxValidators implements PublicStaticHelper {
 
     /**
+     * {@see SpreadsheetTextBoxConsumerValidator}
+     */
+    public static Validator<Optional<String>> consumer(final Consumer<String> consumer) {
+        return SpreadsheetTextBoxConsumerValidator.with(consumer);
+    }
+
+    /**
      * {@see SpreadsheetTextBoxOptionalValidator}
      */
     public static Validator<Optional<String>> optional(final Validator<Optional<String>> validator) {
         return SpreadsheetTextBoxOptionalValidator.with(validator);
-    }
-
-    /**
-     * {@see SpreadsheetTextBoxStringParserValidator}
-     */
-    public static Validator<Optional<String>> parser(final Consumer<String> parser) {
-        return SpreadsheetTextBoxStringParserValidator.with(parser);
     }
 
     /**
