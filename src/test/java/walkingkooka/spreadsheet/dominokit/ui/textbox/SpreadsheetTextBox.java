@@ -77,12 +77,7 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         Objects.requireNonNull(value, "value");
         this.value = value;
 
-        return this.setErrors(
-                this.validateAndGetErrors(
-                        value,
-                        Optional.ofNullable(this.validator)
-                )
-        );
+        return validate();
     }
 
     @Override
@@ -125,10 +120,10 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
 
     @Override
     public SpreadsheetTextBox validate() {
-        this.validateAndGetErrors(
-                this.value,
-                Optional.ofNullable(
-                        this.validator
+        this.setErrors(
+                this.validateAndGetErrors(
+                        value,
+                        Optional.ofNullable(this.validator)
                 )
         );
         return this;
