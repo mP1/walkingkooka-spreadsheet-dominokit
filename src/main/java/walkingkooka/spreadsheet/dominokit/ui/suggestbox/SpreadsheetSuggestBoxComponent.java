@@ -68,7 +68,6 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         suggestBox.setAutoValidation(true);
 
         this.required();
-        this.validate();
     }
 
     // id...............................................................................................................
@@ -229,7 +228,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         this.suggestBox.addValidator(
                 SpreadsheetSuggestBoxComponentValidator.with(validator)
         );
-        return this;
+        return this.validate();
     }
 
     @Override
