@@ -30,11 +30,9 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Objects;
@@ -45,7 +43,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 /**
  * A text box component that includes support for finding a label.
  */
-public final class SpreadsheetSuggestBoxComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetSuggestBoxComponent> {
+public final class SpreadsheetSuggestBoxComponent implements SpreadsheetSuggestBoxComponentLike {
 
     public static SpreadsheetSuggestBoxComponent with(final SuggestionsStore<String, SpanElement, SuggestOption<String>> suggestionsStore) {
         Objects.requireNonNull(suggestionsStore, "suggestionsStore");
@@ -337,13 +335,6 @@ public final class SpreadsheetSuggestBoxComponent implements ValueComponent<HTML
     @Override
     public Node node() {
         return this.element();
-    }
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        throw new UnsupportedOperationException();
     }
 
     // Object...........................................................................................................
