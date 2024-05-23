@@ -28,18 +28,18 @@ import java.util.function.Consumer;
 /**
  * A {@link Validator} that invokes {@link Consumer#accept(Object)}, catching any exceptions and using that as the fail message.
  */
-final class SpreadsheetTextBoxConsumerValidator implements Validator<Optional<String>> {
+final class TryCatchConsumerStringValidator implements Validator<Optional<String>> {
 
     /**
      * Factory
      */
-    static SpreadsheetTextBoxConsumerValidator with(final Consumer<String> consumer) {
+    static TryCatchConsumerStringValidator with(final Consumer<String> consumer) {
         Objects.requireNonNull(consumer, "consumer");
 
-        return new SpreadsheetTextBoxConsumerValidator(consumer);
+        return new TryCatchConsumerStringValidator(consumer);
     }
 
-    private SpreadsheetTextBoxConsumerValidator(final Consumer<String> consumer) {
+    private TryCatchConsumerStringValidator(final Consumer<String> consumer) {
         super();
         this.consumer = consumer;
     }
