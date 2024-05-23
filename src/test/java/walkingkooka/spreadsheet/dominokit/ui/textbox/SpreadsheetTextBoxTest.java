@@ -53,7 +53,7 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
                 SpreadsheetTextBox.empty()
                         .setLabel("Label123")
                         .setValidator(
-                                SpreadsheetTextBoxValidators.parser(
+                                SpreadsheetTextBoxValidators.consumer(
                                         (s) -> {
                                             throw new InvalidCharacterException(s, 2);
                                         }
