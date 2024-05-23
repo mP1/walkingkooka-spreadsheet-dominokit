@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.ui.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.HasText;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Objects;
@@ -362,5 +363,10 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     public String toString() {
         return this.element()
                 .toString();
+    }
+
+    @Override
+    public void treePrintAlternateValues(final IndentingPrinter printer) {
+        // TODO
     }
 }
