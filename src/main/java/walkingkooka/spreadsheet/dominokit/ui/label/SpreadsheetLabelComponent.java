@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
@@ -247,14 +248,20 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
 
     @Override
     public void printTree(final IndentingPrinter printer) {
-        throw new UnsupportedOperationException();
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.suggestBox.printTree(printer);
+        }
+        printer.outdent();
     }
 
     // Object...........................................................................................................
 
     @Override
     public String toString() {
-        return this.element()
-                .toString();
+        return this.value()
+                .map(HasText::text)
+                .orElse("");
     }
 }
