@@ -61,6 +61,7 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
         suggestBox.setAutoValidation(true);
 
         this.required();
+        this.validate();
     }
 
     // id...............................................................................................................
