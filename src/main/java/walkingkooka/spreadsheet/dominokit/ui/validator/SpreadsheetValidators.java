@@ -29,7 +29,7 @@ import java.util.function.Consumer;
 public final class SpreadsheetValidators implements PublicStaticHelper {
 
     /**
-     * {@see SpreadsheetTextBoxOptionalValidator}
+     * {@see SpreadsheetOptionalStringValidator}
      */
     public static Validator<Optional<String>> optional(final Validator<Optional<String>> validator) {
         return SpreadsheetOptionalStringValidator.with(validator);
