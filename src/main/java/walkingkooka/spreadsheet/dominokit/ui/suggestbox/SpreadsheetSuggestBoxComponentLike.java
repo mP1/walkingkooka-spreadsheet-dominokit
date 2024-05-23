@@ -19,25 +19,18 @@ package walkingkooka.spreadsheet.dominokit.ui.suggestbox;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
 import walkingkooka.text.HasText;
-import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
 /**
  * A text box component that includes support for finding a label.
  */
-public interface SpreadsheetSuggestBoxComponentLike<T extends HasText> extends ValueComponent<HTMLFieldSetElement, T, SpreadsheetSuggestBoxComponent<T>> {
+public interface SpreadsheetSuggestBoxComponentLike<T extends HasText> extends ValueComponent<HTMLFieldSetElement, T, SpreadsheetSuggestBoxComponent<T>>,
+        SpreadsheetTextBoxTreePrintable<SpreadsheetSuggestBoxComponent<T>, T> {
 
     SpreadsheetSuggestBoxComponent<T> setStringValue(final Optional<String> value);
 
     Optional<String> stringValue();
-
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    default void printTree(final IndentingPrinter printer) {
-        throw new UnsupportedOperationException();
-    }
 }
