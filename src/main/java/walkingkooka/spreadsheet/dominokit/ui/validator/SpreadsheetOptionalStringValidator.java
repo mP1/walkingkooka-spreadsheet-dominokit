@@ -46,7 +46,7 @@ final class SpreadsheetOptionalStringValidator implements Validator<Optional<Str
     @Override
     public ValidationResult isValid(final Optional<String> value) {
         // empty Optional or empty String are both missing
-        return value.isPresent() || CharSequences.isNullOrEmpty(value.get()) ?
+        return false == value.isPresent() || CharSequences.isNullOrEmpty(value.get()) ?
                 ValidationResult.valid() :
                 this.validator.isValid(value);
     }
