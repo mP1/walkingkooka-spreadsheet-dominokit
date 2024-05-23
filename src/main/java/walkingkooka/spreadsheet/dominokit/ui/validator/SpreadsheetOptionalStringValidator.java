@@ -25,8 +25,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A {@link Validator} that only sends non empty {@link String} to a wrapped {@link Validator}.
- * This has the effect of making string values optional.
+ * A {@link Validator} that skips the wrapped {@link Validator} if the text is missing or empty.
  */
 final class SpreadsheetOptionalStringValidator implements Validator<Optional<String>> {
 
