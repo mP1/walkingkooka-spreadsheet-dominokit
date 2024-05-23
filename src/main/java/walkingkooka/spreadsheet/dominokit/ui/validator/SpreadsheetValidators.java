@@ -28,6 +28,14 @@ import java.util.function.Consumer;
  */
 public final class SpreadsheetValidators implements PublicStaticHelper {
 
+
+    /**
+     * {@see SpreadsheetOptionalStringValidator}
+     */
+    public static <T> Validator<T> fake() {
+        return new FakeValidator<>();
+    }
+
     /**
      * {@see SpreadsheetOptionalStringValidator}
      */
