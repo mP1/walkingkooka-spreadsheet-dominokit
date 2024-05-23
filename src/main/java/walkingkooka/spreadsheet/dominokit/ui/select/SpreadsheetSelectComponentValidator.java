@@ -33,7 +33,7 @@ final class SpreadsheetSelectComponentValidator<T> implements Validator<Select<T
 
     @Override
     public ValidationResult isValid(final Select<T> component) {
-        return null == component.getValue() && this.spreadsheetSelectComponent.required/**/ ?
+        return null == component.getValue() && this.spreadsheetSelectComponent.isRequired()/**/ ?
                 ValidationResult.invalid("Selection required") :
                 ValidationResult.valid();
     }
