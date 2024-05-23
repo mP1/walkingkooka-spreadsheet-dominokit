@@ -130,6 +130,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
 
     // StringValue......................................................................................................
 
+    @Override
     public SpreadsheetSuggestBoxComponent<T> setStringValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
 
@@ -140,6 +141,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         return this;
     }
 
+    @Override
     public Optional<String> stringValue() {
         final String text = this.suggestBox.getStringValue();
 
