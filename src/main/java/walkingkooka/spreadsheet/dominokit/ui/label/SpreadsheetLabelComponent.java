@@ -17,30 +17,19 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.label;
 
-import elemental2.dom.Element;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.Node;
-import org.dominokit.domino.ui.elements.SpanElement;
-import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.forms.suggest.SuggestBox;
-import org.dominokit.domino.ui.forms.suggest.SuggestOption;
-import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.Context;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
-import walkingkooka.spreadsheet.dominokit.ui.validator.SpreadsheetValidators;
+import walkingkooka.spreadsheet.dominokit.ui.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-
-import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 
 /**
  * A text box component that includes support for finding a label.
@@ -54,11 +43,9 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     }
 
     private SpreadsheetLabelComponent(final Context context) {
-        final SuggestBox<String, SpanElement, SuggestOption<String>> suggestBox = SuggestBox.create(
+        this.suggestBox = SpreadsheetSuggestBoxComponent.with(
                 SpreadsheetLabelComponentSuggestStore.with(context)
         );
-        this.suggestBox = suggestBox;
-        suggestBox.setAutoValidation(true);
 
         this.required();
         this.validate();
@@ -68,15 +55,13 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
 
     @Override
     public SpreadsheetLabelComponent setId(final String id) {
-        this.suggestBox.getInputElement()
-                .setId(id);
+        this.suggestBox.setId(id);
         return this;
     }
 
     @Override
     public String id() {
-        return this.suggestBox.getInputElement()
-                .getId();
+        return this.suggestBox.id();
     }
 
     // label............................................................................................................
@@ -89,84 +74,50 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
 
     @Override
     public String label() {
-        return this.suggestBox.getLabel();
+        return this.suggestBox.label();
     }
 
     // helperText.......................................................................................................
 
     @Override
     public SpreadsheetLabelComponent alwaysShowHelperText() {
-        final DominoElement<Element> element = elements.elementOf(
-                this.suggestBox.element()
-                        .firstElementChild
-        );
-        element.setHeight(HELPER_TEXT_HEIGHT);
+        this.suggestBox.alwaysShowHelperText();
         return this;
     }
 
     @Override
     public SpreadsheetLabelComponent setHelperText(final Optional<String> text) {
-        Objects.requireNonNull(text, "text");
-
-        this.suggestBox.setHelperText(
-                text.orElse(null)
-        );
+        this.suggestBox.setHelperText(text);
         return this;
     }
 
     @Override
     public Optional<String> helperText() {
-        return Optional.ofNullable(
-                this.suggestBox.getHelperText()
-        );
+        return this.suggestBox.helperText();
     }
 
     // StringValue......................................................................................................
 
     public SpreadsheetLabelComponent setStringValue(final Optional<String> value) {
-        Objects.requireNonNull(value, "value");
-
-        this.suggestBox.withValue(
-                value.orElse(""),
-                true // silent
-        );
+        this.suggestBox.setStringValue(value);
         return this;
     }
 
     public String stringValue() {
-        return this.suggestBox.getStringValue();
+        return this.suggestBox.stringValue();
     }
 
     // Value............................................................................................................
 
     @Override
     public SpreadsheetLabelComponent setValue(final Optional<SpreadsheetLabelName> label) {
-        Objects.requireNonNull(label, "label");
-
-        this.suggestBox.setValue(
-                label.map(SpreadsheetLabelName::text)
-                        .orElse("")
-        );
+        this.suggestBox.setValue(label);
         return this;
     }
 
     @Override //
     public Optional<SpreadsheetLabelName> value() {
-        return tryParse(
-                this.suggestBox.getStringValue()
-        );
-    }
-
-    private Optional<SpreadsheetLabelName> tryParse(final String value) {
-        SpreadsheetLabelName label;
-
-        try {
-            label = SpreadsheetSelection.labelName(value);
-        } catch (final Exception ignore) {
-            label = null;
-        }
-
-        return Optional.ofNullable(label);
+        return this.suggestBox.value();
     }
 
     // isDisabled.......................................................................................................
@@ -186,37 +137,20 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
 
     @Override
     public SpreadsheetLabelComponent optional() {
-        this.required = false;
-        return this.setValidator(
-                SpreadsheetValidators.optional(
-                        SpreadsheetValidators.tryCatch(SpreadsheetSelection::labelName)
-                )
-        );
+        this.suggestBox.required();
+        return this;
     }
 
     @Override
     public SpreadsheetLabelComponent required() {
-        this.required = true;
-        return this.setValidator(
-                SpreadsheetValidators.tryCatch(SpreadsheetSelection::labelName)
-        );
-    }
-
-    private SpreadsheetLabelComponent setValidator(final Validator<Optional<String>> validator) {
-        this.suggestBox.getValidators()
-                .clear();
-        this.suggestBox.addValidator(
-                SpreadsheetLabelComponentSuggestBoxValidator.with(validator)
-        );
+        this.suggestBox.required();
         return this;
     }
 
     @Override
     public boolean isRequired() {
-        return this.required;
+        return this.suggestBox.isRequired();
     }
-
-    boolean required;
 
     @Override
     public SpreadsheetLabelComponent validate() {
@@ -226,16 +160,12 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
 
     @Override
     public List<String> errors() {
-        return Lists.readOnly(
-                this.suggestBox.getErrors()
-        );
+        return this.suggestBox.errors();
     }
 
     @Override
     public SpreadsheetLabelComponent setErrors(final List<String> errors) {
-        this.suggestBox.invalidate(
-                Lists.immutable(errors)
-        );
+        this.suggestBox.setErrors(errors);
         return this;
     }
 
@@ -243,47 +173,25 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
 
     @Override
     public SpreadsheetLabelComponent addChangeListener(final ChangeListener<Optional<SpreadsheetLabelName>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.suggestBox.addChangeListener(
-                (final String oldValue,
-                 final String newValue) -> listener.onValueChanged(
-                        tryParse(oldValue),
-                        tryParse(newValue)
-                )
-        );
-
+        this.suggestBox.addChangeListener(listener);
         return this;
     }
 
     @Override
     public SpreadsheetLabelComponent addFocusListener(final EventListener listener) {
-        this.suggestBox.addEventListener(
-                EventType.focus,
-                listener
-        );
+        this.suggestBox.addFocusListener(listener);
         return this;
     }
 
     @Override
     public SpreadsheetLabelComponent addKeydownListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.suggestBox.addEventListener(
-                EventType.keydown,
-                listener
-        );
+        this.suggestBox.addKeydownListener(listener);
         return this;
     }
 
     @Override
     public SpreadsheetLabelComponent addKeyupListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.suggestBox.addEventListener(
-                EventType.keyup,
-                listener
-        );
+        this.suggestBox.addKeyupListener(listener);
         return this;
     }
 
@@ -299,17 +207,13 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
 
     @Override
     public SpreadsheetLabelComponent hideMarginBottom() {
-        this.suggestBox.setMarginBottom("");
+        this.suggestBox.hideMarginBottom();
         return this;
     }
 
     @Override
     public SpreadsheetLabelComponent removeBorders() {
-        this.suggestBox.getInputElement()
-                .parent()
-                .parent()
-                .setBorder("0")
-                .setCssProperty("border-radius", 0);
+        this.suggestBox.removeBorders();
         return this;
     }
 
@@ -317,9 +221,7 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
 
     @Override
     public SpreadsheetLabelComponent setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
-        this.suggestBox.cssText(css);
+        this.suggestBox.setCssText(css);
         return this;
     }
 
@@ -330,13 +232,13 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
         return this.suggestBox.element();
     }
 
-    private final SuggestBox<String, SpanElement, SuggestOption<String>> suggestBox;
+    private final SpreadsheetSuggestBoxComponent suggestBox;
 
     // node.............................................................................................................
 
     @Override
     public Node node() {
-        return this.element();
+        return this.suggestBox.node();
     }
 
     // TreePrintable....................................................................................................
