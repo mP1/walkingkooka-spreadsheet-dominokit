@@ -22,10 +22,17 @@ import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.Optional;
+
 /**
  * A text box component that includes support for finding a label.
  */
 public interface SpreadsheetSuggestBoxComponentLike<T extends HasText> extends ValueComponent<HTMLFieldSetElement, T, SpreadsheetSuggestBoxComponentLike<T>> {
+
+    SpreadsheetSuggestBoxComponent<T> setStringValue(final Optional<String> value);
+
+    Optional<String> stringValue();
+
 
     // TreePrintable....................................................................................................
 
