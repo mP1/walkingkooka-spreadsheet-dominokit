@@ -19,13 +19,13 @@ package walkingkooka.spreadsheet.dominokit.ui.suggestbox;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 
 /**
  * A text box component that includes support for finding a label.
  */
-public interface SpreadsheetSuggestBoxComponentLike extends ValueComponent<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetSuggestBoxComponentLike> {
+public interface SpreadsheetSuggestBoxComponentLike<T extends HasText> extends ValueComponent<HTMLFieldSetElement, T, SpreadsheetSuggestBoxComponentLike<T>> {
 
     // TreePrintable....................................................................................................
 
