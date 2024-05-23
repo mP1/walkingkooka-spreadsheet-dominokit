@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import org.junit.jupiter.api.Test;
 import walkingkooka.InvalidCharacterException;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.ui.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.ValueComponentTesting;
 
 import java.util.Optional;
@@ -53,7 +54,7 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
                 SpreadsheetTextBox.empty()
                         .setLabel("Label123")
                         .setValidator(
-                                SpreadsheetTextBoxValidators.consumer(
+                                SpreadsheetValidators.consumer(
                                         (s) -> {
                                             throw new InvalidCharacterException(s, 2);
                                         }

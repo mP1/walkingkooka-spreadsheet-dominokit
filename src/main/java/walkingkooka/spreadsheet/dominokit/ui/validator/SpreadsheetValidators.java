@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.textbox;
+package walkingkooka.spreadsheet.dominokit.ui.validator;
 
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.reflect.PublicStaticHelper;
@@ -24,9 +24,9 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 /**
- * Provides factory methods for a few {@link SpreadsheetTextBox} validators.
+ * Provides factory methods for a few {@link String} validators.
  */
-public final class SpreadsheetTextBoxValidators implements PublicStaticHelper {
+public final class SpreadsheetValidators implements PublicStaticHelper {
 
     /**
      * {@see SpreadsheetTextBoxConsumerValidator}
@@ -45,7 +45,7 @@ public final class SpreadsheetTextBoxValidators implements PublicStaticHelper {
     /**
      * Stop creation
      */
-    private SpreadsheetTextBoxValidators() {
+    private SpreadsheetValidators() {
         throw new UnsupportedOperationException();
     }
 }
