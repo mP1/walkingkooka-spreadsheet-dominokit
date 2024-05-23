@@ -27,9 +27,11 @@ import org.dominokit.domino.ui.forms.suggest.SuggestBox;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.Context;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.ui.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -57,7 +59,8 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
         );
         this.suggestBox = suggestBox;
         suggestBox.setAutoValidation(true);
-        suggestBox.addValidator(SpreadsheetLabelComponentValidator.with(this));
+
+        this.required();
     }
 
     // id...............................................................................................................
@@ -183,12 +186,27 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     @Override
     public SpreadsheetLabelComponent optional() {
         this.required = false;
-        return this;
+        return this.setValidator(
+                SpreadsheetValidators.optional(
+                        SpreadsheetValidators.tryCatch(SpreadsheetSelection::labelName)
+                )
+        );
     }
 
     @Override
     public SpreadsheetLabelComponent required() {
         this.required = true;
+        return this.setValidator(
+                SpreadsheetValidators.tryCatch(SpreadsheetSelection::labelName)
+        );
+    }
+
+    private SpreadsheetLabelComponent setValidator(final Validator<Optional<String>> validator) {
+        this.suggestBox.getValidators()
+                .clear();
+        this.suggestBox.addValidator(
+                SpreadsheetLabelComponentSuggestBoxValidator.with(validator)
+        );
         return this;
     }
 

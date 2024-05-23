@@ -22,51 +22,46 @@ import org.dominokit.domino.ui.forms.suggest.SuggestBox;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
+
+import java.util.Optional;
 
 /**
  * Reads the text of the input for the {@link SuggestBox} and attempts to parse the text. Any caught {@link Exception#getMessage()} becomes the validation failure message.
  */
-final class SpreadsheetLabelComponentValidator implements Validator<SuggestBox<String, SpanElement, SuggestOption<String>>> {
+final class SpreadsheetLabelComponentSuggestBoxValidator implements Validator<SuggestBox<String, SpanElement, SuggestOption<String>>> {
 
     /**
      * Factory
      */
-    static SpreadsheetLabelComponentValidator with(final SpreadsheetLabelComponent component) {
-        return new SpreadsheetLabelComponentValidator(component);
+    static SpreadsheetLabelComponentSuggestBoxValidator with(final Validator<Optional<String>> validator) {
+        return new SpreadsheetLabelComponentSuggestBoxValidator(validator);
     }
 
-    private SpreadsheetLabelComponentValidator(final SpreadsheetLabelComponent component) {
+    private SpreadsheetLabelComponentSuggestBoxValidator(final Validator<Optional<String>> validator) {
         super();
-        this.component = component;
+        this.validator = validator;
     }
 
     @Override
     public ValidationResult isValid(final SuggestBox<String, SpanElement, SuggestOption<String>> component) {
-        ValidationResult result;
-
         final String text = component.getInputElement()
                 .element()
                 .value;
 
-        if (CharSequences.isNullOrEmpty(text) && false == this.component.required) {
-            result = ValidationResult.valid();
-        } else {
-            try {
-                SpreadsheetSelection.labelName(text);
-                result = ValidationResult.valid();
-            } catch (final Exception fail) {
-                result = ValidationResult.invalid(fail.getMessage());
-            }
-        }
-        return result;
+        return this.validator.isValid(
+                Optional.ofNullable(
+                        CharSequences.isNullOrEmpty(text) ?
+                                null :
+                                text
+                )
+        );
     }
 
     @Override
     public String toString() {
-        return this.component.toString();
+        return this.validator.toString();
     }
 
-    private final SpreadsheetLabelComponent component;
+    private final Validator<Optional<String>> validator;
 }
