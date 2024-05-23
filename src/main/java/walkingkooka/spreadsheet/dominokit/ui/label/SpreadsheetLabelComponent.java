@@ -25,6 +25,7 @@ import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.suggestbox.SpreadsheetSuggestBoxComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
@@ -44,6 +45,7 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
 
     private SpreadsheetLabelComponent(final Context context) {
         this.suggestBox = SpreadsheetSuggestBoxComponent.with(
+                SpreadsheetSelection::labelName,
                 SpreadsheetLabelComponentSuggestStore.with(context)
         );
 
