@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLi
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Optional;
 import java.util.Set;
 
 public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetSortDialogComponent> {
@@ -1525,7 +1526,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                     }
 
                     @Override
-                    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
+                    public Optional<SpreadsheetComparator<?>> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
                         return context.spreadsheetComparatorProvider()
                                 .spreadsheetComparator(spreadsheetComparatorName);
                     }

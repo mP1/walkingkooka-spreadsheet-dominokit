@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 final class BasicSpreadsheetSortDialogComponentContext implements SpreadsheetSortDialogComponentContext {
@@ -50,7 +51,7 @@ final class BasicSpreadsheetSortDialogComponentContext implements SpreadsheetSor
     // SpreadsheetSortDialogComponentContext............................................................................
 
     @Override
-    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
+    public Optional<SpreadsheetComparator<?>> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
         return this.spreadsheetComparatorProvider.spreadsheetComparator(spreadsheetComparatorName);
     }
 
