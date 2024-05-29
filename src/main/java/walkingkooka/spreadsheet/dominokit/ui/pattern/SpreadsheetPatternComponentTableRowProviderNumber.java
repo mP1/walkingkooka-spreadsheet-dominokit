@@ -139,19 +139,19 @@ abstract class SpreadsheetPatternComponentTableRowProviderNumber extends Spreads
 
         final SpreadsheetText formattedPositive = context.format(
                 pattern.map(SpreadsheetPattern::formatter)
-                        .orElse(SpreadsheetFormatters.emptyText()),
+                        .orElse(SpreadsheetFormatters.empty()),
                 positive
         );
 
         final SpreadsheetText formattedNegative = context.format(
                 pattern.map(SpreadsheetPattern::formatter)
-                        .orElse(SpreadsheetFormatters.emptyText()),
+                        .orElse(SpreadsheetFormatters.empty()),
                 negative
         );
 
         final SpreadsheetText formattedZero = context.format(
                 pattern.map(SpreadsheetPattern::formatter)
-                        .orElse(SpreadsheetFormatters.emptyText()),
+                        .orElse(SpreadsheetFormatters.empty()),
                 zero
         );
 
