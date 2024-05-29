@@ -212,7 +212,7 @@ abstract class SpreadsheetPatternComponentTableRowProvider implements BiFunction
                         .map(v ->
                                 context.format(
                                         pattern.map(SpreadsheetPattern::formatter)
-                                                .orElse(SpreadsheetFormatters.emptyText()),
+                                                .orElse(SpreadsheetFormatters.empty()),
                                         v
                                 ).toTextNode()
                         ).collect(Collectors.toList());

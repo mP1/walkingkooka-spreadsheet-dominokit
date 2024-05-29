@@ -59,7 +59,7 @@ final class SpreadsheetPatternComponentTableRowProviderTextFormat extends Spread
                                                 patternText,
                                                 SpreadsheetPattern::parseTextFormatPattern
                                         ).map(SpreadsheetPattern::formatter)
-                                                .orElse(SpreadsheetFormatters.emptyText()),
+                                                .orElse(SpreadsheetFormatters.empty()),
                                         value
                                 ).toTextNode()
                         )
