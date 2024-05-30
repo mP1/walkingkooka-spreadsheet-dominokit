@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.parser.SpreadsheetFormatTextParserToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.tree.text.TextNode;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -43,7 +44,8 @@ public final class SpreadsheetPatternComponentTableRowProviderContextTest implem
         final String text = "Abc123";
 
         this.checkEquals(
-                SpreadsheetText.with(text),
+                SpreadsheetText.with(text)
+                        .toTextNode(),
                 this.createContext().defaultFormat(text)
         );
     }
@@ -59,7 +61,7 @@ public final class SpreadsheetPatternComponentTableRowProviderContextTest implem
                         text + text + text
                 ).setColor(
                         Optional.of(RED)
-                ),
+                ).toTextNode(),
                 new FakeSpreadsheetPatternComponentTableRowProviderContext() {
                     @Override
                     public SpreadsheetFormatter defaultSpreadsheetFormatter() {
@@ -83,11 +85,11 @@ public final class SpreadsheetPatternComponentTableRowProviderContextTest implem
     @Test
     public void testFormat() {
         final String text = "Abc123";
-        final SpreadsheetText expected = SpreadsheetText.with(
+        final TextNode expected = SpreadsheetText.with(
                 text + text + text
         ).setColor(
                 Optional.of(RED)
-        );
+        ).toTextNode();
 
         this.checkEquals(
                 expected,
@@ -101,8 +103,8 @@ public final class SpreadsheetPatternComponentTableRowProviderContextTest implem
                         new FakeSpreadsheetFormatter() {
 
                             @Override
-                            public Optional<SpreadsheetText> format(final Object value,
-                                                                    final SpreadsheetFormatterContext context) {
+                            public Optional<TextNode> format(final Object value,
+                                                             final SpreadsheetFormatterContext context) {
                                 checkEquals(text, value);
                                 return Optional.of(expected);
                             }
