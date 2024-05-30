@@ -128,9 +128,6 @@ abstract class SpreadsheetPatternComponentTableRowProviderNumber extends Spreads
     private SpreadsheetPatternComponentTableRow numberRow(final String label,
                                                           final Optional<SpreadsheetPattern> pattern,
                                                           final SpreadsheetPatternComponentTableRowProviderContext context) {
-        final String patternText = pattern.map(SpreadsheetPattern::text)
-                .orElse("");
-
         final ExpressionNumberKind kind = context.spreadsheetFormatterContext().expressionNumberKind();
         final SpreadsheetFormatter formatter = pattern.map(p -> (SpreadsheetFormatter) p.formatter())
                 .orElse(SpreadsheetFormatters.empty());
