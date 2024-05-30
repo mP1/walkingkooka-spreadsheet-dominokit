@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
-import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -132,26 +132,25 @@ abstract class SpreadsheetPatternComponentTableRowProviderNumber extends Spreads
                 .orElse("");
 
         final ExpressionNumberKind kind = context.spreadsheetFormatterContext().expressionNumberKind();
+        final SpreadsheetFormatter formatter = pattern.map(p -> (SpreadsheetFormatter) p.formatter())
+                .orElse(SpreadsheetFormatters.empty());
 
         final ExpressionNumber positive = positive(kind);
         final ExpressionNumber negative = negative(kind);
         final ExpressionNumber zero = zero(kind);
 
-        final SpreadsheetText formattedPositive = context.format(
-                pattern.map(SpreadsheetPattern::formatter)
-                        .orElse(SpreadsheetFormatters.empty()),
+        final TextNode formattedPositive = context.format(
+                formatter,
                 positive
         );
 
-        final SpreadsheetText formattedNegative = context.format(
-                pattern.map(SpreadsheetPattern::formatter)
-                        .orElse(SpreadsheetFormatters.empty()),
+        final TextNode formattedNegative = context.format(
+                formatter,
                 negative
         );
 
-        final SpreadsheetText formattedZero = context.format(
-                pattern.map(SpreadsheetPattern::formatter)
-                        .orElse(SpreadsheetFormatters.empty()),
+        final TextNode formattedZero = context.format(
+                formatter,
                 zero
         );
 
@@ -159,26 +158,9 @@ abstract class SpreadsheetPatternComponentTableRowProviderNumber extends Spreads
                 label,
                 pattern,
                 Lists.of(
-                        textNode(
-                                formattedPositive
-                        ),
-                        textNode(
-                                formattedNegative
-                        ),
-                        textNode(
-                                formattedZero
-                        )
-                )
-        );
-    }
-
-    /**
-     * Creates three lines, with each line holding a single formatted number.
-     */
-    private static TextNode textNode(final SpreadsheetText text) {
-        return TextNode.style(
-                Lists.of(
-                        text.toTextNode()
+                        formattedPositive,
+                        formattedNegative,
+                        formattedZero
                 )
         );
     }

@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -211,10 +212,10 @@ abstract class SpreadsheetPatternComponentTableRowProvider implements BiFunction
                 values.stream()
                         .map(v ->
                                 context.format(
-                                        pattern.map(SpreadsheetPattern::formatter)
+                                        pattern.map(p -> (SpreadsheetFormatter) p.formatter())
                                                 .orElse(SpreadsheetFormatters.empty()),
                                         v
-                                ).toTextNode()
+                                )
                         ).collect(Collectors.toList());
 
         return SpreadsheetPatternComponentTableRow.with(

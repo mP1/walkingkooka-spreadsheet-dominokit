@@ -21,8 +21,8 @@ import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
-import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.tree.text.TextNode;
 
 /**
  * A {@link Context} accompanying a {@link SpreadsheetPatternComponentTableRowProvider}.
@@ -37,12 +37,12 @@ public interface SpreadsheetPatternComponentTableRowProviderContext extends Logg
     /**
      * Uses the {@link #defaultSpreadsheetFormatter()} to format the {@link Object value}.
      */
-    default SpreadsheetText defaultFormat(final Object value) {
+    default TextNode defaultFormat(final Object value) {
         return this.defaultSpreadsheetFormatter()
                 .format(
                         value,
                         this.spreadsheetFormatterContext()
-                ).orElse(SpreadsheetText.EMPTY);
+                ).orElse(TextNode.EMPTY_TEXT);
     }
 
     /**
@@ -53,8 +53,8 @@ public interface SpreadsheetPatternComponentTableRowProviderContext extends Logg
     /**
      * Uses the given {@link SpreadsheetFormatter} to format the given {@link Object value}.
      */
-    default SpreadsheetText format(final SpreadsheetFormatter formatter,
-                                   final Object value) {
+    default TextNode format(final SpreadsheetFormatter formatter,
+                            final Object value) {
         return formatter.formatOrEmptyText(
                 value,
                 this.spreadsheetFormatterContext()

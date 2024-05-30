@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatters;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -58,10 +59,10 @@ final class SpreadsheetPatternComponentTableRowProviderTextFormat extends Spread
                                         tryParsePatternText(
                                                 patternText,
                                                 SpreadsheetPattern::parseTextFormatPattern
-                                        ).map(SpreadsheetPattern::formatter)
+                                        ).map(p -> (SpreadsheetFormatter) p.formatter())
                                                 .orElse(SpreadsheetFormatters.empty()),
                                         value
-                                ).toTextNode()
+                                )
                         )
                 ),
                 SpreadsheetPatternComponentTableRow.with(
@@ -71,7 +72,7 @@ final class SpreadsheetPatternComponentTableRowProviderTextFormat extends Spread
                                 context.format(
                                         SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.formatter(),
                                         value
-                                ).toTextNode()
+                                )
                         )
                 )
         );
