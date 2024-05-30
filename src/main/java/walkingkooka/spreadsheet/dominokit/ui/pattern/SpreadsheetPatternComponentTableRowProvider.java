@@ -205,9 +205,6 @@ abstract class SpreadsheetPatternComponentTableRowProvider implements BiFunction
                                                   final Optional<SpreadsheetPattern> pattern,
                                                   final List<Object> values,
                                                   final SpreadsheetPatternComponentTableRowProviderContext context) {
-        final String patternText = pattern.map(SpreadsheetPattern::text)
-                .orElse("");
-
         final List<TextNode> formatted =
                 values.stream()
                         .map(v ->
