@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.layout.AppLayout;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
@@ -33,17 +34,23 @@ public final class SpreadsheetAppLayout extends AppLayout implements
         ComponentLifecycle,
         HtmlElementComponent<HTMLDivElement, SpreadsheetAppLayout> {
 
-    public static SpreadsheetAppLayout empty() {
-        return new SpreadsheetAppLayout();
+    public static SpreadsheetAppLayout empty(final HistoryTokenContext context) {
+        Objects.requireNonNull(context, "context");
+        return new SpreadsheetAppLayout(context);
     }
 
-    private SpreadsheetAppLayout() {
+    private SpreadsheetAppLayout(final HistoryTokenContext context) {
         super();
+        context.addHistoryTokenWatcher(this);
+        Doms.setVisibility(
+                this.element(),
+                false
+        );
     }
 
     @Override
     public boolean isOpen() {
-        return Doms.isVisibilityHidden(
+        return false == Doms.isVisibilityHidden(
                 this.element()
         );
     }

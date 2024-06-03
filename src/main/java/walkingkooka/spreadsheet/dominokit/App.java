@@ -255,8 +255,7 @@ public class App implements EntryPoint,
     //   formula,
     //   table holding spreadsheet cells
     private SpreadsheetAppLayout prepareLayout() {
-        final SpreadsheetAppLayout layout = SpreadsheetAppLayout.empty();
-        this.addHistoryTokenWatcher(layout);
+        final SpreadsheetAppLayout layout = SpreadsheetAppLayout.empty(this);
 
         layout.setOverFlowX("hidden")
                 .setOverFlowY("hidden");
