@@ -48,10 +48,7 @@ public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends Spreads
     private final SpreadsheetMetadataPropertyName<T> propertyName;
 
     final Optional<SpreadsheetPatternKind> patternKind0() {
-        final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
-        return propertyName.isPattern() ?
-                propertyName.patternKind() :
-                Optional.empty();
+        return this.propertyName.patternKind();
     }
 
     // HasUrlFragment...................................................................................................

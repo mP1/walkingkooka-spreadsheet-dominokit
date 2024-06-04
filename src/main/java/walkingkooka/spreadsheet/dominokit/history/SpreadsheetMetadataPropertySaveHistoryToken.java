@@ -66,7 +66,9 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     private final Optional<T> propertyValue;
 
     Optional<SpreadsheetPattern> pattern0() {
-        return this.propertyName().isPattern() ?
+        return this.propertyName()
+                .patternKind()
+                .isPresent() ?
                 Cast.to(
                         this.propertyValue()
                 ) :
