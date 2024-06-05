@@ -94,15 +94,15 @@ public final class SpreadsheetCellClipboardPasteHistoryTokenTest extends Spreads
     }
 
     @Test
-    public void testUrlFragmentFormatPattern() {
+    public void testUrlFragmentFormatter() {
         this.urlFragmentAndCheck(
                 this.createHistoryToken(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardKind.FORMAT_PATTERN
+                        SpreadsheetCellClipboardKind.FORMATTER
                 ),
-                "/123/SpreadsheetName456/cell/A1/paste/format-pattern"
+                "/123/SpreadsheetName456/cell/A1/paste/formatter"
         );
     }
 

@@ -114,11 +114,13 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
                         .setHistoryToken(
                                 Optional.of(
                                         historyToken.setSave(
-                                                String.join(
-                                                        "",
-                                                        removed
-                                                ) // compute the pattern-text without this component.
-                                )
+                                                context.savePatternText(
+                                                        String.join(
+                                                                "",
+                                                                removed
+                                                        ) // compute the pattern-text without this component.
+                                                )
+                                        )
                                 )
                         );
 
@@ -142,7 +144,9 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
                                 .collect(Collectors.joining());
 
                         contextMenu = contextMenu.item(
-                                historyToken.setSave(newPattern)
+                                historyToken.setSave(
+                                                context.savePatternText(newPattern)
+                                        )
                                         .contextMenuItem(
                                                 id + "-alt-" + j + SpreadsheetIds.MENU_ITEM,
                                                 alternative

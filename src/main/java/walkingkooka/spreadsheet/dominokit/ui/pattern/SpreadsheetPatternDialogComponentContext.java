@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.ui.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
@@ -39,6 +40,40 @@ public interface SpreadsheetPatternDialogComponentContext extends CanGiveFocus,
      * The {@link SpreadsheetPatternKind} being edited.
      */
     SpreadsheetPatternKind patternKind();
+
+    /**
+     * Prepare the save pattern text, this is necessary for the moment because of the different text for FORMAT v PARSE
+     */
+    default String savePatternText(final String patternText) {
+        final String save;
+
+        if (patternText.isEmpty()) {
+            save = "";
+        } else {
+            switch (this.patternKind()) {
+                case DATE_FORMAT_PATTERN:
+                    save = SpreadsheetFormatterName.DATE_FORMAT + " " + patternText;
+                    break;
+                case DATE_TIME_FORMAT_PATTERN:
+                    save = SpreadsheetFormatterName.DATE_TIME_FORMAT + " " + patternText;
+                    break;
+                case NUMBER_FORMAT_PATTERN:
+                    save = SpreadsheetFormatterName.NUMBER_FORMAT + " " + patternText;
+                    break;
+                case TEXT_FORMAT_PATTERN:
+                    save = SpreadsheetFormatterName.TEXT_FORMAT + " " + patternText;
+                    break;
+                case TIME_FORMAT_PATTERN:
+                    save = SpreadsheetFormatterName.TIME_FORMAT + " " + patternText;
+                    break;
+                default:
+                    save = patternText;
+                    break;
+            }
+        }
+
+        return save;
+    }
 
     /**
      * Provides the UNDO {@link SpreadsheetPattern}

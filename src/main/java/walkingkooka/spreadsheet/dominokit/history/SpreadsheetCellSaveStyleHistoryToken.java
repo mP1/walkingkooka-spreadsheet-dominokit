@@ -24,10 +24,11 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * This {@link HistoryToken} is used by to paste a styles for many cells over another range.
@@ -59,8 +60,11 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
     }
 
     @Override
-    Optional<Class<TextStyle>> valueType() {
-        return Optional.of(TextStyle.class);
+    Map<SpreadsheetCellReference, TextStyle> parseSaveValue(final TextCursor cursor) {
+        return parseMap(
+                cursor,
+                TextStyle.class
+        );
     }
 
     @Override
@@ -78,13 +82,19 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
 
     // HasUrlFragment...................................................................................................
 
-
     @Override
     UrlFragment saveEntityUrlFragment() {
         return STYLE;
     }
 
     private final static UrlFragment STYLE = UrlFragment.parse("style");
+
+    @Override
+    JsonNode saveValueUrlFragmentValueToJson(final TextStyle value) {
+        return MARSHALL_CONTEXT.marshall(value);
+    }
+
+    // HistoryToken.....................................................................................................
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,

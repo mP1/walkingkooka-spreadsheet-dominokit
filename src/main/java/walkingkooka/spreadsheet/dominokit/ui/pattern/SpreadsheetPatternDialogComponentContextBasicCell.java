@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHistoryToken;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
@@ -68,7 +69,8 @@ abstract class SpreadsheetPatternDialogComponentContextBasicCell extends Spreads
 
             pattern = Cast.to(
                     patternKind.isFormatPattern() ?
-                    cell.formatPattern() :
+                            cell.formatter()
+                                    .flatMap(SpreadsheetFormatterSelector::spreadsheetFormatPattern) :
                             cell.parsePattern()
             );
         }

@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 
 import java.util.Optional;
 
@@ -78,14 +79,19 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
     final UrlFragment saveUrlFragment(final Object value) {
         return null == value ?
                 this.saveUrlFragment(UrlFragment.EMPTY) :
-                value instanceof HasUrlFragment ?
-                        this.saveUrlFragmentUrlFragment(
-                                ((HasUrlFragment) value)
-                                        .urlFragment()
+                value instanceof SpreadsheetFormatPattern ?
+                        this.saveUrlFragmentNonNull(
+                                ((SpreadsheetFormatPattern) value)
+                                        .spreadsheetFormatterSelector()
                         ) :
-                        value instanceof Optional ?
-                                this.saveUrlFragmentOptional((Optional<?>) value) :
-                                this.saveUrlFragmentNonNull(value);
+                        value instanceof HasUrlFragment ?
+                                this.saveUrlFragmentUrlFragment(
+                                        ((HasUrlFragment) value)
+                                                .urlFragment()
+                                ) :
+                                value instanceof Optional ?
+                                        this.saveUrlFragmentOptional((Optional<?>) value) :
+                                        this.saveUrlFragmentNonNull(value);
     }
 
     private UrlFragment saveUrlFragmentOptional(final Optional<?> value) {
@@ -95,11 +101,15 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
     }
 
     private UrlFragment saveUrlFragmentNonNull(final Object value) {
-        return this.saveUrlFragmentUrlFragment(
-                UrlFragment.with(
-                        String.valueOf(value)
-                )
-        );
+        return value instanceof SpreadsheetFormatPattern ?
+                this.saveUrlFragment(
+                        ((SpreadsheetFormatPattern) value).spreadsheetFormatterSelector()
+                ) :
+                this.saveUrlFragmentUrlFragment(
+                        UrlFragment.with(
+                                String.valueOf(value)
+                        )
+                );
     }
 
     private UrlFragment saveUrlFragmentUrlFragment(final UrlFragment urlFragment) {

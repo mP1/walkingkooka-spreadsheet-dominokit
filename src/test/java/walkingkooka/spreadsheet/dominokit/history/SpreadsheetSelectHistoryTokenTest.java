@@ -57,7 +57,7 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
 
     @Test
     public void testSetMetadataPropertyName() {
-        final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN;
+        final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.DATE_FORMATTER;
 
         this.setMetadataPropertyNameAndCheck(
                 propertyName,

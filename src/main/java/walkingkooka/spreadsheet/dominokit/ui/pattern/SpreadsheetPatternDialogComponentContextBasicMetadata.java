@@ -17,9 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
+import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 
 import java.util.Optional;
@@ -47,12 +49,24 @@ abstract class SpreadsheetPatternDialogComponentContextBasicMetadata extends Spr
      */
     @Override
     public Optional<SpreadsheetPattern> undo() {
-        return this.context.spreadsheetMetadata()
-                .getIgnoringDefaults(
-                        this.historyToken()
-                                .patternKind()
-                                .get()
-                                .spreadsheetMetadataPropertyName()
-                );
+        Optional<SpreadsheetPattern> pattern = Optional.empty();
+
+        final Optional<SpreadsheetFormatterSelector> maybeSelector = Cast.to(
+                this.context.spreadsheetMetadata()
+                        .getIgnoringDefaults(
+                                this.historyToken()
+                                        .patternKind()
+                                        .get()
+                                        .spreadsheetMetadataPropertyName()
+                        )
+        );
+        if (maybeSelector.isPresent()) {
+            pattern = Cast.to(
+                    maybeSelector.get()
+                            .spreadsheetFormatPattern()
+            );
+        }
+
+        return pattern;
     }
 }

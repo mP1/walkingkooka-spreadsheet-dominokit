@@ -2805,17 +2805,17 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
-                                ).setFormatPattern(
+                                ).setFormatter(
                                         Optional.of(
-                                                date
+                                                date.spreadsheetFormatterSelector()
                                         )
                                 ),
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
-                                        ).setFormatPattern(
+                                        ).setFormatter(
                                                 Optional.of(
-                                                        date
+                                                        date.spreadsheetFormatterSelector()
                                                 )
                                         ),
                                 SpreadsheetSelection.parseCell("B1")
@@ -2825,8 +2825,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.parseCell("C3")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
-                                        ).setFormatPattern(
-                                                Optional.of(text)
+                                        ).setFormatter(
+                                                Optional.of(
+                                                        text.spreadsheetFormatterSelector()
+                                                )
                                         )
                         )
                 ),
@@ -2867,17 +2869,17 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
-                                ).setFormatPattern(
+                                ).setFormatter(
                                         Optional.of(
-                                                date
+                                                date.spreadsheetFormatterSelector()
                                         )
                                 ),
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
-                                        ).setFormatPattern(
+                                        ).setFormatter(
                                                 Optional.of(
-                                                        text
+                                                        text.spreadsheetFormatterSelector()
                                                 )
                                         )
                         )
@@ -3226,8 +3228,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
-                                ).setFormatPattern(
-                                        Optional.of(format1)
+                                ).setFormatter(
+                                        Optional.of(
+                                                format1.spreadsheetFormatterSelector()
+                                        )
                                 ).setStyle(
                                         TextStyle.EMPTY.set(colorName, color1)
                                                 .set(textAlign, align1)
@@ -3235,8 +3239,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
-                                        ).setFormatPattern(
-                                                Optional.of(format2)
+                                        ).setFormatter(
+                                                Optional.of(
+                                                        format2.spreadsheetFormatterSelector()
+                                                )
                                         ).setStyle(
                                                 TextStyle.EMPTY.set(colorName, color1)
                                                         .set(textAlign, align2)
@@ -3302,8 +3308,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
-                                ).setFormatPattern(
-                                        Optional.of(format1)
+                                ).setFormatter(
+                                        Optional.of(
+                                                format1.spreadsheetFormatterSelector()
+                                        )
                                 ).setStyle(
                                         TextStyle.EMPTY.set(colorName, color1)
                                                 .set(textAlign, align1)
@@ -3311,8 +3319,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
-                                        ).setFormatPattern(
-                                                Optional.of(format2)
+                                        ).setFormatter(
+                                                Optional.of(
+                                                        format2.spreadsheetFormatterSelector()
+                                                )
                                         ).setStyle(
                                                 TextStyle.EMPTY.set(colorName, color1)
                                                         .set(textAlign, align2)
@@ -3368,8 +3378,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
-                                ).setFormatPattern(
-                                        Optional.of(format1)
+                                ).setFormatter(
+                                        Optional.of(
+                                                format1.spreadsheetFormatterSelector()
+                                        )
                                 ).setStyle(
                                         TextStyle.EMPTY.set(colorName, color1)
                                                 .set(textAlign, align1)
@@ -3377,8 +3389,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
-                                        ).setFormatPattern(
-                                                Optional.of(format2)
+                                        ).setFormatter(
+                                                Optional.of(
+                                                        format2.spreadsheetFormatterSelector()
+                                                )
                                         ).setStyle(
                                                 TextStyle.EMPTY.set(colorName, color1)
                                                         .set(textAlign, align1)
@@ -3397,8 +3411,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
-                                ).setFormatPattern(
-                                        Optional.of(format1)
+                                ).setFormatter(
+                                        Optional.of(
+                                                format1.spreadsheetFormatterSelector()
+                                        )
                                 ).setStyle(
                                         TextStyle.EMPTY.set(colorName, color1)
                                                 .set(textAlign, align2)
@@ -3406,8 +3422,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
-                                        ).setFormatPattern(
-                                                Optional.of(format2)
+                                        ).setFormatter(
+                                                Optional.of(
+                                                        format2.spreadsheetFormatterSelector()
+                                                )
                                         ).setStyle(
                                                 TextStyle.EMPTY.set(colorName, color1)
                                                         .set(textAlign, align2)
@@ -3459,16 +3477,20 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
-                                ).setFormatPattern(
-                                        Optional.of(format1)
+                                ).setFormatter(
+                                        Optional.of(
+                                                format1.spreadsheetFormatterSelector()
+                                        )
                                 ).setStyle(
                                         TextStyle.EMPTY.set(colorName, color1)
                                 ),
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
-                                        ).setFormatPattern(
-                                                Optional.of(format2)
+                                        ).setFormatter(
+                                                Optional.of(
+                                                        format2.spreadsheetFormatterSelector()
+                                                )
                                         ).setStyle(
                                                 TextStyle.EMPTY.set(colorName, color1)
                                                         .set(textAlign, align1)
@@ -3488,8 +3510,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
-                                        ).setFormatPattern(
-                                                Optional.of(format2)
+                                        ).setFormatter(
+                                                Optional.of(
+                                                        format2.spreadsheetFormatterSelector()
+                                                )
                                         ).setStyle(
                                                 TextStyle.EMPTY.set(colorName, color1)
                                                         .set(textAlign, align2)

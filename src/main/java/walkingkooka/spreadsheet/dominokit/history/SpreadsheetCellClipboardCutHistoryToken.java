@@ -125,11 +125,11 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                                         SpreadsheetFormula.EMPTY // delete formulas
                                 );
                                 break;
-                            case FORMAT_PATTERN:
-                                fetcher.patchFormatPattern(
+                            case FORMATTER:
+                                fetcher.patchFormatter(
                                         id,
                                         selection,
-                                        SpreadsheetCell.NO_FORMAT_PATTERN
+                                        SpreadsheetCell.NO_FORMATTER
                                 );
                                 break;
                             case PARSE_PATTERN:

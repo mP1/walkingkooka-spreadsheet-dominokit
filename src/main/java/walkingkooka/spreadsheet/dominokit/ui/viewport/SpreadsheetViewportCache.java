@@ -40,6 +40,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -345,7 +346,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
                 for (final SpreadsheetCell cell : this.cells.values()) {
                     if (selectionNotLabel.test(cell.reference())) {
-                        final SpreadsheetFormatPattern formatPattern = cell.formatPattern()
+                        final SpreadsheetFormatPattern formatPattern = cell.formatter()
+                                .flatMap(SpreadsheetFormatterSelector::spreadsheetFormatPattern)
                                 .orElse(null);
                         if (null != formatPattern) {
                             formatPatterns.add(formatPattern);

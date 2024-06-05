@@ -132,6 +132,7 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
                       final SpreadsheetPatternDialogComponentContext context) {
 
         final HistoryToken historyToken = context.historyToken();
+        final SpreadsheetPatternKind patternKind = context.patternKind();
 
         final List<SpreadsheetPatternComponentElementAppenderLink> links = this.links;
 
@@ -171,7 +172,14 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
             HistoryToken save = null;
             if (null != savePatternText) {
                 try {
-                    save = historyToken.setSave(savePatternText);
+                    // try parsing because might fail due to component in invalid position etc.
+                    patternKind.parse(savePatternText);
+
+                    save = historyToken.setSave(
+                            context.savePatternText(
+                                    savePatternText
+                            )
+                    );
                 } catch (final RuntimeException invalidPattern) {
                     // ignore save is already null
                 }

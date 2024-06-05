@@ -292,9 +292,9 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         SpreadsheetSelection.parseCell("B2")
                                 .setFormula(
                                         SpreadsheetFormula.EMPTY.setText("=22")
-                                ).setFormatPattern(
+                                ).setFormatter(
                                         Optional.of(
-                                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
                                         )
                                 )
                 ),
@@ -317,10 +317,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                 "      \"formula\": {\n" +
                                 "        \"text\": \"=22\"\n" +
                                 "      },\n" +
-                                "      \"format-pattern\": {\n" +
-                                "        \"type\": \"spreadsheet-text-format-pattern\",\n" +
-                                "        \"value\": \"@\"\n" +
-                                "      }\n" +
+                                "      \"formatter\": \"text-format @\"\n" +
                                 "    }\n" +
                                 "  }\n" +
                                 "}"
@@ -395,15 +392,15 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToJsonCellsFormatPatternNone() {
+    public void testToJsonCellsFormatterNone() {
         this.toJsonAndCheck(
                 "A1",
                 Sets.of(),
-                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMATTER,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
+                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
                                 "  \"cell-range\": \"A1\",\n" +
                                 "  \"value\": {}\n" +
                                 "}"
@@ -412,17 +409,17 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToJsonCellsFormatPatternMissing() {
+    public void testToJsonCellsFormatterMissing() {
         this.toJsonAndCheck(
                 "A1:B2",
                 Sets.of(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 ),
-                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMATTER,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
+                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": null\n" +
@@ -433,31 +430,28 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToJsonCellsFormatPatternSomeMissing() {
+    public void testToJsonCellsFormatterSomeMissing() {
         this.toJsonAndCheck(
                 "A1:B2",
                 Sets.of(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
                         SpreadsheetSelection.parseCell("B2")
                                 .setFormula(SpreadsheetFormula.EMPTY)
-                                .setFormatPattern(
+                                .setFormatter(
                                         Optional.of(
-                                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
                                         )
                                 )
                 ),
-                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMATTER,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
+                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": null,\n" +
-                                "    \"B2\": {\n" +
-                                "      \"type\": \"spreadsheet-text-format-pattern\",\n" +
-                                "      \"value\": \"@\"\n" +
-                                "    }\n" +
+                                "    \"B2\": \"text-format @\"\n" +
                                 "  }\n" +
                                 "}"
                 )
@@ -465,37 +459,34 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToJsonCellsFormatPattern() {
+    public void testToJsonCellsFormatter() {
         this.toJsonAndCheck(
                 "A1:B2",
                 Sets.of(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                                .setFormatPattern(
-                                        Optional.of(SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN)
+                                .setFormatter(
+                                        Optional.of(
+                                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
+                                        )
                                 ),
                         SpreadsheetSelection.parseCell("B2")
                                 .setFormula(SpreadsheetFormula.EMPTY)
-                                .setFormatPattern(
+                                .setFormatter(
                                         Optional.of(
                                                 SpreadsheetPattern.parseNumberFormatPattern("$0.00")
+                                                        .spreadsheetFormatterSelector()
                                         )
                                 )
                 ),
-                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMATTER,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern\",\n" +
+                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
-                                "    \"A1\": {\n" +
-                                "      \"type\": \"spreadsheet-text-format-pattern\",\n" +
-                                "      \"value\": \"@\"\n" +
-                                "    },\n" +
-                                "    \"B2\": {\n" +
-                                "      \"type\": \"spreadsheet-number-format-pattern\",\n" +
-                                "      \"value\": \"$0.00\"\n" +
-                                "    }\n" +
+                                "    \"A1\": \"text-format @\",\n" +
+                                "    \"B2\": \"number-format $0.00\"\n" +
                                 "  }\n" +
                                 "}"
                 )
@@ -924,10 +915,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         "      \"formula\": {\n" +
                         "        \"text\": \"=22\"\n" +
                         "      },\n" +
-                        "      \"format-pattern\": {\n" +
-                        "        \"type\": \"spreadsheet-text-format-pattern\",\n" +
-                        "        \"value\": \"@\"\n" +
-                        "      }\n" +
+                        "      \"formatter\": \"text-format @\"\n" +
                         "    }\n" +
                         "  }\n" +
                         "}",
@@ -944,9 +932,9 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                         ),
                                         B2.setFormula(
                                                 SpreadsheetMetadataTesting.parseFormula("=22")
-                                        ).setFormatPattern(
+                                        ).setFormatter(
                                                 Optional.of(
-                                                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                                                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
                                                 )
                                         )
                                 )

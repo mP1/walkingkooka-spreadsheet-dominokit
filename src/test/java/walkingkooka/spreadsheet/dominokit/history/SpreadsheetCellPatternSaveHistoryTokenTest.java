@@ -49,36 +49,49 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
     }
 
     @Test
-    public void testWithIncompatiblePatternKindAndPatternFails() {
+    public void testWithIncompatiblePatternKindAndParsePatternFails() {
         final IllegalArgumentException thrown = assertThrows(
                 IllegalArgumentException.class,
                 () -> SpreadsheetCellPatternSaveHistoryToken.with(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
+                        SpreadsheetPatternKind.NUMBER_PARSE_PATTERN,
                         Optional.of(
-                                PATTERN
+                                SpreadsheetPattern.parseNumberFormatPattern("$0.00")
                         )
                 )
         );
 
         this.checkEquals(
-                "Pattern \"yyyy-mm-dd\" is not a DATE_FORMAT_PATTERN.",
+                "Pattern \"$0.00\" is not a NUMBER_FORMAT_PATTERN.",
                 thrown.getMessage()
         );
     }
 
     @Test
+    public void testWithIncompatiblePatternKindAndFormatPattern() {
+        SpreadsheetCellPatternSaveHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
+                Optional.of(
+                        PATTERN
+                )
+        );
+    }
+
+    @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/format-pattern/date/save/yyyy-mm-dd");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/formatter/date/save/date-format yyyy-mm-dd");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/format-pattern/date/save/yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/formatter/date/save/date-format yyyy-mm-dd"
         );
     }
 
@@ -86,7 +99,7 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
                 SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/format-pattern/date/save/yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/*/top-left/formatter/date/save/date-format yyyy-mm-dd"
         );
     }
 
@@ -94,7 +107,7 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/123/SpreadsheetName456/cell/Label123/format-pattern/date/save/yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/Label123/formatter/date/save/date-format yyyy-mm-dd"
         );
     }
 

@@ -218,8 +218,11 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
                 .setHref(
                         Url.EMPTY_RELATIVE_URL.setFragment(
                                 context.historyToken()
-                                        .setSave(patternText)
-                                        .urlFragment()
+                                        .setSave(
+                                                context.savePatternText(
+                                                        patternText
+                                                )
+                                        ).urlFragment()
                         )
                 ).setTextContent(patternText)
                 .setId(

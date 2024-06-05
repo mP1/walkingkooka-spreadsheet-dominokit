@@ -39,7 +39,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -563,14 +563,14 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    public void patchCellsFormatPattern(final SpreadsheetId id,
-                                        final SpreadsheetSelection selection,
-                                        final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatPattern>> cellToFormatPatterns) {
+    public void patchCellsFormatter(final SpreadsheetId id,
+                                    final SpreadsheetSelection selection,
+                                    final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> cellToFormatters) {
         this.patchCellsWithMap(
                 id,
                 selection,
-                cellToFormatPatterns,
-                SpreadsheetDelta::cellsFormatPatternPatch
+                cellToFormatters,
+                SpreadsheetDelta::cellsFormatterPatch
         );
     }
 
@@ -631,16 +631,16 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    public void patchFormatPattern(final SpreadsheetId id,
-                                   final SpreadsheetSelection selection,
-                                   final Optional<SpreadsheetFormatPattern> pattern) {
+    public void patchFormatter(final SpreadsheetId id,
+                               final SpreadsheetSelection selection,
+                               final Optional<SpreadsheetFormatterSelector> formatter) {
         this.patchDelta(
                 url(
                         id,
                         selection
                 ),
-                SpreadsheetDelta.formatPatternPatch(
-                        pattern,
+                SpreadsheetDelta.formatterPatch(
+                        formatter,
                         this.context.marshallContext()
                 )
         );

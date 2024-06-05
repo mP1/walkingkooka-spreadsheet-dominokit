@@ -63,10 +63,7 @@ import java.util.stream.Collectors;
  *       "formula": {
  *         "text": "=22"
  *       },
- *       "format-pattern": {
- *         "type": "spreadsheet-text-format-pattern",
- *         "value": "@"
- *       }
+ *       "formatter": "text-format- @"
  *     }
  *   }
  * }
