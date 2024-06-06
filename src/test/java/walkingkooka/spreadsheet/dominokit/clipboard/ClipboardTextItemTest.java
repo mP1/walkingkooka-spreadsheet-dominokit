@@ -317,7 +317,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                 "      \"formula\": {\n" +
                                 "        \"text\": \"=22\"\n" +
                                 "      },\n" +
-                                "      \"formatter\": \"text-format @\"\n" +
+                                "      \"formatter\": \"text-format-pattern @\"\n" +
                                 "    }\n" +
                                 "  }\n" +
                                 "}"
@@ -451,7 +451,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                 "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": null,\n" +
-                                "    \"B2\": \"text-format @\"\n" +
+                                "    \"B2\": \"text-format-pattern @\"\n" +
                                 "  }\n" +
                                 "}"
                 )
@@ -485,8 +485,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                 "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
-                                "    \"A1\": \"text-format @\",\n" +
-                                "    \"B2\": \"number-format $0.00\"\n" +
+                                "    \"A1\": \"text-format-pattern @\",\n" +
+                                "    \"B2\": \"number-format-pattern $0.00\"\n" +
                                 "  }\n" +
                                 "}"
                 )
@@ -915,7 +915,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         "      \"formula\": {\n" +
                         "        \"text\": \"=22\"\n" +
                         "      },\n" +
-                        "      \"formatter\": \"text-format @\"\n" +
+                        "      \"formatter\": \"text-format-pattern @\"\n" +
                         "    }\n" +
                         "  }\n" +
                         "}",

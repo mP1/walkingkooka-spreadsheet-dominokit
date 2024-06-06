@@ -178,7 +178,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
                         ID,
                         NAME,
                         SELECTION,
-                        formatPattern.kind(),
+                        formatPattern.patternKind(),
                         Optional.of(formatPattern)
                 ),
                 HistoryToken.cellFormatPattern(
@@ -198,7 +198,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
                         ID,
                         NAME,
                         SELECTION,
-                        parsePattern.kind(),
+                        parsePattern.patternKind(),
                         Optional.of(parsePattern)
                 ),
                 HistoryToken.cellParsePattern(

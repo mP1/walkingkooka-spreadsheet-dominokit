@@ -77,7 +77,7 @@ abstract class SpreadsheetToolbarComponentItemAnchorPattern<P extends Spreadshee
         final Optional<SpreadsheetPatternKind> patternKind = this.pattern(
                 context.spreadsheetViewportCache()
                         .selectionSummary()
-        ).flatMap(SpreadsheetPattern::patternKind);
+        ).map(SpreadsheetPattern::patternKind);
 
         this.patternKind = patternKind.isPresent() ?
                 patternKind :

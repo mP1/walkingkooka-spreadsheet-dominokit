@@ -1895,7 +1895,7 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         final String text;
 
-        if (pattern.patternKind().get().isFormatPattern()) {
+        if (pattern.patternKind().isFormatPattern()) {
             final SpreadsheetFormatPattern formatPattern = (SpreadsheetFormatPattern) pattern;
             text = formatPattern.spreadsheetFormatterSelector()
                     .toString();
@@ -1905,7 +1905,7 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return this.setIfSpreadsheetNameHistoryToken(
                 (n) -> n.setPatternKind(
-                        Optional.of(pattern.kind())
+                        Optional.of(pattern.patternKind())
                 ).setSave(text)
         );
     }
