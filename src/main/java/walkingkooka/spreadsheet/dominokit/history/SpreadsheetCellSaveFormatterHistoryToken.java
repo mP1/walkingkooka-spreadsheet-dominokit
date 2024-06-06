@@ -88,8 +88,6 @@ public final class SpreadsheetCellSaveFormatterHistoryToken extends SpreadsheetC
         return FORMATTER;
     }
 
-    private final static UrlFragment FORMATTER = UrlFragment.parse("formatter");
-
     @Override
     JsonNode saveValueUrlFragmentValueToJson(final Optional<SpreadsheetFormatterSelector> value) {
         return MARSHALL_CONTEXT.marshall(
