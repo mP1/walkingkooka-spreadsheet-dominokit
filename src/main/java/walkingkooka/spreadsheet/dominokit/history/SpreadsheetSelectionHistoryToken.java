@@ -58,65 +58,65 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
         final HistoryToken result;
 
         switch (component) {
-            case "clear":
+            case CLEAR_STRING:
                 result = this.setClear();
                 break;
-            case "copy":
+            case COPY_STRING:
                 result = this.parseCopy(cursor);
                 break;
-            case "cut":
+            case CUT_STRING:
                 result = this.parseCut(cursor);
                 break;
-            case "delete":
+            case DELETE_STRING:
                 result = this.setDelete();
                 break;
-            case "find":
+            case FIND_STRING:
                 result = this.parseFind(cursor);
                 break;
-            case "formatter":
+            case FORMATTER_STRING:
                 result = this.parseFormatPattern(cursor);
                 break;
-            case "formula":
+            case FORMULA_STRING:
                 result = this.setFormula();
                 break;
-            case "freeze":
+            case FREEZE_STRING:
                 result = this.setFreeze();
                 break;
-            case "highlight":
+            case HIGHLIGHT_STRING:
                 result = this.parseHighlight(cursor);
                 break;
-            case "insertAfter":
+            case INSERT_AFTER_STRING:
                 result = this.setInsertAfter(
                         parseCount(cursor)
                 );
                 break;
-            case "insertBefore":
+            case INSERT_BEFORE_STRING:
                 result = this.setInsertBefore(
                         parseCount(cursor)
                 );
                 break;
-            case "menu":
+            case MENU_STRING:
                 result = this.setMenu(
                         Optional.empty(), // no selection
                         SpreadsheetLabelNameResolvers.fake()
                 );
                 break;
-            case "parse-pattern":
+            case PARSE_PATTERN_STRING:
                 result = this.parseParsePattern(cursor);
                 break;
-            case "paste":
+            case PASTE_STRING:
                 result = this.parsePaste(cursor);
                 break;
-            case "save":
+            case SAVE_STRING:
                 result = this.parseSave(cursor);
                 break;
-            case "sort":
+            case SORT_STRING:
                 result = this.parseSort(cursor);
                 break;
-            case "style":
+            case STYLE_STRING:
                 result = this.parseStyle(cursor);
                 break;
-            case "unfreeze":
+            case UNFREEZE_STRING:
                 result = this.setUnfreeze();
                 break;
             default:
@@ -252,7 +252,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
         final String component = parseComponent(cursor)
                 .orElse("");
         switch (component) {
-            case "edit":
+            case EDIT_STRING:
                 final String comparators = parseComponent(cursor)
                         .orElse("");
 
@@ -260,7 +260,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                         comparators
                 );
                 break;
-            case "save":
+            case SAVE_STRING:
                 historyToken = this.setSortSave(
                         SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(
                                 parseComponent(cursor)
