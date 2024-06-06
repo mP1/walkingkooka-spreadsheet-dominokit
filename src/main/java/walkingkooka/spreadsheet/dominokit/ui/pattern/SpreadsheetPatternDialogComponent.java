@@ -356,7 +356,8 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
         );
 
         final Optional<SpreadsheetPattern> pattern = componentContext.undo();
-        this.setPatternText(pattern.map(
+        this.setPatternText(
+                pattern.map(
                         SpreadsheetPattern::text)
                 .orElse("")
         );

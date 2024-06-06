@@ -58,7 +58,9 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
         );
 
         if (pattern.isPresent()) {
-            patternKind.checkSameOrFail(pattern.get());
+            if (patternKind.isParsePattern()) {
+                patternKind.checkSameOrFail(pattern.get());
+            }
         }
 
         this.pattern = pattern;
@@ -94,7 +96,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
         );
     }
 
-    // /cell/A1/format-pattern/text/save/@@
+    // /cell/A1/formatter/text/save/text-format @@
     //
     // /cell/A1/parse-pattern/date/save
     @Override

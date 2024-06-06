@@ -140,14 +140,14 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/format-pattern/date");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/formatter/date");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/format-pattern/date"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/formatter/date"
         );
     }
 
@@ -155,7 +155,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
                 SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/format-pattern/date"
+                "/123/SpreadsheetName456/cell/*/top-left/formatter/date"
         );
     }
 
@@ -163,7 +163,7 @@ public final class SpreadsheetCellPatternSelectHistoryTokenTest extends Spreadsh
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/123/SpreadsheetName456/cell/Label123/format-pattern/date"
+                "/123/SpreadsheetName456/cell/Label123/formatter/date"
         );
     }
 

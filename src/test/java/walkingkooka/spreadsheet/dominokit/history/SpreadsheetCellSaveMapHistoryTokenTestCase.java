@@ -43,6 +43,22 @@ public abstract class SpreadsheetCellSaveMapHistoryTokenTestCase<T extends Sprea
         ).toString();
     }
 
+    static String marshallMapWithOptionalValues(final Map<SpreadsheetCellReference, ?> cellToValue) {
+        return MARSHALL_CONTEXT.marshallMap(
+                cellToValue.entrySet()
+                        .stream()
+                        .collect(
+                                Collectors.toMap(
+                                        entry -> entry.getKey().toString(),
+                                        entry -> MARSHALL_CONTEXT.marshall(
+                                                Optional.class.cast(entry.getValue())
+                                                        .orElse(null)
+                                        )
+                                )
+                        )
+        ).toString();
+    }
+
     static String marshallMapWithOptionalTypedValues(final Map<SpreadsheetCellReference, ?> cellToValue) {
         return MARSHALL_CONTEXT.marshallMap(
                 cellToValue.entrySet()

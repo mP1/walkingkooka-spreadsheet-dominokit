@@ -94,7 +94,7 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
         final SpreadsheetMetadataPropertySelectHistoryToken<?> token = SpreadsheetMetadataPropertySelectHistoryToken.with(
                 ID,
                 NAME,
-                SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN
+                SpreadsheetMetadataPropertyName.DATE_FORMATTER
         );
         assertSame(
                 token,
@@ -112,13 +112,13 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
                 SpreadsheetMetadataPropertySelectHistoryToken.with(
                         ID,
                         NAME,
-                        SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN
+                        SpreadsheetMetadataPropertyName.TEXT_FORMATTER
                 ),
                 SpreadsheetPatternKind.DATE_FORMAT_PATTERN,
                 SpreadsheetMetadataPropertySelectHistoryToken.with(
                         ID,
                         NAME,
-                        SpreadsheetMetadataPropertyName.DATE_FORMAT_PATTERN
+                        SpreadsheetMetadataPropertyName.DATE_FORMATTER
                 )
         );
     }
@@ -129,7 +129,7 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
                 SpreadsheetMetadataPropertySelectHistoryToken.with(
                         ID,
                         NAME,
-                        SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN
+                        SpreadsheetMetadataPropertyName.TEXT_FORMATTER
                 ),
                 SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN,
                 SpreadsheetMetadataPropertySelectHistoryToken.with(
@@ -146,7 +146,7 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
                 SpreadsheetMetadataPropertySelectHistoryToken.with(
                         ID,
                         NAME,
-                        SpreadsheetMetadataPropertyName.TEXT_FORMAT_PATTERN
+                        SpreadsheetMetadataPropertyName.TEXT_FORMATTER
                 ),
                 HistoryToken.metadataSelect(
                         ID,

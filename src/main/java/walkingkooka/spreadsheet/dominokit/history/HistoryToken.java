@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
@@ -95,7 +96,7 @@ import java.util.function.Function;
  * <br>
  * A final example is changing the format pattern for a cell to DD/MM/YYYY. This is accomplished by entering the following hash.
  * <pre>
- *     #/1/Untitled/cell/D4/format-pattern/date/save/DD/MM/YYYY
+ *     #/1/Untitled/cell/D4/formatter/date/save/date-format DD/MM/YYYY
  * </pre>
  * This architecture makes it possible to program a macro system, manipulating a browser by simply sending new hash tokens.
  * <br>
@@ -360,13 +361,13 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * {@see SpreadsheetCellSaveFormatPatternHistoryToken}
+     * {@see SpreadsheetCellSaveFormatterHistoryToken}
      */
-    public static SpreadsheetCellSaveFormatPatternHistoryToken cellSaveFormatPattern(final SpreadsheetId id,
-                                                                                     final SpreadsheetName name,
-                                                                                     final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                                     final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatPattern>> value) {
-        return SpreadsheetCellSaveFormatPatternHistoryToken.with(
+    public static SpreadsheetCellSaveFormatterHistoryToken cellSaveFormatter(final SpreadsheetId id,
+                                                                             final SpreadsheetName name,
+                                                                             final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                             final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> value) {
+        return SpreadsheetCellSaveFormatterHistoryToken.with(
                 id,
                 name,
                 anchoredSelection,
@@ -1892,12 +1893,20 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken setPattern(final SpreadsheetPattern pattern) {
         Objects.requireNonNull(pattern, "pattern");
 
+        final String text;
+
+        if (pattern.patternKind().get().isFormatPattern()) {
+            final SpreadsheetFormatPattern formatPattern = (SpreadsheetFormatPattern) pattern;
+            text = formatPattern.spreadsheetFormatterSelector()
+                    .toString();
+        } else {
+            text = pattern.text();
+        }
+
         return this.setIfSpreadsheetNameHistoryToken(
                 (n) -> n.setPatternKind(
                         Optional.of(pattern.kind())
-                ).setSave(
-                        pattern.text()
-                )
+                ).setSave(text)
         );
     }
 
@@ -2001,15 +2010,21 @@ public abstract class HistoryToken implements HasUrlFragment,
             if (valueNotNull instanceof String) {
                 stringValue = (String) valueNotNull;
             } else {
-                if (valueNotNull instanceof HasText) {
-                    final HasText hasText = (HasText) valueNotNull;
-                    stringValue = hasText.text();
+                if (valueNotNull instanceof SpreadsheetFormatPattern) {
+                    final SpreadsheetFormatPattern formatPattern = (SpreadsheetFormatPattern) valueNotNull;
+                    stringValue = formatPattern.spreadsheetFormatterSelector()
+                            .toString();
                 } else {
-                    if (valueNotNull instanceof Enum) {
-                        final Enum<?> enumm = (Enum<?>) valueNotNull;
-                        stringValue = enumm.name();
+                    if (valueNotNull instanceof HasText) {
+                        final HasText hasText = (HasText) valueNotNull;
+                        stringValue = hasText.text();
                     } else {
-                        stringValue = valueNotNull.toString();
+                        if (valueNotNull instanceof Enum) {
+                            final Enum<?> enumm = (Enum<?>) valueNotNull;
+                            stringValue = enumm.name();
+                        } else {
+                            stringValue = valueNotNull.toString();
+                        }
                     }
                 }
             }

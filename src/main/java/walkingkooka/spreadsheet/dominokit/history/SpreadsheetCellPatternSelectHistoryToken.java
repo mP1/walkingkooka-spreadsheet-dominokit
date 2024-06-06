@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
@@ -110,7 +111,6 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
         final SpreadsheetPatternKind patternKind = this.patternKind()
                 .get();
 
-
         return cellPatternSave(
                 this.id(),
                 this.name(),
@@ -119,7 +119,11 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                 Optional.ofNullable(
                         pattern.isEmpty() ?
                                 null :
-                                patternKind.parse(pattern)
+                                patternKind.isFormatPattern() ?
+                                        SpreadsheetFormatterSelector.parse(pattern)
+                                                .spreadsheetFormatPattern()
+                                                .get() :
+                                        patternKind.parse(pattern)
                 )
         );
     }

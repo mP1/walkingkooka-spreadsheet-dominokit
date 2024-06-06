@@ -31,9 +31,8 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateParsePattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -69,9 +68,9 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
     private final static SpreadsheetCell CELL = SpreadsheetSelection.A1.setFormula(
             SpreadsheetFormula.EMPTY.setText("=1+2")
-    ).setFormatPattern(
+    ).setFormatter(
             Optional.of(
-                    SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                    SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
             )
     ).setParsePattern(
             Optional.of(
@@ -108,7 +107,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     @Test
     public void testPredicateFormatPattern() {
         this.predicateAndCheck(
-                SpreadsheetCellClipboardKind.FORMAT_PATTERN
+                SpreadsheetCellClipboardKind.FORMATTER
         );
     }
 
@@ -193,22 +192,22 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueFormatPattern() {
+    public void testToValueFormatter() {
         this.toValueAndCheck(
-                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMATTER,
                 CELL,
-                CELL.formatPattern()
+                CELL.formatter()
         );
     }
 
     @Test
     public void testToValueFormatPatternEmpty() {
-        final SpreadsheetCell cell = CELL.setFormatPattern(SpreadsheetCell.NO_FORMAT_PATTERN);
+        final SpreadsheetCell cell = CELL.setFormatter(SpreadsheetCell.NO_FORMATTER);
 
         this.toValueAndCheck(
-                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMATTER,
                 cell,
-                cell.formatPattern()
+                cell.formatter()
         );
     }
 
@@ -406,10 +405,10 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testUrlFragmentFormatPattern() {
+    public void testUrlFragmentFormatter() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
-                UrlFragment.with("format-pattern")
+                SpreadsheetCellClipboardKind.FORMATTER,
+                UrlFragment.with("formatter")
         );
     }
 
@@ -474,9 +473,10 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 SpreadsheetCellClipboardKind.CELL,
                 SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText("=1+2")
-                ).setFormatPattern(
+                ).setFormatter(
                         Optional.of(
                                 SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
+                                        .spreadsheetFormatterSelector()
                         )
                 ).setParsePattern(
                         Optional.of(
@@ -499,10 +499,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                         "    \"type\": \"spreadsheet-number-parse-pattern\",\n" +
                         "    \"value\": \"$0.00\"\n" +
                         "  },\n" +
-                        "  \"format-pattern\": {\n" +
-                        "    \"type\": \"spreadsheet-date-format-pattern\",\n" +
-                        "    \"value\": \"yyyy/mm/dd\"\n" +
-                        "  }\n" +
+                        "  \"formatter\": \"date-format yyyy/mm/dd\"\n" +
                         "}"
         );
     }
@@ -532,28 +529,26 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testMarshallFormatPatternEmpty() {
+    public void testMarshallFormatterEmpty() {
         this.marshallAndCheck(
-                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMATTER,
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
                 JsonNode.nullNode()
         );
     }
 
     @Test
-    public void testMarshallFormatPattern() {
+    public void testMarshallFormatter() {
         this.marshallAndCheck(
-                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMATTER,
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                        .setFormatPattern(
+                        .setFormatter(
                                 Optional.of(
                                         SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
+                                                .spreadsheetFormatterSelector()
                                 )
                         ),
-                "{\n" +
-                        "  \"type\": \"spreadsheet-date-format-pattern\",\n" +
-                        "  \"value\": \"yyyy/mm/dd\"\n" +
-                        "}"
+                "\"date-format yyyy/mm/dd\""
         );
     }
 
@@ -677,20 +672,21 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testUnmarshallCellFormatPattern() {
+    public void testUnmarshallCellFormatter() {
         final String formula = "=1+2";
 
-        final Optional<SpreadsheetFormatPattern> formatPattern = Optional.of(
+        final Optional<SpreadsheetFormatterSelector> formatPattern = Optional.of(
                 SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                        .spreadsheetFormatterSelector()
         );
 
         this.unmarshallAndCheck(
                 SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText(formula)
-                ).setFormatPattern(formatPattern),
+                ).setFormatter(formatPattern),
                 SpreadsheetSelection.A1.setFormula(
                         SpreadsheetMetadataTesting.parseFormula(formula)
-                ).setFormatPattern(formatPattern)
+                ).setFormatter(formatPattern)
         );
     }
 
@@ -781,22 +777,23 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     @Test
     public void testUnmarshallFormatPatternEmpty() {
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMATTER,
                 JsonNode.nullNode(),
                 EMPTY_FORMULA
         );
     }
 
     @Test
-    public void testUnmarshallFormatPattern() {
-        final SpreadsheetDateFormatPattern pattern = SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd");
+    public void testUnmarshallFormatter() {
+        final SpreadsheetFormatterSelector formatter = SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
+                .spreadsheetFormatterSelector();
 
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardKind.FORMAT_PATTERN,
+                SpreadsheetCellClipboardKind.FORMATTER,
                 APP_CONTEXT.marshallContext()
-                        .marshallWithType(pattern),
-                EMPTY_FORMULA.setFormatPattern(
-                        Optional.of(pattern)
+                        .marshall(formatter),
+                EMPTY_FORMULA.setFormatter(
+                        Optional.of(formatter)
                 )
         );
     }

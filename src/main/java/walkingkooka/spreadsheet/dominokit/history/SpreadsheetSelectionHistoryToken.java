@@ -73,7 +73,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             case "find":
                 result = this.parseFind(cursor);
                 break;
-            case "format-pattern":
+            case "formatter":
                 result = this.parseFormatPattern(cursor);
                 break;
             case "formula":

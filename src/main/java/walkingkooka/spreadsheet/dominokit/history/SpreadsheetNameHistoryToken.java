@@ -168,7 +168,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                 .setPatternKind(
                         this.parsePatternKind(
                                 cursor,
-                                "/format-pattern"
+                                "/formatter"
                         )
                 );
     }

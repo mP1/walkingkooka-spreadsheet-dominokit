@@ -34,7 +34,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 /**
- * Builds the context menu for format patterns.
+ * Builds the context menu for format/parse patterns.
  */
 abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
 

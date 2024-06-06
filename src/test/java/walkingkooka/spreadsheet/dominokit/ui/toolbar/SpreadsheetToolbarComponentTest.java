@@ -141,7 +141,7 @@ public final class SpreadsheetToolbarComponentTest implements ComponentLifecycle
                         "      mdi-format-letter-case \"Capitalize\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/text-transform/save/CAPITALIZE] id=toolbar-text_transform-CAPITALIZE-Link\n" +
                         "      mdi-format-letter-case-lower \"Lower-case\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/text-transform/save/LOWERCASE] id=toolbar-text_transform-LOWERCASE-Link\n" +
                         "      mdi-format-letter-case-lower \"Upper-case\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/text-transform/save/UPPERCASE] id=toolbar-text_transform-UPPERCASE-Link\n" +
-                        "      mdi-format-text \"Format pattern\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/format-pattern/text] id=toolbar-format-pattern-Link\n" +
+                        "      mdi-format-text \"Format pattern\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/formatter/text] id=toolbar-format-pattern-Link\n" +
                         "      mdi-format-text \"Parse pattern\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/parse-pattern/number] id=toolbar-parse-pattern-Link\n" +
                         "      mdi-format-clear \"Clear styling\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/*/save/] CHECKED id=toolbar-*-Link\n" +
                         "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/metadata/hide-zero-values/save/true] id=toolbar-hide-zero-values-Link\n" +

@@ -63,7 +63,7 @@ public final class SpreadsheetCellPatternFormatHistoryToken extends SpreadsheetC
 
     @Override
     UrlFragment cellUrlFragment() {
-        return SpreadsheetUrlFragments.FORMAT_PATTERN;
+        return SpreadsheetUrlFragments.FORMATTER;
     }
 
     @Override

@@ -34,7 +34,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -77,25 +76,24 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
 
     final Map<SpreadsheetCellReference, V> value;
 
+    // setSave..........................................................................................................
+
     @Override //
     final HistoryToken setSave0(final String value) {
-        final TextCursor cursor = TextCursors.charSequence(value);
-        final Optional<Class<V>> valueType = this.valueType();
-
         return this.replace(
                 this.id(),
                 this.name(),
                 this.anchoredSelection(),
-                valueType.isEmpty() ?
-                        SpreadsheetCellSaveMapHistoryToken.parseMapWithOptionalTypedValues(
-                                cursor
-                        ) :
-                        SpreadsheetCellSaveMapHistoryToken.parseMap(
-                                cursor,
-                                valueType.get()
-                        )
+                this.parseSaveValue(
+                        TextCursors.charSequence(value)
+                )
         );
     }
+
+    /**
+     * Parses the value which is assumed to hold a {@link Map} in JSON form.
+     */
+    abstract Map<SpreadsheetCellReference, V> parseSaveValue(final TextCursor cursor);
 
     /**
      * Used to consume the remainder of the {@link TextCursor} text giving some JSON where individual cells are mapped
@@ -110,6 +108,58 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
                 SpreadsheetCellReference.class, // key is always a cell
                 valueType
         );
+    }
+
+    /**
+     * Reads the JSON from the {@link TextCursor} as an OBJECT and then unmarshalls that into a {@link Map} with
+     * {@link SpreadsheetCellReference} keys and {@link Optional} value of the given value type parameter.
+     */
+    static <VV> Map<SpreadsheetCellReference, VV> parseMapWithNullableValues(final TextCursor cursor,
+                                                                             final Class<VV> valueType) {
+        final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
+
+        for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
+                .objectOrFail().children()) {
+            values.put(
+                    SpreadsheetSelection.parseCell(
+                            keyAndValue.name()
+                                    .value()
+                    ),
+                    UNMARSHALL_CONTEXT.unmarshall(
+                            keyAndValue,
+                            valueType
+                    )
+            );
+        }
+
+        return values;
+    }
+
+    /**
+     * Reads the JSON from the {@link TextCursor} as an OBJECT and then unmarshalls that into a {@link Map} with
+     * {@link SpreadsheetCellReference} keys and {@link Optional} value of the given value type parameter.
+     */
+    static <VV> Map<SpreadsheetCellReference, Optional<VV>> parseMapWithOptionalValues(final TextCursor cursor,
+                                                                                       final Class<VV> valueType) {
+        final Map<SpreadsheetCellReference, Optional<VV>> values = Maps.sorted();
+
+        for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
+                .objectOrFail().children()) {
+            values.put(
+                    SpreadsheetSelection.parseCell(
+                            keyAndValue.name()
+                                    .value()
+                    ),
+                    Optional.ofNullable(
+                            UNMARSHALL_CONTEXT.unmarshall(
+                                    keyAndValue,
+                                    valueType
+                            )
+                    )
+            );
+        }
+
+        return values;
     }
 
     static <VV> Map<SpreadsheetCellReference, VV> parseMapWithOptionalTypedValues(final TextCursor cursor) {
@@ -134,12 +184,6 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
     }
 
     /**
-     * Getter that returns the {@link Class} of the {@link Map} value. If empty the value is polymorphic, and
-     * marshalling and unmarshalling must include the type in the final JSON form.
-     */
-    abstract Optional<Class<V>> valueType();
-
-    /**
      * Factory method used by various would be setters when one or more components have changed and a new instance needs
      * to be created.
      */
@@ -152,15 +196,10 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
 
     @Override//
     final UrlFragment saveValueUrlFragment() {
-        final Function<V, JsonNode> valueMarshaller = this.valueType()
-                .isPresent() ?
-                this::marshallValue :
-                this::marshallValueWithType;
-
         final List<JsonNode> children = Lists.array();
         for (final Entry<SpreadsheetCellReference, V> cellAndValue : this.value().entrySet()) {
             children.add(
-                    valueMarshaller.apply(
+                    this.saveValueUrlFragmentValueToJson(
                             cellAndValue.getValue()
                     ).setName(
                             JsonPropertyName.with(
@@ -177,4 +216,6 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
                         .toString()
         );
     }
+
+    abstract JsonNode saveValueUrlFragmentValueToJson(final V value);
 }

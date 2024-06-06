@@ -22,7 +22,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursor;
@@ -32,15 +32,15 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * This {@link HistoryToken} is used by to paste a {@link SpreadsheetParsePattern} for many cells over another range.
+ * This {@link HistoryToken} is used by to paste a {@link SpreadsheetFormatterSelector} for many cells over another range.
  */
-public final class SpreadsheetCellSaveParsePatternHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<SpreadsheetParsePattern>> {
+public final class SpreadsheetCellSaveFormatterHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<SpreadsheetFormatterSelector>> {
 
-    static SpreadsheetCellSaveParsePatternHistoryToken with(final SpreadsheetId id,
-                                                            final SpreadsheetName name,
-                                                            final AnchoredSpreadsheetSelection anchoredSelection,
-                                                            final Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> value) {
-        return new SpreadsheetCellSaveParsePatternHistoryToken(
+    static SpreadsheetCellSaveFormatterHistoryToken with(final SpreadsheetId id,
+                                                         final SpreadsheetName name,
+                                                         final AnchoredSpreadsheetSelection anchoredSelection,
+                                                         final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> value) {
+        return new SpreadsheetCellSaveFormatterHistoryToken(
                 id,
                 name,
                 anchoredSelection,
@@ -48,10 +48,10 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
         );
     }
 
-    private SpreadsheetCellSaveParsePatternHistoryToken(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
-                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                        final Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> value) {
+    private SpreadsheetCellSaveFormatterHistoryToken(final SpreadsheetId id,
+                                                     final SpreadsheetName name,
+                                                     final AnchoredSpreadsheetSelection anchoredSelection,
+                                                     final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> value) {
         super(
                 id,
                 name,
@@ -60,19 +60,12 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
         );
     }
 
-    @Override
-    Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> parseSaveValue(final TextCursor cursor) {
-        return parseMapWithOptionalTypedValues(
-                cursor
-        );
-    }
-
     @Override //
-    SpreadsheetCellSaveParsePatternHistoryToken replace(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
-                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                        final Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> value) {
-        return new SpreadsheetCellSaveParsePatternHistoryToken(
+    SpreadsheetCellSaveFormatterHistoryToken replace(final SpreadsheetId id,
+                                                     final SpreadsheetName name,
+                                                     final AnchoredSpreadsheetSelection anchoredSelection,
+                                                     final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> value) {
+        return new SpreadsheetCellSaveFormatterHistoryToken(
                 id,
                 name,
                 anchoredSelection,
@@ -80,18 +73,26 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
         );
     }
 
+    @Override
+    Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> parseSaveValue(final TextCursor cursor) {
+        return parseMapWithOptionalValues(
+                cursor,
+                SpreadsheetFormatterSelector.class
+        );
+    }
+
     // HasUrlFragment..................................................................................................
 
     @Override
     UrlFragment saveEntityUrlFragment() {
-        return PARSE_PATTERN;
+        return FORMATTER;
     }
 
-    private final static UrlFragment PARSE_PATTERN = UrlFragment.parse("parse-pattern");
+    private final static UrlFragment FORMATTER = UrlFragment.parse("formatter");
 
     @Override
-    JsonNode saveValueUrlFragmentValueToJson(final Optional<SpreadsheetParsePattern> value) {
-        return MARSHALL_CONTEXT.marshallWithType(
+    JsonNode saveValueUrlFragmentValueToJson(final Optional<SpreadsheetFormatterSelector> value) {
+        return MARSHALL_CONTEXT.marshall(
                 value.orElse(null)
         );
     }
@@ -102,7 +103,7 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
-                .patchCellsParsePattern(
+                .patchCellsFormatter(
                         this.id(),
                         this.anchoredSelection().selection(),
                         this.value()

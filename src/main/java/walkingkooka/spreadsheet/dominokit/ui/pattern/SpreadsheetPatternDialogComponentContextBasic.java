@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 import java.time.LocalDateTime;
@@ -74,6 +75,7 @@ abstract class SpreadsheetPatternDialogComponentContextBasic implements Spreadsh
     public final SpreadsheetFormatterContext spreadsheetFormatterContext() {
         return this.context.spreadsheetMetadata()
                 .formatterContext(
+                        SpreadsheetFormatterProviders.spreadsheetFormatPattern(),
                         LocalDateTime::now,
                         (s) -> {
                             throw new UnsupportedOperationException();

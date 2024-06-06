@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -178,19 +178,19 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     },
 
     /**
-     * The clipboard value is cells to {@link SpreadsheetFormatPattern}.
+     * The clipboard value is cells to {@link SpreadsheetFormatterSelector}.
      */
-    FORMAT_PATTERN(
-            SpreadsheetFormatPattern.class,
-            SpreadsheetCell::formatPattern,
-            "format-pattern"
+    FORMATTER(
+            SpreadsheetFormatterSelector.class,
+            SpreadsheetCell::formatter,
+            "formatter"
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
                           final JsonNodeMarshallContext context) {
             return marshallCellToOptionalValue(
                     cell,
-                    cell.formatPattern(),
+                    cell.formatter(),
                     context
             );
         }
@@ -203,10 +203,13 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                             .value()
             ).setFormula(
                     SpreadsheetFormula.EMPTY
-            ).setFormatPattern(
+            ).setFormatter(
                     Optional.ofNullable(
                             context.unmarshallContext()
-                                    .unmarshallWithType(node)
+                                    .unmarshall(
+                                            node,
+                                            SpreadsheetFormatterSelector.class
+                                    )
                     )
             );
         }
@@ -215,12 +218,12 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
                                       final SpreadsheetId id,
                                       final SpreadsheetCellRange range) {
-            fetcher.patchCellsFormatPattern(
+            fetcher.patchCellsFormatter(
                     id,
                     range.range(),
                     toMap(
                             range,
-                            SpreadsheetCell::formatPattern
+                            SpreadsheetCell::formatter
                     )
             );
         }
@@ -237,7 +240,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
                           final JsonNodeMarshallContext context) {
-            return marshallCellToOptionalValue(
+            return marshallCellToOptionalTypeValue(
                     cell,
                     cell.parsePattern(),
                     context
@@ -333,7 +336,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
                           final JsonNodeMarshallContext context) {
-            return marshallCellToOptionalValue(
+            return marshallCellToOptionalTypeValue(
                     cell,
                     cell.formattedValue(),
                     context
@@ -367,6 +370,14 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     private static JsonNode marshallCellToOptionalValue(final SpreadsheetCell cell,
                                                         final Optional<?> value,
                                                         final JsonNodeMarshallContext context) {
+        return value.map(context::marshall)
+                .orElse(JsonNode.nullNode())
+                .setName(propertyName(cell));
+    }
+
+    private static JsonNode marshallCellToOptionalTypeValue(final SpreadsheetCell cell,
+                                                            final Optional<?> value,
+                                                            final JsonNodeMarshallContext context) {
         return value.map(context::marshallWithType)
                 .orElse(JsonNode.nullNode())
                 .setName(propertyName(cell));
@@ -518,7 +529,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     private final static List<SpreadsheetCellClipboardKind> VALUES = Lists.of(
             CELL,
             FORMULA,
-            FORMAT_PATTERN,
+            FORMATTER,
             PARSE_PATTERN,
             STYLE,
             FORMATTED_VALUE

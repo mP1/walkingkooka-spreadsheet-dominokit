@@ -143,8 +143,8 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                             )
                     );
                     break;
-                case "format-pattern":
-                    result = cellSaveFormatPattern(
+                case "formatter":
+                    result = cellSaveFormatter(
                             this.id(),
                             this.name(),
                             this.anchoredSelection(),

@@ -25,9 +25,10 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.tree.json.JsonNode;
 
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * This {@link HistoryToken} is used by to paste a formula over a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference}.
@@ -59,8 +60,11 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
     }
 
     @Override
-    Optional<Class<String>> valueType() {
-        return Optional.of(String.class);
+    Map<SpreadsheetCellReference, String> parseSaveValue(final TextCursor cursor) {
+        return parseMapWithNullableValues(
+                cursor,
+                String.class
+        );
     }
 
     @Override
@@ -84,6 +88,13 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
     }
 
     private final static UrlFragment FORMULA = UrlFragment.parse("formula");
+
+    @Override
+    JsonNode saveValueUrlFragmentValueToJson(final String value) {
+        return MARSHALL_CONTEXT.marshall(value);
+    }
+
+    // history..........................................................................................................
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
