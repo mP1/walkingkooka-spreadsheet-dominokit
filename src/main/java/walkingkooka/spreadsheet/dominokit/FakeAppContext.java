@@ -141,7 +141,7 @@ public class FakeAppContext implements AppContext {
         throw new UnsupportedOperationException();
     }
 
-    // SpreadsheetProviderContext.......................................................................................
+    // SpreadsheetFormatterProvider.....................................................................................
 
     @Override
     public Optional<SpreadsheetFormatter> spreadsheetFormatter(final SpreadsheetFormatterSelector spreadsheetFormatterSelector) {
