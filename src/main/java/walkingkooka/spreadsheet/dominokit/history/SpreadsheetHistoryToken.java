@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 
 import java.util.Optional;
@@ -42,7 +43,7 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
 
     final static UrlFragment FIND = UrlFragment.parse("find");
 
-    final static UrlFragment FORMATTER = UrlFragment.parse("formatter");
+    final static UrlFragment FORMATTER = SpreadsheetUrlFragments.FORMATTER;
 
     final static UrlFragment FREEZE = UrlFragment.parse("freeze");
 
