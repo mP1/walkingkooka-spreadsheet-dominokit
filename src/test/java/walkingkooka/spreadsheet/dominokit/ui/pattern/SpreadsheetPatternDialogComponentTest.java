@@ -46,6 +46,20 @@ import java.util.Locale;
 
 public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetPatternDialogComponent> {
 
+    private final static DateTimeContext DATE_TIME_CONTEXT = DateTimeContexts.locale(
+            Locale.forLanguageTag("EN-AU"), // cell / locale
+            1950, // cell / default year
+            50,
+            () -> LocalDateTime.of(
+                    1999,
+                    12,
+                    31,
+                    12,
+                    58,
+                    59
+            )
+    );
+    
     private final static SpreadsheetFormatterContext DATE_FORMATTER_CONTEXT = new FakeSpreadsheetFormatterContext() {
 
         @Override
@@ -59,89 +73,75 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
 
         @Override
         public Locale locale() {
-            return this.context.locale();
+            return DATE_TIME_CONTEXT.locale();
         }
 
         // cell / DateTimeContext
 
         @Override
         public List<String> ampms() {
-            return this.context.ampms();
+            return DATE_TIME_CONTEXT.ampms();
         }
 
         @Override
         public String ampm(int hourOfDay) {
-            return this.context.ampm(hourOfDay);
+            return DATE_TIME_CONTEXT.ampm(hourOfDay);
         }
 
         @Override
         public int defaultYear() {
-            return this.context.defaultYear();
+            return DATE_TIME_CONTEXT.defaultYear();
         }
 
         @Override
         public List<String> monthNames() {
-            return this.context.monthNames();
+            return DATE_TIME_CONTEXT.monthNames();
         }
 
         @Override
         public String monthName(int month) {
-            return this.context.monthName(month);
+            return DATE_TIME_CONTEXT.monthName(month);
         }
 
         @Override
         public List<String> monthNameAbbreviations() {
-            return this.context.monthNameAbbreviations();
+            return DATE_TIME_CONTEXT.monthNameAbbreviations();
         }
 
         @Override
         public String monthNameAbbreviation(final int month) {
-            return this.context.monthNameAbbreviation(month);
+            return DATE_TIME_CONTEXT.monthNameAbbreviation(month);
         }
 
         @Override
         public LocalDateTime now() {
-            return this.context.now();
+            return DATE_TIME_CONTEXT.now();
         }
 
         @Override
         public int twoDigitYear() {
-            return this.context.twoDigitYear();
+            return DATE_TIME_CONTEXT.twoDigitYear();
         }
 
         @Override
         public List<String> weekDayNames() {
-            return this.context.weekDayNames();
+            return DATE_TIME_CONTEXT.weekDayNames();
         }
 
         @Override
         public String weekDayName(final int day) {
-            return this.context.weekDayName(day);
+            return DATE_TIME_CONTEXT.weekDayName(day);
         }
 
         @Override
         public List<String> weekDayNameAbbreviations() {
-            return this.context.weekDayNameAbbreviations();
+            return DATE_TIME_CONTEXT.weekDayNameAbbreviations();
         }
 
         @Override
         public String weekDayNameAbbreviation(final int day) {
-            return this.context.weekDayNameAbbreviation(day);
+            return DATE_TIME_CONTEXT.weekDayNameAbbreviation(day);
         }
-
-        private final DateTimeContext context = DateTimeContexts.locale(
-                Locale.forLanguageTag("EN-AU"), // cell / locale
-                1950, // cell / default year
-                50,
-                () -> LocalDateTime.of(
-                        1999,
-                        12,
-                        31,
-                        12,
-                        58,
-                        59
-                )
-        );
     };
 
     private final static SpreadsheetFormatterContext DATE_TIME_FORMATTER_CONTEXT = new FakeSpreadsheetFormatterContext() {
@@ -154,89 +154,75 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
 
         @Override
         public Locale locale() {
-            return this.context.locale();
+            return DATE_TIME_CONTEXT.locale();
         }
 
         // cell / DateTimeContext
 
         @Override
         public List<String> ampms() {
-            return this.context.ampms();
+            return DATE_TIME_CONTEXT.ampms();
         }
 
         @Override
         public String ampm(int hourOfDay) {
-            return this.context.ampm(hourOfDay);
+            return DATE_TIME_CONTEXT.ampm(hourOfDay);
         }
 
         @Override
         public int defaultYear() {
-            return this.context.defaultYear();
+            return DATE_TIME_CONTEXT.defaultYear();
         }
 
         @Override
         public List<String> monthNames() {
-            return this.context.monthNames();
+            return DATE_TIME_CONTEXT.monthNames();
         }
 
         @Override
         public String monthName(int month) {
-            return this.context.monthName(month);
+            return DATE_TIME_CONTEXT.monthName(month);
         }
 
         @Override
         public List<String> monthNameAbbreviations() {
-            return this.context.monthNameAbbreviations();
+            return DATE_TIME_CONTEXT.monthNameAbbreviations();
         }
 
         @Override
         public String monthNameAbbreviation(final int month) {
-            return this.context.monthNameAbbreviation(month);
+            return DATE_TIME_CONTEXT.monthNameAbbreviation(month);
         }
 
         @Override
         public LocalDateTime now() {
-            return this.context.now();
+            return DATE_TIME_CONTEXT.now();
         }
 
         @Override
         public int twoDigitYear() {
-            return this.context.twoDigitYear();
+            return DATE_TIME_CONTEXT.twoDigitYear();
         }
 
         @Override
         public List<String> weekDayNames() {
-            return this.context.weekDayNames();
+            return DATE_TIME_CONTEXT.weekDayNames();
         }
 
         @Override
         public String weekDayName(final int day) {
-            return this.context.weekDayName(day);
+            return DATE_TIME_CONTEXT.weekDayName(day);
         }
 
         @Override
         public List<String> weekDayNameAbbreviations() {
-            return this.context.weekDayNameAbbreviations();
+            return DATE_TIME_CONTEXT.weekDayNameAbbreviations();
         }
 
         @Override
         public String weekDayNameAbbreviation(final int day) {
-            return this.context.weekDayNameAbbreviation(day);
+            return DATE_TIME_CONTEXT.weekDayNameAbbreviation(day);
         }
-
-        private final DateTimeContext context = DateTimeContexts.locale(
-                Locale.forLanguageTag("EN-AU"), // cell / locale
-                1950, // cell / default year
-                50,
-                () -> LocalDateTime.of(
-                        1999,
-                        12,
-                        31,
-                        12,
-                        58,
-                        59
-                )
-        );
     };
 
     private final static SpreadsheetFormatterContext NUMBER_FORMATTER_CONTEXT = new FakeSpreadsheetFormatterContext() {
@@ -304,7 +290,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
 
         @Override
         public char positiveSign() {
-            return this.positiveSign();
+            return this.context.positiveSign();
         }
 
         private final DecimalNumberContext context = DecimalNumberContexts.american(MathContext.DECIMAL32);
@@ -339,39 +325,25 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
 
         @Override
         public Locale locale() {
-            return this.context.locale();
+            return DATE_TIME_CONTEXT.locale();
         }
 
         // cell / DateTimeContext
 
         @Override
         public List<String> ampms() {
-            return this.context.ampms();
+            return DATE_TIME_CONTEXT.ampms();
         }
 
         @Override
         public String ampm(int hourOfDay) {
-            return this.context.ampm(hourOfDay);
+            return DATE_TIME_CONTEXT.ampm(hourOfDay);
         }
 
         @Override
         public LocalDateTime now() {
-            return this.context.now();
+            return DATE_TIME_CONTEXT.now();
         }
-
-        private final DateTimeContext context = DateTimeContexts.locale(
-                Locale.forLanguageTag("EN-AU"), // cell / locale
-                1950, // cell / default year
-                50,
-                () -> LocalDateTime.of(
-                        1999,
-                        12,
-                        31,
-                        12,
-                        58,
-                        59
-                )
-        );
     };
 
     // cell / date......................................................................................................
