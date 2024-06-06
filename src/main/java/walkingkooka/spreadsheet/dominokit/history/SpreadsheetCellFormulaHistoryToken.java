@@ -42,8 +42,6 @@ abstract public class SpreadsheetCellFormulaHistoryToken extends SpreadsheetCell
         return FORMULA.appendSlashThen(this.formulaUrlFragment());
     }
 
-    private final static UrlFragment FORMULA = UrlFragment.with("formula");
-
     abstract UrlFragment formulaUrlFragment();
 
     @Override
