@@ -237,11 +237,4 @@ public interface AppContext extends CanGiveFocus,
      * missing a count.
      */
     OptionalInt spreadsheetListDialogComponentDefaultCount();
-
-    // Has SpreadsheetComparatorProvider................................................................................
-
-    /**
-     * Returns the current {@link SpreadsheetComparatorProvider}.
-     */
-    SpreadsheetComparatorProvider spreadsheetComparatorProvider();
 }

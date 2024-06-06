@@ -997,15 +997,6 @@ public class App implements EntryPoint,
      */
     private long lastResize;
 
-    // Has SpreadsheetComparatorProvider................................................................................
-
-    // TODO https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2948
-    // App should load SpreadsheetComparatorProvider from server.
-    @Override
-    public SpreadsheetComparatorProvider spreadsheetComparatorProvider() {
-        return SpreadsheetComparatorProviders.builtIn();
-    }
-
     // logging..........................................................................................................
 
     @Override

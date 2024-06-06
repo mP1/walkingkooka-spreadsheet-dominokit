@@ -1505,9 +1505,16 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
             }
 
             @Override
-            public SpreadsheetComparatorProvider spreadsheetComparatorProvider() {
-                return SpreadsheetComparatorProviders.builtIn();
+            public Optional<SpreadsheetComparator<?>> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
+                return this.spreadsheetComparatorProvider.spreadsheetComparator(spreadsheetComparatorName);
             }
+
+            @Override
+            public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
+                return this.spreadsheetComparatorProvider.spreadsheetComparatorInfos();
+            }
+
+            private final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.builtIn();
         };
     }
 
@@ -1527,14 +1534,12 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
 
                     @Override
                     public Optional<SpreadsheetComparator<?>> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
-                        return context.spreadsheetComparatorProvider()
-                                .spreadsheetComparator(spreadsheetComparatorName);
+                        return context.spreadsheetComparator(spreadsheetComparatorName);
                     }
 
                     @Override
                     public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
-                        return context.spreadsheetComparatorProvider()
-                                .spreadsheetComparatorInfos();
+                        return context.spreadsheetComparatorInfos();
                     }
                 }
         );
