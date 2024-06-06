@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
@@ -2304,7 +2304,7 @@ public abstract class HistoryToken implements HasUrlFragment,
      */
     public final HistoryTokenAnchorComponent link(final String id) {
         return HistoryTokenAnchorComponent.empty()
-                .setId(id + SpreadsheetIds.LINK)
+                .setId(id + SpreadsheetElementIds.LINK)
                 .setHistoryToken(
                         Optional.of(this)
                 );

@@ -22,7 +22,7 @@ import elemental2.dom.Node;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
@@ -88,7 +88,7 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
                                         SpreadsheetPatternDialogComponent.ID_PREFIX +
                                                 "append-" +
                                                 i +
-                                                SpreadsheetIds.LINK
+                                                SpreadsheetElementIds.LINK
                                 ).setTextContent(pattern);
                         anchor.addClickAndKeydownEnterListener(
                                 (e) -> {

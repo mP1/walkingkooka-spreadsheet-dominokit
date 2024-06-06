@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui;
 
 import walkingkooka.reflect.PublicStaticHelper;
 
-public final class SpreadsheetIds implements PublicStaticHelper {
+public final class SpreadsheetElementIds implements PublicStaticHelper {
 
     public final static String BUTTON = "-Button";
 
@@ -38,7 +38,7 @@ public final class SpreadsheetIds implements PublicStaticHelper {
     public final static String TABLE = "-Table";
     public final static String TEXT_BOX = "-TextBox";
 
-    private SpreadsheetIds() {
+    private SpreadsheetElementIds() {
         throw new UnsupportedOperationException();
     }
 }

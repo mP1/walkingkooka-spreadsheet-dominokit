@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSortSaveHisto
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortEditHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.ui.columnorrowcomparatornameslist.SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
@@ -207,7 +207,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent columnOrRowComparatorNamesList() {
         return SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
-                .setId(ID_PREFIX + "columnOrRowComparatorNamesList" + SpreadsheetIds.TEXT_BOX)
+                .setId(ID_PREFIX + "columnOrRowComparatorNamesList" + SpreadsheetElementIds.TEXT_BOX)
                 .addKeyupListener(
                         (e) -> this.refreshColumnOrRowComparatorNamesList()
                 ).addChangeListener(

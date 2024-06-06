@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -54,19 +54,19 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
     void build(final SpreadsheetContextMenu menu) {
         this.date(
                 menu.subMenu(
-                        this.idPrefix + "date" + SpreadsheetIds.SUB_MENU,
+                        this.idPrefix + "date" + SpreadsheetElementIds.SUB_MENU,
                         "Date"
                 )
         );
         this.dateTime(
                 menu.subMenu(
-                        this.idPrefix + "datetime" + SpreadsheetIds.SUB_MENU,
+                        this.idPrefix + "datetime" + SpreadsheetElementIds.SUB_MENU,
                         "Date Time"
                 )
         );
         this.number(
                 menu.subMenu(
-                        this.idPrefix + "number" + SpreadsheetIds.SUB_MENU,
+                        this.idPrefix + "number" + SpreadsheetElementIds.SUB_MENU,
                         "Number"
                 )
         );
@@ -74,14 +74,14 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
         if (this.isFormat()) {
             this.text(
                     menu.subMenu(
-                            this.idPrefix + "text" + SpreadsheetIds.SUB_MENU,
+                            this.idPrefix + "text" + SpreadsheetElementIds.SUB_MENU,
                             "Text"
                     )
             );
         }
         this.time(
                 menu.subMenu(
-                        this.idPrefix + "time" + SpreadsheetIds.SUB_MENU,
+                        this.idPrefix + "time" + SpreadsheetElementIds.SUB_MENU,
                         "Time"
                 )
         );
@@ -136,7 +136,7 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
         menu.item(
                 this.historyToken.setPattern(pattern)
                         .contextMenuItem(
-                                this.idPrefix + "date-" + id + SpreadsheetIds.MENU_ITEM,
+                                this.idPrefix + "date-" + id + SpreadsheetElementIds.MENU_ITEM,
                                 label + " " + pattern
                         ).checked(
                                 this.checked(pattern)
@@ -189,7 +189,7 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
         menu.item(
                 this.historyToken.setPattern(pattern)
                         .contextMenuItem(
-                                this.idPrefix + "datetime-" + id + SpreadsheetIds.MENU_ITEM,
+                                this.idPrefix + "datetime-" + id + SpreadsheetElementIds.MENU_ITEM,
                                 label + " " + pattern
                         ).checked(
                                 this.checked(pattern)
@@ -274,7 +274,7 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
         menu.item(
                 this.historyToken.setPattern(pattern)
                         .contextMenuItem(
-                                this.idPrefix + "number-" + id + SpreadsheetIds.MENU_ITEM,
+                                this.idPrefix + "number-" + id + SpreadsheetElementIds.MENU_ITEM,
                                 label + " " + pattern
                         ).checked(
                                 this.checked(pattern)
@@ -289,7 +289,7 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
                 this.historyToken.setPattern(
                         pattern
                 ).contextMenuItem(
-                        this.idPrefix + "text-default" + SpreadsheetIds.MENU_ITEM,
+                        this.idPrefix + "text-default" + SpreadsheetElementIds.MENU_ITEM,
                         "Default " + SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
                 ).checked(
                         this.checked(pattern)
@@ -342,7 +342,7 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
         menu.item(
                 this.historyToken.setPattern(pattern)
                         .contextMenuItem(
-                                this.idPrefix + "time-" + id + SpreadsheetIds.MENU_ITEM,
+                                this.idPrefix + "time-" + id + SpreadsheetElementIds.MENU_ITEM,
                                 label + " " + pattern
                         ).checked(
                                 this.checked(pattern)
@@ -371,7 +371,7 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
             menu.item(
                     token.setPattern(recent)
                             .contextMenuItem(
-                                    this.idPrefix + "recent-" + i + SpreadsheetIds.MENU_ITEM, // id
+                                    this.idPrefix + "recent-" + i + SpreadsheetElementIds.MENU_ITEM, // id
                                     text
                             )
             );
@@ -386,7 +386,7 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
                 this.historyToken.setPatternKind(
                         Optional.of(kind)
                 ).contextMenuItem(
-                        this.idPrefix + "edit" + SpreadsheetIds.MENU_ITEM,
+                        this.idPrefix + "edit" + SpreadsheetElementIds.MENU_ITEM,
                         "Edit..."
                 )
         );
@@ -405,7 +405,7 @@ abstract class SpreadsheetSelectionMenuPattern<P extends SpreadsheetPattern> {
                                     pattern.get()
                             ).setDelete()
                             .contextMenuItem(
-                                    this.idPrefix + "remove-" + (this.isFormat() ? "format" : "parse") + SpreadsheetIds.MENU_ITEM, // id
+                                    this.idPrefix + "remove-" + (this.isFormat() ? "format" : "parse") + SpreadsheetElementIds.MENU_ITEM, // id
                                     "Remove" // text
                             ).icon(
                                     this.removeIcon()

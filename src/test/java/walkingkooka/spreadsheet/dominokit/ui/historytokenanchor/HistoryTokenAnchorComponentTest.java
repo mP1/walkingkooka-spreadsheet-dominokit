@@ -25,7 +25,7 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.ui.tooltip.SpreadsheetTooltipComponent;
@@ -198,17 +198,17 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
                 HistoryTokenContexts.fake()
         ).item(
                 SpreadsheetContextMenuItem.with(
-                        "menu-item-1" + SpreadsheetIds.MENU_ITEM,
+                        "menu-item-1" + SpreadsheetElementIds.MENU_ITEM,
                         "Item 1"
                 )
         ).item(
                 SpreadsheetContextMenuItem.with(
-                        "menu-item-2" + SpreadsheetIds.MENU_ITEM,
+                        "menu-item-2" + SpreadsheetElementIds.MENU_ITEM,
                         "Item 2"
                 )
         ).item(
                 SpreadsheetContextMenuItem.with(
-                        "menu-item-3" + SpreadsheetIds.MENU_ITEM,
+                        "menu-item-3" + SpreadsheetElementIds.MENU_ITEM,
                         "Item 3"
                 )
         );

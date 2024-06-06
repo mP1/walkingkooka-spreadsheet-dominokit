@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorDirection;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
@@ -52,7 +52,7 @@ final class SpreadsheetSelectionMenuSort {
                 idPrefix,
                 spreadsheetComparatorInfos,
                 menu.subMenu(
-                        CharSequences.subSequence(idPrefix, 0, -1) + SpreadsheetIds.SUB_MENU, // -1 removes trailing minus because SUB_MENU includes a minus at the start
+                        CharSequences.subSequence(idPrefix, 0, -1) + SpreadsheetElementIds.SUB_MENU, // -1 removes trailing minus because SUB_MENU includes a minus at the start
                         "Sort " + columnOrRow.textLabel(),
                         icon
                 )
@@ -73,7 +73,7 @@ final class SpreadsheetSelectionMenuSort {
             final String subMenuId = idPrefix + nameText;
 
             final SpreadsheetContextMenu subMenu = menu.subMenu(
-                    subMenuId + SpreadsheetIds.SUB_MENU,
+                    subMenuId + SpreadsheetElementIds.SUB_MENU,
                     CaseKind.KEBAB.change(
                             nameText,
                             CaseKind.TITLE
@@ -127,7 +127,7 @@ final class SpreadsheetSelectionMenuSort {
                         .setColumnOrRow(columnOrRow)
                         .list()
         ).contextMenuItem(
-                idPrefix + direction + SpreadsheetIds.MENU_ITEM,
+                idPrefix + direction + SpreadsheetElementIds.MENU_ITEM,
                 CaseKind.SNAKE.change(
                         direction.name(),
                         CaseKind.TITLE
@@ -140,7 +140,7 @@ final class SpreadsheetSelectionMenuSort {
                                                            final HistoryToken historyToken) {
         return historyToken.setSortEdit(columnOrRow + "=")
                 .contextMenuItem(
-                        idPrefix + "edit" + SpreadsheetIds.MENU_ITEM,
+                        idPrefix + "edit" + SpreadsheetElementIds.MENU_ITEM,
                         "Edit"
                 );
     }

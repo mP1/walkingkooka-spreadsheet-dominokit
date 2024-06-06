@@ -24,7 +24,7 @@ import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
@@ -66,7 +66,7 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
 
             this.patternKind = patternKind;
             this.dataTable = SpreadsheetDataTableComponent.with(
-                    SpreadsheetPatternDialogComponent.ID_PREFIX + SpreadsheetIds.TABLE, // id
+                    SpreadsheetPatternDialogComponent.ID_PREFIX + SpreadsheetElementIds.TABLE, // id
                     columnConfigs(patternKind), // configs
                     (column, row) -> {
                         HtmlElementComponent<?, ?> rendered;
@@ -228,7 +228,7 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
                 .setId(
                         SpreadsheetPatternDialogComponent.ID_PREFIX +
                                 label.toLowerCase() +
-                                SpreadsheetIds.LINK
+                                SpreadsheetElementIds.LINK
                 );
     }
 
