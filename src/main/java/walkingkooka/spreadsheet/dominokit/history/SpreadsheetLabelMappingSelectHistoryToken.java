@@ -62,7 +62,7 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     UrlFragment labelUrlFragment() {
         return this.labelName.map(
                 l -> UrlFragment.with(
-                        "/" + l.value()
+                        l.value()
                 )
         ).orElse(UrlFragment.EMPTY);
     }

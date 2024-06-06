@@ -58,7 +58,7 @@ public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetC
 
     @Override
     UrlFragment highlightUrlFragment() {
-        return SAVE.append(
+        return this.saveUrlFragment(
                 this.value() ?
                         ENABLE_FRAGMENT :
                         DISABLE_FRAGMENT

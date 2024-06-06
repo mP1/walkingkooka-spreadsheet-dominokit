@@ -44,10 +44,8 @@ abstract class SpreadsheetColumnInsertHistoryToken extends SpreadsheetColumnHist
         final OptionalInt count = this.count();
 
         return count.isPresent() ?
-                UrlFragment.SLASH.append(
-                        UrlFragment.with(
-                                String.valueOf(count.getAsInt())
-                        )
+                UrlFragment.with(
+                        String.valueOf(count.getAsInt())
                 ) :
                 UrlFragment.EMPTY;
     }

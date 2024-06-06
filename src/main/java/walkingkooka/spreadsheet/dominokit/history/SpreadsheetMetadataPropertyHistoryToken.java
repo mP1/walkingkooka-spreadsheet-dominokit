@@ -55,11 +55,11 @@ public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends Spreads
 
     @Override //
     final UrlFragment metadataUrlFragment() {
-        return UrlFragment.SLASH.append(
-                this.propertyName()
-                        .urlFragment()
-                        .append(this.metadataPropertyUrlFragment())
-        );
+        return this.propertyName()
+                .urlFragment()
+                .appendSlashThen(
+                        this.metadataPropertyUrlFragment()
+                );
     }
 
     abstract UrlFragment metadataPropertyUrlFragment();

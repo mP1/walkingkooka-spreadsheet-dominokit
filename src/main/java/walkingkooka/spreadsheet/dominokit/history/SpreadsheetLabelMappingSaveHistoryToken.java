@@ -63,17 +63,12 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     UrlFragment labelUrlFragment() {
         final SpreadsheetLabelMapping mapping = this.mapping;
 
-        return UrlFragment.SLASH.append(
-                        UrlFragment.with(
-                                mapping.label()
-                                        .value()
-                        )
-                ).append(SAVE)
-                .append(
-                        UrlFragment.with(
-                                mapping.target()
-                                        .toString()
-                        )
+        return UrlFragment.with(
+                        mapping.label()
+                                .value()
+        ).appendSlashThen(
+                this.saveUrlFragment(
+                        mapping.target().toString())
                 );
     }
 

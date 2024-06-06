@@ -38,7 +38,7 @@ public abstract class SpreadsheetColumnSortHistoryToken extends SpreadsheetColum
 
     @Override //
     final UrlFragment columnUrlFragment() {
-        return SORT.append(this.sortUrlFragment());
+        return SORT.appendSlashThen(this.sortUrlFragment());
     }
 
     abstract UrlFragment sortUrlFragment();

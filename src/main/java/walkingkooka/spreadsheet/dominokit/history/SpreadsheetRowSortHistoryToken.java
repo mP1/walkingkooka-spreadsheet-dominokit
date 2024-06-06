@@ -38,7 +38,7 @@ public abstract class SpreadsheetRowSortHistoryToken extends SpreadsheetRowHisto
 
     @Override //
     final UrlFragment rowUrlFragment() {
-        return SORT.append(this.sortUrlFragment());
+        return SORT.appendSlashThen(this.sortUrlFragment());
     }
 
     abstract UrlFragment sortUrlFragment();

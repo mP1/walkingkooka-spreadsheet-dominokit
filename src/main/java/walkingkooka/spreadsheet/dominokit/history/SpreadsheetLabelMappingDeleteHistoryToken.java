@@ -58,12 +58,9 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     // /Label123/delete
     @Override
     UrlFragment labelUrlFragment() {
-        return UrlFragment.SLASH
-                .append(
-                        UrlFragment.with(
-                                this.labelName.value()
-                        )
-                ).append(DELETE);
+        return UrlFragment.with(
+                this.labelName.value()
+        ).appendSlashThen(DELETE);
     }
 
     @Override

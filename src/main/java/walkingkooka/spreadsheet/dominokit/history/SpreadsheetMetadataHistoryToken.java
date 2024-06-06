@@ -40,12 +40,12 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
 
     @Override //
     final UrlFragment spreadsheetNameUrlFragment() {
-        return METADATA.append(
+        return METADATA.appendSlashThen(
                 this.metadataUrlFragment()
         );
     }
 
-    private final static UrlFragment METADATA = UrlFragment.parse("/metadata");
+    private final static UrlFragment METADATA = UrlFragment.parse("metadata");
 
     abstract UrlFragment metadataUrlFragment();
 

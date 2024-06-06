@@ -42,7 +42,7 @@ public abstract class SpreadsheetCellSortHistoryToken extends SpreadsheetCellHis
 
     @Override //
     final UrlFragment cellUrlFragment() {
-        return SORT.append(this.sortUrlFragment());
+        return SORT.appendSlashThen(this.sortUrlFragment());
     }
 
     abstract UrlFragment sortUrlFragment();

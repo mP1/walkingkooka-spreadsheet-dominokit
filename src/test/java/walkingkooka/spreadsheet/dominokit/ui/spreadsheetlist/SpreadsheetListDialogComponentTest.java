@@ -68,7 +68,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Create\" [#/create] id=spreadsheet-list-create-Link\n" +
-                        "          \"reload\" [#/reload/] mdi-reload id=spreadsheet-list-reload-Link\n" +
+                        "          \"reload\" [#/reload] mdi-reload id=spreadsheet-list-reload-Link\n" +
                         "          \"10 Rows\" [#/count/10] id=spreadsheet-list-count-10-rows-Link\n" +
                         "          \"20 Rows\" [#/count/20] id=spreadsheet-list-count-20-rows-Link\n"
         );

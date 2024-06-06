@@ -49,8 +49,10 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
     }
 
     @Override
-    public UrlFragment urlFragment() {
-        return DELETE.append(this.id().urlFragment());
+    UrlFragment spreadsheetUrlFragment() {
+        return DELETE.appendSlashThen(
+                this.id().urlFragment()
+        );
     }
 
     @Override

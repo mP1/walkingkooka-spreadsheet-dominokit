@@ -54,7 +54,7 @@ public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnI
 
     @Override
     UrlFragment columnUrlFragment() {
-        return INSERT_AFTER.append(
+        return INSERT_AFTER.appendSlashThen(
                 this.countUrlFragment()
         );
     }

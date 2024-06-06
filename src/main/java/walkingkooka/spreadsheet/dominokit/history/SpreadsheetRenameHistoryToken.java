@@ -38,8 +38,9 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
         );
     }
 
-    @Override final UrlFragment spreadsheetNameUrlFragment() {
-        return RENAME.append(
+    @Override //
+    final UrlFragment spreadsheetNameUrlFragment() {
+        return RENAME.appendSlashThen(
                 this.spreadsheetRenameUrlFragment()
         );
     }

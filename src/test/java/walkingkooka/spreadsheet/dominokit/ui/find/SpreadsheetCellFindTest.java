@@ -369,7 +369,7 @@ public final class SpreadsheetCellFindTest implements HasUrlFragmentTesting,
                         .setPath(
                                 Optional.of(SpreadsheetCellRangeReferencePath.BULR)
                         ),
-                UrlFragment.parse("/path/BULR")
+                UrlFragment.parse("path/BULR")
         );
     }
 
@@ -380,7 +380,7 @@ public final class SpreadsheetCellFindTest implements HasUrlFragmentTesting,
                         .setOffset(
                                 OptionalInt.of(123)
                         ),
-                UrlFragment.parse("/offset/123")
+                UrlFragment.parse("offset/123")
         );
     }
 
@@ -391,7 +391,7 @@ public final class SpreadsheetCellFindTest implements HasUrlFragmentTesting,
                         .setMax(
                                 OptionalInt.of(456)
                         ),
-                UrlFragment.parse("/max/456")
+                UrlFragment.parse("max/456")
         );
     }
 
@@ -402,7 +402,7 @@ public final class SpreadsheetCellFindTest implements HasUrlFragmentTesting,
                         .setValueType(
                                 Optional.of(SpreadsheetValueType.NUMBER)
                         ),
-                UrlFragment.parse("/value-type/number")
+                UrlFragment.parse("value-type/number")
         );
     }
 
@@ -413,7 +413,7 @@ public final class SpreadsheetCellFindTest implements HasUrlFragmentTesting,
                         .setQuery(
                                 Optional.of("query123")
                         ),
-                UrlFragment.parse("/query/query123")
+                UrlFragment.parse("query/query123")
         );
     }
 
@@ -421,7 +421,7 @@ public final class SpreadsheetCellFindTest implements HasUrlFragmentTesting,
     public void testUrlFragmentAll() {
         this.urlFragmentAndCheck(
                 this.createObject(),
-                UrlFragment.parse("/path/LRTD/offset/123/max/456/value-type/*/query/%3D789%2Bblah%28%29")
+                UrlFragment.parse("path/LRTD/offset/123/max/456/value-type/*/query/%3D789%2Bblah%28%29")
         );
     }
 
@@ -445,7 +445,7 @@ public final class SpreadsheetCellFindTest implements HasUrlFragmentTesting,
                         Optional.of(SpreadsheetValueType.NUMBER),
                         Optional.of("query789")
                 ),
-                "/path/BULR/offset/123/max/456/value-type/number/query/query789"
+                "path/BULR/offset/123/max/456/value-type/number/query/query789"
         );
     }
 

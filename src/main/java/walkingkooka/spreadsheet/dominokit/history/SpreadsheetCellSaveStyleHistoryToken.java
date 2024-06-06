@@ -87,8 +87,6 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
         return STYLE;
     }
 
-    private final static UrlFragment STYLE = UrlFragment.parse("style");
-
     @Override
     JsonNode saveValueUrlFragmentValueToJson(final TextStyle value) {
         return MARSHALL_CONTEXT.marshall(value);
