@@ -499,7 +499,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                         "    \"type\": \"spreadsheet-number-parse-pattern\",\n" +
                         "    \"value\": \"$0.00\"\n" +
                         "  },\n" +
-                        "  \"formatter\": \"date-format yyyy/mm/dd\"\n" +
+                        "  \"formatter\": \"date-format-pattern yyyy/mm/dd\"\n" +
                         "}"
         );
     }
@@ -548,7 +548,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                                                 .spreadsheetFormatterSelector()
                                 )
                         ),
-                "\"date-format yyyy/mm/dd\""
+                "\"date-format-pattern yyyy/mm/dd\""
         );
     }
 

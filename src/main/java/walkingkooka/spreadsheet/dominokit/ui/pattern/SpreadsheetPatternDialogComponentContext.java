@@ -52,19 +52,19 @@ public interface SpreadsheetPatternDialogComponentContext extends CanGiveFocus,
         } else {
             switch (this.patternKind()) {
                 case DATE_FORMAT_PATTERN:
-                    save = SpreadsheetFormatterName.DATE_FORMAT + " " + patternText;
+                    save = SpreadsheetFormatterName.DATE_FORMAT_PATTERN + " " + patternText;
                     break;
                 case DATE_TIME_FORMAT_PATTERN:
-                    save = SpreadsheetFormatterName.DATE_TIME_FORMAT + " " + patternText;
+                    save = SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN + " " + patternText;
                     break;
                 case NUMBER_FORMAT_PATTERN:
-                    save = SpreadsheetFormatterName.NUMBER_FORMAT + " " + patternText;
+                    save = SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN + " " + patternText;
                     break;
                 case TEXT_FORMAT_PATTERN:
-                    save = SpreadsheetFormatterName.TEXT_FORMAT + " " + patternText;
+                    save = SpreadsheetFormatterName.TEXT_FORMAT_PATTERN + " " + patternText;
                     break;
                 case TIME_FORMAT_PATTERN:
-                    save = SpreadsheetFormatterName.TIME_FORMAT + " " + patternText;
+                    save = SpreadsheetFormatterName.TIME_FORMAT_PATTERN + " " + patternText;
                     break;
                 default:
                     save = patternText;

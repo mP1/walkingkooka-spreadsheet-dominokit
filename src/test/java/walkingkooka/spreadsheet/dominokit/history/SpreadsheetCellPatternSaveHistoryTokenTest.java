@@ -42,7 +42,7 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        PATTERN.kind(),
+                        PATTERN.patternKind(),
                         null
                 )
         );
@@ -84,14 +84,14 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/formatter/date/save/date-format yyyy-mm-dd");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/formatter/date/save/date-format-pattern yyyy-mm-dd");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/formatter/date/save/date-format yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/formatter/date/save/date-format-pattern yyyy-mm-dd"
         );
     }
 
@@ -99,7 +99,7 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
                 SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/formatter/date/save/date-format yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/*/top-left/formatter/date/save/date-format-pattern yyyy-mm-dd"
         );
     }
 
@@ -107,7 +107,7 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/123/SpreadsheetName456/cell/Label123/formatter/date/save/date-format yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/Label123/formatter/date/save/date-format-pattern yyyy-mm-dd"
         );
     }
 
@@ -121,7 +121,7 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
                         ID,
                         NAME,
                         SELECTION,
-                        PATTERN.kind()
+                        PATTERN.patternKind()
                 )
         );
     }
@@ -137,7 +137,7 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
                         ID,
                         NAME,
                         SELECTION,
-                        formatPattern.kind(),
+                        formatPattern.patternKind(),
                         Optional.of(formatPattern)
                 ),
                 HistoryToken.cellFormatPattern(
@@ -157,7 +157,7 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
                         ID,
                         NAME,
                         SELECTION,
-                        parsePattern.kind(),
+                        parsePattern.patternKind(),
                         Optional.of(parsePattern)
                 ),
                 HistoryToken.cellParsePattern(
@@ -239,7 +239,7 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
                 id,
                 name,
                 selection,
-                PATTERN.kind(),
+                PATTERN.patternKind(),
                 Optional.of(PATTERN)
         );
     }

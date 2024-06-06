@@ -1598,7 +1598,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         ID,
                         NAME,
                         viewport,
-                        pattern.kind(),
+                        pattern.patternKind(),
                         Optional.of(
                                 pattern
                         )
