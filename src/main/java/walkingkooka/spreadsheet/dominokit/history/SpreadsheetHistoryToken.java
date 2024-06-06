@@ -28,93 +28,103 @@ import java.util.Optional;
  */
 public abstract class SpreadsheetHistoryToken extends HistoryToken {
 
-    final static UrlFragment CLEAR = UrlFragment.parse("/clear");
+    final static UrlFragment CLEAR = UrlFragment.parse("clear");
 
-    final static UrlFragment COPY = UrlFragment.parse("/copy");
+    final static UrlFragment COPY = UrlFragment.parse("copy");
 
-    final static UrlFragment CREATE = UrlFragment.parse("/create");
+    final static UrlFragment CREATE = UrlFragment.parse("create");
 
-    final static UrlFragment CUT = UrlFragment.parse("/cut");
+    final static UrlFragment CUT = UrlFragment.parse("cut");
 
-    final static UrlFragment DELETE = UrlFragment.parse("/delete");
+    final static UrlFragment DELETE = UrlFragment.parse("delete");
 
-    final static UrlFragment EDIT = UrlFragment.parse("/edit");
+    final static UrlFragment EDIT = UrlFragment.parse("edit");
 
-    final static UrlFragment FIND = UrlFragment.parse("/find");
+    final static UrlFragment FIND = UrlFragment.parse("find");
 
     final static UrlFragment FORMATTER = UrlFragment.parse("formatter");
 
-    final static UrlFragment FREEZE = UrlFragment.parse("/freeze");
+    final static UrlFragment FREEZE = UrlFragment.parse("freeze");
 
-    final static UrlFragment INSERT_AFTER = UrlFragment.parse("/insertAfter");
+    final static UrlFragment INSERT_AFTER = UrlFragment.parse("insertAfter");
 
-    final static UrlFragment INSERT_BEFORE = UrlFragment.parse("/insertBefore");
+    final static UrlFragment INSERT_BEFORE = UrlFragment.parse("insertBefore");
 
-    final static UrlFragment LABEL = UrlFragment.parse("/label");
+    final static UrlFragment LABEL = UrlFragment.parse("label");
 
-    final static UrlFragment MENU = UrlFragment.parse("/menu");
+    final static UrlFragment MENU = UrlFragment.parse("menu");
 
-    final static UrlFragment PASTE = UrlFragment.parse("/paste");
+    final static UrlFragment PASTE = UrlFragment.parse("paste");
 
-    final static UrlFragment RELOAD = UrlFragment.parse("/reload");
+    final static UrlFragment RELOAD = UrlFragment.parse("reload");
 
-    final static UrlFragment RENAME = UrlFragment.parse("/rename");
+    final static UrlFragment RENAME = UrlFragment.parse("rename");
 
     final static UrlFragment SELECT = UrlFragment.EMPTY;
 
-    final static UrlFragment SAVE = UrlFragment.parse("/save/");
+    final static UrlFragment SAVE = UrlFragment.parse("save");
 
-    final static UrlFragment SORT = UrlFragment.parse("/sort");
+    final static UrlFragment SORT = UrlFragment.parse("sort");
 
-    final static UrlFragment STYLE = UrlFragment.parse("/style/");
+    final static UrlFragment STYLE = UrlFragment.parse("style");
 
-    final static UrlFragment UNFREEZE = UrlFragment.parse("/unfreeze");
+    final static UrlFragment UNFREEZE = UrlFragment.parse("unfreeze");
 
 
     SpreadsheetHistoryToken() {
         super();
     }
 
-    /**
-     * Creates a {@link UrlFragment} with a save and value.
-     */
-    final UrlFragment saveUrlFragment(final Object value) {
-        return null == value ?
-                this.saveUrlFragment(UrlFragment.EMPTY) :
-                value instanceof SpreadsheetFormatPattern ?
-                        this.saveUrlFragmentNonNull(
-                                ((SpreadsheetFormatPattern) value)
-                                        .spreadsheetFormatterSelector()
-                        ) :
-                        value instanceof HasUrlFragment ?
-                                this.saveUrlFragmentUrlFragment(
-                                        ((HasUrlFragment) value)
-                                                .urlFragment()
-                                ) :
-                                value instanceof Optional ?
-                                        this.saveUrlFragmentOptional((Optional<?>) value) :
-                                        this.saveUrlFragmentNonNull(value);
+    // HasUrlFragment...................................................................................................
+
+    @Override
+    public final UrlFragment urlFragment() {
+        return UrlFragment.SLASH.append(
+                this.spreadsheetUrlFragment()
+        );
     }
 
-    private UrlFragment saveUrlFragmentOptional(final Optional<?> value) {
-        return this.saveUrlFragment(
+    abstract UrlFragment spreadsheetUrlFragment();
+
+    // save helpers.....................................................................................................
+
+    /**
+     * Creates a {@link UrlFragment} with a save returning a {@link UrlFragment} with its equivalent value.
+     */
+    final UrlFragment saveUrlFragment(final Object value) {
+        // always want slash after SAVE
+        return SAVE.append(UrlFragment.SLASH)
+                .append(
+                        this.saveUrlFragmentValue(value)
+                );
+    }
+
+    private UrlFragment saveUrlFragmentValue(final Object value) {
+        return null == value ?
+                UrlFragment.EMPTY :
+                value instanceof UrlFragment ?
+                        (UrlFragment) value :
+                        value instanceof SpreadsheetFormatPattern ?
+                                this.saveUrlFragmentValueSpreadsheetFormatPattern(
+                                        ((SpreadsheetFormatPattern) value)
+                                ) :
+                                value instanceof HasUrlFragment ?
+                                        ((HasUrlFragment) value)
+                                                .urlFragment() :
+                                        value instanceof Optional ?
+                                                this.saveUrlFragmentValueOptional((Optional<?>) value) :
+                                                UrlFragment.with(
+                                                        String.valueOf(value)
+                                                );
+    }
+
+    private UrlFragment saveUrlFragmentValueOptional(final Optional<?> value) {
+        return this.saveUrlFragmentValue(
                 value.orElse(null)
         );
     }
 
-    private UrlFragment saveUrlFragmentNonNull(final Object value) {
-        return value instanceof SpreadsheetFormatPattern ?
-                this.saveUrlFragment(
-                        ((SpreadsheetFormatPattern) value).spreadsheetFormatterSelector()
-                ) :
-                this.saveUrlFragmentUrlFragment(
-                        UrlFragment.with(
-                                String.valueOf(value)
-                        )
-                );
-    }
-
-    private UrlFragment saveUrlFragmentUrlFragment(final UrlFragment urlFragment) {
-        return SAVE.append(urlFragment);
+    private UrlFragment saveUrlFragmentValueSpreadsheetFormatPattern(final SpreadsheetFormatPattern value) {
+        return this.saveUrlFragmentValue(value.spreadsheetFormatterSelector());
     }
 }

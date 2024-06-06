@@ -37,7 +37,7 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     }
 
     @Override
-    public UrlFragment urlFragment() {
+    UrlFragment spreadsheetUrlFragment() {
         return CREATE;
     }
 

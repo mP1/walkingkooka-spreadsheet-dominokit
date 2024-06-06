@@ -103,8 +103,9 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
     @Override //
     final UrlFragment cellUrlFragment() {
         return this.clipboardUrlFragment()
-                .append(UrlFragment.SLASH)
-                .append(this.kind.urlFragment());
+                .appendSlashThen(
+                        this.kind.urlFragment()
+                );
     }
 
     // cut | copy | paste SLASH kind SLASH serialized-value

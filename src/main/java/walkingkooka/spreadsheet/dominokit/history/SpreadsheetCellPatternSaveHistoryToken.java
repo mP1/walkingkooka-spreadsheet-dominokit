@@ -104,7 +104,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
         return this.patternKind()
                 .get()
                 .urlFragment()
-                .append(
+                .appendSlashThen(
                         this.saveUrlFragment(
                                 this.pattern()
                         )

@@ -38,7 +38,7 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     }
 
     @Override
-    public UrlFragment urlFragment() {
+    UrlFragment spreadsheetUrlFragment() {
         return this.id().urlFragment();
     }
 

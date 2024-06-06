@@ -39,11 +39,10 @@ public abstract class SpreadsheetCellHighlightHistoryToken extends SpreadsheetCe
 
     @Override //
     final UrlFragment cellUrlFragment() {
-        return HIGHLIGHT.append(this.highlightUrlFragment());
+        return HIGHLIGHT.appendSlashThen(this.highlightUrlFragment());
     }
 
-    private final static UrlFragment HIGHLIGHT = UrlFragment.SLASH
-            .append(UrlFragment.with("highlight"));
+    private final static UrlFragment HIGHLIGHT = UrlFragment.with("highlight");
 
     abstract UrlFragment highlightUrlFragment();
 

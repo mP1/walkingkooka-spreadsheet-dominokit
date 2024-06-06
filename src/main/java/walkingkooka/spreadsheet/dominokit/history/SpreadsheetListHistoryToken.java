@@ -74,35 +74,39 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
 
     // HasUrlFragment...................................................................................................
 
-    @Override
-    public final UrlFragment urlFragment() {
-        StringBuilder urlFragment = new StringBuilder();
+    @Override final UrlFragment spreadsheetUrlFragment() {
+        UrlFragment list = this.listUrlFragment();
 
         {
             final OptionalInt from = this.from;
             if (from.isPresent()) {
-                urlFragment.append("/from/")
-                        .append(from.getAsInt());
+                list = list.appendSlashThen(FROM)
+                        .appendSlashThen(
+                                UrlFragment.with(
+                                        String.valueOf(from.getAsInt())
+                                )
+                        );
             }
         }
 
         {
             final OptionalInt count = this.count;
             if (count.isPresent()) {
-                urlFragment.append("/count/")
-                        .append(count.getAsInt());
+                list = list.appendSlashThen(COUNT)
+                        .appendSlashThen(
+                                UrlFragment.with(
+                                        String.valueOf(count.getAsInt())
+                                )
+                        );
             }
         }
 
-        return this.listUrlFragment()
-                .append(
-                        urlFragment.length() == 0 ?
-                                UrlFragment.SLASH :
-                                UrlFragment.parse(
-                                        urlFragment.toString()
-                                )
-                );
+        return list;
     }
+
+    private final static UrlFragment FROM = UrlFragment.with("from");
+
+    private final static UrlFragment COUNT = UrlFragment.with("count");
 
     abstract UrlFragment listUrlFragment();
 

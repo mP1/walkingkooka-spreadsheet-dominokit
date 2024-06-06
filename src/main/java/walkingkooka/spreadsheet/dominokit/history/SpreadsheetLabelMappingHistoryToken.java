@@ -44,7 +44,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
      */
     @Override //
     final UrlFragment selectionUrlFragment() {
-        return LABEL.append(
+        return LABEL.appendSlashThen(
                 this.labelUrlFragment()
         );
     }

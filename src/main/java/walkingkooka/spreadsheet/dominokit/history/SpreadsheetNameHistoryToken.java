@@ -168,7 +168,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                 .setPatternKind(
                         this.parsePatternKind(
                                 cursor,
-                                "/formatter"
+                                "formatter"
                         )
                 );
     }
@@ -178,7 +178,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                 .setPatternKind(
                         this.parsePatternKind(
                                 cursor,
-                                "/parse-pattern"
+                                "parse-pattern"
                         )
                 );
     }
@@ -227,15 +227,12 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
     // HasUrlFragment...................................................................................................
 
-    @Override
-    public final UrlFragment urlFragment() {
+    @Override final UrlFragment spreadsheetUrlFragment() {
         return this.id()
                 .urlFragment()
-                .append(
-                        UrlFragment.SLASH.append(
-                                this.name.urlFragment()
-                        )
-                ).append(
+                .appendSlashThen(
+                        this.name.urlFragment()
+                ).appendSlashThen(
                         this.spreadsheetNameUrlFragment()
                 );
     }

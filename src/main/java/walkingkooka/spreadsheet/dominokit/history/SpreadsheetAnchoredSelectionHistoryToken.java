@@ -74,7 +74,9 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     @Override //
     final UrlFragment selectionUrlFragment() {
         return this.anchoredSelection.urlFragment()
-                .append(this.anchoredSelectionUrlFragment());
+                .appendSlashThen(
+                        this.anchoredSelectionUrlFragment()
+                );
     }
 
     abstract UrlFragment anchoredSelectionUrlFragment();
