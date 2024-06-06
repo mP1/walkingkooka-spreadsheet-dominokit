@@ -18,6 +18,9 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.net.header.MediaType;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
@@ -123,6 +126,18 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public JsonNodeUnmarshallContext unmarshallContext() {
+        throw new UnsupportedOperationException();
+    }
+
+    // SpreadsheetComparatorProvider....................................................................................
+
+    @Override
+    public Optional<SpreadsheetComparator<?>> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
         throw new UnsupportedOperationException();
     }
 
