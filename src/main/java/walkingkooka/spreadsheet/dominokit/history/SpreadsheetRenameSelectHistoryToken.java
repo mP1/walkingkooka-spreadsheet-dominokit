@@ -75,7 +75,7 @@ public final class SpreadsheetRenameSelectHistoryToken extends SpreadsheetRename
         final HistoryToken result;
 
         switch (component) {
-            case "save":
+            case SAVE_STRING:
                 result = this.parseSave(cursor);
                 break;
             default:

@@ -24,6 +24,7 @@ import walkingkooka.predicate.character.CharPredicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
@@ -116,6 +117,116 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final static String DISABLE = "disable";
 
     public final static String ENABLE = "enable";
+
+    final static String CELL_STRING = "cell";
+
+    final static String CLEAR_STRING = "clear";
+
+    final static UrlFragment CLEAR = UrlFragment.parse(CLEAR_STRING);
+
+    final static String COLUMN_STRING = "column";
+
+    final static String COPY_STRING = "copy";
+
+    final static UrlFragment COPY = UrlFragment.parse(COPY_STRING);
+
+    final static String COUNT_STRING = "count";
+
+    final static String CREATE_STRING = "create";
+
+    final static UrlFragment CREATE = UrlFragment.parse(CREATE_STRING);
+
+    final static String CUT_STRING = "cut";
+
+    final static UrlFragment CUT = UrlFragment.parse(CUT_STRING);
+
+    final static String DELETE_STRING = "delete";
+
+    final static UrlFragment DELETE = UrlFragment.parse(DELETE_STRING);
+
+    final static String EDIT_STRING = "edit";
+
+    final static UrlFragment EDIT = UrlFragment.parse(EDIT_STRING);
+
+    final static String FIND_STRING = "find";
+
+    final static UrlFragment FIND = UrlFragment.parse(FIND_STRING);
+
+    final static String FORMATTER_STRING = "formatter";
+
+    final static UrlFragment FORMATTER = SpreadsheetUrlFragments.FORMATTER;
+
+    final static String FORMULA_STRING = "formula";
+
+    final static UrlFragment FORMULA = UrlFragment.with(FORMULA_STRING);
+
+    final static String FREEZE_STRING = "freeze";
+
+    final static UrlFragment FREEZE = UrlFragment.parse(FREEZE_STRING);
+
+    final static String FROM_STRING = "from";
+
+    final static String INSERT_AFTER_STRING = "insertAfter";
+
+    final static UrlFragment INSERT_AFTER = UrlFragment.parse(INSERT_AFTER_STRING);
+
+    final static String INSERT_BEFORE_STRING = "insertBefore";
+
+    final static UrlFragment INSERT_BEFORE = UrlFragment.parse(INSERT_BEFORE_STRING);
+
+    final static String HIGHLIGHT_STRING = "highlight";
+
+    final static UrlFragment HIGHLIGHT = UrlFragment.parse(HIGHLIGHT_STRING);
+
+    final static String LABEL_STRING = "label";
+
+    final static UrlFragment LABEL = UrlFragment.parse(LABEL_STRING);
+
+    final static String MENU_STRING = "menu";
+
+    final static UrlFragment MENU = UrlFragment.parse(MENU_STRING);
+
+    final static String METADATA_STRING = "metadata";
+
+    final static UrlFragment METADATA = UrlFragment.parse(METADATA_STRING);
+
+    final static String PARSE_PATTERN_STRING = "parse-pattern";
+
+    final static UrlFragment PARSE_PATTERN = UrlFragment.parse(PARSE_PATTERN_STRING);
+
+    final static String PASTE_STRING = "paste";
+
+    final static UrlFragment PASTE = UrlFragment.parse(PASTE_STRING);
+
+    final static String RELOAD_STRING = "reload";
+
+    final static UrlFragment RELOAD = UrlFragment.parse(RELOAD_STRING);
+
+    final static String RENAME_STRING = "rename";
+
+    final static UrlFragment RENAME = UrlFragment.parse(RENAME_STRING);
+
+    final static String ROW_STRING = "row";
+
+    final static String SELECT_STRING = "";
+
+    final static UrlFragment SELECT = UrlFragment.parse(SELECT_STRING);
+
+    final static String SAVE_STRING = "save";
+
+    final static UrlFragment SAVE = UrlFragment.parse(SAVE_STRING);
+
+    final static String SORT_STRING = "sort";
+
+    final static UrlFragment SORT = UrlFragment.parse(SORT_STRING);
+
+    final static String STYLE_STRING = "style";
+
+    final static UrlFragment STYLE = UrlFragment.parse(STYLE_STRING);
+
+    final static String UNFREEZE_STRING = "unfreeze";
+
+    final static UrlFragment UNFREEZE = UrlFragment.parse(UNFREEZE_STRING);
 
     final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 
@@ -1075,34 +1186,34 @@ public abstract class HistoryToken implements HasUrlFragment,
                 if (maybeComponent.isPresent()) {
                     final String component = maybeComponent.get();
                     switch (component) {
-                        case "":
+                        case SELECT_STRING:
                             token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
                             break;
-                        case "count":
+                        case COUNT_STRING:
                             token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
                             token = token.setCount(
                                     parseCount(cursor)
                             ).parse(cursor);
                             break;
-                        case "create":
+                        case CREATE_STRING:
                             token = HistoryToken.spreadsheetCreate()
                                     .parse(cursor);
                             break;
-                        case "delete":
+                        case DELETE_STRING:
                             token = parseDelete(cursor);
                             break;
-                        case "from":
+                        case FROM_STRING:
                             token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
                             token = token.cast(SpreadsheetListHistoryToken.class)
                                     .setFrom(
                                             parseOptionalInt(cursor)
                                     ).parse(cursor);
                             break;
-                        case "reload":
+                        case RELOAD_STRING:
                             token = SPREADSHEET_LIST_RELOAD_HISTORY_TOKEN;
                             token = token.parse(cursor);
                             break;
-                        case "rename":
+                        case RENAME_STRING:
                             token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
                             token = parseRename(cursor);
                             break;

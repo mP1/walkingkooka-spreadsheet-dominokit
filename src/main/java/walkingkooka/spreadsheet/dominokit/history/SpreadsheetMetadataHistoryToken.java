@@ -54,10 +54,10 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
 
         Switch:
         switch (component) {
-            case "save":
+            case SAVE_STRING:
                 result = this.parseSave(cursor);
                 break;
-            case "style":
+            case STYLE_STRING:
                 result = this.parseStyle(cursor);
                 break;
             default:

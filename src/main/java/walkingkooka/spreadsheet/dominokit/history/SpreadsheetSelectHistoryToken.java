@@ -63,28 +63,28 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         HistoryToken result = this;
 
         switch(component) {
-            case "cell":
+            case CELL_STRING:
                 result = this.parseCell(cursor);
                 break;
-            case "column":
+            case COLUMN_STRING:
                 result = this.parseColumn(cursor);
                 break;
-            case "delete":
+            case DELETE_STRING:
                 result = this.parseDelete(cursor);
                 break;
-            case "label":
+            case LABEL_STRING:
                 result = this.parseLabel(cursor);
                 break;
-            case "metadata":
+            case METADATA_STRING:
                 result = this.parseMetadata(cursor);
                 break;
-            case "reload":
+            case RELOAD_STRING:
                 result = this.parseReload(cursor);
                 break;
-            case "rename":
+            case RENAME_STRING:
                 result = this.parseRename(cursor);
                 break;
-            case "row":
+            case ROW_STRING:
                 result = this.parseRow(cursor);
                 break;
             default:
@@ -187,7 +187,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
             try {
                 switch (next) {
-                    case "style":
+                    case STYLE_STRING:
                         result = this.parseStyle(cursor);
                         break;
                     default:

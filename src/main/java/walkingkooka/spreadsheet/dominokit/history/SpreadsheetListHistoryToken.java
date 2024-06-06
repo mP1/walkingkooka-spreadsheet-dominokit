@@ -120,12 +120,12 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
 
         do {
             switch (nextComponent) {
-                case "count":
+                case COUNT_STRING:
                     historyToken = historyToken.setCount(
                             parseCount(cursor)
                     );
                     break;
-                case "from":
+                case FROM_STRING:
                     historyToken = historyToken.cast(SpreadsheetListHistoryToken.class)
                             .setFrom(
                                     parseOptionalInt(cursor)

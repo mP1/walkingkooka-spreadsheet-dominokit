@@ -133,7 +133,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
 
             // there will be more such as cell/pattern-format/pattern-parse/style
             switch (component) {
-                case "cell":
+                case CELL_STRING:
                     result = cellSaveCell(
                             this.id(),
                             this.name(),
@@ -143,7 +143,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                             )
                     );
                     break;
-                case "formatter":
+                case FORMATTER_STRING:
                     result = cellSaveFormatter(
                             this.id(),
                             this.name(),
@@ -153,7 +153,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                             )
                     );
                     break;
-                case "formula":
+                case FORMULA_STRING:
                     result = cellSaveFormula(
                             this.id(),
                             this.name(),
@@ -164,7 +164,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                             )
                     );
                     break;
-                case "parse-pattern":
+                case PARSE_PATTERN_STRING:
                     result = cellSaveParsePattern(
                             this.id(),
                             this.name(),
@@ -174,7 +174,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                             )
                     );
                     break;
-                case "style":
+                case STYLE_STRING:
                     result = cellSaveStyle(
                             this.id(),
                             this.name(),

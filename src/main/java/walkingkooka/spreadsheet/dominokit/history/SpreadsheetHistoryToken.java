@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 
 import java.util.Optional;
@@ -28,53 +27,6 @@ import java.util.Optional;
  * Instances represent a token within a history hash.
  */
 public abstract class SpreadsheetHistoryToken extends HistoryToken {
-
-    final static UrlFragment CLEAR = UrlFragment.parse("clear");
-
-    final static UrlFragment COPY = UrlFragment.parse("copy");
-
-    final static UrlFragment CREATE = UrlFragment.parse("create");
-
-    final static UrlFragment CUT = UrlFragment.parse("cut");
-
-    final static UrlFragment DELETE = UrlFragment.parse("delete");
-
-    final static UrlFragment EDIT = UrlFragment.parse("edit");
-
-    final static UrlFragment FIND = UrlFragment.parse("find");
-
-    final static UrlFragment FORMATTER = SpreadsheetUrlFragments.FORMATTER;
-
-    final static UrlFragment FORMULA = UrlFragment.with("formula");
-
-    final static UrlFragment FREEZE = UrlFragment.parse("freeze");
-
-    final static UrlFragment INSERT_AFTER = UrlFragment.parse("insertAfter");
-
-    final static UrlFragment INSERT_BEFORE = UrlFragment.parse("insertBefore");
-
-    final static UrlFragment LABEL = UrlFragment.parse("label");
-
-    final static UrlFragment MENU = UrlFragment.parse("menu");
-
-    final static UrlFragment METADATA = UrlFragment.parse("metadata");
-
-    final static UrlFragment PASTE = UrlFragment.parse("paste");
-
-    final static UrlFragment RELOAD = UrlFragment.parse("reload");
-
-    final static UrlFragment RENAME = UrlFragment.parse("rename");
-
-    final static UrlFragment SELECT = UrlFragment.EMPTY;
-
-    final static UrlFragment SAVE = UrlFragment.parse("save");
-
-    final static UrlFragment SORT = UrlFragment.parse("sort");
-
-    final static UrlFragment STYLE = UrlFragment.parse("style");
-
-    final static UrlFragment UNFREEZE = UrlFragment.parse("unfreeze");
-
 
     SpreadsheetHistoryToken() {
         super();
