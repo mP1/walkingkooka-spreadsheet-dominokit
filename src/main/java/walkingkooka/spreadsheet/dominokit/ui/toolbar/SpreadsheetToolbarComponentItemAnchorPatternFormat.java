@@ -45,8 +45,8 @@ final class SpreadsheetToolbarComponentItemAnchorPatternFormat extends Spreadshe
                 Optional.of(
                         SpreadsheetIcons.formatPattern()
                 ),
-                "Format pattern",
-                "Format pattern(s)...",
+                "Format",
+                "Format...",
                 context
         );
     }
