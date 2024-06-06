@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
@@ -452,14 +451,6 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         this.urlFragmentAndCheck(
                 this.createHistoryToken(),
                 expected
-        );
-    }
-
-    final void urlFragmentAndCheck(final HasUrlFragment fragment,
-                                   final String expected) {
-        this.urlFragmentAndCheck(
-                fragment,
-                UrlFragment.with(expected)
         );
     }
 
