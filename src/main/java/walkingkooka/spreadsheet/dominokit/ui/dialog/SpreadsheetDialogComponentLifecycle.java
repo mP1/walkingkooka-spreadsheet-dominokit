@@ -21,7 +21,7 @@ import org.dominokit.domino.ui.dialogs.Dialog;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -49,7 +49,7 @@ public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle,
      */
     default HistoryTokenAnchorComponent anchor(final String text) {
         return HistoryTokenAnchorComponent.empty()
-                .setId(this.idPrefix() + text.toLowerCase() + SpreadsheetIds.LINK)
+                .setId(this.idPrefix() + text.toLowerCase() + SpreadsheetElementIds.LINK)
                 .setTextContent(text);
     }
 

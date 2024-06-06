@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -82,7 +82,7 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
                 tr.appendChild(td);
 
                 final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty();
-                anchor.setId(ID + "-color-" + (i + 1) + SpreadsheetIds.LINK);
+                anchor.setId(ID + "-color-" + (i + 1) + SpreadsheetElementIds.LINK);
 
                 td.appendChild(anchor);
 
@@ -104,7 +104,7 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
         tr.appendChild(td);
 
         final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty();
-        anchor.setId(ID + "-color-clear" + SpreadsheetIds.LINK);
+        anchor.setId(ID + "-color-clear" + SpreadsheetElementIds.LINK);
         anchor.setTextContent("Clear");
         this.clearAnchor = anchor;
 

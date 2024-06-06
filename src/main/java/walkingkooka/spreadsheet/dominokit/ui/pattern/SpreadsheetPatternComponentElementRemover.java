@@ -22,7 +22,7 @@ import elemental2.dom.Node;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
@@ -148,7 +148,7 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
                                                 context.savePatternText(newPattern)
                                         )
                                         .contextMenuItem(
-                                                id + "-alt-" + j + SpreadsheetIds.MENU_ITEM,
+                                                id + "-alt-" + j + SpreadsheetElementIds.MENU_ITEM,
                                                 alternative
                                         )
                         );

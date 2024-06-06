@@ -21,7 +21,7 @@ import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.ToStringBuilderOption;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIds;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -37,12 +37,12 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
     public static SpreadsheetContextMenuItem with(final String id,
                                                   final String text) {
         CharSequences.failIfNullOrEmpty(id, "id");
-        if (false == id.endsWith(SpreadsheetIds.MENU_ITEM)) {
+        if (false == id.endsWith(SpreadsheetElementIds.MENU_ITEM)) {
             throw new IllegalArgumentException(
                     "Invalid menu item id " +
                             CharSequences.quote(id) +
                             " missing " +
-                            CharSequences.quote(SpreadsheetIds.MENU_ITEM)
+                            CharSequences.quote(SpreadsheetElementIds.MENU_ITEM)
             );
         }
         CharSequences.failIfNullOrEmpty(text, "text");
