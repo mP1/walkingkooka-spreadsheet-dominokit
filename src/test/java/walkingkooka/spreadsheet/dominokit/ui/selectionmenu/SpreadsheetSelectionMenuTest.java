@@ -25,6 +25,9 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnHistoryToken;
@@ -1961,6 +1964,13 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         Locale.forLanguageTag("EN-AU")
                 ).loadFromLocale();
             }
+
+            @Override
+            public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
+                return this.spreadsheetComparatorProvider.spreadsheetComparatorInfos();
+            }
+
+            private final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.builtIn();
         };
     }
 

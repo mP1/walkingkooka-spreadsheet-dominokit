@@ -17,6 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.viewport;
 
+import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -26,6 +29,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -112,6 +116,16 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     public SpreadsheetSelectionSummary selectionSummary() {
         return this.context.spreadsheetViewportCache()
                 .selectionSummary();
+    }
+
+    @Override
+    public Optional<SpreadsheetComparator<?>> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
+        return this.context.spreadsheetComparator(spreadsheetComparatorName);
+    }
+
+    @Override
+    public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
+        return this.context.spreadsheetComparatorInfos();
     }
 
     private final AppContext context;

@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.selectionmenu;
 
 import walkingkooka.Context;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetSelectionSummary;
@@ -35,7 +36,8 @@ import java.util.Set;
  */
 public interface SpreadsheetSelectionMenuContext extends Context,
         HasSpreadsheetMetadata,
-        HistoryTokenContext {
+        HistoryTokenContext,
+        SpreadsheetComparatorProvider {
 
     /**
      * Returns all {@link SpreadsheetLabelMapping} for the given {@link SpreadsheetSelection}.

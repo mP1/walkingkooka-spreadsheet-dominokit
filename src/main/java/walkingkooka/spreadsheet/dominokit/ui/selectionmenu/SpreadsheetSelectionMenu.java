@@ -22,7 +22,6 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
@@ -1013,8 +1012,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                         column.toColumn(),
                         idPrefix, // id prefix
                         SpreadsheetIcons.columnSort(),
-                        SpreadsheetComparatorProviders.builtIn()
-                                .spreadsheetComparatorInfos(), // infos
+                        context.spreadsheetComparatorInfos(), // infos
                         menu
                 );
             }
@@ -1039,8 +1037,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                         row.toRow(),
                         idPrefix, // id prefix
                         SpreadsheetIcons.columnSort(),
-                        SpreadsheetComparatorProviders.builtIn()
-                                .spreadsheetComparatorInfos(), // infos
+                        context.spreadsheetComparatorInfos(), // infos
                         menu
                 );
             }

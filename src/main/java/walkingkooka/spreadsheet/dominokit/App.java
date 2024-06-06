@@ -231,7 +231,7 @@ public class App implements EntryPoint,
 
         SpreadsheetSortDialogComponent.with(
                 SpreadsheetSortDialogComponentContexts.basic(
-                        SpreadsheetComparatorProviders.builtIn(),
+                        this.spreadsheetComparatorProvider,
                         this
                 )
         );
