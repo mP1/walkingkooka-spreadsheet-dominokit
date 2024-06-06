@@ -42,6 +42,9 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
@@ -141,6 +144,7 @@ public class App implements EntryPoint,
         final LoggingContext loggingContext = LoggingContexts.elemental();
         this.loggingContext = loggingContext;
 
+        this.spreadsheetComparatorProvider = SpreadsheetComparatorProviders.builtIn();
         this.spreadsheetFormatterProvider = SpreadsheetFormatterProviders.spreadsheetFormatPattern();
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
@@ -633,6 +637,20 @@ public class App implements EntryPoint,
     private JsonNodeUnmarshallContext unmarshallContext;
 
     // SpreadsheetFormatProvider........................................................................................
+
+    @Override
+    public Optional<SpreadsheetComparator<?>> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
+        return this.spreadsheetComparatorProvider.spreadsheetComparator(spreadsheetComparatorName);
+    }
+
+    @Override
+    public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
+        return this.spreadsheetComparatorProvider.spreadsheetComparatorInfos();
+    }
+
+    private SpreadsheetComparatorProvider spreadsheetComparatorProvider;
+
+    // SpreadsheetComparatorProvider....................................................................................
 
     @Override
     public Optional<SpreadsheetFormatter> spreadsheetFormatter(final SpreadsheetFormatterSelector spreadsheetFormatterSelector) {
