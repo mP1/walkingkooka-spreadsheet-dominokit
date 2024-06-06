@@ -54,6 +54,9 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 
+/**
+ * A {@link Context} at the application level that provides and centralises many global values and components.
+ */
 public interface AppContext extends CanGiveFocus,
         ClipboardContext,
         HasLocale,
