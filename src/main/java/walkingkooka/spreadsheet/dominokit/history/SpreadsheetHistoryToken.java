@@ -45,6 +45,8 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
 
     final static UrlFragment FORMATTER = SpreadsheetUrlFragments.FORMATTER;
 
+    final static UrlFragment FORMULA = UrlFragment.with("formula");
+
     final static UrlFragment FREEZE = UrlFragment.parse("freeze");
 
     final static UrlFragment INSERT_AFTER = UrlFragment.parse("insertAfter");
