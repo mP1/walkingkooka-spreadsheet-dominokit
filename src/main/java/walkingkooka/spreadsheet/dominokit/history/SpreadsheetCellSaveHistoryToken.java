@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Cast;
 import walkingkooka.Value;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
@@ -172,25 +171,4 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     abstract UrlFragment saveEntityUrlFragment();
 
     abstract UrlFragment saveValueUrlFragment();
-
-    /**
-     * Some values are not polymorphic, eg formulas are always {@link String strings}.
-     */
-    final JsonNode marshallValue(final Object value) {
-        return MARSHALL_CONTEXT.marshall(
-                value
-        );
-    }
-
-    /**
-     * Some {@link Map} values are polymorphic, eg {@link walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern patterns},
-     * and require the type to be recorded along with the marshalled JSON-form.
-     */
-    final JsonNode marshallValueWithType(final Object value) {
-        final Optional<?> optionalValue = Cast.to(value);
-        
-        return MARSHALL_CONTEXT.marshallWithType(
-                optionalValue.orElse(null)
-        );
-    }
 }
