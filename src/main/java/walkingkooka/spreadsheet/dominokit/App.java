@@ -96,6 +96,11 @@ import walkingkooka.spreadsheet.dominokit.ui.toolbar.SpreadsheetToolbarComponent
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -113,6 +118,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.Set;
 import java.util.function.Predicate;
 
 @LocaleAware
@@ -134,6 +140,8 @@ public class App implements EntryPoint,
         // logging
         final LoggingContext loggingContext = LoggingContexts.elemental();
         this.loggingContext = loggingContext;
+
+        this.spreadsheetFormatterProvider = SpreadsheetFormatterProviders.spreadsheetFormatPattern();
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                 ExpressionNumberKind.DEFAULT,
@@ -623,6 +631,20 @@ public class App implements EntryPoint,
     }
 
     private JsonNodeUnmarshallContext unmarshallContext;
+
+    // SpreadsheetFormatProvider........................................................................................
+
+    @Override
+    public Optional<SpreadsheetFormatter> spreadsheetFormatter(final SpreadsheetFormatterSelector spreadsheetFormatterSelector) {
+        return this.spreadsheetFormatterProvider.spreadsheetFormatter(spreadsheetFormatterSelector);
+    }
+
+    @Override
+    public Set<SpreadsheetFormatterInfo> spreadsheetFormatterInfos() {
+        return this.spreadsheetFormatterProvider.spreadsheetFormatterInfos();
+    }
+
+    private SpreadsheetFormatterProvider spreadsheetFormatterProvider;
 
     // history eventListener............................................................................................
 
