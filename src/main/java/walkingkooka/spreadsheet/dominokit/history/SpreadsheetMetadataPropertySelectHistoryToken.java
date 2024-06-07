@@ -98,7 +98,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
                 Optional.ofNullable(
                         value.isEmpty() ?
                                 null :
-                                propertyName.parseValue(value)
+                                propertyName.parseUrlFragmentSaveValue(value)
                 )
         );
     }
