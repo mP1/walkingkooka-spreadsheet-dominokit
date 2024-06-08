@@ -30,9 +30,9 @@ import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnch
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CharSequences;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * Displays a dialog box allowing the user to edit and save a {@link walkingkooka.spreadsheet.SpreadsheetName}
@@ -256,8 +256,8 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
     }
 
     @Override
-    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
-                                          final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                         final AppContext context) {
         // ignore
     }
 

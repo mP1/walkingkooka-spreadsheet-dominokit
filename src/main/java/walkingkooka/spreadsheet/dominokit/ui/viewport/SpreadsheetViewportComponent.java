@@ -89,10 +89,10 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationList;
 import walkingkooka.tree.text.Length;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -1265,8 +1265,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     // metadata.........................................................................................................
 
     @Override
-    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
-                                          final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                         final AppContext context) {
         // NOP
     }
 

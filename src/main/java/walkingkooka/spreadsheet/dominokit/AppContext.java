@@ -49,10 +49,10 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.Set;
 
 /**
  * A {@link Context} at the application level that provides and centralises many global values and components.
@@ -117,8 +117,8 @@ public interface AppContext extends CanGiveFocus,
                     }
 
                     @Override
-                    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
-                                                          final AppContext context) {
+                    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                                         final AppContext context) {
                         // ignore
                     }
 

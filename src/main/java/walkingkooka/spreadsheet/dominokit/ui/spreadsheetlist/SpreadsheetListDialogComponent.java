@@ -31,10 +31,11 @@ import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.Set;
 
 /**
  * A dialog that displays a table with a listing of spreadsheets. Controls are present to open, delete and create
@@ -161,10 +162,12 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     }
 
     @Override
-    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
-                                          final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                         final AppContext context) {
         if (this.isOpen()) {
-            this.table.setMetadata(metadatas);
+            this.table.setMetadata(
+                    new ArrayList<>(metadatas)
+            );
             this.table.refresh(
                     context.historyToken()
                             .cast(SpreadsheetListHistoryToken.class)

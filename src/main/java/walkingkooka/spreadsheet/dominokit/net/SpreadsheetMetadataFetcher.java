@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
 import walkingkooka.collect.iterable.Iterables;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
@@ -32,7 +33,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.server.context.SpreadsheetMetadataList;
+import walkingkooka.spreadsheet.server.context.SpreadsheetMetadataSet;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
@@ -68,7 +69,9 @@ import java.util.OptionalInt;
 public final class SpreadsheetMetadataFetcher implements Fetcher {
 
     static {
-        SpreadsheetMetadataList.empty(); // JSON register
+        SpreadsheetMetadataSet.with(
+                Sets.empty()
+        ); // JSON register
     }
 
     private final static RelativeUrl API_BASE = Url.parseRelative("/api/spreadsheet");
@@ -265,11 +268,11 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
                         context
                 );
                 break;
-            case "SpreadsheetMetadataList":
-                watcher.onSpreadsheetMetadataList(
+            case "SpreadsheetMetadataSet":
+                watcher.onSpreadsheetMetadataSet(
                         this.parse(
                                 body,
-                                SpreadsheetMetadataList.class
+                                SpreadsheetMetadataSet.class
                         ),
                         context
                 );

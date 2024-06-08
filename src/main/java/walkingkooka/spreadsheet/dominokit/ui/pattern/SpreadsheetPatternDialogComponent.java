@@ -38,8 +38,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
@@ -309,8 +309,8 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
     }
 
     @Override
-    public final void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
-                                                final AppContext context) {
+    public final void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                               final AppContext context) {
         // Ignore many
     }
 

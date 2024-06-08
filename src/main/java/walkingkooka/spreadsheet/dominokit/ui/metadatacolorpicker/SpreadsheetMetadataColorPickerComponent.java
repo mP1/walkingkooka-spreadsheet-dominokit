@@ -35,9 +35,9 @@ import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnch
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 
 /**
@@ -192,8 +192,8 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
     }
 
     @Override
-    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
-                                          final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                         final AppContext context) {
         // Ignore
     }
 

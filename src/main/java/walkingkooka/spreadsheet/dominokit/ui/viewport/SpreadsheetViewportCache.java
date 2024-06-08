@@ -58,7 +58,6 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -551,7 +550,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     Length<?> defaultHeight;
 
     @Override
-    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
                                           final AppContext context) {
         // ignore
     }

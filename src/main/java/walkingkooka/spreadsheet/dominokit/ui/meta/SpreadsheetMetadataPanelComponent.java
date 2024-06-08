@@ -53,6 +53,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 
 /**
@@ -549,8 +550,8 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
     }
 
     @Override
-    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
-                                          final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                         final AppContext context) {
         // IGNORE
     }
 

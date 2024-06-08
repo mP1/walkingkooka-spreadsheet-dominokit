@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-import java.util.List;
+import java.util.Set;
 
 public class FakeSpreadsheetMetadataFetcherWatcher extends FakeFetcherWatcher implements SpreadsheetMetadataFetcherWatcher {
 
@@ -31,8 +31,8 @@ public class FakeSpreadsheetMetadataFetcherWatcher extends FakeFetcherWatcher im
     }
 
     @Override
-    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
-                                          final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                         final AppContext context) {
         throw new UnsupportedOperationException();
     }
 }
