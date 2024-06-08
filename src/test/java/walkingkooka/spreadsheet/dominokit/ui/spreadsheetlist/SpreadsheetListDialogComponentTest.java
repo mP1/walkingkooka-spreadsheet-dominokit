@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -117,8 +117,8 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
         );
 
         // previous history token opens the diloag, otherwise the metadata's below will be ignored.
-        dialog.onSpreadsheetMetadataList(
-                Lists.of(
+        dialog.onSpreadsheetMetadataSet(
+                Sets.of(
                         this.spreadsheetMetadata(1, "SpreadsheetName111"),
                         this.spreadsheetMetadata(2, "SpreadsheetName222"),
                         this.spreadsheetMetadata(3, "SpreadsheetName333")

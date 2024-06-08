@@ -30,9 +30,9 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.cursor.TextCursor;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.Set;
 
 public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistoryToken {
 
@@ -101,8 +101,8 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
                     }
 
                     @Override
-                    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
-                                                          final AppContext context) {
+                    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                                         final AppContext context) {
                         // ignore
                     }
 

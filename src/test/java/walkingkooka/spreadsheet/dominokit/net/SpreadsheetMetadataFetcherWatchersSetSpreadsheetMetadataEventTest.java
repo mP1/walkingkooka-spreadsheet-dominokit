@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetMetadataFetcherWatchersListSpreadsheetMetadataEventTest implements ClassTesting<SpreadsheetMetadataFetcherWatchersListSpreadsheetMetadataEvent> {
+public final class SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEventTest implements ClassTesting<SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent> {
 
     @Override
-    public Class<SpreadsheetMetadataFetcherWatchersListSpreadsheetMetadataEvent> type() {
-        return SpreadsheetMetadataFetcherWatchersListSpreadsheetMetadataEvent.class;
+    public Class<SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent> type() {
+        return SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent.class;
     }
 
     @Override

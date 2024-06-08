@@ -20,23 +20,23 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * The event payload used by {@link SpreadsheetMetadataFetcherWatchers}.
  */
-final class SpreadsheetMetadataFetcherWatchersListSpreadsheetMetadataEvent extends FetcherWatchersEvent<SpreadsheetMetadataFetcherWatcher> {
+final class SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent extends FetcherWatchersEvent<SpreadsheetMetadataFetcherWatcher> {
 
-    static SpreadsheetMetadataFetcherWatchersListSpreadsheetMetadataEvent with(final List<SpreadsheetMetadata> metadatas,
-                                                                               final AppContext context) {
-        return new SpreadsheetMetadataFetcherWatchersListSpreadsheetMetadataEvent(
+    static SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent with(final Set<SpreadsheetMetadata> metadatas,
+                                                                              final AppContext context) {
+        return new SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent(
                 metadatas,
                 context
         );
     }
 
-    private SpreadsheetMetadataFetcherWatchersListSpreadsheetMetadataEvent(final List<SpreadsheetMetadata> metadatas,
-                                                                           final AppContext context) {
+    private SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent(final Set<SpreadsheetMetadata> metadatas,
+                                                                          final AppContext context) {
         super(context);
         this.metadatas = metadatas;
     }
@@ -44,7 +44,7 @@ final class SpreadsheetMetadataFetcherWatchersListSpreadsheetMetadataEvent exten
     @Override
     public void accept(final SpreadsheetMetadataFetcherWatcher watcher) {
         try {
-            watcher.onSpreadsheetMetadataList(
+            watcher.onSpreadsheetMetadataSet(
                     this.metadatas,
                     this.context
             );
@@ -56,7 +56,7 @@ final class SpreadsheetMetadataFetcherWatchersListSpreadsheetMetadataEvent exten
         }
     }
 
-    private final List<SpreadsheetMetadata> metadatas;
+    private final Set<SpreadsheetMetadata> metadatas;
 
     @Override
     public String toString() {

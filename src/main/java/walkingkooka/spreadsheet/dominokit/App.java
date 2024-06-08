@@ -116,7 +116,6 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 
 import java.math.MathContext;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
@@ -599,7 +598,7 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
                                           final AppContext context) {
         // IGNORE
     }

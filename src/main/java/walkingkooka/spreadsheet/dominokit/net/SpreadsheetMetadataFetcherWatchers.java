@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-import java.util.List;
+import java.util.Set;
 
 public final class SpreadsheetMetadataFetcherWatchers extends FetcherWatchers<SpreadsheetMetadataFetcherWatcher>
         implements SpreadsheetMetadataFetcherWatcher{
@@ -45,10 +45,10 @@ public final class SpreadsheetMetadataFetcherWatchers extends FetcherWatchers<Sp
     }
 
     @Override
-    public void onSpreadsheetMetadataList(final List<SpreadsheetMetadata> metadatas,
-                                          final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                         final AppContext context) {
         this.fire(
-                SpreadsheetMetadataFetcherWatchersListSpreadsheetMetadataEvent.with(
+                SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent.with(
                         metadatas,
                         context
                 )
