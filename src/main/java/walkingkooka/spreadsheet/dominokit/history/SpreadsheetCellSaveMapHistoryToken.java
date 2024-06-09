@@ -195,7 +195,7 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
     // HasUrlFragment...................................................................................................
 
     @Override//
-    final UrlFragment saveValueUrlFragment() {
+    final UrlFragment urlFragmentSaveValue() {
         final List<JsonNode> children = Lists.array();
         for (final Entry<SpreadsheetCellReference, V> cellAndValue : this.value().entrySet()) {
             children.add(

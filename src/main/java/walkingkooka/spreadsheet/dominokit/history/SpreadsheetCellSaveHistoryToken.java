@@ -159,7 +159,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         return this.saveUrlFragment(
                 this.urlFragmentSaveEntity()
         ).appendSlashThen(
-                this.saveValueUrlFragment()
+                this.urlFragmentSaveValue()
         );
     }
 
@@ -168,5 +168,5 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
      */
     abstract UrlFragment urlFragmentSaveEntity();
 
-    abstract UrlFragment saveValueUrlFragment();
+    abstract UrlFragment urlFragmentSaveValue();
 }
