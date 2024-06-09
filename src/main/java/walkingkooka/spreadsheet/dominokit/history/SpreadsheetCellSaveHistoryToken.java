@@ -157,7 +157,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     @Override//
     final UrlFragment cellUrlFragment() {
         return this.saveUrlFragment(
-                this.saveEntityUrlFragment()
+                this.urlFragmentSaveEntity()
         ).appendSlashThen(
                 this.saveValueUrlFragment()
         );
@@ -166,7 +166,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     /**
      * This is a single word such as formula/cell etc. The values will be converted into JSON and appended.
      */
-    abstract UrlFragment saveEntityUrlFragment();
+    abstract UrlFragment urlFragmentSaveEntity();
 
     abstract UrlFragment saveValueUrlFragment();
 }

@@ -112,7 +112,7 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
 
 
     @Override
-    UrlFragment saveEntityUrlFragment() {
+    UrlFragment urlFragmentSaveEntity() {
         return CELL;
     }
 
