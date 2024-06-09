@@ -83,7 +83,7 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
     // HasUrlFragment...................................................................................................
 
     @Override
-    UrlFragment saveEntityUrlFragment() {
+    UrlFragment urlFragmentSaveEntity() {
         return FORMULA;
     }
 

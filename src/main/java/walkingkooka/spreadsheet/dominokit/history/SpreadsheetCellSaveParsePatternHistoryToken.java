@@ -83,7 +83,7 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
     // HasUrlFragment..................................................................................................
 
     @Override
-    UrlFragment saveEntityUrlFragment() {
+    UrlFragment urlFragmentSaveEntity() {
         return PARSE_PATTERN;
     }
 

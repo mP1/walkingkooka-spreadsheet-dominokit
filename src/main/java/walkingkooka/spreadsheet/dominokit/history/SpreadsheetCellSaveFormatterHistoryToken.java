@@ -84,7 +84,7 @@ public final class SpreadsheetCellSaveFormatterHistoryToken extends SpreadsheetC
     // HasUrlFragment..................................................................................................
 
     @Override
-    UrlFragment saveEntityUrlFragment() {
+    UrlFragment urlFragmentSaveEntity() {
         return FORMATTER;
     }
 

@@ -83,7 +83,7 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
     // HasUrlFragment...................................................................................................
 
     @Override
-    UrlFragment saveEntityUrlFragment() {
+    UrlFragment urlFragmentSaveEntity() {
         return STYLE;
     }
 
