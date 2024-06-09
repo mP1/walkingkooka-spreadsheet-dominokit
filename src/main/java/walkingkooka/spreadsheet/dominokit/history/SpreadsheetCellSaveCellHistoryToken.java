@@ -119,7 +119,7 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
     private final static UrlFragment CELL = UrlFragment.parse("cell");
 
     @Override
-    UrlFragment saveValueUrlFragment() {
+    UrlFragment urlFragmentSaveValue() {
         return UrlFragment.with(
                 MARSHALL_CONTEXT.marshallCollection(this.value)
                         .toString()
