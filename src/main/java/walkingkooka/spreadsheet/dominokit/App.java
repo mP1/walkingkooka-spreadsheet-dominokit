@@ -143,8 +143,8 @@ public class App implements EntryPoint,
         final LoggingContext loggingContext = LoggingContexts.elemental();
         this.loggingContext = loggingContext;
 
-        this.spreadsheetComparatorProvider = SpreadsheetComparatorProviders.fake();
-        this.spreadsheetFormatterProvider = SpreadsheetFormatterProviders.fake();
+        this.spreadsheetComparatorProvider = SpreadsheetComparatorProviders.empty();
+        this.spreadsheetFormatterProvider = SpreadsheetFormatterProviders.empty();
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                 ExpressionNumberKind.DEFAULT,
