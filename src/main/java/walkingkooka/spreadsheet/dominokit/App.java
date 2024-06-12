@@ -143,8 +143,8 @@ public class App implements EntryPoint,
         final LoggingContext loggingContext = LoggingContexts.elemental();
         this.loggingContext = loggingContext;
 
-        this.spreadsheetComparatorProvider = SpreadsheetComparatorProviders.builtIn();
-        this.spreadsheetFormatterProvider = SpreadsheetFormatterProviders.spreadsheetFormatPattern();
+        this.spreadsheetComparatorProvider = SpreadsheetComparatorProviders.fake();
+        this.spreadsheetFormatterProvider = SpreadsheetFormatterProviders.fake();
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                 ExpressionNumberKind.DEFAULT,
@@ -553,6 +553,14 @@ public class App implements EntryPoint,
             final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
             this.spreadsheetMetadata = metadata;
 
+            this.spreadsheetComparatorProvider = metadata.spreadsheetComparatorProvider(
+                    SpreadsheetComparatorProviders.builtIn()
+            );
+
+            this.spreadsheetFormatterProvider = metadata.spreadsheetFormatterProvider(
+                    SpreadsheetFormatterProviders.spreadsheetFormatPattern()
+            );
+
             // update the global JsonNodeUnmarshallContext.
             this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                     metadata.expressionNumberKind(),
@@ -647,6 +655,9 @@ public class App implements EntryPoint,
         return this.spreadsheetComparatorProvider.spreadsheetComparatorInfos();
     }
 
+    /**
+     * This will be updated every time {@link #onSpreadsheetMetadata(SpreadsheetMetadata, AppContext)} is called.
+     */
     private SpreadsheetComparatorProvider spreadsheetComparatorProvider;
 
     // SpreadsheetComparatorProvider....................................................................................
@@ -661,6 +672,9 @@ public class App implements EntryPoint,
         return this.spreadsheetFormatterProvider.spreadsheetFormatterInfos();
     }
 
+    /**
+     * This will be updated every time {@link #onSpreadsheetMetadata(SpreadsheetMetadata, AppContext)} is called.
+     */
     private SpreadsheetFormatterProvider spreadsheetFormatterProvider;
 
     // history eventListener............................................................................................
