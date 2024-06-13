@@ -24,9 +24,15 @@ import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.text.cursor.parser.Parser;
 
 /**
- * This {@link HistoryToken} is used to represent the selection of the toolbar format-pattern icon.
+ * This {@link HistoryToken} is used to represent the selection of the toolbar {@link Parser} icon.
+ * <pre>
+ * /123/SpreadsheetName456/cell/B2:C3/top-left/formatter
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/parse-pattern
+ * </pre>
  */
 public final class SpreadsheetCellPatternParseHistoryToken extends SpreadsheetCellPatternFormatOrParseHistoryToken {
 

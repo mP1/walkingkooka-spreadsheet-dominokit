@@ -23,6 +23,13 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+/**
+ * Selects the highlight icon in the toolbar.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/highlight
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/highlight
+ * </pre>
+ */
 public final class SpreadsheetCellHighlightSelectHistoryToken extends SpreadsheetCellHighlightHistoryToken {
 
     static SpreadsheetCellHighlightSelectHistoryToken with(final SpreadsheetId id,

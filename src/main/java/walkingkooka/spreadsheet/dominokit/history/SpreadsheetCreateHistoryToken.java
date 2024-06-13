@@ -25,6 +25,9 @@ import walkingkooka.text.cursor.TextCursor;
 
 /**
  * A token that represents a spreadsheet create action.
+ * <pre>
+ * /create
+ * </pre>
  */
 public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken {
 

@@ -23,6 +23,14 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+/**
+ * Clears which is actually a deletion of the cells in the selected column(s).
+ * <pre>
+ * /123/SpreadsheetName456/column/A/clear
+ *
+ * /spreadsheet-id/spreadsheet-name/column/column or column-range/clear
+ * </pre>
+ */
 public class SpreadsheetColumnClearHistoryToken extends SpreadsheetColumnHistoryToken {
 
     static SpreadsheetColumnClearHistoryToken with(final SpreadsheetId id,

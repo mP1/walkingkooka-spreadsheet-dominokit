@@ -26,6 +26,13 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * Deletes the given spreadsheet mapping.
+ * <pre>
+ * /123/SpreadsheetName456/label/Label123/delete
+ * /spreadsheet-id/spreadsheet-name/label/selected-label/delete
+ * </pre>
+ */
 public final class SpreadsheetLabelMappingDeleteHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
     static SpreadsheetLabelMappingDeleteHistoryToken with(final SpreadsheetId id,

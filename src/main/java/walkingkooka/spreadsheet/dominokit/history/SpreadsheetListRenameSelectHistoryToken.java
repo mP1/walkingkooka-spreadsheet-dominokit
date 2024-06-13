@@ -25,6 +25,12 @@ import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Optional;
 
+/**
+ * Displays the rename spreadsheet dialog for editing.
+ * <pre>
+ * /rename/spreadsheet-id-123
+ * </pre>
+ */
 public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetListRenameHistoryToken {
 
     static SpreadsheetListRenameSelectHistoryToken with(final SpreadsheetId id) {

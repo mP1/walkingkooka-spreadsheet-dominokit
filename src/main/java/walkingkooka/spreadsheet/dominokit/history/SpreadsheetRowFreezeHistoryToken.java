@@ -25,6 +25,14 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+/**
+ * Freezes the selected row or rows.
+ * <pre>
+ * /123/SpreadsheetName456/row/1/freeze
+ *
+ * /spreadsheet-id/spreadsheet-name/row/row or row-range/freeze
+ * </pre>
+ */
 public class SpreadsheetRowFreezeHistoryToken extends SpreadsheetRowHistoryToken {
 
     static SpreadsheetRowFreezeHistoryToken with(final SpreadsheetId id,

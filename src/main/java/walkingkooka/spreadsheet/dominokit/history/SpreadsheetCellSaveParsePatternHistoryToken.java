@@ -33,6 +33,11 @@ import java.util.Optional;
 
 /**
  * This {@link HistoryToken} is used by to paste a {@link SpreadsheetParsePattern} for many cells over another range.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/save/parse-pattern/{%20"A1":%20{%20"type":%20"spreadsheet-number-parse-pattern",%20"value":%20"0.00"%20}%20}
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/parse-pattern/{@link SpreadsheetParsePattern} patch as json.
+ * </pre>
  */
 public final class SpreadsheetCellSaveParsePatternHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<SpreadsheetParsePattern>> {
 

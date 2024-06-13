@@ -25,6 +25,13 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Objects;
 
+/**
+ * Saves or replaces the formula expression for the selected cell. Other components of the cell such as style or formatting are not modified.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/formula/save/=1+2
+ * /spreadsheet-id/spreadsheet-name/cell/cell-or-cell-range-or-label/formula/save/new-formula-expression-here
+ * </pre>
+ */
 public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCellFormulaHistoryToken {
 
     static SpreadsheetCellFormulaSaveHistoryToken with(final SpreadsheetId id,

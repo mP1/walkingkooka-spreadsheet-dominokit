@@ -25,6 +25,14 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+/**
+ * Removes the selected column or columns from being frozen.
+ * <pre>
+ * /123/SpreadsheetName456/column/A/unfreeze
+ *
+ * /spreadsheet-id/spreadsheet-name/column/column or column-range/unfreeze
+ * </pre>
+ */
 public class SpreadsheetColumnUnfreezeHistoryToken extends SpreadsheetColumnHistoryToken {
 
     static SpreadsheetColumnUnfreezeHistoryToken with(final SpreadsheetId id,

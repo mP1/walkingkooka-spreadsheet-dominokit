@@ -27,6 +27,13 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * Saves or updates a new or existing {@link SpreadsheetLabelMapping}.
+ * <pre>
+ * /123/SpreadsheetName456/label/Label123/save/A1
+ * /spreadsheet-id/spreadsheet-name/label/selected-label-name/save/target-cell-or-cell-range-or-another-label
+ * </pre>
+ */
 public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
     static SpreadsheetLabelMappingSaveHistoryToken with(final SpreadsheetId id,

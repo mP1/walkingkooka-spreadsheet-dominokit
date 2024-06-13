@@ -32,6 +32,10 @@ import java.util.OptionalInt;
 
 /**
  * A token that represents a reload spreadsheet action.
+ * <pre>
+ * /1/reload
+ * /spreadsheet-id/reload
+ * </pre>
  */
 public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryToken {
 

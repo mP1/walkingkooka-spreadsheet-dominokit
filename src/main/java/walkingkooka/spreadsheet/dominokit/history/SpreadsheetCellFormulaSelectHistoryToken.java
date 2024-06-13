@@ -23,6 +23,13 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+/**
+ * Activates the formula component for editing.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/formula
+ * /spreadsheet-id/spreadsheet-name/cell/cell-or-cell-range-or-label/formula
+ * </pre>
+ */
 public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetCellFormulaHistoryToken {
 
     static SpreadsheetCellFormulaSelectHistoryToken with(final SpreadsheetId id,

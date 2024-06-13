@@ -23,6 +23,15 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+/**
+ * Opens a context menu with items for the selected column or columns.
+ * <pre>
+ * /123/SpreadsheetName456/column/A/menu
+ * /123/SpreadsheetName456/column/B:C/menu
+ *
+ * /spreadsheet-id/spreadsheet-name/column/column or column-range
+ * </pre>
+ */
 public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryToken {
 
     static SpreadsheetColumnMenuHistoryToken with(final SpreadsheetId id,

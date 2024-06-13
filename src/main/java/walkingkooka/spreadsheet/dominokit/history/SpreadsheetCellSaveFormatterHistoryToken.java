@@ -33,6 +33,11 @@ import java.util.Optional;
 
 /**
  * This {@link HistoryToken} is used by to paste a {@link SpreadsheetFormatterSelector} for many cells over another range.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/save/formatter/%7B%0A%20%20%20%22A1%22%3A%20%22text-format-pattern%20%40%22%0A%7D
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/formatter/{@link SpreadsheetFormatterSelector} for each selected cell.
+ * </pre>
  */
 public final class SpreadsheetCellSaveFormatterHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<SpreadsheetFormatterSelector>> {
 

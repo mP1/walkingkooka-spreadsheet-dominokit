@@ -26,7 +26,12 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 /**
- * This {@link HistoryToken} is used to represent the selection of the toolbar format-pattern icon.
+ * This {@link HistoryToken} is used to represent the selection of the toolbar {@link walkingkooka.spreadsheet.format.SpreadsheetFormatter} icon.
+ * <pre>
+ * /123/SpreadsheetName456/cell/B2:C3/top-left/formatter
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/formatter
+ * </pre>
  */
 public final class SpreadsheetCellPatternFormatHistoryToken extends SpreadsheetCellPatternFormatOrParseHistoryToken {
 

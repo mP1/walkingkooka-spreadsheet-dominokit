@@ -27,6 +27,14 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * Used by the numerous toolbar style icons, such as BOLD to save ar PATCH a cell style or styles.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/style/color/save/#123456
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/style/{@link TextStylePropertyName}/save/value-as-text
+ * </pre>
+ */
 final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCellStyleHistoryToken<T> {
 
     static <T> SpreadsheetCellStyleSaveHistoryToken<T> with(final SpreadsheetId id,

@@ -26,6 +26,15 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
+/**
+ * Opens a context menu with items for the selected cells.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/menu
+ * /123/SpreadsheetName456/cell/B2:C3/menu
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/menu
+ * </pre>
+ */
 public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellMenuHistoryToken with(final SpreadsheetId id,

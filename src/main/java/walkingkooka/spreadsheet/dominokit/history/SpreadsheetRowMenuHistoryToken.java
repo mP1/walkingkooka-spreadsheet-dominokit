@@ -23,6 +23,15 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+/**
+ * Opens a context menu with items for the selected row or rows.
+ * <pre>
+ * /123/SpreadsheetName456/row/1/menu
+ * /123/SpreadsheetName456/row/2:3/menu
+ *
+ * /spreadsheet-id/spreadsheet-name/row/row or row-range
+ * </pre>
+ */
 public class SpreadsheetRowMenuHistoryToken extends SpreadsheetRowHistoryToken {
 
     static SpreadsheetRowMenuHistoryToken with(final SpreadsheetId id,

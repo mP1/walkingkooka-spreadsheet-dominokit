@@ -28,7 +28,11 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 
 /**
- * A {@link HistoryToken} that represents a COPY to the clipboard of a cell or cell range.
+ * A {@link HistoryToken} that represents a COPY to the clipboard of a cell or cell range in part of whole.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/copy/cell
+ * /spreadsheet-id/spreadsheet-name/cell/selected-cell-or-cell-range-or-label/copy/SpreadsheetCellClipboardKind
+ * </pre>
  */
 public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetCellClipboardHistoryToken {
 

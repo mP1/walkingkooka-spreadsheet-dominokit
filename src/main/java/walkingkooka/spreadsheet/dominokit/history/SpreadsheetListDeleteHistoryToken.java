@@ -34,6 +34,12 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
 
+/**
+ * Represents the user clicking on a delete link within the list dialog.
+ * <pre>
+ * /delete/spreadsheet-id
+ * </pre>
+ */
 public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistoryToken {
 
     static SpreadsheetListDeleteHistoryToken with(final SpreadsheetId id) {

@@ -28,6 +28,16 @@ import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
 
+/**
+ * This token selects one or more cells for viewing or editing.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/
+ * /123/SpreadsheetName456/cell/B2:C3
+ * /123/SpreadsheetName456/cell/Label123
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell-or-cell-range-or-label
+ * </pre>
+ */
 public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellSelectHistoryToken with(final SpreadsheetId id,

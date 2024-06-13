@@ -24,6 +24,9 @@ import java.util.OptionalInt;
 
 /**
  * A token that reloads the list shown by {@link walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListDialogComponent}.
+ * <pre>
+ * /reload
+ * </pre>
  */
 public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHistoryToken {
 

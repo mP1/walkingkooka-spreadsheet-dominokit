@@ -23,6 +23,15 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+/**
+ * Selects the given row or rows.
+ * <pre>
+ * /123/SpreadsheetName456/row/1
+ * /123/SpreadsheetName456/row/2:3/right
+ *
+ * /spreadsheet-id/spreadsheet-name/row/row or row-range
+ * </pre>
+ */
 public class SpreadsheetRowSelectHistoryToken extends SpreadsheetRowHistoryToken {
 
     static SpreadsheetRowSelectHistoryToken with(final SpreadsheetId id,

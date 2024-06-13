@@ -25,6 +25,13 @@ import walkingkooka.text.cursor.TextCursor;
 
 import java.util.OptionalInt;
 
+/**
+ * Captures loading a spreadsheet using its spreadsheet-id
+ * <pre>
+ * /123
+ * /spreadsheet-id
+ * </pre>
+ */
 public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken {
 
     static SpreadsheetLoadHistoryToken with(final SpreadsheetId id) {

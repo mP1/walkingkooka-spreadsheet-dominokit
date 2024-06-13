@@ -35,7 +35,11 @@ import walkingkooka.tree.json.JsonNode;
 import java.util.Optional;
 
 /**
- * A {@link HistoryToken} that represents a CUT to the clipboard of a cell or cell range.
+ * A {@link HistoryToken} that represents a CUT to the clipboard of a cell or cell range in part of whole.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/cut/cell
+ * /spreadsheet-id/spreadsheet-name/cell/selected-cell-or-cell-range-or-label/cut/SpreadsheetCellClipboardKind
+ * </pre>
  */
 public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCellClipboardHistoryToken {
 

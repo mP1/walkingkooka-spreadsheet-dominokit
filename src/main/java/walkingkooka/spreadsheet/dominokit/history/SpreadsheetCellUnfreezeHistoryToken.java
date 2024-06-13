@@ -29,6 +29,14 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
+/**
+ * The inverse of freeze, removes any selected frozen cells.
+ * <pre>
+ * /123/SpreadsheetName456/cell/Label123/unfreeze
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/unfreeze
+ * </pre>
+ */
 public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellUnfreezeHistoryToken with(final SpreadsheetId id,
