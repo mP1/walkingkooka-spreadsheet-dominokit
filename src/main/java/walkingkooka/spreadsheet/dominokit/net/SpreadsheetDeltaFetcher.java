@@ -47,6 +47,7 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
@@ -760,7 +761,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     // GET http://localhost:12345/api/spreadsheet/1/cell/A1%3AB3/sort?comparators=A%3Dtext
     public void sortCells(final SpreadsheetId id,
-                          final SpreadsheetSelection selection,
+                          final SpreadsheetExpressionReference selection,
                           final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
         this.get(
                 url(

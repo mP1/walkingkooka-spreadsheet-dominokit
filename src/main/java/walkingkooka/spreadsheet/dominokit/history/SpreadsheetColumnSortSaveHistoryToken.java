@@ -97,7 +97,9 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
         context.spreadsheetDeltaFetcher()
                 .sortCells(
                         this.id(),
-                        this.anchoredSelection().selection(),
+                        this.anchoredSelection()
+                                .selection()
+                                .toCellRange(),
                         this.comparatorNames
                 );
     }
