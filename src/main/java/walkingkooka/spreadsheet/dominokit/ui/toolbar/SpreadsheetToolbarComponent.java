@@ -62,7 +62,6 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     private SpreadsheetToolbarComponent(final AppContext context) {
         this.flexLayout = this.createFlexLayout(context);
 
-        context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
 
         this.context = context;
@@ -149,7 +148,16 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
                                    final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        this.refreshIfOpen(context);
+        this.refreshItemsIfOpen(context);
+    }
+
+    private void refreshItemsIfOpen(final AppContext context) {
+        for (final IsElement<?> component : this.flexLayout.children()) {
+            final SpreadsheetToolbarComponentItem<?> item = (SpreadsheetToolbarComponentItem<?>) component;
+            item.refreshIfOpen(
+                    context
+            );
+        }
     }
 
     // SpreadsheetViewportComponentLifecycle............................................................................
@@ -187,12 +195,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
 
     @Override
     public void refresh(final AppContext context) {
-        for (final IsElement<?> component : this.flexLayout.children()) {
-            final SpreadsheetToolbarComponentItem<?> item = (SpreadsheetToolbarComponentItem<?>) component;
-            item.refresh(
-                    context
-            );
-        }
+
     }
 
     @Override
