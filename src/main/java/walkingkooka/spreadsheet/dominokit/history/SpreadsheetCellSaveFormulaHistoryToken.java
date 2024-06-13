@@ -31,7 +31,12 @@ import walkingkooka.tree.json.JsonNode;
 import java.util.Map;
 
 /**
- * This {@link HistoryToken} is used by to paste a formula over a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference}.
+ * This {@link HistoryToken} is used by to paste a formula over the selected cells.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/save/formula/{"A1":"=1"}
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/formula/multi formatter patch as json.
+ * </pre>
  */
 public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCellSaveMapHistoryToken<String> {
 

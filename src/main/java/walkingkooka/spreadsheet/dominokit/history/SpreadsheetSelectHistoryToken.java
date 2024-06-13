@@ -34,6 +34,13 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.function.Function;
 
+/**
+ * This token represents a loaded and open spreadsheet ready for viewing and editing.
+ * <pre>
+ * /1/SpreadsheetName123
+ * /spreadsheet-id/spreadsheet-name-here
+ * </pre>
+ */
 public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryToken {
 
     static SpreadsheetSelectHistoryToken with(final SpreadsheetId id,

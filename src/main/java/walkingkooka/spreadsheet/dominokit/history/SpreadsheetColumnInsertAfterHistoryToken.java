@@ -26,6 +26,16 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.OptionalInt;
 
+/**
+ * Displays a dialog to prompt the user for how many columns to insert if count is missing or inserts the requested columns.
+ * <pre>
+ * /123/SpreadsheetName456/column/A/insertAfter
+ * /123/SpreadsheetName456/column/A/insertAfter/1
+ *
+ * /spreadsheet-id/spreadsheet-name/column/column or column-range/insertAfter
+ * /spreadsheet-id/spreadsheet-name/column/column or column-range/insertAfter/column-count
+ * </pre>
+ */
 public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnInsertHistoryToken {
 
     static SpreadsheetColumnInsertAfterHistoryToken with(final SpreadsheetId id,

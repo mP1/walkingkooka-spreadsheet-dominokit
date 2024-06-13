@@ -27,6 +27,13 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * Displays a modal dialog with a form that allows editing of a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping}.
+ * <pre>
+ * /123/SpreadsheetName456/label/Label123
+ * /spreadsheet-id/spreadsheet-name/label/label-name-to-create-or-edit
+ * </pre>
+ */
 public final class SpreadsheetLabelMappingSelectHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
     static SpreadsheetLabelMappingSelectHistoryToken with(final SpreadsheetId id,

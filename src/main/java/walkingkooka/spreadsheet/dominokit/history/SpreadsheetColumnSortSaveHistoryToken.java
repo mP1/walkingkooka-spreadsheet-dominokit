@@ -27,6 +27,11 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 /**
  * This {@link HistoryToken} invokes the server with the parameters to sort the selected column-range with the given comparators.
+ * <pre>
+ * /123/SpreadsheetName456/column/A/sort/save/Z=text
+ *
+ * /spreadsheet-id/spreadsheet-name/column/column or column-range/sort/save/SpreadsheetColumnOrRowSpreadsheetComparatorsList#text
+ * </pre>
  */
 public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColumnSortHistoryToken {
 

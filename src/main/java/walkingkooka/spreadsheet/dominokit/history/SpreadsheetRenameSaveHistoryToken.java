@@ -27,6 +27,9 @@ import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
 
+/**
+ * This action saves the given spreadsheet name.
+ */
 public final class SpreadsheetRenameSaveHistoryToken extends SpreadsheetRenameHistoryToken implements Value<SpreadsheetName> {
 
     static SpreadsheetRenameSaveHistoryToken with(final SpreadsheetId id,

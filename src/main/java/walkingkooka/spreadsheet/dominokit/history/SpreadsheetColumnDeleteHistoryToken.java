@@ -25,6 +25,14 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
+/**
+ * Deletes the selected column or columns and any cells that may be present within them.
+ * <pre>
+ * /123/SpreadsheetName456/column/A/delete
+ *
+ * /spreadsheet-id/spreadsheet-name/column/column or column-range/delete
+ * </pre>
+ */
 public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistoryToken {
 
     static SpreadsheetColumnDeleteHistoryToken with(final SpreadsheetId id,

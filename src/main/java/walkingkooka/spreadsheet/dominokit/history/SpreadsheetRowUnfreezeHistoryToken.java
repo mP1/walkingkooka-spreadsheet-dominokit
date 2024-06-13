@@ -25,6 +25,14 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+/**
+ * Removes the selected row or rows from being frozen.
+ * <pre>
+ * /123/SpreadsheetName456/row/A/unfreeze
+ *
+ * /spreadsheet-id/spreadsheet-name/row/row or row-range/unfreeze
+ * </pre>
+ */
 public class SpreadsheetRowUnfreezeHistoryToken extends SpreadsheetRowHistoryToken {
 
     static SpreadsheetRowUnfreezeHistoryToken with(final SpreadsheetId id,

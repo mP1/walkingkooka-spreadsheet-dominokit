@@ -28,7 +28,14 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import java.util.Objects;
 import java.util.Optional;
 
-// http://localhost:12345/index.html#/2/Untitled/cell/A1/find/path/LR-TB/offset/0/max/100/value-type/any/query/true()
+
+/**
+ * Opens a dialog and displays a form which supports editing of a complex query to find and display cells that match.
+ * <pre>
+ * http://localhost:12345/index.html#/2/Untitled/cell/A1/find/path/LR-TB/offset/0/max/100/value-type/any/query/true()
+ * /spreadsheet-id/spreadsheet-name/cell/cell-Or-cell-range-OR-label/find/path/LR-TB/offset/0/max/0/value-type/any/query/formula-expression-to-execute-for-each-candidate-cell.
+ * </pre>
+ */
 public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellFindHistoryToken with(final SpreadsheetId id,

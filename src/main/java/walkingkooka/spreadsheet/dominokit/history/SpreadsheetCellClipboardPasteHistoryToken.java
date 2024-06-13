@@ -32,7 +32,12 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import java.util.List;
 
 /**
- * A {@link HistoryToken} that represents a PASTE to the clipboard of a cell or cell range.
+ * A {@link HistoryToken} that represents a PASTE from the clipboard over a cell or cell range. The paste operation
+ * may replace the entire contents of each cell or just the formula or style. {@link SpreadsheetCellClipboardKind}.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/paste/cell
+ * /spreadsheet-id/spreadsheet-name/cell/selected-cell-or-cell-range-or-label/paste/SpreadsheetCellClipboardKind
+ * </pre>
  */
 public final class SpreadsheetCellClipboardPasteHistoryToken extends SpreadsheetCellClipboardHistoryToken {
 

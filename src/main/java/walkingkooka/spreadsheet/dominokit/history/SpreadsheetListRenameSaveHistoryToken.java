@@ -27,6 +27,12 @@ import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
 
+/**
+ * Represents an action where the user has renamed a spreadsheet from the list spreadsheet dialog.
+ * <pre>
+ * /rename/123/save/new-spreadsheet-name-here
+ * </pre>
+ */
 public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetListRenameHistoryToken implements Value<SpreadsheetName> {
 
     static SpreadsheetListRenameSaveHistoryToken with(final SpreadsheetId id,

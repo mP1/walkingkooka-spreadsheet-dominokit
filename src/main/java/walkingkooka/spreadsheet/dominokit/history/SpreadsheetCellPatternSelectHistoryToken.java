@@ -27,6 +27,25 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
+/**
+ * Opens a dialog with a form and other components supporting edit a formatting or parse pattern.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/formatter/date
+ * /123/SpreadsheetName456/cell/A1/formatter/date-time
+ * /123/SpreadsheetName456/cell/A1/formatter/number
+ * /123/SpreadsheetName456/cell/A1/formatter/text
+ * /123/SpreadsheetName456/cell/A1/formatter/time
+ *
+ * /123/SpreadsheetName456/cell/A1/parse-pattern/date-time
+ * /123/SpreadsheetName456/cell/A1/parse-pattern/date
+ * /123/SpreadsheetName456/cell/A1/parse-pattern/date-time
+ * /123/SpreadsheetName456/cell/A1/parse-pattern/number
+ * /123/SpreadsheetName456/cell/A1/parse-pattern/time
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/formatter/SpreadsheetPatternKind
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/parse-pattern/SpreadsheetPatternKind
+ * </pre>
+ */
 public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetCellPatternHistoryToken {
 
     static SpreadsheetCellPatternSelectHistoryToken with(final SpreadsheetId id,

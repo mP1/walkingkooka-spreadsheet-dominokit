@@ -26,6 +26,12 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
+/**
+ * Selects one of the available style toolbar links.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/style/color
+ * </pre>
+ */
 final public class SpreadsheetCellStyleSelectHistoryToken<T> extends SpreadsheetCellStyleHistoryToken<T> {
 
     static <T> SpreadsheetCellStyleSelectHistoryToken<T> with(final SpreadsheetId id,

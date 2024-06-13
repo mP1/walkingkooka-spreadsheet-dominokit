@@ -23,6 +23,15 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+/**
+ * Selects the given column or columns.
+ * <pre>
+ * /123/SpreadsheetName456/column/A
+ * /123/SpreadsheetName456/column/B:C/right
+ *
+ * /spreadsheet-id/spreadsheet-name/column/column or column-range
+ * </pre>
+ */
 public class SpreadsheetColumnSelectHistoryToken extends SpreadsheetColumnHistoryToken {
 
     static SpreadsheetColumnSelectHistoryToken with(final SpreadsheetId id,

@@ -24,6 +24,9 @@ import java.util.OptionalInt;
 
 /**
  * A token that represents a spreadsheet list files dialog.
+ * <pre>
+ * /from/1/count/10/
+ * </pre>
  */
 public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHistoryToken {
 

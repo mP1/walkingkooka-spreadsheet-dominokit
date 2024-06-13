@@ -24,6 +24,16 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+/**
+ * An action that saves or replaces whether highlighting is enabled or disabled.
+ * When enabled the viewport will highlight matched cells.
+ * <pre>
+ * /123/SpreadsheetName456/cell/B2:C3/top-left/highlight/save/enable
+ * /123/SpreadsheetName456/cell/B2:C3/top-left/highlight/save/disabled
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/highlight/save/enable or disable
+ * </pre>
+ */
 public final class SpreadsheetCellHighlightSaveHistoryToken extends SpreadsheetCellHighlightHistoryToken {
 
     static SpreadsheetCellHighlightSaveHistoryToken with(final SpreadsheetId id,

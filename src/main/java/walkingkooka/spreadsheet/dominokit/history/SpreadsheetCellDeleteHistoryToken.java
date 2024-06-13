@@ -26,6 +26,16 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
+/**
+ * This token represents an action to delete a cell or cell range.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/delete
+ * /123/SpreadsheetName456/cell/B2:C3/delete
+ * /123/SpreadsheetName456/cell/Label123/delete
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell-or-cell-range-or-label/delete
+ * </pre>
+ */
 public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellDeleteHistoryToken with(final SpreadsheetId id,

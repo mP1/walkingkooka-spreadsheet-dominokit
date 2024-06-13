@@ -32,6 +32,11 @@ import java.util.Map;
 
 /**
  * This {@link HistoryToken} is used by to paste a styles for many cells over another range.
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1:A2/save/style/{"A1":{"color":"#111111"},"A2":{"color":"#222222"}}
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/style/style-patch as JSON.
+ * </pre>
  */
 public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellSaveMapHistoryToken<TextStyle> {
 

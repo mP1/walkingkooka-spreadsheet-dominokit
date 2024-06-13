@@ -25,6 +25,14 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
+/**
+ * Freezes the selected column or columns.
+ * <pre>
+ * /123/SpreadsheetName456/column/A/freeze
+ *
+ * /spreadsheet-id/spreadsheet-name/column/column or column-range/freeze
+ * </pre>
+ */
 public class SpreadsheetColumnFreezeHistoryToken extends SpreadsheetColumnHistoryToken {
 
     static SpreadsheetColumnFreezeHistoryToken with(final SpreadsheetId id,

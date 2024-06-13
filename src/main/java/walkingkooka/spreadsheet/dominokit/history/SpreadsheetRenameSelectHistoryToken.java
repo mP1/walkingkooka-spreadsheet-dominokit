@@ -23,6 +23,9 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 
+/**
+ * This history token opens/displays a dialog after the user clicks the spreadsheet name in the toolbar for editing.
+ */
 public final class SpreadsheetRenameSelectHistoryToken extends SpreadsheetRenameHistoryToken {
 
     static SpreadsheetRenameSelectHistoryToken with(final SpreadsheetId id,

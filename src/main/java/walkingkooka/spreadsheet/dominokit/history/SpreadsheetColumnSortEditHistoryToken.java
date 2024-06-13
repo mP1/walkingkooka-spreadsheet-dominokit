@@ -28,6 +28,12 @@ import java.util.Objects;
 /**
  * This {@link HistoryToken} represents a EDIT dialog to edit the sort parameters. The comparatorNames property may be
  * empty or invalid it is not verified for correctness by this token.
+ * <pre>
+ * /123/SpreadsheetName456/column/A/sort/edit
+ * /123/SpreadsheetName456/column/B:C/bottom/sort/edit
+ *
+ * /spreadsheet-id/spreadsheet-name/column/column or column-range/sort/edit
+ * </pre>
  */
 public final class SpreadsheetColumnSortEditHistoryToken extends SpreadsheetColumnSortHistoryToken {
 

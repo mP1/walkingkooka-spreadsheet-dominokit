@@ -29,6 +29,13 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
+/**
+ * Saves or replaces the frozen cells.
+ * <pre>
+ * /123/SpreadsheetName456/cell/Label123/freeze
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/freeze
+ * </pre>
+ */
 public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellFreezeHistoryToken with(final SpreadsheetId id,

@@ -25,6 +25,14 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
+/**
+ * Deletes the selected row or rows and any cells that may be present within them.
+ * <pre>
+ * /123/SpreadsheetName456/row/1/delete
+ *
+ * /spreadsheet-id/spreadsheet-name/row/row or row-range/delete
+ * </pre>
+ */
 public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken {
 
     static SpreadsheetRowDeleteHistoryToken with(final SpreadsheetId id,

@@ -26,6 +26,16 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.OptionalInt;
 
+/**
+ * Displays a dialog to prompt the user for how many rows to insert if count is missing or inserts the requested rows.
+ * <pre>
+ * /123/SpreadsheetName456/row/1/insertAfter
+ * /123/SpreadsheetName456/row/1/insertAfter/1
+ *
+ * /spreadsheet-id/spreadsheet-name/row/row or row-range/insertAfter
+ * /spreadsheet-id/spreadsheet-name/row/row or row-range/insertAfter/row-count
+ * </pre>
+ */
 public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertHistoryToken {
 
     static SpreadsheetRowInsertAfterHistoryToken with(final SpreadsheetId id,

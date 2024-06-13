@@ -28,6 +28,24 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
+/**
+ * Saves or replaces the formatting or parse pattern for the selected cell(s).
+ * <pre>
+ * /123/SpreadsheetName456/cell/A1/formatter/date/save/save/dd-mm-yyy
+ * /123/SpreadsheetName456/cell/A1/formatter/date-time/save/dd-mm-yyyy hh:mm
+ * /123/SpreadsheetName456/cell/A1/formatter/number/save/$0.00
+ * /123/SpreadsheetName456/cell/A1/formatter/text/save/@
+ * /123/SpreadsheetName456/cell/A1/formatter/time/save/hh:mm
+ *
+ * /123/SpreadsheetName456/cell/A1/parse-pattern/date/save/yyyy-mm-dd;yy-mm-dd
+ * /123/SpreadsheetName456/cell/A1/parse-pattern/date-time/save/yyyy-mm-dd hh:mm:ssyy-mm-dd hh:mm
+ * /123/SpreadsheetName456/cell/A1/parse-pattern/number/save/+0.00;-0.00;"ZERO"
+ * /123/SpreadsheetName456/cell/A1/parse-pattern/time/save/hh:mm:ss;hh:mm
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/formatter/SpreadsheetPatternKind
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/parse-pattern/SpreadsheetPatternKind
+ * </pre>
+ */
 public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCellPatternHistoryToken
         implements HasSpreadsheetPattern {
 
