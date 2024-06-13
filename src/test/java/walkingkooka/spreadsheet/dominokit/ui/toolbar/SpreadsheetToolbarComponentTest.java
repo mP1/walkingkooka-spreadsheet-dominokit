@@ -92,21 +92,17 @@ public final class SpreadsheetToolbarComponentTest implements ComponentLifecycle
 
         final AppContext context = this.appContext(
                 watchers,
-                "/1/Spreadsheet123/"
+                "/"
         );
 
+        // toolbar shoould be empty (hidden)
         this.onHistoryTokenChangeAndCheck(
                 SpreadsheetToolbarComponent.with(context),
                 watchers,
                 context,
                 "SpreadsheetToolbarComponent\n" +
                         "  SpreadsheetFlexLayout\n" +
-                        "    ROW\n" +
-                        "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/metadata/hide-zero-values/save/true] id=toolbar-hide-zero-values-Link\n" +
-                        "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
-                        "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/label] id=toolbar-label-create-Link\n" +
-                        "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
-                        "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n"
+                        "    ROW\n"
         );
     }
 
