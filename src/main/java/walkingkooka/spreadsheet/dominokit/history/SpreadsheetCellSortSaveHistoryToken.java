@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 /**
@@ -97,7 +98,9 @@ public final class SpreadsheetCellSortSaveHistoryToken extends SpreadsheetCellSo
         context.spreadsheetDeltaFetcher()
                 .sortCells(
                         this.id(),
-                        this.anchoredSelection().selection(),
+                        (SpreadsheetExpressionReference)
+                                this.anchoredSelection()
+                                        .selection(),
                         this.comparatorNames
                 );
     }
