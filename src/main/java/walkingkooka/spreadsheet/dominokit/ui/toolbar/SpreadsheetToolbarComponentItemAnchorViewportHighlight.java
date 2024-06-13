@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
@@ -30,6 +31,10 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * A toolbar item that should only be visible when one or more cells are selected. This is because it is not possible to "save" or "update" cell highlighting from other non cell selections such as column or row.
+ * The only highlight save history token that exists is {@link SpreadsheetCellHighlightSaveHistoryToken}.
+ */
 final class SpreadsheetToolbarComponentItemAnchorViewportHighlight extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorViewportHighlight>
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh {
@@ -118,6 +123,6 @@ final class SpreadsheetToolbarComponentItemAnchorViewportHighlight extends Sprea
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return true; // always show
+        return token instanceof SpreadsheetCellHistoryToken; // only show when cells are selected
     }
 }
