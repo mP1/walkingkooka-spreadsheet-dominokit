@@ -42,8 +42,8 @@ import java.util.Optional;
  * /123/SpreadsheetName456/cell/A1/parse-pattern/number/save/+0.00;-0.00;"ZERO"
  * /123/SpreadsheetName456/cell/A1/parse-pattern/time/save/hh:mm:ss;hh:mm
  *
- * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/formatter/SpreadsheetPatternKind
- * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/parse-pattern/SpreadsheetPatternKind
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/formatter/SpreadsheetPatternKind/SpreadsheetFormatPattern#text
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/parse-pattern/SpreadsheetPatternKind/SpreadsheetParsePattern#text
  * </pre>
  */
 public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCellPatternHistoryToken
