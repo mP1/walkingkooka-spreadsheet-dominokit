@@ -101,6 +101,8 @@ public interface ComponentWithChildren<C extends Component<E>, E extends Element
         return hide;
     }
 
+    // TreePrintable....................................................................................................
+
     /**
      * Prints the children belonging to this {@link Component}. Note that empty children will be skipped and nothing printed for them.
      */
