@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui;
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.CanBeEmpty;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -99,6 +100,18 @@ public interface ComponentWithChildren<C extends Component<E>, E extends Element
         }
 
         return hide;
+    }
+
+    /**
+     * Helper that requests each child if possible to call {@link ComponentLifecycle#refreshIfOpen(AppContext)}.
+     */
+    default void refreshChildrenIfOpen(final AppContext context) {
+        for (final IsElement<?> component : this.children()) {
+            final ComponentLifecycle componentLifecycle = (ComponentLifecycle) component;
+            componentLifecycle.refreshIfOpen(
+                    context
+            );
+        }
     }
 
     // TreePrintable....................................................................................................

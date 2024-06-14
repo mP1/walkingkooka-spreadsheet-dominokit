@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui.toolbar;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
-import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
@@ -148,16 +147,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
                                    final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        this.refreshItemsIfOpen(context);
-    }
-
-    private void refreshItemsIfOpen(final AppContext context) {
-        for (final IsElement<?> component : this.flexLayout.children()) {
-            final SpreadsheetToolbarComponentItem<?> item = (SpreadsheetToolbarComponentItem<?>) component;
-            item.refreshIfOpen(
-                    context
-            );
-        }
+        this.flexLayout.refreshChildrenIfOpen(context);
     }
 
     // SpreadsheetViewportComponentLifecycle............................................................................
