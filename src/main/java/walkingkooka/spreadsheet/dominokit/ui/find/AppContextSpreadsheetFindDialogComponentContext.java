@@ -22,9 +22,15 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.format.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.format.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
+import walkingkooka.text.cursor.parser.Parser;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
+import java.util.Set;
 
 final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext {
 
@@ -90,6 +96,18 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
     @Override
     public SpreadsheetMetadata spreadsheetMetadata() {
         return this.context.spreadsheetMetadata();
+    }
+
+    // SpreadsheetParserProvider........................................................................................
+
+    @Override
+    public Optional<Parser<SpreadsheetParserContext>> spreadsheetParser(final SpreadsheetParserSelector selector) {
+        return this.context.spreadsheetParser(selector);
+    }
+
+    @Override
+    public Set<SpreadsheetParserInfo> spreadsheetParserInfos() {
+        return this.context.spreadsheetParserInfos();
     }
 
     // LoggingContext...................................................................................................

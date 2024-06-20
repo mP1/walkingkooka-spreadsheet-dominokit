@@ -34,14 +34,19 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.format.SpreadsheetParserProvider;
+import walkingkooka.spreadsheet.format.SpreadsheetParserProviders;
+import walkingkooka.spreadsheet.format.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursors;
+import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.util.FunctionTesting;
 
@@ -72,6 +77,8 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             .set(SpreadsheetMetadataPropertyName.ROUNDING_MODE, RoundingMode.HALF_UP)
             .set(SpreadsheetMetadataPropertyName.DEFAULT_YEAR, 50)
             .set(SpreadsheetMetadataPropertyName.TWO_DIGIT_YEAR, 50);
+
+    private final static SpreadsheetParserProvider SPREADSHEET_PARSER_PROVIDER = SpreadsheetParserProviders.spreadsheetParsePattern();
 
     private final static Supplier<LocalDateTime> NOW = LocalDateTime::now;
 
@@ -201,7 +208,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     }
 
     @Test
-    public void testCellPresentWithoutParsePattern() {
+    public void testCellPresentWithoutParser() {
         final SpreadsheetCellReference cellReference = SpreadsheetSelection.parseCell("B2");
         final AppContext context = this.appContext(
                 cellReference,
@@ -223,8 +230,9 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         );
 
         final SpreadsheetMetadata metadata = METADATA.set(
-                SpreadsheetMetadataPropertyName.NUMBER_PARSE_PATTERN,
+                SpreadsheetMetadataPropertyName.NUMBER_PARSER,
                 SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                        .spreadsheetParserSelector()
         );
 
         final String text = "$1.23";
@@ -239,14 +247,14 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 text,
                 SpreadsheetFormula.parse(
                         TextCursors.charSequence(text),
-                        metadata.parser(),
+                        metadata.parser(SPREADSHEET_PARSER_PROVIDER),
                         metadata.parserContext(NOW)
                 )
         );
     }
 
     @Test
-    public void testCellPresentUsingParsePattern() {
+    public void testCellPresentUsingParser() {
         final SpreadsheetCellReference cellReference = SpreadsheetSelection.parseCell("B2");
         final AppContext context = this.appContext(
                 cellReference,
@@ -264,9 +272,9 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                         Sets.of(
                                 cellReference.setFormula(
                                         SpreadsheetFormula.EMPTY
-                                ).setParsePattern(
+                                ).setParser(
                                         Optional.of(
-                                                pattern
+                                                pattern.spreadsheetParserSelector()
                                         )
                                 )
                         )
@@ -310,8 +318,10 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                         Sets.of(
                                 cellReference.setFormula(
                                         SpreadsheetFormula.EMPTY
-                                ).setParsePattern(
-                                        Optional.of(pattern)
+                                ).setParser(
+                                        Optional.of(
+                                                pattern.spreadsheetParserSelector()
+                                        )
                                 )
                         )
                 ).setLabels(
@@ -343,7 +353,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 text,
                 SpreadsheetFormula.parse(
                         TextCursors.charSequence(text),
-                        METADATA.parser(),
+                        METADATA.parser(SPREADSHEET_PARSER_PROVIDER),
                         METADATA.parserContext(NOW)
                 )
         );
@@ -387,6 +397,12 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return metadata;
+            }
+
+            @Override
+            public Optional<Parser<SpreadsheetParserContext>> spreadsheetParser(final SpreadsheetParserSelector selector) {
+                return SpreadsheetParserProviders.spreadsheetParsePattern()
+                        .spreadsheetParser(selector);
             }
 
             @Override

@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.format.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
@@ -142,7 +143,9 @@ public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetC
                                         SpreadsheetFormatterSelector.parse(pattern)
                                                 .spreadsheetFormatPattern()
                                                 .get() :
-                                        patternKind.parse(pattern)
+                                        SpreadsheetParserSelector.parse(pattern)
+                                                .spreadsheetParsePattern()
+                                                .get()
                 )
         );
     }

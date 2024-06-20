@@ -58,12 +58,12 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     }
 
     @Test
-    public void testHasSpreadsheetPatternKindDateTimeParsePattern() {
+    public void testHasSpreadsheetPatternKindDateTimeParser() {
         this.hasSpreadsheetPatternKindAndCheck(
                 SpreadsheetMetadataPropertySelectHistoryToken.with(
                         ID,
                         NAME,
-                        SpreadsheetMetadataPropertyName.DATETIME_PARSE_PATTERN
+                        SpreadsheetMetadataPropertyName.DATE_TIME_PARSER
                 ),
                 SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN
         );
@@ -179,7 +179,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
                 HistoryToken.metadataPropertySelect(
                         ID,
                         NAME,
-                        SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN
+                        SpreadsheetMetadataPropertyName.DATE_PARSER
                 ),
                 HistoryToken.metadataSelect(
                         ID,
@@ -253,7 +253,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
                 SpreadsheetMetadataPropertySelectHistoryToken.with(
                         ID,
                         NAME,
-                        SpreadsheetMetadataPropertyName.DATETIME_PARSE_PATTERN
+                        SpreadsheetMetadataPropertyName.DATE_TIME_PARSER
                 )
         );
     }

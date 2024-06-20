@@ -72,9 +72,12 @@ abstract class SpreadsheetPatternDialogComponentContextBasic implements Spreadsh
 
     @Override
     public final SpreadsheetFormatterContext spreadsheetFormatterContext() {
-        return this.context.spreadsheetMetadata()
+        final AppContext context = this.context;
+
+        return context.spreadsheetMetadata()
                 .formatterContext(
-                        this.context, // implements SpreadsheetFormatterProvider
+                        context, // implements SpreadsheetFormatterProvider
+                        context, // context as SpreadsheetParserProvider
                         LocalDateTime::now,
                         (s) -> {
                             throw new UnsupportedOperationException();

@@ -2921,17 +2921,17 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
-                                ).setParsePattern(
+                                ).setParser(
                                         Optional.of(
-                                                date
+                                                date.spreadsheetParserSelector()
                                         )
                                 ),
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
-                                        ).setParsePattern(
+                                        ).setParser(
                                                 Optional.of(
-                                                        date
+                                                        date.spreadsheetParserSelector()
                                                 )
                                         ),
                                 SpreadsheetSelection.parseCell("B1")
@@ -2941,8 +2941,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.parseCell("C3")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
-                                        ).setParsePattern(
-                                                Optional.of(time)
+                                        ).setParser(
+                                                Optional.of(
+                                                        time.spreadsheetParserSelector()
+                                                )
                                         )
                         )
                 ),
@@ -2983,17 +2985,17 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                         Sets.of(
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
-                                ).setParsePattern(
+                                ).setParser(
                                         Optional.of(
-                                                date
+                                                date.spreadsheetParserSelector()
                                         )
                                 ),
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
-                                        ).setParsePattern(
+                                        ).setParser(
                                                 Optional.of(
-                                                        time
+                                                        time.spreadsheetParserSelector()
                                                 )
                                         )
                         )

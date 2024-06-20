@@ -32,7 +32,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.format.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -99,7 +99,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                     TextCursors.charSequence(
                                             formula.text()
                                     ),
-                                    metadata.parser(),
+                                    metadata.parser(context), // as SpreadsheetParserProvider
                                     metadata.parserContext(context::now)
                             )
                     );
@@ -154,7 +154,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                             TextCursors.charSequence(
                                     node.stringOrFail()
                             ),
-                            metadata.parser(), // parser
+                            metadata.parser(context), // context as SpreadsheetParserProvider
                             metadata.parserContext(
                                     context::now
                             )// parser context
@@ -230,19 +230,19 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     },
 
     /**
-     * The clipboard value is a cells to {@link SpreadsheetParsePattern}.
+     * The clipboard value is a cells to {@link walkingkooka.spreadsheet.format.SpreadsheetParserSelector}.
      */
-    PARSE_PATTERN(
-            SpreadsheetParsePattern.class,
-            SpreadsheetCell::parsePattern,
-            "parse-pattern"
+    PARSER(
+            SpreadsheetParserSelector.class,
+            SpreadsheetCell::parser,
+            "parser"
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
                           final JsonNodeMarshallContext context) {
-            return marshallCellToOptionalTypeValue(
+            return marshallCellToOptionalValue(
                     cell,
-                    cell.parsePattern(),
+                    cell.parser(),
                     context
             );
         }
@@ -255,10 +255,13 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                             .value()
             ).setFormula(
                     SpreadsheetFormula.EMPTY
-            ).setParsePattern(
+            ).setParser(
                     Optional.ofNullable(
                             context.unmarshallContext()
-                                    .unmarshallWithType(node)
+                                    .unmarshall(
+                                            node,
+                                            SpreadsheetParserSelector.class
+                                    )
                     )
             );
         }
@@ -267,12 +270,12 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
                                       final SpreadsheetId id,
                                       final SpreadsheetCellRange range) {
-            fetcher.patchCellsParsePattern(
+            fetcher.patchCellsParser(
                     id,
                     range.range(),
                     toMap(
                             range,
-                            SpreadsheetCell::parsePattern
+                            SpreadsheetCell::parser
                     )
             );
         }
@@ -530,7 +533,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
             CELL,
             FORMULA,
             FORMATTER,
-            PARSE_PATTERN,
+            PARSER,
             STYLE,
             FORMATTED_VALUE
     );

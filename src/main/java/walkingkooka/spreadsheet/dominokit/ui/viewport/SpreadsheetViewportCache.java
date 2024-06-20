@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.format.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -352,7 +353,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                             formatPatterns.add(formatPattern);
                         }
 
-                        final SpreadsheetParsePattern parsePattern = cell.parsePattern()
+                        final SpreadsheetParsePattern parsePattern = cell.parser()
+                                .flatMap(SpreadsheetParserSelector::spreadsheetParsePattern)
                                 .orElse(null);
                         if (null != parsePattern) {
                             parsePatterns.add(parsePattern);

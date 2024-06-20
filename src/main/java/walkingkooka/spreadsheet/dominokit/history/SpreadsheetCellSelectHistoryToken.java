@@ -174,8 +174,8 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                             )
                     );
                     break;
-                case PARSE_PATTERN_STRING:
-                    result = cellSaveParsePattern(
+                case PARSER_STRING:
+                    result = cellSaveParser(
                             this.id(),
                             this.name(),
                             this.anchoredSelection(),

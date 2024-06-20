@@ -318,7 +318,7 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
 
         this.toStringAndCheck(
                 recorder,
-                "max=3 SpreadsheetCellPatternSaveHistoryToken \"/1/SpreadsheetName123/cell/A1/parse-pattern/date/save/dd/mm/yyyy\""
+                "max=3 SpreadsheetCellPatternSaveHistoryToken \"/1/SpreadsheetName123/cell/A1/parser/date/save/date-parse-pattern%20dd/mm/yyyy\""
         );
     }
 

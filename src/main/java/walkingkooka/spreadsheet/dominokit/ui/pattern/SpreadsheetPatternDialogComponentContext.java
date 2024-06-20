@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
+import walkingkooka.spreadsheet.format.SpreadsheetParserName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
@@ -54,17 +55,29 @@ public interface SpreadsheetPatternDialogComponentContext extends CanGiveFocus,
                 case DATE_FORMAT_PATTERN:
                     save = SpreadsheetFormatterName.DATE_FORMAT_PATTERN + " " + patternText;
                     break;
+                case DATE_PARSE_PATTERN:
+                    save = SpreadsheetParserName.DATE_PARSER + " " + patternText;
+                    break;
                 case DATE_TIME_FORMAT_PATTERN:
                     save = SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN + " " + patternText;
                     break;
+                case DATE_TIME_PARSE_PATTERN:
+                    save = SpreadsheetParserName.DATE_TIME_PARSER + " " + patternText;
+                    break;
                 case NUMBER_FORMAT_PATTERN:
                     save = SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN + " " + patternText;
+                    break;
+                case NUMBER_PARSE_PATTERN:
+                    save = SpreadsheetParserName.NUMBER_PARSER + " " + patternText;
                     break;
                 case TEXT_FORMAT_PATTERN:
                     save = SpreadsheetFormatterName.TEXT_FORMAT_PATTERN + " " + patternText;
                     break;
                 case TIME_FORMAT_PATTERN:
                     save = SpreadsheetFormatterName.TIME_FORMAT_PATTERN + " " + patternText;
+                    break;
+                case TIME_PARSE_PATTERN:
+                    save = SpreadsheetParserName.TIME_PARSER + " " + patternText;
                     break;
                 default:
                     save = patternText;

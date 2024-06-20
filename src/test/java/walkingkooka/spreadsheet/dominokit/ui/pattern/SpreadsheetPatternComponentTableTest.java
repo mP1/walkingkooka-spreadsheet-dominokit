@@ -453,7 +453,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         table.refresh(
                 "dd/mm/yyyy",
                 this.spreadsheetPatternDialogComponentContext(
-                        "/1/Spreadsheet123/cell/A1/parse-pattern/date",
+                        "/1/Spreadsheet123/cell/A1/parser/date",
                         DATE_FORMATTER_CONTEXT
                 )
         );
@@ -467,55 +467,55 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
                         "          ROW 0\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Edit Pattern\"\n" +
-                        "            \"dd/mm/yyyy\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date/save/dd/mm/yyyy] id=pattern-edit pattern-Link\n" +
+                        "            \"dd/mm/yyyy\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20dd/mm/yyyy] id=pattern-edit pattern-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31/12/1999\n" +
                         "          ROW 1\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Today Short\"\n" +
-                        "            \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date/save/d/m/yy] id=pattern-today short-Link\n" +
+                        "            \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20d/m/yy] id=pattern-today short-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31/12/99\n" +
                         "          ROW 2\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Today Medium\"\n" +
-                        "            \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date/save/d%20mmm%20yyyy] id=pattern-today medium-Link\n" +
+                        "            \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20d%20mmm%20yyyy] id=pattern-today medium-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31 Dec. 1999\n" +
                         "          ROW 3\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Today Long\"\n" +
-                        "            \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date/save/d%20mmmm%20yyyy] id=pattern-today long-Link\n" +
+                        "            \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20d%20mmmm%20yyyy] id=pattern-today long-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31 December 1999\n" +
                         "          ROW 4\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Today Full\"\n" +
-                        "            \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=pattern-today full-Link\n" +
+                        "            \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=pattern-today full-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              Friday, 31 December 1999\n" +
                         "          ROW 5\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"31 December 1999 Short\"\n" +
-                        "            \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date/save/d/m/yy] id=pattern-31 december 1999 short-Link\n" +
+                        "            \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20d/m/yy] id=pattern-31 december 1999 short-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31/12/99\n" +
                         "          ROW 6\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"31 December 1999 Medium\"\n" +
-                        "            \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date/save/d%20mmm%20yyyy] id=pattern-31 december 1999 medium-Link\n" +
+                        "            \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20d%20mmm%20yyyy] id=pattern-31 december 1999 medium-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31 Dec. 1999\n" +
                         "          ROW 7\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"31 December 1999 Long\"\n" +
-                        "            \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date/save/d%20mmmm%20yyyy] id=pattern-31 december 1999 long-Link\n" +
+                        "            \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20d%20mmmm%20yyyy] id=pattern-31 december 1999 long-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31 December 1999\n" +
                         "          ROW 8\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"31 December 1999 Full\"\n" +
-                        "            \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date/save/dddd,%20d%20mmmm%20yyyy] id=pattern-31 december 1999 full-Link\n" +
+                        "            \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=pattern-31 december 1999 full-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              Friday, 31 December 1999\n"
         );
@@ -603,7 +603,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         table.refresh(
                 "dd/mm/yyyy hh:mm",
                 this.spreadsheetPatternDialogComponentContext(
-                        "/1/Spreadsheet123/cell/A1/parse-pattern/date-time",
+                        "/1/Spreadsheet123/cell/A1/parser/date-time",
                         DATE_TIME_FORMATTER_CONTEXT
                 )
         );
@@ -617,55 +617,55 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
                         "          ROW 0\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Edit Pattern\"\n" +
-                        "            \"dd/mm/yyyy hh:mm\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm] id=pattern-edit pattern-Link\n" +
+                        "            \"dd/mm/yyyy hh:mm\" [#/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm] id=pattern-edit pattern-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31/12/1999 12:58\n" +
                         "          ROW 1\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Today Short\"\n" +
-                        "            \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date-time/save/d/m/yy,%20h:mm%20AM/PM] id=pattern-today short-Link\n" +
+                        "            \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20d/m/yy,%20h:mm%20AM/PM] id=pattern-today short-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31/12/99, 12:58 PM\n" +
                         "          ROW 2\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Today Medium\"\n" +
-                        "            \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date-time/save/d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=pattern-today medium-Link\n" +
+                        "            \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=pattern-today medium-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31 Dec. 1999, 12:58:59 PM\n" +
                         "          ROW 3\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Today Long\"\n" +
-                        "            \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date-time/save/d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=pattern-today long-Link\n" +
+                        "            \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=pattern-today long-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31 December 1999 at 12:58:59 PM\n" +
                         "          ROW 4\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Today Full\"\n" +
-                        "            \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date-time/save/dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=pattern-today full-Link\n" +
+                        "            \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=pattern-today full-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              Friday, 31 December 1999 at 12:58:59 PM\n" +
                         "          ROW 5\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"31 December 1999 12:58:59 Short\"\n" +
-                        "            \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date-time/save/d/m/yy,%20h:mm%20AM/PM] id=pattern-31 december 1999 12:58:59 short-Link\n" +
+                        "            \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20d/m/yy,%20h:mm%20AM/PM] id=pattern-31 december 1999 12:58:59 short-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31/12/99, 12:58 PM\n" +
                         "          ROW 6\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"31 December 1999 12:58:59 Medium\"\n" +
-                        "            \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date-time/save/d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=pattern-31 december 1999 12:58:59 medium-Link\n" +
+                        "            \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=pattern-31 december 1999 12:58:59 medium-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31 Dec. 1999, 12:58:59 PM\n" +
                         "          ROW 7\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"31 December 1999 12:58:59 Long\"\n" +
-                        "            \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date-time/save/d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=pattern-31 december 1999 12:58:59 long-Link\n" +
+                        "            \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=pattern-31 december 1999 12:58:59 long-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              31 December 1999 at 12:58:59 PM\n" +
                         "          ROW 8\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"31 December 1999 12:58:59 Full\"\n" +
-                        "            \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/date-time/save/dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=pattern-31 december 1999 12:58:59 full-Link\n" +
+                        "            \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=pattern-31 december 1999 12:58:59 full-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              Friday, 31 December 1999 at 12:58:59 PM\n"
         );
@@ -759,7 +759,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         table.refresh(
                 "$#.00",
                 this.spreadsheetPatternDialogComponentContext(
-                        "/1/Spreadsheet123/cell/A1/parse-pattern/number",
+                        "/1/Spreadsheet123/cell/A1/parser/number",
                         NUMBER_FORMATTER_CONTEXT
                 )
         );
@@ -773,7 +773,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
                         "          ROW 0\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Edit Pattern\"\n" +
-                        "            \"$#.00\" [#/1/Spreadsheet123/cell/A1/parse-pattern/number/save/$%23.00] id=pattern-edit pattern-Link\n" +
+                        "            \"$#.00\" [#/1/Spreadsheet123/cell/A1/parser/number/save/number-parse-pattern%20$%23.00] id=pattern-edit pattern-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              $1234.56\n" +
                         "            SpreadsheetTextNodeComponent\n" +
@@ -783,7 +783,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
                         "          ROW 1\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Number\"\n" +
-                        "            \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/parse-pattern/number/save/%23,%23%230.%23%23%23] id=pattern-number-Link\n" +
+                        "            \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/parser/number/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=pattern-number-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              1,234.56\n" +
                         "            SpreadsheetTextNodeComponent\n" +
@@ -793,7 +793,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
                         "          ROW 2\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Integer\"\n" +
-                        "            \"#,##0\" [#/1/Spreadsheet123/cell/A1/parse-pattern/number/save/%23,%23%230] id=pattern-integer-Link\n" +
+                        "            \"#,##0\" [#/1/Spreadsheet123/cell/A1/parser/number/save/number-parse-pattern%20%23,%23%230] id=pattern-integer-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              1,235\n" +
                         "            SpreadsheetTextNodeComponent\n" +
@@ -803,7 +803,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
                         "          ROW 3\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Percent\"\n" +
-                        "            \"#,##0%\" [#/1/Spreadsheet123/cell/A1/parse-pattern/number/save/%23,%23%230%25] id=pattern-percent-Link\n" +
+                        "            \"#,##0%\" [#/1/Spreadsheet123/cell/A1/parser/number/save/number-parse-pattern%20%23,%23%230%25] id=pattern-percent-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              123,456%\n" +
                         "            SpreadsheetTextNodeComponent\n" +
@@ -813,7 +813,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
                         "          ROW 4\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Currency\"\n" +
-                        "            \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/parse-pattern/number/save/$%23,%23%230.00] id=pattern-currency-Link\n" +
+                        "            \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/parser/number/save/number-parse-pattern%20$%23,%23%230.00] id=pattern-currency-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              $1,234.56\n" +
                         "            SpreadsheetTextNodeComponent\n" +
@@ -927,7 +927,7 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         table.refresh(
                 "hh:mm:ss",
                 this.spreadsheetPatternDialogComponentContext(
-                        "/1/Spreadsheet123/cell/A1/parse-pattern/time",
+                        "/1/Spreadsheet123/cell/A1/parser/time",
                         TIME_FORMATTER_CONTEXT
                 )
         );
@@ -941,43 +941,43 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
                         "          ROW 0\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Edit Pattern\"\n" +
-                        "            \"hh:mm:ss\" [#/1/Spreadsheet123/cell/A1/parse-pattern/time/save/hh:mm:ss] id=pattern-edit pattern-Link\n" +
+                        "            \"hh:mm:ss\" [#/1/Spreadsheet123/cell/A1/parser/time/save/time-parse-pattern%20hh:mm:ss] id=pattern-edit pattern-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              12:58:59\n" +
                         "          ROW 1\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Now Short\"\n" +
-                        "            \"h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/time/save/h:mm%20AM/PM] id=pattern-now short-Link\n" +
+                        "            \"h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/time/save/time-parse-pattern%20h:mm%20AM/PM] id=pattern-now short-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              12:58 PM\n" +
                         "          ROW 2\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"Now Long\"\n" +
-                        "            \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=pattern-now long-Link\n" +
+                        "            \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/time/save/time-parse-pattern%20h:mm:ss%20AM/PM] id=pattern-now long-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              12:58:59 PM\n" +
                         "          ROW 3\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"12:58:59 AM Short\"\n" +
-                        "            \"h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/time/save/h:mm%20AM/PM] id=pattern-12:58:59 am short-Link\n" +
+                        "            \"h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/time/save/time-parse-pattern%20h:mm%20AM/PM] id=pattern-12:58:59 am short-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              12:58 PM\n" +
                         "          ROW 4\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"12:58:59 AM Long\"\n" +
-                        "            \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=pattern-12:58:59 am long-Link\n" +
+                        "            \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/time/save/time-parse-pattern%20h:mm:ss%20AM/PM] id=pattern-12:58:59 am long-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              12:58:59 PM\n" +
                         "          ROW 5\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"6:01:02 PM Short\"\n" +
-                        "            \"h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/time/save/h:mm%20AM/PM] id=pattern-6:01:02 pm short-Link\n" +
+                        "            \"h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/time/save/time-parse-pattern%20h:mm%20AM/PM] id=pattern-6:01:02 pm short-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              6:01 PM\n" +
                         "          ROW 6\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"6:01:02 PM Long\"\n" +
-                        "            \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parse-pattern/time/save/h:mm:ss%20AM/PM] id=pattern-6:01:02 pm long-Link\n" +
+                        "            \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/time/save/time-parse-pattern%20h:mm:ss%20AM/PM] id=pattern-6:01:02 pm long-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              6:01:02 PM\n"
         );

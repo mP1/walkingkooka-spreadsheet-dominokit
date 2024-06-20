@@ -104,10 +104,16 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.format.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.format.SpreadsheetParserProvider;
+import walkingkooka.spreadsheet.format.SpreadsheetParserProviders;
+import walkingkooka.spreadsheet.format.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
@@ -145,6 +151,7 @@ public class App implements EntryPoint,
 
         this.spreadsheetComparatorProvider = SpreadsheetComparatorProviders.empty();
         this.spreadsheetFormatterProvider = SpreadsheetFormatterProviders.empty();
+        this.spreadsheetParserProvider = SpreadsheetParserProviders.empty();
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                 ExpressionNumberKind.DEFAULT,
@@ -561,6 +568,10 @@ public class App implements EntryPoint,
                     SpreadsheetFormatterProviders.spreadsheetFormatPattern()
             );
 
+            this.spreadsheetParserProvider = metadata.spreadsheetParserProvider(
+                    SpreadsheetParserProviders.spreadsheetParsePattern()
+            );
+
             // update the global JsonNodeUnmarshallContext.
             this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                     metadata.expressionNumberKind(),
@@ -676,6 +687,23 @@ public class App implements EntryPoint,
      * This will be updated every time {@link #onSpreadsheetMetadata(SpreadsheetMetadata, AppContext)} is called.
      */
     private SpreadsheetFormatterProvider spreadsheetFormatterProvider;
+
+    // SpreadsheetComparatorProvider....................................................................................
+
+    @Override
+    public Optional<Parser<SpreadsheetParserContext>> spreadsheetParser(final SpreadsheetParserSelector spreadsheetParserSelector) {
+        return this.spreadsheetParserProvider.spreadsheetParser(spreadsheetParserSelector);
+    }
+
+    @Override
+    public Set<SpreadsheetParserInfo> spreadsheetParserInfos() {
+        return this.spreadsheetParserProvider.spreadsheetParserInfos();
+    }
+
+    /**
+     * This will be updated every time {@link #onSpreadsheetMetadata(SpreadsheetMetadata, AppContext)} is called.
+     */
+    private SpreadsheetParserProvider spreadsheetParserProvider;
 
     // history eventListener............................................................................................
 

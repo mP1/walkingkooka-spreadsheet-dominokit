@@ -101,29 +101,29 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
         this.refreshAndCheck(
                 SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy"),
                 "",
-                "/1/Untitled/cell/A1/parse-pattern/date",
+                "/1/Untitled/cell/A1/parser/date",
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove individual component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"dd\" [#/1/Untitled/cell/A1/parse-pattern/date/save//mm/yyyy] id=pattern-remove-0-Link\n" +
-                        "                \"d\" [/1/Untitled/cell/A1/parse-pattern/date/save/d/mm/yyyy] id=pattern-remove-0-alt-0-MenuItem\n" +
-                        "                \"dd\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy] id=pattern-remove-0-alt-1-MenuItem\n" +
-                        "                \"ddd\" [/1/Untitled/cell/A1/parse-pattern/date/save/ddd/mm/yyyy] id=pattern-remove-0-alt-2-MenuItem\n" +
-                        "                \"dddd\" [/1/Untitled/cell/A1/parse-pattern/date/save/dddd/mm/yyyy] id=pattern-remove-0-alt-3-MenuItem\n" +
-                        "            \"/\" [#/1/Untitled/cell/A1/parse-pattern/date/save/ddmm/yyyy] id=pattern-remove-1-Link\n" +
-                        "            \"mm\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd//yyyy] id=pattern-remove-2-Link\n" +
-                        "                \"m\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/m/yyyy] id=pattern-remove-2-alt-0-MenuItem\n" +
-                        "                \"mm\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy] id=pattern-remove-2-alt-1-MenuItem\n" +
-                        "                \"mmm\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mmm/yyyy] id=pattern-remove-2-alt-2-MenuItem\n" +
-                        "                \"mmmm\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mmmm/yyyy] id=pattern-remove-2-alt-3-MenuItem\n" +
-                        "                \"mmmmm\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mmmmm/yyyy] id=pattern-remove-2-alt-4-MenuItem\n" +
-                        "            \"/\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mmyyyy] id=pattern-remove-3-Link\n" +
-                        "            \"yyyy\" [#/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/] id=pattern-remove-4-Link\n" +
-                        "                \"yy\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yy] id=pattern-remove-4-alt-0-MenuItem\n" +
-                        "                \"yyyy\" [/1/Untitled/cell/A1/parse-pattern/date/save/dd/mm/yyyy] id=pattern-remove-4-alt-1-MenuItem\n"
+                        "            \"dd\" [#/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20/mm/yyyy] id=pattern-remove-0-Link\n" +
+                        "                \"d\" [/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20d/mm/yyyy] id=pattern-remove-0-alt-0-MenuItem\n" +
+                        "                \"dd\" [/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20dd/mm/yyyy] id=pattern-remove-0-alt-1-MenuItem\n" +
+                        "                \"ddd\" [/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20ddd/mm/yyyy] id=pattern-remove-0-alt-2-MenuItem\n" +
+                        "                \"dddd\" [/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20dddd/mm/yyyy] id=pattern-remove-0-alt-3-MenuItem\n" +
+                        "            \"/\" [#/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20ddmm/yyyy] id=pattern-remove-1-Link\n" +
+                        "            \"mm\" [#/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20dd//yyyy] id=pattern-remove-2-Link\n" +
+                        "                \"m\" [/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20dd/m/yyyy] id=pattern-remove-2-alt-0-MenuItem\n" +
+                        "                \"mm\" [/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20dd/mm/yyyy] id=pattern-remove-2-alt-1-MenuItem\n" +
+                        "                \"mmm\" [/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20dd/mmm/yyyy] id=pattern-remove-2-alt-2-MenuItem\n" +
+                        "                \"mmmm\" [/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20dd/mmmm/yyyy] id=pattern-remove-2-alt-3-MenuItem\n" +
+                        "                \"mmmmm\" [/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20dd/mmmmm/yyyy] id=pattern-remove-2-alt-4-MenuItem\n" +
+                        "            \"/\" [#/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20dd/mmyyyy] id=pattern-remove-3-Link\n" +
+                        "            \"yyyy\" [#/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20dd/mm/] id=pattern-remove-4-Link\n" +
+                        "                \"yy\" [/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20dd/mm/yy] id=pattern-remove-4-alt-0-MenuItem\n" +
+                        "                \"yyyy\" [/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20dd/mm/yyyy] id=pattern-remove-4-alt-1-MenuItem\n"
         );
     }
 
@@ -132,29 +132,29 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
         this.refreshAndCheck(
                 SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy"),
                 "",
-                "/1/Untitled/metadata/date-parse-pattern",
+                "/1/Untitled/metadata/date-parser",
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove individual component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"dd\" [#/1/Untitled/metadata/date-parse-pattern/save//mm/yyyy] id=pattern-remove-0-Link\n" +
-                        "                \"d\" [/1/Untitled/metadata/date-parse-pattern/save/d/mm/yyyy] id=pattern-remove-0-alt-0-MenuItem\n" +
-                        "                \"dd\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy] id=pattern-remove-0-alt-1-MenuItem\n" +
-                        "                \"ddd\" [/1/Untitled/metadata/date-parse-pattern/save/ddd/mm/yyyy] id=pattern-remove-0-alt-2-MenuItem\n" +
-                        "                \"dddd\" [/1/Untitled/metadata/date-parse-pattern/save/dddd/mm/yyyy] id=pattern-remove-0-alt-3-MenuItem\n" +
-                        "            \"/\" [#/1/Untitled/metadata/date-parse-pattern/save/ddmm/yyyy] id=pattern-remove-1-Link\n" +
-                        "            \"mm\" [#/1/Untitled/metadata/date-parse-pattern/save/dd//yyyy] id=pattern-remove-2-Link\n" +
-                        "                \"m\" [/1/Untitled/metadata/date-parse-pattern/save/dd/m/yyyy] id=pattern-remove-2-alt-0-MenuItem\n" +
-                        "                \"mm\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy] id=pattern-remove-2-alt-1-MenuItem\n" +
-                        "                \"mmm\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mmm/yyyy] id=pattern-remove-2-alt-2-MenuItem\n" +
-                        "                \"mmmm\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mmmm/yyyy] id=pattern-remove-2-alt-3-MenuItem\n" +
-                        "                \"mmmmm\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mmmmm/yyyy] id=pattern-remove-2-alt-4-MenuItem\n" +
-                        "            \"/\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mmyyyy] id=pattern-remove-3-Link\n" +
-                        "            \"yyyy\" [#/1/Untitled/metadata/date-parse-pattern/save/dd/mm/] id=pattern-remove-4-Link\n" +
-                        "                \"yy\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yy] id=pattern-remove-4-alt-0-MenuItem\n" +
-                        "                \"yyyy\" [/1/Untitled/metadata/date-parse-pattern/save/dd/mm/yyyy] id=pattern-remove-4-alt-1-MenuItem\n"
+                        "            \"dd\" [#/1/Untitled/metadata/date-parser/save/date-parse-pattern%20/mm/yyyy] id=pattern-remove-0-Link\n" +
+                        "                \"d\" [/1/Untitled/metadata/date-parser/save/date-parse-pattern%20d/mm/yyyy] id=pattern-remove-0-alt-0-MenuItem\n" +
+                        "                \"dd\" [/1/Untitled/metadata/date-parser/save/date-parse-pattern%20dd/mm/yyyy] id=pattern-remove-0-alt-1-MenuItem\n" +
+                        "                \"ddd\" [/1/Untitled/metadata/date-parser/save/date-parse-pattern%20ddd/mm/yyyy] id=pattern-remove-0-alt-2-MenuItem\n" +
+                        "                \"dddd\" [/1/Untitled/metadata/date-parser/save/date-parse-pattern%20dddd/mm/yyyy] id=pattern-remove-0-alt-3-MenuItem\n" +
+                        "            \"/\" [#/1/Untitled/metadata/date-parser/save/date-parse-pattern%20ddmm/yyyy] id=pattern-remove-1-Link\n" +
+                        "            \"mm\" [#/1/Untitled/metadata/date-parser/save/date-parse-pattern%20dd//yyyy] id=pattern-remove-2-Link\n" +
+                        "                \"m\" [/1/Untitled/metadata/date-parser/save/date-parse-pattern%20dd/m/yyyy] id=pattern-remove-2-alt-0-MenuItem\n" +
+                        "                \"mm\" [/1/Untitled/metadata/date-parser/save/date-parse-pattern%20dd/mm/yyyy] id=pattern-remove-2-alt-1-MenuItem\n" +
+                        "                \"mmm\" [/1/Untitled/metadata/date-parser/save/date-parse-pattern%20dd/mmm/yyyy] id=pattern-remove-2-alt-2-MenuItem\n" +
+                        "                \"mmmm\" [/1/Untitled/metadata/date-parser/save/date-parse-pattern%20dd/mmmm/yyyy] id=pattern-remove-2-alt-3-MenuItem\n" +
+                        "                \"mmmmm\" [/1/Untitled/metadata/date-parser/save/date-parse-pattern%20dd/mmmmm/yyyy] id=pattern-remove-2-alt-4-MenuItem\n" +
+                        "            \"/\" [#/1/Untitled/metadata/date-parser/save/date-parse-pattern%20dd/mmyyyy] id=pattern-remove-3-Link\n" +
+                        "            \"yyyy\" [#/1/Untitled/metadata/date-parser/save/date-parse-pattern%20dd/mm/] id=pattern-remove-4-Link\n" +
+                        "                \"yy\" [/1/Untitled/metadata/date-parser/save/date-parse-pattern%20dd/mm/yy] id=pattern-remove-4-alt-0-MenuItem\n" +
+                        "                \"yyyy\" [/1/Untitled/metadata/date-parser/save/date-parse-pattern%20dd/mm/yyyy] id=pattern-remove-4-alt-1-MenuItem\n"
         );
     }
 
@@ -265,47 +265,47 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
         this.refreshAndCheck(
                 SpreadsheetPattern.parseDateTimeParsePattern("dd/mm/yyyy hh:mm:ss AM/PM"),
                 "",
-                "/1/Untitled/cell/A2/parse-pattern/date-time",
+                "/1/Untitled/cell/A2/parser/date-time",
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove individual component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"dd\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save//mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-Link\n" +
-                        "                \"d\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/d/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-0-MenuItem\n" +
-                        "                \"dd\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-1-MenuItem\n" +
-                        "                \"ddd\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/ddd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-2-MenuItem\n" +
-                        "                \"dddd\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dddd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-3-MenuItem\n" +
-                        "            \"/\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/ddmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-1-Link\n" +
-                        "            \"mm\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd//yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-Link\n" +
-                        "                \"m\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/m/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-0-MenuItem\n" +
-                        "                \"mm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-1-MenuItem\n" +
-                        "                \"mmm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-2-MenuItem\n" +
-                        "                \"mmmm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mmmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-3-MenuItem\n" +
-                        "                \"mmmmm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mmmmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-4-MenuItem\n" +
-                        "            \"/\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mmyyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-3-Link\n" +
-                        "            \"yyyy\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/%20hh:mm:ss%20AM/PM] id=pattern-remove-4-Link\n" +
-                        "                \"yy\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yy%20hh:mm:ss%20AM/PM] id=pattern-remove-4-alt-0-MenuItem\n" +
-                        "                \"yyyy\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-4-alt-1-MenuItem\n" +
-                        "            \" \" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyyhh:mm:ss%20AM/PM] id=pattern-remove-5-Link\n" +
-                        "            \"hh\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20:mm:ss%20AM/PM] id=pattern-remove-6-Link\n" +
-                        "                \"h\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20h:mm:ss%20AM/PM] id=pattern-remove-6-alt-0-MenuItem\n" +
-                        "                \"hh\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-6-alt-1-MenuItem\n" +
-                        "            \":\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hhmm:ss%20AM/PM] id=pattern-remove-7-Link\n" +
-                        "            \"mm\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh::ss%20AM/PM] id=pattern-remove-8-Link\n" +
-                        "                \"m\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:m:ss%20AM/PM] id=pattern-remove-8-alt-0-MenuItem\n" +
-                        "                \"mm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-8-alt-1-MenuItem\n" +
-                        "            \":\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mmss%20AM/PM] id=pattern-remove-9-Link\n" +
-                        "            \"ss\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:%20AM/PM] id=pattern-remove-10-Link\n" +
-                        "                \"s\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:s%20AM/PM] id=pattern-remove-10-alt-0-MenuItem\n" +
-                        "                \"ss\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-10-alt-1-MenuItem\n" +
-                        "            \" \" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:ssAM/PM] id=pattern-remove-11-Link\n" +
-                        "            \"AM/PM\" [#/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:ss%20] id=pattern-remove-12-Link\n" +
-                        "                \"A/P\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:ss%20A/P] id=pattern-remove-12-alt-0-MenuItem\n" +
-                        "                \"AM/PM\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-12-alt-1-MenuItem\n" +
-                        "                \"a/p\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:ss%20a/p] id=pattern-remove-12-alt-2-MenuItem\n" +
-                        "                \"am/pm\" [/1/Untitled/cell/A2/parse-pattern/date-time/save/dd/mm/yyyy%20hh:mm:ss%20am/pm] id=pattern-remove-12-alt-3-MenuItem\n"
+                        "            \"dd\" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-Link\n" +
+                        "                \"d\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20d/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-0-MenuItem\n" +
+                        "                \"dd\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-1-MenuItem\n" +
+                        "                \"ddd\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20ddd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-2-MenuItem\n" +
+                        "                \"dddd\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dddd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-3-MenuItem\n" +
+                        "            \"/\" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20ddmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-1-Link\n" +
+                        "            \"mm\" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd//yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-Link\n" +
+                        "                \"m\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/m/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-0-MenuItem\n" +
+                        "                \"mm\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-1-MenuItem\n" +
+                        "                \"mmm\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-2-MenuItem\n" +
+                        "                \"mmmm\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mmmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-3-MenuItem\n" +
+                        "                \"mmmmm\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mmmmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-4-MenuItem\n" +
+                        "            \"/\" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mmyyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-3-Link\n" +
+                        "            \"yyyy\" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/%20hh:mm:ss%20AM/PM] id=pattern-remove-4-Link\n" +
+                        "                \"yy\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yy%20hh:mm:ss%20AM/PM] id=pattern-remove-4-alt-0-MenuItem\n" +
+                        "                \"yyyy\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-4-alt-1-MenuItem\n" +
+                        "            \" \" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyyhh:mm:ss%20AM/PM] id=pattern-remove-5-Link\n" +
+                        "            \"hh\" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20:mm:ss%20AM/PM] id=pattern-remove-6-Link\n" +
+                        "                \"h\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20h:mm:ss%20AM/PM] id=pattern-remove-6-alt-0-MenuItem\n" +
+                        "                \"hh\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-6-alt-1-MenuItem\n" +
+                        "            \":\" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hhmm:ss%20AM/PM] id=pattern-remove-7-Link\n" +
+                        "            \"mm\" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh::ss%20AM/PM] id=pattern-remove-8-Link\n" +
+                        "                \"m\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:m:ss%20AM/PM] id=pattern-remove-8-alt-0-MenuItem\n" +
+                        "                \"mm\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-8-alt-1-MenuItem\n" +
+                        "            \":\" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mmss%20AM/PM] id=pattern-remove-9-Link\n" +
+                        "            \"ss\" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:%20AM/PM] id=pattern-remove-10-Link\n" +
+                        "                \"s\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:s%20AM/PM] id=pattern-remove-10-alt-0-MenuItem\n" +
+                        "                \"ss\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-10-alt-1-MenuItem\n" +
+                        "            \" \" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=pattern-remove-11-Link\n" +
+                        "            \"AM/PM\" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20] id=pattern-remove-12-Link\n" +
+                        "                \"A/P\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20A/P] id=pattern-remove-12-alt-0-MenuItem\n" +
+                        "                \"AM/PM\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-12-alt-1-MenuItem\n" +
+                        "                \"a/p\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20a/p] id=pattern-remove-12-alt-2-MenuItem\n" +
+                        "                \"am/pm\" [/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20am/pm] id=pattern-remove-12-alt-3-MenuItem\n"
         );
     }
 
@@ -314,47 +314,47 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
         this.refreshAndCheck(
                 SpreadsheetPattern.parseDateTimeParsePattern("dd/mm/yyyy hh:mm:ss AM/PM"),
                 "",
-                "/1/Untitled/metadata/date-time-parse-pattern",
+                "/1/Untitled/metadata/date-time-parser",
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove individual component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"dd\" [#/1/Untitled/metadata/date-time-parse-pattern/save//mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-Link\n" +
-                        "                \"d\" [/1/Untitled/metadata/date-time-parse-pattern/save/d/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-0-MenuItem\n" +
-                        "                \"dd\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-1-MenuItem\n" +
-                        "                \"ddd\" [/1/Untitled/metadata/date-time-parse-pattern/save/ddd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-2-MenuItem\n" +
-                        "                \"dddd\" [/1/Untitled/metadata/date-time-parse-pattern/save/dddd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-3-MenuItem\n" +
-                        "            \"/\" [#/1/Untitled/metadata/date-time-parse-pattern/save/ddmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-1-Link\n" +
-                        "            \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd//yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-Link\n" +
-                        "                \"m\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/m/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-0-MenuItem\n" +
-                        "                \"mm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-1-MenuItem\n" +
-                        "                \"mmm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-2-MenuItem\n" +
-                        "                \"mmmm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mmmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-3-MenuItem\n" +
-                        "                \"mmmmm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mmmmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-4-MenuItem\n" +
-                        "            \"/\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mmyyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-3-Link\n" +
-                        "            \"yyyy\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/%20hh:mm:ss%20AM/PM] id=pattern-remove-4-Link\n" +
-                        "                \"yy\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yy%20hh:mm:ss%20AM/PM] id=pattern-remove-4-alt-0-MenuItem\n" +
-                        "                \"yyyy\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-4-alt-1-MenuItem\n" +
-                        "            \" \" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyyhh:mm:ss%20AM/PM] id=pattern-remove-5-Link\n" +
-                        "            \"hh\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20:mm:ss%20AM/PM] id=pattern-remove-6-Link\n" +
-                        "                \"h\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20h:mm:ss%20AM/PM] id=pattern-remove-6-alt-0-MenuItem\n" +
-                        "                \"hh\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-6-alt-1-MenuItem\n" +
-                        "            \":\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hhmm:ss%20AM/PM] id=pattern-remove-7-Link\n" +
-                        "            \"mm\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh::ss%20AM/PM] id=pattern-remove-8-Link\n" +
-                        "                \"m\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:m:ss%20AM/PM] id=pattern-remove-8-alt-0-MenuItem\n" +
-                        "                \"mm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-8-alt-1-MenuItem\n" +
-                        "            \":\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mmss%20AM/PM] id=pattern-remove-9-Link\n" +
-                        "            \"ss\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:%20AM/PM] id=pattern-remove-10-Link\n" +
-                        "                \"s\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:s%20AM/PM] id=pattern-remove-10-alt-0-MenuItem\n" +
-                        "                \"ss\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-10-alt-1-MenuItem\n" +
-                        "            \" \" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:ssAM/PM] id=pattern-remove-11-Link\n" +
-                        "            \"AM/PM\" [#/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:ss%20] id=pattern-remove-12-Link\n" +
-                        "                \"A/P\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:ss%20A/P] id=pattern-remove-12-alt-0-MenuItem\n" +
-                        "                \"AM/PM\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-12-alt-1-MenuItem\n" +
-                        "                \"a/p\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:ss%20a/p] id=pattern-remove-12-alt-2-MenuItem\n" +
-                        "                \"am/pm\" [/1/Untitled/metadata/date-time-parse-pattern/save/dd/mm/yyyy%20hh:mm:ss%20am/pm] id=pattern-remove-12-alt-3-MenuItem\n"
+                        "            \"dd\" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-Link\n" +
+                        "                \"d\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20d/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-0-MenuItem\n" +
+                        "                \"dd\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-1-MenuItem\n" +
+                        "                \"ddd\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20ddd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-2-MenuItem\n" +
+                        "                \"dddd\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dddd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-alt-3-MenuItem\n" +
+                        "            \"/\" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20ddmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-1-Link\n" +
+                        "            \"mm\" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd//yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-Link\n" +
+                        "                \"m\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/m/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-0-MenuItem\n" +
+                        "                \"mm\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-1-MenuItem\n" +
+                        "                \"mmm\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-2-MenuItem\n" +
+                        "                \"mmmm\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mmmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-3-MenuItem\n" +
+                        "                \"mmmmm\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mmmmm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-2-alt-4-MenuItem\n" +
+                        "            \"/\" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mmyyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-3-Link\n" +
+                        "            \"yyyy\" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/%20hh:mm:ss%20AM/PM] id=pattern-remove-4-Link\n" +
+                        "                \"yy\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yy%20hh:mm:ss%20AM/PM] id=pattern-remove-4-alt-0-MenuItem\n" +
+                        "                \"yyyy\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-4-alt-1-MenuItem\n" +
+                        "            \" \" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyyhh:mm:ss%20AM/PM] id=pattern-remove-5-Link\n" +
+                        "            \"hh\" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20:mm:ss%20AM/PM] id=pattern-remove-6-Link\n" +
+                        "                \"h\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20h:mm:ss%20AM/PM] id=pattern-remove-6-alt-0-MenuItem\n" +
+                        "                \"hh\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-6-alt-1-MenuItem\n" +
+                        "            \":\" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hhmm:ss%20AM/PM] id=pattern-remove-7-Link\n" +
+                        "            \"mm\" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh::ss%20AM/PM] id=pattern-remove-8-Link\n" +
+                        "                \"m\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:m:ss%20AM/PM] id=pattern-remove-8-alt-0-MenuItem\n" +
+                        "                \"mm\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-8-alt-1-MenuItem\n" +
+                        "            \":\" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mmss%20AM/PM] id=pattern-remove-9-Link\n" +
+                        "            \"ss\" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:%20AM/PM] id=pattern-remove-10-Link\n" +
+                        "                \"s\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:s%20AM/PM] id=pattern-remove-10-alt-0-MenuItem\n" +
+                        "                \"ss\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-10-alt-1-MenuItem\n" +
+                        "            \" \" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=pattern-remove-11-Link\n" +
+                        "            \"AM/PM\" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20] id=pattern-remove-12-Link\n" +
+                        "                \"A/P\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20A/P] id=pattern-remove-12-alt-0-MenuItem\n" +
+                        "                \"AM/PM\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-12-alt-1-MenuItem\n" +
+                        "                \"a/p\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20a/p] id=pattern-remove-12-alt-2-MenuItem\n" +
+                        "                \"am/pm\" [/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss%20am/pm] id=pattern-remove-12-alt-3-MenuItem\n"
         );
     }
 
@@ -417,23 +417,23 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
         this.refreshAndCheck(
                 SpreadsheetPattern.parseNumberParsePattern("$#.00"),
                 "",
-                "/1/Untitled/cell/A1/parse-pattern/number",
+                "/1/Untitled/cell/A1/parser/number",
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove individual component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"$\" [#/1/Untitled/cell/A1/parse-pattern/number/save/%23.00] id=pattern-remove-0-Link\n" +
-                        "                \"$\" [/1/Untitled/cell/A1/parse-pattern/number/save/$%23.00] id=pattern-remove-0-alt-0-MenuItem\n" +
-                        "            \"#\" [#/1/Untitled/cell/A1/parse-pattern/number/save/$.00] id=pattern-remove-1-Link\n" +
-                        "                \"#\" [/1/Untitled/cell/A1/parse-pattern/number/save/$%23.00] id=pattern-remove-1-alt-0-MenuItem\n" +
-                        "            \".\" [#/1/Untitled/cell/A1/parse-pattern/number/save/$%2300] id=pattern-remove-2-Link\n" +
-                        "                \".\" [/1/Untitled/cell/A1/parse-pattern/number/save/$%23.00] id=pattern-remove-2-alt-0-MenuItem\n" +
-                        "            \"0\" [#/1/Untitled/cell/A1/parse-pattern/number/save/$%23.0] id=pattern-remove-3-Link\n" +
-                        "                \"0\" [/1/Untitled/cell/A1/parse-pattern/number/save/$%23.00] id=pattern-remove-3-alt-0-MenuItem\n" +
-                        "            \"0\" [#/1/Untitled/cell/A1/parse-pattern/number/save/$%23.0] id=pattern-remove-4-Link\n" +
-                        "                \"0\" [/1/Untitled/cell/A1/parse-pattern/number/save/$%23.00] id=pattern-remove-4-alt-0-MenuItem\n"
+                        "            \"$\" [#/1/Untitled/cell/A1/parser/number/save/number-parse-pattern%20%23.00] id=pattern-remove-0-Link\n" +
+                        "                \"$\" [/1/Untitled/cell/A1/parser/number/save/number-parse-pattern%20$%23.00] id=pattern-remove-0-alt-0-MenuItem\n" +
+                        "            \"#\" [#/1/Untitled/cell/A1/parser/number/save/number-parse-pattern%20$.00] id=pattern-remove-1-Link\n" +
+                        "                \"#\" [/1/Untitled/cell/A1/parser/number/save/number-parse-pattern%20$%23.00] id=pattern-remove-1-alt-0-MenuItem\n" +
+                        "            \".\" [#/1/Untitled/cell/A1/parser/number/save/number-parse-pattern%20$%2300] id=pattern-remove-2-Link\n" +
+                        "                \".\" [/1/Untitled/cell/A1/parser/number/save/number-parse-pattern%20$%23.00] id=pattern-remove-2-alt-0-MenuItem\n" +
+                        "            \"0\" [#/1/Untitled/cell/A1/parser/number/save/number-parse-pattern%20$%23.0] id=pattern-remove-3-Link\n" +
+                        "                \"0\" [/1/Untitled/cell/A1/parser/number/save/number-parse-pattern%20$%23.00] id=pattern-remove-3-alt-0-MenuItem\n" +
+                        "            \"0\" [#/1/Untitled/cell/A1/parser/number/save/number-parse-pattern%20$%23.0] id=pattern-remove-4-Link\n" +
+                        "                \"0\" [/1/Untitled/cell/A1/parser/number/save/number-parse-pattern%20$%23.00] id=pattern-remove-4-alt-0-MenuItem\n"
         );
     }
 
@@ -442,23 +442,23 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
         this.refreshAndCheck(
                 SpreadsheetPattern.parseNumberParsePattern("$#.00"),
                 "",
-                "/1/Untitled/metadata/number-parse-pattern",
+                "/1/Untitled/metadata/number-parser",
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove individual component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"$\" [#/1/Untitled/metadata/number-parse-pattern/save/%23.00] id=pattern-remove-0-Link\n" +
-                        "                \"$\" [/1/Untitled/metadata/number-parse-pattern/save/$%23.00] id=pattern-remove-0-alt-0-MenuItem\n" +
-                        "            \"#\" [#/1/Untitled/metadata/number-parse-pattern/save/$.00] id=pattern-remove-1-Link\n" +
-                        "                \"#\" [/1/Untitled/metadata/number-parse-pattern/save/$%23.00] id=pattern-remove-1-alt-0-MenuItem\n" +
-                        "            \".\" [#/1/Untitled/metadata/number-parse-pattern/save/$%2300] id=pattern-remove-2-Link\n" +
-                        "                \".\" [/1/Untitled/metadata/number-parse-pattern/save/$%23.00] id=pattern-remove-2-alt-0-MenuItem\n" +
-                        "            \"0\" [#/1/Untitled/metadata/number-parse-pattern/save/$%23.0] id=pattern-remove-3-Link\n" +
-                        "                \"0\" [/1/Untitled/metadata/number-parse-pattern/save/$%23.00] id=pattern-remove-3-alt-0-MenuItem\n" +
-                        "            \"0\" [#/1/Untitled/metadata/number-parse-pattern/save/$%23.0] id=pattern-remove-4-Link\n" +
-                        "                \"0\" [/1/Untitled/metadata/number-parse-pattern/save/$%23.00] id=pattern-remove-4-alt-0-MenuItem\n"
+                        "            \"$\" [#/1/Untitled/metadata/number-parser/save/number-parse-pattern%20%23.00] id=pattern-remove-0-Link\n" +
+                        "                \"$\" [/1/Untitled/metadata/number-parser/save/number-parse-pattern%20$%23.00] id=pattern-remove-0-alt-0-MenuItem\n" +
+                        "            \"#\" [#/1/Untitled/metadata/number-parser/save/number-parse-pattern%20$.00] id=pattern-remove-1-Link\n" +
+                        "                \"#\" [/1/Untitled/metadata/number-parser/save/number-parse-pattern%20$%23.00] id=pattern-remove-1-alt-0-MenuItem\n" +
+                        "            \".\" [#/1/Untitled/metadata/number-parser/save/number-parse-pattern%20$%2300] id=pattern-remove-2-Link\n" +
+                        "                \".\" [/1/Untitled/metadata/number-parser/save/number-parse-pattern%20$%23.00] id=pattern-remove-2-alt-0-MenuItem\n" +
+                        "            \"0\" [#/1/Untitled/metadata/number-parser/save/number-parse-pattern%20$%23.0] id=pattern-remove-3-Link\n" +
+                        "                \"0\" [/1/Untitled/metadata/number-parser/save/number-parse-pattern%20$%23.00] id=pattern-remove-3-alt-0-MenuItem\n" +
+                        "            \"0\" [#/1/Untitled/metadata/number-parser/save/number-parse-pattern%20$%23.0] id=pattern-remove-4-Link\n" +
+                        "                \"0\" [/1/Untitled/metadata/number-parser/save/number-parse-pattern%20$%23.00] id=pattern-remove-4-alt-0-MenuItem\n"
         );
     }
 
@@ -577,24 +577,24 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
         this.refreshAndCheck(
                 SpreadsheetPattern.parseTimeParsePattern("hh:mm:ss"),
                 "",
-                "/1/Untitled/cell/A4/parse-pattern/time",
+                "/1/Untitled/cell/A4/parser/time",
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove individual component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"hh\" [#/1/Untitled/cell/A4/parse-pattern/time/save/:mm:ss] id=pattern-remove-0-Link\n" +
-                        "                \"h\" [/1/Untitled/cell/A4/parse-pattern/time/save/h:mm:ss] id=pattern-remove-0-alt-0-MenuItem\n" +
-                        "                \"hh\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:ss] id=pattern-remove-0-alt-1-MenuItem\n" +
-                        "            \":\" [#/1/Untitled/cell/A4/parse-pattern/time/save/hhmm:ss] id=pattern-remove-1-Link\n" +
-                        "            \"mm\" [#/1/Untitled/cell/A4/parse-pattern/time/save/hh::ss] id=pattern-remove-2-Link\n" +
-                        "                \"m\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:m:ss] id=pattern-remove-2-alt-0-MenuItem\n" +
-                        "                \"mm\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:ss] id=pattern-remove-2-alt-1-MenuItem\n" +
-                        "            \":\" [#/1/Untitled/cell/A4/parse-pattern/time/save/hh:mmss] id=pattern-remove-3-Link\n" +
-                        "            \"ss\" [#/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:] id=pattern-remove-4-Link\n" +
-                        "                \"s\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:s] id=pattern-remove-4-alt-0-MenuItem\n" +
-                        "                \"ss\" [/1/Untitled/cell/A4/parse-pattern/time/save/hh:mm:ss] id=pattern-remove-4-alt-1-MenuItem\n"
+                        "            \"hh\" [#/1/Untitled/cell/A4/parser/time/save/time-parse-pattern%20:mm:ss] id=pattern-remove-0-Link\n" +
+                        "                \"h\" [/1/Untitled/cell/A4/parser/time/save/time-parse-pattern%20h:mm:ss] id=pattern-remove-0-alt-0-MenuItem\n" +
+                        "                \"hh\" [/1/Untitled/cell/A4/parser/time/save/time-parse-pattern%20hh:mm:ss] id=pattern-remove-0-alt-1-MenuItem\n" +
+                        "            \":\" [#/1/Untitled/cell/A4/parser/time/save/time-parse-pattern%20hhmm:ss] id=pattern-remove-1-Link\n" +
+                        "            \"mm\" [#/1/Untitled/cell/A4/parser/time/save/time-parse-pattern%20hh::ss] id=pattern-remove-2-Link\n" +
+                        "                \"m\" [/1/Untitled/cell/A4/parser/time/save/time-parse-pattern%20hh:m:ss] id=pattern-remove-2-alt-0-MenuItem\n" +
+                        "                \"mm\" [/1/Untitled/cell/A4/parser/time/save/time-parse-pattern%20hh:mm:ss] id=pattern-remove-2-alt-1-MenuItem\n" +
+                        "            \":\" [#/1/Untitled/cell/A4/parser/time/save/time-parse-pattern%20hh:mmss] id=pattern-remove-3-Link\n" +
+                        "            \"ss\" [#/1/Untitled/cell/A4/parser/time/save/time-parse-pattern%20hh:mm:] id=pattern-remove-4-Link\n" +
+                        "                \"s\" [/1/Untitled/cell/A4/parser/time/save/time-parse-pattern%20hh:mm:s] id=pattern-remove-4-alt-0-MenuItem\n" +
+                        "                \"ss\" [/1/Untitled/cell/A4/parser/time/save/time-parse-pattern%20hh:mm:ss] id=pattern-remove-4-alt-1-MenuItem\n"
         );
     }
 
@@ -603,24 +603,24 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
         this.refreshAndCheck(
                 SpreadsheetPattern.parseTimeParsePattern("hh:mm:ss"),
                 "",
-                "/1/Untitled/metadata/time-parse-pattern",
+                "/1/Untitled/metadata/time-parser",
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove individual component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"hh\" [#/1/Untitled/metadata/time-parse-pattern/save/:mm:ss] id=pattern-remove-0-Link\n" +
-                        "                \"h\" [/1/Untitled/metadata/time-parse-pattern/save/h:mm:ss] id=pattern-remove-0-alt-0-MenuItem\n" +
-                        "                \"hh\" [/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss] id=pattern-remove-0-alt-1-MenuItem\n" +
-                        "            \":\" [#/1/Untitled/metadata/time-parse-pattern/save/hhmm:ss] id=pattern-remove-1-Link\n" +
-                        "            \"mm\" [#/1/Untitled/metadata/time-parse-pattern/save/hh::ss] id=pattern-remove-2-Link\n" +
-                        "                \"m\" [/1/Untitled/metadata/time-parse-pattern/save/hh:m:ss] id=pattern-remove-2-alt-0-MenuItem\n" +
-                        "                \"mm\" [/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss] id=pattern-remove-2-alt-1-MenuItem\n" +
-                        "            \":\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mmss] id=pattern-remove-3-Link\n" +
-                        "            \"ss\" [#/1/Untitled/metadata/time-parse-pattern/save/hh:mm:] id=pattern-remove-4-Link\n" +
-                        "                \"s\" [/1/Untitled/metadata/time-parse-pattern/save/hh:mm:s] id=pattern-remove-4-alt-0-MenuItem\n" +
-                        "                \"ss\" [/1/Untitled/metadata/time-parse-pattern/save/hh:mm:ss] id=pattern-remove-4-alt-1-MenuItem\n"
+                        "            \"hh\" [#/1/Untitled/metadata/time-parser/save/time-parse-pattern%20:mm:ss] id=pattern-remove-0-Link\n" +
+                        "                \"h\" [/1/Untitled/metadata/time-parser/save/time-parse-pattern%20h:mm:ss] id=pattern-remove-0-alt-0-MenuItem\n" +
+                        "                \"hh\" [/1/Untitled/metadata/time-parser/save/time-parse-pattern%20hh:mm:ss] id=pattern-remove-0-alt-1-MenuItem\n" +
+                        "            \":\" [#/1/Untitled/metadata/time-parser/save/time-parse-pattern%20hhmm:ss] id=pattern-remove-1-Link\n" +
+                        "            \"mm\" [#/1/Untitled/metadata/time-parser/save/time-parse-pattern%20hh::ss] id=pattern-remove-2-Link\n" +
+                        "                \"m\" [/1/Untitled/metadata/time-parser/save/time-parse-pattern%20hh:m:ss] id=pattern-remove-2-alt-0-MenuItem\n" +
+                        "                \"mm\" [/1/Untitled/metadata/time-parser/save/time-parse-pattern%20hh:mm:ss] id=pattern-remove-2-alt-1-MenuItem\n" +
+                        "            \":\" [#/1/Untitled/metadata/time-parser/save/time-parse-pattern%20hh:mmss] id=pattern-remove-3-Link\n" +
+                        "            \"ss\" [#/1/Untitled/metadata/time-parser/save/time-parse-pattern%20hh:mm:] id=pattern-remove-4-Link\n" +
+                        "                \"s\" [/1/Untitled/metadata/time-parser/save/time-parse-pattern%20hh:mm:s] id=pattern-remove-4-alt-0-MenuItem\n" +
+                        "                \"ss\" [/1/Untitled/metadata/time-parser/save/time-parse-pattern%20hh:mm:ss] id=pattern-remove-4-alt-1-MenuItem\n"
         );
     }
 

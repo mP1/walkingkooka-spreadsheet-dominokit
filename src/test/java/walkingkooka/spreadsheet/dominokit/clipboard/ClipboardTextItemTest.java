@@ -29,12 +29,16 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.format.SpreadsheetParserProviders;
+import walkingkooka.spreadsheet.format.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasTextTesting;
+import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
@@ -494,15 +498,15 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToJsonCellsParsePatternNone() {
+    public void testToJsonCellsParserNone() {
         this.toJsonAndCheck(
                 "A1:B2",
                 Sets.of(),
-                SpreadsheetCellClipboardKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSER,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
+                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetParserSelector\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {}\n" +
                                 "}"
@@ -511,17 +515,17 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToJsonCellsParsePatternMissing() {
+    public void testToJsonCellsParserMissing() {
         this.toJsonAndCheck(
                 "A1:B2",
                 Sets.of(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 ),
-                SpreadsheetCellClipboardKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSER,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
+                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetParserSelector\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": null\n" +
@@ -532,31 +536,29 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToJsonCellsParsePatternSomeMissing() {
+    public void testToJsonCellsParserSomeMissing() {
         this.toJsonAndCheck(
                 "A1:B2",
                 Sets.of(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
                         SpreadsheetSelection.parseCell("B2")
                                 .setFormula(SpreadsheetFormula.EMPTY)
-                                .setParsePattern(
+                                .setParser(
                                         Optional.of(
                                                 SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                                                        .spreadsheetParserSelector()
                                         )
                                 )
                 ),
-                SpreadsheetCellClipboardKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSER,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
+                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetParserSelector\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": null,\n" +
-                                "    \"B2\": {\n" +
-                                "      \"type\": \"spreadsheet-number-parse-pattern\",\n" +
-                                "      \"value\": \"$0.00\"\n" +
-                                "    }\n" +
+                                "    \"B2\": \"number-parse-pattern $0.00\"\n" +
                                 "  }\n" +
                                 "}"
                 )
@@ -564,39 +566,35 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     }
 
     @Test
-    public void testToJsonCellsParsePattern() {
+    public void testToJsonCellsParser() {
         this.toJsonAndCheck(
                 "A1:B2",
                 Sets.of(
                         SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                                .setParsePattern(
+                                .setParser(
                                         Optional.of(
                                                 SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+                                                        .spreadsheetParserSelector()
                                         )
                                 ),
                         SpreadsheetSelection.parseCell("B2")
                                 .setFormula(SpreadsheetFormula.EMPTY)
-                                .setParsePattern(
+                                .setParser(
                                         Optional.of(
                                                 SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                                                        .spreadsheetParserSelector()
                                         )
                                 )
                 ),
-                SpreadsheetCellClipboardKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSER,
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern\",\n" +
+                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetParserSelector\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
-                                "    \"A1\": {\n" +
-                                "      \"type\": \"spreadsheet-date-parse-pattern\",\n" +
-                                "      \"value\": \"dd/mm/yyyy\"\n" +
-                                "    },\n" +
-                                "    \"B2\": {\n" +
-                                "      \"type\": \"spreadsheet-number-parse-pattern\",\n" +
-                                "      \"value\": \"$0.00\"\n" +
-                                "    }\n" +
+                                "    \"A1\": \"date-parse-pattern dd/mm/yyyy\",\n" +
+                                "    \"B2\": \"number-parse-pattern $0.00\"\n" +
                                 "  }\n" +
                                 "}"
                 )
@@ -960,6 +958,12 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                     @Override
                                     public SpreadsheetMetadata spreadsheetMetadata() {
                                         return METADATA_EN_AU;
+                                    }
+
+                                    @Override
+                                    public Optional<Parser<SpreadsheetParserContext>> spreadsheetParser(final SpreadsheetParserSelector spreadsheetparserSelector) {
+                                        return SpreadsheetParserProviders.spreadsheetParsePattern()
+                                                .spreadsheetParser(spreadsheetparserSelector);
                                     }
                                 })
         );

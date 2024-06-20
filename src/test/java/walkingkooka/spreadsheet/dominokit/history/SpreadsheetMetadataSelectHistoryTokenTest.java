@@ -135,7 +135,7 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
                 SpreadsheetMetadataPropertySelectHistoryToken.with(
                         ID,
                         NAME,
-                        SpreadsheetMetadataPropertyName.DATETIME_PARSE_PATTERN
+                        SpreadsheetMetadataPropertyName.DATE_TIME_PARSER
                 )
         );
     }
