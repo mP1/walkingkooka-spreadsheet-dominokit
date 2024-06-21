@@ -22,7 +22,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.format.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursor;
@@ -32,20 +32,24 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * This {@link HistoryToken} is used by to paste a {@link SpreadsheetParsePattern} for many cells over another range.
+ * This {@link HistoryToken} is used by to paste a {@link SpreadsheetParserSelector} for many cells over another range.
  * <pre>
- * /123/SpreadsheetName456/cell/A1/save/parse-pattern/{%20"A1":%20{%20"type":%20"spreadsheet-number-parse-pattern",%20"value":%20"0.00"%20}%20}
+ * {
+ *   "A1": "number-parse-pattern 0.00"
+ * }
  *
- * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/parse-pattern/{@link SpreadsheetParsePattern} patch as json.
+ * /123/SpreadsheetName456/cell/A1/save/parser/%7B%22A1%22%3A%20%22number-parse-pattern%200.00%22%7D}
+ *
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/parser/{@link walkingkooka.spreadsheet.format.SpreadsheetParserSelector} patch as json.
  * </pre>
  */
-public final class SpreadsheetCellSaveParsePatternHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<SpreadsheetParsePattern>> {
+public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<SpreadsheetParserSelector>> {
 
-    static SpreadsheetCellSaveParsePatternHistoryToken with(final SpreadsheetId id,
-                                                            final SpreadsheetName name,
-                                                            final AnchoredSpreadsheetSelection anchoredSelection,
-                                                            final Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> value) {
-        return new SpreadsheetCellSaveParsePatternHistoryToken(
+    static SpreadsheetCellSaveParserHistoryToken with(final SpreadsheetId id,
+                                                      final SpreadsheetName name,
+                                                      final AnchoredSpreadsheetSelection anchoredSelection,
+                                                      final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> value) {
+        return new SpreadsheetCellSaveParserHistoryToken(
                 id,
                 name,
                 anchoredSelection,
@@ -53,10 +57,10 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
         );
     }
 
-    private SpreadsheetCellSaveParsePatternHistoryToken(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
-                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                        final Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> value) {
+    private SpreadsheetCellSaveParserHistoryToken(final SpreadsheetId id,
+                                                  final SpreadsheetName name,
+                                                  final AnchoredSpreadsheetSelection anchoredSelection,
+                                                  final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> value) {
         super(
                 id,
                 name,
@@ -66,18 +70,18 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
     }
 
     @Override
-    Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> parseSaveValue(final TextCursor cursor) {
+    Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> parseSaveValue(final TextCursor cursor) {
         return parseMapWithOptionalTypedValues(
                 cursor
         );
     }
 
     @Override //
-    SpreadsheetCellSaveParsePatternHistoryToken replace(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
-                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                        final Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> value) {
-        return new SpreadsheetCellSaveParsePatternHistoryToken(
+    SpreadsheetCellSaveParserHistoryToken replace(final SpreadsheetId id,
+                                                  final SpreadsheetName name,
+                                                  final AnchoredSpreadsheetSelection anchoredSelection,
+                                                  final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> value) {
+        return new SpreadsheetCellSaveParserHistoryToken(
                 id,
                 name,
                 anchoredSelection,
@@ -89,14 +93,12 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
 
     @Override
     UrlFragment urlFragmentSaveEntity() {
-        return PARSE_PATTERN;
+        return PARSER;
     }
 
-    private final static UrlFragment PARSE_PATTERN = UrlFragment.parse("parse-pattern");
-
     @Override
-    JsonNode saveValueUrlFragmentValueToJson(final Optional<SpreadsheetParsePattern> value) {
-        return MARSHALL_CONTEXT.marshallWithType(
+    JsonNode saveValueUrlFragmentValueToJson(final Optional<SpreadsheetParserSelector> value) {
+        return MARSHALL_CONTEXT.marshall(
                 value.orElse(null)
         );
     }
@@ -107,7 +109,7 @@ public final class SpreadsheetCellSaveParsePatternHistoryToken extends Spreadshe
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
-                .patchCellsParsePattern(
+                .patchCellsParser(
                         this.id(),
                         this.anchoredSelection().selection(),
                         this.value()

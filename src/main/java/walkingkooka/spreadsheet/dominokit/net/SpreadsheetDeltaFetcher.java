@@ -40,7 +40,7 @@ import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.format.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -575,14 +575,14 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    public void patchCellsParsePattern(final SpreadsheetId id,
-                                       final SpreadsheetSelection selection,
-                                       final Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> cellToParsePatterns) {
+    public void patchCellsParser(final SpreadsheetId id,
+                                 final SpreadsheetSelection selection,
+                                 final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> cellToParsers) {
         this.patchCellsWithMap(
                 id,
                 selection,
-                cellToParsePatterns,
-                SpreadsheetDelta::cellsParsePatternPatch
+                cellToParsers,
+                SpreadsheetDelta::cellsParserPatch
         );
     }
 
@@ -647,16 +647,16 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    public void patchParsePattern(final SpreadsheetId id,
-                                  final SpreadsheetSelection selection,
-                                  final Optional<SpreadsheetParsePattern> pattern) {
+    public void patchParser(final SpreadsheetId id,
+                            final SpreadsheetSelection selection,
+                            final Optional<SpreadsheetParserSelector> parser) {
         this.patchDelta(
                 url(
                         id,
                         selection
                 ),
-                SpreadsheetDelta.parsePatternPatch(
-                        pattern,
+                SpreadsheetDelta.parserPatch(
+                        parser,
                         this.context.marshallContext()
                 )
         );

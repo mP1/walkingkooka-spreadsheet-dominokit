@@ -136,11 +136,11 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                                         SpreadsheetCell.NO_FORMATTER
                                 );
                                 break;
-                            case PARSE_PATTERN:
-                                fetcher.patchParsePattern(
+                            case PARSER:
+                                fetcher.patchParser(
                                         id,
                                         selection,
-                                        SpreadsheetCell.NO_PARSE_PATTERN
+                                        SpreadsheetCell.NO_PARSER
                                 );
                                 break;
                             case STYLE:

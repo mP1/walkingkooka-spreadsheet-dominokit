@@ -109,14 +109,14 @@ public final class SpreadsheetCellPatternParseHistoryTokenTest extends Spreadshe
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/parse-pattern");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/parser");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/parse-pattern"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/parser"
         );
     }
 
@@ -124,7 +124,7 @@ public final class SpreadsheetCellPatternParseHistoryTokenTest extends Spreadshe
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
                 SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/parse-pattern"
+                "/123/SpreadsheetName456/cell/*/top-left/parser"
         );
     }
 
@@ -132,7 +132,7 @@ public final class SpreadsheetCellPatternParseHistoryTokenTest extends Spreadshe
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/123/SpreadsheetName456/cell/Label123/parse-pattern"
+                "/123/SpreadsheetName456/cell/Label123/parser"
         );
     }
 

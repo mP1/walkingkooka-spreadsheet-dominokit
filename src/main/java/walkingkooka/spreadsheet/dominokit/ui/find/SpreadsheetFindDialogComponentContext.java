@@ -21,6 +21,7 @@ import walkingkooka.datetime.HasNow;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.format.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
 /**
@@ -30,5 +31,6 @@ public interface SpreadsheetFindDialogComponentContext extends HistoryTokenConte
         HasSpreadsheetMetadata,
         HasNow,
         HasSpreadsheetDeltaFetcher,
-        SpreadsheetDialogComponentContext {
+        SpreadsheetDialogComponentContext,
+        SpreadsheetParserProvider {
 }

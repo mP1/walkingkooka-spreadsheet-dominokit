@@ -37,13 +37,13 @@ import java.util.Optional;
  * /123/SpreadsheetName456/cell/A1/formatter/text/save/@
  * /123/SpreadsheetName456/cell/A1/formatter/time/save/hh:mm
  *
- * /123/SpreadsheetName456/cell/A1/parse-pattern/date/save/yyyy-mm-dd;yy-mm-dd
- * /123/SpreadsheetName456/cell/A1/parse-pattern/date-time/save/yyyy-mm-dd hh:mm:ssyy-mm-dd hh:mm
- * /123/SpreadsheetName456/cell/A1/parse-pattern/number/save/+0.00;-0.00;"ZERO"
- * /123/SpreadsheetName456/cell/A1/parse-pattern/time/save/hh:mm:ss;hh:mm
+ * /123/SpreadsheetName456/cell/A1/parser/date/save/date-parser-token%20yyyy-mm-dd;yy-mm-dd
+ * /123/SpreadsheetName456/cell/A1/parser/date-time/save/date-time-parser-token%20yyyy-mm-dd hh:mm:ssyy-mm-dd hh:mm
+ * /123/SpreadsheetName456/cell/A1/parser/number/save/number-parser-token%20+0.00;-0.00;"ZERO"
+ * /123/SpreadsheetName456/cell/A1/parser/time/save/time-parser-token%20hh:mm:ss;hh:mm
  *
- * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/formatter/SpreadsheetPatternKind/save/SpreadsheetFormatPattern#text
- * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/parse-pattern/SpreadsheetPatternKind/save/SpreadsheetParsePattern#text
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/formatter/SpreadsheetPatternKind/save/SpreadsheetFormatSelector
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/parser/SpreadsheetPatternKind/save/SpreadsheetParserSelector
  * </pre>
  */
 public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCellPatternHistoryToken
@@ -116,7 +116,7 @@ public final class SpreadsheetCellPatternSaveHistoryToken extends SpreadsheetCel
 
     // /cell/A1/formatter/text/save/text-format @@
     //
-    // /cell/A1/parse-pattern/date/save
+    // /cell/A1/parser/date/save
     @Override
     UrlFragment cellUrlFragment() {
         return this.patternKind()

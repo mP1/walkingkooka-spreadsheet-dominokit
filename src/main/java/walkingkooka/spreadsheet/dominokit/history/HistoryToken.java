@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuI
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.format.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
@@ -190,9 +191,9 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment METADATA = UrlFragment.parse(METADATA_STRING);
 
-    final static String PARSE_PATTERN_STRING = "parse-pattern";
+    final static String PARSER_STRING = "parser";
 
-    final static UrlFragment PARSE_PATTERN = UrlFragment.parse(PARSE_PATTERN_STRING);
+    final static UrlFragment PARSER = SpreadsheetUrlFragments.PARSER;
 
     final static String PASTE_STRING = "paste";
 
@@ -503,13 +504,13 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * {@see SpreadsheetCellSaveParsePatternHistoryToken}
+     * {@see SpreadsheetCellSaveParserHistoryToken}
      */
-    public static SpreadsheetCellSaveParsePatternHistoryToken cellSaveParsePattern(final SpreadsheetId id,
-                                                                                   final SpreadsheetName name,
-                                                                                   final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                                   final Map<SpreadsheetCellReference, Optional<SpreadsheetParsePattern>> value) {
-        return SpreadsheetCellSaveParsePatternHistoryToken.with(
+    public static SpreadsheetCellSaveParserHistoryToken cellSaveParser(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                       final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> value) {
+        return SpreadsheetCellSaveParserHistoryToken.with(
                 id,
                 name,
                 anchoredSelection,
@@ -2006,17 +2007,24 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         final String text;
 
-        if (pattern.patternKind().isFormatPattern()) {
+        final SpreadsheetPatternKind kind = pattern.patternKind();
+        if (kind.isFormatPattern()) {
             final SpreadsheetFormatPattern formatPattern = (SpreadsheetFormatPattern) pattern;
             text = formatPattern.spreadsheetFormatterSelector()
                     .toString();
         } else {
-            text = pattern.text();
+            if (kind.isParsePattern()) {
+                final SpreadsheetParsePattern parsePattern = (SpreadsheetParsePattern) pattern;
+                text = parsePattern.spreadsheetParserSelector()
+                        .toString();
+            } else {
+                throw new IllegalArgumentException("Unknown pattern kind " + kind + " in " + pattern);
+            }
         }
 
         return this.setIfSpreadsheetNameHistoryToken(
                 (n) -> n.setPatternKind(
-                        Optional.of(pattern.patternKind())
+                        Optional.of(kind)
                 ).setSave(text)
         );
     }
@@ -2126,15 +2134,21 @@ public abstract class HistoryToken implements HasUrlFragment,
                     stringValue = formatPattern.spreadsheetFormatterSelector()
                             .toString();
                 } else {
-                    if (valueNotNull instanceof HasText) {
-                        final HasText hasText = (HasText) valueNotNull;
-                        stringValue = hasText.text();
+                    if (valueNotNull instanceof SpreadsheetParsePattern) {
+                        final SpreadsheetParsePattern pattern = (SpreadsheetParsePattern) valueNotNull;
+                        stringValue = pattern.spreadsheetParserSelector()
+                                .toString();
                     } else {
-                        if (valueNotNull instanceof Enum) {
-                            final Enum<?> enumm = (Enum<?>) valueNotNull;
-                            stringValue = enumm.name();
+                        if (valueNotNull instanceof HasText) {
+                            final HasText hasText = (HasText) valueNotNull;
+                            stringValue = hasText.text();
                         } else {
-                            stringValue = valueNotNull.toString();
+                            if (valueNotNull instanceof Enum) {
+                                final Enum<?> enumm = (Enum<?>) valueNotNull;
+                                stringValue = enumm.name();
+                            } else {
+                                stringValue = valueNotNull.toString();
+                            }
                         }
                     }
                 }

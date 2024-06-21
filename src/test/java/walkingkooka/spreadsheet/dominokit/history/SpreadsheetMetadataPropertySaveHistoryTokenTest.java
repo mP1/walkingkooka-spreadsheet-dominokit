@@ -256,9 +256,10 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                 HistoryToken.metadataPropertySave(
                         ID,
                         NAME,
-                        SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN,
+                        SpreadsheetMetadataPropertyName.DATE_PARSER,
                         Optional.of(
                                 SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+                                        .spreadsheetParserSelector()
                         )
                 ),
                 HistoryToken.metadataSelect(

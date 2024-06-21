@@ -42,6 +42,7 @@ import walkingkooka.spreadsheet.dominokit.ui.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
+import walkingkooka.spreadsheet.format.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -67,6 +68,7 @@ public interface AppContext extends CanGiveFocus,
         HasSpreadsheetMetadataFetcher,
         SpreadsheetComparatorProvider,
         SpreadsheetFormatterProvider,
+        SpreadsheetParserProvider,
         HistoryTokenContext,
         LoggingContext,
         Context {

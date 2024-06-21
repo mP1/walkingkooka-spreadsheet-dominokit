@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenTesting;
+import walkingkooka.spreadsheet.format.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -41,7 +42,7 @@ public final class SpreadsheetPatternDialogComponentParseTest implements History
 
     @Test
     public void testMetadataParsePatternDateDialogClose() {
-        final SpreadsheetMetadataPropertyName<SpreadsheetDateParsePattern> property = SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN;
+        final SpreadsheetMetadataPropertyName<SpreadsheetParserSelector> property = SpreadsheetMetadataPropertyName.DATE_PARSER;
 
         this.historyTokenCloseDialogAndCheck(
                 HistoryToken.metadataPropertySelect(
@@ -58,7 +59,7 @@ public final class SpreadsheetPatternDialogComponentParseTest implements History
 
     @Test
     public void testMetadataParsePatternDateDialogSave() {
-        final SpreadsheetMetadataPropertyName<SpreadsheetDateParsePattern> property = SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN;
+        final SpreadsheetMetadataPropertyName<SpreadsheetParserSelector> property = SpreadsheetMetadataPropertyName.DATE_PARSER;
         final SpreadsheetDateParsePattern value = SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy");
 
         this.historyTokenSaveValueAndCheck(
@@ -72,14 +73,16 @@ public final class SpreadsheetPatternDialogComponentParseTest implements History
                         ID,
                         NAME,
                         property,
-                        Optional.of(value)
+                        Optional.of(
+                                value.spreadsheetParserSelector()
+                        )
                 )
         );
     }
 
     @Test
     public void testMetadataParsePatternDateDialogRemove() {
-        final SpreadsheetMetadataPropertyName<SpreadsheetDateParsePattern> property = SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN;
+        final SpreadsheetMetadataPropertyName<SpreadsheetParserSelector> property = SpreadsheetMetadataPropertyName.DATE_PARSER;
 
         this.historyTokenRemoveValueAndCheck(
                 HistoryToken.metadataPropertySelect(

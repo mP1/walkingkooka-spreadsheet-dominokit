@@ -173,12 +173,12 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                 );
     }
 
-    final HistoryToken parseParsePattern(final TextCursor cursor) {
+    final HistoryToken parseParser(final TextCursor cursor) {
         return this.setParsePattern()
                 .setPatternKind(
                         this.parsePatternKind(
                                 cursor,
-                                "parse-pattern"
+                                PARSER_STRING
                         )
                 );
     }

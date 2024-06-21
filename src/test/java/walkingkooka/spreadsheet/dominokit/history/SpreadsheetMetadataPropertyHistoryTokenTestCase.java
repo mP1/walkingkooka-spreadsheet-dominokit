@@ -35,7 +35,7 @@ public abstract class SpreadsheetMetadataPropertyHistoryTokenTestCase<T extends 
 
     @Test
     public final void testSetDifferentMetadataPropertyName() {
-        final SpreadsheetMetadataPropertyName<?> different = SpreadsheetMetadataPropertyName.DATE_PARSE_PATTERN;
+        final SpreadsheetMetadataPropertyName<?> different = SpreadsheetMetadataPropertyName.DATE_PARSER;
 
         this.setMetadataPropertyNameAndCheck(
                 different,

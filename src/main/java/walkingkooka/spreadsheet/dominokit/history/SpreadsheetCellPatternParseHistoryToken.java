@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -31,7 +30,7 @@ import walkingkooka.text.cursor.parser.Parser;
  * <pre>
  * /123/SpreadsheetName456/cell/B2:C3/top-left/formatter
  *
- * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/parse-pattern
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/parser
  * </pre>
  */
 public final class SpreadsheetCellPatternParseHistoryToken extends SpreadsheetCellPatternFormatOrParseHistoryToken {
@@ -69,7 +68,7 @@ public final class SpreadsheetCellPatternParseHistoryToken extends SpreadsheetCe
 
     @Override
     UrlFragment cellUrlFragment() {
-        return SpreadsheetUrlFragments.PARSE_PATTERN;
+        return PARSER;
     }
 
     @Override

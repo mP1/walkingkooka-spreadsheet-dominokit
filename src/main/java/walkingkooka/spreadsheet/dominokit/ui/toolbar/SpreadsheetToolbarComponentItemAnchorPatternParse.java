@@ -45,8 +45,8 @@ final class SpreadsheetToolbarComponentItemAnchorPatternParse extends Spreadshee
                 Optional.of(
                         SpreadsheetIcons.parsePattern()
                 ),
-                "Parse pattern",
-                "Parse pattern(s)...",
+                "Parsing",
+                "Parser(s)...",
                 context
         );
     }

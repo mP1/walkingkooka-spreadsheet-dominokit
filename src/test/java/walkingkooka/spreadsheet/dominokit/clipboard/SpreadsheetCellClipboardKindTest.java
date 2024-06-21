@@ -32,14 +32,16 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateParsePattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.format.SpreadsheetParserProviders;
+import walkingkooka.spreadsheet.format.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.JsonPropertyName;
@@ -72,9 +74,10 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             Optional.of(
                     SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
             )
-    ).setParsePattern(
+    ).setParser(
             Optional.of(
                     SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                            .spreadsheetParserSelector()
             )
     ).setStyle(
             TextStyle.EMPTY.set(
@@ -112,9 +115,9 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testPredicateParsePattern() {
+    public void testPredicaterPattern() {
         this.predicateAndCheck(
-                SpreadsheetCellClipboardKind.PARSE_PATTERN
+                SpreadsheetCellClipboardKind.PARSER
         );
     }
 
@@ -212,22 +215,22 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueParsePattern() {
+    public void testToValueParser() {
         this.toValueAndCheck(
-                SpreadsheetCellClipboardKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSER,
                 CELL,
-                CELL.parsePattern()
+                CELL.parser()
         );
     }
 
     @Test
-    public void testToValueParsePatternEmpty() {
-        final SpreadsheetCell cell = CELL.setParsePattern(SpreadsheetCell.NO_PARSE_PATTERN);
+    public void testToValueParserEmpty() {
+        final SpreadsheetCell cell = CELL.setParser(SpreadsheetCell.NO_PARSER);
 
         this.toValueAndCheck(
-                SpreadsheetCellClipboardKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSER,
                 cell,
-                cell.parsePattern()
+                cell.parser()
         );
     }
 
@@ -478,9 +481,10 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                                 SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
                                         .spreadsheetFormatterSelector()
                         )
-                ).setParsePattern(
+                ).setParser(
                         Optional.of(
                                 SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                                        .spreadsheetParserSelector()
                         )
                 ).setStyle(
                         TextStyle.EMPTY.set(
@@ -495,10 +499,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                         "  \"style\": {\n" +
                         "    \"text-align\": \"CENTER\"\n" +
                         "  },\n" +
-                        "  \"parse-pattern\": {\n" +
-                        "    \"type\": \"spreadsheet-number-parse-pattern\",\n" +
-                        "    \"value\": \"$0.00\"\n" +
-                        "  },\n" +
+                        "  \"parser\": \"number-parse-pattern $0.00\",\n" +
                         "  \"formatter\": \"date-format-pattern yyyy/mm/dd\"\n" +
                         "}"
         );
@@ -553,28 +554,26 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testMarshallParsePatternEmpty() {
+    public void testMarshallParserEmpty() {
         this.marshallAndCheck(
-                SpreadsheetCellClipboardKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSER,
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
                 JsonNode.nullNode()
         );
     }
 
     @Test
-    public void testMarshallParsePattern() {
+    public void testMarshallParser() {
         this.marshallAndCheck(
-                SpreadsheetCellClipboardKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSER,
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                        .setParsePattern(
+                        .setParser(
                                 Optional.of(
                                         SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd")
+                                                .spreadsheetParserSelector()
                                 )
                         ),
-                "{\n" +
-                        "  \"type\": \"spreadsheet-date-parse-pattern\",\n" +
-                        "  \"value\": \"yyyy/mm/dd\"\n" +
-                        "}"
+                "\"date-parse-pattern yyyy/mm/dd\""
         );
     }
 
@@ -691,20 +690,21 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testUnmarshallCellParsePattern() {
+    public void testUnmarshallCellParser() {
         final String formula = "=1+2+333";
 
-        final Optional<SpreadsheetParsePattern> parsePattern = Optional.of(
+        final Optional<SpreadsheetParserSelector> parser = Optional.of(
                 SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+                        .spreadsheetParserSelector()
         );
 
         this.unmarshallAndCheck(
                 SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText(formula)
-                ).setParsePattern(parsePattern),
+                ).setParser(parser),
                 SpreadsheetSelection.A1.setFormula(
                                 SpreadsheetFormula.EMPTY.setText(formula)
-                        ).setParsePattern(parsePattern)
+                        ).setParser(parser)
                         .setFormula(
                                 SpreadsheetMetadataTesting.parseFormula(formula)
                         )
@@ -799,24 +799,25 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testUnmarshallParsePatternEmpty() {
+    public void testUnmarshallParserEmpty() {
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSER,
                 JsonNode.nullNode(),
                 EMPTY_FORMULA
         );
     }
 
     @Test
-    public void testUnmarshallParsePattern() {
-        final SpreadsheetDateParsePattern pattern = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd");
+    public void testUnmarshallParser() {
+        final SpreadsheetParserSelector parser = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd")
+                .spreadsheetParserSelector();
 
         this.unmarshallAndCheck(
-                SpreadsheetCellClipboardKind.PARSE_PATTERN,
+                SpreadsheetCellClipboardKind.PARSER,
                 APP_CONTEXT.marshallContext()
-                        .marshallWithType(pattern),
-                EMPTY_FORMULA.setParsePattern(
-                        Optional.of(pattern)
+                        .marshall(parser),
+                EMPTY_FORMULA.setParser(
+                        Optional.of(parser)
                 )
         );
     }
@@ -918,6 +919,12 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         public JsonNodeUnmarshallContext unmarshallContext() {
             return this.spreadsheetMetadata()
                     .jsonNodeUnmarshallContext();
+        }
+
+        @Override
+        public Optional<Parser<SpreadsheetParserContext>> spreadsheetParser(final SpreadsheetParserSelector selector) {
+            return SpreadsheetParserProviders.spreadsheetParsePattern()
+                    .spreadsheetParser(selector);
         }
     };
 

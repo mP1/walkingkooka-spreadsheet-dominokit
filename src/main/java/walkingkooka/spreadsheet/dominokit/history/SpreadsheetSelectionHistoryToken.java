@@ -101,8 +101,8 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                         SpreadsheetLabelNameResolvers.fake()
                 );
                 break;
-            case PARSE_PATTERN_STRING:
-                result = this.parseParsePattern(cursor);
+            case PARSER_STRING:
+                result = this.parseParser(cursor);
                 break;
             case PASTE_STRING:
                 result = this.parsePaste(cursor);
