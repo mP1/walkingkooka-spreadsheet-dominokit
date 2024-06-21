@@ -108,14 +108,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testPredicateFormatPattern() {
+    public void testPredicateFormatter() {
         this.predicateAndCheck(
                 SpreadsheetCellClipboardKind.FORMATTER
         );
     }
 
     @Test
-    public void testPredicaterPattern() {
+    public void testPredicaterParser() {
         this.predicateAndCheck(
                 SpreadsheetCellClipboardKind.PARSER
         );
@@ -204,7 +204,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueFormatPatternEmpty() {
+    public void testToValueFormatterEmpty() {
         final SpreadsheetCell cell = CELL.setFormatter(SpreadsheetCell.NO_FORMATTER);
 
         this.toValueAndCheck(
@@ -775,7 +775,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     private final static SpreadsheetCell EMPTY_FORMULA = SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY);
 
     @Test
-    public void testUnmarshallFormatPatternEmpty() {
+    public void testUnmarshallFormatterEmpty() {
         this.unmarshallAndCheck(
                 SpreadsheetCellClipboardKind.FORMATTER,
                 JsonNode.nullNode(),
