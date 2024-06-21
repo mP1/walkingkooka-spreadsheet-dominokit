@@ -38,7 +38,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
     // date format....................................................................................................
 
     @Test
-    public void testCellDateFormat() {
+    public void testCellDateFormatter() {
         this.refreshAndCheck(
                 "/1/Untitled/cell/A1/formatter/date", // historyToken
                 "dd/mm/yyyy",
@@ -146,7 +146,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
     // dateTime format....................................................................................................
 
     @Test
-    public void testCellDateTimeFormat() {
+    public void testCellDateTimeFormatter() {
         this.refreshAndCheck(
                 "/1/Untitled/cell/A1/formatter/date-time", // historyToken
                 "dd/mm/yyyy hh:mm:ss",
@@ -302,7 +302,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
     // number format....................................................................................................
 
     @Test
-    public void testCellNumberFormat() {
+    public void testCellNumberFormatter() {
         this.refreshAndCheck(
                 "/1/Untitled/cell/A1/formatter/number", // historyToken
                 "$#.00",
@@ -402,7 +402,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
     // text format......................................................................................................
 
     @Test
-    public void testCellTextFormatAtSign() {
+    public void testCellTextFormatterAtSign() {
         this.refreshAndCheck(
                 "/1/Untitled/cell/A1/formatter/text", // historyToken
                 "@",
@@ -419,7 +419,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
     }
 
     @Test
-    public void testCellTextFormatIncludesLiteral() {
+    public void testCellTextFormatterIncludesLiteral() {
         this.refreshAndCheck(
                 "/1/Untitled/cell/A1/formatter/text", // historyToken
                 "\"Hello\" @",
@@ -456,7 +456,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
     // time format......................................................................................................
 
     @Test
-    public void testCellTimeFormat() {
+    public void testCellTimeFormatter() {
         this.refreshAndCheck(
                 "/1/Untitled/cell/A1/formatter/time", // historyToken
                 "hh:mm:ss",
@@ -483,7 +483,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
     }
 
     @Test
-    public void testMetadataTimeFormat() {
+    public void testMetadataTimeFormatter() {
         this.refreshAndCheck(
                 "/1/Untitled/metadata/time-formatter", // historyToken
                 "hh:mm:ss",
@@ -512,7 +512,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
     // time parse......................................................................................................
 
     @Test
-    public void testCellTimeParse() {
+    public void testCellTimeParser() {
         this.refreshAndCheck(
                 "/1/Untitled/cell/A1/parser/time", // historyToken
                 "hh:mm:ss",
@@ -539,7 +539,7 @@ public final class SpreadsheetPatternComponentElementAppenderTest implements Cla
     }
 
     @Test
-    public void testMetadataTimeParse() {
+    public void testMetadataTimeParser() {
         this.refreshAndCheck(
                 "/1/Untitled/metadata/time-parser", // historyToken
                 "hh:mm:ss",
