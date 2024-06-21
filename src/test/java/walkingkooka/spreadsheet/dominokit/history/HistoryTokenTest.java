@@ -3014,7 +3014,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // cell/pattern.......................................................................................................
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormatPatternMissingPatternKind() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterMissingPatternKind() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/A1/formatter",
                 HistoryToken.cellFormatPattern(
@@ -3038,7 +3038,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormatPatternInvalidPatternKind() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterInvalidPatternKind() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/A1/formatter/!invalid",
                 HistoryToken.cellFormatPattern(
@@ -3050,7 +3050,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellPatternPatternKind() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterDateFormatPatternKind() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/A1/formatter/date",
                 HistoryToken.cellPattern(
@@ -3063,7 +3063,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellPatternSaveEmptyDateFormat() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterSaveEmptyDateFormat() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/A1/formatter/date/save/",
                 HistoryToken.cellPatternSave(
@@ -3077,7 +3077,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellPatternSaveTimeFormat() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterSaveTimeFormat() {
         final SpreadsheetTimeFormatPattern pattern = SpreadsheetPattern.parseTimeFormatPattern("hh:mm:ss");
 
         this.parseStringAndCheck(
