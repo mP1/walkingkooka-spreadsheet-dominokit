@@ -1380,7 +1380,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     // metadata / date..................................................................................................
 
     @Test
-    public void testMetadataFormatPatternDate() {
+    public void testMetadataFormatterDate() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/metadata/date-formatter")
         );
@@ -1626,7 +1626,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     // metadata / date-time.............................................................................................
 
     @Test
-    public void testMetadataFormatPatternDateTime() {
+    public void testMetadataFormatterDateTime() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/metadata/date-time-formatter")
         );
@@ -1896,7 +1896,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     // metadata / number................................................................................................
 
     @Test
-    public void testMetadataFormatPatternNumber() {
+    public void testMetadataFormatterNumber() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/metadata/number-formatter")
         );
@@ -2136,7 +2136,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     // metadata / text..................................................................................................
 
     @Test
-    public void testMetadataFormatPatternText() {
+    public void testMetadataFormatterText() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/metadata/text-formatter")
         );
@@ -2207,7 +2207,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     // metadata / time..................................................................................................
 
     @Test
-    public void testMetadataFormatPatternTime() {
+    public void testMetadataFormatterTime() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/metadata/time-formatter")
         );
