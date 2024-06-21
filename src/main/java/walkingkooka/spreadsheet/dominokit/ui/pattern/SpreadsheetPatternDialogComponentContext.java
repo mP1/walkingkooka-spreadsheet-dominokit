@@ -53,31 +53,40 @@ public interface SpreadsheetPatternDialogComponentContext extends CanGiveFocus,
         } else {
             switch (this.patternKind()) {
                 case DATE_FORMAT_PATTERN:
-                    save = SpreadsheetFormatterName.DATE_FORMAT_PATTERN + " " + patternText;
+                    save = SpreadsheetFormatterName.DATE_FORMAT_PATTERN.setText(patternText)
+                            .toString();
                     break;
                 case DATE_PARSE_PATTERN:
-                    save = SpreadsheetParserName.DATE_PARSER + " " + patternText;
+                    save = SpreadsheetParserName.DATE_PARSER.setText(patternText)
+                            .toString();
                     break;
                 case DATE_TIME_FORMAT_PATTERN:
-                    save = SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN + " " + patternText;
+                    save = SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN.setText(patternText)
+                            .toString();
                     break;
                 case DATE_TIME_PARSE_PATTERN:
-                    save = SpreadsheetParserName.DATE_TIME_PARSER + " " + patternText;
+                    save = SpreadsheetParserName.DATE_TIME_PARSER.setText(patternText)
+                            .toString();
                     break;
                 case NUMBER_FORMAT_PATTERN:
-                    save = SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN + " " + patternText;
+                    save = SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN.setText(patternText)
+                            .toString();
                     break;
                 case NUMBER_PARSE_PATTERN:
-                    save = SpreadsheetParserName.NUMBER_PARSER + " " + patternText;
+                    save = SpreadsheetParserName.NUMBER_PARSER.setText(patternText)
+                            .toString();
                     break;
                 case TEXT_FORMAT_PATTERN:
-                    save = SpreadsheetFormatterName.TEXT_FORMAT_PATTERN + " " + patternText;
+                    save = SpreadsheetFormatterName.TEXT_FORMAT_PATTERN.setText(patternText)
+                            .toString();
                     break;
                 case TIME_FORMAT_PATTERN:
-                    save = SpreadsheetFormatterName.TIME_FORMAT_PATTERN + " " + patternText;
+                    save = SpreadsheetFormatterName.TIME_FORMAT_PATTERN.setText(patternText)
+                            .toString();
                     break;
                 case TIME_PARSE_PATTERN:
-                    save = SpreadsheetParserName.TIME_PARSER + " " + patternText;
+                    save = SpreadsheetParserName.TIME_PARSER.setText(patternText)
+                            .toString();
                     break;
                 default:
                     save = patternText;
