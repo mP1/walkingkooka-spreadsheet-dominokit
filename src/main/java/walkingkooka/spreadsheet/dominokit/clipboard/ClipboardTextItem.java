@@ -78,37 +78,25 @@ import java.util.stream.Collectors;
  *   }
  * }
  * </pre>
- * JSON holding format patterns.
+ * JSON holding {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}
  * <pre>
  * {
- *   "mediaType": "application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern",
+ *   "mediaType": "application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector",
  *   "cell-range": "A1:B2",
  *   "value": {
- *     "A1": {
- *       "type": "spreadsheet-date-format-pattern",
- *       "value": "dd/mm/yyyy"
- *     },
- *     "B2": {
- *       "type": "spreadsheet-number-format-pattern",
- *       "value": "$0.00"
- *     }
+ *     "A1": "date-format-pattern dd/mm/yyyy",
+ *     "B2": "number-format-pattern $0.00"
  *   }
  * }
  * </pre>
- * JSON holding parse patterns.
+ * JSON holding {@link walkingkooka.spreadsheet.format.SpreadsheetParserSelector}
  * <pre>
  * {
- *   "mediaType": "application/json+walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern",
+ *   "mediaType": "application/json+walkingkooka.spreadsheet.format.SpreadsheetParserSelector",
  *   "cell-range": "A1:B2",
  *   "value": {
- *     "A1": {
- *       "type": "spreadsheet-date-parse-pattern",
- *       "value": "dd/mm/yyyy"
- *     },
- *     "B2": {
- *       "type": "spreadsheet-number-parse-pattern",
- *       "value": "$0.00"
- *     }
+ *     "A1": "date-parse-pattern dd/mm/yyyy",
+ *     "B2": "number-parse-pattern $0.00"
  *   }
  * }
  * </pre>
