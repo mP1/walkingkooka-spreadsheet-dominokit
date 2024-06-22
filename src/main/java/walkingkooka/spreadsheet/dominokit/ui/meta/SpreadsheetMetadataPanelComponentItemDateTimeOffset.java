@@ -226,7 +226,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
     // @VisibleForTesting
     static Date toDate(final Long longValue) {
         return DateTime.localDateTimeToDate(
-                TO_DATE.convertOrFail(
+                NUMBER_TO_DATE.convertOrFail(
                         longValue,
                         LocalDate.class,
                         CONVERTER_CONTEXT
@@ -234,7 +234,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
         );
     }
 
-    private final static Converter<ConverterContext> TO_DATE = Converters.numberLocalDate(
+    private final static Converter<ConverterContext> NUMBER_TO_DATE = Converters.numberToLocalDate(
             Converters.EXCEL_1900_DATE_SYSTEM_OFFSET
     );
 
