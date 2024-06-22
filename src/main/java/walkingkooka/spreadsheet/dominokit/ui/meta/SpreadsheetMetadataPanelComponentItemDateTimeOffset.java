@@ -248,7 +248,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
         );
     }
 
-    private final static Converter<ConverterContext> TO_LONG = Converters.localDateNumber(
+    private final static Converter<ConverterContext> TO_LONG = Converters.localDateToNumber(
             -Converters.EXCEL_1900_DATE_SYSTEM_OFFSET
     );
 
