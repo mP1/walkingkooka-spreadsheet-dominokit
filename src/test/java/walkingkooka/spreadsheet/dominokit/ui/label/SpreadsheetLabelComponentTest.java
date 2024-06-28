@@ -19,20 +19,23 @@ package walkingkooka.spreadsheet.dominokit.ui.label;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
+import walkingkooka.Context;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.ValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.server.context.SpreadsheetContexts;
 
 import java.util.Optional;
 
 public final class SpreadsheetLabelComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetLabelComponent> {
 
+    private final static Context CONTEXT = new Context() {
+    };
+
     @Test
     public void testPrintTreeMissingValue() {
         this.treePrintAndCheck(
-                SpreadsheetLabelComponent.with(SpreadsheetContexts.fake())
+                SpreadsheetLabelComponent.with(CONTEXT)
                         .setLabel("Label123")
                         .setValue(
                                 Optional.empty()
@@ -48,7 +51,7 @@ public final class SpreadsheetLabelComponentTest implements ValueComponentTestin
     @Test
     public void testPrintTreeInvalidStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetLabelComponent.with(SpreadsheetContexts.fake())
+                SpreadsheetLabelComponent.with(CONTEXT)
                         .setLabel("Label123")
                         .setStringValue(
                                 Optional.of("X!")
@@ -64,7 +67,7 @@ public final class SpreadsheetLabelComponentTest implements ValueComponentTestin
     @Test
     public void testPrintTreeWithValue() {
         this.treePrintAndCheck(
-                SpreadsheetLabelComponent.with(SpreadsheetContexts.fake())
+                SpreadsheetLabelComponent.with(CONTEXT)
                         .setLabel("Label123")
                         .setValue(
                                 Optional.of(
