@@ -55,7 +55,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 SpreadsheetSelection.parseColumn("A"),
                 "column-sort-", // id-prefix
                 SpreadsheetIcons.columnSort(),
-                SpreadsheetComparatorProviders.builtIn()
+                SpreadsheetComparatorProviders.spreadsheetComparators()
                         .spreadsheetComparatorInfos(),
                 "\"Sort Column\" id=sort\n" +
                         "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +
@@ -122,7 +122,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 SpreadsheetSelection.parseRow("12"),
                 "row-sort-", // id-prefix
                 SpreadsheetIcons.rowSort(),
-                SpreadsheetComparatorProviders.builtIn()
+                SpreadsheetComparatorProviders.spreadsheetComparators()
                         .spreadsheetComparatorInfos(),
                 "\"Sort Row\" id=sort\n" +
                         "  (mdi-sort) \"Sort Row\" id=row-sort-SubMenu\n" +
@@ -189,7 +189,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 SpreadsheetSelection.parseColumn("B"),
                 "column-sort-", // id-prefix
                 SpreadsheetIcons.columnSort(),
-                SpreadsheetComparatorProviders.builtIn()
+                SpreadsheetComparatorProviders.spreadsheetComparators()
                         .spreadsheetComparatorInfos(),
                 "\"Sort Column\" id=sort\n" +
                         "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +

@@ -1514,7 +1514,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 return this.spreadsheetComparatorProvider.spreadsheetComparatorInfos();
             }
 
-            private final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.builtIn();
+            private final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.spreadsheetComparators();
         };
     }
 

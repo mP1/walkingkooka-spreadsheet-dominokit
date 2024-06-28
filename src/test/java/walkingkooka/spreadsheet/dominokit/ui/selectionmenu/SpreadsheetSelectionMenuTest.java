@@ -1970,7 +1970,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 return this.spreadsheetComparatorProvider.spreadsheetComparatorInfos();
             }
 
-            private final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.builtIn();
+            private final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.spreadsheetComparators();
         };
     }
 
