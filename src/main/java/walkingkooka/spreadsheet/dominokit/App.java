@@ -561,7 +561,7 @@ public class App implements EntryPoint,
             this.spreadsheetMetadata = metadata;
 
             this.spreadsheetComparatorProvider = metadata.spreadsheetComparatorProvider(
-                    SpreadsheetComparatorProviders.builtIn()
+                    SpreadsheetComparatorProviders.spreadsheetComparators()
             );
 
             this.spreadsheetFormatterProvider = metadata.spreadsheetFormatterProvider(
