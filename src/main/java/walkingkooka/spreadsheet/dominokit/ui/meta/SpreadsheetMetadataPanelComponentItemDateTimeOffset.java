@@ -234,9 +234,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
         );
     }
 
-    private final static Converter<ConverterContext> NUMBER_TO_DATE = Converters.numberToLocalDate(
-            Converters.EXCEL_1900_DATE_SYSTEM_OFFSET
-    );
+    private final static Converter<ConverterContext> NUMBER_TO_DATE = Converters.numberToLocalDate();
 
     // @VisibleForTesting
     static Long toLong(final Date date) {
@@ -248,9 +246,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
         );
     }
 
-    private final static Converter<ConverterContext> TO_LONG = Converters.localDateToNumber(
-            -Converters.EXCEL_1900_DATE_SYSTEM_OFFSET
-    );
+    private final static Converter<ConverterContext> TO_LONG = Converters.localDateToNumber();
 
     /**
      * A non null {@link ConverterContext} is required for the two methods to convert Long and Date for the {@link DateBox}
