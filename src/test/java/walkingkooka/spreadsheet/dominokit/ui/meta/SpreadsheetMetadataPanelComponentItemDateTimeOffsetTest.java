@@ -125,9 +125,9 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
                 SpreadsheetMetadataPanelComponentItemDateTimeOffset.toLong(
                         new Date(
                                 Date.UTC(
-                                        1900 - 1900,
+                                        1970 - 1900,
                                         Calendar.JANUARY,
-                                        1,
+                                        3,
                                         0,
                                         0,
                                         0

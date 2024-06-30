@@ -26,8 +26,8 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.convert.Converter;
 import walkingkooka.convert.ConverterContext;
-import walkingkooka.convert.ConverterContexts;
 import walkingkooka.convert.Converters;
+import walkingkooka.convert.FakeConverterContext;
 import walkingkooka.datetime.DateTime;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -251,5 +251,12 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
     /**
      * A non null {@link ConverterContext} is required for the two methods to convert Long and Date for the {@link DateBox}
      */
-    private final static ConverterContext CONVERTER_CONTEXT = ConverterContexts.fake();
+    // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/3241
+    private final static ConverterContext CONVERTER_CONTEXT = new FakeConverterContext() {
+
+        @Override
+        public long dateOffset() {
+            return Converters.JAVA_EPOCH_OFFSET;
+        }
+    };
 }
