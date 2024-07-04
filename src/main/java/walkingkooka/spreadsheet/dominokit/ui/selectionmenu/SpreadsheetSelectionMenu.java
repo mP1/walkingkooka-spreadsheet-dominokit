@@ -1000,16 +1000,16 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                     final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
-        if (selection.isColumnReference() || selection.isColumnRangeReference() || selection.isCellReference() || selection.isCellRangeReference()) {
+        final boolean columns = selection.isColumnReferenceOrColumnRangeReference();
 
-            final SpreadsheetSelection column = selection.toColumnOrColumnRange();
-
-            if (column.count() > 1) {
+        if (columns || selection.isCellReferenceOrCellRangeReference()) {
+            if (columns || selection.toRowRange().count() > 1) {
                 final String idPrefix = context.idPrefix() + "column-sort-";
 
                 SpreadsheetSelectionMenuSort.build(
                         historyToken,
-                        column.toColumn(),
+                        selection.toColumnOrColumnRange()
+                                .toColumn(),
                         idPrefix, // id prefix
                         SpreadsheetIcons.columnSort(),
                         context.spreadsheetComparatorInfos(), // infos
@@ -1025,16 +1025,16 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                  final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
-        if (selection.isRowReference() || selection.isRowRangeReference() || selection.isCellReference() || selection.isCellRangeReference()) {
+        final boolean rows = selection.isRowReferenceOrRowRangeReference();
+        if (rows || selection.isCellReferenceOrCellRangeReference()) {
 
-            final SpreadsheetSelection row = selection.toRowOrRowRange();
-
-            if (row.count() > 1) {
+            if (rows || selection.toColumnOrColumnRange().count() > 1) {
                 final String idPrefix = context.idPrefix() + "row-sort-";
 
                 SpreadsheetSelectionMenuSort.build(
                         historyToken,
-                        row.toRow(),
+                        selection.toRowOrRowRange()
+                                .toRow(),
                         idPrefix, // id prefix
                         SpreadsheetIcons.columnSort(),
                         context.spreadsheetComparatorInfos(), // infos

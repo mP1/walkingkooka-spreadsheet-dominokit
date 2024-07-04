@@ -1471,6 +1471,55 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "    \"3\" [/1/SpreadsheetName-1/column/B/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/column/B/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                         "  -----\n" +
+                        "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
+                        "    \"Date\" id=test-column-sort-date-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=date%20UP] id=test-column-sort-date-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=date%20DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
+                        "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=date-time%20UP] id=test-column-sort-date-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=date-time%20DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
+                        "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-month%20UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-month%20DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
+                        "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-week%20UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-week%20DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
+                        "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-am-pm%20UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-am-pm%20DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                        "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-day%20UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-day%20DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
+                        "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=minute-of-hour%20UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=minute-of-hour%20DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
+                        "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=month-of-year%20UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=month-of-year%20DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
+                        "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=nano-of-second%20UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=nano-of-second%20DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
+                        "    \"Number\" id=test-column-sort-number-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=number%20UP] id=test-column-sort-number-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=number%20DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
+                        "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=seconds-of-minute%20UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=seconds-of-minute%20DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                        "    \"Text\" id=test-column-sort-text-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=text%20UP] id=test-column-sort-text-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=text%20DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
+                        "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=text-case-insensitive%20UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=text-case-insensitive%20DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                        "    \"Time\" id=test-column-sort-time-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=time%20UP] id=test-column-sort-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=time%20DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
+                        "    \"Year\" id=test-column-sort-year-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=year%20UP] id=test-column-sort-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=year%20DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
+                        "    -----\n" +
+                        "    \"Edit\" [/1/SpreadsheetName-1/column/B/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
+                        "  -----\n" +
                         "  \"Freeze\" id=test-freeze-MenuItem\n" +
                         "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
         );
@@ -1709,6 +1758,55 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "    \"2\" [/1/SpreadsheetName-1/row/3/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                         "    \"3\" [/1/SpreadsheetName-1/row/3/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                         "    \"...\" [/1/SpreadsheetName-1/row/3/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
+                        "  -----\n" +
+                        "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
+                        "    \"Date\" id=test-row-sort-date-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=date%20UP] id=test-row-sort-date-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=date%20DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
+                        "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=date-time%20UP] id=test-row-sort-date-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=date-time%20DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
+                        "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-month%20UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-month%20DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
+                        "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-week%20UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-week%20DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
+                        "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-am-pm%20UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-am-pm%20DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                        "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-day%20UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-day%20DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
+                        "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=minute-of-hour%20UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=minute-of-hour%20DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
+                        "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=month-of-year%20UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=month-of-year%20DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
+                        "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=nano-of-second%20UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=nano-of-second%20DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
+                        "    \"Number\" id=test-row-sort-number-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=number%20UP] id=test-row-sort-number-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=number%20DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
+                        "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=seconds-of-minute%20UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=seconds-of-minute%20DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                        "    \"Text\" id=test-row-sort-text-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=text%20UP] id=test-row-sort-text-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=text%20DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
+                        "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-case-insensitive%20UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-case-insensitive%20DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                        "    \"Time\" id=test-row-sort-time-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=time%20UP] id=test-row-sort-time-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=time%20DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
+                        "    \"Year\" id=test-row-sort-year-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=year%20UP] id=test-row-sort-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=year%20DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
+                        "    -----\n" +
+                        "    \"Edit\" [/1/SpreadsheetName-1/row/3/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
                         "  -----\n" +
                         "  \"Freeze\" id=test-freeze-MenuItem\n" +
                         "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
