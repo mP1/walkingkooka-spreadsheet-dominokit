@@ -112,7 +112,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                         ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create((Number) value).sign()) {
                     mixBackgroundColor = mixBackgroundColor.mix(
                             SpreadsheetDominoKitColor.HIGHLIGHT_COLOR,
-                            0.5f
+                            0.25f
                     );
 
                     hideZeroValues = true;
