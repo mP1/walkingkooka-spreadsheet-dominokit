@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Headers;
 import walkingkooka.Context;
+import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.locale.HasLocale;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -60,6 +61,7 @@ import java.util.Set;
  */
 public interface AppContext extends CanGiveFocus,
         ClipboardContext,
+        ConverterProvider,
         HasLocale,
         HasNow,
         HasSpreadsheetDeltaFetcher,

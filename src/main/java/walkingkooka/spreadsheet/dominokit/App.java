@@ -33,6 +33,12 @@ import org.dominokit.domino.ui.layout.RightDrawerSize;
 import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.notifications.Notification.Position;
 import org.gwtproject.core.client.Scheduler;
+import walkingkooka.convert.Converter;
+import walkingkooka.convert.ConverterContext;
+import walkingkooka.convert.provider.ConverterInfo;
+import walkingkooka.convert.provider.ConverterName;
+import walkingkooka.convert.provider.ConverterProvider;
+import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
@@ -47,6 +53,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
+import walkingkooka.spreadsheet.convert.SpreadsheetConvertersConverterProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
@@ -122,6 +129,7 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 
 import java.math.MathContext;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
@@ -149,6 +157,7 @@ public class App implements EntryPoint,
         final LoggingContext loggingContext = LoggingContexts.elemental();
         this.loggingContext = loggingContext;
 
+        this.converterProvider = ConverterProviders.empty();
         this.spreadsheetComparatorProvider = SpreadsheetComparatorProviders.empty();
         this.spreadsheetFormatterProvider = SpreadsheetFormatterProviders.empty();
         this.spreadsheetParserProvider = SpreadsheetParserProviders.empty();
@@ -572,6 +581,14 @@ public class App implements EntryPoint,
                     SpreadsheetParserProviders.spreadsheetParsePattern()
             );
 
+            this.converterProvider = metadata.converterProvider(
+                    SpreadsheetConvertersConverterProviders.spreadsheetConverters(
+                            metadata,
+                            this.spreadsheetFormatterProvider,
+                            this.spreadsheetParserProvider
+                    )
+            );
+
             // update the global JsonNodeUnmarshallContext.
             this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                     metadata.expressionNumberKind(),
@@ -653,6 +670,27 @@ public class App implements EntryPoint,
     }
 
     private JsonNodeUnmarshallContext unmarshallContext;
+
+    // ConverterProvider................................................................................................
+
+    @Override
+    public <C extends ConverterContext> Optional<Converter<C>> converter(final ConverterName converterName,
+                                                                         final List<?> values) {
+        return this.converterProvider.converter(
+                converterName,
+                values
+        );
+    }
+
+    @Override
+    public Set<ConverterInfo> converterInfos() {
+        return this.converterProvider.converterInfos();
+    }
+
+    /**
+     * This will be updated every time {@link #onSpreadsheetMetadata(SpreadsheetMetadata, AppContext)} is called.
+     */
+    private ConverterProvider converterProvider;
 
     // SpreadsheetFormatProvider........................................................................................
 
