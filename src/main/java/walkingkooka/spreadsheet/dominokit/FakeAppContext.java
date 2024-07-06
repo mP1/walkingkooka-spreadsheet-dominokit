@@ -17,6 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import walkingkooka.convert.Converter;
+import walkingkooka.convert.ConverterContext;
+import walkingkooka.convert.provider.ConverterInfo;
+import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
@@ -48,6 +52,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -141,6 +146,19 @@ public class FakeAppContext implements AppContext {
 
     @Override
     public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
+        throw new UnsupportedOperationException();
+    }
+
+    // ConverterProvider................................................................................................
+
+    @Override
+    public <C extends ConverterContext> Optional<Converter<C>> converter(final ConverterName converterName,
+                                                                         final List<?> values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<ConverterInfo> converterInfos() {
         throw new UnsupportedOperationException();
     }
 
