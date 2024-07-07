@@ -29,12 +29,12 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.format.SpreadsheetParserProviders;
-import walkingkooka.spreadsheet.format.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserProviders;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasTextTesting;
@@ -506,7 +506,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetParserSelector\",\n" +
+                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.parser.SpreadsheetParserSelector\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {}\n" +
                                 "}"
@@ -525,7 +525,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetParserSelector\",\n" +
+                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.parser.SpreadsheetParserSelector\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": null\n" +
@@ -554,7 +554,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetParserSelector\",\n" +
+                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.parser.SpreadsheetParserSelector\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": null,\n" +
@@ -590,7 +590,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 ClipboardTextItem.with(
                         TYPES,
                         "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetParserSelector\",\n" +
+                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.parser.SpreadsheetParserSelector\",\n" +
                                 "  \"cell-range\": \"A1:B2\",\n" +
                                 "  \"value\": {\n" +
                                 "    \"A1\": \"date-parse-pattern dd/mm/yyyy\",\n" +
