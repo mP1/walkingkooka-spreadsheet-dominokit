@@ -38,7 +38,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
+import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviders;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
@@ -46,7 +46,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursors;
-import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.util.FunctionTesting;
 
@@ -400,7 +399,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             }
 
             @Override
-            public Optional<Parser<SpreadsheetParserContext>> spreadsheetParser(final SpreadsheetParserSelector selector) {
+            public Optional<SpreadsheetParser> spreadsheetParser(final SpreadsheetParserSelector selector) {
                 return SpreadsheetParserProviders.spreadsheetParsePattern()
                         .spreadsheetParser(selector);
             }
