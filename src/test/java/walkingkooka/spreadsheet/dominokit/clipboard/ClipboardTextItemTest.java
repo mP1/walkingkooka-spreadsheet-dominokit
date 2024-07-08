@@ -32,13 +32,12 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
+import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviders;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasTextTesting;
-import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
@@ -961,7 +960,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                     }
 
                                     @Override
-                                    public Optional<Parser<SpreadsheetParserContext>> spreadsheetParser(final SpreadsheetParserSelector spreadsheetparserSelector) {
+                                    public Optional<SpreadsheetParser> spreadsheetParser(final SpreadsheetParserSelector spreadsheetparserSelector) {
                                         return SpreadsheetParserProviders.spreadsheetParsePattern()
                                                 .spreadsheetParser(spreadsheetparserSelector);
                                     }
