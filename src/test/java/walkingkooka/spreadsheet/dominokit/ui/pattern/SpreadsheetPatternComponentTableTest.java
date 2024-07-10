@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.Either;
 import walkingkooka.datetime.DateTimeContext;
 import walkingkooka.datetime.DateTimeContexts;
 import walkingkooka.math.DecimalNumberContext;
@@ -46,11 +47,14 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
     private final static SpreadsheetFormatterContext DATE_FORMATTER_CONTEXT = new FakeSpreadsheetFormatterContext() {
 
         @Override
-        public <T> T convertOrFail(final Object value,
-                                   final Class<T> target) {
-            return (T) LocalDateTime.of(
-                    (LocalDate) value,
-                    LocalTime.NOON
+        public <T> Either<T, String> convert(final Object value,
+                                             final Class<T> target) {
+            return this.successfulConversion(
+                    LocalDateTime.of(
+                            (LocalDate) value,
+                            LocalTime.NOON
+                    ),
+                    target
             );
         }
 
@@ -144,9 +148,12 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
     private final static SpreadsheetFormatterContext DATE_TIME_FORMATTER_CONTEXT = new FakeSpreadsheetFormatterContext() {
 
         @Override
-        public <T> T convertOrFail(final Object value,
-                                   final Class<T> target) {
-            return (T) target.cast(value);
+        public <T> Either<T, String> convert(final Object value,
+                                             final Class<T> target) {
+            return this.successfulConversion(
+                    value,
+                    target
+            );
         }
 
         @Override
@@ -244,9 +251,12 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         }
 
         @Override
-        public <T> T convertOrFail(final Object value,
-                                   final Class<T> target) {
-            return (T) target.cast(value);
+        public <T> Either<T, String> convert(final Object value,
+                                             final Class<T> target) {
+            return this.successfulConversion(
+                    value,
+                    target
+            );
         }
 
         @Override
@@ -316,22 +326,27 @@ public final class SpreadsheetPatternComponentTableTest implements ClassTesting<
         }
 
         @Override
-        public <T> T convertOrFail(final Object value,
-                                   final Class<T> target) {
-            return (T) target.cast(value);
+        public <T> Either<T, String> convert(final Object value,
+                                             final Class<T> target) {
+            return this.successfulConversion(
+                    value,
+                    target
+            );
         }
     };
 
     private final static SpreadsheetFormatterContext TIME_FORMATTER_CONTEXT = new FakeSpreadsheetFormatterContext() {
 
         @Override
-        public <T> T convertOrFail(final Object value,
-                                   final Class<T> target) {
-            return (T)
+        public <T> Either<T, String> convert(final Object value,
+                                             final Class<T> target) {
+            return this.successfulConversion(
                     LocalDateTime.of(
                             LocalDate.of(2000, 1, 1),
                             LocalTime.class.cast(value)
-                    );
+                    ),
+                    target
+            );
         }
 
         @Override
