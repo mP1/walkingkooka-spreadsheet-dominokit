@@ -25,9 +25,11 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext {
@@ -101,6 +103,15 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
     @Override
     public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector) {
         return this.context.spreadsheetParser(selector);
+    }
+
+    @Override
+    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserName name,
+                                               final List<?> values) {
+        return this.context.spreadsheetParser(
+                name,
+                values
+        );
     }
 
     @Override
