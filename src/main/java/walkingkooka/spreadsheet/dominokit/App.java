@@ -109,6 +109,7 @@ import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCompone
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -715,6 +716,15 @@ public class App implements EntryPoint,
     private SpreadsheetComparatorProvider spreadsheetComparatorProvider;
 
     // SpreadsheetComparatorProvider....................................................................................
+
+    @Override
+    public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterName name,
+                                                     final List<?> values) {
+        return this.spreadsheetFormatterProvider.spreadsheetFormatter(
+                name,
+                values
+        );
+    }
 
     @Override
     public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector spreadsheetFormatterSelector) {
