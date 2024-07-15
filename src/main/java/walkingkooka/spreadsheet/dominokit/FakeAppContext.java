@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
@@ -168,6 +169,12 @@ public class FakeAppContext implements AppContext {
     }
 
     // SpreadsheetFormatterProvider.....................................................................................
+
+    @Override
+    public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterName name,
+                                                     final List<?> values) {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector spreadsheetFormatterSelector) {
