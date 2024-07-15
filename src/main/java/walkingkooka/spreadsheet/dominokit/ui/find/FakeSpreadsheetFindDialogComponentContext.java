@@ -23,9 +23,11 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 public class FakeSpreadsheetFindDialogComponentContext extends FakeHistoryTokenContext implements SpreadsheetFindDialogComponentContext {
@@ -56,6 +58,12 @@ public class FakeSpreadsheetFindDialogComponentContext extends FakeHistoryTokenC
 
     @Override
     public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserName name,
+                                               final List<?> values) {
         throw new UnsupportedOperationException();
     }
 
