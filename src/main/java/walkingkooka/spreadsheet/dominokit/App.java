@@ -39,6 +39,7 @@ import walkingkooka.convert.provider.ConverterInfo;
 import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
+import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
@@ -673,8 +674,13 @@ public class App implements EntryPoint,
     // ConverterProvider................................................................................................
 
     @Override
-    public <C extends ConverterContext> Optional<Converter<C>> converter(final ConverterName converterName,
-                                                                         final List<?> values) {
+    public <C extends ConverterContext> Converter<C> converter(final ConverterSelector selector) {
+        return this.converterProvider.converter(selector);
+    }
+
+    @Override
+    public <C extends ConverterContext> Converter<C> converter(final ConverterName converterName,
+                                                               final List<?> values) {
         return this.converterProvider.converter(
                 converterName,
                 values
@@ -694,7 +700,7 @@ public class App implements EntryPoint,
     // SpreadsheetFormatProvider........................................................................................
 
     @Override
-    public Optional<SpreadsheetComparator<?>> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
+    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
         return this.spreadsheetComparatorProvider.spreadsheetComparator(spreadsheetComparatorName);
     }
 
@@ -711,7 +717,7 @@ public class App implements EntryPoint,
     // SpreadsheetComparatorProvider....................................................................................
 
     @Override
-    public Optional<SpreadsheetFormatter> spreadsheetFormatter(final SpreadsheetFormatterSelector spreadsheetFormatterSelector) {
+    public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector spreadsheetFormatterSelector) {
         return this.spreadsheetFormatterProvider.spreadsheetFormatter(spreadsheetFormatterSelector);
     }
 
@@ -728,7 +734,7 @@ public class App implements EntryPoint,
     // SpreadsheetComparatorProvider....................................................................................
 
     @Override
-    public Optional<SpreadsheetParser> spreadsheetParser(final SpreadsheetParserSelector spreadsheetParserSelector) {
+    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector spreadsheetParserSelector) {
         return this.spreadsheetParserProvider.spreadsheetParser(spreadsheetParserSelector);
     }
 

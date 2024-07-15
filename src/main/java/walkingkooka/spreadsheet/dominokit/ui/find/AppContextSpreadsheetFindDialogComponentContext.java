@@ -28,7 +28,6 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 import java.util.Set;
 
 final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext {
@@ -100,7 +99,7 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
     // SpreadsheetParserProvider........................................................................................
 
     @Override
-    public Optional<SpreadsheetParser> spreadsheetParser(final SpreadsheetParserSelector selector) {
+    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector) {
         return this.context.spreadsheetParser(selector);
     }
 

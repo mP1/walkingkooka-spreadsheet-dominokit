@@ -960,7 +960,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                     }
 
                                     @Override
-                                    public Optional<SpreadsheetParser> spreadsheetParser(final SpreadsheetParserSelector spreadsheetparserSelector) {
+                                    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector spreadsheetparserSelector) {
                                         return SpreadsheetParserProviders.spreadsheetParsePattern()
                                                 .spreadsheetParser(spreadsheetparserSelector);
                                     }

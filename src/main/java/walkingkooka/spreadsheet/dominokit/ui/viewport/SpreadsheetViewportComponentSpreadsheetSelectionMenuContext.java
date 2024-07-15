@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -119,7 +118,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     @Override
-    public Optional<SpreadsheetComparator<?>> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
+    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
         return this.context.spreadsheetComparator(spreadsheetComparatorName);
     }
 

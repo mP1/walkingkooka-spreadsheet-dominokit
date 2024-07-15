@@ -64,7 +64,7 @@ final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParser
         if (maybeCell.isPresent()) {
             final SpreadsheetCell cell = maybeCell.get();
             parser = cell.parser()
-                    .flatMap(p -> context.spreadsheetParser(p))
+                    .map(p -> context.spreadsheetParser(p))
                     .orElse(null);
         }
 
