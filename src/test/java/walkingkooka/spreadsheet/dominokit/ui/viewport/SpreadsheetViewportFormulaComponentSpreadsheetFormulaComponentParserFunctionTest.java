@@ -399,7 +399,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             }
 
             @Override
-            public Optional<SpreadsheetParser> spreadsheetParser(final SpreadsheetParserSelector selector) {
+            public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector) {
                 return SpreadsheetParserProviders.spreadsheetParsePattern()
                         .spreadsheetParser(selector);
             }

@@ -21,6 +21,7 @@ import walkingkooka.convert.Converter;
 import walkingkooka.convert.ConverterContext;
 import walkingkooka.convert.provider.ConverterInfo;
 import walkingkooka.convert.provider.ConverterName;
+import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
@@ -139,7 +140,7 @@ public class FakeAppContext implements AppContext {
     // SpreadsheetComparatorProvider....................................................................................
 
     @Override
-    public Optional<SpreadsheetComparator<?>> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
+    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
         throw new UnsupportedOperationException();
     }
 
@@ -151,8 +152,13 @@ public class FakeAppContext implements AppContext {
     // ConverterProvider................................................................................................
 
     @Override
-    public <C extends ConverterContext> Optional<Converter<C>> converter(final ConverterName converterName,
-                                                                         final List<?> values) {
+    public <C extends ConverterContext> Converter<C> converter(final ConverterSelector selector) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public <C extends ConverterContext> Converter<C> converter(final ConverterName converterName,
+                                                               final List<?> values) {
         throw new UnsupportedOperationException();
     }
 
@@ -164,7 +170,7 @@ public class FakeAppContext implements AppContext {
     // SpreadsheetFormatterProvider.....................................................................................
 
     @Override
-    public Optional<SpreadsheetFormatter> spreadsheetFormatter(final SpreadsheetFormatterSelector spreadsheetFormatterSelector) {
+    public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector spreadsheetFormatterSelector) {
         throw new UnsupportedOperationException();
     }
 
@@ -176,7 +182,7 @@ public class FakeAppContext implements AppContext {
     // SpreadsheetParserProvider........................................................................................
 
     @Override
-    public Optional<SpreadsheetParser> spreadsheetParser(final SpreadsheetParserSelector spreadsheetparserSelector) {
+    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector spreadsheetparserSelector) {
         throw new UnsupportedOperationException();
     }
 
