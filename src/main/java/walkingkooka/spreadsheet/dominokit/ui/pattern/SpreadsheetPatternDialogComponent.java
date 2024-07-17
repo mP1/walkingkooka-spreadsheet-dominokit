@@ -392,8 +392,8 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
                 kind.name(),
                 CaseKind.TITLE
                 ).replace("Pattern", "")
-                .replace("Format", "Formatter")
-                .replace("Parse", "Parser");
+                .replace("Format", "formatter")
+                .replace("Parse", "parser");
     }
 
     // @VisibleForTesting
