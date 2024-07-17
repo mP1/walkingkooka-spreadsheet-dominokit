@@ -107,7 +107,7 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
 
         return SpreadsheetDialogComponent.with(
                         ID,
-                        "Pattern", // will be replaced by refresh when "opened"
+                        title(context.patternKind()),
                         true, // includeClose
                         context
                 ).appendChild(this.tabs)
