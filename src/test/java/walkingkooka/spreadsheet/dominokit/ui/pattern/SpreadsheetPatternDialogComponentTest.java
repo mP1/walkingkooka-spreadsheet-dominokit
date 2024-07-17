@@ -380,7 +380,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentFormat\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Date formatter \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -503,7 +503,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentParse\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Date parser \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -626,7 +626,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentFormat\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Date Time formatter \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -761,7 +761,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentParse\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Date Time parser \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -896,7 +896,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentFormat\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Number formatter \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -1021,7 +1021,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentParse\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Number parser \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -1136,7 +1136,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentFormat\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Text formatter \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -1207,7 +1207,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentFormat\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Time formatter \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -1309,7 +1309,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentParse\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Time parser \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -1411,7 +1411,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentFormat\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Date formatter \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -1534,7 +1534,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentParse\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Date parser \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -1657,7 +1657,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentFormat\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Date Time formatter \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -1792,7 +1792,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentParse\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Date Time parser \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -1927,7 +1927,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentFormat\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Number formatter \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -2052,7 +2052,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentParse\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Number parser \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -2167,7 +2167,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentFormat\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Text formatter \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -2238,7 +2238,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentFormat\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Time formatter \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -2340,7 +2340,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                 context,
                 "SpreadsheetPatternDialogComponentParse\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Pattern\n" +
+                        "    Time parser \n" +
                         "    id=pattern includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternComponentTabs\n" +
                         "        SpreadsheetTabsComponent\n" +
