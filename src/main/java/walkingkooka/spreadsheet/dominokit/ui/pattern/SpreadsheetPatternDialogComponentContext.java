@@ -57,7 +57,7 @@ public interface SpreadsheetPatternDialogComponentContext extends CanGiveFocus,
                             .toString();
                     break;
                 case DATE_PARSE_PATTERN:
-                    save = SpreadsheetParserName.DATE_PARSER.setText(patternText)
+                    save = SpreadsheetParserName.DATE_PARSER_PATTERN.setText(patternText)
                             .toString();
                     break;
                 case DATE_TIME_FORMAT_PATTERN:
@@ -65,7 +65,7 @@ public interface SpreadsheetPatternDialogComponentContext extends CanGiveFocus,
                             .toString();
                     break;
                 case DATE_TIME_PARSE_PATTERN:
-                    save = SpreadsheetParserName.DATE_TIME_PARSER.setText(patternText)
+                    save = SpreadsheetParserName.DATE_TIME_PARSER_PATTERN.setText(patternText)
                             .toString();
                     break;
                 case NUMBER_FORMAT_PATTERN:
@@ -73,7 +73,7 @@ public interface SpreadsheetPatternDialogComponentContext extends CanGiveFocus,
                             .toString();
                     break;
                 case NUMBER_PARSE_PATTERN:
-                    save = SpreadsheetParserName.NUMBER_PARSER.setText(patternText)
+                    save = SpreadsheetParserName.NUMBER_PARSER_PATTERN.setText(patternText)
                             .toString();
                     break;
                 case TEXT_FORMAT_PATTERN:
@@ -85,7 +85,7 @@ public interface SpreadsheetPatternDialogComponentContext extends CanGiveFocus,
                             .toString();
                     break;
                 case TIME_PARSE_PATTERN:
-                    save = SpreadsheetParserName.TIME_PARSER.setText(patternText)
+                    save = SpreadsheetParserName.TIME_PARSER_PATTERN.setText(patternText)
                             .toString();
                     break;
                 default:
