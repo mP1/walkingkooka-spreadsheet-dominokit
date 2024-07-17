@@ -364,7 +364,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     // cell / date......................................................................................................
 
     @Test
-    public void testCellFormatPatternDate() {
+    public void testCellFormatterDate() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/cell/A1/formatter/date")
         );
@@ -487,7 +487,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     }
 
     @Test
-    public void testCellParsePatternDate() {
+    public void testCellParserDate() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/cell/A1/parser/date")
         );
@@ -610,7 +610,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     // cell / date-time.................................................................................................
 
     @Test
-    public void testCellFormatPatternDateTime() {
+    public void testCellFormatterDateTime() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/cell/A1/formatter/date-time")
         );
@@ -745,7 +745,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     }
 
     @Test
-    public void testCellParsePatternDateTime() {
+    public void testCellParserDateTime() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/cell/A1/parser/date-time")
         );
@@ -880,7 +880,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     // cell / number....................................................................................................
 
     @Test
-    public void testCellFormatPatternNumber() {
+    public void testCellFormatterNumber() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/cell/A1/formatter/number")
         );
@@ -1005,7 +1005,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     }
 
     @Test
-    public void testCellParsePatternNumber() {
+    public void testCellParserNumber() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/cell/A1/parser/number")
         );
@@ -1120,7 +1120,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     // cell / text......................................................................................................
 
     @Test
-    public void testCellFormatPatternText() {
+    public void testCellFormatterText() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/cell/A1/formatter/text")
         );
@@ -1191,7 +1191,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     // cell / time......................................................................................................
 
     @Test
-    public void testCellFormatPatternTime() {
+    public void testCellFormatterTime() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/cell/A1/formatter/time")
         );
@@ -1293,7 +1293,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     }
 
     @Test
-    public void testCellParsePatternTime() {
+    public void testCellParserTime() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/cell/A1/parser/time")
         );
