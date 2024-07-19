@@ -25,9 +25,11 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTextComponent;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 public class FakeSpreadsheetFindDialogComponentContext extends FakeHistoryTokenContext implements SpreadsheetFindDialogComponentContext {
@@ -64,6 +66,11 @@ public class FakeSpreadsheetFindDialogComponentContext extends FakeHistoryTokenC
     @Override
     public SpreadsheetParser spreadsheetParser(final SpreadsheetParserName name,
                                                final List<?> values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<SpreadsheetParserSelectorTextComponent> spreadsheetParserNextTextComponent(final SpreadsheetParserSelector selector) {
         throw new UnsupportedOperationException();
     }
 
