@@ -78,7 +78,11 @@ public interface SpreadsheetDialogComponentLike extends HtmlElementComponent<HTM
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            printer.println(this.title());
+            final String title = this.title();
+            if (false == title.isEmpty()) {
+                printer.println(title);
+            }
+
             printer.print("id=" + this.id() + " includeClose=" + this.isTitleIncludeClose());
             printer.println(this.isOpen() ? "" : " CLOSED");
 

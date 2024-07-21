@@ -28,7 +28,6 @@ import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
-import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
@@ -47,7 +46,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
                                                   final boolean includeClose,
                                                   final HistoryTokenContext context) {
         Objects.requireNonNull(id, "id");
-        CharSequences.failIfNullOrEmpty(title, "title");
+        Objects.requireNonNull(title, "title");
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetDialogComponent(

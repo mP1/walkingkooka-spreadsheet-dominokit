@@ -105,9 +105,13 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetPatternDialogComponentContext context = this.context;
 
+        // patternKind might not always be present so default to empty title when absent. title will be non empty when it is actually shown.
         return SpreadsheetDialogComponent.with(
                         ID,
-                        title(context.patternKind()),
+                        context.historyToken()
+                                .patternKind()
+                                .map(SpreadsheetPatternDialogComponent::title)
+                                .orElse(""),
                         true, // includeClose
                         context
                 ).appendChild(this.tabs)

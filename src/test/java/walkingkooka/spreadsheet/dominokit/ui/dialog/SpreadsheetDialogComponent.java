@@ -22,7 +22,6 @@ import org.dominokit.domino.ui.IsElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -40,7 +39,7 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
                                                   final boolean includeClose,
                                                   final HistoryTokenContext context) {
         Objects.requireNonNull(id, "id");
-        CharSequences.failIfNullOrEmpty(title, "title");
+        Objects.requireNonNull(title, "title");
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetDialogComponent(
