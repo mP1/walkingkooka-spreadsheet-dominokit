@@ -213,6 +213,11 @@ public class FakeAppContext implements AppContext {
     }
 
     @Override
+    public Optional<SpreadsheetFormatterSelector> spreadsheetParserSpreadsheetFormatter(final SpreadsheetParserSelector selector) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Set<SpreadsheetParserInfo> spreadsheetParserInfos() {
         throw new UnsupportedOperationException();
     }
