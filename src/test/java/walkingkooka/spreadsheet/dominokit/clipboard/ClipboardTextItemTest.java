@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -961,7 +962,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
 
                                     @Override
                                     public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector spreadsheetparserSelector) {
-                                        return SpreadsheetParserProviders.spreadsheetParsePattern()
+                                        return SpreadsheetParserProviders.spreadsheetParsePattern(SpreadsheetFormatterProviders.fake())
                                                 .spreadsheetParser(spreadsheetparserSelector);
                                     }
                                 })

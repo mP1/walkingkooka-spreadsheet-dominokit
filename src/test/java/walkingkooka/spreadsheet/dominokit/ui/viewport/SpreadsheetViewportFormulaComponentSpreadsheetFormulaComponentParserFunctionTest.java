@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -77,7 +78,9 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             .set(SpreadsheetMetadataPropertyName.DEFAULT_YEAR, 50)
             .set(SpreadsheetMetadataPropertyName.TWO_DIGIT_YEAR, 50);
 
-    private final static SpreadsheetParserProvider SPREADSHEET_PARSER_PROVIDER = SpreadsheetParserProviders.spreadsheetParsePattern();
+    private final static SpreadsheetParserProvider SPREADSHEET_PARSER_PROVIDER = SpreadsheetParserProviders.spreadsheetParsePattern(
+            SpreadsheetFormatterProviders.fake()
+    );
 
     private final static Supplier<LocalDateTime> NOW = LocalDateTime::now;
 
@@ -400,8 +403,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
 
             @Override
             public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector) {
-                return SpreadsheetParserProviders.spreadsheetParsePattern()
-                        .spreadsheetParser(selector);
+                return SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(selector);
             }
 
             @Override

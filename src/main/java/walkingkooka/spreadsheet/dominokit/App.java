@@ -582,7 +582,7 @@ public class App implements EntryPoint,
             );
 
             this.spreadsheetParserProvider = metadata.spreadsheetParserProvider(
-                    SpreadsheetParserProviders.spreadsheetParsePattern()
+                    SpreadsheetParserProviders.spreadsheetParsePattern(this.spreadsheetFormatterProvider)
             );
 
             this.converterProvider = metadata.converterProvider(
