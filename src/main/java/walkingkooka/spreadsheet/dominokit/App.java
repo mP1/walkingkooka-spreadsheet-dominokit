@@ -771,6 +771,11 @@ public class App implements EntryPoint,
     }
 
     @Override
+    public Optional<SpreadsheetFormatterSelector> spreadsheetParserSpreadsheetFormatter(final SpreadsheetParserSelector selector) {
+        return this.spreadsheetParserProvider.spreadsheetParserSpreadsheetFormatter(selector);
+    }
+
+    @Override
     public Set<SpreadsheetParserInfo> spreadsheetParserInfos() {
         return this.spreadsheetParserProvider.spreadsheetParserInfos();
     }
