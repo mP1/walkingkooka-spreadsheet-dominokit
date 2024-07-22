@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -922,7 +923,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
         @Override
         public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector) {
-            return SpreadsheetParserProviders.spreadsheetParsePattern()
+            return SpreadsheetParserProviders.spreadsheetParsePattern(SpreadsheetFormatterProviders.fake())
                     .spreadsheetParser(selector);
         }
     };
