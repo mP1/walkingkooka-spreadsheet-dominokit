@@ -123,8 +123,8 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
     }
 
     @Override
-    public Optional<SpreadsheetFormatterSelector> spreadsheetParserSpreadsheetFormatter(final SpreadsheetParserSelector selector) {
-        return this.context.spreadsheetParserSpreadsheetFormatter(selector);
+    public Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector(final SpreadsheetParserSelector selector) {
+        return this.context.spreadsheetFormatterSelector(selector);
     }
 
     @Override
