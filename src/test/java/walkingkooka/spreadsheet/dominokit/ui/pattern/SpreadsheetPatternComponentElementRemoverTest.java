@@ -41,7 +41,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"dd\" [#/1/Untitled/cell/A1/formatter/date/save/date-format-pattern%20/mm/yyyy] id=pattern-remove-0-Link\n" +
@@ -72,7 +72,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"dd\" [#/1/Untitled/metadata/date-formatter/save/date-format-pattern%20/mm/yyyy] id=pattern-remove-0-Link\n" +
@@ -105,7 +105,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"dd\" [#/1/Untitled/cell/A1/parser/date/save/date-parse-pattern%20/mm/yyyy] id=pattern-remove-0-Link\n" +
@@ -136,7 +136,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"dd\" [#/1/Untitled/metadata/date-parser/save/date-parse-pattern%20/mm/yyyy] id=pattern-remove-0-Link\n" +
@@ -169,7 +169,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"dd\" [#/1/Untitled/cell/A2/formatter/date-time/save/date-time-format-pattern%20/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-Link\n" +
@@ -218,7 +218,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"dd\" [#/1/Untitled/metadata/date-time-formatter/save/date-time-format-pattern%20/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-Link\n" +
@@ -269,7 +269,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"dd\" [#/1/Untitled/cell/A2/parser/date-time/save/date-time-parse-pattern%20/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-Link\n" +
@@ -318,7 +318,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"dd\" [#/1/Untitled/metadata/date-time-parser/save/date-time-parse-pattern%20/mm/yyyy%20hh:mm:ss%20AM/PM] id=pattern-remove-0-Link\n" +
@@ -369,7 +369,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"$\" [#/1/Untitled/cell/A1/formatter/number/save/number-format-pattern%20%23.00] id=pattern-remove-0-Link\n" +
@@ -394,7 +394,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"$\" [#/1/Untitled/metadata/number-formatter/save/number-format-pattern%20%23.00] id=pattern-remove-0-Link\n" +
@@ -421,7 +421,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"$\" [#/1/Untitled/cell/A1/parser/number/save/number-parse-pattern%20%23.00] id=pattern-remove-0-Link\n" +
@@ -446,7 +446,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"$\" [#/1/Untitled/metadata/number-parser/save/number-parse-pattern%20%23.00] id=pattern-remove-0-Link\n" +
@@ -473,7 +473,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"@\" [#/1/Untitled/cell/A1/formatter/text/save/] id=pattern-remove-0-Link\n" +
@@ -490,7 +490,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"@\" [#/1/Untitled/metadata/text-formatter/save/] id=pattern-remove-0-Link\n" +
@@ -507,7 +507,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"\"Hello\"\" [#/1/Untitled/metadata/text-formatter/save/text-format-pattern%20@] id=pattern-remove-0-Link\n" +
@@ -527,7 +527,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"hh\" [#/1/Untitled/cell/A4/formatter/time/save/time-format-pattern%20:mm:ss] id=pattern-remove-0-Link\n" +
@@ -553,7 +553,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"hh\" [#/1/Untitled/metadata/time-formatter/save/time-format-pattern%20:mm:ss] id=pattern-remove-0-Link\n" +
@@ -581,7 +581,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"hh\" [#/1/Untitled/cell/A4/parser/time/save/time-parse-pattern%20:mm:ss] id=pattern-remove-0-Link\n" +
@@ -607,7 +607,7 @@ public final class SpreadsheetPatternComponentElementRemoverTest implements Clas
                 "SpreadsheetPatternComponentElementRemover\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Remove individual component(s)\n" +
+                        "      Remove component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"hh\" [#/1/Untitled/metadata/time-parser/save/time-parse-pattern%20:mm:ss] id=pattern-remove-0-Link\n" +

@@ -456,7 +456,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"dd\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/date-format-pattern%20/mm/yyyy] id=pattern-remove-0-Link\n" +
@@ -577,7 +577,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"dd\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20/mm/yyyy] id=pattern-remove-0-Link\n" +
@@ -702,7 +702,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"dd\" [#/1/Spreadsheet123/cell/A1/formatter/date-time/save/date-time-format-pattern%20/mm/yyyy%20hh:mm:ss] id=pattern-remove-0-Link\n" +
@@ -835,7 +835,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"dd\" [#/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20/mm/yyyy%20hh:mm:ss] id=pattern-remove-0-Link\n" +
@@ -978,7 +978,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"$\" [#/1/Spreadsheet123/cell/A1/formatter/number/save/number-format-pattern%20%230.00] id=pattern-remove-0-Link\n" +
@@ -1091,7 +1091,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"$\" [#/1/Spreadsheet123/cell/A1/parser/number/save/number-parse-pattern%20%230.00] id=pattern-remove-0-Link\n" +
@@ -1170,7 +1170,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"@\" [#/1/Spreadsheet123/cell/A1/formatter/text/save/text-format-pattern%20%20%22Hello%22] id=pattern-remove-0-Link\n" +
@@ -1271,7 +1271,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"hh\" [#/1/Spreadsheet123/cell/A1/formatter/time/save/time-format-pattern%20:mm] id=pattern-remove-0-Link\n" +
@@ -1371,7 +1371,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"hh\" [#/1/Spreadsheet123/cell/A1/parser/time/save/time-parse-pattern%20:mm] id=pattern-remove-0-Link\n" +
@@ -1487,7 +1487,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"dd\" [#/1/Spreadsheet123/metadata/date-formatter/save/date-format-pattern%20/mm/yyyy] id=pattern-remove-0-Link\n" +
@@ -1608,7 +1608,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"dd\" [#/1/Spreadsheet123/metadata/date-parser/save/date-parse-pattern%20/mm/yyyy] id=pattern-remove-0-Link\n" +
@@ -1733,7 +1733,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"dd\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/date-time-format-pattern%20/mm/yyyy%20hh:mm:ss] id=pattern-remove-0-Link\n" +
@@ -1866,7 +1866,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"dd\" [#/1/Spreadsheet123/metadata/date-time-parser/save/date-time-parse-pattern%20/mm/yyyy%20hh:mm:ss] id=pattern-remove-0-Link\n" +
@@ -2009,7 +2009,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"$\" [#/1/Spreadsheet123/metadata/number-formatter/save/number-format-pattern%20%230.00] id=pattern-remove-0-Link\n" +
@@ -2122,7 +2122,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"$\" [#/1/Spreadsheet123/metadata/number-parser/save/number-parse-pattern%20%230.00] id=pattern-remove-0-Link\n" +
@@ -2201,7 +2201,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"@\" [#/1/Spreadsheet123/metadata/text-formatter/save/text-format-pattern%20%20%22Hello%22] id=pattern-remove-0-Link\n" +
@@ -2302,7 +2302,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"hh\" [#/1/Spreadsheet123/metadata/time-formatter/save/time-format-pattern%20:mm] id=pattern-remove-0-Link\n" +
@@ -2402,7 +2402,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "      SpreadsheetPatternComponentElementRemover\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
-                        "            Remove individual component(s)\n" +
+                        "            Remove component(s)\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"hh\" [#/1/Spreadsheet123/metadata/time-parser/save/time-parse-pattern%20:mm] id=pattern-remove-0-Link\n" +
