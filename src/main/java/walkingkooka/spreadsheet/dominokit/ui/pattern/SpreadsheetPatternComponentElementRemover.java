@@ -64,7 +64,7 @@ final class SpreadsheetPatternComponentElementRemover implements HtmlElementComp
     private SpreadsheetPatternComponentElementRemover() {
         this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle("Remove individual component(s)")
+                .setTitle("Remove component(s)")
                 .appendChild(this.flex);
         this.tokenKinds = Lists.array();
         this.texts = Lists.array();
