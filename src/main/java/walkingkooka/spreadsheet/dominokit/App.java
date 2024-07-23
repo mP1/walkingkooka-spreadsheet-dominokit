@@ -112,6 +112,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -578,7 +579,10 @@ public class App implements EntryPoint,
             );
 
             this.spreadsheetFormatterProvider = metadata.spreadsheetFormatterProvider(
-                    SpreadsheetFormatterProviders.spreadsheetFormatPattern()
+                    SpreadsheetFormatterProviders.spreadsheetFormatPattern(
+                            metadata.locale(),
+                            LocalDateTime::now
+                    )
             );
 
             this.spreadsheetParserProvider = metadata.spreadsheetParserProvider(
@@ -737,6 +741,11 @@ public class App implements EntryPoint,
     @Override
     public Optional<SpreadsheetFormatterSelectorTextComponent> spreadsheetFormatterNextTextComponent(final SpreadsheetFormatterSelector selector) {
         return this.spreadsheetFormatterProvider.spreadsheetFormatterNextTextComponent(selector);
+    }
+
+    @Override
+    public List<SpreadsheetFormatterSample<?>> spreadsheetFormatterSamples(final SpreadsheetFormatterName name) {
+        return this.spreadsheetFormatterProvider.spreadsheetFormatterSamples(name);
     }
 
     @Override
