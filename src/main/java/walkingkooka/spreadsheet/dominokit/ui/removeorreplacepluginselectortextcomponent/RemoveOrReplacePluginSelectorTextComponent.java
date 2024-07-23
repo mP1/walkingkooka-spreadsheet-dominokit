@@ -49,8 +49,8 @@ public final class RemoveOrReplacePluginSelectorTextComponent<T extends PluginSe
     /**
      * Creates an empty {@link RemoveOrReplacePluginSelectorTextComponent}.
      */
-    public static RemoveOrReplacePluginSelectorTextComponent empty(final String id) {
-        return new RemoveOrReplacePluginSelectorTextComponent(
+    public static <T extends PluginSelectorTextComponentLike<A>, A extends PluginSelectorTextComponentAlternativeLike> RemoveOrReplacePluginSelectorTextComponent<T, A> empty(final String id) {
+        return new RemoveOrReplacePluginSelectorTextComponent<>(
                 CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
