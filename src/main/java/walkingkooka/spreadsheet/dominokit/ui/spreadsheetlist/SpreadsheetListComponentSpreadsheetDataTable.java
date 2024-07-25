@@ -21,26 +21,19 @@ import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
-import walkingkooka.Value;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponent;
-import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.ui.text.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.TextAlign;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -49,16 +42,16 @@ import java.util.OptionalInt;
 /**
  * A datatable where each row contains a single spreadsheet, showing various metadata items such as creator, timestamps and links for actions.
  */
-final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDivElement, SpreadsheetListComponentTable>,
+final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementComponent<HTMLDivElement, SpreadsheetListComponentSpreadsheetDataTable>,
         TreePrintable {
 
     /**
-     * Creates an empty {@link SpreadsheetListComponentTable}.
+     * Creates an empty {@link SpreadsheetListComponentSpreadsheetDataTable}.
      */
-    static SpreadsheetListComponentTable empty(final SpreadsheetListComponentContext context) {
+    static SpreadsheetListComponentSpreadsheetDataTable empty(final SpreadsheetListComponentContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetListComponentTable(context);
+        return new SpreadsheetListComponentSpreadsheetDataTable(context);
     }
 
     private final static String ID = SpreadsheetListDialogComponent.ID_PREFIX + "datatable";
@@ -67,13 +60,13 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
 
     final static int DEFAULT_COUNT = 10;
 
-    private SpreadsheetListComponentTable(final SpreadsheetListComponentContext context) {
+    private SpreadsheetListComponentSpreadsheetDataTable(final SpreadsheetListComponentContext context) {
         this.card = SpreadsheetCard.empty();
 
         this.table = SpreadsheetDataTableComponent.with(
                 ID,
                 columnConfigs(),
-                cellRenderer()
+                SpreadsheetListComponentSpreadsheetDataTableComponentCellRenderer.with(context)
         ).emptyStatePlugin(
                 SpreadsheetIcons.spreadsheetListTableEmpty(),
                 "No spreadsheets"
@@ -86,112 +79,14 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
         this.next.setCssText("float=right");
 
         this.table.appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(this.previous)
-                                .appendChild(this.next)
-                );
+                SpreadsheetFlexLayout.row()
+                        .appendChild(this.previous)
+                        .appendChild(this.next)
+        );
 
         this.card.appendChild(table);
 
-        this.context = context;
-
         this.tableCount = 0;
-    }
-
-    private SpreadsheetDataTableComponentCellRenderer<SpreadsheetMetadata> cellRenderer() {
-        return (column, metadata) -> {
-            final HtmlElementComponent<?, ?> component;
-
-            switch (column) {
-                case 0: // name
-                    component = spreadsheetName(metadata);
-                    break;
-                case 1: // created by
-                    component = hasText(
-                            SpreadsheetMetadataPropertyName.CREATOR,
-                            metadata
-                    );
-                    break;
-                case 2: // create-date-time
-                    component = dateTime(
-                            SpreadsheetMetadataPropertyName.CREATE_DATE_TIME,
-                            metadata
-                    );
-                    break;
-                case 3: // lastmod by
-                    component = hasText(
-                            SpreadsheetMetadataPropertyName.MODIFIED_BY,
-                            metadata
-                    );
-                    break;
-                case 4: // create-date-time
-                    component = dateTime(
-                            SpreadsheetMetadataPropertyName.MODIFIED_DATE_TIME,
-                            metadata
-                    );
-                    break;
-                case 5: // links
-                    component = links(metadata);
-                    break;
-                default:
-                    throw new IllegalArgumentException("Unknown column " + column);
-            }
-
-
-            return component;
-        };
-    }
-
-    private HtmlElementComponent<?, ?> spreadsheetName(final SpreadsheetMetadata metadata) {
-        final SpreadsheetId id = metadata.id().orElse(null);
-
-        return HistoryToken.spreadsheetLoad(id)
-                .link(
-                        SpreadsheetListDialogComponent.ID_PREFIX + id.toString()
-                ).setTextContent(
-                        metadata.name()
-                                .orElse(null)
-                                .toString()
-                );
-    }
-
-    private <TT extends Value<String>> SpreadsheetTextComponent hasText(final SpreadsheetMetadataPropertyName<TT> propertyName,
-                                                                        final SpreadsheetMetadata metadata) {
-        return text(
-                metadata.get(propertyName)
-                        .map(Value::value)
-        );
-    }
-
-    private SpreadsheetTextComponent dateTime(final SpreadsheetMetadataPropertyName<LocalDateTime> propertyName,
-                                              final SpreadsheetMetadata metadata) {
-        return text(
-                metadata.get(propertyName)
-                        .map(this.context::formatDateTime)
-        );
-    }
-
-    private SpreadsheetTextComponent text(final Optional<String> text) {
-        return SpreadsheetTextComponent.with(text);
-    }
-
-    private SpreadsheetFlexLayout links(final SpreadsheetMetadata metadata) {
-        final SpreadsheetId id = metadata.id()
-                .orElse(null);
-
-        final HistoryTokenAnchorComponent rename = HistoryToken.spreadsheetListRenameSelect(
-                        id
-                ).link(SpreadsheetListDialogComponent.ID_PREFIX + id + "-rename")
-                .setTextContent("Rename");
-
-        final HistoryTokenAnchorComponent delete = HistoryToken.spreadsheetListDelete(
-                        id
-                ).link(SpreadsheetListDialogComponent.ID_PREFIX + id + "-delete")
-                .setTextContent("Delete");
-
-        return SpreadsheetFlexLayout.row()
-                .appendChild(rename)
-                .appendChild(delete);
     }
 
     private List<ColumnConfig<SpreadsheetMetadata>> columnConfigs() {
@@ -244,7 +139,7 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
 
     private final SpreadsheetDataTableComponent<SpreadsheetMetadata> table;
 
-    SpreadsheetListComponentTable setMetadata(final List<SpreadsheetMetadata> metadatas) {
+    SpreadsheetListComponentSpreadsheetDataTable setMetadata(final List<SpreadsheetMetadata> metadatas) {
         this.table.setValue(
                 Optional.of(
                         metadatas
@@ -329,12 +224,10 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
 
     private final HistoryTokenAnchorComponent next;
 
-    private final SpreadsheetListComponentContext context;
-
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetListComponentTable setCssText(final String css) {
+    public SpreadsheetListComponentSpreadsheetDataTable setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.card.setCssText(css);

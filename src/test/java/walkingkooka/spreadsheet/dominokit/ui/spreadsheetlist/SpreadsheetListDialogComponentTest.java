@@ -47,7 +47,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "  SpreadsheetDialogComponent\n" +
                         "    Spreadsheet List\n" +
                         "    id=spreadsheet-list includeClose=false\n" +
-                        "      SpreadsheetListComponentTable\n" +
+                        "      SpreadsheetListComponentSpreadsheetDataTable\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
@@ -90,7 +90,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "  SpreadsheetDialogComponent\n" +
                         "    Spreadsheet List\n" +
                         "    id=spreadsheet-list includeClose=false\n" +
-                        "      SpreadsheetListComponentTable\n" +
+                        "      SpreadsheetListComponentSpreadsheetDataTable\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
@@ -134,7 +134,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "  SpreadsheetDialogComponent\n" +
                         "    Spreadsheet List\n" +
                         "    id=spreadsheet-list includeClose=false\n" +
-                        "      SpreadsheetListComponentTable\n" +
+                        "      SpreadsheetListComponentSpreadsheetDataTable\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
