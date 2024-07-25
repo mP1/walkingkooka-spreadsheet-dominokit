@@ -33,19 +33,15 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToke
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.cellrange.SpreadsheetCellRangeReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.ui.cellrangepath.SpreadsheetCellRangeReferencePathComponent;
 import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponent;
-import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetvaluetype.SpreadsheetValueTypeComponent;
-import walkingkooka.spreadsheet.dominokit.ui.text.SpreadsheetTextComponent;
-import walkingkooka.spreadsheet.dominokit.ui.textnode.SpreadsheetTextNodeComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
@@ -135,7 +131,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         return SpreadsheetDataTableComponent.with(
                 ID_PREFIX + "cells-Table", // id
                 this.columnConfigs(), // column confiss
-                this.cellRenderer()
+                SpreadsheetFindDialogComponentSpreadsheetDataTableComponentCellRenderer.with(this.context)
         ).bodyScrollPlugin();
     }
 
@@ -175,82 +171,6 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 title.toLowerCase(),
                 title
         ).setTextAlign(cellTextAlign);
-    }
-
-    private SpreadsheetDataTableComponentCellRenderer<SpreadsheetCell> cellRenderer() {
-        return (column, cell) -> {
-            final HtmlElementComponent<?, ?> component;
-
-            switch (column) {
-                case 0: // cell
-                    component = renderCellReference(cell);
-                    break;
-                case 1: // formula
-                    component = renderCellFormula(cell);
-                    break;
-                case 2: // cell formatted value
-                    component = renderCellFormattedValue(cell);
-                    break;
-                case 3: // value
-                    component = renderCellValue(cell);
-                    break;
-                default:
-                    throw new IllegalArgumentException("Unknown column " + column);
-            }
-
-
-            return component;
-        };
-    }
-
-    private HistoryTokenAnchorComponent renderCellReference(final SpreadsheetCell cell) {
-        final HistoryToken historyToken = this.context.historyToken();
-
-        return HistoryTokenAnchorComponent.empty()
-                .setTextContent(cell.reference().text())
-                .setHistoryToken(
-                        Optional.of(
-                                historyToken.clearSelection()
-                                        .setAnchoredSelection(
-                                                Optional.of(
-                                                        cell.reference()
-                                                                .setDefaultAnchor()
-                                                )
-                                        )
-                        )
-                );
-    }
-
-    private HistoryTokenAnchorComponent renderCellFormula(final SpreadsheetCell cell) {
-        final HistoryToken historyToken = this.context.historyToken();
-
-        return HistoryTokenAnchorComponent.empty()
-                .setTextContent(cell.formula().text())
-                .setHistoryToken(
-                        Optional.of(
-                                historyToken.clearSelection()
-                                        .setAnchoredSelection(
-                                                Optional.of(
-                                                        cell.reference()
-                                                                .setDefaultAnchor()
-                                                )
-                                        ).setFormula()
-                        )
-                );
-    }
-
-    private SpreadsheetTextNodeComponent renderCellFormattedValue(final SpreadsheetCell cell) {
-        return SpreadsheetTextNodeComponent.with(
-                cell.formattedValue()
-        );
-    }
-
-    private SpreadsheetTextComponent renderCellValue(final SpreadsheetCell cell) {
-        return SpreadsheetTextComponent.with(
-                cell.formula()
-                        .value()
-                        .map(Object::toString)
-        );
     }
 
     // SpreadsheetDeltaWatcher.........................................................................................
