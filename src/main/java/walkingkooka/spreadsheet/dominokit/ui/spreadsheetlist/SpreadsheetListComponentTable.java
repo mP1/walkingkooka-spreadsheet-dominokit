@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponent;
+import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.text.SpreadsheetTextComponent;
@@ -44,7 +45,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
-import java.util.function.BiFunction;
 
 /**
  * A datatable where each row contains a single spreadsheet, showing various metadata items such as creator, timestamps and links for actions.
@@ -98,7 +98,7 @@ final class SpreadsheetListComponentTable implements HtmlElementComponent<HTMLDi
         this.tableCount = 0;
     }
 
-    private BiFunction<Integer, SpreadsheetMetadata, HtmlElementComponent<?, ?>> cellRenderer() {
+    private SpreadsheetDataTableComponentCellRenderer<SpreadsheetMetadata> cellRenderer() {
         return (column, metadata) -> {
             final HtmlElementComponent<?, ?> component;
 

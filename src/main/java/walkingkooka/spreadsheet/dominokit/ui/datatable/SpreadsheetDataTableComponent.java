@@ -28,7 +28,6 @@ import org.dominokit.domino.ui.datatable.plugins.summary.EmptyStatePlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -36,7 +35,6 @@ import walkingkooka.text.printer.IndentingPrinter;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.BiFunction;
 
 /**
  * A {@link ValueComponent} wrapper around a {@link DataTable}.
@@ -45,7 +43,7 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
 
     public static <T> SpreadsheetDataTableComponent<T> with(final String id,
                                                             final List<ColumnConfig<T>> columnConfigs,
-                                                            final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer) {
+                                                            final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
         return new SpreadsheetDataTableComponent<>(
                 id,
                 columnConfigs,
@@ -55,7 +53,7 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
 
     private SpreadsheetDataTableComponent(final String id,
                                           final List<ColumnConfig<T>> columnConfigs,
-                                          final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer) {
+                                          final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
         CharSequences.failIfNullOrEmpty(id, "id");
 
         final LocalListDataStore<T> localListDataStore = new LocalListDataStore<>();
@@ -85,7 +83,7 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
     }
 
     private TableConfig<T> tableConfig(final List<ColumnConfig<T>> columnConfigs,
-                                       final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer) {
+                                       final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
         final TableConfig<T> tableConfig = new TableConfig<>();
 
         int i = 0;
@@ -268,5 +266,5 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         );
     }
 
-    private final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer;
+    private final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer;
 }

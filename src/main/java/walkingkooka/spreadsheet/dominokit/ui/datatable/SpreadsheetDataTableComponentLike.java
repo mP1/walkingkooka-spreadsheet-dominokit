@@ -28,7 +28,6 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentWithChildren;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -193,7 +192,7 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
 
     default void printTreeTable(final List<ColumnConfig<T>> columnConfigs,
                                 final boolean headersHidden,
-                                final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer,
+                                final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer,
                                 final List<String> plugins,
                                 final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
@@ -228,7 +227,7 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
                             for (int column = 0; column < columnCount; column++) {
                                 // eventually all HtmlElementComponents will implement printTree
                                 TreePrintable.printTreeOrToString(
-                                        cellRenderer.apply(
+                                        cellRenderer.render(
                                                 column,
                                                 value
                                         ),
