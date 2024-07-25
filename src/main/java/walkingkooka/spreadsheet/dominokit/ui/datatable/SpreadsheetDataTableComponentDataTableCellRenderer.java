@@ -26,18 +26,18 @@ import java.util.function.BiFunction;
 /**
  * A {@link CellRenderer} that acts as a bridge to a function which returns a {@link HtmlElementComponent}.
  */
-final class SpreadsheetDataTableComponentCellRenderer<T> implements CellRenderer<T> {
+final class SpreadsheetDataTableComponentDataTableCellRenderer<T> implements CellRenderer<T> {
 
-    static <T> SpreadsheetDataTableComponentCellRenderer<T> with(final int columnNumber,
-                                                                 final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer) {
-        return new SpreadsheetDataTableComponentCellRenderer<>(
+    static <T> SpreadsheetDataTableComponentDataTableCellRenderer<T> with(final int columnNumber,
+                                                                          final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer) {
+        return new SpreadsheetDataTableComponentDataTableCellRenderer<>(
                 columnNumber,
                 cellRenderer
         );
     }
 
-    private SpreadsheetDataTableComponentCellRenderer(final int columnNumber,
-                                                      final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer) {
+    private SpreadsheetDataTableComponentDataTableCellRenderer(final int columnNumber,
+                                                               final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer) {
         this.columnNumber = columnNumber;
         this.cellRenderer = cellRenderer;
     }
