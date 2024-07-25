@@ -33,18 +33,18 @@ import walkingkooka.text.printer.TreePrintableTesting;
 import java.time.LocalDateTime;
 import java.util.Locale;
 
-public final class SpreadsheetListComponentTableTest implements ClassTesting<SpreadsheetListComponentTable>,
+public final class SpreadsheetListComponentSpreadsheetDataTableTest implements ClassTesting<SpreadsheetListComponentSpreadsheetDataTable>,
         SpreadsheetMetadataTesting,
         TreePrintableTesting {
 
     @Test
     public void testPrintTreeWhenEmpty() {
         this.refreshAndCheck(
-                SpreadsheetListComponentTable.empty(
+                SpreadsheetListComponentSpreadsheetDataTable.empty(
                         context("/")
                 ),
                 "/",
-                "SpreadsheetListComponentTable\n" +
+                "SpreadsheetListComponentSpreadsheetDataTable\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
@@ -68,7 +68,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
     @Test
     public void testPrintTreeWhenSeveralSpreadsheets() {
         this.refreshAndCheck(
-                SpreadsheetListComponentTable.empty(
+                SpreadsheetListComponentSpreadsheetDataTable.empty(
                         context("/")
                 ).setMetadata(
                         Lists.of(
@@ -78,7 +78,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         )
                 ),
                 "/",
-                "SpreadsheetListComponentTable\n" +
+                "SpreadsheetListComponentSpreadsheetDataTable\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
@@ -145,7 +145,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
     @Test
     public void testPrintTreeWhenSeveralSpreadsheetsAndPrevious() {
         this.refreshAndCheck(
-                SpreadsheetListComponentTable.empty(
+                SpreadsheetListComponentSpreadsheetDataTable.empty(
                         context("/from/1/count/2")
                 ).setMetadata(
                         Lists.of(
@@ -155,7 +155,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         )
                 ),
                 "/from/1/count/2",
-                "SpreadsheetListComponentTable\n" +
+                "SpreadsheetListComponentSpreadsheetDataTable\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
@@ -222,7 +222,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
     @Test
     public void testPrintTreeWhenSeveralSpreadsheetsAndNext() {
         this.refreshAndCheck(
-                SpreadsheetListComponentTable.empty(
+                SpreadsheetListComponentSpreadsheetDataTable.empty(
                         context("/")
                 ).setMetadata(
                         Lists.of(
@@ -232,7 +232,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
                         )
                 ),
                 "/count/2",
-                "SpreadsheetListComponentTable\n" +
+                "SpreadsheetListComponentSpreadsheetDataTable\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
@@ -310,7 +310,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
         };
     }
 
-    private void refreshAndCheck(final SpreadsheetListComponentTable table,
+    private void refreshAndCheck(final SpreadsheetListComponentSpreadsheetDataTable table,
                                  final String historyToken,
                                  final String expected) {
         this.refreshAndCheck(
@@ -321,7 +321,7 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
         );
     }
 
-    private void refreshAndCheck(final SpreadsheetListComponentTable table,
+    private void refreshAndCheck(final SpreadsheetListComponentSpreadsheetDataTable table,
                                  final SpreadsheetListHistoryToken historyToken,
                                  final String expected) {
         table.refresh(historyToken);
@@ -348,8 +348,8 @@ public final class SpreadsheetListComponentTableTest implements ClassTesting<Spr
     }
 
     @Override
-    public Class<SpreadsheetListComponentTable> type() {
-        return SpreadsheetListComponentTable.class;
+    public Class<SpreadsheetListComponentSpreadsheetDataTable> type() {
+        return SpreadsheetListComponentSpreadsheetDataTable.class;
     }
 
     @Override
