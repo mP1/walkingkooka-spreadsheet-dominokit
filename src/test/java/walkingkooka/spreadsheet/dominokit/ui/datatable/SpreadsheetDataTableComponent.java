@@ -23,21 +23,19 @@ import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.BiFunction;
 
 public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableComponentLike<T>,
         TestHtmlElementComponent<HTMLDivElement, SpreadsheetDataTableComponent<T>> {
 
     public static <T> SpreadsheetDataTableComponent<T> with(final String id,
                                                             final List<ColumnConfig<T>> columnConfigs,
-                                                            final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer) {
+                                                            final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
         return new SpreadsheetDataTableComponent<>(
                 id,
                 columnConfigs,
@@ -47,7 +45,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
 
     private SpreadsheetDataTableComponent(final String id,
                                           final List<ColumnConfig<T>> columnConfigs,
-                                          final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer) {
+                                          final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
         CharSequences.failIfNullOrEmpty(id, "id");
 
         this.columnConfigs = Lists.immutable(columnConfigs);
@@ -177,5 +175,5 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
 
     private final List<ColumnConfig<T>> columnConfigs;
 
-    private final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer;
+    private final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer;
 }

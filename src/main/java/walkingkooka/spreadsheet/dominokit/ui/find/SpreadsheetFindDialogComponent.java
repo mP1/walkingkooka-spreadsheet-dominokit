@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.cellrange.SpreadsheetCellRangeReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.ui.cellrangepath.SpreadsheetCellRangeReferencePathComponent;
 import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponent;
+import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
@@ -54,7 +55,6 @@ import walkingkooka.tree.expression.Expression;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
@@ -177,7 +177,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         ).setTextAlign(cellTextAlign);
     }
 
-    private BiFunction<Integer, SpreadsheetCell, HtmlElementComponent<?, ?>> cellRenderer() {
+    private SpreadsheetDataTableComponentCellRenderer<SpreadsheetCell> cellRenderer() {
         return (column, cell) -> {
             final HtmlElementComponent<?, ?> component;
 

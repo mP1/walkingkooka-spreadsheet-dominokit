@@ -21,15 +21,13 @@ import elemental2.dom.Node;
 import org.dominokit.domino.ui.datatable.CellRenderer;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 
-import java.util.function.BiFunction;
-
 /**
  * A {@link CellRenderer} that acts as a bridge to a function which returns a {@link HtmlElementComponent}.
  */
 final class SpreadsheetDataTableComponentDataTableCellRenderer<T> implements CellRenderer<T> {
 
     static <T> SpreadsheetDataTableComponentDataTableCellRenderer<T> with(final int columnNumber,
-                                                                          final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer) {
+                                                                          final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
         return new SpreadsheetDataTableComponentDataTableCellRenderer<>(
                 columnNumber,
                 cellRenderer
@@ -37,14 +35,14 @@ final class SpreadsheetDataTableComponentDataTableCellRenderer<T> implements Cel
     }
 
     private SpreadsheetDataTableComponentDataTableCellRenderer(final int columnNumber,
-                                                               final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer) {
+                                                               final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
         this.columnNumber = columnNumber;
         this.cellRenderer = cellRenderer;
     }
 
     @Override
     public Node asElement(final CellInfo<T> cellInfo) {
-        final HtmlElementComponent<?, ?> component = this.cellRenderer.apply(
+        final HtmlElementComponent<?, ?> component = this.cellRenderer.render(
                 this.columnNumber,
                 cellInfo.getRecord()
         );
@@ -57,7 +55,7 @@ final class SpreadsheetDataTableComponentDataTableCellRenderer<T> implements Cel
     /**
      * Provides the source {@link HtmlElementComponent} which will appear in the requested column.
      */
-    private final BiFunction<Integer, T, HtmlElementComponent<?, ?>> cellRenderer;
+    private final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer;
 
     // Object...........................................................................................................
 
