@@ -94,7 +94,7 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
             tableConfig.addColumn(
                     // overwrite the original cellrenderer
                     columnConfig.setCellRenderer(
-                            SpreadsheetDataTableComponentCellRenderer.with(
+                            SpreadsheetDataTableComponentDataTableCellRenderer.with(
                                     i,
                                     cellRenderer
                             )

@@ -21,11 +21,11 @@ import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetDataTableComponentCellRendererTest implements ClassTesting<SpreadsheetDataTableComponentCellRenderer<String>> {
+public final class SpreadsheetDataTableComponentDataTableCellRendererTest implements ClassTesting<SpreadsheetDataTableComponentDataTableCellRenderer<String>> {
 
     @Override
-    public Class<SpreadsheetDataTableComponentCellRenderer<String>> type() {
-        return Cast.to(SpreadsheetDataTableComponentCellRenderer.class);
+    public Class<SpreadsheetDataTableComponentDataTableCellRenderer<String>> type() {
+        return Cast.to(SpreadsheetDataTableComponentDataTableCellRenderer.class);
     }
 
     @Override
