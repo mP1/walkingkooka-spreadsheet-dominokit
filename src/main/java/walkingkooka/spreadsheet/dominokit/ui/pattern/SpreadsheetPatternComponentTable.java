@@ -22,15 +22,10 @@ import elemental2.dom.Node;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponent;
-import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.ui.text.SpreadsheetTextComponent;
-import walkingkooka.spreadsheet.dominokit.ui.textnode.SpreadsheetTextNodeComponent;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -68,48 +63,7 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
             this.dataTable = SpreadsheetDataTableComponent.with(
                     SpreadsheetPatternDialogComponent.ID_PREFIX + SpreadsheetElementIds.TABLE, // id
                     columnConfigs(patternKind), // configs
-                    (column, row) -> {
-                        HtmlElementComponent<?, ?> rendered;
-
-                        switch (column) {
-                            case 0:
-                                rendered = text(
-                                        row.label()
-                                );
-                                break;
-                            case 1:
-                                rendered = patternAnchor(
-                                        row.label(),
-                                        row.pattern()
-                                                .map(SpreadsheetPattern::text)
-                                                .orElse(""),
-                                        context
-                                );
-                                break;
-                            case 2:
-                                rendered = textNode(
-                                        row,
-                                        0
-                                );
-                                break;
-                            case 3:
-                                rendered = textNode(
-                                        row,
-                                        1
-                                );
-                                break;
-                            case 4:
-                                rendered = textNode(
-                                        row,
-                                        2
-                                );
-                                break;
-                            default:
-                                throw new IllegalArgumentException("Invalid column " + column);
-                        }
-
-                        return rendered;
-                    }
+                    SpreadsheetPatternComponentTableSpreadsheetDataTableComponentCellRenderer.with(context)
             ).hideHeaders();
             this.card.appendChild(this.dataTable);
         }
@@ -189,46 +143,6 @@ final class SpreadsheetPatternComponentTable implements HtmlElementComponent<HTM
                         CellTextAlign.valueOf(
                                 textAlign.name()
                         )
-                );
-    }
-
-    private static SpreadsheetTextComponent text(final String text) {
-        return SpreadsheetTextComponent.with(
-                Optional.of(text)
-        );
-    }
-
-    private static SpreadsheetTextNodeComponent textNode(final SpreadsheetPatternComponentTableRow row,
-                                                         final int index) {
-        return SpreadsheetTextNodeComponent.with(
-                Optional.of(
-                        row.formatted()
-                                .get(index)
-                )
-        );
-    }
-
-    /**
-     * Creates an anchor which will appear in the pattern column
-     */
-    private static HistoryTokenAnchorComponent patternAnchor(final String label,
-                                                             final String patternText,
-                                                             final SpreadsheetPatternDialogComponentContext context) {
-        return HistoryTokenAnchorComponent.empty()
-                .setHref(
-                        Url.EMPTY_RELATIVE_URL.setFragment(
-                                context.historyToken()
-                                        .setSave(
-                                                context.savePatternText(
-                                                        patternText
-                                                )
-                                        ).urlFragment()
-                        )
-                ).setTextContent(patternText)
-                .setId(
-                        SpreadsheetPatternDialogComponent.ID_PREFIX +
-                                label.toLowerCase() +
-                                SpreadsheetElementIds.LINK
                 );
     }
 
