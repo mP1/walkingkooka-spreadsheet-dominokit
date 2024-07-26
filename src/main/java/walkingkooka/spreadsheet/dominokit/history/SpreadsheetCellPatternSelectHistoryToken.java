@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import java.util.Optional;
 
 /**
- * Opens a dialog with a form and other components supporting edit a formatting or parse pattern.
+ * Opens a dialog with a form and other components supporting edit a formatter or parser.
  * <pre>
  * /123/SpreadsheetName456/cell/A1/formatter/date
  * /123/SpreadsheetName456/cell/A1/formatter/date-time
@@ -37,11 +37,11 @@ import java.util.Optional;
  * /123/SpreadsheetName456/cell/A1/formatter/text
  * /123/SpreadsheetName456/cell/A1/formatter/time
  *
- * /123/SpreadsheetName456/cell/A1/parse-pattern/date-time
- * /123/SpreadsheetName456/cell/A1/parse-pattern/date
- * /123/SpreadsheetName456/cell/A1/parse-pattern/date-time
- * /123/SpreadsheetName456/cell/A1/parse-pattern/number
- * /123/SpreadsheetName456/cell/A1/parse-pattern/time
+ * /123/SpreadsheetName456/cell/A1/parser/date-time
+ * /123/SpreadsheetName456/cell/A1/parser/date
+ * /123/SpreadsheetName456/cell/A1/parser/date-time
+ * /123/SpreadsheetName456/cell/A1/parser/number
+ * /123/SpreadsheetName456/cell/A1/parser/time
  *
  * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/formatter/SpreadsheetPatternKind
  * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/parse-pattern/SpreadsheetPatternKind
