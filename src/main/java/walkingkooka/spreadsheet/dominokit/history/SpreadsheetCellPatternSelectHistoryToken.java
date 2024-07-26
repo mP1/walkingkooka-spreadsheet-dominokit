@@ -44,7 +44,7 @@ import java.util.Optional;
  * /123/SpreadsheetName456/cell/A1/parser/time
  *
  * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/formatter/SpreadsheetPatternKind
- * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/parse-pattern/SpreadsheetPatternKind
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/parser/SpreadsheetPatternKind
  * </pre>
  */
 public final class SpreadsheetCellPatternSelectHistoryToken extends SpreadsheetCellPatternHistoryToken {
