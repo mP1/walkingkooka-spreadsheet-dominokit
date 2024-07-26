@@ -61,9 +61,9 @@ public final class AppendPluginSelectorTextComponent<T extends PluginSelectorTex
                 .appendChild(this.flex);
     }
 
-    void refresh(final List<T> textComponents,
-                 final List<A> alternatives,
-                 final AppendPluginSelectorTextComponentContext context) {
+    public void refresh(final List<T> textComponents,
+                        final List<A> alternatives,
+                        final AppendPluginSelectorTextComponentContext context) {
         this.refresh0(
                 Lists.immutable(
                         Objects.requireNonNull(textComponents, "textComponents")
