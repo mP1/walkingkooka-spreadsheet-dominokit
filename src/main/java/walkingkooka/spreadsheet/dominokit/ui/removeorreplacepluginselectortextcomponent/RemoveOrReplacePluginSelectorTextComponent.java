@@ -64,8 +64,8 @@ public final class RemoveOrReplacePluginSelectorTextComponent<T extends PluginSe
                 .appendChild(this.flex);
     }
 
-    void refresh(final List<T> textComponents,
-                 final RemoveOrReplacePluginSelectorTextComponentContext context) {
+    public void refresh(final List<T> textComponents,
+                        final RemoveOrReplacePluginSelectorTextComponentContext context) {
         this.refresh0(
                 Lists.immutable(
                         Objects.requireNonNull(textComponents, "textComponents")
