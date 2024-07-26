@@ -23,17 +23,17 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class SpreadsheetPatternDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see SpreadsheetPatternDialogComponentContextBasicCellFormat}
+     * {@see SpreadsheetPatternDialogComponentContextBasicCellFormatter}
      */
     public static SpreadsheetPatternDialogComponentContext cellFormat(final AppContext context) {
-        return SpreadsheetPatternDialogComponentContextBasicCellFormat.with(context);
+        return SpreadsheetPatternDialogComponentContextBasicCellFormatter.with(context);
     }
 
     /**
-     * {@see SpreadsheetPatternDialogComponentContextBasicCellParse}
+     * {@see SpreadsheetPatternDialogComponentContextBasicCellParser}
      */
     public static SpreadsheetPatternDialogComponentContext cellParse(final AppContext context) {
-        return SpreadsheetPatternDialogComponentContextBasicCellParse.with(context);
+        return SpreadsheetPatternDialogComponentContextBasicCellParser.with(context);
     }
 
     /**

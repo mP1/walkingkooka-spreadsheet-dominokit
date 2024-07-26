@@ -70,8 +70,8 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
     }
 
     @Override //
-    final HistoryToken setFormatPattern() {
-        return cellFormatPattern(
+    final HistoryToken setFormatter() {
+        return cellFormatterUnselect(
                 this.id(),
                 this.name(),
                 this.anchoredSelection()
@@ -79,8 +79,8 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
     }
 
     @Override //
-    final HistoryToken setParsePattern() {
-        return cellParsePattern(
+    final HistoryToken setParser() {
+        return cellParserUnselect(
                 this.id(),
                 this.name(),
                 this.anchoredSelection()

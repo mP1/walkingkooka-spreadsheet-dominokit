@@ -21,7 +21,8 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -38,12 +39,12 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryTokenContext
     }
 
     @Override
-    public List<HistoryToken> recentFormatPatterns() {
+    public List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public List<HistoryToken> recentParsePatterns() {
+    public List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors() {
         throw new UnsupportedOperationException();
     }
 

@@ -99,7 +99,7 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override //
-    HistoryToken setFormatPattern() {
+    HistoryToken setFormatter() {
         return this;
     }
 
@@ -129,7 +129,7 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override //
-    HistoryToken setParsePattern() {
+    HistoryToken setParser() {
         return this;
     }
 

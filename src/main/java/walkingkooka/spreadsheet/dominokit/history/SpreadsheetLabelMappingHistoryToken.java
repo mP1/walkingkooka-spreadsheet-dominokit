@@ -71,7 +71,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     }
 
     @Override
-    public final HistoryToken setFormatPattern() {
+    public final HistoryToken setFormatter() {
         return this;
     }
 
@@ -106,7 +106,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     }
 
     @Override
-    public final HistoryToken setParsePattern() {
+    public final HistoryToken setParser() {
         return this;
     }
 

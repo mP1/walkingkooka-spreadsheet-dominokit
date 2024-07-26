@@ -50,9 +50,10 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistoryToken;
@@ -75,7 +76,6 @@ import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.ui.selectionmenu.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -145,12 +145,12 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         context.addSpreadsheetMetadataFetcherWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
 
-        this.recentFormatPatterns = this.recentPatternSaves(
-                true, // is format true
+        this.recentFormatter = this.recentFormatterOrParserSaves(
+                historyToken -> historyToken instanceof SpreadsheetCellFormatterSaveHistoryToken, // is format true
                 context
         );
-        this.recentParsePatterns = this.recentPatternSaves(
-                false, // is format false
+        this.recentParser = this.recentFormatterOrParserSaves(
+                historyToken -> historyToken instanceof SpreadsheetCellParserSaveHistoryToken, // is format false
                 context
         );
 
@@ -160,52 +160,14 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     /**
      * Creates a {@link HistoryTokenRecorder} which will keep the most recent saves of a {@link SpreadsheetPattern}.
      */
-    private HistoryTokenRecorder recentPatternSaves(final boolean format,
-                                                    final HistoryTokenContext context) {
+    private HistoryTokenRecorder recentFormatterOrParserSaves(final Predicate<HistoryToken> predicate,
+                                                              final HistoryTokenContext context) {
         final HistoryTokenRecorder recorder = HistoryTokenRecorder.with(
-                format ?
-                        SpreadsheetViewportComponent::isFormatPatternSave :
-                        SpreadsheetViewportComponent::isParsePatternSave,
+                predicate,
                 MAX_RECENT_COUNT
         );
         context.addHistoryTokenWatcher(recorder);
         return recorder;
-    }
-
-    private static boolean isFormatPatternSave(final HistoryToken token) {
-        return isPatternSave(
-                token,
-                true // is format
-        );
-    }
-
-    private static boolean isParsePatternSave(final HistoryToken token) {
-        return isPatternSave(
-                token,
-                false // is parse
-        );
-    }
-
-    /**
-     * Because there are two {@link HistoryTokenRecorder} one for format patterns and the other for parse patterns,
-     * a {@link Predicate} is required to filter just the one type for each recorder.
-     */
-    private static boolean isPatternSave(final HistoryToken token,
-                                         final boolean format) {
-        boolean keep = false;
-
-        if (token instanceof SpreadsheetCellPatternSaveHistoryToken) {
-            final SpreadsheetCellPatternSaveHistoryToken patternSaveHistoryToken = token.cast(SpreadsheetCellPatternSaveHistoryToken.class);
-
-            final SpreadsheetPatternKind kind = patternSaveHistoryToken.patternKind().get();
-            if (kind.isFormatPattern() == format) {
-                if (patternSaveHistoryToken.pattern().isPresent()) {
-                    keep = true;
-                }
-            }
-        }
-
-        return keep;
     }
 
     // root.............................................................................................................
@@ -578,8 +540,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                     historyToken,
                     menu,
                     SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
-                            this.recentFormatPatterns.tokens(),
-                            this.recentParsePatterns.tokens(),
+                            this.recentFormatter.tokens(),
+                            this.recentParser.tokens(),
                             context
                     )
             );
@@ -588,9 +550,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
     }
 
-    private final HistoryTokenRecorder recentFormatPatterns;
+    private final HistoryTokenRecorder<SpreadsheetCellFormatterSaveHistoryToken> recentFormatter;
 
-    private final HistoryTokenRecorder recentParsePatterns;
+    private final HistoryTokenRecorder<SpreadsheetCellParserSaveHistoryToken> recentParser;
 
     /**
      * A TABLE that holds the grid of cells including the column and row headers.

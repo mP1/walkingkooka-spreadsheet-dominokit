@@ -244,7 +244,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    public HistoryToken setFormatPattern() {
+    public HistoryToken setFormatter() {
         return this;
     }
 
@@ -288,7 +288,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    public HistoryToken setParsePattern() {
+    public HistoryToken setParser() {
         return this;
     }
 

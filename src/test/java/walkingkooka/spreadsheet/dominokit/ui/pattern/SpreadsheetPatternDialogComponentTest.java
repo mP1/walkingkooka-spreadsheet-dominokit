@@ -37,12 +37,14 @@ import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLi
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.FakeSpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -395,7 +397,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 DATE_FORMATTER_CONTEXT
                         )
                 ),
-                "dd/mm/yyyy",
+                SpreadsheetFormatterName.DATE_FORMAT_PATTERN + " dd/mm/yyyy",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -495,7 +497,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                      \"yy\" [/1/Spreadsheet123/cell/A1/formatter/date/save/date-format-pattern%20dd/mm/yy] id=pattern-remove-4-alt-0-MenuItem\n" +
                         "                      \"yyyy\" [/1/Spreadsheet123/cell/A1/formatter/date/save/date-format-pattern%20dd/mm/yyyy] id=pattern-remove-4-alt-1-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [dd/mm/yyyy] id=pattern-TextBox\n" +
+                        "        [date-format-pattern dd/mm/yyyy] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/date-format-pattern%20dd/mm/yyyy] id=pattern-save-Link\n" +
@@ -519,7 +521,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 DATE_FORMATTER_CONTEXT
                         )
                 ),
-                "dd/mm/yyyy",
+                SpreadsheetParserName.DATE_PARSER_PATTERN + " dd/mm/yyyy",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -617,7 +619,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                      \"yy\" [/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20dd/mm/yy] id=pattern-remove-4-alt-0-MenuItem\n" +
                         "                      \"yyyy\" [/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20dd/mm/yyyy] id=pattern-remove-4-alt-1-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [dd/mm/yyyy] id=pattern-TextBox\n" +
+                        "        [date-parse-pattern dd/mm/yyyy] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20dd/mm/yyyy] id=pattern-save-Link\n" +
@@ -643,7 +645,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 DATE_TIME_FORMATTER_CONTEXT
                         )
                 ),
-                "dd/mm/yyyy hh:mm:ss",
+                SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN + " dd/mm/yyyy hh:mm:ss",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -755,7 +757,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                      \"s\" [/1/Spreadsheet123/cell/A1/formatter/date-time/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:s] id=pattern-remove-10-alt-0-MenuItem\n" +
                         "                      \"ss\" [/1/Spreadsheet123/cell/A1/formatter/date-time/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=pattern-remove-10-alt-1-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [dd/mm/yyyy hh:mm:ss] id=pattern-TextBox\n" +
+                        "        [date-time-format-pattern dd/mm/yyyy hh:mm:ss] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/date-time/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=pattern-save-Link\n" +
@@ -779,7 +781,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 DATE_TIME_FORMATTER_CONTEXT
                         )
                 ),
-                "dd/mm/yyyy hh:mm:ss",
+                SpreadsheetParserName.DATE_PARSER_PATTERN + " dd/mm/yyyy hh:mm:ss",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -889,7 +891,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                      \"s\" [/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:s] id=pattern-remove-10-alt-0-MenuItem\n" +
                         "                      \"ss\" [/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=pattern-remove-10-alt-1-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [dd/mm/yyyy hh:mm:ss] id=pattern-TextBox\n" +
+                        "        [date-parse-pattern dd/mm/yyyy hh:mm:ss] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=pattern-save-Link\n" +
@@ -915,7 +917,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 NUMBER_FORMATTER_CONTEXT
                         )
                 ),
-                "$#0.00",
+                SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN + " $#0.00",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -1017,7 +1019,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                  \"0\" [#/1/Spreadsheet123/cell/A1/formatter/number/save/number-format-pattern%20$%230.0] id=pattern-remove-5-Link\n" +
                         "                      \"0\" [/1/Spreadsheet123/cell/A1/formatter/number/save/number-format-pattern%20$%230.00] id=pattern-remove-5-alt-0-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [$#0.00] id=pattern-TextBox\n" +
+                        "        [number-format-pattern $#0.00] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/number/save/number-format-pattern%20$%230.00] id=pattern-save-Link\n" +
@@ -1041,7 +1043,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 NUMBER_FORMATTER_CONTEXT
                         )
                 ),
-                "$#0.00",
+                SpreadsheetParserName.NUMBER_PARSER_PATTERN + " $#0.00",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -1131,7 +1133,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                  \"0\" [#/1/Spreadsheet123/cell/A1/parser/number/save/number-parse-pattern%20$%230.0] id=pattern-remove-5-Link\n" +
                         "                      \"0\" [/1/Spreadsheet123/cell/A1/parser/number/save/number-parse-pattern%20$%230.00] id=pattern-remove-5-alt-0-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [$#0.00] id=pattern-TextBox\n" +
+                        "        [number-parse-pattern $#0.00] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/number/save/number-parse-pattern%20$%230.00] id=pattern-save-Link\n" +
@@ -1157,7 +1159,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 TEXT_FORMATTER_CONTEXT
                         )
                 ),
-                "@ \"Hello\"",
+                SpreadsheetFormatterName.TEXT_FORMAT_PATTERN + " @ \"Hello\"",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -1203,7 +1205,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                  \" \" [#/1/Spreadsheet123/cell/A1/formatter/text/save/text-format-pattern%20@%22Hello%22] id=pattern-remove-1-Link\n" +
                         "                  \"\"Hello\"\" [#/1/Spreadsheet123/cell/A1/formatter/text/save/text-format-pattern%20@%20] id=pattern-remove-2-Link\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [@ \"Hello\"] id=pattern-TextBox\n" +
+                        "        [text-format-pattern @ \"Hello\"] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/text/save/text-format-pattern%20@%20%22Hello%22] id=pattern-save-Link\n" +
@@ -1229,7 +1231,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 TIME_FORMATTER_CONTEXT
                         )
                 ),
-                "hh:mm",
+                SpreadsheetFormatterName.TIME_FORMAT_PATTERN + " hh:mm",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -1308,7 +1310,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                      \"m\" [/1/Spreadsheet123/cell/A1/formatter/time/save/time-format-pattern%20hh:m] id=pattern-remove-2-alt-0-MenuItem\n" +
                         "                      \"mm\" [/1/Spreadsheet123/cell/A1/formatter/time/save/time-format-pattern%20hh:mm] id=pattern-remove-2-alt-1-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [hh:mm] id=pattern-TextBox\n" +
+                        "        [time-format-pattern hh:mm] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/time/save/time-format-pattern%20hh:mm] id=pattern-save-Link\n" +
@@ -1332,7 +1334,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 TIME_FORMATTER_CONTEXT
                         )
                 ),
-                "hh:mm",
+                SpreadsheetParserName.TIME_PARSER_PATTERN + " hh:mm",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -1409,7 +1411,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                      \"m\" [/1/Spreadsheet123/cell/A1/parser/time/save/time-parse-pattern%20hh:m] id=pattern-remove-2-alt-0-MenuItem\n" +
                         "                      \"mm\" [/1/Spreadsheet123/cell/A1/parser/time/save/time-parse-pattern%20hh:mm] id=pattern-remove-2-alt-1-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [hh:mm] id=pattern-TextBox\n" +
+                        "        [time-parse-pattern hh:mm] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/time/save/time-parse-pattern%20hh:mm] id=pattern-save-Link\n" +
@@ -1435,7 +1437,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 DATE_FORMATTER_CONTEXT
                         )
                 ),
-                "dd/mm/yyyy",
+                SpreadsheetFormatterName.DATE_FORMAT_PATTERN + " dd/mm/yyyy",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -1535,7 +1537,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                      \"yy\" [/1/Spreadsheet123/metadata/date-formatter/save/date-format-pattern%20dd/mm/yy] id=pattern-remove-4-alt-0-MenuItem\n" +
                         "                      \"yyyy\" [/1/Spreadsheet123/metadata/date-formatter/save/date-format-pattern%20dd/mm/yyyy] id=pattern-remove-4-alt-1-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [dd/mm/yyyy] id=pattern-TextBox\n" +
+                        "        [date-format-pattern dd/mm/yyyy] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/date-formatter/save/date-format-pattern%20dd/mm/yyyy] id=pattern-save-Link\n" +
@@ -1559,7 +1561,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 DATE_FORMATTER_CONTEXT
                         )
                 ),
-                "dd/mm/yyyy",
+                SpreadsheetParserName.DATE_PARSER_PATTERN + " dd/mm/yyyy",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -1657,7 +1659,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                      \"yy\" [/1/Spreadsheet123/metadata/date-parser/save/date-parse-pattern%20dd/mm/yy] id=pattern-remove-4-alt-0-MenuItem\n" +
                         "                      \"yyyy\" [/1/Spreadsheet123/metadata/date-parser/save/date-parse-pattern%20dd/mm/yyyy] id=pattern-remove-4-alt-1-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [dd/mm/yyyy] id=pattern-TextBox\n" +
+                        "        [date-parse-pattern dd/mm/yyyy] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/date-parser/save/date-parse-pattern%20dd/mm/yyyy] id=pattern-save-Link\n" +
@@ -1683,7 +1685,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 DATE_TIME_FORMATTER_CONTEXT
                         )
                 ),
-                "dd/mm/yyyy hh:mm:ss",
+                SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN + " dd/mm/yyyy hh:mm:ss",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -1795,7 +1797,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                      \"s\" [/1/Spreadsheet123/metadata/date-time-formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:s] id=pattern-remove-10-alt-0-MenuItem\n" +
                         "                      \"ss\" [/1/Spreadsheet123/metadata/date-time-formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=pattern-remove-10-alt-1-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [dd/mm/yyyy hh:mm:ss] id=pattern-TextBox\n" +
+                        "        [date-time-format-pattern dd/mm/yyyy hh:mm:ss] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=pattern-save-Link\n" +
@@ -1819,7 +1821,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 DATE_TIME_FORMATTER_CONTEXT
                         )
                 ),
-                "dd/mm/yyyy hh:mm:ss",
+                SpreadsheetParserName.DATE_TIME_PARSER_PATTERN + " dd/mm/yyyy hh:mm:ss",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -1929,7 +1931,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                      \"s\" [/1/Spreadsheet123/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:s] id=pattern-remove-10-alt-0-MenuItem\n" +
                         "                      \"ss\" [/1/Spreadsheet123/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=pattern-remove-10-alt-1-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [dd/mm/yyyy hh:mm:ss] id=pattern-TextBox\n" +
+                        "        [date-time-parse-pattern dd/mm/yyyy hh:mm:ss] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=pattern-save-Link\n" +
@@ -1955,7 +1957,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 NUMBER_FORMATTER_CONTEXT
                         )
                 ),
-                "$#0.00",
+                SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN + " $#0.00",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -2057,7 +2059,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                  \"0\" [#/1/Spreadsheet123/metadata/number-formatter/save/number-format-pattern%20$%230.0] id=pattern-remove-5-Link\n" +
                         "                      \"0\" [/1/Spreadsheet123/metadata/number-formatter/save/number-format-pattern%20$%230.00] id=pattern-remove-5-alt-0-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [$#0.00] id=pattern-TextBox\n" +
+                        "        [number-format-pattern $#0.00] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/number-formatter/save/number-format-pattern%20$%230.00] id=pattern-save-Link\n" +
@@ -2081,7 +2083,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 NUMBER_FORMATTER_CONTEXT
                         )
                 ),
-                "$#0.00",
+                SpreadsheetParserName.NUMBER_PARSER_PATTERN + " $#0.00",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -2171,7 +2173,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                  \"0\" [#/1/Spreadsheet123/metadata/number-parser/save/number-parse-pattern%20$%230.0] id=pattern-remove-5-Link\n" +
                         "                      \"0\" [/1/Spreadsheet123/metadata/number-parser/save/number-parse-pattern%20$%230.00] id=pattern-remove-5-alt-0-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [$#0.00] id=pattern-TextBox\n" +
+                        "        [number-parse-pattern $#0.00] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/number-parser/save/number-parse-pattern%20$%230.00] id=pattern-save-Link\n" +
@@ -2197,7 +2199,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 TEXT_FORMATTER_CONTEXT
                         )
                 ),
-                "@ \"Hello\"",
+                SpreadsheetFormatterName.TEXT_FORMAT_PATTERN + " @ \"Hello\"",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -2243,7 +2245,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                  \" \" [#/1/Spreadsheet123/metadata/text-formatter/save/text-format-pattern%20@%22Hello%22] id=pattern-remove-1-Link\n" +
                         "                  \"\"Hello\"\" [#/1/Spreadsheet123/metadata/text-formatter/save/text-format-pattern%20@%20] id=pattern-remove-2-Link\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [@ \"Hello\"] id=pattern-TextBox\n" +
+                        "        [text-format-pattern @ \"Hello\"] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/text-formatter/save/text-format-pattern%20@%20%22Hello%22] id=pattern-save-Link\n" +
@@ -2269,7 +2271,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 TIME_FORMATTER_CONTEXT
                         )
                 ),
-                "hh:mm",
+                SpreadsheetFormatterName.TIME_FORMAT_PATTERN + " hh:mm",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -2348,7 +2350,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                      \"m\" [/1/Spreadsheet123/metadata/time-formatter/save/time-format-pattern%20hh:m] id=pattern-remove-2-alt-0-MenuItem\n" +
                         "                      \"mm\" [/1/Spreadsheet123/metadata/time-formatter/save/time-format-pattern%20hh:mm] id=pattern-remove-2-alt-1-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [hh:mm] id=pattern-TextBox\n" +
+                        "        [time-format-pattern hh:mm] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/time-formatter/save/time-format-pattern%20hh:mm] id=pattern-save-Link\n" +
@@ -2372,7 +2374,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                                 TIME_FORMATTER_CONTEXT
                         )
                 ),
-                "hh:mm",
+                SpreadsheetParserName.TIME_PARSER_PATTERN + " hh:mm",
                 context,
                 "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
@@ -2449,7 +2451,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "                      \"m\" [/1/Spreadsheet123/metadata/time-parser/save/time-parse-pattern%20hh:m] id=pattern-remove-2-alt-0-MenuItem\n" +
                         "                      \"mm\" [/1/Spreadsheet123/metadata/time-parser/save/time-parse-pattern%20hh:mm] id=pattern-remove-2-alt-1-MenuItem\n" +
                         "      SpreadsheetTextBox\n" +
-                        "        [hh:mm] id=pattern-TextBox\n" +
+                        "        [time-parse-pattern hh:mm] id=pattern-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/time-parser/save/time-parse-pattern%20hh:mm] id=pattern-save-Link\n" +
@@ -2524,10 +2526,11 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     @Test
     public void testCellFormatterDateDialogClose() {
         this.historyTokenCloseDialogAndCheck(
-                HistoryToken.cellFormatPattern(
+                HistoryToken.cellFormatterSelect(
                         ID,
                         NAME,
-                        CELL
+                        CELL,
+                        SpreadsheetPatternKind.DATE_FORMAT_PATTERN
                 ),
                 HistoryToken.cell(
                         ID,
@@ -2543,19 +2546,21 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
 
         this.historyTokenSaveValueAndCheck(
-                HistoryToken.cellPattern(
+                HistoryToken.cellFormatterSelect(
                         ID,
                         NAME,
                         CELL,
                         kind
                 ),
                 Optional.of(value),
-                HistoryToken.cellPatternSave(
+                HistoryToken.cellFormatterSave(
                         ID,
                         NAME,
                         CELL,
                         kind,
-                        Optional.of(value)
+                        Optional.of(
+                                value.spreadsheetFormatterSelector()
+                        )
                 )
         );
     }
@@ -2565,14 +2570,14 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
 
         this.historyTokenRemoveValueAndCheck(
-                HistoryToken.cellPattern(
+                HistoryToken.cellFormatterSelect(
                         ID,
                         NAME,
                         CELL,
                         kind
                 ),
                 Optional.empty(),
-                HistoryToken.cellPatternSave(
+                HistoryToken.cellFormatterSave(
                         ID,
                         NAME,
                         CELL,
@@ -2645,10 +2650,11 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     @Test
     public void testCellParserDateDialogClose() {
         this.historyTokenCloseDialogAndCheck(
-                HistoryToken.cellParsePattern(
+                HistoryToken.cellParserSelect(
                         ID,
                         NAME,
-                        CELL
+                        CELL,
+                        SpreadsheetPatternKind.DATE_PARSE_PATTERN
                 ),
                 HistoryToken.cell(
                         ID,
@@ -2664,19 +2670,21 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_PARSE_PATTERN;
 
         this.historyTokenSaveValueAndCheck(
-                HistoryToken.cellPattern(
+                HistoryToken.cellParserSelect(
                         ID,
                         NAME,
                         CELL,
                         kind
                 ),
                 Optional.of(value),
-                HistoryToken.cellPatternSave(
+                HistoryToken.cellParserSave(
                         ID,
                         NAME,
                         CELL,
                         kind,
-                        Optional.of(value)
+                        Optional.of(
+                                value.spreadsheetParserSelector()
+                        )
                 )
         );
     }
@@ -2686,14 +2694,14 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_PARSE_PATTERN;
 
         this.historyTokenRemoveValueAndCheck(
-                HistoryToken.cellPattern(
+                HistoryToken.cellParserSelect(
                         ID,
                         NAME,
                         CELL,
                         kind
                 ),
                 Optional.empty(),
-                HistoryToken.cellPatternSave(
+                HistoryToken.cellParserSave(
                         ID,
                         NAME,
                         CELL,

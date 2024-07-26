@@ -27,85 +27,72 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import java.util.Optional;
 
 /**
- * Opens a context menu with items for the selected cells.
- * <pre>
- * /123/SpreadsheetName456/cell/A1/menu
- * /123/SpreadsheetName456/cell/B2:C3/menu
- *
- * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/menu
- * </pre>
+ * This {@link HistoryToken} selects the toolbar PARSER
  */
-public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistoryToken {
+public final class SpreadsheetCellParserUnselectHistoryToken extends SpreadsheetCellParserHistoryToken {
 
-    static SpreadsheetCellMenuHistoryToken with(final SpreadsheetId id,
-                                                final SpreadsheetName name,
-                                                final AnchoredSpreadsheetSelection anchoredSelection) {
-        return new SpreadsheetCellMenuHistoryToken(
+    static SpreadsheetCellParserUnselectHistoryToken with(final SpreadsheetId id,
+                                                          final SpreadsheetName name,
+                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
+        return new SpreadsheetCellParserUnselectHistoryToken(
                 id,
                 name,
                 anchoredSelection
         );
     }
 
-    private SpreadsheetCellMenuHistoryToken(final SpreadsheetId id,
-                                            final SpreadsheetName name,
-                                            final AnchoredSpreadsheetSelection anchoredSelection) {
+    private SpreadsheetCellParserUnselectHistoryToken(final SpreadsheetId id,
+                                                      final SpreadsheetName name,
+                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
-                anchoredSelection
+                anchoredSelection,
+                Optional.empty(), // SpreadsheetPatternKind
+                Optional.empty() // SpreadsheetParserSelector
         );
-    }
-
-    @Override
-    UrlFragment cellUrlFragment() {
-        return MENU;
     }
 
     @Override
     public HistoryToken clearAction() {
-        return this.selectionSelect();
-    }
-
-    @Override
-    public HistoryToken setFormatter() {
         return this;
     }
 
     @Override
-    public HistoryToken setFormula() {
-        return setFormula0();
-    }
-
-    @Override //
     HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
-        return selection(
+        return new SpreadsheetCellParserUnselectHistoryToken(
                 id,
                 name,
                 anchoredSelection
-        ).setMenu1();
+        );
     }
 
-    @Override
-    public HistoryToken setParser() {
-        return this;
-    }
-
-    @Override
-    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this;
+    @Override//
+    HistoryToken replacePatternKind0(final SpreadsheetPatternKind patternKind) {
+        return HistoryToken.cellParserSelect(
+                this.id(),
+                this.name(),
+                this.anchoredSelection(),
+                patternKind
+        );
     }
 
     @Override
     HistoryToken setSave0(final String value) {
-        return this;
+        return this; // cant "save", because of missing SpreadsheetParserSelector
+    }
+
+    // cell/A1/parser
+    @Override //
+    UrlFragment parserUrlFragment() {
+        return PARSER;
     }
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // SpreadsheetViewportComponent will open a cell menu
+        // TODO give focus to toolbar parser link
     }
 }

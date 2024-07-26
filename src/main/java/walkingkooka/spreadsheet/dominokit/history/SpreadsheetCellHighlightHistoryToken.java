@@ -52,12 +52,12 @@ public abstract class SpreadsheetCellHighlightHistoryToken extends SpreadsheetCe
     }
 
     @Override //
-    final HistoryToken setFormatPattern() {
+    final HistoryToken setFormatter() {
         return this;
     }
 
     @Override //
-    final HistoryToken setParsePattern() {
+    final HistoryToken setParser() {
         return this;
     }
 

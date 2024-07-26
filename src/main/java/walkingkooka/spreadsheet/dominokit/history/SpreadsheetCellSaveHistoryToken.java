@@ -70,7 +70,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     }
 
     @Override //
-    final HistoryToken setFormatPattern() {
+    final HistoryToken setFormatter() {
         return this;
     }
 
@@ -87,7 +87,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     }
 
     @Override //
-    final HistoryToken setParsePattern() {
+    final HistoryToken setParser() {
         return this;
     }
 

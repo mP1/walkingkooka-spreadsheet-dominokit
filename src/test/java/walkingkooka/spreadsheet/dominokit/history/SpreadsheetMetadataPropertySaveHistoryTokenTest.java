@@ -22,7 +22,6 @@ import walkingkooka.Cast;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternTesting;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -32,52 +31,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends SpreadsheetMetadataPropertyHistoryTokenTestCase<SpreadsheetMetadataPropertySaveHistoryToken<ExpressionNumberKind>, ExpressionNumberKind>
-        implements HasSpreadsheetPatternTesting {
-
-    // HasSpreadsheetPattern............................................................................................
-
-    @Test
-    public void testHasSpreadsheetPatternSpreadsheetId() {
-        this.hasSpreadsheetPatternAndCheck(
-                SpreadsheetMetadataPropertySaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                        Optional.of(
-                                SpreadsheetId.with(123)
-                        )
-                )
-        );
-    }
-
-    @Test
-    public void testHasSpreadsheetPatternDateFormatPatternEmptyValue() {
-        this.hasSpreadsheetPatternAndCheck(
-                SpreadsheetMetadataPropertySaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.DATE_FORMATTER,
-                        Optional.empty()
-                )
-        );
-    }
-
-//    @Test
-//    public void testHasSpreadsheetPatternDateFormatter() {
-//        final SpreadsheetFormatterSelector value = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-//                .spreadsheetFormatterSelector();
-//
-//        this.hasSpreadsheetPatternAndCheck(
-//                SpreadsheetMetadataPropertySaveHistoryToken.with(
-//                        ID,
-//                        NAME,
-//                        SpreadsheetMetadataPropertyName.DATE_FORMATTER,
-//                        Optional.of(value)
-//                ),
-//                value
-//        );
-//    }
+public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends SpreadsheetMetadataPropertyHistoryTokenTestCase<SpreadsheetMetadataPropertySaveHistoryToken<ExpressionNumberKind>, ExpressionNumberKind> {
 
     // HasUrlFragment...................................................................................................
 

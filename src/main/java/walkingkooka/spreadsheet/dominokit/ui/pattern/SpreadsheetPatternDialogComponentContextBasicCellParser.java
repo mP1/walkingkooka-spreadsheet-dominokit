@@ -17,36 +17,51 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
+import walkingkooka.plugin.PluginSelectorLike;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSelectHistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
- * A {@link SpreadsheetPatternDialogComponentContext} for editing patterns for a cell format pattern.
+ * A {@link SpreadsheetPatternDialogComponentContext} for editing patterns for a cell parse pattern.
  */
-final class SpreadsheetPatternDialogComponentContextBasicCellFormat extends SpreadsheetPatternDialogComponentContextBasicCell {
+final class SpreadsheetPatternDialogComponentContextBasicCellParser extends SpreadsheetPatternDialogComponentContextBasicCell {
 
-    static SpreadsheetPatternDialogComponentContextBasicCellFormat with(final AppContext context) {
+    static SpreadsheetPatternDialogComponentContextBasicCellParser with(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetPatternDialogComponentContextBasicCellFormat(context);
+        return new SpreadsheetPatternDialogComponentContextBasicCellParser(context);
     }
 
-    private SpreadsheetPatternDialogComponentContextBasicCellFormat(final AppContext context) {
+    private SpreadsheetPatternDialogComponentContextBasicCellParser(final AppContext context) {
         super(context);
     }
 
     @Override
     public SpreadsheetPatternKind[] filteredPatternKinds() {
-        return SpreadsheetPatternKind.formatValues();
+        return SpreadsheetPatternKind.parseValues();
     }
 
     // ComponentLifecycleMatcher........................................................................................
 
     @Override
+    public boolean shouldIgnore(final HistoryToken token) {
+        return token instanceof SpreadsheetCellParserSaveHistoryToken;
+    }
+
+    @Override
     public boolean isMatch(final HistoryToken token) {
-        return token.isCellFormatPattern();
+        return token instanceof SpreadsheetCellParserSelectHistoryToken;
+    }
+
+    @Override
+    Optional<? extends PluginSelectorLike<?>> undoFormatterOrParser(final SpreadsheetCell cell) {
+        return cell.parser();
     }
 }

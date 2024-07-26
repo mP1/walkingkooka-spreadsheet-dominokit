@@ -34,16 +34,16 @@ import java.util.function.Predicate;
  * <br>
  * This is useful for tracking the last pattern saves and then create menu items in a menu.
  */
-public final class HistoryTokenRecorder implements HistoryTokenWatcher {
+public final class HistoryTokenRecorder<T extends HistoryToken> implements HistoryTokenWatcher {
 
-    public static HistoryTokenRecorder with(final Predicate<HistoryToken> predicate,
-                                            final int max) {
+    public static <T extends HistoryToken> HistoryTokenRecorder<T> with(final Predicate<HistoryToken> predicate,
+                                                                        final int max) {
         Objects.requireNonNull(predicate, "predicate");
         if (max <= 0) {
             throw new IllegalArgumentException("Invalid max " + max + " <= 0");
         }
 
-        return new HistoryTokenRecorder(
+        return new HistoryTokenRecorder<>(
                 predicate,
                 max
         );
@@ -59,14 +59,14 @@ public final class HistoryTokenRecorder implements HistoryTokenWatcher {
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
 
-        final List<HistoryToken> tokens = this.tokens;
+        final List<T> tokens = this.tokens;
 
         final HistoryToken token = context.historyToken();
         if (this.predicate.test(token)) {
             tokens.remove(token);
             tokens.add(
                     0,
-                    token
+                    (T) token
             );
             final int size = tokens.size();
             if (size > this.max) {
@@ -89,11 +89,11 @@ public final class HistoryTokenRecorder implements HistoryTokenWatcher {
     /**
      * Return the last {#max} tokens, with the first element holding the most recent {@link HistoryToken}.
      */
-    public List<HistoryToken> tokens() {
+    public List<T> tokens() {
         return Lists.readOnly(this.tokens);
     }
 
-    private final List<HistoryToken> tokens = Lists.linkedList();
+    private final List<T> tokens = Lists.linkedList();
 
     private final int max;
 

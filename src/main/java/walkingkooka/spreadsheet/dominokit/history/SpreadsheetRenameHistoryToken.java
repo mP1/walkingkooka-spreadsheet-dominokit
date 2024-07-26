@@ -58,7 +58,7 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
     }
 
     @Override //
-    final HistoryToken setFormatPattern() {
+    final HistoryToken setFormatter() {
         return this;
     }
 
@@ -91,7 +91,7 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
         return selection.setDefaultAnchor();
     }
 
-    @Override final HistoryToken setParsePattern() {
+    @Override final HistoryToken setParser() {
         return this;
     }
 
