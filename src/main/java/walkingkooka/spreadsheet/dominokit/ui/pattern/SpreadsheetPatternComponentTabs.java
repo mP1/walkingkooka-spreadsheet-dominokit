@@ -39,29 +39,24 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
     /**
      * Creates an empty {@link SpreadsheetPatternComponentTabs}.
      */
-    static SpreadsheetPatternComponentTabs empty(final SpreadsheetPatternKind[] kinds,
-                                                 final SpreadsheetPatternDialogComponentContext context) {
+    static SpreadsheetPatternComponentTabs empty(final SpreadsheetPatternDialogComponentContext context) {
         return new SpreadsheetPatternComponentTabs(
-                kinds,
                 context
         );
     }
 
-    private SpreadsheetPatternComponentTabs(final SpreadsheetPatternKind[] kinds,
-                                            final SpreadsheetPatternDialogComponentContext context) {
+    private SpreadsheetPatternComponentTabs(final SpreadsheetPatternDialogComponentContext context) {
         this.tabsComponent = this.tabsComponentCreate(
-                kinds,
                 context
         );
     }
 
     // SpreadsheetTabsComponent.........................................................................................
 
-    private SpreadsheetTabsComponent tabsComponentCreate(final SpreadsheetPatternKind[] kinds,
-                                                         final SpreadsheetPatternDialogComponentContext context) {
+    private SpreadsheetTabsComponent tabsComponentCreate(final SpreadsheetPatternDialogComponentContext context) {
         final SpreadsheetTabsComponent tabs = SpreadsheetTabsComponent.with(context);
 
-        for (final SpreadsheetPatternKind kind : kinds) {
+        for (final SpreadsheetPatternKind kind : context.filteredPatternKinds()) {
             tabs.appendTab(
                     SpreadsheetPatternDialogComponent.spreadsheetPatternKindId(kind),
                     tabTitle(kind)
@@ -93,13 +88,12 @@ final class SpreadsheetPatternComponentTabs implements HtmlElementComponent<HTML
     /**
      * Iterates over the links in each tab updating the link, disabling and activating as necessary.
      */
-    void refresh(final SpreadsheetPatternKind[] kinds,
-                 final SpreadsheetPatternDialogComponentContext context) {
+    void refresh(final SpreadsheetPatternDialogComponentContext context) {
         final SpreadsheetTabsComponent tabs = this.tabsComponent;
         final SpreadsheetPatternKind kind = context.patternKind();
 
         int i = 0;
-        for (final SpreadsheetPatternKind possible : kinds) {
+        for (final SpreadsheetPatternKind possible : context.filteredPatternKinds()) {
             final HistoryTokenAnchorComponent anchor = tabs.anchor(i);
 
             final boolean match = kind.equals(possible);

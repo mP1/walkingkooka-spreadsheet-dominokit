@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 import java.util.Objects;
 
@@ -35,6 +36,11 @@ final class SpreadsheetPatternDialogComponentContextBasicMetadataParse extends S
 
     private SpreadsheetPatternDialogComponentContextBasicMetadataParse(final AppContext context) {
         super(context);
+    }
+
+    @Override
+    public SpreadsheetPatternKind[] filteredPatternKinds() {
+        return SpreadsheetPatternKind.parseValues();
     }
 
     // ComponentLifecycleMatcher........................................................................................

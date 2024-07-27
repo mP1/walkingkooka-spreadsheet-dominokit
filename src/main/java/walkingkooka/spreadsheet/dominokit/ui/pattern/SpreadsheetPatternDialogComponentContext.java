@@ -38,6 +38,11 @@ public interface SpreadsheetPatternDialogComponentContext extends CanGiveFocus,
         SpreadsheetDialogComponentContext {
 
     /**
+     * Because this dialog may edit formatters and parsers, this method returns only matching {@link SpreadsheetPatternKind}
+     */
+    SpreadsheetPatternKind[] filteredPatternKinds();
+
+    /**
      * The {@link SpreadsheetPatternKind} being edited.
      */
     SpreadsheetPatternKind patternKind();

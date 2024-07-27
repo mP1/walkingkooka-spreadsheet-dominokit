@@ -370,15 +370,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.format(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.formatValues(),
                                 DATE_FORMATTER_CONTEXT
                         )
                 ),
                 "dd/mm/yyyy",
                 context,
-                "SpreadsheetPatternDialogComponentFormat\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Date formatter\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -493,15 +494,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.parse(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.parseValues(),
                                 DATE_FORMATTER_CONTEXT
                         )
                 ),
                 "dd/mm/yyyy",
                 context,
-                "SpreadsheetPatternDialogComponentParse\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Date parser\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -616,15 +618,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.format(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.formatValues(),
                                 DATE_TIME_FORMATTER_CONTEXT
                         )
                 ),
                 "dd/mm/yyyy hh:mm:ss",
                 context,
-                "SpreadsheetPatternDialogComponentFormat\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Date Time formatter\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -751,15 +754,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.parse(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.parseValues(),
                                 DATE_TIME_FORMATTER_CONTEXT
                         )
                 ),
                 "dd/mm/yyyy hh:mm:ss",
                 context,
-                "SpreadsheetPatternDialogComponentParse\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Date Time parser\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -886,15 +890,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.format(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.formatValues(),
                                 NUMBER_FORMATTER_CONTEXT
                         )
                 ),
                 "$#0.00",
                 context,
-                "SpreadsheetPatternDialogComponentFormat\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Number formatter\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -1011,15 +1016,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.parse(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.parseValues(),
                                 NUMBER_FORMATTER_CONTEXT
                         )
                 ),
                 "$#0.00",
                 context,
-                "SpreadsheetPatternDialogComponentParse\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Number parser\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -1126,15 +1132,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.format(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.formatValues(),
                                 TEXT_FORMATTER_CONTEXT
                         )
                 ),
                 "@ \"Hello\"",
                 context,
-                "SpreadsheetPatternDialogComponentFormat\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Text formatter\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -1197,15 +1204,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.format(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.formatValues(),
                                 TIME_FORMATTER_CONTEXT
                         )
                 ),
                 "hh:mm",
                 context,
-                "SpreadsheetPatternDialogComponentFormat\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Time formatter\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -1299,15 +1307,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.parse(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.parseValues(),
                                 TIME_FORMATTER_CONTEXT
                         )
                 ),
                 "hh:mm",
                 context,
-                "SpreadsheetPatternDialogComponentParse\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Time parser\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -1401,15 +1410,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.format(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.formatValues(),
                                 DATE_FORMATTER_CONTEXT
                         )
                 ),
                 "dd/mm/yyyy",
                 context,
-                "SpreadsheetPatternDialogComponentFormat\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Date formatter\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -1524,15 +1534,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.parse(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.parseValues(),
                                 DATE_FORMATTER_CONTEXT
                         )
                 ),
                 "dd/mm/yyyy",
                 context,
-                "SpreadsheetPatternDialogComponentParse\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Date parser\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -1647,15 +1658,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.format(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.formatValues(),
                                 DATE_TIME_FORMATTER_CONTEXT
                         )
                 ),
                 "dd/mm/yyyy hh:mm:ss",
                 context,
-                "SpreadsheetPatternDialogComponentFormat\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Date Time formatter\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -1782,15 +1794,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.parse(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.parseValues(),
                                 DATE_TIME_FORMATTER_CONTEXT
                         )
                 ),
                 "dd/mm/yyyy hh:mm:ss",
                 context,
-                "SpreadsheetPatternDialogComponentParse\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Date Time parser\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -1917,15 +1930,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.format(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.formatValues(),
                                 NUMBER_FORMATTER_CONTEXT
                         )
                 ),
                 "$#0.00",
                 context,
-                "SpreadsheetPatternDialogComponentFormat\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Number formatter\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -2042,15 +2056,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.parse(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.parseValues(),
                                 NUMBER_FORMATTER_CONTEXT
                         )
                 ),
                 "$#0.00",
                 context,
-                "SpreadsheetPatternDialogComponentParse\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Number parser\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -2157,15 +2172,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.format(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.formatValues(),
                                 TEXT_FORMATTER_CONTEXT
                         )
                 ),
                 "@ \"Hello\"",
                 context,
-                "SpreadsheetPatternDialogComponentFormat\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Text formatter\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -2228,15 +2244,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.format(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.formatValues(),
                                 TIME_FORMATTER_CONTEXT
                         )
                 ),
                 "hh:mm",
                 context,
-                "SpreadsheetPatternDialogComponentFormat\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Time formatter\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -2330,15 +2347,16 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
         );
 
         this.onHistoryTokenChangeAndSetPatternTextAndCheck(
-                SpreadsheetPatternDialogComponent.parse(
+                SpreadsheetPatternDialogComponent.with(
                         this.spreadsheetPatternDialogComponentContext(
                                 context,
+                                SpreadsheetPatternKind.parseValues(),
                                 TIME_FORMATTER_CONTEXT
                         )
                 ),
                 "hh:mm",
                 context,
-                "SpreadsheetPatternDialogComponentParse\n" +
+                "SpreadsheetPatternDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Time parser\n" +
                         "    id=pattern includeClose=true CLOSED\n" +
@@ -2476,6 +2494,7 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
     }
 
     private SpreadsheetPatternDialogComponentContext spreadsheetPatternDialogComponentContext(final AppContext context,
+                                                                                              final SpreadsheetPatternKind[] filteredPatternKinds,
                                                                                               final SpreadsheetFormatterContext formatterContext) {
         return new FakeSpreadsheetPatternDialogComponentContext() {
             @Override
@@ -2507,6 +2526,11 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
             @Override
             public HistoryToken historyToken() {
                 return context.historyToken();
+            }
+
+            @Override
+            public SpreadsheetPatternKind[] filteredPatternKinds() {
+                return filteredPatternKinds;
             }
 
             @Override

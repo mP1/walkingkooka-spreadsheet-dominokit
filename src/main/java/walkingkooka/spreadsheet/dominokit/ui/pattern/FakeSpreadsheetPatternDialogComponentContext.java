@@ -45,6 +45,11 @@ public class FakeSpreadsheetPatternDialogComponentContext extends FakeSpreadshee
     }
 
     @Override
+    public SpreadsheetPatternKind[] filteredPatternKinds() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public SpreadsheetPatternKind patternKind() {
         throw new UnsupportedOperationException();
     }
