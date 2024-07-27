@@ -32,8 +32,6 @@ import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.ui.hidezerovalues.HideZeroValues;
 import walkingkooka.spreadsheet.dominokit.ui.metadatacolorpicker.SpreadsheetMetadataColorPickerComponent;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -54,7 +52,6 @@ import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
@@ -62,7 +59,6 @@ import java.util.OptionalInt;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 /**
  * Builds a context menu for any given {@link SpreadsheetSelection}.
@@ -118,29 +114,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     context
             );
 
-            final Locale locale = context.spreadsheetMetadata()
-                    .locale();
-
-            format(
-                    historyToken,
-                    locale,
-                    context.recentFormatPatterns()
-                            .stream()
-                            .map(t -> (SpreadsheetFormatPattern) t.pattern().get()) // cant fail must be SFP
-                            .collect(Collectors.toList()),
-                    menu,
-                    context
-            );
-            parse(
-                    historyToken,
-                    locale,
-                    context.recentParsePatterns()
-                            .stream()
-                            .map(t -> (SpreadsheetParsePattern) t.pattern().get()) // cant fail must be SPP
-                            .collect(Collectors.toList()),
-                    menu,
-                    context
-            );
             hideIfZero(
                     historyToken,
                     menu,
@@ -272,52 +245,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         return CaseKind.SNAKE.change(
                 kind.name().toLowerCase(),
                 CaseKind.TITLE
-        );
-    }
-
-    private static void parse(final HistoryToken historyToken,
-                              final Locale locale,
-                              final List<SpreadsheetParsePattern> recents,
-                              final SpreadsheetContextMenu menu,
-                              final SpreadsheetSelectionMenuContext context) {
-        final String idPrefix = context.idPrefix() + "parse-";
-
-        SpreadsheetSelectionMenuPatternParse.with(
-                historyToken,
-                locale,
-                recents,
-                idPrefix,
-                context.selectionSummary()
-                        .parsePattern()
-        ).build(
-                menu.subMenu(
-                        idPrefix + SpreadsheetElementIds.SUB_MENU,
-                        "Parse",
-                        SpreadsheetIcons.parsePattern()
-                )
-        );
-    }
-
-    private static void format(final HistoryToken historyToken,
-                               final Locale locale,
-                               final List<SpreadsheetFormatPattern> recents,
-                               final SpreadsheetContextMenu menu,
-                               final SpreadsheetSelectionMenuContext context) {
-        final String idPrefix = context.idPrefix() + "format-";
-
-        SpreadsheetSelectionMenuPatternFormat.with(
-                historyToken,
-                locale,
-                recents,
-                idPrefix,
-                context.selectionSummary()
-                        .formatPattern()
-        ).build(
-                menu.subMenu(
-                        idPrefix + SpreadsheetElementIds.SUB_MENU,
-                        "Format",
-                        SpreadsheetIcons.formatPattern()
-                )
         );
     }
 
