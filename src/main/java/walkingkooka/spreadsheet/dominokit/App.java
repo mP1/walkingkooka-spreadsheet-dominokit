@@ -235,17 +235,17 @@ public class App implements EntryPoint,
                 SpreadsheetLabelMappingDialogComponentContexts.appContext(this)
         );
 
-        SpreadsheetPatternDialogComponent.format(
+        SpreadsheetPatternDialogComponent.with(
                 SpreadsheetPatternDialogComponentContexts.cellFormat(this)
         );
-        SpreadsheetPatternDialogComponent.parse(
+        SpreadsheetPatternDialogComponent.with(
                 SpreadsheetPatternDialogComponentContexts.cellParse(this)
         );
 
-        SpreadsheetPatternDialogComponent.format(
+        SpreadsheetPatternDialogComponent.with(
                 SpreadsheetPatternDialogComponentContexts.metadataFormat(this)
         );
-        SpreadsheetPatternDialogComponent.parse(
+        SpreadsheetPatternDialogComponent.with(
                 SpreadsheetPatternDialogComponentContexts.metadataParse(this)
         );
 

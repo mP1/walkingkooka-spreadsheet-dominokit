@@ -30,9 +30,11 @@ public final class SpreadsheetPatternComponentTabsTest implements ClassTesting<S
     public void testFormat() {
         this.treePrintAndCheck(
                 SpreadsheetPatternComponentTabs.empty(
-                        SpreadsheetPatternKind.formatValues(),
                         new FakeSpreadsheetPatternDialogComponentContext() {
-
+                            @Override
+                            public SpreadsheetPatternKind[] filteredPatternKinds() {
+                                return SpreadsheetPatternKind.formatValues();
+                            }
                         }
                 ),
                 "SpreadsheetPatternComponentTabs\n" +
@@ -54,9 +56,11 @@ public final class SpreadsheetPatternComponentTabsTest implements ClassTesting<S
     public void testParse() {
         this.treePrintAndCheck(
                 SpreadsheetPatternComponentTabs.empty(
-                        SpreadsheetPatternKind.parseValues(),
                         new FakeSpreadsheetPatternDialogComponentContext() {
-
+                            @Override
+                            public SpreadsheetPatternKind[] filteredPatternKinds() {
+                                return SpreadsheetPatternKind.parseValues();
+                            }
                         }
                 ),
                 "SpreadsheetPatternComponentTabs\n" +

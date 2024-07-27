@@ -38,6 +38,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
@@ -45,7 +46,7 @@ import java.util.Set;
  * A modal dialog with a text box that allows user entry of a {@link SpreadsheetPattern pattern}.
  * Buttons are available along the bottom that support SAVE, UNDO and CLOSE.
  */
-public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class SpreadsheetPatternDialogComponent implements SpreadsheetDialogComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopNoResponseWatcher,
@@ -53,27 +54,21 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
         SpreadsheetMetadataFetcherWatcher {
 
     /**
-     * Creates a new {@link SpreadsheetPatternDialogComponentFormat}.
+     * Creates a new {@link SpreadsheetPatternDialogComponent}.
      */
-    public static SpreadsheetPatternDialogComponent format(final SpreadsheetPatternDialogComponentContext context) {
-        return SpreadsheetPatternDialogComponentFormat.with(context);
+    public static SpreadsheetPatternDialogComponent with(final SpreadsheetPatternDialogComponentContext context) {
+        return new SpreadsheetPatternDialogComponent(
+                Objects.requireNonNull(context, "context")
+        );
     }
 
-    /**
-     * Creates a new {@link SpreadsheetPatternDialogComponentParse}.
-     */
-    public static SpreadsheetPatternDialogComponent parse(final SpreadsheetPatternDialogComponentContext context) {
-        return SpreadsheetPatternDialogComponentParse.with(context);
-    }
-
-    SpreadsheetPatternDialogComponent(final SpreadsheetPatternDialogComponentContext context) {
+    private SpreadsheetPatternDialogComponent(final SpreadsheetPatternDialogComponentContext context) {
         this.context = context;
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.tabs = SpreadsheetPatternComponentTabs.empty(
-                this.spreadsheetPatternKinds(),
                 context
         );
 
@@ -351,7 +346,6 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
                 )
         );
         this.tabs.refresh(
-                this.spreadsheetPatternKinds(),
                 componentContext
         );
         this.elementAppender.refresh(
@@ -386,8 +380,6 @@ public abstract class SpreadsheetPatternDialogComponent implements SpreadsheetDi
                 )
         );
     }
-
-    abstract SpreadsheetPatternKind[] spreadsheetPatternKinds();
 
     // Date/Time format
     // Text format
