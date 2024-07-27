@@ -101,7 +101,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetTextBox\n" +
                         "            [Z=text] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "            Errors\n" +
-                        "              Some sort columns/rows are not within B2:C3 got Z\n" +
+                        "              Invalid column(s) Z are not within B2:C3\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -179,7 +179,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetTextBox\n" +
                         "            [99=text] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "            Errors\n" +
-                        "              Some sort columns/rows are not within B2:C3 got 99\n" +
+                        "              Invalid row(s) 99 are not within B2:C3\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
