@@ -24,9 +24,12 @@ import walkingkooka.datetime.DateTimeContexts;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContexts;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
@@ -34,7 +37,15 @@ import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLi
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.FakeSpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateParsePattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
 import java.math.MathContext;
@@ -44,8 +55,15 @@ import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
-public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetPatternDialogComponent> {
+public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetPatternDialogComponent>, HistoryTokenTesting {
+
+    private final static SpreadsheetId ID = SpreadsheetId.with(1);
+
+    private final static SpreadsheetName NAME = SpreadsheetName.with("Spreadsheet123");
+
+    private final static AnchoredSpreadsheetSelection CELL = SpreadsheetSelection.A1.setDefaultAnchor();
 
     private final static DateTimeContext DATE_TIME_CONTEXT = DateTimeContexts.locale(
             Locale.forLanguageTag("EN-AU"), // cell / locale
@@ -2440,6 +2458,251 @@ public final class SpreadsheetPatternDialogComponentTest implements SpreadsheetD
                         "          \"Close\" DISABLED id=pattern-close-Link\n"
         );
     }
+
+    // dialog...........................................................................................................
+
+    @Test
+    public void testMetadataFormatterDateDialogClose() {
+        final SpreadsheetMetadataPropertyName<SpreadsheetFormatterSelector> property = SpreadsheetMetadataPropertyName.DATE_FORMATTER;
+
+        this.historyTokenCloseDialogAndCheck(
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        property
+                ),
+                HistoryToken.metadataSelect(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
+    @Test
+    public void testMetadataFormatterDateDialogSave() {
+        final SpreadsheetMetadataPropertyName<SpreadsheetFormatterSelector> property = SpreadsheetMetadataPropertyName.DATE_FORMATTER;
+        final SpreadsheetDateFormatPattern value = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
+
+        this.historyTokenSaveValueAndCheck(
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        property
+                ),
+                Optional.of(value),
+                HistoryToken.metadataPropertySave(
+                        ID,
+                        NAME,
+                        property,
+                        Optional.of(
+                                value.spreadsheetFormatterSelector()
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testMetadataFormatterDateDialogRemove() {
+        final SpreadsheetMetadataPropertyName<SpreadsheetFormatterSelector> property = SpreadsheetMetadataPropertyName.DATE_FORMATTER;
+
+        this.historyTokenRemoveValueAndCheck(
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        property
+                ),
+                Optional.empty(),
+                HistoryToken.metadataPropertySave(
+                        ID,
+                        NAME,
+                        property,
+                        Optional.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testCellFormatterDateDialogClose() {
+        this.historyTokenCloseDialogAndCheck(
+                HistoryToken.cellFormatPattern(
+                        ID,
+                        NAME,
+                        CELL
+                ),
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL
+                )
+        );
+    }
+
+    @Test
+    public void testCellFormatterDateDialogSave() {
+        final SpreadsheetDateFormatPattern value = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
+        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
+
+        this.historyTokenSaveValueAndCheck(
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        CELL,
+                        kind
+                ),
+                Optional.of(value),
+                HistoryToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        CELL,
+                        kind,
+                        Optional.of(value)
+                )
+        );
+    }
+
+    @Test
+    public void testCellFormatterDateDialogRemove() {
+        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
+
+        this.historyTokenRemoveValueAndCheck(
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        CELL,
+                        kind
+                ),
+                Optional.empty(),
+                HistoryToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        CELL,
+                        kind,
+                        Optional.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testMetadataParserDateDialogClose() {
+        final SpreadsheetMetadataPropertyName<SpreadsheetParserSelector> property = SpreadsheetMetadataPropertyName.DATE_PARSER;
+
+        this.historyTokenCloseDialogAndCheck(
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        property
+                ),
+                HistoryToken.metadataSelect(
+                        ID,
+                        NAME
+                )
+        );
+    }
+
+    @Test
+    public void testMetadataParserDateDialogSave() {
+        final SpreadsheetMetadataPropertyName<SpreadsheetParserSelector> property = SpreadsheetMetadataPropertyName.DATE_PARSER;
+        final SpreadsheetDateParsePattern value = SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy");
+
+        this.historyTokenSaveValueAndCheck(
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        property
+                ),
+                Optional.of(value),
+                HistoryToken.metadataPropertySave(
+                        ID,
+                        NAME,
+                        property,
+                        Optional.of(
+                                value.spreadsheetParserSelector()
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testMetadataParserDateDialogRemove() {
+        final SpreadsheetMetadataPropertyName<SpreadsheetParserSelector> property = SpreadsheetMetadataPropertyName.DATE_PARSER;
+
+        this.historyTokenRemoveValueAndCheck(
+                HistoryToken.metadataPropertySelect(
+                        ID,
+                        NAME,
+                        property
+                ),
+                Optional.empty(),
+                HistoryToken.metadataPropertySave(
+                        ID,
+                        NAME,
+                        property,
+                        Optional.empty()
+                )
+        );
+    }
+
+    @Test
+    public void testCellParserDateDialogClose() {
+        this.historyTokenCloseDialogAndCheck(
+                HistoryToken.cellParsePattern(
+                        ID,
+                        NAME,
+                        CELL
+                ),
+                HistoryToken.cell(
+                        ID,
+                        NAME,
+                        CELL
+                )
+        );
+    }
+
+    @Test
+    public void testCellParserDateDialogSave() {
+        final SpreadsheetDateParsePattern value = SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy");
+        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_PARSE_PATTERN;
+
+        this.historyTokenSaveValueAndCheck(
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        CELL,
+                        kind
+                ),
+                Optional.of(value),
+                HistoryToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        CELL,
+                        kind,
+                        Optional.of(value)
+                )
+        );
+    }
+
+    @Test
+    public void testCellParserDateDialogRemove() {
+        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_PARSE_PATTERN;
+
+        this.historyTokenRemoveValueAndCheck(
+                HistoryToken.cellPattern(
+                        ID,
+                        NAME,
+                        CELL,
+                        kind
+                ),
+                Optional.empty(),
+                HistoryToken.cellPatternSave(
+                        ID,
+                        NAME,
+                        CELL,
+                        kind,
+                        Optional.empty()
+                )
+        );
+    }
+
     private void onHistoryTokenChangeAndSetPatternTextAndCheck(final SpreadsheetPatternDialogComponent dialog,
                                                                final String patternText,
                                                                final AppContext context,
