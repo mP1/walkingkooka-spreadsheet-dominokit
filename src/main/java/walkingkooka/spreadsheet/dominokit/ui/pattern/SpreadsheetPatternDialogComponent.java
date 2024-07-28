@@ -124,7 +124,7 @@ public final class SpreadsheetPatternDialogComponent implements SpreadsheetDialo
     }
 
     @Override
-    public final SpreadsheetDialogComponent dialog() {
+    public SpreadsheetDialogComponent dialog() {
         return this.dialog;
     }
 
@@ -292,24 +292,24 @@ public final class SpreadsheetPatternDialogComponent implements SpreadsheetDialo
     // SpreadsheetDeltaFetcherWatcher..........................................................................................
 
     @Override
-    public final void onSpreadsheetDelta(final HttpMethod method,
-                                         final AbsoluteOrRelativeUrl url,
-                                         final SpreadsheetDelta delta,
-                                         final AppContext context) {
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
+                                   final SpreadsheetDelta delta,
+                                   final AppContext context) {
         this.refreshIfOpen(context);
     }
 
     // SpreadsheetMetadataFetcherWatcher..........................................................................................
 
     @Override
-    public final void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                            final AppContext context) {
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
         this.refreshIfOpen(context);
     }
 
     @Override
-    public final void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                               final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                         final AppContext context) {
         // Ignore many
     }
 
@@ -317,17 +317,17 @@ public final class SpreadsheetPatternDialogComponent implements SpreadsheetDialo
 
     // save should not open or close the dialog.
     @Override
-    public final boolean shouldIgnore(final HistoryToken token) {
+    public boolean shouldIgnore(final HistoryToken token) {
         return this.context.shouldIgnore(token);
     }
 
     @Override
-    public final boolean isMatch(final HistoryToken token) {
+    public boolean isMatch(final HistoryToken token) {
         return this.context.isMatch(token);
     }
 
     @Override
-    public final void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final AppContext context) {
         context.giveFocus(
                 this.patternTextBox::focus
         );
@@ -337,7 +337,7 @@ public final class SpreadsheetPatternDialogComponent implements SpreadsheetDialo
      * Refreshes the widget, typically done when the {@link SpreadsheetPatternKind} changes etc.
      */
     @Override
-    public final void refresh(final AppContext context) {
+    public void refresh(final AppContext context) {
         final SpreadsheetPatternDialogComponentContext componentContext = this.context;
 
         this.dialog.setTitle(
