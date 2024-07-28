@@ -24,8 +24,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-
-import java.time.LocalDateTime;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 
 /**
  * A mostly complete {@link SpreadsheetPatternDialogComponentContext}.
@@ -78,10 +77,8 @@ abstract class SpreadsheetPatternDialogComponentContextBasic implements Spreadsh
                 .formatterContext(
                         context, // implements SpreadsheetFormatterProvider
                         context, // context as SpreadsheetParserProvider
-                        LocalDateTime::now,
-                        (s) -> {
-                            throw new UnsupportedOperationException();
-                        }
+                        context::now,
+                        SpreadsheetLabelNameResolvers.fake()
                 );
     }
 
