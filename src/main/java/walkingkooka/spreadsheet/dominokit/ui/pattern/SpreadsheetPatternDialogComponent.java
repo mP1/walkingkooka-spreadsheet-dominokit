@@ -135,7 +135,7 @@ public final class SpreadsheetPatternDialogComponent implements SpreadsheetDialo
     // ids..............................................................................................................
 
     @Override
-    public final String idPrefix() {
+    public String idPrefix() {
         return ID_PREFIX;
     }
 
