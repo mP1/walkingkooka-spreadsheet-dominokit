@@ -15,14 +15,12 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui;
+package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.viewport.HasSpreadsheetViewportCache;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
+import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycle;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
