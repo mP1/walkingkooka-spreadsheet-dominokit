@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.ui;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;

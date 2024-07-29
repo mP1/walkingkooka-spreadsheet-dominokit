@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.textbox;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
@@ -35,7 +35,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
     @Test
     public void testLabel() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
                         .setLabel("Label123"),
                 "SpreadsheetTextBox\n" +
                         "  Label123 []\n"
@@ -45,7 +45,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
     @Test
     public void testLabelAndValue() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
                         .setLabel("Label123")
                         .setValue(Optional.of("Value456")),
                 "SpreadsheetTextBox\n" +
@@ -56,7 +56,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
     @Test
     public void testValue() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
                         .setValue(Optional.of("Value456")),
                 "SpreadsheetTextBox\n" +
                         "  [Value456]\n"
@@ -66,7 +66,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
     @Test
     public void testSetCssText() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
                         .setValue(Optional.of("Value456"))
                         .setCssText("background-color: lavender;"),
                 "SpreadsheetTextBox\n" +
