@@ -15,12 +15,11 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.applayout;
+package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.layout.AppLayout;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
