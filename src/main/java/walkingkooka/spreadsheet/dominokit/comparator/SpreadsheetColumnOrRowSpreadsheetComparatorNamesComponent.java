@@ -15,25 +15,25 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.columnorrowcomparatornameslist;
+package walkingkooka.spreadsheet.dominokit.comparator;
 
-import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
+import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.text.HasText;
 
 /**
- * A text box that accepts entry and validates it as a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesList}.
+ * A text box that accepts entry and validates it as a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
  */
-public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent, SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> {
+public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent, SpreadsheetColumnOrRowSpreadsheetComparatorNames> {
 
-    public static SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent empty() {
-        return new SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent();
+    public static SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent empty() {
+        return new SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent();
     }
 
-    private SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent() {
+    private SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList::parse,
+                SpreadsheetColumnOrRowSpreadsheetComparatorNames::parse,
                 HasText::text
         );
     }
@@ -41,11 +41,11 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetColumnOrRowSpreadsheetComparatorNames> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetColumnOrRowSpreadsheetComparatorNames> textBox;
 
     // Object...........................................................................................................
 
