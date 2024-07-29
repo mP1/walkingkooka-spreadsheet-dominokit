@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.find;
+package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.datetime.HasNow;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;

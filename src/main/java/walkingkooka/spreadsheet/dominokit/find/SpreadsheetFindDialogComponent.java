@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.find;
+package walkingkooka.spreadsheet.dominokit.find;
 
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
@@ -34,7 +34,6 @@ import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetCellRangeReferenceComponent;
-import walkingkooka.spreadsheet.dominokit.ui.cellrangepath.SpreadsheetCellRangeReferencePathComponent;
 import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycle;
