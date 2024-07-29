@@ -19,11 +19,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponent;
 
 import java.util.OptionalInt;
 
 /**
- * A token that reloads the list shown by {@link walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListDialogComponent}.
+ * A token that reloads the list shown by {@link SpreadsheetListDialogComponent}.
  * <pre>
  * /reload
  * </pre>

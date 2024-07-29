@@ -21,11 +21,11 @@ import elemental2.dom.HTMLUListElement;
 import org.dominokit.domino.ui.elements.UListElement;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameComponent;
+import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 /**
- * A {@link SpreadsheetMetadataPanelComponentItem} that displays a {@link walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameComponent}.
+ * A {@link SpreadsheetMetadataPanelComponentItem} that displays a {@link SpreadsheetNameComponent}.
  */
 final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends SpreadsheetMetadataPanelComponentItem<SpreadsheetName> {
 

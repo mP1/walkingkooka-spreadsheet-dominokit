@@ -96,11 +96,11 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialo
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponent;
 import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListComponentContexts;
+import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponent;
+import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
+import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.WindowResizeWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListComponentContexts;
-import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListDialogComponent;
-import walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameDialogComponent;
-import walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.toolbar.SpreadsheetToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent;

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist;
+package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.locale.HasLocale;
 import walkingkooka.reflect.PublicStaticHelper;

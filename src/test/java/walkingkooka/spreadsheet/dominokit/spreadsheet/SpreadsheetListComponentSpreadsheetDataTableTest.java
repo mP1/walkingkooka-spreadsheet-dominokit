@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist;
+package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
