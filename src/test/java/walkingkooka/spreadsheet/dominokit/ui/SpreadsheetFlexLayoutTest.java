@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.flexlayout;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
@@ -25,13 +25,13 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetFlexLayoutTest implements ClassTesting<SpreadsheetFlexLayout>,
+public final class SpreadsheetFlexLayoutTest implements ClassTesting<walkingkooka.spreadsheet.dominokit.ui.SpreadsheetFlexLayout>,
         TreePrintableTesting {
 
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                SpreadsheetFlexLayout.row()
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetFlexLayout.row()
                         .appendChild(
                                 SpreadsheetTextBox.empty()
                                         .setValue(
@@ -55,7 +55,7 @@ public final class SpreadsheetFlexLayoutTest implements ClassTesting<Spreadsheet
     @Test
     public void testTreePrintIncludesId() {
         this.treePrintAndCheck(
-                SpreadsheetFlexLayout.row()
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetFlexLayout.row()
                         .setId("Id123")
                         .appendChild(
                                 SpreadsheetTextBox.empty()
@@ -81,7 +81,7 @@ public final class SpreadsheetFlexLayoutTest implements ClassTesting<Spreadsheet
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetFlexLayout> type() {
+    public Class<walkingkooka.spreadsheet.dominokit.ui.SpreadsheetFlexLayout> type() {
         return SpreadsheetFlexLayout.class;
     }
 
