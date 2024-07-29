@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableCellElement;
 import org.dominokit.domino.ui.IsElement;
@@ -70,7 +70,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                 ).setTabIndex(0)
                 .style(
                         css(
-                                SpreadsheetViewportComponentTableCell.CELL_STYLE,
+                                CELL_STYLE,
                                 cache.columnWidth(cellReference.column()),
                                 cache.rowHeight(cellReference.row())
                         )

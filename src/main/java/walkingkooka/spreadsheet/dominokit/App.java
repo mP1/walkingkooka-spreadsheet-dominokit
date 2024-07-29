@@ -102,8 +102,8 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogCompo
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.WindowResizeWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.toolbar.SpreadsheetToolbarComponent;
-import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;

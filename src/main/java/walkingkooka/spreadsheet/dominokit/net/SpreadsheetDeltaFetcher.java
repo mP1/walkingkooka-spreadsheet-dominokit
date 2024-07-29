@@ -37,6 +37,8 @@ import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFind;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportFormulaComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -78,8 +80,8 @@ import java.util.function.BiFunction;
  * outside this viewport to be returned. They will be re-evaluated but their updated cells wont be returned.
  * Frozen columns and rows updates are implemented by the web-app by sending multiple windows.
  * <br>
- * Several components such as the {@link walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportFormulaComponent} and
- * {@link walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent} are all {@link SpreadsheetDeltaFetcherWatcher},
+ * Several components such as the {@link SpreadsheetViewportFormulaComponent} and
+ * {@link SpreadsheetViewportComponent} are all {@link SpreadsheetDeltaFetcherWatcher},
  * so any new responses that concern them will trigger an update.
  * <br>
  * This means that only changes following an operation are returned, and not the entire viewport window or the entire spreadsheet.

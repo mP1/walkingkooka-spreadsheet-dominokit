@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 
@@ -37,7 +37,7 @@ final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow extends Sp
         super(
                 SpreadsheetViewportComponent.id(row), // id
                 css(
-                        SpreadsheetViewportComponentTableCell.HEADER_STYLE,
+                        HEADER_STYLE,
                         SpreadsheetViewportComponent.ROW_WIDTH,
                         context.spreadsheetViewportCache()
                                 .rowHeight(row)
