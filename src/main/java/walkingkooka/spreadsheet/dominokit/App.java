@@ -83,8 +83,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.ui.WindowResizeWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.applayout.SpreadsheetAppLayout;
-import walkingkooka.spreadsheet.dominokit.ui.applayoutrightdrawer.AppLayoutRightDrawerComponent;
 import walkingkooka.spreadsheet.dominokit.ui.columnrowinsert.SpreadsheetColumnRowInsertCountDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.columnrowinsert.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetCellFind;
@@ -320,7 +318,7 @@ public class App implements EntryPoint,
                         Card.create()
                                 .appendChild(
                                         SpreadsheetMetadataPanelComponent.with(
-                                                AppLayoutRightDrawerComponent.with(layout),
+                                                SpreadsheetAppLayoutRightDrawerComponent.with(layout),
                                                 SpreadsheetMetadataPanelComponentContexts.appContext(this)
                                         ))
                 );

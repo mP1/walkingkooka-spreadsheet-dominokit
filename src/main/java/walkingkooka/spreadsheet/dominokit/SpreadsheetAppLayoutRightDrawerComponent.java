@@ -15,10 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.applayoutrightdrawer;
+package walkingkooka.spreadsheet.dominokit;
 
 import org.dominokit.domino.ui.layout.AppLayout;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ui.OpenableComponent;
 
 import java.util.Objects;
@@ -26,15 +25,15 @@ import java.util.Objects;
 /**
  * A {@link OpenableComponent} for a {@link AppLayout} right drawer.
  */
-public final class AppLayoutRightDrawerComponent implements OpenableComponent {
+final class SpreadsheetAppLayoutRightDrawerComponent implements OpenableComponent {
 
-    public static AppLayoutRightDrawerComponent with(final AppLayout appLayout) {
+    static SpreadsheetAppLayoutRightDrawerComponent with(final AppLayout appLayout) {
         Objects.requireNonNull(appLayout, "appLayout");
 
-        return new AppLayoutRightDrawerComponent(appLayout);
+        return new SpreadsheetAppLayoutRightDrawerComponent(appLayout);
     }
 
-    private AppLayoutRightDrawerComponent(final AppLayout appLayout) {
+    private SpreadsheetAppLayoutRightDrawerComponent(final AppLayout appLayout) {
         this.appLayout = appLayout;
     }
 
