@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
+import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.dialog.FakeSpreadsheetDialogComponentContext;
 
 public class FakeSpreadsheetColumnRowInsertCountDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements SpreadsheetColumnRowInsertCountDialogComponentContext {
     @Override

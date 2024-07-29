@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.dialog;
+package walkingkooka.spreadsheet.dominokit.dialog;
 
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
