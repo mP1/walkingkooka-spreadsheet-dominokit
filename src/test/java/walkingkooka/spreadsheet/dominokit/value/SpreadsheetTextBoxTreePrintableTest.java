@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
@@ -23,7 +23,6 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintableTesting;
 
@@ -35,7 +34,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
     @Test
     public void testLabel() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
                         .setLabel("Label123"),
                 "SpreadsheetTextBox\n" +
                         "  Label123 []\n"
@@ -45,7 +44,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
     @Test
     public void testLabelAndValue() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
                         .setLabel("Label123")
                         .setValue(Optional.of("Value456")),
                 "SpreadsheetTextBox\n" +
@@ -56,7 +55,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
     @Test
     public void testValue() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
                         .setValue(Optional.of("Value456")),
                 "SpreadsheetTextBox\n" +
                         "  [Value456]\n"
@@ -66,7 +65,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
     @Test
     public void testSetCssText() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
                         .setValue(Optional.of("Value456"))
                         .setCssText("background-color: lavender;"),
                 "SpreadsheetTextBox\n" +

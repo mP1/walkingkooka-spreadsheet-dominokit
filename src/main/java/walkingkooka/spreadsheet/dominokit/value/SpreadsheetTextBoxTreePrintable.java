@@ -15,12 +15,10 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;

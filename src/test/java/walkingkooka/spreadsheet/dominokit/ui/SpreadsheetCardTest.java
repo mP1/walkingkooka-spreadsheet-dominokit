@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
@@ -40,7 +41,7 @@ public final class SpreadsheetCardTest implements ClassTesting<SpreadsheetCard>,
         this.treePrintAndCheck(
                 SpreadsheetCard.empty()
                         .appendChild(
-                                SpreadsheetTextBox.empty()
+                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
                                         .setValue(
                                                 Optional.of("Value123")
                                         )

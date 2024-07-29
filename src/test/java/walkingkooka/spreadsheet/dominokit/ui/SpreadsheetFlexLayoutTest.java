@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
@@ -32,12 +33,12 @@ public final class SpreadsheetFlexLayoutTest implements ClassTesting<walkingkook
         this.treePrintAndCheck(
                 walkingkooka.spreadsheet.dominokit.ui.SpreadsheetFlexLayout.row()
                         .appendChild(
-                                SpreadsheetTextBox.empty()
+                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
                                         .setValue(
                                                 Optional.of("Value111")
                                         )
                         ).appendChild(
-                                SpreadsheetTextBox.empty()
+                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
                                         .setValue(
                                                 Optional.of("Value222")
                                         )
@@ -57,7 +58,7 @@ public final class SpreadsheetFlexLayoutTest implements ClassTesting<walkingkook
                 walkingkooka.spreadsheet.dominokit.ui.SpreadsheetFlexLayout.row()
                         .setId("Id123")
                         .appendChild(
-                                SpreadsheetTextBox.empty()
+                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
                                         .setValue(
                                                 Optional.of("Value111")
                                         )

@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;

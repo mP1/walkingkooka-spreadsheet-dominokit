@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.ui;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.CanBeEmptyTesting;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public final class ComponentWithChildrenTest implements TreePrintableTesting,
@@ -54,7 +55,7 @@ public final class ComponentWithChildrenTest implements TreePrintableTesting,
                         ).appendChild(
                                 SpreadsheetCard.empty()
                         ).appendChild(
-                                SpreadsheetTextBox.empty()
+                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
                         ),
                 false
         );
@@ -67,7 +68,7 @@ public final class ComponentWithChildrenTest implements TreePrintableTesting,
                         .appendChild(
                                 SpreadsheetCard.empty()
                                         .appendChild(
-                                                SpreadsheetTextBox.empty()
+                                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
                                         )
                         ),
                 false
@@ -79,9 +80,9 @@ public final class ComponentWithChildrenTest implements TreePrintableTesting,
         this.isEmptyAndCheck(
                 SpreadsheetCard.empty()
                         .appendChild(
-                                SpreadsheetTextBox.empty()
+                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
                         ).appendChild(
-                                SpreadsheetTextBox.empty()
+                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
                         ).appendChild(
                                 SpreadsheetTextBox.empty()
                         ),
