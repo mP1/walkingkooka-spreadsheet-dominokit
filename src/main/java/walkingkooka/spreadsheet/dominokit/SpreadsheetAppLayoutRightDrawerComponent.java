@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import org.dominokit.domino.ui.layout.AppLayout;
-import walkingkooka.spreadsheet.dominokit.ui.OpenableComponent;
 
 import java.util.Objects;
 

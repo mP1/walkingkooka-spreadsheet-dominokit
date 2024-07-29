@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
-import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycleTesting;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleTesting;
 
 public interface SpreadsheetDialogComponentLifecycleTesting<T extends SpreadsheetDialogComponentLifecycle> extends ComponentLifecycleTesting<T> {
 }

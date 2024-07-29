@@ -17,11 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
+import walkingkooka.spreadsheet.dominokit.CanGiveFocus;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.CanGiveFocus;
-import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;

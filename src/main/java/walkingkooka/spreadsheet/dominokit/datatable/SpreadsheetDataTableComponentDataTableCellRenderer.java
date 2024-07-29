@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.datatable;
 
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.datatable.CellRenderer;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 
 /**
  * A {@link CellRenderer} that acts as a bridge to a function which returns a {@link HtmlElementComponent}.

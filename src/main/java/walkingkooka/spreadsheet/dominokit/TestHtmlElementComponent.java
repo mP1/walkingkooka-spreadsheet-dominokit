@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 
 /**
  * Interface to be implemented by test {@link HtmlElementComponent}.
