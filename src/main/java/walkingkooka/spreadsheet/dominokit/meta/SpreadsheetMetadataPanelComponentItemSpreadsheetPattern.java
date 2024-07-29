@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.meta;
+package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.spreadsheet.dominokit.AppContext;

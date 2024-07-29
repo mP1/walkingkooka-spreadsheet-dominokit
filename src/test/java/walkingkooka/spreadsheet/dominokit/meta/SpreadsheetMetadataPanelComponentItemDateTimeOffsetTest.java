@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.meta;
+package walkingkooka.spreadsheet.dominokit.meta;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;

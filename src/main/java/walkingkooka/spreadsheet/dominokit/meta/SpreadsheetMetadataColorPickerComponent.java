@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.metadatacolorpicker;
+package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLTableElement;
 import org.dominokit.domino.ui.IsElement;

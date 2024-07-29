@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.meta;
+package walkingkooka.spreadsheet.dominokit.meta;
 
 import walkingkooka.locale.HasLocale;
 import walkingkooka.spreadsheet.dominokit.UiFormattingContext;
