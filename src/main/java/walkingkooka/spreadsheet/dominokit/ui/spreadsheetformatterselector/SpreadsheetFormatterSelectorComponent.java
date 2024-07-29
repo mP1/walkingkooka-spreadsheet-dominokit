@@ -32,7 +32,10 @@ public final class SpreadsheetFormatterSelectorComponent implements ParserSpread
     }
 
     private SpreadsheetFormatterSelectorComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetFormatterSelector::parse);
+        this.textBox = ParserSpreadsheetTextBox.with(
+                SpreadsheetFormatterSelector::parse,
+                SpreadsheetFormatterSelector::toString
+        );
     }
 
     // ParserSpreadsheetTextBoxWrapper..................................................................................

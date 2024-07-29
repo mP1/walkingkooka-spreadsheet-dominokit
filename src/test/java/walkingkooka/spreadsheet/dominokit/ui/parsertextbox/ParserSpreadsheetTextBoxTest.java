@@ -24,6 +24,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.ValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.HasText;
 
 import java.util.Optional;
 
@@ -32,10 +33,26 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class ParserSpreadsheetTextBoxTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, ParserSpreadsheetTextBox<SpreadsheetCellReference>> {
 
     @Test
-    public void testWithNullFunctionFails() {
+    public void testWithNullParserFunctionFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> ParserSpreadsheetTextBox.with(null)
+                () -> ParserSpreadsheetTextBox.with(
+                        null,
+                        Object::toString
+                )
+        );
+    }
+
+    @Test
+    public void testWithNullFormatterFunctionFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> ParserSpreadsheetTextBox.with(
+                        (s) -> {
+                            throw new UnsupportedOperationException();
+                        },
+                        null
+                )
         );
     }
 
@@ -43,20 +60,24 @@ public final class ParserSpreadsheetTextBoxTest implements ValueComponentTesting
     public void testSetValue() {
         this.checkEquals(
                 Optional.of("AB12"),
-                ParserSpreadsheetTextBox.with(SpreadsheetSelection::parseCell)
-                        .setValue(
-                                Optional.of(
-                                        SpreadsheetSelection.parseCell("AB12")
-                                )
-                        ).stringValue()
+                ParserSpreadsheetTextBox.with(
+                        SpreadsheetSelection::parseCell,
+                        HasText::text
+                ).setValue(
+                        Optional.of(
+                                SpreadsheetSelection.parseCell("AB12")
+                        )
+                ).stringValue()
         );
     }
 
     @Test
     public void testPrintTreeSetStringValueInvalidCharacter() {
         this.treePrintAndCheck(
-                ParserSpreadsheetTextBox.with(SpreadsheetSelection::parseCell)
-                        .setId("id123")
+                ParserSpreadsheetTextBox.with(
+                                SpreadsheetSelection::parseCell,
+                                HasText::text
+                        ).setId("id123")
                         .setStringValue(
                                 Optional.of(
                                         "AB!12"
@@ -73,8 +94,10 @@ public final class ParserSpreadsheetTextBoxTest implements ValueComponentTesting
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                ParserSpreadsheetTextBox.with(SpreadsheetSelection::parseCell)
-                        .setId("id123")
+                ParserSpreadsheetTextBox.with(
+                                SpreadsheetSelection::parseCell,
+                                HasText::text
+                        ).setId("id123")
                         .setValue(
                                 Optional.of(
                                         SpreadsheetSelection.parseCell("AB12")

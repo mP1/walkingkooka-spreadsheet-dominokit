@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.columnorrowcomparatornames;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
+import walkingkooka.text.HasText;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
@@ -31,7 +32,10 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent imp
     }
 
     private SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetColumnOrRowSpreadsheetComparatorNames::parse);
+        this.textBox = ParserSpreadsheetTextBox.with(
+                SpreadsheetColumnOrRowSpreadsheetComparatorNames::parse,
+                HasText::text
+        );
     }
 
     // ParserSpreadsheetTextBoxWrapper..................................................................................
