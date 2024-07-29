@@ -15,13 +15,10 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.textnode;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
-import org.dominokit.domino.ui.utils.ElementsFactory;
-import walkingkooka.spreadsheet.dominokit.dom.Doms;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.Objects;
@@ -60,28 +57,15 @@ public final class SpreadsheetTextNodeComponent implements SpreadsheetTextNodeCo
 
     @Override
     public HTMLDivElement element() {
-        if (null == this.element) {
-            this.element = ElementsFactory.elements.div()
-                    .appendChild(this.node())
-                    .element();
-        }
-        return this.element;
+        throw new UnsupportedOperationException();
     }
-
-    private HTMLDivElement element;
 
     // node.............................................................................................................
 
+    @Override
     public Node node() {
-        if (null == this.node) {
-            this.node = Doms.node(
-                    this.value.orElse(TextNode.EMPTY_TEXT)
-            );
-        }
-        return this.node;
+        throw new UnsupportedOperationException();
     }
-
-    private Node node;
 
     // Object...........................................................................................................
 
