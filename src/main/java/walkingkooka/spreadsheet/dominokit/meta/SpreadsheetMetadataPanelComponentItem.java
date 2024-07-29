@@ -34,7 +34,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentRefreshable;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.ui.tooltip.SpreadsheetTooltipComponent;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTooltipComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
