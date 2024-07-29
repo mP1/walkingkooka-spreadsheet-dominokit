@@ -15,45 +15,54 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.sort;
+package walkingkooka.spreadsheet.dominokit.sort;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorDirection;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
- * A container that presents LINKS each missing a component from the parent {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
+ * A container that shows LINKS for each {@link SpreadsheetComparatorName missing from the index {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}
+ * from the parent {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
  */
-final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover implements HtmlElementComponent<HTMLDivElement, SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover>,
+final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender implements HtmlElementComponent<HTMLDivElement, SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender>,
         TreePrintable {
 
     /**
-     * Creates an empty {@link SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover}.
+     * Creates an empty {@link SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender}.
      */
-    static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover empty(final String id,
-                                                                                            final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
-        return new SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(
+    static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender empty(final String id,
+                                                                                             final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
+        return new SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender(
                 id,
                 setter
         );
     }
 
-    private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(final String id,
-                                                                                       final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
+    private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender(final String id,
+                                                                                        final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
+        this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle("Remove comparator(s)");
+                .setTitle("Append comparator(s)")
+                .appendChild(this.flex);
 
         this.id = id;
         this.setter = setter;
@@ -65,14 +74,16 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
     void refresh(final Optional<SpreadsheetColumnOrRowReference> columnOrRow,
                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                  final SpreadsheetSortDialogComponentContext context) {
-        final SpreadsheetCard root = this.root;
-        root.removeAllChildren()
-                .hide();
+        this.flex.removeAllChildren();
+        this.root.hide();
 
         if (columnOrRow.isPresent()) {
+            final List<SpreadsheetComparatorNameAndDirection> copy = Lists.array();
+            copy.addAll(spreadsheetComparatorNameAndDirections);
+
             this.refresh0(
                     columnOrRow.get(),
-                    spreadsheetComparatorNameAndDirections,
+                    copy,
                     context
             );
         }
@@ -81,54 +92,63 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
     void refresh0(final SpreadsheetColumnOrRowReference columnOrRow,
                   final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                   final SpreadsheetSortDialogComponentContext context) {
-        final SpreadsheetCard root = this.root;
+        final SpreadsheetFlexLayout flex = this.flex;
 
         final HistoryToken historyToken = context.historyToken();
 
         final String idPrefix = this.id;
 
-        final int count = spreadsheetComparatorNameAndDirections.size();
+        final Set<SpreadsheetComparatorName> existing = spreadsheetComparatorNameAndDirections.stream()
+                .map(SpreadsheetComparatorNameAndDirection::name)
+                .collect(Collectors.toSet());
 
-        for (int i = 0; i < count; i++) {
-            final List<SpreadsheetComparatorNameAndDirection> removed = Lists.array();
-            removed.addAll(spreadsheetComparatorNameAndDirections);
-            final String text = removed.remove(i)
-                    .name()
-                    .text();
+        final int addIndex = spreadsheetComparatorNameAndDirections.size();
+        int i = 0;
 
-            root.appendChild(
-                    historyToken.link(idPrefix + "remove-" + i)
-                            .setTextContent(text)
+        for (final SpreadsheetComparatorInfo info : context.spreadsheetComparatorInfos()) {
+
+            final SpreadsheetComparatorName comparatorName = info.name();
+            if (existing.contains(comparatorName)) {
+                continue;
+            }
+
+            spreadsheetComparatorNameAndDirections.add(
+                    comparatorName.setDirection(SpreadsheetComparatorDirection.DEFAULT)
+            );
+
+            final SpreadsheetColumnOrRowSpreadsheetComparatorNames append = SpreadsheetColumnOrRowSpreadsheetComparatorNames.with(
+                    columnOrRow,
+                    spreadsheetComparatorNameAndDirections
+            );
+
+            flex.appendChild(
+                    historyToken.link(idPrefix + "append-" + i)
+                            .setTextContent(comparatorName.toString())
                             .setHistoryToken(
                                     Optional.of(
-                                            this.setter.apply(
-                                                    Optional.ofNullable(
-                                                            removed.isEmpty() ?
-                                                                    null :
-                                                                    SpreadsheetColumnOrRowSpreadsheetComparatorNames.with(
-                                                                            columnOrRow,
-                                                                            removed
-                                                                    )
-                                                    )
-                                            )
+                                            setter.apply(append)
                                     )
                             )
             );
+
+            spreadsheetComparatorNameAndDirections.remove(addIndex);
+
+            i++;
         }
 
-        if (count > 0) {
-            root.show();
+        if (i > 0) {
+            this.root.show();
         }
     }
 
     private final String id;
 
-    private final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter;
+    private final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter;
 
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover setCssText(final String css) {
+    public SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender setCssText(final String css) {
         this.root.setCssText(css);
         return this;
     }
@@ -152,8 +172,16 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
      */
     private final SpreadsheetCard root;
 
+    /**
+     * A flex layout that holds the actual links.
+     */
+    private final SpreadsheetFlexLayout flex;
+
     // TreePrintable....................................................................................................
 
+    /**
+     * If there are no links, nothing will be printed.
+     */
     @Override
     public void printTree(final IndentingPrinter printer) {
         if (false == this.root.isEmpty()) {

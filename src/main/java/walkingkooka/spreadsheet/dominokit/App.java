@@ -93,10 +93,10 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCo
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialogComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponent;
+import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.WindowResizeWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.ui.sort.SpreadsheetSortDialogComponent;
-import walkingkooka.spreadsheet.dominokit.ui.sort.SpreadsheetSortDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameDialogComponent;
