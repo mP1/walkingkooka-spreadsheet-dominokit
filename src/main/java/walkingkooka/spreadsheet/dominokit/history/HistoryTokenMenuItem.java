@@ -15,10 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.historytokenmenuitem;
+package walkingkooka.spreadsheet.dominokit.history;
 
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
-import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 
 /**
  * A {@link AbstractMenuItem} that includes a {@link HistoryTokenAnchorComponent}.

@@ -15,15 +15,13 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.historytokenanchor;
+package walkingkooka.spreadsheet.dominokit.history;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.Url;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuTarget;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
