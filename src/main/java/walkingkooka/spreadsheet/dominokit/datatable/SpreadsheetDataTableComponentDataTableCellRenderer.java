@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.datatable;
+package walkingkooka.spreadsheet.dominokit.datatable;
 
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.datatable.CellRenderer;

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.datatable;
+package walkingkooka.spreadsheet.dominokit.datatable;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;

@@ -15,12 +15,12 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.datatable;
+package walkingkooka.spreadsheet.dominokit.datatable;
 
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 
 /**
- * Renders a single column for the given row for a {@link walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponent}.
+ * Renders a single column for the given row for a {@link SpreadsheetDataTableComponent}.
  */
 public interface SpreadsheetDataTableComponentCellRenderer<T> {
 

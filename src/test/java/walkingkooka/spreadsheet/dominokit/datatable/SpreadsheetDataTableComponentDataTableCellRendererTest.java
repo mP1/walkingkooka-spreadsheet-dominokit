@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.datatable;
+package walkingkooka.spreadsheet.dominokit.datatable;
 
 import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
