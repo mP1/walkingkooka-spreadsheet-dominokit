@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLFieldSetElement;
-import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBoxTreePrintable;
 import walkingkooka.text.HasText;
 
 import java.util.Optional;

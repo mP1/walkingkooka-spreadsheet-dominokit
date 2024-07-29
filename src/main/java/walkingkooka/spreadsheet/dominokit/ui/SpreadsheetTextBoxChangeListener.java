@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.textbox;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 

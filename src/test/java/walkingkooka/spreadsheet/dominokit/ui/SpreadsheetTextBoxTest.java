@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.textbox;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
@@ -28,12 +28,12 @@ import walkingkooka.spreadsheet.dominokit.viewport.ValueComponentTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLFieldSetElement, String, SpreadsheetTextBox> {
+public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLFieldSetElement, String, walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox> {
 
     @Test
     public void testOptionalValidationPass() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
                         .setLabel("Label123")
                         .setValidator(
                                 SpreadsheetValidators.optional(
@@ -48,7 +48,7 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
     @Test
     public void testOptionalEmptyValueValidationPass() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
                         .setLabel("Label123")
                         .setValue(
                                 Optional.of("!")
@@ -66,7 +66,7 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
     @Test
     public void testValidationPass() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
                         .setLabel("Label123")
                         .setValidator(
                                 new Validator<Optional<String>>() {
@@ -84,7 +84,7 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
     @Test
     public void testValidationFailureInvalidCharacterException() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
                         .setLabel("Label123")
                         .setValidator(
                                 SpreadsheetValidators.tryCatch(
@@ -103,7 +103,7 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
     @Test
     public void testValidationFailure() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
                         .setLabel("Label123")
                         .setValidator(
                                 new Validator<Optional<String>>() {
@@ -123,7 +123,7 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
     @Test
     public void testLabelAndValueWithoutValidator() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox.empty()
                         .setLabel("Label123")
                         .setValue(Optional.of("Value456")),
                 "SpreadsheetTextBox\n" +
@@ -134,7 +134,7 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetTextBox> type() {
+    public Class<walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox> type() {
         return SpreadsheetTextBox.class;
     }
 
