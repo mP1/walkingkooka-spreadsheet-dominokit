@@ -15,43 +15,44 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.toolbar;
+package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
 
-final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorCellFind>
+/**
+ * Displays SORT in the toolbar. This will only be enabled when more than one cell, one column or one row is selected.
+ */
+final class SpreadsheetToolbarComponentItemAnchorSort extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorSort>
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh {
 
-    static SpreadsheetToolbarComponentItemAnchorCellFind with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorSort with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetToolbarComponentItemAnchorCellFind(
+        return new SpreadsheetToolbarComponentItemAnchorSort(
                 context
         );
     }
 
-    private SpreadsheetToolbarComponentItemAnchorCellFind(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorSort(final HistoryTokenContext context) {
         super(
                 SpreadsheetToolbarComponent.findCellsId(),
                 Optional.of(
                         SpreadsheetIcons.cellsFind()
                 ),
-                "Find",
-                "Find cells...",
+                "Sort",
+                "Sort cell(s), column(s), row(s)...",
                 context
         );
     }
@@ -65,32 +66,21 @@ final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToo
 
     // ComponentLifecycle...............................................................................................
 
+    // only match selections of more than one cell/column/row
     @Override
-    public void refresh(final AppContext context) {
-        final HistoryToken historyToken = context.historyToken();
+    public boolean isMatch(final HistoryToken token) {
+        boolean match = false;
 
-        AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelectionOrEmpty()
-                .orElse(null);
-        if (null != anchoredSpreadsheetSelection) {
-            final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
-            if (false == selection.isCellReference() && false == selection.isCellRangeReference()) {
-                anchoredSpreadsheetSelection = null;
+        if (token instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            final SpreadsheetAnchoredSelectionHistoryToken anchored = token.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
+            final SpreadsheetSelection selection = anchored.anchoredSelection()
+                    .selection();
+            if (selection.count() > 1) {
+                match = true;
             }
         }
 
-        if (null == anchoredSpreadsheetSelection) {
-            anchoredSpreadsheetSelection = SpreadsheetSelection.ALL_CELLS.setDefaultAnchor();
-        }
-
-        this.anchor.setHistoryToken(
-                Optional.of(
-                        historyToken.setAnchoredSelection(
-                                Optional.of(anchoredSpreadsheetSelection)
-                        ).setFind(
-                                SpreadsheetCellFind.empty()
-                        )
-                )
-        );
+        return match;
     }
 
     @Override
@@ -99,7 +89,16 @@ final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToo
     }
 
     @Override
-    public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetNameHistoryToken;
+    public void refresh(final AppContext context) {
+        final HistoryToken historyToken = context.historyToken();
+
+        HistoryToken sortEdit = historyToken.setSortEdit("");
+        if (historyToken.equals(sortEdit)) {
+            sortEdit = null;
+        }
+
+        this.anchor.setHistoryToken(
+                Optional.ofNullable(sortEdit)
+        );
     }
 }

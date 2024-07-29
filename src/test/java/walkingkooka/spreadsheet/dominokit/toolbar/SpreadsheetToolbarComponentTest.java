@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.toolbar;
+package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;

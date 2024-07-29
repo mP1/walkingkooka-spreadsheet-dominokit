@@ -15,44 +15,43 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.toolbar;
+package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
 
 /**
- * Displays SORT in the toolbar. This will only be enabled when more than one cell, one column or one row is selected.
+ * A toolbar link which when clicked open the create label dialog.
  */
-final class SpreadsheetToolbarComponentItemAnchorSort extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorSort>
+final class SpreadsheetToolbarComponentItemAnchorLabelCreate extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorLabelCreate>
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh {
 
-    static SpreadsheetToolbarComponentItemAnchorSort with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorLabelCreate with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetToolbarComponentItemAnchorSort(
+        return new SpreadsheetToolbarComponentItemAnchorLabelCreate(
                 context
         );
     }
 
-    private SpreadsheetToolbarComponentItemAnchorSort(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorLabelCreate(final HistoryTokenContext context) {
         super(
-                SpreadsheetToolbarComponent.findCellsId(),
+                SpreadsheetToolbarComponent.labelCreateId(),
                 Optional.of(
-                        SpreadsheetIcons.cellsFind()
+                        SpreadsheetIcons.labelAdd()
                 ),
-                "Sort",
-                "Sort cell(s), column(s), row(s)...",
+                "Create Label",
+                "Create Label",
                 context
         );
     }
@@ -66,21 +65,17 @@ final class SpreadsheetToolbarComponentItemAnchorSort extends SpreadsheetToolbar
 
     // ComponentLifecycle...............................................................................................
 
-    // only match selections of more than one cell/column/row
     @Override
-    public boolean isMatch(final HistoryToken token) {
-        boolean match = false;
+    public void refresh(final AppContext context) {
+        final HistoryToken historyToken = context.historyToken();
 
-        if (token instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-            final SpreadsheetAnchoredSelectionHistoryToken anchored = token.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
-            final SpreadsheetSelection selection = anchored.anchoredSelection()
-                    .selection();
-            if (selection.count() > 1) {
-                match = true;
-            }
-        }
-
-        return match;
+        this.anchor.setHistoryToken(
+                Optional.of(
+                        historyToken.setLabelName(
+                                Optional.empty()
+                        )
+                )
+        );
     }
 
     @Override
@@ -89,16 +84,7 @@ final class SpreadsheetToolbarComponentItemAnchorSort extends SpreadsheetToolbar
     }
 
     @Override
-    public void refresh(final AppContext context) {
-        final HistoryToken historyToken = context.historyToken();
-
-        HistoryToken sortEdit = historyToken.setSortEdit("");
-        if (historyToken.equals(sortEdit)) {
-            sortEdit = null;
-        }
-
-        this.anchor.setHistoryToken(
-                Optional.ofNullable(sortEdit)
-        );
+    public boolean isMatch(final HistoryToken token) {
+        return token instanceof SpreadsheetNameHistoryToken;
     }
 }

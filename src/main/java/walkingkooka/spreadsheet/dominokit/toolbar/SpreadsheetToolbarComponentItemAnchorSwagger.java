@@ -15,13 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.toolbar;
+package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
+import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
@@ -29,31 +30,36 @@ import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 import java.util.Objects;
 import java.util.Optional;
 
-/**
- * A toolbar link which when clicked open the create label dialog.
- */
-final class SpreadsheetToolbarComponentItemAnchorLabelCreate extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorLabelCreate>
+final class SpreadsheetToolbarComponentItemAnchorSwagger extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorSwagger>
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh {
 
-    static SpreadsheetToolbarComponentItemAnchorLabelCreate with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorSwagger with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetToolbarComponentItemAnchorLabelCreate(
+        return new SpreadsheetToolbarComponentItemAnchorSwagger(
                 context
         );
     }
 
-    private SpreadsheetToolbarComponentItemAnchorLabelCreate(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorSwagger(final HistoryTokenContext context) {
         super(
-                SpreadsheetToolbarComponent.labelCreateId(),
+                SpreadsheetToolbarComponent.swaggerId(),
                 Optional.of(
-                        SpreadsheetIcons.labelAdd()
+                        SpreadsheetIcons.swagger()
                 ),
-                "Create Label",
-                "Create Label",
+                "Swagger",
+                "Click to open swagger html client",
                 context
         );
+
+        final HistoryTokenAnchorComponent anchor = this.anchor;
+
+        anchor.iconBefore()
+                .get()
+                .cssText("position: relative; left: -1px; top: 4px; max-width: 18px; max-height: 18px;");
+        anchor.setHref(Url.parseRelative("/api-doc/index.html"));
+        anchor.setTarget("_blank");
     }
 
     // SpreadsheetToolbarComponentItemLink............................................................................
@@ -67,15 +73,7 @@ final class SpreadsheetToolbarComponentItemAnchorLabelCreate extends Spreadsheet
 
     @Override
     public void refresh(final AppContext context) {
-        final HistoryToken historyToken = context.historyToken();
-
-        this.anchor.setHistoryToken(
-                Optional.of(
-                        historyToken.setLabelName(
-                                Optional.empty()
-                        )
-                )
-        );
+        // NOP
     }
 
     @Override
@@ -85,6 +83,6 @@ final class SpreadsheetToolbarComponentItemAnchorLabelCreate extends Spreadsheet
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetNameHistoryToken;
+        return true; // always show
     }
 }
