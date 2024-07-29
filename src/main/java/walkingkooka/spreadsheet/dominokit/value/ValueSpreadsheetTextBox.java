@@ -15,16 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.valuetextbox;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.ui.validator.SpreadsheetValidators;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;

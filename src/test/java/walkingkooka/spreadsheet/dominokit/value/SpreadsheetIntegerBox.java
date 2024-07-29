@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.integerbox;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
@@ -23,7 +23,6 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -34,18 +33,18 @@ import java.util.Optional;
 
 /**
  * A mock of main/SpreadsheetIntegerBox with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
- * {@link SpreadsheetIntegerBox}.
+ * {@link walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox}.
  */
-public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox>,
-        SpreadsheetTextBoxTreePrintable<SpreadsheetIntegerBox, Integer>,
-        TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetIntegerBox> {
+public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetElement, Integer, walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox>,
+        SpreadsheetTextBoxTreePrintable<walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox, Integer>,
+        TestHtmlElementComponent<HTMLFieldSetElement, walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox> {
 
-    public static SpreadsheetIntegerBox empty() {
-        return new SpreadsheetIntegerBox();
+    public static walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox empty() {
+        return new walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox();
     }
 
     @Override
-    public SpreadsheetIntegerBox setId(final String id) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox setId(final String id) {
         this.id = id;
         return this;
     }
@@ -58,7 +57,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     private String id;
 
     @Override
-    public SpreadsheetIntegerBox setLabel(final String label) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox setLabel(final String label) {
         this.label = label;
         return this;
     }
@@ -71,7 +70,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     private String label;
 
     @Override
-    public SpreadsheetIntegerBox setValue(final Optional<Integer> value) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox setValue(final Optional<Integer> value) {
         Objects.requireNonNull(value, "value");
         this.value = value;
         return this;
@@ -85,18 +84,18 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     private Optional<Integer> value = Optional.empty();
 
     @Override
-    public SpreadsheetIntegerBox focus() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox focus() {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox optional() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox optional() {
         this.required = false;
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox required() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox required() {
         this.required = true;
         return this;
     }
@@ -109,7 +108,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     private boolean required;
 
     @Override
-    public SpreadsheetIntegerBox validate() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox validate() {
         return this;
     }
 
@@ -119,7 +118,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     }
 
     @Override
-    public SpreadsheetIntegerBox setErrors(final List<String> errors) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox setErrors(final List<String> errors) {
         this.errors = Lists.immutable(errors);
         return this;
     }
@@ -132,7 +131,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     }
 
     @Override
-    public SpreadsheetIntegerBox setDisabled(final boolean disabled) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox setDisabled(final boolean disabled) {
         this.disabled = true;
         return this;
     }
@@ -140,32 +139,32 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     private boolean disabled;
 
     @Override
-    public SpreadsheetIntegerBox addChangeListener(final ChangeListener<Optional<Integer>> listener) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox addChangeListener(final ChangeListener<Optional<Integer>> listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox addFocusListener(final EventListener listener) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox addFocusListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox addKeydownListener(final EventListener listener) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox addKeydownListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox addKeyupListener(final EventListener listener) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox addKeyupListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox alwaysShowHelperText() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox alwaysShowHelperText() {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox setHelperText(final Optional<String> text) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
         this.helperText = text;
         return this;
@@ -178,39 +177,39 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     private Optional<String> helperText = Optional.empty();
 
     @Override
-    public SpreadsheetIntegerBox hideMarginBottom() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox hideMarginBottom() {
         return this;
     }
 
     @Override
-    public SpreadsheetIntegerBox removeBorders() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox removeBorders() {
         return this;
     }
 
-    public SpreadsheetIntegerBox clearIcon() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox clearIcon() {
         return this;
     }
 
-    public SpreadsheetIntegerBox disableSpellcheck() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox disableSpellcheck() {
         return this;
     }
 
-    public SpreadsheetIntegerBox enterFiresValueChange() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox enterFiresValueChange() {
         return this;
     }
 
-    public SpreadsheetIntegerBox setValidator(final Validator<String> validator) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox setValidator(final Validator<String> validator) {
         return this;
     }
 
-    public SpreadsheetIntegerBox max(final int value) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox max(final int value) {
         this.max = value;
         return this;
     }
 
     private int max;
 
-    public SpreadsheetIntegerBox min(final int value) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetIntegerBox min(final int value) {
         this.min = value;
         return this;
     }

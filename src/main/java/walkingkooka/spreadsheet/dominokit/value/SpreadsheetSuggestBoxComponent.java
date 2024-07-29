@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.suggestbox;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.Element;
 import elemental2.dom.EventListener;
@@ -30,7 +30,6 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.ui.validator.SpreadsheetValidators;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;

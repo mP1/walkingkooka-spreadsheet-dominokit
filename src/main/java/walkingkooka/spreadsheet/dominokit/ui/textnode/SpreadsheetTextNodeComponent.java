@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.Objects;

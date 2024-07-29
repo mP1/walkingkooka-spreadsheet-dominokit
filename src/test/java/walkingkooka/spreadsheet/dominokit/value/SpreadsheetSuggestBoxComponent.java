@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.suggestbox;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
@@ -27,7 +27,6 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ui.ValidatorHelper;
-import walkingkooka.spreadsheet.dominokit.ui.validator.SpreadsheetValidators;
 import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -40,15 +39,15 @@ import java.util.function.Function;
  * A text box component that includes support for suggestions using a {@link SuggestionsStore}.
  */
 public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements SpreadsheetSuggestBoxComponentLike<T>,
-        TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetSuggestBoxComponent<T>>,
+        TestHtmlElementComponent<HTMLFieldSetElement, walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T>>,
         ValidatorHelper {
 
-    public static <T extends HasText> SpreadsheetSuggestBoxComponent<T> with(final Function<String, T> parser,
-                                                                             final SuggestionsStore<String, SpanElement, SuggestOption<String>> suggestionsStore) {
+    public static <T extends HasText> walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> with(final Function<String, T> parser,
+                                                                                                                      final SuggestionsStore<String, SpanElement, SuggestOption<String>> suggestionsStore) {
         Objects.requireNonNull(parser, "parser");
         Objects.requireNonNull(suggestionsStore, "suggestionsStore");
 
-        return new SpreadsheetSuggestBoxComponent<>(
+        return new walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<>(
                 parser,
                 suggestionsStore
         );
@@ -71,7 +70,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     // id...............................................................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> setId(final String id) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> setId(final String id) {
         this.id = id;
         return this;
     }
@@ -86,7 +85,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     // label............................................................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> setLabel(final String label) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> setLabel(final String label) {
         this.label = label;
         return this;
     }
@@ -101,12 +100,12 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     // helperText.......................................................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> alwaysShowHelperText() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> alwaysShowHelperText() {
         return this;
     }
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> setHelperText(final Optional<String> text) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
 
         this.helperText = text;
@@ -123,7 +122,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     // StringValue......................................................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> setStringValue(final Optional<String> value) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> setStringValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
 
         this.stringValue = value;
@@ -140,7 +139,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     // Value............................................................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> setValue(final Optional<T> value) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> setValue(final Optional<T> value) {
         Objects.requireNonNull(value, "value");
 
         return this.setStringValue(
@@ -177,7 +176,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     }
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> setDisabled(final boolean disabled) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> setDisabled(final boolean disabled) {
         this.disabled = disabled;
         return this;
     }
@@ -187,7 +186,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     // validation.......................................................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> optional() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> optional() {
         this.required = false;
         return this.setValidator(
                 SpreadsheetValidators.optional(
@@ -199,7 +198,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     }
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> required() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> required() {
         this.required = true;
         return this.setValidator(
                 SpreadsheetValidators.tryCatch(
@@ -208,7 +207,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         );
     }
 
-    private SpreadsheetSuggestBoxComponent<T> setValidator(final Validator<Optional<String>> validator) {
+    private walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> setValidator(final Validator<Optional<String>> validator) {
         this.validator = validator;
         return this.validate();
     }
@@ -223,7 +222,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     boolean required;
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> validate() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> validate() {
         this.setErrors(
                 this.validateAndGetErrors(
                         this.stringValue,
@@ -241,7 +240,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     }
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> setErrors(final List<String> errors) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> setErrors(final List<String> errors) {
         this.errors = Lists.immutable(errors);
         return this;
     }
@@ -253,27 +252,27 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     // events...........................................................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
         return this;
     }
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> addFocusListener(final EventListener listener) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> addFocusListener(final EventListener listener) {
 
         return this;
     }
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> addKeydownListener(final EventListener listener) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> addKeydownListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         return this;
     }
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> addKeyupListener(final EventListener listener) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> addKeyupListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         return this;
@@ -282,19 +281,19 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     // focus............................................................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> focus() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> focus() {
         return this;
     }
 
     // styling..........................................................................................................
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> hideMarginBottom() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> hideMarginBottom() {
         return this;
     }
 
     @Override
-    public SpreadsheetSuggestBoxComponent<T> removeBorders() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<T> removeBorders() {
         return this;
     }
 

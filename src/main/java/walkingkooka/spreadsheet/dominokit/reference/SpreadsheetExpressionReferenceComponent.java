@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
-import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;

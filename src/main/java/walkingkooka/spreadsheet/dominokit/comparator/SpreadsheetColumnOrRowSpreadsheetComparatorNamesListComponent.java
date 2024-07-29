@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.comparator;
 
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
-import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.text.HasText;
 
 /**

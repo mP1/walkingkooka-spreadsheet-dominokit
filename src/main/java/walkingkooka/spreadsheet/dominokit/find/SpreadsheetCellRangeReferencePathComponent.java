@@ -21,8 +21,8 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
-import walkingkooka.spreadsheet.dominokit.ui.select.SpreadsheetSelectComponent;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.text.printer.IndentingPrinter;
 

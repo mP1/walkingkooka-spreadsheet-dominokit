@@ -15,10 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.suggestbox;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLFieldSetElement;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
 import walkingkooka.text.HasText;
 
