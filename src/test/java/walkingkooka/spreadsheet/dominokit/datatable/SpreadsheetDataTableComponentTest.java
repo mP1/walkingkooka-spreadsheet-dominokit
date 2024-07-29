@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.datatable;
+package walkingkooka.spreadsheet.dominokit.datatable;
 
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.junit.jupiter.api.Test;
@@ -33,13 +33,13 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetDataTableComponentTest implements ClassTesting<SpreadsheetDataTableComponent<String>>,
+public final class SpreadsheetDataTableComponentTest implements ClassTesting<walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent<String>>,
         TreePrintableTesting {
 
     @Test
     public void testThreeColumnsNotValue() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
+                walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent.<String>with(
                         "tableId123", // id
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -66,7 +66,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsNotValueWithChildren() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
+                walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent.<String>with(
                         "tableId123", // id
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -106,7 +106,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsThreeRows() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
+                walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent.<String>with(
                         "tableId123", // id
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -163,7 +163,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsMixedComponentTypes() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
+                walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent.<String>with(
                         "tableId123", // id
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -230,7 +230,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testBodyScrollPlugin() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
+                walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent.<String>with(
                         "tableId123", // id
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -259,7 +259,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testEmptyStatePlugin() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
+                walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent.<String>with(
                         "tableId123", // id
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -291,7 +291,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsNoValueHeadersHidden() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
+                walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent.<String>with(
                         "tableId123", // id
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -314,7 +314,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     @Test
     public void testThreeColumnsThreeRowsHeadersHidden() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
+                walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent.<String>with(
                         "tableId123", // id
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
@@ -365,7 +365,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     }
 
     @Override
-    public Class<SpreadsheetDataTableComponent<String>> type() {
+    public Class<walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent<String>> type() {
         return Cast.to(SpreadsheetDataTableComponent.class);
     }
 

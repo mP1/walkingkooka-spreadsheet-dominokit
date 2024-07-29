@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
+import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.ui.textnode.SpreadsheetTextNodeComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
