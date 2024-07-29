@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.spreadsheetvaluetype;
+package walkingkooka.spreadsheet.dominokit.find;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
@@ -90,6 +90,6 @@ public final class SpreadsheetValueTypeComponentTest implements ValueComponentTe
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
