@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;

@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Optional;
