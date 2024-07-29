@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.tab;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
@@ -26,13 +26,13 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetTabsComponentTest implements ClassTesting<SpreadsheetTabsComponent>,
+public final class SpreadsheetTabsComponentTest implements ClassTesting<walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTabsComponent>,
         TreePrintableTesting {
 
     @Test
     public void testEmptyNoTabs() {
         this.treePrintAndCheck(
-                SpreadsheetTabsComponent.with(
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTabsComponent.with(
                         new FakeHistoryTokenContext() {
                             @Override
                             public HistoryToken historyToken() {
@@ -47,7 +47,7 @@ public final class SpreadsheetTabsComponentTest implements ClassTesting<Spreadsh
     @Test
     public void testSeveralTabsNonActive() {
         this.treePrintAndCheck(
-                SpreadsheetTabsComponent.with(
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTabsComponent.with(
                                 new FakeHistoryTokenContext() {
                                     @Override
                                     public HistoryToken historyToken() {
@@ -70,7 +70,7 @@ public final class SpreadsheetTabsComponentTest implements ClassTesting<Spreadsh
     @Test
     public void testSeveralTabsIncludingActive() {
         this.treePrintAndCheck(
-                SpreadsheetTabsComponent.with(
+                walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTabsComponent.with(
                                 new FakeHistoryTokenContext() {
                                     @Override
                                     public HistoryToken historyToken() {
@@ -93,7 +93,7 @@ public final class SpreadsheetTabsComponentTest implements ClassTesting<Spreadsh
 
     @Test
     public void testSeveralTabsIncludingActiveLinksWithAnchor() {
-        final SpreadsheetTabsComponent tabs = SpreadsheetTabsComponent.with(
+        final walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTabsComponent tabs = walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTabsComponent.with(
                         new FakeHistoryTokenContext() {
                             @Override
                             public HistoryToken historyToken() {
@@ -140,7 +140,7 @@ public final class SpreadsheetTabsComponentTest implements ClassTesting<Spreadsh
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetTabsComponent> type() {
+    public Class<walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTabsComponent> type() {
         return SpreadsheetTabsComponent.class;
     }
 

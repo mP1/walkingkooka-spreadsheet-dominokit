@@ -22,7 +22,7 @@ import elemental2.dom.Node;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.tab.SpreadsheetTabsComponent;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTabsComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
