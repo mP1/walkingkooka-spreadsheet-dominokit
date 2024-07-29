@@ -23,7 +23,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.printer.TreePrintableTesting;
 
-public final class SpreadsheetPatternKindComponentTabsTest implements ClassTesting<SpreadsheetPatternKindComponentTabs>,
+public final class SpreadsheetPatternKindTabsComponentTest implements ClassTesting<SpreadsheetPatternKindTabsComponent>,
         TreePrintableTesting {
 
     private final static String ID = "id123-";
@@ -32,7 +32,7 @@ public final class SpreadsheetPatternKindComponentTabsTest implements ClassTesti
     public void testFormat() {
         this.treePrintAndCheck(
                 tabs(SpreadsheetPatternKind.formatValues()),
-                "SpreadsheetPatternKindComponentTabs\n" +
+                "SpreadsheetPatternKindTabsComponent\n" +
                         "  SpreadsheetTabsComponent\n" +
                         "    TAB 0\n" +
                         "      \"Date\" DISABLED id=id123-date-format\n" +
@@ -51,7 +51,7 @@ public final class SpreadsheetPatternKindComponentTabsTest implements ClassTesti
     public void testParse() {
         this.treePrintAndCheck(
                 tabs(SpreadsheetPatternKind.parseValues()),
-                "SpreadsheetPatternKindComponentTabs\n" +
+                "SpreadsheetPatternKindTabsComponent\n" +
                         "  SpreadsheetTabsComponent\n" +
                         "    TAB 0\n" +
                         "      \"Date\" DISABLED id=id123-date-parse\n" +
@@ -64,19 +64,19 @@ public final class SpreadsheetPatternKindComponentTabsTest implements ClassTesti
         );
     }
 
-    private SpreadsheetPatternKindComponentTabs tabs(final SpreadsheetPatternKind[] kinds) {
-        return SpreadsheetPatternKindComponentTabs.empty(
+    private SpreadsheetPatternKindTabsComponent tabs(final SpreadsheetPatternKind[] kinds) {
+        return SpreadsheetPatternKindTabsComponent.empty(
                 ID,
                 kinds,
-                new FakeSpreadsheetPatternKindComponentTabsContext()
+                new FakeSpreadsheetPatternKindTabsComponentContext()
         );
     }
 
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetPatternKindComponentTabs> type() {
-        return SpreadsheetPatternKindComponentTabs.class;
+    public Class<SpreadsheetPatternKindTabsComponent> type() {
+        return SpreadsheetPatternKindTabsComponent.class;
     }
 
     @Override
