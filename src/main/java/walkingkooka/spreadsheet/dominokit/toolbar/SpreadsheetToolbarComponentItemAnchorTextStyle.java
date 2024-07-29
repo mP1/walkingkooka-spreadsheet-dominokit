@@ -18,10 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import org.dominokit.domino.ui.icons.Icon;
+import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleOpenGiveFocus;
+import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleRefresh;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetCellComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
-import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCellComponentLifecycle;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;

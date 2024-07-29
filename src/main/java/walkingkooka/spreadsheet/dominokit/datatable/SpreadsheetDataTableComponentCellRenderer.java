@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.datatable;
 
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 
 /**
  * Renders a single column for the given row for a {@link SpreadsheetDataTableComponent}.

@@ -18,10 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.net.Url;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;

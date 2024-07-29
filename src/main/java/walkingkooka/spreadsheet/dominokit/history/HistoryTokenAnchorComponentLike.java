@@ -22,11 +22,11 @@ import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.Url;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetTooltipComponent;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetTooltipComponentTarget;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuTarget;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTooltipComponent;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTooltipComponentTarget;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 

@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleOpenGiveFocus;
+import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleRefresh;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
-import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
-import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
 
 import java.util.Objects;
 import java.util.Optional;
