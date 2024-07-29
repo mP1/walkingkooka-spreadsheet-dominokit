@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.ui;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.CanBeEmptyTesting;
-import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintableTesting;
 

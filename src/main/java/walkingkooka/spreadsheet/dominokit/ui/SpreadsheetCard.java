@@ -15,15 +15,13 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.card;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.cards.Card;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.ui.ComponentWithChildren;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 

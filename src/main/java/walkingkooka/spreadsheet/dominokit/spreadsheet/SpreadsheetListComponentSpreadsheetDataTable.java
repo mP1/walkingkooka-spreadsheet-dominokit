@@ -26,8 +26,8 @@ import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponen
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.printer.IndentingPrinter;
