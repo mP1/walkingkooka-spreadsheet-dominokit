@@ -17,22 +17,24 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-public final class SpreadsheetPatternKindComponentTabsContexts implements PublicStaticHelper {
+import java.lang.reflect.Method;
 
-    /**
-     * {@see FakeSpreadsheetPatternKindComponentTabsContext}
-     */
-    public static SpreadsheetPatternKindComponentTabsContext fake() {
-        return new FakeSpreadsheetPatternKindComponentTabsContext();
+public final class SpreadsheetPatternKindTabsComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetPatternKindTabsComponentContexts> {
+    @Override
+    public Class<SpreadsheetPatternKindTabsComponentContexts> type() {
+        return SpreadsheetPatternKindTabsComponentContexts.class;
     }
 
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
+    }
 
-    /**
-     * Stop creation
-     */
-    private SpreadsheetPatternKindComponentTabsContexts() {
-        throw new UnsupportedOperationException();
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
     }
 }

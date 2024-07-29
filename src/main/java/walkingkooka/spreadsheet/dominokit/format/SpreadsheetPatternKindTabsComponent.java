@@ -33,25 +33,25 @@ import java.util.Optional;
 /**
  * A tab component that displays tabs for each of the given {@link SpreadsheetPatternKind}.
  */
-final class SpreadsheetPatternKindComponentTabs implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternKindComponentTabs>,
+final class SpreadsheetPatternKindTabsComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternKindTabsComponent>,
         TreePrintable {
 
     /**
-     * Creates an empty {@link SpreadsheetPatternKindComponentTabs}.
+     * Creates an empty {@link SpreadsheetPatternKindTabsComponent}.
      */
-    static SpreadsheetPatternKindComponentTabs empty(final String id,
+    static SpreadsheetPatternKindTabsComponent empty(final String id,
                                                      final SpreadsheetPatternKind[] kinds,
-                                                     final SpreadsheetPatternKindComponentTabsContext context) {
-        return new SpreadsheetPatternKindComponentTabs(
+                                                     final SpreadsheetPatternKindTabsComponentContext context) {
+        return new SpreadsheetPatternKindTabsComponent(
                 id,
                 kinds,
                 context
         );
     }
 
-    private SpreadsheetPatternKindComponentTabs(final String id,
+    private SpreadsheetPatternKindTabsComponent(final String id,
                                                 final SpreadsheetPatternKind[] kinds,
-                                                final SpreadsheetPatternKindComponentTabsContext context) {
+                                                final SpreadsheetPatternKindTabsComponentContext context) {
         this.tabsComponent = this.tabsComponentCreate(
                 id,
                 kinds,
@@ -65,7 +65,7 @@ final class SpreadsheetPatternKindComponentTabs implements HtmlElementComponent<
 
     private SpreadsheetTabsComponent tabsComponentCreate(final String id,
                                                          final SpreadsheetPatternKind[] kinds,
-                                                         final SpreadsheetPatternKindComponentTabsContext context) {
+                                                         final SpreadsheetPatternKindTabsComponentContext context) {
         final SpreadsheetTabsComponent tabs = SpreadsheetTabsComponent.with(context);
 
         for (final SpreadsheetPatternKind kind : kinds) {
@@ -103,7 +103,7 @@ final class SpreadsheetPatternKindComponentTabs implements HtmlElementComponent<
     /**
      * Iterates over the links in each tab updating the link, disabling and activating as necessary.
      */
-    void refresh(final SpreadsheetPatternKindComponentTabsContext context) {
+    void refresh(final SpreadsheetPatternKindTabsComponentContext context) {
         final SpreadsheetTabsComponent tabs = this.tabsComponent;
         final SpreadsheetPatternKind kind = context.historyToken().patternKind()
                 .orElse(null);
@@ -150,7 +150,7 @@ final class SpreadsheetPatternKindComponentTabs implements HtmlElementComponent<
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetPatternKindComponentTabs setCssText(final String css) {
+    public SpreadsheetPatternKindTabsComponent setCssText(final String css) {
         this.tabsComponent.setCssText(css);
         return this;
     }

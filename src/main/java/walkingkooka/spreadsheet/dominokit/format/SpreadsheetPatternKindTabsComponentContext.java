@@ -19,5 +19,5 @@ package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
-public interface SpreadsheetPatternKindComponentTabsContext extends HistoryTokenContext {
+public interface SpreadsheetPatternKindTabsComponentContext extends HistoryTokenContext {
 }
