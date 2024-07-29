@@ -47,6 +47,6 @@ final class SpreadsheetPatternDialogComponentContextBasicMetadataFormat extends 
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token.isMetadataFormatPattern();
+        return token.isMetadataFormatter();
     }
 }
