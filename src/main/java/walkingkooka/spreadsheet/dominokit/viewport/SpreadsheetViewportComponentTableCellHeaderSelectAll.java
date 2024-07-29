@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.viewport;
+package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
@@ -34,7 +34,7 @@ final class SpreadsheetViewportComponentTableCellHeaderSelectAll extends Spreads
         super(
                 SpreadsheetViewportComponent.ID_PREFIX + "select-all-cells", // id
                 css(
-                        SpreadsheetViewportComponentTableCell.HEADER_STYLE,
+                        HEADER_STYLE,
                         SpreadsheetViewportComponent.ROW_WIDTH,
                         SpreadsheetViewportComponent.COLUMN_HEIGHT
                 ), // css

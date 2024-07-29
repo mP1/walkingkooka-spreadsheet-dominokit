@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
@@ -55,7 +56,7 @@ import java.util.function.Predicate;
 
 /**
  * Used to mark the type of the clipboard value in a {@link SpreadsheetCellClipboardHistoryToken}.
- * For the moment this only supports possible cell values from the {@link walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent},
+ * For the moment this only supports possible cell values from the {@link SpreadsheetViewportComponent},
  * which means the clipboard can only holds cells or components of a cell such as the formula text.
  */
 public enum SpreadsheetCellClipboardKind implements HasMediaType,

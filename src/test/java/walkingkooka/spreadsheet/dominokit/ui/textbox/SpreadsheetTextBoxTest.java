@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.InvalidCharacterException;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.ui.validator.SpreadsheetValidators;
-import walkingkooka.spreadsheet.dominokit.ui.viewport.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.viewport.ValueComponentTesting;
 
 import java.util.Optional;
 

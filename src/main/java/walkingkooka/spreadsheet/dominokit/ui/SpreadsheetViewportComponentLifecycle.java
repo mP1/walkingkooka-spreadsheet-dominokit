@@ -20,14 +20,15 @@ package walkingkooka.spreadsheet.dominokit.ui;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.ui.viewport.HasSpreadsheetViewportCache;
-import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.dominokit.viewport.HasSpreadsheetViewportCache;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 /**
  * A {@link ComponentLifecycle} specialization where {@link #isMatch(HistoryToken)} logic performs the same
- * tests as required by a {@link walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetViewportComponent}.
+ * tests as required by a {@link SpreadsheetViewportComponent}.
  */
 public interface SpreadsheetViewportComponentLifecycle extends ComponentLifecycle,
         HasSpreadsheetMetadata,

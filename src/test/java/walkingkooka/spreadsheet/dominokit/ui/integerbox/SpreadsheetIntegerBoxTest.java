@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.integerbox;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.ui.viewport.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.viewport.ValueComponentTesting;
 
 import java.util.Optional;
 
