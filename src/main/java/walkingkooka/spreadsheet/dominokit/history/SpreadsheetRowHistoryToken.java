@@ -76,7 +76,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
     }
 
     @Override
-    public final HistoryToken setFormatPattern() {
+    public final HistoryToken setFormatter() {
         return this;
     }
 
@@ -135,7 +135,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
     }
 
     @Override
-    public final HistoryToken setParsePattern() {
+    public final HistoryToken setParser() {
         return this;
     }
 

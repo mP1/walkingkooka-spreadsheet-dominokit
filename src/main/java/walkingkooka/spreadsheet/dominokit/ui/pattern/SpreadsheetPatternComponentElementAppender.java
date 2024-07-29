@@ -93,13 +93,13 @@ final class SpreadsheetPatternComponentElementAppender implements HtmlElementCom
                         anchor.addClickAndKeydownEnterListener(
                                 (e) -> {
                                     e.preventDefault();
-                                    setPatternText.accept(
-                                            anchor.historyToken()
-                                                    .map(t -> t.pattern()
-                                                            .map(SpreadsheetPattern::text)
-                                                            .orElse("")
-                                                    ).orElse("")
-                                    );
+//                                    setPatternText.accept(
+//                                            anchor.historyToken()
+//                                                    .map(t -> t.pattern()
+//                                                            .map(SpreadsheetPattern::text)
+//                                                            .orElse("")
+//                                                    ).orElse("")
+//                                    );
                                 }
                         );
                         links.add(

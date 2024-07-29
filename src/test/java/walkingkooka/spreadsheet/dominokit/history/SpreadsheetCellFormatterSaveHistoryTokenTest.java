@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -30,15 +32,47 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellPatternSaveHistoryTokenTest extends SpreadsheetCellPatternHistoryTokenTestCase<SpreadsheetCellPatternSaveHistoryToken> {
+public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends SpreadsheetCellFormatterHistoryTokenTestCase<SpreadsheetCellFormatterSaveHistoryToken> {
 
-    private final static SpreadsheetPattern PATTERN = SpreadsheetPattern.parseDateFormatPattern("yyyy-mm-dd");
+    private final static SpreadsheetFormatPattern PATTERN = SpreadsheetPattern.parseDateFormatPattern("yyyy-mm-dd");
 
     @Test
-    public void testWithNullPatternFails() {
+    public void testWithNullSpreadsheetParseKindFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> SpreadsheetCellPatternSaveHistoryToken.with(
+                () -> SpreadsheetCellFormatterSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        null,
+                        Optional.of(
+                                PATTERN.spreadsheetFormatterSelector()
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testWithInvalidSpreadsheetParseKindFails() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> SpreadsheetCellFormatterSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        SpreadsheetPatternKind.DATE_PARSE_PATTERN,
+                        Optional.of(
+                                PATTERN.spreadsheetFormatterSelector()
+                        )
+                )
+        );
+    }
+
+    @Test
+    public void testWithNullSpreadsheetFormatterSelectorFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetCellFormatterSaveHistoryToken.with(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
@@ -48,43 +82,25 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
         );
     }
 
-    @Test
-    public void testWithIncompatiblePatternKindAndParsePatternFails() {
-        final IllegalArgumentException thrown = assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetCellPatternSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetPatternKind.NUMBER_PARSE_PATTERN,
-                        Optional.of(
-                                SpreadsheetPattern.parseNumberFormatPattern("$0.00")
-                        )
-                )
-        );
-
-        this.checkEquals(
-                "Pattern \"$0.00\" is not a NUMBER_FORMAT_PATTERN.",
-                thrown.getMessage()
-        );
-    }
-
-    @Test
-    public void testWithIncompatiblePatternKindAndFormatPattern() {
-        SpreadsheetCellPatternSaveHistoryToken.with(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
-                Optional.of(
-                        PATTERN
-                )
-        );
-    }
+    // urlFragment......................................................................................................
 
     @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/formatter/date/save/date-format-pattern yyyy-mm-dd");
+    }
+
+    @Test
+    public void testUrlFragmentCellEmptySave() {
+        this.urlFragmentAndCheck(
+                SpreadsheetCellFormatterSaveHistoryToken.with(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor(),
+                        PATTERN.patternKind(),
+                        Optional.empty()
+                ),
+                "/123/SpreadsheetName456/cell/A1/formatter/date/save/"
+        );
     }
 
     @Test
@@ -117,7 +133,7 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
     public void testClearAction() {
         this.clearActionAndCheck(
                 this.createHistoryToken(),
-                HistoryToken.cellPattern(
+                HistoryToken.cellFormatterSelect(
                         ID,
                         NAME,
                         SELECTION,
@@ -129,60 +145,23 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
     // close............................................................................................................
 
     @Test
-    public void testCloseFormatPattern() {
-        final SpreadsheetPattern formatPattern = SpreadsheetPattern.parseTextFormatPattern("@");
+    public void testClose() {
+        final SpreadsheetFormatPattern formatPattern = SpreadsheetPattern.parseTextFormatPattern("@");
+        final SpreadsheetPatternKind spreadsheetPatternKind = formatPattern.patternKind();
 
         this.closeAndCheck(
-                SpreadsheetCellPatternSaveHistoryToken.with(
+                HistoryToken.cellFormatterSave(
                         ID,
                         NAME,
                         SELECTION,
-                        formatPattern.patternKind(),
-                        Optional.of(formatPattern)
+                        spreadsheetPatternKind,
+                        Optional.of(formatPattern.spreadsheetFormatterSelector())
                 ),
-                HistoryToken.cellFormatPattern(
-                        ID,
-                        NAME,
-                        SELECTION
-                )
-        );
-    }
-
-    @Test
-    public void testCloseParePattern() {
-        final SpreadsheetPattern parsePattern = SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy");
-
-        this.closeAndCheck(
-                SpreadsheetCellPatternSaveHistoryToken.with(
+                HistoryToken.cellFormatterSelect(
                         ID,
                         NAME,
                         SELECTION,
-                        parsePattern.patternKind(),
-                        Optional.of(parsePattern)
-                ),
-                HistoryToken.cellParsePattern(
-                        ID,
-                        NAME,
-                        SELECTION
-                )
-        );
-    }
-
-    // setDelete........................................................................................................
-
-    @Test
-    public void testSetDelete() {
-        final HistoryToken token = this.createHistoryToken();
-
-        this.setDeleteAndCheck(
-                token,
-                HistoryToken.cellPatternSave(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        token.patternKind()
-                                .get(),
-                        Optional.empty()
+                        spreadsheetPatternKind
                 )
         );
     }
@@ -191,61 +170,55 @@ public final class SpreadsheetCellPatternSaveHistoryTokenTest extends Spreadshee
 
     @Test
     public void testSetSave() {
-        final HistoryToken token = this.createHistoryToken();
-        final SpreadsheetPatternKind kind = token.patternKind()
-                .get();
-        final String pattern = "dd/mm/yyyy";
+        final SpreadsheetFormatPattern pattern = SpreadsheetPattern.parseTimeFormatPattern("hh:mm");
+        final SpreadsheetFormatterSelector selector = pattern.spreadsheetFormatterSelector();
 
         this.setSaveAndCheck(
-                token,
-                pattern,
-                HistoryToken.cellPatternSave(
+                this.createHistoryToken(),
+                selector.toString(),
+                HistoryToken.cellFormatterSave(
                         ID,
                         NAME,
                         SELECTION,
-                        kind,
-                        Optional.of(
-                                kind.parse(pattern)
-                        )
+                        PATTERN.patternKind(),
+                        Optional.of(selector)
                 )
         );
     }
 
     @Test
     public void testSetSaveEmpty() {
-        final HistoryToken token = this.createHistoryToken();
-        final SpreadsheetPatternKind kind = token.patternKind()
-                .get();
-        final String pattern = "";
-
         this.setSaveAndCheck(
-                token,
-                pattern,
-                HistoryToken.cellPatternSave(
+                this.createHistoryToken(),
+                "",
+                HistoryToken.cellFormatterSave(
                         ID,
                         NAME,
                         SELECTION,
-                        kind,
+                        PATTERN.patternKind(),
                         Optional.empty()
                 )
         );
     }
 
     @Override
-    SpreadsheetCellPatternSaveHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                              final SpreadsheetName name,
-                                                              final AnchoredSpreadsheetSelection selection) {
-        return SpreadsheetCellPatternSaveHistoryToken.with(
+    SpreadsheetCellFormatterSaveHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                                final SpreadsheetName name,
+                                                                final AnchoredSpreadsheetSelection selection) {
+        return SpreadsheetCellFormatterSaveHistoryToken.with(
                 id,
                 name,
                 selection,
                 PATTERN.patternKind(),
-                Optional.of(PATTERN)
+                Optional.of(
+                        PATTERN.toFormat()
+                                .spreadsheetFormatterSelector()
+                )
         );
     }
 
     @Override
-    public Class<SpreadsheetCellPatternSaveHistoryToken> type() {
-        return SpreadsheetCellPatternSaveHistoryToken.class;
+    public Class<SpreadsheetCellFormatterSaveHistoryToken> type() {
+        return SpreadsheetCellFormatterSaveHistoryToken.class;
     }
 }

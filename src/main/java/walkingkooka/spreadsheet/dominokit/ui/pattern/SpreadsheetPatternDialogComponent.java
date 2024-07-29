@@ -32,9 +32,11 @@ import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 
@@ -183,17 +185,26 @@ public final class SpreadsheetPatternDialogComponent implements SpreadsheetDialo
      * Tries to parse the text box text into a {@link SpreadsheetPattern}.
      * If that fails an error message will be displayed and the SAVE button disabled.
      */
-    private void onPatternTextBox(final String patternText) {
+    private void onPatternTextBox(final String text) {
         final SpreadsheetPatternDialogComponentContext context = this.context;
         final SpreadsheetPatternKind patternKind = context.patternKind();
         final SpreadsheetTextBox patternTextBox = this.patternTextBox;
-        context.debug(this.getClass().getSimpleName() + ".onPatternTextBox " + CharSequences.quoteAndEscape(patternText));
+        context.debug(this.getClass().getSimpleName() + ".onPatternTextBox " + CharSequences.quoteAndEscape(text));
 
+        String patternText = "";
         SpreadsheetPattern pattern = null;
         String errorMessage = null;
         String errorPattern = ""; // the pattern text after the bestParse, so for "@@@\"Hello" pattern will be "@@@" and errorPattern=\"Hello"
 
         try {
+            if (patternKind.isFormatPattern()) {
+                final SpreadsheetFormatterSelector selector = SpreadsheetFormatterSelector.parse(text);
+                patternText = selector.text();
+            } else {
+                final SpreadsheetParserSelector selector = SpreadsheetParserSelector.parse(text);
+                patternText = selector.text();
+            }
+
             pattern = patternKind.parse(patternText);
         } catch (final IllegalArgumentException invalid) {
             errorMessage = invalid.getMessage();
@@ -211,6 +222,7 @@ public final class SpreadsheetPatternDialogComponent implements SpreadsheetDialo
                 errorPattern = patternText;
             }
         }
+
 
         // clear or update the errors
         patternTextBox.setHelperText(
@@ -353,18 +365,14 @@ public final class SpreadsheetPatternDialogComponent implements SpreadsheetDialo
                 componentContext
         );
 
-        final Optional<SpreadsheetPattern> pattern = componentContext.undo();
-        this.setPatternText(
-                pattern.map(
-                        SpreadsheetPattern::text)
-                .orElse("")
-        );
+        final String undo = componentContext.undo();
+        this.setPatternText(undo);
 
         final HistoryToken historyToken = context.historyToken();
 
         this.undo.setHistoryToken(
                 Optional.of(
-                        historyToken.setSave(pattern)
+                        historyToken.setSave(undo)
                 )
         );
 

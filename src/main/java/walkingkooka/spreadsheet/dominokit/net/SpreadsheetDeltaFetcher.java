@@ -40,8 +40,6 @@ import walkingkooka.spreadsheet.dominokit.ui.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
@@ -718,10 +716,9 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         );
     }
 
-    public void savePattern(final SpreadsheetId id,
-                            final SpreadsheetSelection selection,
-                            final SpreadsheetPatternKind kind,
-                            final Optional<SpreadsheetPattern> pattern) {
+    public void saveFormatter(final SpreadsheetId id,
+                              final SpreadsheetSelection selection,
+                              final Optional<SpreadsheetFormatterSelector> formatter) {
         final AppContext context = this.context;
 
         this.patchDelta(
@@ -731,8 +728,27 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 ).setQuery(
                         context.lastCellFindAndViewportAndWindowQueryString()
                 ),
-                kind.patternPatch(
-                        pattern,
+                SpreadsheetDelta.formatterPatch(
+                        formatter,
+                        context.marshallContext()
+                )
+        );
+    }
+
+    public void saveParser(final SpreadsheetId id,
+                           final SpreadsheetSelection selection,
+                           final Optional<SpreadsheetParserSelector> parser) {
+        final AppContext context = this.context;
+
+        this.patchDelta(
+                url(
+                        id,
+                        selection
+                ).setQuery(
+                        context.lastCellFindAndViewportAndWindowQueryString()
+                ),
+                SpreadsheetDelta.parserPatch(
+                        parser,
                         context.marshallContext()
                 )
         );

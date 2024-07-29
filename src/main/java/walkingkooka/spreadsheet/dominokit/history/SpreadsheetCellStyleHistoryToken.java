@@ -62,7 +62,7 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
     }
 
     @Override
-    public final HistoryToken setFormatPattern() {
+    public final HistoryToken setFormatter() {
         return this;
     }
 
@@ -72,7 +72,7 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
     }
 
     @Override
-    public final HistoryToken setParsePattern() {
+    public final HistoryToken setParser() {
         return this;
     }
 

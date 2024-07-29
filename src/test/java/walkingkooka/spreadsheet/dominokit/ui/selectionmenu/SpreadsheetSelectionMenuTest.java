@@ -29,14 +29,16 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.dominokit.ui.viewport.SpreadsheetSelectionSummary;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetNumberParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -50,7 +52,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTesting<SpreadsheetSelectionMenu>,
         TreePrintableTesting {
@@ -254,16 +255,25 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     }
 
     @Test
-    public void testCellRecentFormatPatternsPatterns() {
+    public void testCellRecentSpreadsheetFormatterSelector() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cell(
                 SpreadsheetId.with(1), // id
                 SpreadsheetName.with("SpreadsheetName-1"), // name
                 SpreadsheetSelection.A1.setDefaultAnchor()
         );
+
+        final SpreadsheetDateFormatPattern formatPattern = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
+
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
                 Lists.of(
-                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                        token.setPatternKind(
+                                Optional.of(
+                                        formatPattern.patternKind())
+                        ).setSave(
+                                formatPattern.spreadsheetFormatterSelector()
+                                        .toString()
+                        ).cast(SpreadsheetCellFormatterSaveHistoryToken.class)
                 ),
                 Lists.empty()
         );
@@ -454,17 +464,25 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     }
 
     @Test
-    public void testCellRecentParsePatterns() {
+    public void testCellRecentSpreadsheetParserSelector() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cell(
                 SpreadsheetId.with(1), // id
                 SpreadsheetName.with("SpreadsheetName-1"), // name
                 SpreadsheetSelection.A1.setDefaultAnchor()
         );
+        final SpreadsheetNumberParsePattern parsePattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
+
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
                 Lists.empty(),
                 Lists.of(
-                        SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                        token.setPatternKind(
+                                Optional.of(
+                                        parsePattern.patternKind())
+                        ).setSave(
+                                parsePattern.spreadsheetParserSelector()
+                                        .toString()
+                        ).cast(SpreadsheetCellParserSaveHistoryToken.class)
                 )
         );
 
@@ -654,19 +672,35 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     }
 
     @Test
-    public void testCellRecentFormatPatternsAndRecentParsePatterns() {
+    public void testCellRecentSpreadsheetFormatterSelectorAndSpreadsheetParserSelector() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cell(
                 SpreadsheetId.with(1), // id
                 SpreadsheetName.with("SpreadsheetName-1"), // name
                 SpreadsheetSelection.A1.setDefaultAnchor()
         );
+
+        final SpreadsheetDateFormatPattern formatPattern = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
+        final SpreadsheetNumberParsePattern parsePattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
+
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
                 Lists.of(
-                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                        token.setPatternKind(
+                                Optional.of(
+                                        formatPattern.patternKind())
+                        ).setSave(
+                                formatPattern.spreadsheetFormatterSelector()
+                                        .toString()
+                        ).cast(SpreadsheetCellFormatterSaveHistoryToken.class)
                 ),
                 Lists.of(
-                        SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                        token.setPatternKind(
+                                Optional.of(
+                                        parsePattern.patternKind())
+                        ).setSave(
+                                parsePattern.spreadsheetParserSelector()
+                                        .toString()
+                        ).cast(SpreadsheetCellParserSaveHistoryToken.class)
                 )
         );
 
@@ -1736,8 +1770,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     }
 
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
-                                                    final List<SpreadsheetFormatPattern> formatPatterns,
-                                                    final List<SpreadsheetParsePattern> parsePatterns) {
+                                                    final List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors,
+                                                    final List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors) {
         return new FakeSpreadsheetSelectionMenuContext() {
 
             @Override
@@ -1759,17 +1793,13 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             }
 
             @Override
-            public List<HistoryToken> recentFormatPatterns() {
-                return formatPatterns.stream()
-                        .map(historyToken::setPattern)
-                        .collect(Collectors.toList());
+            public List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors() {
+                return recentSpreadsheetFormatterSelectors;
             }
 
             @Override
-            public List<HistoryToken> recentParsePatterns() {
-                return parsePatterns.stream()
-                        .map(historyToken::setPattern)
-                        .collect(Collectors.toList());
+            public List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors() {
+                return recentSpreadsheetParserSelectors;
             }
 
             @Override

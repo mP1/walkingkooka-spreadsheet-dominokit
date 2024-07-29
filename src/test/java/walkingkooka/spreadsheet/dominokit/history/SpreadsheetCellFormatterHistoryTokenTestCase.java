@@ -17,18 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.junit.jupiter.api.Test;
+public abstract class SpreadsheetCellFormatterHistoryTokenTestCase<T extends SpreadsheetCellFormatterHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
-public abstract class SpreadsheetCellPatternHistoryTokenTestCase<T extends SpreadsheetCellPatternHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
-
-    SpreadsheetCellPatternHistoryTokenTestCase() {
+    SpreadsheetCellFormatterHistoryTokenTestCase() {
         super();
     }
 
-    // setMenu1(Selection)..............................................................................................
 
-    @Test
-    public final void testSetMenuWithCell() {
-        this.setMenuWithCellAndCheck();
-    }
 }

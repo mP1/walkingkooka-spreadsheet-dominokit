@@ -17,16 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
-import walkingkooka.Cast;
+import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellPatternSelectHistoryToken;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 
 import java.util.Optional;
 
@@ -39,44 +33,25 @@ abstract class SpreadsheetPatternDialogComponentContextBasicCell extends Spreads
         super(context);
     }
 
-    // ComponentLifecycleMatcher........................................................................................
-
     @Override
-    public final boolean shouldIgnore(final HistoryToken token) {
-        return token instanceof SpreadsheetCellPatternSaveHistoryToken;
-    }
+    public final String undo() {
+        String text = "";
 
-    // SpreadsheetPatternDialogComponentContext.........................................................................
-
-    /**
-     * Returns the {@link SpreadsheetPattern} for the cell.
-     */
-    @Override
-    public Optional<SpreadsheetPattern> undo() {
-        Optional<SpreadsheetPattern> pattern = Optional.empty();
-
-        final AppContext context = this.context;
-
-        final Optional<SpreadsheetCell> maybeCell = context.spreadsheetViewportCache()
+        final Optional<SpreadsheetCell> maybeCell = this.context.spreadsheetViewportCache()
                 .cell(
-                this.historyToken()
-                        .cast(SpreadsheetCellPatternSelectHistoryToken.class)
-                        .anchoredSelection()
-                        .selection()
-        );
+                        this.historyToken()
+                                .cast(SpreadsheetAnchoredSelectionHistoryToken.class)
+                                .anchoredSelection()
+                                .selection()
+                );
         if (maybeCell.isPresent()) {
-            final SpreadsheetCell cell = maybeCell.get();
-            final SpreadsheetPatternKind patternKind = this.patternKind();
-
-            pattern = Cast.to(
-                    patternKind.isFormatPattern() ?
-                            cell.formatter()
-                                    .flatMap(SpreadsheetFormatterSelector::spreadsheetFormatPattern) :
-                            cell.parser()
-                                    .flatMap(SpreadsheetParserSelector::spreadsheetParsePattern)
-            );
+            text = this.undoFormatterOrParser(maybeCell.get())
+                    .map(Object::toString)
+                    .orElse("");
         }
 
-        return pattern;
+        return text;
     }
+
+    abstract Optional<? extends PluginSelectorLike<?>> undoFormatterOrParser(final SpreadsheetCell cell);
 }

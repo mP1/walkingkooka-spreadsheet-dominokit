@@ -81,7 +81,7 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    public HistoryToken setFormatPattern() {
+    public HistoryToken setFormatter() {
         return this;
     }
 
@@ -102,7 +102,7 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    public HistoryToken setParsePattern() {
+    public HistoryToken setParser() {
         return this;
     }
 

@@ -66,12 +66,12 @@ public abstract class SpreadsheetCellSortHistoryToken extends SpreadsheetCellHis
     }
 
     @Override //
-    final HistoryToken setFormatPattern() {
+    final HistoryToken setFormatter() {
         return this;
     }
 
     @Override //
-    final HistoryToken setParsePattern() {
+    final HistoryToken setParser() {
         return this;
     }
 

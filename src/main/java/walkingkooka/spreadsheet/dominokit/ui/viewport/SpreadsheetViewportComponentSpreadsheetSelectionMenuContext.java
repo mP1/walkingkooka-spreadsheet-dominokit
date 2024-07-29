@@ -23,6 +23,8 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.selectionmenu.SpreadsheetSelectionMenuContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -36,8 +38,8 @@ import java.util.Set;
  */
 final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implements SpreadsheetSelectionMenuContext {
 
-    static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<HistoryToken> recentFormatPatterns,
-                                                                            final List<HistoryToken> recentParsePatterns,
+    static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<SpreadsheetCellFormatterSaveHistoryToken> recentFormatPatterns,
+                                                                            final List<SpreadsheetCellParserSaveHistoryToken> recentParsePatterns,
                                                                             final AppContext context) {
         return new SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(
                 recentFormatPatterns,
@@ -46,8 +48,8 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         );
     }
 
-    private SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(final List<HistoryToken> recentFormatPatterns,
-                                                                        final List<HistoryToken> recentParsePatterns,
+    private SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(final List<SpreadsheetCellFormatterSaveHistoryToken> recentFormatPatterns,
+                                                                        final List<SpreadsheetCellParserSaveHistoryToken> recentParsePatterns,
                                                                         final AppContext context) {
         this.recentFormatPatterns = recentFormatPatterns;
         this.recentParsePatterns = recentParsePatterns;
@@ -86,18 +88,18 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     @Override
-    public List<HistoryToken> recentFormatPatterns() {
+    public List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors() {
         return this.recentFormatPatterns;
     }
 
-    private final List<HistoryToken> recentFormatPatterns;
+    private final List<SpreadsheetCellFormatterSaveHistoryToken> recentFormatPatterns;
 
     @Override
-    public List<HistoryToken> recentParsePatterns() {
+    public List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors() {
         return this.recentParsePatterns;
     }
 
-    private final List<HistoryToken> recentParsePatterns;
+    private final List<SpreadsheetCellParserSaveHistoryToken> recentParsePatterns;
 
     @Override
     public String idPrefix() {

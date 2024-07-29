@@ -22,10 +22,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.FakeSpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-
-import java.util.Optional;
 
 public class FakeSpreadsheetPatternDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements SpreadsheetPatternDialogComponentContext {
 
@@ -55,7 +52,7 @@ public class FakeSpreadsheetPatternDialogComponentContext extends FakeSpreadshee
     }
 
     @Override
-    public Optional<SpreadsheetPattern> undo() {
+    public String undo() {
         throw new UnsupportedOperationException();
     }
 

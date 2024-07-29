@@ -60,7 +60,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
     final HistoryToken setDelete0() {
 
         // deleting a pattern will create a save pattern with empty string.
-        return this instanceof SpreadsheetCellPatternHistoryToken ?
+        return this instanceof SpreadsheetCellFormatterHistoryToken || this instanceof SpreadsheetCellParserHistoryToken ?
                 this.setSave("") :
                 cellDelete(
                         this.id(),

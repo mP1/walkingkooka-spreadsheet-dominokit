@@ -140,6 +140,13 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    final void closeAndCheck(final HistoryToken expected) {
+        this.closeAndCheck(
+                this.createHistoryToken(),
+                expected
+        );
+    }
+
     final void closeAndCheck(final HistoryToken token,
                              final HistoryToken expected) {
         this.checkEquals(
@@ -405,6 +412,22 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         assertThrows(
                 NullPointerException.class,
                 () -> token.setSave((String) null)
+        );
+    }
+
+    final void setSaveAndCheck(final String save) {
+        this.setSaveAndCheck(
+                this.createHistoryToken(),
+                save
+        );
+    }
+
+    final void setSaveAndCheck(final HistoryToken token,
+                               final String save) {
+        this.setSaveAndCheck(
+                token,
+                save,
+                token
         );
     }
 

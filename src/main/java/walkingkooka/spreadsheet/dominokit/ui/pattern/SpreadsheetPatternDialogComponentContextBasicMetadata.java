@@ -17,14 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.pattern;
 
-import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-
-import java.util.Optional;
 
 /**
  * A {@link SpreadsheetPatternDialogComponentContext} for editing patterns for the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}.
@@ -45,28 +40,18 @@ abstract class SpreadsheetPatternDialogComponentContextBasicMetadata extends Spr
     // SpreadsheetPatternDialogComponentContext.........................................................................
 
     /**
-     * Returns the {@link SpreadsheetPattern} from the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}.
+     * Retrieves the {@link walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind} from the history token,
+     * and then reads the value for its {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName}.
      */
     @Override
-    public Optional<SpreadsheetPattern> undo() {
-        Optional<SpreadsheetPattern> pattern = Optional.empty();
-
-        final Optional<SpreadsheetFormatterSelector> maybeSelector = Cast.to(
-                this.context.spreadsheetMetadata()
-                        .getIgnoringDefaults(
-                                this.historyToken()
-                                        .patternKind()
-                                        .get()
-                                        .spreadsheetMetadataPropertyName()
-                        )
-        );
-        if (maybeSelector.isPresent()) {
-            pattern = Cast.to(
-                    maybeSelector.get()
-                            .spreadsheetFormatPattern()
-            );
-        }
-
-        return pattern;
+    public final String undo() {
+        return this.context.spreadsheetMetadata()
+                .getIgnoringDefaults(
+                        this.historyToken()
+                                .patternKind()
+                                .get()
+                                .spreadsheetMetadataPropertyName()
+                ).map(Object::toString)
+                .orElse("");
     }
 }

@@ -71,8 +71,8 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    public HistoryToken setFormatPattern() {
-        return cellFormatPattern(
+    public HistoryToken setFormatter() {
+        return cellFormatterUnselect(
                 this.id(),
                 this.name(),
                 this.anchoredSelection()
@@ -96,8 +96,8 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    public HistoryToken setParsePattern() {
-        return cellParsePattern(
+    public HistoryToken setParser() {
+        return cellParserUnselect(
                 this.id(),
                 this.name(),
                 this.anchoredSelection()
@@ -110,14 +110,28 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
         final SpreadsheetName name = this.name();
         final AnchoredSpreadsheetSelection anchoredSelection = this.anchoredSelection();
 
-        return patternKind.isPresent() ?
-                cellPattern(
-                        id,
-                        name,
-                        anchoredSelection,
-                        patternKind.get()
-                ) :
-                this;
+        final HistoryToken historyToken;
+
+        if (patternKind.isPresent()) {
+            final SpreadsheetPatternKind spreadsheetPatternKind = patternKind.get();
+            historyToken = spreadsheetPatternKind.isFormatPattern() ?
+                    cellFormatterSelect(
+                            id,
+                            name,
+                            anchoredSelection,
+                            spreadsheetPatternKind
+                    ) :
+                    cellParserSelect(
+                            id,
+                            name,
+                            anchoredSelection,
+                            spreadsheetPatternKind
+                    );
+        } else {
+            historyToken = this;
+        }
+
+        return historyToken;
     }
 
     @Override

@@ -24,11 +24,8 @@ import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
-
-import java.util.Optional;
 
 /**
  * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetPatternDialogComponent} provided various inputs.
@@ -103,9 +100,9 @@ public interface SpreadsheetPatternDialogComponentContext extends CanGiveFocus,
     }
 
     /**
-     * Provides the UNDO {@link SpreadsheetPattern}
+     * Provides the UNDO text.
      */
-    Optional<SpreadsheetPattern> undo();
+    String undo();
 
     /**
      * A {@link SpreadsheetFormatterContext} which will be used to format values for the samples table.

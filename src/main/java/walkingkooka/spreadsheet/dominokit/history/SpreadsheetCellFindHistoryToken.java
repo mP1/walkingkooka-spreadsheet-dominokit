@@ -92,7 +92,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     }
 
     @Override
-    public HistoryToken setFormatPattern() {
+    public HistoryToken setFormatter() {
         return this;
     }
 
@@ -113,7 +113,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     }
 
     @Override
-    public HistoryToken setParsePattern() {
+    public HistoryToken setParser() {
         return this;
     }
 

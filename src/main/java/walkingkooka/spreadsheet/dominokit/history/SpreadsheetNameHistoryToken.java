@@ -69,7 +69,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     /**
      * Creates a format pattern from {@link SpreadsheetNameHistoryToken}.
      */
-    abstract HistoryToken setFormatPattern();
+    abstract HistoryToken setFormatter();
 
     /**
      * Creates a freeze {@link SpreadsheetNameHistoryToken}.
@@ -144,7 +144,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     /**
      * Creates a parse pattern {@link SpreadsheetNameHistoryToken}.
      */
-    abstract HistoryToken setParsePattern();
+    abstract HistoryToken setParser();
 
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link SpreadsheetPatternKind}.
@@ -164,7 +164,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     // parse............................................................................................................
 
     final HistoryToken parseFormatPattern(final TextCursor cursor) {
-        return this.setFormatPattern()
+        return this.setFormatter()
                 .setPatternKind(
                         this.parsePatternKind(
                                 cursor,
@@ -174,7 +174,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     }
 
     final HistoryToken parseParser(final TextCursor cursor) {
-        return this.setParsePattern()
+        return this.setParser()
                 .setPatternKind(
                         this.parsePatternKind(
                                 cursor,
