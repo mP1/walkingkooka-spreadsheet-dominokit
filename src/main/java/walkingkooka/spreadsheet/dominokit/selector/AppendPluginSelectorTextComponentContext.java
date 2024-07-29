@@ -15,14 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.removeorreplacepluginselectortextcomponent;
+package walkingkooka.spreadsheet.dominokit.selector;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
 /**
- * Context for {@link RemoveOrReplacePluginSelectorTextComponent}.
+ * Context for {@link AppendPluginSelectorTextComponent}.
  */
-public interface RemoveOrReplacePluginSelectorTextComponentContext extends HistoryTokenContext {
+public interface AppendPluginSelectorTextComponentContext extends HistoryTokenContext {
 
     /**
      * Builds the save text that will be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSave(String)}.

@@ -15,11 +15,11 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.removeorreplacepluginselectortextcomponent;
+package walkingkooka.spreadsheet.dominokit.selector;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 
-public class FakeRemoveOrReplacePluginSelectorTextComponentContext extends FakeHistoryTokenContext implements RemoveOrReplacePluginSelectorTextComponentContext {
+public class FakeAppendPluginSelectorTextComponentContext extends FakeHistoryTokenContext implements AppendPluginSelectorTextComponentContext {
     @Override
     public String saveText(final String text) {
         throw new UnsupportedOperationException();
