@@ -22,7 +22,6 @@ import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
-import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
@@ -31,7 +30,7 @@ import java.util.Optional;
 /**
  * A helper interface that implements delegator methods for a wrapped {@link ValueSpreadsheetTextBox}.
  */
-public interface ValueSpreadsheetTextBoxWrapper<C extends ValueSpreadsheetTextBoxWrapper<C, V>, V extends HasText>
+public interface ValueSpreadsheetTextBoxWrapper<C extends ValueSpreadsheetTextBoxWrapper<C, V>, V>
         extends ValueComponent<HTMLFieldSetElement, V, C> {
 
     @Override
