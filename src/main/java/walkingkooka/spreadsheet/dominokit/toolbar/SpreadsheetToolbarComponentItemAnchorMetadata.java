@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.toolbar;
+package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.AppContext;

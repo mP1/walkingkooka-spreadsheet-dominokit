@@ -15,51 +15,45 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.toolbar;
+package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
-import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ui.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
 
-final class SpreadsheetToolbarComponentItemAnchorSwagger extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorSwagger>
+final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorCellFind>
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh {
 
-    static SpreadsheetToolbarComponentItemAnchorSwagger with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorCellFind with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetToolbarComponentItemAnchorSwagger(
+        return new SpreadsheetToolbarComponentItemAnchorCellFind(
                 context
         );
     }
 
-    private SpreadsheetToolbarComponentItemAnchorSwagger(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorCellFind(final HistoryTokenContext context) {
         super(
-                SpreadsheetToolbarComponent.swaggerId(),
+                SpreadsheetToolbarComponent.findCellsId(),
                 Optional.of(
-                        SpreadsheetIcons.swagger()
+                        SpreadsheetIcons.cellsFind()
                 ),
-                "Swagger",
-                "Click to open swagger html client",
+                "Find",
+                "Find cells...",
                 context
         );
-
-        final HistoryTokenAnchorComponent anchor = this.anchor;
-
-        anchor.iconBefore()
-                .get()
-                .cssText("position: relative; left: -1px; top: 4px; max-width: 18px; max-height: 18px;");
-        anchor.setHref(Url.parseRelative("/api-doc/index.html"));
-        anchor.setTarget("_blank");
     }
 
     // SpreadsheetToolbarComponentItemLink............................................................................
@@ -73,7 +67,30 @@ final class SpreadsheetToolbarComponentItemAnchorSwagger extends SpreadsheetTool
 
     @Override
     public void refresh(final AppContext context) {
-        // NOP
+        final HistoryToken historyToken = context.historyToken();
+
+        AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelectionOrEmpty()
+                .orElse(null);
+        if (null != anchoredSpreadsheetSelection) {
+            final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
+            if (false == selection.isCellReference() && false == selection.isCellRangeReference()) {
+                anchoredSpreadsheetSelection = null;
+            }
+        }
+
+        if (null == anchoredSpreadsheetSelection) {
+            anchoredSpreadsheetSelection = SpreadsheetSelection.ALL_CELLS.setDefaultAnchor();
+        }
+
+        this.anchor.setHistoryToken(
+                Optional.of(
+                        historyToken.setAnchoredSelection(
+                                Optional.of(anchoredSpreadsheetSelection)
+                        ).setFind(
+                                SpreadsheetCellFind.empty()
+                        )
+                )
+        );
     }
 
     @Override
@@ -83,6 +100,6 @@ final class SpreadsheetToolbarComponentItemAnchorSwagger extends SpreadsheetTool
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return true; // always show
+        return token instanceof SpreadsheetNameHistoryToken;
     }
 }

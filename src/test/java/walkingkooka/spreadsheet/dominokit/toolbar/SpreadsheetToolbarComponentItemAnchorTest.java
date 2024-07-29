@@ -15,19 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.toolbar;
+package walkingkooka.spreadsheet.dominokit.toolbar;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.Cast;
 
-public abstract class SpreadsheetToolbarComponentItemTestCase<T extends SpreadsheetToolbarComponentItem<?>> implements ClassTesting<T> {
-
-    SpreadsheetToolbarComponentItemTestCase() {
-        super();
-    }
-
+@SuppressWarnings("rawtypes")
+public final class SpreadsheetToolbarComponentItemAnchorTest extends SpreadsheetToolbarComponentItemTestCase<SpreadsheetToolbarComponentItemAnchor<?>> {
     @Override
-    public final JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public Class<SpreadsheetToolbarComponentItemAnchor<?>> type() {
+        return Cast.to(SpreadsheetToolbarComponentItemAnchor.class);
     }
 }

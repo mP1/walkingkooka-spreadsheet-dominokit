@@ -15,14 +15,13 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.toolbar;
+package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import walkingkooka.Cast;
 
-@SuppressWarnings("rawtypes")
-public final class SpreadsheetToolbarComponentItemAnchorTest extends SpreadsheetToolbarComponentItemTestCase<SpreadsheetToolbarComponentItemAnchor<?>> {
+public final class SpreadsheetToolbarComponentItemAnchorTextStylePropertyTest extends SpreadsheetToolbarComponentItemTestCase<SpreadsheetToolbarComponentItemAnchorTextStyleProperty<?>> {
     @Override
-    public Class<SpreadsheetToolbarComponentItemAnchor<?>> type() {
-        return Cast.to(SpreadsheetToolbarComponentItemAnchor.class);
+    public Class<SpreadsheetToolbarComponentItemAnchorTextStyleProperty<?>> type() {
+        return Cast.to(SpreadsheetToolbarComponentItemAnchorTextStyleProperty.class);
     }
 }
