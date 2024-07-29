@@ -28,7 +28,7 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
-import walkingkooka.spreadsheet.dominokit.ui.tooltip.SpreadsheetTooltipComponent;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTooltipComponent;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;

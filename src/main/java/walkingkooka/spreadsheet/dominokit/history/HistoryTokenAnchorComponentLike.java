@@ -25,8 +25,8 @@ import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuTarget;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.tooltip.SpreadsheetTooltipComponent;
-import walkingkooka.spreadsheet.dominokit.ui.tooltip.SpreadsheetTooltipComponentTarget;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTooltipComponent;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTooltipComponentTarget;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 

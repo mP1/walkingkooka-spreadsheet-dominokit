@@ -23,7 +23,7 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.ui.tooltip.SpreadsheetTooltipComponent;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTooltipComponent;
 
 import java.util.Optional;
 

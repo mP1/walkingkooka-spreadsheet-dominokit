@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.tooltip;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
