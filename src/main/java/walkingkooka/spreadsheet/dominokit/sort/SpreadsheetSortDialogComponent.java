@@ -40,7 +40,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortEditHistoryT
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;

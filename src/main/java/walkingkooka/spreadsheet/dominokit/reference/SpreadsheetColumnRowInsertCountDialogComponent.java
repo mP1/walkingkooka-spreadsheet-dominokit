@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifec
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.ui.integerbox.SpreadsheetIntegerBox;
 
 import java.util.Objects;

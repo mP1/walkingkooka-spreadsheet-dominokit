@@ -15,11 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.flexlayout;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.HTMLDivElement;
-import walkingkooka.spreadsheet.dominokit.ui.ComponentWithChildren;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;

@@ -39,7 +39,7 @@ import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetCellRangeReferenceComponent;
-import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;

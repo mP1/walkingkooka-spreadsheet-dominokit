@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentLifecycle;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;

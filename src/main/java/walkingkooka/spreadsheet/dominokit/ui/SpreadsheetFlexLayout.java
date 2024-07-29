@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.flexlayout;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
