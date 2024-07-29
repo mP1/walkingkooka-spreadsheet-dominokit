@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.hidezerovalues;
+package walkingkooka.spreadsheet.dominokit.hidezerovalues;
 
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
