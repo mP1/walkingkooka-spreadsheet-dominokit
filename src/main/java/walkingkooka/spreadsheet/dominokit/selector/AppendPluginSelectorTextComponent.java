@@ -26,7 +26,7 @@ import walkingkooka.plugin.PluginSelectorTextComponentLike;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.card.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.ui.flexlayout.SpreadsheetFlexLayout;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
