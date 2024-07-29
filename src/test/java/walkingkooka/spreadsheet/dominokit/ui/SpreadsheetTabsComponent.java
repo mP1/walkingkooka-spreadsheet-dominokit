@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.tab;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
@@ -30,12 +30,12 @@ import java.util.Objects;
 /**
  * Wraps a DOMINO-KIT TabsPanel and tabs.
  */
-public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentLike, TestHtmlElementComponent<HTMLDivElement, SpreadsheetTabsComponent> {
+public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentLike, TestHtmlElementComponent<HTMLDivElement, walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTabsComponent> {
 
-    public static SpreadsheetTabsComponent with(final HistoryTokenContext context) {
+    public static walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTabsComponent with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetTabsComponent(context);
+        return new walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTabsComponent(context);
     }
 
     private SpreadsheetTabsComponent(final HistoryTokenContext context) {
@@ -44,8 +44,8 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
     }
 
     @Override
-    public SpreadsheetTabsComponent appendTab(final String id,
-                                              final String title) {
+    public walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTabsComponent appendTab(final String id,
+                                                                                    final String title) {
         CharSequences.failIfNullOrEmpty(id, "id");
         CharSequences.failIfNullOrEmpty(title, "title");
 
@@ -75,7 +75,7 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
      * Activate the given tab and de-actives all other tabs.
      */
     @Override
-    public SpreadsheetTabsComponent setTab(final int index) {
+    public walkingkooka.spreadsheet.dominokit.ui.SpreadsheetTabsComponent setTab(final int index) {
         this.activate = index;
         return this;
     }

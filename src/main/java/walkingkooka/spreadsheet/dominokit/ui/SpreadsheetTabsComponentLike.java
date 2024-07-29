@@ -15,11 +15,10 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.tab;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 

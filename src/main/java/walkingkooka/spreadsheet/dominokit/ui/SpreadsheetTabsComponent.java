@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.tab;
+package walkingkooka.spreadsheet.dominokit.ui;
 
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLDivElement;
