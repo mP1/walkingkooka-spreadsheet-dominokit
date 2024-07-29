@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.parsertextbox;
+package walkingkooka.spreadsheet.dominokit.ui.valuetextbox;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
@@ -36,21 +36,21 @@ import java.util.function.Function;
  * A text box that supports a typed value using a {@link Function} as a parser. Any thrown exception messages become
  * the validation fail messages. it is possible to replace the default validator mentioned above using {@link #setValidator(Validator)}.
  */
-public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFieldSetElement, T, ParserSpreadsheetTextBox<T>> {
+public final class ValueSpreadsheetTextBox<T> implements ValueComponent<HTMLFieldSetElement, T, ValueSpreadsheetTextBox<T>> {
 
     /**
-     * Creates a new {@link ParserSpreadsheetTextBox}.
+     * Creates a new {@link ValueSpreadsheetTextBox}.
      */
-    public static <T> ParserSpreadsheetTextBox<T> with(final Function<String, T> parser,
-                                                       final Function<T, String> formatter) {
-        return new ParserSpreadsheetTextBox<>(
+    public static <T> ValueSpreadsheetTextBox<T> with(final Function<String, T> parser,
+                                                      final Function<T, String> formatter) {
+        return new ValueSpreadsheetTextBox<>(
                 Objects.requireNonNull(parser, "parser"),
                 Objects.requireNonNull(formatter, "formatter")
         );
     }
 
-    private ParserSpreadsheetTextBox(final Function<String, T> parser,
-                                     final Function<T, String> formatter) {
+    private ValueSpreadsheetTextBox(final Function<String, T> parser,
+                                    final Function<T, String> formatter) {
         this.textBox = SpreadsheetTextBox.empty()
                 .clearIcon()
                 .disableSpellcheck()
@@ -63,7 +63,7 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
     /**
      * Sets a new {@link Function} will be used to parse String into values.
      */
-    private ParserSpreadsheetTextBox<T> setParser(final Function<String, T> parser) {
+    private ValueSpreadsheetTextBox<T> setParser(final Function<String, T> parser) {
         Objects.requireNonNull(parser, "parser");
 
         this.parser = parser;
@@ -80,7 +80,7 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
     /**
      * Sets a new {@link Function} will be used to format values into text for editing
      */
-    private ParserSpreadsheetTextBox<T> setFormatter(final Function<T, String> formatter) {
+    private ValueSpreadsheetTextBox<T> setFormatter(final Function<T, String> formatter) {
         Objects.requireNonNull(formatter, "formatter");
 
         this.formatter = formatter;
@@ -90,7 +90,7 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
     private Function<T, String> formatter;
 
     @Override
-    public ParserSpreadsheetTextBox<T> setId(final String id) {
+    public ValueSpreadsheetTextBox<T> setId(final String id) {
         this.textBox.setId(id);
         return this;
     }
@@ -101,7 +101,7 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
     }
 
     @Override
-    public ParserSpreadsheetTextBox<T> setLabel(final String label) {
+    public ValueSpreadsheetTextBox<T> setLabel(final String label) {
         this.textBox.setLabel(label);
         return this;
     }
@@ -117,13 +117,13 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
     }
 
     @Override
-    public ParserSpreadsheetTextBox<T> setDisabled(final boolean disabled) {
+    public ValueSpreadsheetTextBox<T> setDisabled(final boolean disabled) {
         this.textBox.setDisabled(disabled);
         return this;
     }
 
     @Override
-    public ParserSpreadsheetTextBox<T> optional() {
+    public ValueSpreadsheetTextBox<T> optional() {
         this.textBox.setValidator(
                 SpreadsheetValidators.optional(this.validator)
         );
@@ -132,7 +132,7 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
     }
 
     @Override
-    public ParserSpreadsheetTextBox<T> required() {
+    public ValueSpreadsheetTextBox<T> required() {
         this.textBox.setValidator(this.validator);
         this.required = true;
         return this;
@@ -145,7 +145,7 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
 
     private boolean required;
 
-    public ParserSpreadsheetTextBox<T> setValidator(final Validator<Optional<String>> validator) {
+    public ValueSpreadsheetTextBox<T> setValidator(final Validator<Optional<String>> validator) {
         this.textBox.setValidator(validator);
         this.validator = validator;
         return this;
@@ -154,7 +154,7 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
     private Validator<Optional<String>> validator;
 
     @Override
-    public ParserSpreadsheetTextBox<T> validate() {
+    public ValueSpreadsheetTextBox<T> validate() {
         this.textBox.validate();
         return this;
     }
@@ -165,24 +165,24 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
     }
 
     @Override
-    public ParserSpreadsheetTextBox<T> setErrors(final List<String> errors) {
+    public ValueSpreadsheetTextBox<T> setErrors(final List<String> errors) {
         this.textBox.setErrors(errors);
         return this;
     }
     @Override
-    public ParserSpreadsheetTextBox<T> focus() {
+    public ValueSpreadsheetTextBox<T> focus() {
         this.textBox.focus();
         return this;
     }
 
     @Override
-    public ParserSpreadsheetTextBox<T> alwaysShowHelperText() {
+    public ValueSpreadsheetTextBox<T> alwaysShowHelperText() {
         this.textBox.alwaysShowHelperText();
         return this;
     }
 
     @Override
-    public ParserSpreadsheetTextBox<T> setHelperText(final Optional<String> text) {
+    public ValueSpreadsheetTextBox<T> setHelperText(final Optional<String> text) {
         this.textBox.setHelperText(text);
         return this;
     }
@@ -193,19 +193,19 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
     }
 
     @Override
-    public ParserSpreadsheetTextBox<T> hideMarginBottom() {
+    public ValueSpreadsheetTextBox<T> hideMarginBottom() {
         this.textBox.hideMarginBottom();
         return this;
     }
 
     @Override
-    public ParserSpreadsheetTextBox<T> removeBorders() {
+    public ValueSpreadsheetTextBox<T> removeBorders() {
         this.textBox.removeBorders();
         return this;
     }
 
     @Override
-    public ParserSpreadsheetTextBox<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
+    public ValueSpreadsheetTextBox<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.textBox.addChangeListener(
@@ -221,19 +221,19 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
     }
 
     @Override
-    public ParserSpreadsheetTextBox<T> addFocusListener(final EventListener listener) {
+    public ValueSpreadsheetTextBox<T> addFocusListener(final EventListener listener) {
         this.textBox.addFocusListener(listener);
         return this;
     }
 
     @Override
-    public ParserSpreadsheetTextBox<T> addKeydownListener(final EventListener listener) {
+    public ValueSpreadsheetTextBox<T> addKeydownListener(final EventListener listener) {
         this.textBox.addKeydownListener(listener);
         return this;
     }
 
     @Override
-    public ParserSpreadsheetTextBox<T> addKeyupListener(final EventListener listener) {
+    public ValueSpreadsheetTextBox<T> addKeyupListener(final EventListener listener) {
         this.textBox.addKeyupListener(listener);
         return this;
     }
@@ -241,7 +241,7 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
     // setCssText.......................................................................................................
 
     @Override
-    public ParserSpreadsheetTextBox<T> setCssText(final String css) {
+    public ValueSpreadsheetTextBox<T> setCssText(final String css) {
         this.textBox.setCssText(css);
         return this;
     }
@@ -263,7 +263,7 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
     // Value............................................................................................................
 
     @Override
-    public ParserSpreadsheetTextBox<T> setValue(final Optional<T> value) {
+    public ValueSpreadsheetTextBox<T> setValue(final Optional<T> value) {
         Objects.requireNonNull(value, "value");
 
         this.textBox.setValue(
@@ -295,7 +295,7 @@ public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFie
      * Sets the given {@link String value} on the wrapped {@link org.dominokit.domino.ui.forms.TextBox} skipping any
      * validation or conversion.
      */
-    public ParserSpreadsheetTextBox<T> setStringValue(final Optional<String> value) {
+    public ValueSpreadsheetTextBox<T> setStringValue(final Optional<String> value) {
         this.textBox.setValue(value);
         return this;
     }

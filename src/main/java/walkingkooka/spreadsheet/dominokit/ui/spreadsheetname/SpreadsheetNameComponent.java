@@ -18,34 +18,34 @@
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetname;
 
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.text.HasText;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetName}.
  */
-public final class SpreadsheetNameComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetNameComponent, SpreadsheetName> {
+public final class SpreadsheetNameComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetNameComponent, SpreadsheetName> {
 
     public static SpreadsheetNameComponent empty() {
         return new SpreadsheetNameComponent();
     }
 
     private SpreadsheetNameComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(
+        this.textBox = ValueSpreadsheetTextBox.with(
                 SpreadsheetName::with,
                 HasText::text
         );
     }
 
-    // ParserSpreadsheetTextBoxWrapper..................................................................................
+    // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ParserSpreadsheetTextBox<SpreadsheetName> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetName> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ParserSpreadsheetTextBox<SpreadsheetName> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetName> textBox;
 
     // Object...........................................................................................................
     @Override

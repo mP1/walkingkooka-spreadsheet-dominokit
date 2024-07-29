@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.cellrange;
 
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
@@ -26,27 +26,27 @@ import walkingkooka.text.HasText;
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetCellRangeReference}.
  */
-public final class SpreadsheetCellRangeReferenceComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetCellRangeReferenceComponent, SpreadsheetCellRangeReference> {
+public final class SpreadsheetCellRangeReferenceComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetCellRangeReferenceComponent, SpreadsheetCellRangeReference> {
 
     public static SpreadsheetCellRangeReferenceComponent empty() {
         return new SpreadsheetCellRangeReferenceComponent();
     }
 
     private SpreadsheetCellRangeReferenceComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(
+        this.textBox = ValueSpreadsheetTextBox.with(
                 SpreadsheetSelection::parseCellRange,
                 HasText::text
         );
     }
 
-    // ParserSpreadsheetTextBoxWrapper..................................................................................
+    // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ParserSpreadsheetTextBox<SpreadsheetCellRangeReference> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetCellRangeReference> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ParserSpreadsheetTextBox<SpreadsheetCellRangeReference> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetCellRangeReference> textBox;
 
     // Object...........................................................................................................
 

@@ -37,7 +37,7 @@ public final class SpreadsheetNameComponentTest implements ValueComponentTesting
                                 )
                         ),
                 "SpreadsheetNameComponent\n" +
-                        "  ParserSpreadsheetTextBox\n" +
+                        "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [Spreadsheet123]\n"
         );

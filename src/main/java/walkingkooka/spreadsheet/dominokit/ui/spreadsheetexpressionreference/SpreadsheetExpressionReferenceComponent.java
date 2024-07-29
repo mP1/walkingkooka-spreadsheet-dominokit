@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetexpressionreference;
 
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
@@ -26,27 +26,27 @@ import walkingkooka.text.HasText;
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetExpressionReference}.
  */
-public final class SpreadsheetExpressionReferenceComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetExpressionReferenceComponent, SpreadsheetExpressionReference> {
+public final class SpreadsheetExpressionReferenceComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetExpressionReferenceComponent, SpreadsheetExpressionReference> {
 
     public static SpreadsheetExpressionReferenceComponent empty() {
         return new SpreadsheetExpressionReferenceComponent();
     }
 
     private SpreadsheetExpressionReferenceComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(
+        this.textBox = ValueSpreadsheetTextBox.with(
                 SpreadsheetSelection::parseExpressionReference,
                 HasText::text
         );
     }
 
-    // ParserSpreadsheetTextBoxWrapper..................................................................................
+    // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ParserSpreadsheetTextBox<SpreadsheetExpressionReference> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetExpressionReference> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ParserSpreadsheetTextBox<SpreadsheetExpressionReference> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetExpressionReference> textBox;
 
     // Object...........................................................................................................
 

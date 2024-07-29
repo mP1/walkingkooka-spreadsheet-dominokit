@@ -57,7 +57,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "            Errors\n" +
@@ -70,7 +70,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [] id=sort-comparatorNames-0-TextBox\n" +
                         "                          Errors\n" +
@@ -97,7 +97,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [Z=text] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "            Errors\n" +
@@ -110,7 +110,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [Z=text] id=sort-comparatorNames-0-TextBox\n" +
                         "                          Errors\n" +
@@ -148,7 +148,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [] id=sort-comparatorNames-1-TextBox\n" +
                         "                          Errors\n" +
@@ -175,7 +175,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [99=text] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "            Errors\n" +
@@ -188,7 +188,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [99=text] id=sort-comparatorNames-0-TextBox\n" +
                         "                          Errors\n" +
@@ -226,7 +226,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [] id=sort-comparatorNames-1-TextBox\n" +
                         "                          Errors\n" +
@@ -254,7 +254,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [B] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "            Errors\n" +
@@ -267,7 +267,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [B] id=sort-comparatorNames-0-TextBox\n" +
                         "                          Errors\n" +
@@ -301,7 +301,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [] id=sort-comparatorNames-1-TextBox\n" +
                         "                          Errors\n" +
@@ -327,7 +327,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [B=] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "            Errors\n" +
@@ -340,7 +340,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [B=] id=sort-comparatorNames-0-TextBox\n" +
                         "                          Errors\n" +
@@ -374,7 +374,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [] id=sort-comparatorNames-1-TextBox\n" +
                         "                          Errors\n" +
@@ -402,7 +402,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [B=text] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
@@ -413,7 +413,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [B=text] id=sort-comparatorNames-0-TextBox\n" +
                         "                    \"Move Up\" DISABLED id=sort-comparatorNames-0-moveUp-Link\n" +
@@ -449,7 +449,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [] id=sort-comparatorNames-1-TextBox\n" +
                         "                          Errors\n" +
@@ -475,7 +475,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [B=text,text2] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
@@ -486,7 +486,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [B=text,text2] id=sort-comparatorNames-0-TextBox\n" +
                         "                    \"Move Up\" DISABLED id=sort-comparatorNames-0-moveUp-Link\n" +
@@ -523,7 +523,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [] id=sort-comparatorNames-1-TextBox\n" +
                         "                          Errors\n" +
@@ -549,7 +549,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [B=text;C=text2] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
@@ -560,7 +560,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [B=text] id=sort-comparatorNames-0-TextBox\n" +
                         "                    \"Move Up\" DISABLED id=sort-comparatorNames-0-moveUp-Link\n" +
@@ -596,7 +596,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [C=text2] id=sort-comparatorNames-1-TextBox\n" +
                         "                    \"Move Up\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/C=text2;B=text] id=sort-comparatorNames-1-moveUp-Link\n" +
@@ -648,7 +648,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [B=text;B=text2] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "            Errors\n" +
@@ -661,7 +661,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [B=text] id=sort-comparatorNames-0-TextBox\n" +
                         "                    \"Move Up\" DISABLED id=sort-comparatorNames-0-moveUp-Link\n" +
@@ -697,7 +697,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [B=text2] id=sort-comparatorNames-1-TextBox\n" +
                         "                          Errors\n" +
@@ -750,7 +750,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [B=text;C=text2] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
@@ -761,7 +761,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [B=text] id=sort-comparatorNames-0-TextBox\n" +
                         "                    \"Move Up\" DISABLED id=sort-comparatorNames-0-moveUp-Link\n" +
@@ -797,7 +797,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [C=text2] id=sort-comparatorNames-1-TextBox\n" +
                         "                    \"Move Up\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/C=text2;B=text] id=sort-comparatorNames-1-moveUp-Link\n" +
@@ -834,7 +834,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [] id=sort-comparatorNames-2-TextBox\n" +
                         "                          Errors\n" +
@@ -865,7 +865,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [B=text] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
@@ -876,7 +876,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [B=text] id=sort-comparatorNames-0-TextBox\n" +
                         "                    \"Move Up\" DISABLED id=sort-comparatorNames-0-moveUp-Link\n" +
@@ -912,7 +912,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [] id=sort-comparatorNames-1-TextBox\n" +
                         "                          Errors\n" +
@@ -944,7 +944,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [B=text;B=text-case-insensitive] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "            Errors\n" +
@@ -957,7 +957,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [B=text] id=sort-comparatorNames-0-TextBox\n" +
                         "                    \"Move Up\" DISABLED id=sort-comparatorNames-0-moveUp-Link\n" +
@@ -993,7 +993,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [B=text-case-insensitive] id=sort-comparatorNames-1-TextBox\n" +
                         "                          Errors\n" +
@@ -1049,7 +1049,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [B=text;2=text-case-insensitive] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "            Errors\n" +
@@ -1062,7 +1062,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [B=text] id=sort-comparatorNames-0-TextBox\n" +
                         "                    \"Move Up\" DISABLED id=sort-comparatorNames-0-moveUp-Link\n" +
@@ -1098,7 +1098,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [2=text-case-insensitive] id=sort-comparatorNames-1-TextBox\n" +
                         "                          Errors\n" +
@@ -1154,7 +1154,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [3=text] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
@@ -1165,7 +1165,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [3=text] id=sort-comparatorNames-0-TextBox\n" +
                         "                    \"Move Up\" DISABLED id=sort-comparatorNames-0-moveUp-Link\n" +
@@ -1201,7 +1201,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [] id=sort-comparatorNames-1-TextBox\n" +
                         "                          Errors\n" +
@@ -1233,7 +1233,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [3=text;4=text;3=text-case-insensitive] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "            Errors\n" +
@@ -1246,7 +1246,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [3=text] id=sort-comparatorNames-0-TextBox\n" +
                         "                    \"Move Up\" DISABLED id=sort-comparatorNames-0-moveUp-Link\n" +
@@ -1282,7 +1282,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [4=text] id=sort-comparatorNames-1-TextBox\n" +
                         "                    \"Move Up\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/4=text;3=text;3=text-case-insensitive] id=sort-comparatorNames-1-moveUp-Link\n" +
@@ -1318,7 +1318,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [3=text-case-insensitive] id=sort-comparatorNames-2-TextBox\n" +
                         "                          Errors\n" +
@@ -1374,7 +1374,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "    Sort\n" +
                         "    id=sort includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [3=text;A=text] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
                         "            Errors\n" +
@@ -1387,7 +1387,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [3=text] id=sort-comparatorNames-0-TextBox\n" +
                         "                    \"Move Up\" DISABLED id=sort-comparatorNames-0-moveUp-Link\n" +
@@ -1423,7 +1423,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "                      ParserSpreadsheetTextBox\n" +
+                        "                      ValueSpreadsheetTextBox\n" +
                         "                        SpreadsheetTextBox\n" +
                         "                          [A=text] id=sort-comparatorNames-1-TextBox\n" +
                         "                          Errors\n" +

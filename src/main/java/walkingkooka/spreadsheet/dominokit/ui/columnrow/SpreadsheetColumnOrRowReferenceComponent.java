@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.columnrow;
 
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
@@ -26,27 +26,27 @@ import walkingkooka.text.HasText;
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetColumnOrRowReference}.
  */
-public final class SpreadsheetColumnOrRowReferenceComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetColumnOrRowReferenceComponent, SpreadsheetColumnOrRowReference> {
+public final class SpreadsheetColumnOrRowReferenceComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetColumnOrRowReferenceComponent, SpreadsheetColumnOrRowReference> {
 
     public static SpreadsheetColumnOrRowReferenceComponent empty() {
         return new SpreadsheetColumnOrRowReferenceComponent();
     }
 
     private SpreadsheetColumnOrRowReferenceComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(
+        this.textBox = ValueSpreadsheetTextBox.with(
                 SpreadsheetSelection::parseColumn,
                 HasText::text
         );
     }
 
-    // ParserSpreadsheetTextBoxWrapper..................................................................................
+    // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ParserSpreadsheetTextBox<SpreadsheetColumnOrRowReference> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetColumnOrRowReference> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ParserSpreadsheetTextBox<SpreadsheetColumnOrRowReference> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetColumnOrRowReference> textBox;
 
     // Object...........................................................................................................
 

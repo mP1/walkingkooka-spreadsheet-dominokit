@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.parsertextbox;
+package walkingkooka.spreadsheet.dominokit.ui.valuetextbox;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
@@ -30,13 +30,13 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class ParserSpreadsheetTextBoxTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, ParserSpreadsheetTextBox<SpreadsheetCellReference>> {
+public final class ValueSpreadsheetTextBoxTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, ValueSpreadsheetTextBox<SpreadsheetCellReference>> {
 
     @Test
     public void testWithNullParserFunctionFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> ParserSpreadsheetTextBox.with(
+                () -> ValueSpreadsheetTextBox.with(
                         null,
                         Object::toString
                 )
@@ -47,7 +47,7 @@ public final class ParserSpreadsheetTextBoxTest implements ValueComponentTesting
     public void testWithNullFormatterFunctionFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> ParserSpreadsheetTextBox.with(
+                () -> ValueSpreadsheetTextBox.with(
                         (s) -> {
                             throw new UnsupportedOperationException();
                         },
@@ -60,7 +60,7 @@ public final class ParserSpreadsheetTextBoxTest implements ValueComponentTesting
     public void testSetValue() {
         this.checkEquals(
                 Optional.of("AB12"),
-                ParserSpreadsheetTextBox.with(
+                ValueSpreadsheetTextBox.with(
                         SpreadsheetSelection::parseCell,
                         HasText::text
                 ).setValue(
@@ -74,7 +74,7 @@ public final class ParserSpreadsheetTextBoxTest implements ValueComponentTesting
     @Test
     public void testPrintTreeSetStringValueInvalidCharacter() {
         this.treePrintAndCheck(
-                ParserSpreadsheetTextBox.with(
+                ValueSpreadsheetTextBox.with(
                                 SpreadsheetSelection::parseCell,
                                 HasText::text
                         ).setId("id123")
@@ -83,7 +83,7 @@ public final class ParserSpreadsheetTextBoxTest implements ValueComponentTesting
                                         "AB!12"
                                 )
                         ),
-                "ParserSpreadsheetTextBox\n" +
+                "ValueSpreadsheetTextBox\n" +
                         "  SpreadsheetTextBox\n" +
                         "    [AB!12] id=id123\n" +
                         "    Errors\n" +
@@ -94,7 +94,7 @@ public final class ParserSpreadsheetTextBoxTest implements ValueComponentTesting
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                ParserSpreadsheetTextBox.with(
+                ValueSpreadsheetTextBox.with(
                                 SpreadsheetSelection::parseCell,
                                 HasText::text
                         ).setId("id123")
@@ -103,7 +103,7 @@ public final class ParserSpreadsheetTextBoxTest implements ValueComponentTesting
                                         SpreadsheetSelection.parseCell("AB12")
                                 )
                         ),
-                "ParserSpreadsheetTextBox\n" +
+                "ValueSpreadsheetTextBox\n" +
                         "  SpreadsheetTextBox\n" +
                         "    [AB12] id=id123\n"
         );
@@ -112,8 +112,8 @@ public final class ParserSpreadsheetTextBoxTest implements ValueComponentTesting
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<ParserSpreadsheetTextBox<SpreadsheetCellReference>> type() {
-        return Cast.to(ParserSpreadsheetTextBox.class);
+    public Class<ValueSpreadsheetTextBox<SpreadsheetCellReference>> type() {
+        return Cast.to(ValueSpreadsheetTextBox.class);
     }
 
     @Override

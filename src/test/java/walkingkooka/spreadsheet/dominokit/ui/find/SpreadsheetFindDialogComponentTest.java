@@ -56,7 +56,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
 //                        "    Sort\n" +
 //                        "    id=sort includeClose=true\n" +
 //                        "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-//                        "        ParserSpreadsheetTextBox\n" +
+//                        "        ValueSpreadsheetTextBox\n" +
 //                        "          SpreadsheetTextBox\n" +
 //                        "            [] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
 //                        "            Errors\n" +
@@ -69,7 +69,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
 //                        "                SpreadsheetFlexLayout\n" +
 //                        "                  ROW\n" +
 //                        "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-//                        "                      ParserSpreadsheetTextBox\n" +
+//                        "                      ValueSpreadsheetTextBox\n" +
 //                        "                        SpreadsheetTextBox\n" +
 //                        "                          [] id=sort-comparatorNames-0-TextBox\n" +
 //                        "                          Errors\n" +
@@ -102,7 +102,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "    Find\n" +
                         "    id=find includeClose=true CLOSED\n" +
                         "      SpreadsheetCellRangeReferenceComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            Cell Range [] id=find--cell-range\n" +
                         "            Errors\n" +
@@ -130,7 +130,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "            Text=text\n" +
                         "            Time=time\n" +
                         "      SpreadsheetFormulaComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            Query [] id=query-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
@@ -168,7 +168,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "    Find\n" +
                         "    id=find includeClose=true CLOSED\n" +
                         "      SpreadsheetCellRangeReferenceComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            Cell Range [] id=find--cell-range\n" +
                         "            Errors\n" +
@@ -196,7 +196,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "            Text=text\n" +
                         "            Time=time\n" +
                         "      SpreadsheetFormulaComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            Query [] id=query-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
@@ -239,7 +239,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "    Find\n" +
                         "    id=find includeClose=true CLOSED\n" +
                         "      SpreadsheetCellRangeReferenceComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            Cell Range [] id=find--cell-range\n" +
                         "            Errors\n" +
@@ -267,7 +267,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "            Text=text\n" +
                         "            Time=time\n" +
                         "      SpreadsheetFormulaComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            Query [] id=query-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +

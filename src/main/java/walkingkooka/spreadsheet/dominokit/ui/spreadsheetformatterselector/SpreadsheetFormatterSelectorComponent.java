@@ -18,34 +18,34 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetformatterselector;
 
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetFormatterSelector}.
  */
-public final class SpreadsheetFormatterSelectorComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetFormatterSelectorComponent, SpreadsheetFormatterSelector> {
+public final class SpreadsheetFormatterSelectorComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetFormatterSelectorComponent, SpreadsheetFormatterSelector> {
 
     public static SpreadsheetFormatterSelectorComponent empty() {
         return new SpreadsheetFormatterSelectorComponent();
     }
 
     private SpreadsheetFormatterSelectorComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(
+        this.textBox = ValueSpreadsheetTextBox.with(
                 SpreadsheetFormatterSelector::parse,
                 SpreadsheetFormatterSelector::toString
         );
     }
 
-    // ParserSpreadsheetTextBoxWrapper..................................................................................
+    // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ParserSpreadsheetTextBox<SpreadsheetFormatterSelector> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetFormatterSelector> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ParserSpreadsheetTextBox<SpreadsheetFormatterSelector> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetFormatterSelector> textBox;
 
     // Object...........................................................................................................
 

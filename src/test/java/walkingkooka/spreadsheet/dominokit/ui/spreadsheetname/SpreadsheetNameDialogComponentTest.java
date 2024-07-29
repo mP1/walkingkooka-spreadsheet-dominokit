@@ -65,7 +65,7 @@ public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDial
                         "    Spreadsheet Name\n" +
                         "    id=spreadsheet-name includeClose=true\n" +
                         "      SpreadsheetNameComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [spreadsheetName123] id=spreadsheet-name-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
