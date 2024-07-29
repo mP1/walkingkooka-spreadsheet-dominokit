@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.columnorrowcomparatornameslist;
+package walkingkooka.spreadsheet.dominokit.comparator;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
