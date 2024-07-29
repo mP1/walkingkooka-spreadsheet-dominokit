@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.select;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
@@ -23,7 +23,6 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -36,19 +35,19 @@ import java.util.Optional;
 /**
  * A select component with a few helpers to assist with build and working with values.
  */
-public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLFieldSetElement, T, SpreadsheetSelectComponent<T>>,
-        SpreadsheetTextBoxTreePrintable<SpreadsheetSelectComponent<T>, T>,
-        TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetSelectComponent<T>> {
+public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLFieldSetElement, T, walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T>>,
+        SpreadsheetTextBoxTreePrintable<walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T>, T>,
+        TestHtmlElementComponent<HTMLFieldSetElement, walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T>> {
 
-    public static <T> SpreadsheetSelectComponent<T> empty() {
-        return new SpreadsheetSelectComponent<>();
+    public static <T> walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> empty() {
+        return new walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<>();
     }
 
     private SpreadsheetSelectComponent() {
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> setId(final String id) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> setId(final String id) {
         this.id = id;
         return this;
     }
@@ -61,7 +60,7 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     private String id;
 
     @Override
-    public SpreadsheetSelectComponent<T> setLabel(final String label) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> setLabel(final String label) {
         this.label = label;
         return this;
     }
@@ -74,13 +73,13 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     private String label;
 
     @Override
-    public SpreadsheetSelectComponent<T> optional() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> optional() {
         this.required = false;
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> required() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> required() {
         this.required = true;
         return this;
     }
@@ -98,7 +97,7 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> setDisabled(final boolean disabled) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> setDisabled(final boolean disabled) {
         this.disabled = true;
         return this;
     }
@@ -106,7 +105,7 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     private boolean disabled;
 
     @Override
-    public SpreadsheetSelectComponent<T> validate() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> validate() {
         // TODO enable later somehow ?
         return this;
     }
@@ -117,7 +116,7 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> setErrors(final List<String> errors) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> setErrors(final List<String> errors) {
         Objects.requireNonNull(errors, "errors");
 
         this.errors = Lists.immutable(errors);
@@ -127,17 +126,17 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     private List<String> errors = Lists.empty();
 
     @Override
-    public SpreadsheetSelectComponent<T> focus() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> focus() {
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> alwaysShowHelperText() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> alwaysShowHelperText() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> setHelperText(final Optional<String> text) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> setHelperText(final Optional<String> text) {
         throw new UnsupportedOperationException();
     }
 
@@ -147,36 +146,36 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> hideMarginBottom() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> hideMarginBottom() {
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> removeBorders() {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> removeBorders() {
         return this;
     }
 
-    public SpreadsheetSelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> addFocusListener(final EventListener listener) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> addFocusListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> addKeydownListener(final EventListener listener) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> addKeydownListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         return this;
     }
 
     @Override
-    public SpreadsheetSelectComponent<T> addKeyupListener(final EventListener listener) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> addKeyupListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
         return this;
     }
@@ -193,8 +192,8 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     /**
      * Appends a new value to the drop down.
      */
-    public SpreadsheetSelectComponent<T> appendValue(final String text,
-                                                     final T value) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> appendValue(final String text,
+                                                                                              final T value) {
         checkText(text);
         checkValue(value);
 
@@ -207,8 +206,8 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     /**
      * Appends a new value to the drop down.
      */
-    public SpreadsheetSelectComponent<T> appendValue(final String text,
-                                                     final Optional<T> value) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> appendValue(final String text,
+                                                                                              final Optional<T> value) {
         checkText(text);
         checkValue(value);
 
@@ -223,7 +222,7 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     private final Map<String, Optional<T>> textToValue = Maps.ordered();
 
     @Override
-    public SpreadsheetSelectComponent<T> setValue(final Optional<T> value) {
+    public walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent<T> setValue(final Optional<T> value) {
         checkValue(value);
 
         this.value = value;

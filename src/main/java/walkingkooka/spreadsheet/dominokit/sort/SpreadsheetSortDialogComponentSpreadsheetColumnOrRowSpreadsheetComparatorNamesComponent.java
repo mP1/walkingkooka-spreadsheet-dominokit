@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetFlexLayout;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;

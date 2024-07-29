@@ -15,43 +15,33 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.validator;
+package walkingkooka.spreadsheet.dominokit.value;
 
+import org.dominokit.domino.ui.forms.IntegerBox;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
-import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
-import java.util.Optional;
 
-/**
- * A {@link Validator} that skips the wrapped {@link Validator} if the text is missing or empty.
- */
-final class SpreadsheetOptionalStringValidator implements Validator<Optional<String>> {
+final class SpreadsheetIntegerBoxValidator implements Validator<IntegerBox> {
 
-    /**
-     * Factory
-     */
-    static SpreadsheetOptionalStringValidator with(final Validator<Optional<String>> validator) {
+    static SpreadsheetIntegerBoxValidator with(final Validator<Integer> validator) {
         Objects.requireNonNull(validator, "validator");
-
-        return new SpreadsheetOptionalStringValidator(validator);
+        return new SpreadsheetIntegerBoxValidator(validator);
     }
 
-    private SpreadsheetOptionalStringValidator(final Validator<Optional<String>> validator) {
-        super();
+    private SpreadsheetIntegerBoxValidator(final Validator<Integer> validator) {
         this.validator = validator;
     }
 
     @Override
-    public ValidationResult isValid(final Optional<String> value) {
-        // empty Optional or empty String are both missing
-        return false == value.isPresent() || CharSequences.isNullOrEmpty(value.get()) ?
-                ValidationResult.valid() :
-                this.validator.isValid(value);
+    public ValidationResult isValid(final IntegerBox component) {
+        return this.validator.isValid(
+                component.getValue()
+        );
     }
 
-    private final Validator<Optional<String>> validator;
+    private final Validator<Integer> validator;
 
     @Override
     public String toString() {

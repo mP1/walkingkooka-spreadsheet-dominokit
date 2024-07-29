@@ -15,12 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
+import walkingkooka.spreadsheet.dominokit.ui.ComponentWithErrors;
+import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Optional;

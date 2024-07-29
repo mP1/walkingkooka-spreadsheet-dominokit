@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.valuetextbox;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;

@@ -19,7 +19,8 @@ package walkingkooka.spreadsheet.dominokit.ui.textbox;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -96,7 +97,7 @@ public interface SpreadsheetTextBoxTreePrintable<V extends ValueComponent<HTMLFi
     }
 
     /**
-     * Provides an opportunity for {@link walkingkooka.spreadsheet.dominokit.ui.select.SpreadsheetSelectComponent} to print
+     * Provides an opportunity for {@link SpreadsheetSelectComponent} to print
      * drop down values.
      */
     void treePrintAlternateValues(final IndentingPrinter printer);

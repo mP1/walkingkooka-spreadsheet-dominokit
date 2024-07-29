@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.integerbox;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 

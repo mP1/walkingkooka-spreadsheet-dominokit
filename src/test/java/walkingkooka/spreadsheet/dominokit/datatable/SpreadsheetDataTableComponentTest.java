@@ -26,8 +26,8 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.ui.text.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.TreePrintableTesting;
 

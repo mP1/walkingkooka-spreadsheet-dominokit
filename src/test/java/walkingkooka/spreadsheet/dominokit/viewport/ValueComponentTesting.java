@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLElement;
 import walkingkooka.reflect.ClassTesting;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public interface ValueComponentTesting<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>

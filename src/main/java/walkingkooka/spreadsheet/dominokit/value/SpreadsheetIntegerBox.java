@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.integerbox;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.Element;
 import elemental2.dom.Event;
@@ -34,7 +34,6 @@ import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.ui.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBoxTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
 

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.validator;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.reflect.PublicStaticHelper;

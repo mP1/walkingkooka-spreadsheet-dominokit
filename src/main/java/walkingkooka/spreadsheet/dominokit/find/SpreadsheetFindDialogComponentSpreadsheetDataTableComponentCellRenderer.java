@@ -22,8 +22,8 @@ import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponen
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ui.text.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textnode.SpreadsheetTextNodeComponent;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextComponent;
 
 import java.util.Optional;
 
