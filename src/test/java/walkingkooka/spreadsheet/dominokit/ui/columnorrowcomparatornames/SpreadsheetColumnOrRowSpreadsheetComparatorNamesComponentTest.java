@@ -38,7 +38,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest
                                 )
                         ),
                 "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "  ParserSpreadsheetTextBox\n" +
+                        "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [A=text]\n"
         );

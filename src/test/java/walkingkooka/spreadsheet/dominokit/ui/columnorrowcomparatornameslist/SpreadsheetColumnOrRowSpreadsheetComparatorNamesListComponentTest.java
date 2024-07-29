@@ -36,7 +36,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                                 Optional.of("A")
                         ),
                 "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "  ParserSpreadsheetTextBox\n" +
+                        "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [A]\n" +
                         "      Errors\n" +
@@ -52,7 +52,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                                 Optional.of("A=")
                         ),
                 "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "  ParserSpreadsheetTextBox\n" +
+                        "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [A=]\n" +
                         "      Errors\n" +
@@ -70,7 +70,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                                 )
                         ),
                 "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "  ParserSpreadsheetTextBox\n" +
+                        "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [A=text;B=text-case-insensitive]\n"
         );

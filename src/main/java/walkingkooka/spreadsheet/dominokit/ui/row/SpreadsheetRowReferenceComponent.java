@@ -18,8 +18,8 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.row;
 
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
@@ -27,27 +27,27 @@ import walkingkooka.text.HasText;
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetRowReference}.
  */
-public final class SpreadsheetRowReferenceComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetRowReferenceComponent, SpreadsheetRowReference> {
+public final class SpreadsheetRowReferenceComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetRowReferenceComponent, SpreadsheetRowReference> {
 
     public static SpreadsheetRowReferenceComponent empty() {
         return new SpreadsheetRowReferenceComponent();
     }
 
     private SpreadsheetRowReferenceComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(
+        this.textBox = ValueSpreadsheetTextBox.with(
                 SpreadsheetSelection::parseRow,
                 HasText::text
         );
     }
 
-    // ParserSpreadsheetTextBoxWrapper..................................................................................
+    // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ParserSpreadsheetTextBox<SpreadsheetRowReference> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetRowReference> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ParserSpreadsheetTextBox<SpreadsheetRowReference> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetRowReference> textBox;
 
     // Object...........................................................................................................
 

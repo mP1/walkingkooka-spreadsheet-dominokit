@@ -52,7 +52,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                         "          Errors\n" +
                         "            Label is empty\n" +
                         "      SpreadsheetExpressionReferenceComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
                         "            Errors\n" +
@@ -88,7 +88,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                         "          Errors\n" +
                         "            Label is empty\n" +
                         "      SpreadsheetExpressionReferenceComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
                         "            Errors\n" +
@@ -124,7 +124,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                         "          Errors\n" +
                         "            Label is empty\n" +
                         "      SpreadsheetExpressionReferenceComponent\n" +
-                        "        ParserSpreadsheetTextBox\n" +
+                        "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
                         "            Errors\n" +

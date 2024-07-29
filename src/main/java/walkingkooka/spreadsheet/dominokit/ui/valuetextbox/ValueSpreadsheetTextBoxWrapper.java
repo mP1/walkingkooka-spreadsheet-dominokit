@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.parsertextbox;
+package walkingkooka.spreadsheet.dominokit.ui.valuetextbox;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
@@ -29,9 +29,9 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * A helper interface that implements delegator methods for a wrapped {@link ParserSpreadsheetTextBox}.
+ * A helper interface that implements delegator methods for a wrapped {@link ValueSpreadsheetTextBox}.
  */
-public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetTextBoxWrapper<C, V>, V extends HasText>
+public interface ValueSpreadsheetTextBoxWrapper<C extends ValueSpreadsheetTextBoxWrapper<C, V>, V extends HasText>
         extends ValueComponent<HTMLFieldSetElement, V, C> {
 
     @Override
@@ -225,9 +225,9 @@ public interface ParserSpreadsheetTextBoxWrapper<C extends ParserSpreadsheetText
     }
 
     /**
-     * The wrapped {@link ParserSpreadsheetTextBox}, which is the target of all delegated methods.
+     * The wrapped {@link ValueSpreadsheetTextBox}, which is the target of all delegated methods.
      */
-    ParserSpreadsheetTextBox<V> parserSpreadsheetTextBox();
+    ValueSpreadsheetTextBox<V> parserSpreadsheetTextBox();
 
     // TreePrintable....................................................................................................
 

@@ -18,34 +18,34 @@
 package walkingkooka.spreadsheet.dominokit.ui.columnorrowcomparatornames;
 
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.text.HasText;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
  */
-public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent, SpreadsheetColumnOrRowSpreadsheetComparatorNames> {
+public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent, SpreadsheetColumnOrRowSpreadsheetComparatorNames> {
 
     public static SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent empty() {
         return new SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent();
     }
 
     private SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(
+        this.textBox = ValueSpreadsheetTextBox.with(
                 SpreadsheetColumnOrRowSpreadsheetComparatorNames::parse,
                 HasText::text
         );
     }
 
-    // ParserSpreadsheetTextBoxWrapper..................................................................................
+    // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ParserSpreadsheetTextBox<SpreadsheetColumnOrRowSpreadsheetComparatorNames> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetColumnOrRowSpreadsheetComparatorNames> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ParserSpreadsheetTextBox<SpreadsheetColumnOrRowSpreadsheetComparatorNames> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetColumnOrRowSpreadsheetComparatorNames> textBox;
 
     // Object...........................................................................................................
 

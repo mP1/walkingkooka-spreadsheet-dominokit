@@ -20,10 +20,10 @@ package walkingkooka.spreadsheet.dominokit.ui.spreadsheetparserselector;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetParserSelectorComponentTest implements ClassTesting2<SpreadsheetParserSelectorComponent> {
+public final class SpreadsheetValueSelectorComponentTest implements ClassTesting2<SpreadsheetValueSelectorComponent> {
     @Override
-    public Class<SpreadsheetParserSelectorComponent> type() {
-        return SpreadsheetParserSelectorComponent.class;
+    public Class<SpreadsheetValueSelectorComponent> type() {
+        return SpreadsheetValueSelectorComponent.class;
     }
 
     @Override

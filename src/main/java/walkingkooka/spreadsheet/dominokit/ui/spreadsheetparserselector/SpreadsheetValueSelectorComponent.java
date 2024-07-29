@@ -18,35 +18,35 @@
 
 package walkingkooka.spreadsheet.dominokit.ui.spreadsheetparserselector;
 
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.text.HasText;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetParserSelector}.
  */
-public final class SpreadsheetParserSelectorComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetParserSelectorComponent, SpreadsheetParserSelector> {
+public final class SpreadsheetValueSelectorComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetValueSelectorComponent, SpreadsheetParserSelector> {
 
-    public static SpreadsheetParserSelectorComponent empty() {
-        return new SpreadsheetParserSelectorComponent();
+    public static SpreadsheetValueSelectorComponent empty() {
+        return new SpreadsheetValueSelectorComponent();
     }
 
-    private SpreadsheetParserSelectorComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(
+    private SpreadsheetValueSelectorComponent() {
+        this.textBox = ValueSpreadsheetTextBox.with(
                 SpreadsheetParserSelector::parse,
                 HasText::text
         );
     }
 
-    // ParserSpreadsheetTextBoxWrapper..................................................................................
+    // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ParserSpreadsheetTextBox<SpreadsheetParserSelector> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetParserSelector> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ParserSpreadsheetTextBox<SpreadsheetParserSelector> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetParserSelector> textBox;
 
     // Object...........................................................................................................
 

@@ -134,7 +134,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "            ParserSpreadsheetTextBox\n" +
+                        "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                [] id=sort-comparator-1-TextBox\n" +
                         "                Errors\n" +
@@ -154,7 +154,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "            ParserSpreadsheetTextBox\n" +
+                        "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                [A] id=sort-comparator-1-TextBox\n" +
                         "                Errors\n" +
@@ -183,7 +183,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "            ParserSpreadsheetTextBox\n" +
+                        "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                [A=] id=sort-comparator-1-TextBox\n" +
                         "                Errors\n" +
@@ -212,7 +212,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "            ParserSpreadsheetTextBox\n" +
+                        "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                [12=] id=sort-comparator-1-TextBox\n" +
                         "                Errors\n" +
@@ -241,7 +241,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "            ParserSpreadsheetTextBox\n" +
+                        "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                [A=comparator-1] id=sort-comparator-1-TextBox\n" +
                         "          \"Move Up\" DISABLED id=sort-comparator-1-moveUp-Link\n" +
@@ -272,7 +272,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "            ParserSpreadsheetTextBox\n" +
+                        "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                [A=comparator-1,comparator-2] id=sort-comparator-1-TextBox\n" +
                         "          \"Move Up\" DISABLED id=sort-comparator-1-moveUp-Link\n" +
@@ -303,7 +303,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "            ParserSpreadsheetTextBox\n" +
+                        "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                [A=comparator-1,comparator-2,comparator-3] id=sort-comparator-1-TextBox\n" +
                         "          \"Move Up\" DISABLED id=sort-comparator-1-moveUp-Link\n" +
@@ -349,7 +349,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "            ParserSpreadsheetTextBox\n" +
+                        "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                [A=comparator-1] id=sort-comparator-1-TextBox\n" +
                         "          \"Move Up\" DISABLED id=sort-comparator-1-moveUp-Link\n" +
@@ -411,7 +411,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "            ParserSpreadsheetTextBox\n" +
+                        "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                [B=comparator-2] id=sort-comparator-1-TextBox\n" +
                         "          \"Move Up\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/B=comparator-2;A=comparator-1;C=comparator-3] id=sort-comparator-1-moveUp-Link\n" +
@@ -463,7 +463,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "            ParserSpreadsheetTextBox\n" +
+                        "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                [C=comparator-3] id=sort-comparator-1-TextBox\n" +
                         "          \"Move Up\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;C=comparator-3;B=comparator-2] id=sort-comparator-1-moveUp-Link\n" +

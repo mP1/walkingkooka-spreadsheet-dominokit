@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.ui.formula;
 
 import walkingkooka.spreadsheet.SpreadsheetFormula;
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
-import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBox;
+import walkingkooka.spreadsheet.dominokit.ui.valuetextbox.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.text.HasText;
 import walkingkooka.tree.expression.Expression;
 
@@ -28,27 +28,27 @@ import java.util.function.Function;
 /**
  * A text box that accepts entry and validates it as a {@link Expression}.
  */
-public final class SpreadsheetFormulaComponent implements ParserSpreadsheetTextBoxWrapper<SpreadsheetFormulaComponent, SpreadsheetFormula> {
+public final class SpreadsheetFormulaComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetFormulaComponent, SpreadsheetFormula> {
 
     public static SpreadsheetFormulaComponent empty(final Function<String, SpreadsheetFormula> parser) {
         return new SpreadsheetFormulaComponent(parser);
     }
 
     private SpreadsheetFormulaComponent(final Function<String, SpreadsheetFormula> parser) {
-        this.textBox = ParserSpreadsheetTextBox.with(
+        this.textBox = ValueSpreadsheetTextBox.with(
                 parser,
                 HasText::text
         ).setValidator(SpreadsheetFormulaComponentValidator.with(parser));
     }
 
-    // ParserSpreadsheetTextBoxWrapper..................................................................................
+    // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ParserSpreadsheetTextBox<SpreadsheetFormula> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetFormula> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ParserSpreadsheetTextBox<SpreadsheetFormula> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetFormula> textBox;
 
     // Object...........................................................................................................
 
