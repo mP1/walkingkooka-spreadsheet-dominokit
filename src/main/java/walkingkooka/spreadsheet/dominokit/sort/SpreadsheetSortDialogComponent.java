@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.sort;
+package walkingkooka.spreadsheet.dominokit.sort;
 
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.NeverError;

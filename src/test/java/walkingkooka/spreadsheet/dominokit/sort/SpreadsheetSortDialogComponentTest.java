@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.sort;
+package walkingkooka.spreadsheet.dominokit.sort;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
