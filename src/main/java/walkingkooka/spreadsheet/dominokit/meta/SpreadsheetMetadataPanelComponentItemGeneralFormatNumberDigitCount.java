@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.meta;
+package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLUListElement;
 import org.dominokit.domino.ui.elements.UListElement;
@@ -25,59 +25,52 @@ import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnch
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 /**
- * A {@link SpreadsheetMetadataPanelComponentItem} that displays a number text box.
+ * A {@link SpreadsheetMetadataPanelComponentItem} for {@link SpreadsheetMetadataPropertyName#PRECISION}
  */
-final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetadataPanelComponentItem<Integer> {
+final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount extends SpreadsheetMetadataPanelComponentItem<Integer> {
 
-    static SpreadsheetMetadataPanelComponentItemNumber with(final SpreadsheetMetadataPropertyName<Integer> propertyName,
-                                                            final int min,
-                                                            final int max,
-                                                            final SpreadsheetMetadataPanelComponentContext context) {
-        checkPropertyName(propertyName);
+    static SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount with(final SpreadsheetMetadataPanelComponentContext context) {
         checkContext(context);
 
-        return new SpreadsheetMetadataPanelComponentItemNumber(
-                propertyName,
-                min,
-                max,
+        return new SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount(
                 context
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItemNumber(final SpreadsheetMetadataPropertyName<Integer> propertyName,
-                                                        final int min,
-                                                        final int max,
-                                                        final SpreadsheetMetadataPanelComponentContext context) {
+    private SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount(final SpreadsheetMetadataPanelComponentContext context) {
         super(
-                propertyName,
+                SpreadsheetMetadataPropertyName.GENERAL_NUMBER_FORMAT_DIGIT_COUNT,
                 context
         );
 
+        final UListElement list = this.uListElement();
 
-        this.list = this.uListElement();
-
-        this.integerBox = this.integerBox()
-                .setPattern("#")
-                .setMinValue(min)
-                .setMaxValue(max)
+        final IntegerBox integerBox = this.integerBox()
+                .setMinValue(0)
                 .setStep(1);
-        this.list.appendChild(
+        this.integerBox = integerBox;
+
+        list.appendChild(
                 liElement()
-                        .appendChild(this.integerBox)
+                        .appendChild(integerBox)
         );
 
         final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
-        this.list.appendChild(
+        list.appendChild(
                 liElement()
                         .appendChild(defaultValueAnchor)
         );
         this.defaultValueAnchor = defaultValueAnchor;
+
+        this.list = list;
     }
 
     @Override
     void focus() {
         this.integerBox.focus();
     }
+
+    private final IntegerBox integerBox;
 
     // ComponentRefreshable.............................................................................................
 
@@ -98,8 +91,6 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
                         .orElse("")
         );
     }
-
-    private final IntegerBox integerBox;
 
     private final HistoryTokenAnchorComponent defaultValueAnchor;
 

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.metadatacolorpicker;
+package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
@@ -26,8 +26,8 @@ import walkingkooka.text.printer.TreePrintable;
 
 public class SpreadsheetMetadataColorPickerComponent implements IsElement<Element>, TreePrintable {
 
-    public static SpreadsheetMetadataColorPickerComponent with(final HistoryToken token) {
-        return new SpreadsheetMetadataColorPickerComponent(token);
+    public static walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataColorPickerComponent with(final HistoryToken token) {
+        return new walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataColorPickerComponent(token);
     }
 
     private SpreadsheetMetadataColorPickerComponent(final HistoryToken token) {
