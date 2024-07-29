@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetText
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.HasText;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetExpressionReference}.
@@ -32,7 +33,10 @@ public final class SpreadsheetExpressionReferenceComponent implements ParserSpre
     }
 
     private SpreadsheetExpressionReferenceComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetSelection::parseExpressionReference);
+        this.textBox = ParserSpreadsheetTextBox.with(
+                SpreadsheetSelection::parseExpressionReference,
+                HasText::text
+        );
     }
 
     // ParserSpreadsheetTextBoxWrapper..................................................................................

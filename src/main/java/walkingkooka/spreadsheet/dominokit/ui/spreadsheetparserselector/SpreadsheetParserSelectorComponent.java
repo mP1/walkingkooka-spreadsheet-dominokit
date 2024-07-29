@@ -21,6 +21,7 @@ package walkingkooka.spreadsheet.dominokit.ui.spreadsheetparserselector;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.text.HasText;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetParserSelector}.
@@ -32,7 +33,10 @@ public final class SpreadsheetParserSelectorComponent implements ParserSpreadshe
     }
 
     private SpreadsheetParserSelectorComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetParserSelector::parse);
+        this.textBox = ParserSpreadsheetTextBox.with(
+                SpreadsheetParserSelector::parse,
+                HasText::text
+        );
     }
 
     // ParserSpreadsheetTextBoxWrapper..................................................................................

@@ -25,7 +25,6 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.spreadsheet.dominokit.ui.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.ui.validator.SpreadsheetValidators;
-import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
@@ -37,28 +36,34 @@ import java.util.function.Function;
  * A text box that supports a typed value using a {@link Function} as a parser. Any thrown exception messages become
  * the validation fail messages. it is possible to replace the default validator mentioned above using {@link #setValidator(Validator)}.
  */
-public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueComponent<HTMLFieldSetElement, T, ParserSpreadsheetTextBox<T>> {
+public final class ParserSpreadsheetTextBox<T> implements ValueComponent<HTMLFieldSetElement, T, ParserSpreadsheetTextBox<T>> {
 
     /**
      * Creates a new {@link ParserSpreadsheetTextBox}.
      */
-    public static <T extends HasText> ParserSpreadsheetTextBox<T> with(final Function<String, T> parser) {
-        return new ParserSpreadsheetTextBox<>(parser);
+    public static <T> ParserSpreadsheetTextBox<T> with(final Function<String, T> parser,
+                                                       final Function<T, String> formatter) {
+        return new ParserSpreadsheetTextBox<>(
+                Objects.requireNonNull(parser, "parser"),
+                Objects.requireNonNull(formatter, "formatter")
+        );
     }
 
-    private ParserSpreadsheetTextBox(final Function<String, T> parser) {
+    private ParserSpreadsheetTextBox(final Function<String, T> parser,
+                                     final Function<T, String> formatter) {
         this.textBox = SpreadsheetTextBox.empty()
                 .clearIcon()
                 .disableSpellcheck()
                 .enterFiresValueChange();
         this.setParser(parser);
+        this.setFormatter(formatter);
         this.required();
     }
 
     /**
      * Sets a new {@link Function} will be used to parse String into values.
      */
-    public ParserSpreadsheetTextBox<T> setParser(final Function<String, T> parser) {
+    private ParserSpreadsheetTextBox<T> setParser(final Function<String, T> parser) {
         Objects.requireNonNull(parser, "parser");
 
         this.parser = parser;
@@ -70,6 +75,19 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
     }
 
     private Function<String, T> parser;
+
+
+    /**
+     * Sets a new {@link Function} will be used to format values into text for editing
+     */
+    private ParserSpreadsheetTextBox<T> setFormatter(final Function<T, String> formatter) {
+        Objects.requireNonNull(formatter, "formatter");
+
+        this.formatter = formatter;
+        return this;
+    }
+
+    private Function<T, String> formatter;
 
     @Override
     public ParserSpreadsheetTextBox<T> setId(final String id) {
@@ -249,7 +267,7 @@ public final class ParserSpreadsheetTextBox<T extends HasText> implements ValueC
         Objects.requireNonNull(value, "value");
 
         this.textBox.setValue(
-                value.map(HasText::text)
+                value.map(this.formatter::apply)
         );
         return this;
     }

@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.ui.spreadsheetname;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.ui.parsertextbox.ParserSpreadsheetTextBoxWrapper;
+import walkingkooka.text.HasText;
 
 /**
  * A text box that accepts entry and validates it as a {@link SpreadsheetName}.
@@ -31,7 +32,10 @@ public final class SpreadsheetNameComponent implements ParserSpreadsheetTextBoxW
     }
 
     private SpreadsheetNameComponent() {
-        this.textBox = ParserSpreadsheetTextBox.with(SpreadsheetName::with);
+        this.textBox = ParserSpreadsheetTextBox.with(
+                SpreadsheetName::with,
+                HasText::text
+        );
     }
 
     // ParserSpreadsheetTextBoxWrapper..................................................................................
