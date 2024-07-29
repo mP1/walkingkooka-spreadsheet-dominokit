@@ -67,6 +67,7 @@ import walkingkooka.spreadsheet.dominokit.format.SpreadsheetPatternDialogCompone
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetPatternDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.history.History;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
@@ -96,7 +97,6 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialo
 import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponent;
 import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.WindowResizeWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListComponentContexts;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetlist.SpreadsheetListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.ui.spreadsheetname.SpreadsheetNameDialogComponent;

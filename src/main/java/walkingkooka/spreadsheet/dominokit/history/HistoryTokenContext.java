@@ -18,8 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.Context;
-import walkingkooka.spreadsheet.dominokit.ui.historytokenanchor.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.ui.historytokenmenuitem.HistoryTokenMenuItem;
 
 import java.util.Objects;
 import java.util.Optional;

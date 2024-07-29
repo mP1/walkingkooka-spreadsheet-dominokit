@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.historytokenanchor;
+package walkingkooka.spreadsheet.dominokit.history;
 
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.ToStringBuilder;

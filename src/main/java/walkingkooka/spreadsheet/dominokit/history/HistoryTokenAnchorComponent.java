@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.historytokenanchor;
+package walkingkooka.spreadsheet.dominokit.history;
 
 import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.Event;
@@ -27,7 +27,6 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.net.Url;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.ui.tooltip.SpreadsheetTooltipComponent;
 import walkingkooka.text.CharSequences;
