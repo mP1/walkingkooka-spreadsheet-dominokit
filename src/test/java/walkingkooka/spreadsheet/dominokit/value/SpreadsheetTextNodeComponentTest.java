@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.textnode;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.text.printer.TreePrintableTesting;
@@ -28,7 +28,7 @@ public final class SpreadsheetTextNodeComponentTest implements TreePrintableTest
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                SpreadsheetTextNodeComponent.with(
+                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent.with(
                         Optional.of(
                                 TextNode.text("Hello123")
                         )

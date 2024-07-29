@@ -15,13 +15,12 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.textnode;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.TextNode;
