@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.removeorreplacepluginselectortextcomponent;
+package walkingkooka.spreadsheet.dominokit.selector;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;

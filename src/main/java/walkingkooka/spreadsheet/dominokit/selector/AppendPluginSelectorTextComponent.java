@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.appendpluginselectortextcomponent;
+package walkingkooka.spreadsheet.dominokit.selector;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
