@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.dialog;
+package walkingkooka.spreadsheet.dominokit.dialog;
 
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycleTesting;
 

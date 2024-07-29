@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 /**

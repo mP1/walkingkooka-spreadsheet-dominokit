@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.dialog;
+package walkingkooka.spreadsheet.dominokit.dialog;
 
 import org.dominokit.domino.ui.dialogs.Dialog;
 import walkingkooka.spreadsheet.dominokit.AppContext;

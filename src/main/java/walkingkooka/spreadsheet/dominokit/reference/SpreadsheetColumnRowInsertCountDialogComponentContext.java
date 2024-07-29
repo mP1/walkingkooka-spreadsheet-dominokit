@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.ui.ComponentLifecycleMatcher;
-import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentContext;
 
 /**
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingDialogComponent}.

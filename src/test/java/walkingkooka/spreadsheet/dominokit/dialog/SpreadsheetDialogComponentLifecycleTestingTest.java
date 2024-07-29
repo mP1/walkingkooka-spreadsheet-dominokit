@@ -15,16 +15,16 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.dialog;
+package walkingkooka.spreadsheet.dominokit.dialog;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
-import walkingkooka.spreadsheet.dominokit.ui.dialog.SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.ui.textbox.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -92,7 +92,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                     .setValue(
                             Optional.of("NOT refreshed")
                     );
-            this.dialog = SpreadsheetDialogComponent.with(
+            this.dialog = walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent.with(
                             "id123",
                             "Title456",
                             true, // includeClose
@@ -130,7 +130,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         private final SpreadsheetTextBox refreshed;
 
         @Override
-        public SpreadsheetDialogComponent dialog() {
+        public walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent dialog() {
             return this.dialog;
         }
 

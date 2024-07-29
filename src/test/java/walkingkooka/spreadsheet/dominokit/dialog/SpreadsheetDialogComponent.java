@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.ui.dialog;
+package walkingkooka.spreadsheet.dominokit.dialog;
 
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
@@ -29,20 +29,20 @@ import java.util.List;
 import java.util.Objects;
 
 public final class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLike,
-        TestHtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
+        TestHtmlElementComponent<HTMLDivElement, walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent> {
 
     /**
-     * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
+     * Factory that creates a new empty {@link walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent}.
      */
-    public static SpreadsheetDialogComponent with(final String id,
-                                                  final String title,
-                                                  final boolean includeClose,
-                                                  final HistoryTokenContext context) {
+    public static walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent with(final String id,
+                                                                                            final String title,
+                                                                                            final boolean includeClose,
+                                                                                            final HistoryTokenContext context) {
         Objects.requireNonNull(id, "id");
         Objects.requireNonNull(title, "title");
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetDialogComponent(
+        return new walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent(
                 id,
                 title,
                 includeClose,
@@ -81,7 +81,7 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
     // title............................................................................................................
 
     @Override
-    public SpreadsheetDialogComponent setTitle(final String title) {
+    public walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent setTitle(final String title) {
         this.title = title;
         return this;
     }
@@ -114,7 +114,7 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
     // appendChild......................................................................................................
 
     @Override
-    public SpreadsheetDialogComponent appendChild(final IsElement<?> child) {
+    public walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent appendChild(final IsElement<?> child) {
         Objects.requireNonNull(child, "child");
         this.children.add(child);
         return this;
