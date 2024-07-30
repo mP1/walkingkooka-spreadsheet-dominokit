@@ -105,6 +105,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
@@ -576,10 +577,7 @@ public class App implements EntryPoint,
             );
 
             this.spreadsheetFormatterProvider = metadata.spreadsheetFormatterProvider(
-                    SpreadsheetFormatterProviders.spreadsheetFormatPattern(
-                            metadata.locale(),
-                            LocalDateTime::now
-                    )
+                    SpreadsheetFormatterProviders.spreadsheetFormatPattern()
             );
 
             this.spreadsheetParserProvider = metadata.spreadsheetParserProvider(
@@ -741,8 +739,12 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public List<SpreadsheetFormatterSample<?>> spreadsheetFormatterSamples(final SpreadsheetFormatterName name) {
-        return this.spreadsheetFormatterProvider.spreadsheetFormatterSamples(name);
+    public List<SpreadsheetFormatterSample> spreadsheetFormatterSamples(final SpreadsheetFormatterName name,
+                                                                        final SpreadsheetFormatterContext context) {
+        return this.spreadsheetFormatterProvider.spreadsheetFormatterSamples(
+                name,
+                context
+        );
     }
 
     @Override

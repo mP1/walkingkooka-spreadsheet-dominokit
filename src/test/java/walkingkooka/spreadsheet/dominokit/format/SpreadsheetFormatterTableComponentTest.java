@@ -96,7 +96,7 @@ public final class SpreadsheetFormatterTableComponentTest implements ClassTestin
         );
     }
 
-    private void refreshAndCheck(final List<SpreadsheetFormatterSample<TextNode>> samples,
+    private void refreshAndCheck(final List<SpreadsheetFormatterSample> samples,
                                  final String expected) {
         final SpreadsheetFormatterTableComponent component = SpreadsheetFormatterTableComponent.empty(
                 "id123-",
