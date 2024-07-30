@@ -31,7 +31,6 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.TextAlign;
-import walkingkooka.tree.text.TextNode;
 
 import java.util.List;
 import java.util.Objects;
@@ -69,8 +68,8 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
                 .appendChild(this.dataTable);
     }
 
-    private static List<ColumnConfig<SpreadsheetFormatterSample<TextNode>>> columnConfigs() {
-        final List<ColumnConfig<SpreadsheetFormatterSample<TextNode>>> columns = Lists.array();
+    private static List<ColumnConfig<SpreadsheetFormatterSample>> columnConfigs() {
+        final List<ColumnConfig<SpreadsheetFormatterSample>> columns = Lists.array();
 
         columns.add(
                 columnConfig(
@@ -96,9 +95,9 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
         return columns;
     }
 
-    private static ColumnConfig<SpreadsheetFormatterSample<TextNode>> columnConfig(final String columnName,
+    private static ColumnConfig<SpreadsheetFormatterSample> columnConfig(final String columnName,
                                                                                    final TextAlign textAlign) {
-        return ColumnConfig.<SpreadsheetFormatterSample<TextNode>>create(columnName)
+        return ColumnConfig.<SpreadsheetFormatterSample>create(columnName)
                 .setFixed(true)
                 .minWidth("33%")
                 .setTextAlign(
@@ -108,13 +107,13 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
                 );
     }
 
-    public void refresh(final List<SpreadsheetFormatterSample<TextNode>> samples) {
+    public void refresh(final List<SpreadsheetFormatterSample> samples) {
         this.dataTable.setValue(
                 Optional.of(samples)
         );
     }
 
-    private final SpreadsheetDataTableComponent<SpreadsheetFormatterSample<TextNode>> dataTable;
+    private final SpreadsheetDataTableComponent<SpreadsheetFormatterSample> dataTable;
 
     // IsElement........................................................................................................
 

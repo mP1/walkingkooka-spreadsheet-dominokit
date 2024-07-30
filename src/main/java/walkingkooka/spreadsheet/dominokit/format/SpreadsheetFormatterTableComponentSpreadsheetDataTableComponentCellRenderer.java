@@ -27,7 +27,7 @@ import walkingkooka.tree.text.TextNode;
 
 import java.util.Optional;
 
-final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetFormatterSample<TextNode>> {
+final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetFormatterSample> {
 
     static SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer with(final String id,
                                                                                             final SpreadsheetFormatterTableComponentContext context) {
@@ -45,7 +45,7 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
 
     @Override
     public HtmlElementComponent<?, ?> render(final int column,
-                                             final SpreadsheetFormatterSample<TextNode> sample) {
+                                             final SpreadsheetFormatterSample sample) {
         final HtmlElementComponent<?, ?> rendered;
 
         switch (column) {
