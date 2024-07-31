@@ -492,6 +492,13 @@ public class FakeAppContext implements AppContext {
         throw new UnsupportedOperationException();
     }
 
+    // SpreadsheetParserContext.........................................................................................
+
+    @Override
+    public char valueSeparator() {
+        throw new UnsupportedOperationException();
+    }
+
     // SpreadsheetListDialogComponent...................................................................................
 
     @Override
