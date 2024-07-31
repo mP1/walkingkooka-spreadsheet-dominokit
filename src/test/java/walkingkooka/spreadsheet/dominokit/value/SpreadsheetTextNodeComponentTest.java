@@ -28,7 +28,7 @@ public final class SpreadsheetTextNodeComponentTest implements TreePrintableTest
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent.with(
+                SpreadsheetTextNodeComponent.with(
                         Optional.of(
                                 TextNode.text("Hello123")
                         )
