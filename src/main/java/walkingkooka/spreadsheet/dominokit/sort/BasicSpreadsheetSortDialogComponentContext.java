@@ -17,18 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.sort;
 
-import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviderDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 
 import java.util.Objects;
-import java.util.Set;
 
 final class BasicSpreadsheetSortDialogComponentContext implements SpreadsheetSortDialogComponentContext,
-        HistoryTokenContextDelegator {
+        HistoryTokenContextDelegator,
+        SpreadsheetComparatorProviderDelegator {
 
     static BasicSpreadsheetSortDialogComponentContext with(final SpreadsheetComparatorProvider spreadsheetComparatorProvider,
                                                            final HistoryTokenContext historyTokenContext) {
@@ -50,13 +48,8 @@ final class BasicSpreadsheetSortDialogComponentContext implements SpreadsheetSor
     // SpreadsheetSortDialogComponentContext............................................................................
 
     @Override
-    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
-        return this.spreadsheetComparatorProvider.spreadsheetComparator(spreadsheetComparatorName);
-    }
-
-    @Override
-    public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
-        return this.spreadsheetComparatorProvider.spreadsheetComparatorInfos();
+    public SpreadsheetComparatorProvider spreadsheetComparatorProvider() {
+        return this.spreadsheetComparatorProvider;
     }
 
     private final SpreadsheetComparatorProvider spreadsheetComparatorProvider;
