@@ -26,13 +26,13 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetTabsComponentTest implements ClassTesting<walkingkooka.spreadsheet.dominokit.SpreadsheetTabsComponent>,
+public final class SpreadsheetTabsComponentTest implements ClassTesting<SpreadsheetTabsComponent>,
         TreePrintableTesting {
 
     @Test
     public void testEmptyNoTabs() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.SpreadsheetTabsComponent.with(
+                SpreadsheetTabsComponent.with(
                         new FakeHistoryTokenContext() {
                             @Override
                             public HistoryToken historyToken() {
@@ -47,7 +47,7 @@ public final class SpreadsheetTabsComponentTest implements ClassTesting<walkingk
     @Test
     public void testSeveralTabsNonActive() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.SpreadsheetTabsComponent.with(
+                SpreadsheetTabsComponent.with(
                                 new FakeHistoryTokenContext() {
                                     @Override
                                     public HistoryToken historyToken() {
@@ -70,7 +70,7 @@ public final class SpreadsheetTabsComponentTest implements ClassTesting<walkingk
     @Test
     public void testSeveralTabsIncludingActive() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.SpreadsheetTabsComponent.with(
+                SpreadsheetTabsComponent.with(
                                 new FakeHistoryTokenContext() {
                                     @Override
                                     public HistoryToken historyToken() {
@@ -93,7 +93,7 @@ public final class SpreadsheetTabsComponentTest implements ClassTesting<walkingk
 
     @Test
     public void testSeveralTabsIncludingActiveLinksWithAnchor() {
-        final walkingkooka.spreadsheet.dominokit.SpreadsheetTabsComponent tabs = walkingkooka.spreadsheet.dominokit.SpreadsheetTabsComponent.with(
+        final SpreadsheetTabsComponent tabs = SpreadsheetTabsComponent.with(
                         new FakeHistoryTokenContext() {
                             @Override
                             public HistoryToken historyToken() {
@@ -140,7 +140,7 @@ public final class SpreadsheetTabsComponentTest implements ClassTesting<walkingk
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<walkingkooka.spreadsheet.dominokit.SpreadsheetTabsComponent> type() {
+    public Class<SpreadsheetTabsComponent> type() {
         return SpreadsheetTabsComponent.class;
     }
 

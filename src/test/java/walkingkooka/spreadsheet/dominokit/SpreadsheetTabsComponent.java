@@ -29,12 +29,12 @@ import java.util.Objects;
 /**
  * Wraps a DOMINO-KIT TabsPanel and tabs.
  */
-public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentLike, TestHtmlElementComponent<HTMLDivElement, walkingkooka.spreadsheet.dominokit.SpreadsheetTabsComponent> {
+public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentLike, TestHtmlElementComponent<HTMLDivElement, SpreadsheetTabsComponent> {
 
-    public static walkingkooka.spreadsheet.dominokit.SpreadsheetTabsComponent with(final HistoryTokenContext context) {
+    public static SpreadsheetTabsComponent with(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new walkingkooka.spreadsheet.dominokit.SpreadsheetTabsComponent(context);
+        return new SpreadsheetTabsComponent(context);
     }
 
     private SpreadsheetTabsComponent(final HistoryTokenContext context) {
@@ -43,7 +43,7 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.SpreadsheetTabsComponent appendTab(final String id,
+    public SpreadsheetTabsComponent appendTab(final String id,
                                                                                  final String title) {
         CharSequences.failIfNullOrEmpty(id, "id");
         CharSequences.failIfNullOrEmpty(title, "title");
@@ -74,7 +74,7 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
      * Activate the given tab and de-actives all other tabs.
      */
     @Override
-    public walkingkooka.spreadsheet.dominokit.SpreadsheetTabsComponent setTab(final int index) {
+    public SpreadsheetTabsComponent setTab(final int index) {
         this.activate = index;
         return this;
     }

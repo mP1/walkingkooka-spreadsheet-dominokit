@@ -22,7 +22,7 @@ import elemental2.dom.HTMLElement;
 /**
  * A {@link Component} where the setter does nothing this assumes a flag is also updaated in the component.
  */
-public interface VisibleHtmlElementComponent<E extends HTMLElement, C extends walkingkooka.spreadsheet.dominokit.VisibleHtmlElementComponent<E, C>> extends VisibleHtmlElementComponentLike<E, C> {
+public interface VisibleHtmlElementComponent<E extends HTMLElement, C extends VisibleHtmlElementComponent<E, C>> extends VisibleHtmlElementComponentLike<E, C> {
 
     @Override
     default C setVisibility(final boolean visibility) {

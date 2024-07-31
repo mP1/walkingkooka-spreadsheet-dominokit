@@ -25,20 +25,20 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetFlexLayoutTest implements ClassTesting<walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout>,
+public final class SpreadsheetFlexLayoutTest implements ClassTesting<SpreadsheetFlexLayout>,
         TreePrintableTesting {
 
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout.row()
+                SpreadsheetFlexLayout.row()
                         .appendChild(
-                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
+                                SpreadsheetTextBox.empty()
                                         .setValue(
                                                 Optional.of("Value111")
                                         )
                         ).appendChild(
-                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
+                                SpreadsheetTextBox.empty()
                                         .setValue(
                                                 Optional.of("Value222")
                                         )
@@ -55,10 +55,10 @@ public final class SpreadsheetFlexLayoutTest implements ClassTesting<walkingkook
     @Test
     public void testTreePrintIncludesId() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout.row()
+                SpreadsheetFlexLayout.row()
                         .setId("Id123")
                         .appendChild(
-                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
+                                SpreadsheetTextBox.empty()
                                         .setValue(
                                                 Optional.of("Value111")
                                         )
@@ -81,7 +81,7 @@ public final class SpreadsheetFlexLayoutTest implements ClassTesting<walkingkook
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout> type() {
+    public Class<SpreadsheetFlexLayout> type() {
         return SpreadsheetFlexLayout.class;
     }
 

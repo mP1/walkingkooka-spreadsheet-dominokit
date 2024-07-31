@@ -25,14 +25,14 @@ import java.util.List;
 import java.util.Objects;
 
 public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike,
-        TestHtmlElementComponent<HTMLDivElement, walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout> {
+        TestHtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout> {
 
-    public static walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout column() {
-        return new walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout(true);
+    public static SpreadsheetFlexLayout column() {
+        return new SpreadsheetFlexLayout(true);
     }
 
-    public static walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout row() {
-        return new walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout(false);
+    public static SpreadsheetFlexLayout row() {
+        return new SpreadsheetFlexLayout(false);
     }
 
     private SpreadsheetFlexLayout(final boolean column) {
@@ -48,12 +48,12 @@ public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike,
     private final boolean column;
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout displayBlock() {
+    public SpreadsheetFlexLayout displayBlock() {
         return this;
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout setId(final String id) {
+    public SpreadsheetFlexLayout setId(final String id) {
         this.id = id;
         return this;
     }
@@ -66,7 +66,7 @@ public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike,
     private String id;
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout appendChild(final IsElement<?> child) {
+    public SpreadsheetFlexLayout appendChild(final IsElement<?> child) {
         Objects.requireNonNull(child, "child");
 
         this.children.add(child);
@@ -74,7 +74,7 @@ public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike,
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout removeChild(final int index) {
+    public SpreadsheetFlexLayout removeChild(final int index) {
         this.children.remove(index);
         return this;
     }
