@@ -27,11 +27,11 @@ import walkingkooka.text.printer.TreePrintableTesting;
 import java.util.Optional;
 
 public final class SpreadsheetDialogComponentTest implements TreePrintableTesting,
-        ClassTesting<walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent> {
+        ClassTesting<SpreadsheetDialogComponent> {
 
     @Test
     public void testOpenTitleCloseableChildren() {
-        final walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent dialog = walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent.with(
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
                 "id123",
                 "Title456",
                 true, // includeClose,
@@ -72,7 +72,7 @@ public final class SpreadsheetDialogComponentTest implements TreePrintableTestin
 
     @Test
     public void testClosedTitleCloseableChildren() {
-        final walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent dialog = walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent.with(
+        final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
                 "id123",
                 "Title456",
                 true, // includeClose,
@@ -98,7 +98,7 @@ public final class SpreadsheetDialogComponentTest implements TreePrintableTestin
     }
 
     @Override
-    public Class<walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent> type() {
+    public Class<SpreadsheetDialogComponent> type() {
         return SpreadsheetDialogComponent.class;
     }
 
