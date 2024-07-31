@@ -244,6 +244,8 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                                 )
                 )
         );
+
+        this.refreshTitleTabsClearClose();
     }
 
     /**
@@ -337,7 +339,23 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
      */
     @Override
     public void refresh(final AppContext context) {
-        final SpreadsheetParserSelectorDialogComponentContext componentContext = this.context;
+        // setText will trigger a refresh of table, appender, removeOrReplace
+        final String undo = this.context.undo();
+        this.setText(undo);
+
+        this.undo.setHistoryToken(
+                Optional.of(
+                        context.historyToken()
+                                .setSave(undo)
+                )
+        );
+
+        this.refreshTitleTabsClearClose();
+    }
+
+    private void refreshTitleTabsClearClose() {
+        final SpreadsheetParserSelectorDialogComponentContext context = this.context;
+
         final HistoryToken historyToken = context.historyToken();
 
         this.dialog.setTitle(
@@ -346,19 +364,8 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                                 .get()
                 )
         );
-        this.tabs.refresh(
-                componentContext
-        );
 
-        // setText will trigger a refresh of table, appender, removeOrReplace
-        final String undo = componentContext.undo();
-        this.setText(undo);
-
-        this.undo.setHistoryToken(
-                Optional.of(
-                        historyToken.setSave(undo)
-                )
-        );
+        this.tabs.refresh(context);
 
         this.clear.setHistoryToken(
                 Optional.of(
