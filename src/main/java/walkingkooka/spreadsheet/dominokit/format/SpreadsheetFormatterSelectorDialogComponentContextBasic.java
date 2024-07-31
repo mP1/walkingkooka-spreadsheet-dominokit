@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
@@ -49,7 +51,8 @@ import java.util.Set;
 /**
  * An base class capturing most of the requirements for {@link SpreadsheetFormatterSelectorDialogComponentContext}
  */
-abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implements SpreadsheetFormatterSelectorDialogComponentContext {
+abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implements SpreadsheetFormatterSelectorDialogComponentContext,
+        LoggingContextDelegator {
 
     SpreadsheetFormatterSelectorDialogComponentContextBasic(final AppContext context) {
         super();
@@ -328,13 +331,8 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
     // log..............................................................................................................
 
     @Override
-    public final void debug(final Object... values) {
-        this.context.debug(values);
-    }
-
-    @Override
-    public final void error(final Object... values) {
-        this.context.error(values);
+    public LoggingContext loggingContext() {
+        return this.context;
     }
 
     // Object..........................................................................................................

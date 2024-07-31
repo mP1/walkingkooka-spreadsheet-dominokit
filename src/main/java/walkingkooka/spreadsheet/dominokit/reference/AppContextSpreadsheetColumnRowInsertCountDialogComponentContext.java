@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.reference;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -27,7 +29,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 
-final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext implements SpreadsheetColumnRowInsertCountDialogComponentContext {
+final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext implements SpreadsheetColumnRowInsertCountDialogComponentContext,
+        LoggingContextDelegator {
 
     static AppContextSpreadsheetColumnRowInsertCountDialogComponentContext with(final AppContext context) {
         return new AppContextSpreadsheetColumnRowInsertCountDialogComponentContext(
@@ -117,13 +120,8 @@ final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext impl
     }
 
     @Override
-    public void debug(final Object... values) {
-        this.context.debug(values);
-    }
-
-    @Override
-    public void error(final Object... values) {
-        this.context.error(values);
+    public LoggingContext loggingContext() {
+        return this.context;
     }
 
     private final AppContext context;

@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
@@ -29,7 +30,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationContext;
 import walkingkooka.tree.text.TextStyle;
 
-final class BasicSpreadsheetViewportComponentTableContext implements SpreadsheetViewportComponentTableContext {
+final class BasicSpreadsheetViewportComponentTableContext implements SpreadsheetViewportComponentTableContext,
+        LoggingContextDelegator {
 
 
     static BasicSpreadsheetViewportComponentTableContext with(final HistoryTokenContext historyTokenContext,
@@ -162,13 +164,8 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
     private final SpreadsheetViewportNavigationContext navigationContext;
 
     @Override
-    public void debug(final Object... values) {
-        this.loggingContext.debug(values);
-    }
-
-    @Override
-    public void error(final Object... values) {
-        this.loggingContext.error(values);
+    public LoggingContext loggingContext() {
+        return this.loggingContext;
     }
 
     private final LoggingContext loggingContext;

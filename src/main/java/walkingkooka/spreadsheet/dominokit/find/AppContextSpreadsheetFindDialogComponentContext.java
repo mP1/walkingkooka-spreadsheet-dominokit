@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.find;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -35,7 +37,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext {
+final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext,
+        LoggingContextDelegator {
 
     static AppContextSpreadsheetFindDialogComponentContext with(final AppContext context) {
         return new AppContextSpreadsheetFindDialogComponentContext(context);
@@ -135,13 +138,8 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
     // LoggingContext...................................................................................................
 
     @Override
-    public void debug(final Object... values) {
-        this.context.debug(values);
-    }
-
-    @Override
-    public void error(final Object... values) {
-        this.context.error(values);
+    public LoggingContext loggingContext() {
+        return this.context;
     }
 
     private final AppContext context;

@@ -18,13 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 
 import java.util.Objects;
 
-final class BasicSpreadsheetPatternComponentTableRowProviderContext implements SpreadsheetPatternComponentTableRowProviderContext {
+final class BasicSpreadsheetPatternComponentTableRowProviderContext implements SpreadsheetPatternComponentTableRowProviderContext,
+        LoggingContextDelegator {
 
     static BasicSpreadsheetPatternComponentTableRowProviderContext with(final SpreadsheetPatternKind kind,
                                                                         final SpreadsheetFormatterContext spreadsheetFormatterContext,
@@ -72,13 +74,8 @@ final class BasicSpreadsheetPatternComponentTableRowProviderContext implements S
     private final SpreadsheetFormatterContext spreadsheetFormatterContext;
 
     @Override
-    public void debug(final Object... values) {
-        this.loggingContext.debug(values);
-    }
-
-    @Override
-    public void error(final Object... values) {
-        this.loggingContext.error(values);
+    public LoggingContext loggingContext() {
+        return this.loggingContext;
     }
 
     private final LoggingContext loggingContext;
