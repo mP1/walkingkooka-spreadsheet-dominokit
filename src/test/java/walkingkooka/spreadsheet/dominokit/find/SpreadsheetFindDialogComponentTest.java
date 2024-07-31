@@ -23,8 +23,6 @@ import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
@@ -39,49 +37,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetFindDialogComponent>,
         SpreadsheetMetadataTesting {
-
-    private final static SpreadsheetId ID = SpreadsheetId.with(1);
-
-    private final static SpreadsheetName NAME = SpreadsheetName.with("spreadsheetName123");
-
-//    @Test
-//    public void testCellEmpty() {
-//        this.onHistoryTokenChangeAndCheck(
-//                this.cellAppContext(
-//                        "B2:C3",
-//                        ""
-//                ),
-//                "SpreadsheetFindDialogComponent\n" +
-//                        "  SpreadsheetDialogComponent\n" +
-//                        "    Sort\n" +
-//                        "    id=sort includeClose=true\n" +
-//                        "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-//                        "        ValueSpreadsheetTextBox\n" +
-//                        "          SpreadsheetTextBox\n" +
-//                        "            [] id=sort-columnOrRowComparatorNamesList-TextBox\n" +
-//                        "            Errors\n" +
-//                        "              text is empty\n" +
-//                        "      SpreadsheetFlexLayout\n" +
-//                        "        ROW\n" +
-//                        "          SpreadsheetFindDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-//                        "            SpreadsheetFlexLayout\n" +
-//                        "              COLUMN\n" +
-//                        "                SpreadsheetFlexLayout\n" +
-//                        "                  ROW\n" +
-//                        "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-//                        "                      ValueSpreadsheetTextBox\n" +
-//                        "                        SpreadsheetTextBox\n" +
-//                        "                          [] id=sort-comparatorNames-0-TextBox\n" +
-//                        "                          Errors\n" +
-//                        "                            text is empty\n" +
-//                        "                    \"Move Up\" DISABLED id=sort-comparatorNames-0-moveUp-Link\n" +
-//                        "                    \"Move Down\" DISABLED id=sort-comparatorNames-0-moveDown-Link\n" +
-//                        "      SpreadsheetFlexLayout\n" +
-//                        "        ROW\n" +
-//                        "          \"Sort\" DISABLED id=sort-sort-Link\n" +
-//                        "          \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
-//        );
-//    }
 
     @Test
     public void testRefreshNoMatches() {
