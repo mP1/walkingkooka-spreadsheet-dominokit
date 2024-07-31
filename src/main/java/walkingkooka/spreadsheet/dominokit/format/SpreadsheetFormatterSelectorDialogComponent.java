@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
-import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
@@ -194,9 +193,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         );
 
         this.table.refresh(
-                Cast.to(
-                        edit.samples()
-                ),
+                edit.samples(),
                 context
         );
 
