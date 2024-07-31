@@ -23,7 +23,6 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import org.junit.jupiter.api.Test;
 import walkingkooka.InvalidCharacterException;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.viewport.ValueComponentTesting;
 
 import java.util.Optional;
 
