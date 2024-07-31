@@ -32,11 +32,8 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponent;
-import walkingkooka.spreadsheet.parser.SpreadsheetParser;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTextComponent;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
 
 import java.util.List;
 import java.util.Optional;
@@ -48,7 +45,8 @@ import java.util.Set;
 abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements SpreadsheetParserSelectorDialogComponentContext,
         HistoryTokenContextDelegator,
         LoggingContextDelegator,
-        SpreadsheetFormatterContextDelegator {
+        SpreadsheetFormatterContextDelegator,
+        SpreadsheetParserProviderDelegator {
 
     SpreadsheetParserSelectorDialogComponentContextBasic(final AppContext context) {
         super();
@@ -70,36 +68,7 @@ abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements S
         return this.context.valueSeparator();
     }
 
-    // SpreadsheetParserProvider........................................................................................
-
-    @Override
-    public final SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector) {
-        return this.context.spreadsheetParser(selector);
-    }
-
-    @Override
-    public final SpreadsheetParser spreadsheetParser(final SpreadsheetParserName name,
-                                                     final List<?> values) {
-        return this.context.spreadsheetParser(
-                name,
-                values
-        );
-    }
-
-    @Override
-    public final Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector(final SpreadsheetParserSelector selector) {
-        return this.context.spreadsheetFormatterSelector(selector);
-    }
-
-    @Override
-    public final Optional<SpreadsheetParserSelectorTextComponent> spreadsheetParserNextTextComponent(final SpreadsheetParserSelector selector) {
-        return this.context.spreadsheetParserNextTextComponent(selector);
-    }
-
-    @Override
-    public Set<SpreadsheetParserInfo> spreadsheetParserInfos() {
-        return this.context.spreadsheetParserInfos();
-    }
+    // SpreadsheetFormatterProvider........................................................................................
 
     @Override
     public final List<SpreadsheetFormatterSample> spreadsheetFormatterSamples(final SpreadsheetFormatterName name,
@@ -132,6 +101,13 @@ abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements S
     @Override
     public Optional<SpreadsheetFormatterSelectorTextComponent> spreadsheetFormatterNextTextComponent(final SpreadsheetFormatterSelector selector) {
         return this.context.spreadsheetFormatterNextTextComponent(selector);
+    }
+
+    // SpreadsheetParserProvider........................................................................................
+
+    @Override
+    public final SpreadsheetParserProvider spreadsheetParserProvider() {
+        return this.context;
     }
 
     // HistoryTokenContext..............................................................................................
