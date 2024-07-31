@@ -66,6 +66,8 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
+import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetPatternDialogComponent;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetPatternDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.history.History;
@@ -243,15 +245,16 @@ public class App implements EntryPoint,
                 SpreadsheetLabelMappingDialogComponentContexts.appContext(this)
         );
 
-        SpreadsheetPatternDialogComponent.with(
-                SpreadsheetPatternDialogComponentContexts.cellFormat(this)
+        SpreadsheetFormatterSelectorDialogComponent.with(
+                SpreadsheetFormatterSelectorDialogComponentContexts.cell(this)
         );
+
         SpreadsheetPatternDialogComponent.with(
                 SpreadsheetPatternDialogComponentContexts.cellParse(this)
         );
 
-        SpreadsheetPatternDialogComponent.with(
-                SpreadsheetPatternDialogComponentContexts.metadataFormat(this)
+        SpreadsheetFormatterSelectorDialogComponent.with(
+                SpreadsheetFormatterSelectorDialogComponentContexts.metadata(this)
         );
         SpreadsheetPatternDialogComponent.with(
                 SpreadsheetPatternDialogComponentContexts.metadataParse(this)
