@@ -17,9 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -31,6 +30,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationContext;
 import walkingkooka.tree.text.TextStyle;
 
 final class BasicSpreadsheetViewportComponentTableContext implements SpreadsheetViewportComponentTableContext,
+        HistoryTokenContextDelegator,
         LoggingContextDelegator {
 
 
@@ -74,33 +74,6 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
 
         this.loggingContext = loggingContext;
     }
-
-    @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-        return this.historyTokenContext.addHistoryTokenWatcher(watcher);
-    }
-
-    @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
-        return this.historyTokenContext.addHistoryTokenWatcherOnce(watcher);
-    }
-
-    @Override
-    public HistoryToken historyToken() {
-        return this.historyTokenContext.historyToken();
-    }
-
-    @Override
-    public void pushHistoryToken(final HistoryToken token) {
-        this.historyTokenContext.pushHistoryToken(token);
-    }
-
-    @Override
-    public void fireCurrentHistoryToken() {
-        this.historyTokenContext.fireCurrentHistoryToken();
-    }
-
-    private final HistoryTokenContext historyTokenContext;
 
     @Override
     public SpreadsheetViewportCache spreadsheetViewportCache() {
@@ -162,6 +135,17 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
     private final SpreadsheetViewport spreadsheetViewport;
 
     private final SpreadsheetViewportNavigationContext navigationContext;
+
+    // HistoryTokenContext..............................................................................................
+
+    @Override
+    public HistoryTokenContext historyTokenContext() {
+        return this.historyTokenContext;
+    }
+
+    private final HistoryTokenContext historyTokenContext;
+
+    // LoggingContext...................................................................................................
 
     @Override
     public LoggingContext loggingContext() {

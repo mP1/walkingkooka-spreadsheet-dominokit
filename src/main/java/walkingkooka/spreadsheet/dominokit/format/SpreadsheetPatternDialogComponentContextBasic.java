@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
  * A mostly complete {@link SpreadsheetPatternDialogComponentContext}.
  */
 abstract class SpreadsheetPatternDialogComponentContextBasic implements SpreadsheetPatternDialogComponentContext,
+        HistoryTokenContextDelegator,
         LoggingContextDelegator {
 
     SpreadsheetPatternDialogComponentContextBasic(final AppContext context) {
@@ -45,31 +46,6 @@ abstract class SpreadsheetPatternDialogComponentContextBasic implements Spreadsh
         return this.historyToken()
                 .patternKind()
                 .get();
-    }
-
-    @Override
-    public final Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-        return this.context.addHistoryTokenWatcher(watcher);
-    }
-
-    @Override
-    public final Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
-        return this.context.addHistoryTokenWatcherOnce(watcher);
-    }
-
-    @Override
-    public final HistoryToken historyToken() {
-        return this.context.historyToken();
-    }
-
-    @Override
-    public final void pushHistoryToken(final HistoryToken token) {
-        this.context.pushHistoryToken(token);
-    }
-
-    @Override
-    public final void fireCurrentHistoryToken() {
-        this.context.fireCurrentHistoryToken();
     }
 
     @Override
@@ -99,6 +75,15 @@ abstract class SpreadsheetPatternDialogComponentContextBasic implements Spreadsh
     public final Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
+
+    // HistoryTokenContext..............................................................................................
+
+    @Override
+    public final HistoryTokenContext historyTokenContext() {
+        return this.context;
+    }
+
+    // LoggingContext...................................................................................................
 
     @Override
     public LoggingContext loggingContext() {

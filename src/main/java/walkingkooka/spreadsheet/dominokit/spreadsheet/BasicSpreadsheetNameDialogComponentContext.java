@@ -18,14 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 
 abstract class BasicSpreadsheetNameDialogComponentContext implements SpreadsheetNameDialogComponentContext,
+        HistoryTokenContextDelegator,
         LoggingContextDelegator {
 
     BasicSpreadsheetNameDialogComponentContext(final AppContext context) {
@@ -47,30 +48,14 @@ abstract class BasicSpreadsheetNameDialogComponentContext implements Spreadsheet
         return this.context.spreadsheetMetadataFetcher();
     }
 
-    @Override
-    public final Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-        return this.context.addHistoryTokenWatcher(watcher);
-    }
+    // HistoryTokenContext..............................................................................................
 
     @Override
-    public final Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
-        return this.context.addHistoryTokenWatcherOnce(watcher);
+    public HistoryTokenContext historyTokenContext() {
+        return this.context;
     }
 
-    @Override
-    public final HistoryToken historyToken() {
-        return this.context.historyToken();
-    }
-
-    @Override
-    public final void pushHistoryToken(final HistoryToken token) {
-        this.context.pushHistoryToken(token);
-    }
-
-    @Override
-    public final void fireCurrentHistoryToken() {
-        this.context.fireCurrentHistoryToken();
-    }
+    // LoggingContext...................................................................................................
 
     @Override
     public LoggingContext loggingContext() {
