@@ -31,12 +31,12 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableComponentLike<T>,
-        TestHtmlElementComponent<HTMLDivElement, walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent<T>> {
+        TestHtmlElementComponent<HTMLDivElement, SpreadsheetDataTableComponent<T>> {
 
-    public static <T> walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent<T> with(final String id,
-                                                                                                         final List<ColumnConfig<T>> columnConfigs,
-                                                                                                         final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
-        return new walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent<>(
+    public static <T> SpreadsheetDataTableComponent<T> with(final String id,
+                                                            final List<ColumnConfig<T>> columnConfigs,
+                                                            final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
+        return new SpreadsheetDataTableComponent<>(
                 id,
                 columnConfigs,
                 cellRenderer
@@ -63,7 +63,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent<T> setId(final String id) {
+    public SpreadsheetDataTableComponent<T> setId(final String id) {
         CharSequences.failIfNullOrEmpty(id, "id");
         this.id = id;
         return this;
@@ -79,7 +79,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent<T> setDisabled(final boolean disabled) {
+    public SpreadsheetDataTableComponent<T> setDisabled(final boolean disabled) {
         this.disabled = disabled;
         return this;
     }
@@ -94,7 +94,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent<T> setValue(final Optional<List<T>> value) {
+    public SpreadsheetDataTableComponent<T> setValue(final Optional<List<T>> value) {
         Objects.requireNonNull(value, "value");
 
         this.value = value.map(Lists::immutable);
@@ -106,13 +106,13 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     // children.........................................................................................................
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent<T> appendChild(final IsElement<?> child) {
+    public SpreadsheetDataTableComponent<T> appendChild(final IsElement<?> child) {
         this.children.add(child);
         return this;
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent<T> removeChild(final int child) {
+    public SpreadsheetDataTableComponent<T> removeChild(final int child) {
         this.children.remove(child);
         return this;
     }
@@ -129,7 +129,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     // header...........................................................................................................
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent<T> hideHeaders() {
+    public SpreadsheetDataTableComponent<T> hideHeaders() {
         this.headersHidden = true;
         return this;
     }
@@ -139,7 +139,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     // plugins..........................................................................................................
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent<T> bodyScrollPlugin() {
+    public SpreadsheetDataTableComponent<T> bodyScrollPlugin() {
         this.plugins.add(
                 SpreadsheetDataTableComponentLike.bodyScrollPluginText()
         );
@@ -147,8 +147,8 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
-                                                                                                          final String title) {
+    public SpreadsheetDataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
+                                                             final String title) {
         this.plugins.add(
                 SpreadsheetDataTableComponentLike.emptyStatePluginText(
                         icon,
