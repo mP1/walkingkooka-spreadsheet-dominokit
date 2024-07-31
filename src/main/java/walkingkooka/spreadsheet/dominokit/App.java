@@ -123,6 +123,8 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponent
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserContexts;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
@@ -190,6 +192,7 @@ public class App implements EntryPoint,
         this.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.formatterContext = SpreadsheetFormatterContexts.fake();
+        this.parserContext = SpreadsheetParserContexts.fake();
 
         // delta
         this.spreadsheetDeltaWatchers = SpreadsheetDeltaFetcherWatchers.empty();
@@ -612,6 +615,10 @@ public class App implements EntryPoint,
                     this.viewportCache
             );
 
+            this.parserContext = metadata.parserContext(
+                    () -> this.now() // not sure why but method ref fails.
+            );
+
             // update the global JsonNodeUnmarshallContext.
             this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                     metadata.expressionNumberKind(),
@@ -846,6 +853,15 @@ public class App implements EntryPoint,
      * A new {@link SpreadsheetFormatterContext} is created each time a new {@link SpreadsheetMetadata} arrives.
      */
     private SpreadsheetFormatterContext formatterContext;
+
+    // SpreadsheetParserContext.........................................................................................
+
+    @Override
+    public char valueSeparator() {
+        return this.parserContext.valueSeparator();
+    }
+
+    private SpreadsheetParserContext parserContext;
 
     // json.............................................................................................................
 

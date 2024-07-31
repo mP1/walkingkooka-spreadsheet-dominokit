@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
@@ -72,6 +73,7 @@ public interface AppContext extends CanGiveFocus,
         SpreadsheetFormatterProvider,
         SpreadsheetFormatterContext,
         SpreadsheetParserProvider,
+        SpreadsheetParserContext,
         HistoryTokenContext,
         LoggingContext,
         Context {
