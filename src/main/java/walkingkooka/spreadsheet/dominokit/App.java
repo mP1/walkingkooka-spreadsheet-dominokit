@@ -106,17 +106,13 @@ import walkingkooka.spreadsheet.dominokit.toolbar.SpreadsheetToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContexts;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
@@ -155,7 +151,8 @@ public class App implements EntryPoint,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler,
-        SpreadsheetFormatterContextDelegator {
+        SpreadsheetFormatterContextDelegator,
+        SpreadsheetFormatterProviderDelegator {
 
     public App() {
         GWT.setUncaughtExceptionHandler(this);
@@ -760,39 +757,11 @@ public class App implements EntryPoint,
      */
     private SpreadsheetComparatorProvider spreadsheetComparatorProvider;
 
-    // SpreadsheetComparatorProvider....................................................................................
+    // SpreadsheetFormatterProvider.....................................................................................
 
     @Override
-    public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterName name,
-                                                     final List<?> values) {
-        return this.spreadsheetFormatterProvider.spreadsheetFormatter(
-                name,
-                values
-        );
-    }
-
-    @Override
-    public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector spreadsheetFormatterSelector) {
-        return this.spreadsheetFormatterProvider.spreadsheetFormatter(spreadsheetFormatterSelector);
-    }
-
-    @Override
-    public Optional<SpreadsheetFormatterSelectorTextComponent> spreadsheetFormatterNextTextComponent(final SpreadsheetFormatterSelector selector) {
-        return this.spreadsheetFormatterProvider.spreadsheetFormatterNextTextComponent(selector);
-    }
-
-    @Override
-    public List<SpreadsheetFormatterSample> spreadsheetFormatterSamples(final SpreadsheetFormatterName name,
-                                                                        final SpreadsheetFormatterContext context) {
-        return this.spreadsheetFormatterProvider.spreadsheetFormatterSamples(
-                name,
-                context
-        );
-    }
-
-    @Override
-    public Set<SpreadsheetFormatterInfo> spreadsheetFormatterInfos() {
-        return this.spreadsheetFormatterProvider.spreadsheetFormatterInfos();
+    public SpreadsheetFormatterProvider spreadsheetFormatterProvider() {
+        return this.spreadsheetFormatterProvider;
     }
 
     /**
