@@ -29,18 +29,12 @@ import java.util.Optional;
 
 final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetFormatterSample> {
 
-    static SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer with(final String id,
-                                                                                            final SpreadsheetFormatterTableComponentContext context) {
-        return new SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer(
-                id,
-                context
-        );
+    static SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer with(final String id) {
+        return new SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer(id);
     }
 
-    private SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer(final String id,
-                                                                                        final SpreadsheetFormatterTableComponentContext context) {
+    private SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer(final String id) {
         this.id = id;
-        this.context = context;
     }
 
     @Override
@@ -103,5 +97,5 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
 
     private final String id;
 
-    private final SpreadsheetFormatterTableComponentContext context;
+    SpreadsheetFormatterTableComponentContext context;
 }

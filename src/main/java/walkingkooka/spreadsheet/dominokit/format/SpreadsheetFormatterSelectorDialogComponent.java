@@ -81,8 +81,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         );
 
         this.table = SpreadsheetFormatterTableComponent.empty(
-                ID + SpreadsheetElementIds.TABLE + "-",
-                context
+                ID + SpreadsheetElementIds.TABLE + "-"
         );
 
         this.appender = AppendPluginSelectorTextComponent.empty(ID + "-appender-");
@@ -197,7 +196,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         this.table.refresh(
                 Cast.to(
                         edit.samples()
-                )
+                ),
+                context
         );
 
         final SpreadsheetFormatterSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTextComponentContext appenderRemoveOrReplaceContext =

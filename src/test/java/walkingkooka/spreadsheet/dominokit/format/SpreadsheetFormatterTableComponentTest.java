@@ -99,8 +99,9 @@ public final class SpreadsheetFormatterTableComponentTest implements ClassTestin
 
     private void refreshAndCheck(final List<SpreadsheetFormatterSample> samples,
                                  final String expected) {
-        final SpreadsheetFormatterTableComponent component = SpreadsheetFormatterTableComponent.empty(
-                "id123-",
+        final SpreadsheetFormatterTableComponent component = SpreadsheetFormatterTableComponent.empty("id123-");
+        component.refresh(
+                samples,
                 new FakeSpreadsheetFormatterTableComponentContext() {
                     @Override
                     public HistoryToken historyToken() {
@@ -113,7 +114,7 @@ public final class SpreadsheetFormatterTableComponentTest implements ClassTestin
                     }
                 }
         );
-        component.refresh(samples);
+
         this.treePrintAndCheck(
                 component,
                 expected

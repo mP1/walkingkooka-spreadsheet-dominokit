@@ -45,23 +45,18 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
     /**
      * Creates an empty {@link SpreadsheetFormatterTableComponent}.
      */
-    static SpreadsheetFormatterTableComponent empty(final String id,
-                                                    final SpreadsheetFormatterTableComponentContext context) {
+    static SpreadsheetFormatterTableComponent empty(final String id) {
         return new SpreadsheetFormatterTableComponent(
-                CharSequences.failIfNullOrEmpty(id, "id"),
-                Objects.requireNonNull(context, "context")
+                CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
 
-    private SpreadsheetFormatterTableComponent(final String id,
-                                               final SpreadsheetFormatterTableComponentContext context) {
+    private SpreadsheetFormatterTableComponent(final String id) {
+        this.cellRenderer = SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer.with(id);
         this.dataTable = SpreadsheetDataTableComponent.with(
                 id + SpreadsheetElementIds.TABLE, // id
                 columnConfigs(), // configs
-                SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer.with(
-                        id,
-                        context
-                )
+                this.cellRenderer
         ).hideHeaders();
 
         this.card = SpreadsheetCard.empty()
@@ -107,13 +102,19 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
                 );
     }
 
-    public void refresh(final List<SpreadsheetFormatterSample> samples) {
+    public void refresh(final List<SpreadsheetFormatterSample> samples,
+                        final SpreadsheetFormatterTableComponentContext context) {
+        Objects.requireNonNull(samples, "samples");
+
+        this.cellRenderer.context = Objects.requireNonNull(context, "context");
         this.dataTable.setValue(
                 Optional.of(samples)
         );
     }
 
     private final SpreadsheetDataTableComponent<SpreadsheetFormatterSample> dataTable;
+
+    private final SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer cellRenderer;
 
     // IsElement........................................................................................................
 
