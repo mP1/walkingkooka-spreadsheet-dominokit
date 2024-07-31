@@ -333,172 +333,164 @@ public class FakeAppContext implements AppContext {
     @Override
     public boolean canConvert(final Object value,
                               final Class<?> type) {
-        return formatterContext.canConvert(
-                value,
-                type
-        );
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public <T> Either<T, String> convert(final Object value,
                                          final Class<T> type) {
-        return formatterContext.convert(
-                value,
-                type
-        );
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Converter<SpreadsheetConverterContext> converter() {
-        return formatterContext.converter();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Optional<TextNode> format(final Object value) {
-        return formatterContext.format(value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int cellCharacterWidth() {
-        return formatterContext.cellCharacterWidth();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Optional<Color> colorNumber(final int number) {
-        return formatterContext.colorNumber(number);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Optional<Color> colorName(final SpreadsheetColorName name) {
-        return formatterContext.colorName(name);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long dateOffset() {
-        return formatterContext.dateOffset();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<String> ampms() {
-        return formatterContext.ampms();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String ampm(final int hourOfDay) {
-        return formatterContext.ampm(hourOfDay);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<String> monthNames() {
-        return formatterContext.monthNames();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String monthName(final int month) {
-        return formatterContext.monthName(month);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<String> monthNameAbbreviations() {
-        return formatterContext.monthNameAbbreviations();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String monthNameAbbreviation(final int month) {
-        return formatterContext.monthNameAbbreviation(month);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<String> weekDayNames() {
-        return formatterContext.weekDayNames();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String weekDayName(final int day) {
-        return formatterContext.weekDayName(day);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<String> weekDayNameAbbreviations() {
-        return formatterContext.weekDayNameAbbreviations();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String weekDayNameAbbreviation(final int day) {
-        return formatterContext.weekDayNameAbbreviation(day);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int defaultYear() {
-        return formatterContext.defaultYear();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int twoDigitYear() {
-        return formatterContext.twoDigitYear();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int twoToFourDigitYear(final int year) {
-        return formatterContext.twoToFourDigitYear(year);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int generalFormatNumberDigitCount() {
-        return formatterContext.generalFormatNumberDigitCount();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public MathContext mathContext() {
-        return formatterContext.mathContext();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public ExpressionNumberKind expressionNumberKind() {
-        return formatterContext.expressionNumberKind();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String currencySymbol() {
-        return formatterContext.currencySymbol();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public char decimalSeparator() {
-        return formatterContext.decimalSeparator();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String exponentSymbol() {
-        return formatterContext.exponentSymbol();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public char groupSeparator() {
-        return formatterContext.groupSeparator();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public char percentageSymbol() {
-        return formatterContext.percentageSymbol();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public char negativeSign() {
-        return formatterContext.negativeSign();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public char positiveSign() {
-        return formatterContext.positiveSign();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public SpreadsheetSelection resolveLabel(final SpreadsheetLabelName name) {
-        return formatterContext.resolveLabel(name);
+        throw new UnsupportedOperationException();
     }
-
-    private SpreadsheetFormatterContext formatterContext;
 
     // SpreadsheetListDialogComponent...................................................................................
 
