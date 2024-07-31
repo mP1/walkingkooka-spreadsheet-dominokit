@@ -23,6 +23,7 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.text.printer.TreePrintableTesting;
@@ -44,7 +45,7 @@ public final class SpreadsheetFormatterTableComponentTest implements ClassTestin
                                         .spreadsheetFormatterSelector(),
                                 TextNode.text("1999/12/31")
                         )
-                ),
+                ), // SpreadsheetFormatterTableComponentContext#formatterTableHistoryTokenSave -> SpreadsheetFormatterSelector#toString + "@"
                 "SpreadsheetFormatterTableComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
@@ -53,7 +54,7 @@ public final class SpreadsheetFormatterTableComponentTest implements ClassTestin
                         "          ROW 0\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              Label123\n" +
-                        "            \"yyyy/mm/dd\" [#/2/Untitled/cell/D1/formatter/date/save/date-format-pattern%20yyyy/mm/dd] id=id123-Label123-Link\n" +
+                        "            \"yyyy/mm/dd\" [#/2/Untitled/cell/D1/formatter/date/save/date-format-pattern%20yyyy/mm/dd@] id=id123-Label123-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              1999/12/31\n"
         );
@@ -75,7 +76,7 @@ public final class SpreadsheetFormatterTableComponentTest implements ClassTestin
                                         .spreadsheetFormatterSelector(),
                                 TextNode.text("Monday 31/12/1999")
                         )
-                ),
+                ), // SpreadsheetFormatterTableComponentContext#formatterTableHistoryTokenSave -> SpreadsheetFormatterSelector#toString + "@"
                 "SpreadsheetFormatterTableComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
@@ -84,13 +85,13 @@ public final class SpreadsheetFormatterTableComponentTest implements ClassTestin
                         "          ROW 0\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              Short\n" +
-                        "            \"yyyy/mm/dd\" [#/2/Untitled/cell/D1/formatter/date/save/date-format-pattern%20yyyy/mm/dd] id=id123-Short-Link\n" +
+                        "            \"yyyy/mm/dd\" [#/2/Untitled/cell/D1/formatter/date/save/date-format-pattern%20yyyy/mm/dd@] id=id123-Short-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              1999/12/31\n" +
                         "          ROW 1\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              Medium\n" +
-                        "            \"ddd/mm/yyyy\" [#/2/Untitled/cell/D1/formatter/date/save/date-format-pattern%20ddd/mm/yyyy] id=id123-Medium-Link\n" +
+                        "            \"ddd/mm/yyyy\" [#/2/Untitled/cell/D1/formatter/date/save/date-format-pattern%20ddd/mm/yyyy@] id=id123-Medium-Link\n" +
                         "            SpreadsheetTextNodeComponent\n" +
                         "              Monday 31/12/1999\n"
         );
@@ -107,8 +108,8 @@ public final class SpreadsheetFormatterTableComponentTest implements ClassTestin
                     }
 
                     @Override
-                    public String saveText(final String text) {
-                        return text;
+                    public String formatterTableHistoryTokenSave(final SpreadsheetFormatterSelector selector) {
+                        return selector.toString() + "@";
                     }
                 }
         );

@@ -75,9 +75,4 @@ final class SpreadsheetFormatterSelectorDialogComponentContextBasicCell extends 
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetCellFormatterSelectHistoryToken;
     }
-
-    @Override
-    public String saveText(final String text) {
-        return text;
-    }
 }
