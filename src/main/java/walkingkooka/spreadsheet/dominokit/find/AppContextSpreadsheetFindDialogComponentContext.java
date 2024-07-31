@@ -24,22 +24,16 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.parser.SpreadsheetParser;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTextComponent;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext,
         HistoryTokenContextDelegator,
-        LoggingContextDelegator {
+        LoggingContextDelegator,
+        SpreadsheetParserProviderDelegator {
 
     static AppContextSpreadsheetFindDialogComponentContext with(final AppContext context) {
         return new AppContextSpreadsheetFindDialogComponentContext(context);
@@ -90,32 +84,8 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
     // SpreadsheetParserProvider........................................................................................
 
     @Override
-    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector) {
-        return this.context.spreadsheetParser(selector);
-    }
-
-    @Override
-    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserName name,
-                                               final List<?> values) {
-        return this.context.spreadsheetParser(
-                name,
-                values
-        );
-    }
-
-    @Override
-    public Optional<SpreadsheetParserSelectorTextComponent> spreadsheetParserNextTextComponent(final SpreadsheetParserSelector selector) {
-        return this.context.spreadsheetParserNextTextComponent(selector);
-    }
-
-    @Override
-    public Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector(final SpreadsheetParserSelector selector) {
-        return this.context.spreadsheetFormatterSelector(selector);
-    }
-
-    @Override
-    public Set<SpreadsheetParserInfo> spreadsheetParserInfos() {
-        return this.context.spreadsheetParserInfos();
+    public SpreadsheetParserProvider spreadsheetParserProvider() {
+        return this.context;
     }
 
     // LoggingContext...................................................................................................
