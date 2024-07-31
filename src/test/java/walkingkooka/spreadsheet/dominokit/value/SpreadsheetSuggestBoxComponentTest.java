@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<SpreadsheetCellReference>> {
+public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, SpreadsheetSuggestBoxComponent<SpreadsheetCellReference>> {
 
     private final static SuggestionsStore<String, SpanElement, SuggestOption<String>> SUGGESTIONS_STORE = new SuggestionsStore<>() {
 
@@ -122,8 +122,8 @@ public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentT
         );
     }
 
-    private walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> createSpreadsheetSuggestBox() {
-        return walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent.with(
+    private SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> createSpreadsheetSuggestBox() {
+        return SpreadsheetSuggestBoxComponent.with(
                 SpreadsheetSelection::parseCell,
                 SUGGESTIONS_STORE
         );
@@ -132,7 +132,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentT
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent<SpreadsheetCellReference>> type() {
+    public Class<SpreadsheetSuggestBoxComponent<SpreadsheetCellReference>> type() {
         return Cast.to(SpreadsheetSuggestBoxComponent.class);
     }
 
