@@ -44,24 +44,7 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements C
                         context("/")
                 ),
                 "/",
-                "SpreadsheetListComponentSpreadsheetDataTable\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      SpreadsheetDataTableComponent\n" +
-                        "        COLUMN(S)\n" +
-                        "          Name\n" +
-                        "          Created by\n" +
-                        "          Created\n" +
-                        "          Last modified by\n" +
-                        "          Last modified\n" +
-                        "          Links\n" +
-                        "        CHILDREN\n" +
-                        "          SpreadsheetFlexLayout\n" +
-                        "            ROW\n" +
-                        "              mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheet-list-datatable-previous-Link\n" +
-                        "              \"next\" DISABLED [#/] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n" +
-                        "        PLUGINS\n" +
-                        "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
+                "SpreadsheetListComponentSpreadsheetDataTable\n"
         );
     }
 
