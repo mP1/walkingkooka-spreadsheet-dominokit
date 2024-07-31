@@ -335,7 +335,6 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
      */
     @Override
     public void refresh(final AppContext context) {
-
         // setText will trigger a refresh of table, appender, removeOrReplace
         final String undo = this.context.undo();
         this.setText(undo);

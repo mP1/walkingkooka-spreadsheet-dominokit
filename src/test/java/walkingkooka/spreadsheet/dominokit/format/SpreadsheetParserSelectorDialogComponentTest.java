@@ -95,14 +95,14 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
-                        "          TAB 0\n" +
+                        "          TAB 0 SELECTED\n" +
                         "            \"Date\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
                         "          TAB 1\n" +
-                        "            \"Date Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
+                        "            \"Date Time\" [#/1/Spreadsheet123/cell/A1/parser/date-time] id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
                         "          TAB 2\n" +
-                        "            \"Number\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
+                        "            \"Number\" [#/1/Spreadsheet123/cell/A1/parser/number] id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
                         "          TAB 3\n" +
-                        "            \"Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
+                        "            \"Time\" [#/1/Spreadsheet123/cell/A1/parser/time] id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -120,8 +120,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/date/save/] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
                         "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
-                        "          \"Clear\" DISABLED id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
-                        "          \"Close\" DISABLED id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
+                        "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/date/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
     }
 
@@ -143,14 +143,14 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
-                        "          TAB 0\n" +
+                        "          TAB 0 SELECTED\n" +
                         "            \"Date\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
                         "          TAB 1\n" +
-                        "            \"Date Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
+                        "            \"Date Time\" [#/1/Spreadsheet123/cell/A1/parser/date-time] id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
                         "          TAB 2\n" +
-                        "            \"Number\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
+                        "            \"Number\" [#/1/Spreadsheet123/cell/A1/parser/number] id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
                         "          TAB 3\n" +
-                        "            \"Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
+                        "            \"Time\" [#/1/Spreadsheet123/cell/A1/parser/time] id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -222,8 +222,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20dd/mm/yyyy] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
                         "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
-                        "          \"Clear\" DISABLED id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
-                        "          \"Close\" DISABLED id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
+                        "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/date/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
     }
 
@@ -248,13 +248,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0\n" +
-                        "            \"Date\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
-                        "          TAB 1\n" +
+                        "            \"Date\" [#/1/Spreadsheet123/cell/A1/parser/date] id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
+                        "          TAB 1 SELECTED\n" +
                         "            \"Date Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
                         "          TAB 2\n" +
-                        "            \"Number\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
+                        "            \"Number\" [#/1/Spreadsheet123/cell/A1/parser/number] id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
                         "          TAB 3\n" +
-                        "            \"Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
+                        "            \"Time\" [#/1/Spreadsheet123/cell/A1/parser/time] id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -345,8 +345,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/date-time/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
                         "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
-                        "          \"Clear\" DISABLED id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
-                        "          \"Close\" DISABLED id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
+                        "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/date-time/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
     }
 
@@ -371,13 +371,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0\n" +
-                        "            \"Date\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
+                        "            \"Date\" [#/1/Spreadsheet123/cell/A1/parser/date] id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
                         "          TAB 1\n" +
-                        "            \"Date Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
-                        "          TAB 2\n" +
+                        "            \"Date Time\" [#/1/Spreadsheet123/cell/A1/parser/date-time] id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
+                        "          TAB 2 SELECTED\n" +
                         "            \"Number\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
                         "          TAB 3\n" +
-                        "            \"Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
+                        "            \"Time\" [#/1/Spreadsheet123/cell/A1/parser/time] id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -489,8 +489,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/number/save/number-parse-pattern%20$%230.00] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
                         "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
-                        "          \"Clear\" DISABLED id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
-                        "          \"Close\" DISABLED id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
+                        "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/number/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
     }
 
@@ -515,12 +515,12 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0\n" +
-                        "            \"Date\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
+                        "            \"Date\" [#/1/Spreadsheet123/cell/A1/parser/date] id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
                         "          TAB 1\n" +
-                        "            \"Date Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
+                        "            \"Date Time\" [#/1/Spreadsheet123/cell/A1/parser/date-time] id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
                         "          TAB 2\n" +
-                        "            \"Number\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
-                        "          TAB 3\n" +
+                        "            \"Number\" [#/1/Spreadsheet123/cell/A1/parser/number] id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
+                        "          TAB 3 SELECTED\n" +
                         "            \"Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
@@ -574,8 +574,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/time/save/time-parse-pattern%20hh:mm] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
                         "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
-                        "          \"Clear\" DISABLED id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
-                        "          \"Close\" DISABLED id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
+                        "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/time/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
     }
 
@@ -599,14 +599,14 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
-                        "          TAB 0\n" +
+                        "          TAB 0 SELECTED\n" +
                         "            \"Date\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
                         "          TAB 1\n" +
-                        "            \"Date Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
+                        "            \"Date Time\" [#/1/Spreadsheet123/metadata/date-time-parser] id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
                         "          TAB 2\n" +
-                        "            \"Number\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
+                        "            \"Number\" [#/1/Spreadsheet123/metadata/number-parser] id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
                         "          TAB 3\n" +
-                        "            \"Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
+                        "            \"Time\" [#/1/Spreadsheet123/metadata/time-parser] id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -678,8 +678,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/date-parser/save/date-parse-pattern%20dd/mm/yyyy] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
                         "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
-                        "          \"Clear\" DISABLED id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
-                        "          \"Close\" DISABLED id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
+                        "          \"Clear\" [#/1/Spreadsheet123/metadata/date-parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
     }
 
@@ -704,13 +704,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0\n" +
-                        "            \"Date\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
-                        "          TAB 1\n" +
+                        "            \"Date\" [#/1/Spreadsheet123/metadata/date-parser] id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
+                        "          TAB 1 SELECTED\n" +
                         "            \"Date Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
                         "          TAB 2\n" +
-                        "            \"Number\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
+                        "            \"Number\" [#/1/Spreadsheet123/metadata/number-parser] id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
                         "          TAB 3\n" +
-                        "            \"Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
+                        "            \"Time\" [#/1/Spreadsheet123/metadata/time-parser] id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -801,8 +801,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
                         "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
-                        "          \"Clear\" DISABLED id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
-                        "          \"Close\" DISABLED id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
+                        "          \"Clear\" [#/1/Spreadsheet123/metadata/date-time-parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
     }
 
@@ -827,13 +827,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0\n" +
-                        "            \"Date\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
+                        "            \"Date\" [#/1/Spreadsheet123/metadata/date-parser] id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
                         "          TAB 1\n" +
-                        "            \"Date Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
-                        "          TAB 2\n" +
+                        "            \"Date Time\" [#/1/Spreadsheet123/metadata/date-time-parser] id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
+                        "          TAB 2 SELECTED\n" +
                         "            \"Number\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
                         "          TAB 3\n" +
-                        "            \"Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
+                        "            \"Time\" [#/1/Spreadsheet123/metadata/time-parser] id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -945,8 +945,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/number-parser/save/number-parse-pattern%20$%230.00] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
                         "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
-                        "          \"Clear\" DISABLED id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
-                        "          \"Close\" DISABLED id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
+                        "          \"Clear\" [#/1/Spreadsheet123/metadata/number-parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
     }
 
@@ -971,12 +971,12 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0\n" +
-                        "            \"Date\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
+                        "            \"Date\" [#/1/Spreadsheet123/metadata/date-parser] id=SpreadsheetParserSelectorDialogComponent-Tabs-date-parse\n" +
                         "          TAB 1\n" +
-                        "            \"Date Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
+                        "            \"Date Time\" [#/1/Spreadsheet123/metadata/date-time-parser] id=SpreadsheetParserSelectorDialogComponent-Tabs-date-time-parse\n" +
                         "          TAB 2\n" +
-                        "            \"Number\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
-                        "          TAB 3\n" +
+                        "            \"Number\" [#/1/Spreadsheet123/metadata/number-parser] id=SpreadsheetParserSelectorDialogComponent-Tabs-number-parse\n" +
+                        "          TAB 3 SELECTED\n" +
                         "            \"Time\" DISABLED id=SpreadsheetParserSelectorDialogComponent-Tabs-time-parse\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
@@ -1030,8 +1030,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/time-parser/save/time-parse-pattern%20hh:mm] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
                         "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
-                        "          \"Clear\" DISABLED id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
-                        "          \"Close\" DISABLED id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
+                        "          \"Clear\" [#/1/Spreadsheet123/metadata/time-parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
     }
 
