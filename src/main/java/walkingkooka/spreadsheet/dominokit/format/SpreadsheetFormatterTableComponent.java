@@ -110,6 +110,13 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
         this.dataTable.setValue(
                 Optional.of(samples)
         );
+
+        // manually show/hide depending on samples. Card will never be empty because SpreadsheetDataTableComponent is never empty
+        if (samples.isEmpty()) {
+            this.card.hide();
+        } else {
+            this.card.show();
+        }
     }
 
     private final SpreadsheetDataTableComponent<SpreadsheetFormatterSample> dataTable;
