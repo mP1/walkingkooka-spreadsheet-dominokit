@@ -29,13 +29,9 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -46,14 +42,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * An base class capturing most of the requirements for {@link SpreadsheetFormatterSelectorDialogComponentContext}
  */
 abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implements SpreadsheetFormatterSelectorDialogComponentContext,
         HistoryTokenContextDelegator,
-        LoggingContextDelegator {
+        LoggingContextDelegator,
+        SpreadsheetFormatterProviderDelegator {
 
     SpreadsheetFormatterSelectorDialogComponentContextBasic(final AppContext context) {
         super();
@@ -253,36 +249,8 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
     // SpreadsheetFormatterProvider.....................................................................................
 
     @Override
-    public final SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector selector) {
-        return this.context.spreadsheetFormatter(selector);
-    }
-
-    @Override
-    public final SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterName name,
-                                                           final List<?> values) {
-        return this.context.spreadsheetFormatter(
-                name,
-                values
-        );
-    }
-
-    @Override
-    public final Optional<SpreadsheetFormatterSelectorTextComponent> spreadsheetFormatterNextTextComponent(final SpreadsheetFormatterSelector selector) {
-        return this.context.spreadsheetFormatterNextTextComponent(selector);
-    }
-
-    @Override
-    public final List<SpreadsheetFormatterSample> spreadsheetFormatterSamples(final SpreadsheetFormatterName name,
-                                                                              final SpreadsheetFormatterContext context) {
-        return this.context.spreadsheetFormatterSamples(
-                name,
-                context
-        );
-    }
-
-    @Override
-    public final Set<SpreadsheetFormatterInfo> spreadsheetFormatterInfos() {
-        return this.context.spreadsheetFormatterInfos();
+    public final SpreadsheetFormatterProvider spreadsheetFormatterProvider() {
+        return this.context;
     }
 
     // HistoryTokenContext..............................................................................................
