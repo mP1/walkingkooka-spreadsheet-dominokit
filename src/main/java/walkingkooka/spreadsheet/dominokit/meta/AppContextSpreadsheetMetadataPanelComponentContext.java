@@ -20,13 +20,16 @@ package walkingkooka.spreadsheet.dominokit.meta;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Locale;
 import java.util.Objects;
 
-final class AppContextSpreadsheetMetadataPanelComponentContext implements SpreadsheetMetadataPanelComponentContext {
+final class AppContextSpreadsheetMetadataPanelComponentContext implements SpreadsheetMetadataPanelComponentContext,
+        LoggingContextDelegator {
 
     static AppContextSpreadsheetMetadataPanelComponentContext with(final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -90,13 +93,8 @@ final class AppContextSpreadsheetMetadataPanelComponentContext implements Spread
     // LoggingContext...................................................................................................
 
     @Override
-    public void debug(final Object... values) {
-        this.context.debug(values);
-    }
-
-    @Override
-    public void error(final Object... values) {
-        this.context.error(values);
+    public LoggingContext loggingContext() {
+        return this.context;
     }
 
     private final AppContext context;

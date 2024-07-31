@@ -20,10 +20,13 @@ package walkingkooka.spreadsheet.dominokit.spreadsheet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 
-abstract class BasicSpreadsheetNameDialogComponentContext implements SpreadsheetNameDialogComponentContext {
+abstract class BasicSpreadsheetNameDialogComponentContext implements SpreadsheetNameDialogComponentContext,
+        LoggingContextDelegator {
 
     BasicSpreadsheetNameDialogComponentContext(final AppContext context) {
         this.context = context;
@@ -70,13 +73,8 @@ abstract class BasicSpreadsheetNameDialogComponentContext implements Spreadsheet
     }
 
     @Override
-    public final void debug(final Object... values) {
-        this.context.debug(values);
-    }
-
-    @Override
-    public final void error(final Object... values) {
-        this.context.error(values);
+    public LoggingContext loggingContext() {
+        return this.context;
     }
 
     private final AppContext context;

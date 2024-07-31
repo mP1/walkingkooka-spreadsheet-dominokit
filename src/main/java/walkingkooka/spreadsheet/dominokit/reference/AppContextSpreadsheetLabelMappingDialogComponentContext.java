@@ -21,6 +21,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
@@ -29,7 +31,8 @@ import java.util.Objects;
 /**
  * A basic implementation of {@link SpreadsheetLabelMappingDialogComponentContext}.
  */
-final class AppContextSpreadsheetLabelMappingDialogComponentContext implements SpreadsheetLabelMappingDialogComponentContext {
+final class AppContextSpreadsheetLabelMappingDialogComponentContext implements SpreadsheetLabelMappingDialogComponentContext,
+        LoggingContextDelegator {
 
     static AppContextSpreadsheetLabelMappingDialogComponentContext with(final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -85,13 +88,8 @@ final class AppContextSpreadsheetLabelMappingDialogComponentContext implements S
     // LoggingContext...................................................................................................
 
     @Override
-    public void debug(final Object... values) {
-        this.context.debug(values);
-    }
-
-    @Override
-    public void error(final Object... values) {
-        this.context.error(values);
+    public LoggingContext loggingContext() {
+        return this.context;
     }
 
     private final AppContext context;
