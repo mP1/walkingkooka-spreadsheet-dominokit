@@ -74,6 +74,80 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
     // cell / date......................................................................................................
 
     @Test
+    public void testCellDateFormatterNameMissingPattern() {
+        final AppContext context = this.appContext(
+                HistoryToken.parseString("/1/Spreadsheet123/cell/A1/formatter/date")
+        );
+
+        this.onHistoryTokenChangeAndSetTextAndCheck(
+                SpreadsheetFormatterSelectorDialogComponent.with(
+                        SpreadsheetFormatterSelectorDialogComponentContextBasicCell.with(context)
+                ),
+                SpreadsheetFormatterName.DATE_FORMAT_PATTERN + "",
+                context,
+                "SpreadsheetFormatterSelectorDialogComponent\n" +
+                        "  SpreadsheetDialogComponent\n" +
+                        "    Date formatter\n" +
+                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "      SpreadsheetPatternKindTabsComponent\n" +
+                        "        SpreadsheetTabsComponent\n" +
+                        "          TAB 0 SELECTED\n" +
+                        "            \"Date\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-format\n" +
+                        "          TAB 1\n" +
+                        "            \"Date Time\" [#/1/Spreadsheet123/cell/A1/formatter/date-time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-time-format\n" +
+                        "          TAB 2\n" +
+                        "            \"Number\" [#/1/Spreadsheet123/cell/A1/formatter/number] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-number-format\n" +
+                        "          TAB 3\n" +
+                        "            \"Text\" [#/1/Spreadsheet123/cell/A1/formatter/text] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
+                        "          TAB 4\n" +
+                        "            \"Time\" [#/1/Spreadsheet123/cell/A1/formatter/time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
+                        "      SpreadsheetFormatterTableComponent\n" +
+                        "        SpreadsheetCard\n" +
+                        "          Card\n" +
+                        "            SpreadsheetDataTableComponent\n" +
+                        "              ROW(S)\n" +
+                        "                ROW 0\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    Short\n" +
+                        "                  \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/date-format-pattern%20d/m/yy] id=SpreadsheetFormatterSelectorDialogComponent-Table-Short-Link\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    31/12/99\n" +
+                        "                ROW 1\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    Medium\n" +
+                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/date-format-pattern%20d%20mmm%20yyyy] id=SpreadsheetFormatterSelectorDialogComponent-Table-Medium-Link\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    31 Dec. 1999\n" +
+                        "                ROW 2\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    Long\n" +
+                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/date-format-pattern%20d%20mmmm%20yyyy] id=SpreadsheetFormatterSelectorDialogComponent-Table-Long-Link\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    31 December 1999\n" +
+                        "                ROW 3\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    Full\n" +
+                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/date-format-pattern%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetFormatterSelectorDialogComponent-Table-Full-Link\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    Friday, 31 December 1999\n" +
+                        "      AppendPluginSelectorTextComponent\n" +
+                        "      RemoveOrReplacePluginSelectorTextComponent\n" +
+                        "      SpreadsheetFormatterSelectorComponent\n" +
+                        "        ValueSpreadsheetTextBox\n" +
+                        "          SpreadsheetTextBox\n" +
+                        "            [date-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-TextBox\n" +
+                        "            Errors\n" +
+                        "              text is empty\n" +
+                        "      SpreadsheetFlexLayout\n" +
+                        "        ROW\n" +
+                        "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/] id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" +
+                        "          \"Undo\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
+                        "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/] id=SpreadsheetFormatterSelectorDialogComponent-clear-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetFormatterSelectorDialogComponent-close-Link\n"
+        );
+    }
+
+    @Test
     public void testCellDate() {
         final AppContext context = this.appContext(
                 HistoryToken.parseString("/1/Spreadsheet123/cell/A1/formatter/date")
