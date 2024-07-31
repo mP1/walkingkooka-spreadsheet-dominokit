@@ -48,23 +48,6 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "    Spreadsheet List\n" +
                         "    id=spreadsheet-list includeClose=false\n" +
                         "      SpreadsheetListComponentSpreadsheetDataTable\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            SpreadsheetDataTableComponent\n" +
-                        "              COLUMN(S)\n" +
-                        "                Name\n" +
-                        "                Created by\n" +
-                        "                Created\n" +
-                        "                Last modified by\n" +
-                        "                Last modified\n" +
-                        "                Links\n" +
-                        "              CHILDREN\n" +
-                        "                SpreadsheetFlexLayout\n" +
-                        "                  ROW\n" +
-                        "                    mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheet-list-datatable-previous-Link\n" +
-                        "                    \"next\" DISABLED [#/] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n" +
-                        "              PLUGINS\n" +
-                        "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Create\" [#/create] id=spreadsheet-list-create-Link\n" +
@@ -91,23 +74,6 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "    Spreadsheet List\n" +
                         "    id=spreadsheet-list includeClose=false\n" +
                         "      SpreadsheetListComponentSpreadsheetDataTable\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            SpreadsheetDataTableComponent\n" +
-                        "              COLUMN(S)\n" +
-                        "                Name\n" +
-                        "                Created by\n" +
-                        "                Created\n" +
-                        "                Last modified by\n" +
-                        "                Last modified\n" +
-                        "                Links\n" +
-                        "              CHILDREN\n" +
-                        "                SpreadsheetFlexLayout\n" +
-                        "                  ROW\n" +
-                        "                    mdi-arrow-left \"previous\" [#/from/0/count/3] id=spreadsheet-list-datatable-previous-Link\n" +
-                        "                    \"next\" DISABLED [#/from/1/count/3] mdi-arrow-right id=spreadsheet-list-datatable-next-Link\n" +
-                        "              PLUGINS\n" +
-                        "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Create\" [#/create] id=spreadsheet-list-create-Link\n" +

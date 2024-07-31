@@ -37,6 +37,33 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
         TreePrintableTesting {
 
     @Test
+    public void testEmptyValue() {
+        this.treePrintAndCheck(
+                walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent.<String>with(
+                        "tableId123", // id
+                        Lists.of(
+                                ColumnConfig.create("column-1A-name", "column-1A-title"),
+                                ColumnConfig.create("column-2B-name", "column-2B-title"),
+                                ColumnConfig.create("column-3C-name", "column-3C-title")
+                        ),
+                        (column, data) -> SpreadsheetTextComponent.with(
+                                Optional.of(
+                                        CharSequences.repeating(
+                                                data.charAt(column),
+                                                3
+                                        ).toString()
+                                )
+                        )
+                ),
+                "SpreadsheetDataTableComponent\n" +
+                        "  COLUMN(S)\n" +
+                        "    column-1A-title\n" +
+                        "    column-2B-title\n" +
+                        "    column-3C-title\n"
+        );
+    }
+
+    @Test
     public void testThreeColumnsNotValue() {
         this.treePrintAndCheck(
                 SpreadsheetDataTableComponent.<String>with(
