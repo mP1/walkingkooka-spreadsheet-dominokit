@@ -68,8 +68,8 @@ import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.format.SpreadsheetPatternDialogComponent;
-import walkingkooka.spreadsheet.dominokit.format.SpreadsheetPatternDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.format.SpreadsheetParserSelectorDialogComponent;
+import walkingkooka.spreadsheet.dominokit.format.SpreadsheetParserSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.history.History;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -252,15 +252,15 @@ public class App implements EntryPoint,
                 SpreadsheetFormatterSelectorDialogComponentContexts.cell(this)
         );
 
-        SpreadsheetPatternDialogComponent.with(
-                SpreadsheetPatternDialogComponentContexts.cellParse(this)
+        SpreadsheetParserSelectorDialogComponent.with(
+                SpreadsheetParserSelectorDialogComponentContexts.cell(this)
         );
 
         SpreadsheetFormatterSelectorDialogComponent.with(
                 SpreadsheetFormatterSelectorDialogComponentContexts.metadata(this)
         );
-        SpreadsheetPatternDialogComponent.with(
-                SpreadsheetPatternDialogComponentContexts.metadataParse(this)
+        SpreadsheetParserSelectorDialogComponent.with(
+                SpreadsheetParserSelectorDialogComponentContexts.metadata(this)
         );
 
         SpreadsheetSortDialogComponent.with(
