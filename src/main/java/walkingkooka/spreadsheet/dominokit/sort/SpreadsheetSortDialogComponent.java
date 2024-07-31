@@ -502,7 +502,6 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
             final HistoryToken h = this.setEdit(
                     this.mergeSpreadsheetColumnOrRowSpreadsheetComparatorNames(tokens)
             );
-            //DomGlobal.console.error("@setter " + index + " " + names.toString() + " " + h);
             return h;
         };
     }
