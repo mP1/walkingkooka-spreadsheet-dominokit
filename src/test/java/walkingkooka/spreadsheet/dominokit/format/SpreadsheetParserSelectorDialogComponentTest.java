@@ -108,6 +108,30 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
                         "              ROW(S)\n" +
+                        "                ROW 0\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    Short\n" +
+                        "                  \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20d/m/yy] id=SpreadsheetParserSelectorDialogComponent-Table-Short-Link\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    31/12/99\n" +
+                        "                ROW 1\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    Medium\n" +
+                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20d%20mmm%20yyyy] id=SpreadsheetParserSelectorDialogComponent-Table-Medium-Link\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    31 Dec. 1999\n" +
+                        "                ROW 2\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    Long\n" +
+                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20d%20mmmm%20yyyy] id=SpreadsheetParserSelectorDialogComponent-Table-Long-Link\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    31 December 1999\n" +
+                        "                ROW 3\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    Full\n" +
+                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/date/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetParserSelectorDialogComponent-Table-Full-Link\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                    Friday, 31 December 1999\n" +
                         "      AppendPluginSelectorTextComponent\n" +
                         "      RemoveOrReplacePluginSelectorTextComponent\n" +
                         "      SpreadsheetParserSelectorComponent\n" +
