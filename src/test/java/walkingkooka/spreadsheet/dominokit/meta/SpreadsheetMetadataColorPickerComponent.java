@@ -26,8 +26,8 @@ import walkingkooka.text.printer.TreePrintable;
 
 public class SpreadsheetMetadataColorPickerComponent implements IsElement<Element>, TreePrintable {
 
-    public static walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataColorPickerComponent with(final HistoryToken token) {
-        return new walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataColorPickerComponent(token);
+    public static SpreadsheetMetadataColorPickerComponent with(final HistoryToken token) {
+        return new SpreadsheetMetadataColorPickerComponent(token);
     }
 
     private SpreadsheetMetadataColorPickerComponent(final HistoryToken token) {
