@@ -87,7 +87,7 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
                 .setHistoryToken(
                         Optional.of(
                                 historyToken.setSave(
-                                        this.context.saveText(selector.toString())
+                                        this.context.formatterTableHistoryTokenSave(selector)
                                 )
                         )
                 );

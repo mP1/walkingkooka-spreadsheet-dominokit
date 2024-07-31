@@ -66,9 +66,4 @@ final class SpreadsheetFormatterSelectorDialogComponentContextBasicMetadata exte
     public boolean isMatch(final HistoryToken token) {
         return token.isMetadataFormatter();
     }
-
-    @Override
-    public String saveText(final String text) {
-        return text;
-    }
 }
