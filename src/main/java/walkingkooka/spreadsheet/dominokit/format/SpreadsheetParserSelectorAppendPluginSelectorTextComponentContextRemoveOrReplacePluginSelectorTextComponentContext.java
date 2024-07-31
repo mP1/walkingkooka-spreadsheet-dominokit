@@ -17,15 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTextComponentContext;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTextComponentContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 
 final class SpreadsheetParserSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTextComponentContext implements AppendPluginSelectorTextComponentContext,
-        RemoveOrReplacePluginSelectorTextComponentContext {
+        RemoveOrReplacePluginSelectorTextComponentContext,
+        HistoryTokenContextDelegator {
 
     static SpreadsheetParserSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTextComponentContext with(final SpreadsheetParserName name,
                                                                                                                                    final HistoryTokenContext context) {
@@ -56,28 +56,8 @@ final class SpreadsheetParserSelectorAppendPluginSelectorTextComponentContextRem
     // HistoryTokenContext..............................................................................................
 
     @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-        return this.context.addHistoryTokenWatcher(watcher);
-    }
-
-    @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
-        return this.context.addHistoryTokenWatcherOnce(watcher);
-    }
-
-    @Override
-    public HistoryToken historyToken() {
-        return this.context.historyToken();
-    }
-
-    @Override
-    public void pushHistoryToken(final HistoryToken token) {
-        this.context.pushHistoryToken(token);
-    }
-
-    @Override
-    public void fireCurrentHistoryToken() {
-        this.context.fireCurrentHistoryToken();
+    public HistoryTokenContext historyTokenContext() {
+        return this.context;
     }
 
     private final HistoryTokenContext context;

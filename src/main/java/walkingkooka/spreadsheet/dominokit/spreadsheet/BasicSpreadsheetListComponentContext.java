@@ -18,16 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.locale.HasLocale;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers;
 
 import java.util.Locale;
 
-public final class BasicSpreadsheetListComponentContext implements SpreadsheetListComponentContext {
+public final class BasicSpreadsheetListComponentContext implements SpreadsheetListComponentContext,
+        HistoryTokenContextDelegator {
 
     static BasicSpreadsheetListComponentContext with(final HistoryTokenContext historyTokenContext,
                                                      final SpreadsheetMetadataFetcher metadataFetcher,
@@ -50,33 +50,6 @@ public final class BasicSpreadsheetListComponentContext implements SpreadsheetLi
         this.metadataFetcherWatchers = metadataFetcherWatchers;
         this.hasLocale = hasLocale;
     }
-
-    @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-        return this.historyTokenContext.addHistoryTokenWatcher(watcher);
-    }
-
-    @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
-        return this.historyTokenContext.addHistoryTokenWatcherOnce(watcher);
-    }
-
-    @Override
-    public HistoryToken historyToken() {
-        return this.historyTokenContext.historyToken();
-    }
-
-    @Override
-    public void pushHistoryToken(final HistoryToken token) {
-        this.historyTokenContext.pushHistoryToken(token);
-    }
-
-    @Override
-    public void fireCurrentHistoryToken() {
-        this.historyTokenContext.fireCurrentHistoryToken();
-    }
-
-    private final HistoryTokenContext historyTokenContext;
 
     @Override
     public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
@@ -103,4 +76,13 @@ public final class BasicSpreadsheetListComponentContext implements SpreadsheetLi
     }
 
     private final HasLocale hasLocale;
+
+    // HistoryTokenContext..............................................................................................
+
+    @Override
+    public HistoryTokenContext historyTokenContext() {
+        return this.historyTokenContext;
+    }
+
+    private final HistoryTokenContext historyTokenContext;
 }

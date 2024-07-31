@@ -21,14 +21,14 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 
 import java.util.Objects;
 import java.util.Set;
 
-final class BasicSpreadsheetSortDialogComponentContext implements SpreadsheetSortDialogComponentContext {
+final class BasicSpreadsheetSortDialogComponentContext implements SpreadsheetSortDialogComponentContext,
+        HistoryTokenContextDelegator {
 
     static BasicSpreadsheetSortDialogComponentContext with(final SpreadsheetComparatorProvider spreadsheetComparatorProvider,
                                                            final HistoryTokenContext historyTokenContext) {
@@ -61,29 +61,11 @@ final class BasicSpreadsheetSortDialogComponentContext implements SpreadsheetSor
 
     private final SpreadsheetComparatorProvider spreadsheetComparatorProvider;
 
-    @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-        return this.historyTokenContext.addHistoryTokenWatcher(watcher);
-    }
+    // HistoryTokenContext..............................................................................................
 
     @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
-        return this.historyTokenContext.addHistoryTokenWatcherOnce(watcher);
-    }
-
-    @Override
-    public HistoryToken historyToken() {
-        return this.historyTokenContext.historyToken();
-    }
-
-    @Override
-    public void pushHistoryToken(final HistoryToken token) {
-        this.historyTokenContext.pushHistoryToken(token);
-    }
-
-    @Override
-    public void fireCurrentHistoryToken() {
-        this.historyTokenContext.fireCurrentHistoryToken();
+    public HistoryTokenContext historyTokenContext() {
+        return this.historyTokenContext;
     }
 
     private final HistoryTokenContext historyTokenContext;
