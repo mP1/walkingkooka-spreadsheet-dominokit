@@ -15,11 +15,10 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.viewport;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
 import walkingkooka.reflect.ClassTesting;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public interface ValueComponentTesting<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>

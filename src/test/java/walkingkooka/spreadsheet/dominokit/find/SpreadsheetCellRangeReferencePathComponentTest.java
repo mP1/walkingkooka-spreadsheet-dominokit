@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.find;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.viewport.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 
 public final class SpreadsheetCellRangeReferencePathComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent> {
