@@ -47,7 +47,7 @@ import java.util.Optional;
 import java.util.Set;
 
 /**
- * A mostly complete {@link SpreadsheetPatternDialogComponentContext}.
+ * An base class capturing most of the requirements for {@link SpreadsheetFormatterSelectorDialogComponentContext}
  */
 abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implements SpreadsheetFormatterSelectorDialogComponentContext {
 
