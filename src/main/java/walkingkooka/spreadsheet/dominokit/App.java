@@ -33,6 +33,8 @@ import org.dominokit.domino.ui.layout.RightDrawerSize;
 import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.notifications.Notification.Position;
 import org.gwtproject.core.client.Scheduler;
+import walkingkooka.Either;
+import walkingkooka.color.Color;
 import walkingkooka.convert.Converter;
 import walkingkooka.convert.ConverterContext;
 import walkingkooka.convert.provider.ConverterInfo;
@@ -54,6 +56,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
+import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.convert.SpreadsheetConvertersConverterProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
@@ -104,8 +107,10 @@ import walkingkooka.spreadsheet.dominokit.toolbar.SpreadsheetToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterContexts;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
@@ -123,12 +128,15 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserProviders;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTextComponent;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
+import walkingkooka.tree.text.TextNode;
 
 import java.math.MathContext;
 import java.time.LocalDateTime;
@@ -178,6 +186,8 @@ public class App implements EntryPoint,
                 this
         );
         this.addSpreadsheetMetadataFetcherWatcher(this);
+
+        this.formatterContext = SpreadsheetFormatterContexts.fake();
 
         // delta
         this.spreadsheetDeltaWatchers = SpreadsheetDeltaFetcherWatchers.empty();
@@ -592,6 +602,13 @@ public class App implements EntryPoint,
                     )
             );
 
+            this.formatterContext = metadata.formatterContext(
+                    this.converterProvider,
+                    this.spreadsheetFormatterProvider,
+                    () -> this.now(), // not sure why but method ref fails.
+                    this.viewportCache
+            );
+
             // update the global JsonNodeUnmarshallContext.
             this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                     metadata.expressionNumberKind(),
@@ -651,6 +668,181 @@ public class App implements EntryPoint,
     }
 
     private SpreadsheetMetadata spreadsheetMetadata;
+
+    // SpreadsheetFormatterContext......................................................................................
+
+    @Override
+    public boolean canConvert(final Object value,
+                              final Class<?> type) {
+        return this.formatterContext.canConvert(
+                value,
+                type
+        );
+    }
+
+    @Override
+    public <T> Either<T, String> convert(final Object value,
+                                         final Class<T> type) {
+        return this.formatterContext.convert(
+                value,
+                type
+        );
+    }
+
+    @Override
+    public Converter<SpreadsheetConverterContext> converter() {
+        return this.formatterContext.converter();
+    }
+
+    @Override
+    public Optional<TextNode> format(final Object value) {
+        return this.formatterContext.format(value);
+    }
+
+    @Override
+    public int cellCharacterWidth() {
+        return this.formatterContext.cellCharacterWidth();
+    }
+
+    @Override
+    public Optional<Color> colorNumber(final int number) {
+        return this.formatterContext.colorNumber(number);
+    }
+
+    @Override
+    public Optional<Color> colorName(final SpreadsheetColorName name) {
+        return this.formatterContext.colorName(name);
+    }
+
+    @Override
+    public long dateOffset() {
+        return this.formatterContext.dateOffset();
+    }
+
+    @Override
+    public List<String> ampms() {
+        return this.formatterContext.ampms();
+    }
+
+    @Override
+    public String ampm(final int hourOfDay) {
+        return this.formatterContext.ampm(hourOfDay);
+    }
+
+    @Override
+    public List<String> monthNames() {
+        return this.formatterContext.monthNames();
+    }
+
+    @Override
+    public String monthName(final int month) {
+        return this.formatterContext.monthName(month);
+    }
+
+    @Override
+    public List<String> monthNameAbbreviations() {
+        return this.formatterContext.monthNameAbbreviations();
+    }
+
+    @Override
+    public String monthNameAbbreviation(final int month) {
+        return this.formatterContext.monthNameAbbreviation(month);
+    }
+
+    @Override
+    public List<String> weekDayNames() {
+        return this.formatterContext.weekDayNames();
+    }
+
+    @Override
+    public String weekDayName(final int day) {
+        return this.formatterContext.weekDayName(day);
+    }
+
+    @Override
+    public List<String> weekDayNameAbbreviations() {
+        return this.formatterContext.weekDayNameAbbreviations();
+    }
+
+    @Override
+    public String weekDayNameAbbreviation(final int day) {
+        return this.formatterContext.weekDayNameAbbreviation(day);
+    }
+
+    @Override
+    public int defaultYear() {
+        return this.formatterContext.defaultYear();
+    }
+
+    @Override
+    public int twoDigitYear() {
+        return this.formatterContext.twoDigitYear();
+    }
+
+    @Override
+    public int twoToFourDigitYear(final int year) {
+        return this.formatterContext.twoToFourDigitYear(year);
+    }
+
+    @Override
+    public int generalFormatNumberDigitCount() {
+        return this.formatterContext.generalFormatNumberDigitCount();
+    }
+
+    @Override
+    public MathContext mathContext() {
+        return this.formatterContext.mathContext();
+    }
+
+    @Override
+    public ExpressionNumberKind expressionNumberKind() {
+        return this.formatterContext.expressionNumberKind();
+    }
+
+    @Override
+    public String currencySymbol() {
+        return this.formatterContext.currencySymbol();
+    }
+
+    @Override
+    public char decimalSeparator() {
+        return this.formatterContext.decimalSeparator();
+    }
+
+    @Override
+    public String exponentSymbol() {
+        return this.formatterContext.exponentSymbol();
+    }
+
+    @Override
+    public char groupSeparator() {
+        return this.formatterContext.groupSeparator();
+    }
+
+    @Override
+    public char percentageSymbol() {
+        return this.formatterContext.percentageSymbol();
+    }
+
+    @Override
+    public char negativeSign() {
+        return this.formatterContext.negativeSign();
+    }
+
+    @Override
+    public char positiveSign() {
+        return this.formatterContext.positiveSign();
+    }
+
+    @Override
+    public SpreadsheetSelection resolveLabel(final SpreadsheetLabelName name) {
+        return this.formatterContext.resolveLabel(name);
+    }
+
+    /**
+     * A new {@link SpreadsheetFormatterContext} is created each time a new {@link SpreadsheetMetadata} arrives.
+     */
+    private SpreadsheetFormatterContext formatterContext;
 
     // json.............................................................................................................
 

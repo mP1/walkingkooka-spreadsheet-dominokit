@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import walkingkooka.Either;
+import walkingkooka.color.Color;
 import walkingkooka.convert.Converter;
 import walkingkooka.convert.ConverterContext;
 import walkingkooka.convert.provider.ConverterInfo;
@@ -26,6 +28,7 @@ import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
@@ -39,6 +42,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatc
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
@@ -53,10 +57,15 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTextComponent;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
+import walkingkooka.tree.text.TextNode;
 
+import java.math.MathContext;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
@@ -318,6 +327,178 @@ public class FakeAppContext implements AppContext {
     public LocalDateTime now() {
         throw new UnsupportedOperationException();
     }
+
+    // SpreadsheetFormatterContext......................................................................................
+
+    @Override
+    public boolean canConvert(final Object value,
+                              final Class<?> type) {
+        return formatterContext.canConvert(
+                value,
+                type
+        );
+    }
+
+    @Override
+    public <T> Either<T, String> convert(final Object value,
+                                         final Class<T> type) {
+        return formatterContext.convert(
+                value,
+                type
+        );
+    }
+
+    @Override
+    public Converter<SpreadsheetConverterContext> converter() {
+        return formatterContext.converter();
+    }
+
+    @Override
+    public Optional<TextNode> format(final Object value) {
+        return formatterContext.format(value);
+    }
+
+    @Override
+    public int cellCharacterWidth() {
+        return formatterContext.cellCharacterWidth();
+    }
+
+    @Override
+    public Optional<Color> colorNumber(final int number) {
+        return formatterContext.colorNumber(number);
+    }
+
+    @Override
+    public Optional<Color> colorName(final SpreadsheetColorName name) {
+        return formatterContext.colorName(name);
+    }
+
+    @Override
+    public long dateOffset() {
+        return formatterContext.dateOffset();
+    }
+
+    @Override
+    public List<String> ampms() {
+        return formatterContext.ampms();
+    }
+
+    @Override
+    public String ampm(final int hourOfDay) {
+        return formatterContext.ampm(hourOfDay);
+    }
+
+    @Override
+    public List<String> monthNames() {
+        return formatterContext.monthNames();
+    }
+
+    @Override
+    public String monthName(final int month) {
+        return formatterContext.monthName(month);
+    }
+
+    @Override
+    public List<String> monthNameAbbreviations() {
+        return formatterContext.monthNameAbbreviations();
+    }
+
+    @Override
+    public String monthNameAbbreviation(final int month) {
+        return formatterContext.monthNameAbbreviation(month);
+    }
+
+    @Override
+    public List<String> weekDayNames() {
+        return formatterContext.weekDayNames();
+    }
+
+    @Override
+    public String weekDayName(final int day) {
+        return formatterContext.weekDayName(day);
+    }
+
+    @Override
+    public List<String> weekDayNameAbbreviations() {
+        return formatterContext.weekDayNameAbbreviations();
+    }
+
+    @Override
+    public String weekDayNameAbbreviation(final int day) {
+        return formatterContext.weekDayNameAbbreviation(day);
+    }
+
+    @Override
+    public int defaultYear() {
+        return formatterContext.defaultYear();
+    }
+
+    @Override
+    public int twoDigitYear() {
+        return formatterContext.twoDigitYear();
+    }
+
+    @Override
+    public int twoToFourDigitYear(final int year) {
+        return formatterContext.twoToFourDigitYear(year);
+    }
+
+    @Override
+    public int generalFormatNumberDigitCount() {
+        return formatterContext.generalFormatNumberDigitCount();
+    }
+
+    @Override
+    public MathContext mathContext() {
+        return formatterContext.mathContext();
+    }
+
+    @Override
+    public ExpressionNumberKind expressionNumberKind() {
+        return formatterContext.expressionNumberKind();
+    }
+
+    @Override
+    public String currencySymbol() {
+        return formatterContext.currencySymbol();
+    }
+
+    @Override
+    public char decimalSeparator() {
+        return formatterContext.decimalSeparator();
+    }
+
+    @Override
+    public String exponentSymbol() {
+        return formatterContext.exponentSymbol();
+    }
+
+    @Override
+    public char groupSeparator() {
+        return formatterContext.groupSeparator();
+    }
+
+    @Override
+    public char percentageSymbol() {
+        return formatterContext.percentageSymbol();
+    }
+
+    @Override
+    public char negativeSign() {
+        return formatterContext.negativeSign();
+    }
+
+    @Override
+    public char positiveSign() {
+        return formatterContext.positiveSign();
+    }
+
+    @Override
+    public SpreadsheetSelection resolveLabel(final SpreadsheetLabelName name) {
+        return formatterContext.resolveLabel(name);
+    }
+
+    private SpreadsheetFormatterContext formatterContext;
 
     // SpreadsheetListDialogComponent...................................................................................
 
