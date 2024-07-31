@@ -36,7 +36,6 @@ import walkingkooka.text.printer.TreePrintable;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.BiFunction;
 
 /**
  * A {@link ValueComponent} wrapper around a {@link DataTable}.
@@ -155,7 +154,7 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
     SpreadsheetDataTableComponent<T> bodyScrollPlugin();
 
     /**
-     * Prepares text for the {@link BodyScrollPlugin} which will be printed by {@link #printTreeTable(List, boolean, BiFunction, List, IndentingPrinter)}.
+     * Prepares text for the {@link BodyScrollPlugin} which will be printed by {@link #printTreeTable(List, boolean, SpreadsheetDataTableComponentCellRenderer, List, IndentingPrinter)}.
      */
     static String bodyScrollPluginText() {
         return "BodyScrollPlugin";
@@ -168,7 +167,7 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
                                                       final String title);
 
     /**
-     * Prepares text for the {@link EmptyStatePlugin} which will be printed by {@link #printTreeTable(List, boolean, BiFunction, List, IndentingPrinter)}.
+     * Prepares text for the {@link EmptyStatePlugin} which will be printed by {@link #printTreeTable(List, boolean, SpreadsheetDataTableComponentCellRenderer, List, IndentingPrinter)}.
      */
     static String emptyStatePluginText(final Icon<?> icon,
                                        final String title) {
