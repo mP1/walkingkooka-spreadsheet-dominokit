@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTextComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTextComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponentAlternative;
@@ -79,6 +80,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 context
         );
 
+        this.formatterNames = SpreadsheetFormatterNameLinkListComponent.empty(ID + "-formatterNames-");
+
         this.table = SpreadsheetFormatterTableComponent.empty(
                 ID + SpreadsheetElementIds.TABLE + "-"
         );
@@ -99,6 +102,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 .setDisabled(true);
 
         this.dialog = this.dialogCreate();
+
+        this.formatterName = Optional.empty();
     }
 
     // ids..............................................................................................................
@@ -128,6 +133,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                         true, // includeClose
                         context
                 ).appendChild(this.tabs)
+                .appendChild(this.formatterNames)
                 .appendChild(this.table)
                 .appendChild(this.appender)
                 .appendChild(this.removeOrReplace)
@@ -153,6 +159,10 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     // tabs............................................................................................................
 
     private final SpreadsheetPatternKindTabsComponent tabs;
+
+    // formatterNames...................................................................................................
+
+    private final SpreadsheetFormatterNameLinkListComponent formatterNames;
 
     // sample...........................................................................................................
 
@@ -191,6 +201,9 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 text,
                 context
         );
+
+        this.formatterName = edit.selector()
+                .map(SpreadsheetFormatterSelector::name);
 
         this.table.refresh(
                 edit.samples(),
@@ -363,6 +376,14 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
         this.tabs.refresh(context);
 
+        this.formatterNames.refresh(
+                SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext.with(
+                        context, // HistoryTokenContext
+                        context, // SpreadsheetFormatterProvider,
+                        this.formatterName
+                )
+        );
+
         this.clear.setHistoryToken(
                 Optional.of(
                         historyToken.clearSave()
@@ -375,6 +396,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 )
         );
     }
+
+    private Optional<SpreadsheetFormatterName> formatterName;
 
     // Date/Time format
     // Text format
