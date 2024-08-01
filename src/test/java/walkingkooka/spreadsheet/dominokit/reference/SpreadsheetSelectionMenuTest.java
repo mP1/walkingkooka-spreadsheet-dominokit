@@ -26,8 +26,6 @@ import walkingkooka.reflect.PublicStaticHelperTesting;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
@@ -40,6 +38,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetNumberParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
@@ -52,7 +51,8 @@ import java.util.Optional;
 import java.util.Set;
 
 public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTesting<SpreadsheetSelectionMenu>,
-        TreePrintableTesting {
+        TreePrintableTesting,
+        SpreadsheetMetadataTesting {
 
     @Test
     public void testCell() {
@@ -1815,10 +1815,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
             @Override
             public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
-                return this.spreadsheetComparatorProvider.spreadsheetComparatorInfos();
+                return SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparatorInfos();
             }
-
-            private final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.spreadsheetComparators();
         };
     }
 

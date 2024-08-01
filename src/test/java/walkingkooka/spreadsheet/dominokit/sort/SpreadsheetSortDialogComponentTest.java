@@ -24,8 +24,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
@@ -34,11 +32,13 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Set;
 
-public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetSortDialogComponent> {
+public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetSortDialogComponent>,
+        SpreadsheetMetadataTesting {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
 
@@ -1505,15 +1505,13 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
 
             @Override
             public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
-                return this.spreadsheetComparatorProvider.spreadsheetComparator(spreadsheetComparatorName);
+                return SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparator(spreadsheetComparatorName);
             }
 
             @Override
             public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
-                return this.spreadsheetComparatorProvider.spreadsheetComparatorInfos();
+                return SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparatorInfos();
             }
-
-            private final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.spreadsheetComparators();
         };
     }
 

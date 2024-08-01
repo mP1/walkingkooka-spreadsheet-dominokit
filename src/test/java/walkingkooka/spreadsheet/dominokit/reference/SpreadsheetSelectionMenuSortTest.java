@@ -25,11 +25,11 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
@@ -38,6 +38,7 @@ import java.util.Optional;
 import java.util.Set;
 
 public class SpreadsheetSelectionMenuSortTest implements ClassTesting<SpreadsheetSelectionMenuSort>,
+        SpreadsheetMetadataTesting,
         TreePrintableTesting {
 
     @Test
@@ -53,8 +54,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 SpreadsheetSelection.parseColumn("A"),
                 "column-sort-", // id-prefix
                 SpreadsheetIcons.columnSort(),
-                SpreadsheetComparatorProviders.spreadsheetComparators()
-                        .spreadsheetComparatorInfos(),
+                SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparatorInfos(),
                 "\"Sort Column\" id=sort\n" +
                         "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +
                         "    \"Date\" id=column-sort-date-SubMenu\n" +
@@ -120,8 +120,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 SpreadsheetSelection.parseRow("12"),
                 "row-sort-", // id-prefix
                 SpreadsheetIcons.rowSort(),
-                SpreadsheetComparatorProviders.spreadsheetComparators()
-                        .spreadsheetComparatorInfos(),
+                SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparatorInfos(),
                 "\"Sort Row\" id=sort\n" +
                         "  (mdi-sort) \"Sort Row\" id=row-sort-SubMenu\n" +
                         "    \"Date\" id=row-sort-date-SubMenu\n" +
@@ -187,8 +186,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 SpreadsheetSelection.parseColumn("B"),
                 "column-sort-", // id-prefix
                 SpreadsheetIcons.columnSort(),
-                SpreadsheetComparatorProviders.spreadsheetComparators()
-                        .spreadsheetComparatorInfos(),
+                SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparatorInfos(),
                 "\"Sort Column\" id=sort\n" +
                         "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +
                         "    \"Date\" id=column-sort-date-SubMenu\n" +
