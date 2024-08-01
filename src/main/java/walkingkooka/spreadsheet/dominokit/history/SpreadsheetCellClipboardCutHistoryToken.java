@@ -97,7 +97,7 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                 context.spreadsheetViewportCache()
                         .cellRange(range),
                 kind,
-                context.marshallContext()
+                context
         );
 
         context.writeClipboardItem(

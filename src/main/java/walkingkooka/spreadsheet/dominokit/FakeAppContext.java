@@ -61,6 +61,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.json.JsonNodeMarshallUnmarshallContextDelegator;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextNode;
@@ -74,7 +75,8 @@ import java.util.OptionalInt;
 import java.util.Set;
 import java.util.function.Predicate;
 
-public class FakeAppContext implements AppContext {
+public class FakeAppContext implements AppContext,
+        JsonNodeMarshallUnmarshallContextDelegator {
 
     @Override
     public void readClipboardItem(final Predicate<MediaType> filter,
@@ -143,12 +145,12 @@ public class FakeAppContext implements AppContext {
     // json.............................................................................................................
 
     @Override
-    public JsonNodeMarshallContext marshallContext() {
+    public JsonNodeMarshallContext jsonNodeMarshallContext() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public JsonNodeUnmarshallContext unmarshallContext() {
+    public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
         throw new UnsupportedOperationException();
     }
 

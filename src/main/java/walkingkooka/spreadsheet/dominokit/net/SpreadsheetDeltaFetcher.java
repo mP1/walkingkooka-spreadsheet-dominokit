@@ -612,7 +612,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 ),
                 patcher.apply(
                         cellToStyles,
-                        this.context.marshallContext()
+                        this.context
                 ).toString()
         );
     }
@@ -627,7 +627,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 ),
                 SpreadsheetDelta.formulaPatch(
                         formula,
-                        this.context.marshallContext()
+                        this.context
                 )
         );
     }
@@ -642,7 +642,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 ),
                 SpreadsheetDelta.formatterPatch(
                         formatter,
-                        this.context.marshallContext()
+                        this.context
                 )
         );
     }
@@ -657,7 +657,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 ),
                 SpreadsheetDelta.parserPatch(
                         parser,
-                        this.context.marshallContext()
+                        this.context
                 )
         );
     }
@@ -732,7 +732,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 ),
                 SpreadsheetDelta.formatterPatch(
                         formatter,
-                        context.marshallContext()
+                        context
                 )
         );
     }
@@ -751,7 +751,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 ),
                 SpreadsheetDelta.parserPatch(
                         parser,
-                        context.marshallContext()
+                        context
                 )
         );
     }

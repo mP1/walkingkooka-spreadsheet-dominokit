@@ -189,7 +189,6 @@ public interface Fetcher {
     default <T> T parse(final String json,
                         final Class<T> type) {
         return this.context()
-                .unmarshallContext()
                 .unmarshall(
                         JsonNode.parse(
                                 json
@@ -203,7 +202,6 @@ public interface Fetcher {
      */
     default String toJson(final Object value) {
         return this.context()
-                .marshallContext()
                 .marshall(
                         value
                 ).toString();

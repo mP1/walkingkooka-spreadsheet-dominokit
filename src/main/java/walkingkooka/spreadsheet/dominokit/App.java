@@ -122,6 +122,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserProviders;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.json.JsonNodeMarshallUnmarshallContextDelegator;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
@@ -142,6 +143,7 @@ public class App implements EntryPoint,
         AppContext,
         WindowResizeWatcher,
         HistoryTokenWatcher,
+        JsonNodeMarshallUnmarshallContextDelegator,
         NopNoResponseWatcher,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
@@ -691,7 +693,7 @@ public class App implements EntryPoint,
     // json.............................................................................................................
 
     @Override
-    public JsonNodeMarshallContext marshallContext() {
+    public JsonNodeMarshallContext jsonNodeMarshallContext() {
         return MARSHALL_CONTEXT;
     }
 
@@ -704,7 +706,7 @@ public class App implements EntryPoint,
      * The {@link JsonNodeUnmarshallContext} will be updated each time a new {@link SpreadsheetMetadata} is received.
      */
     @Override
-    public JsonNodeUnmarshallContext unmarshallContext() {
+    public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
         return this.unmarshallContext;
     }
 
@@ -776,6 +778,16 @@ public class App implements EntryPoint,
      * This will be updated every time {@link #onSpreadsheetMetadata(SpreadsheetMetadata, AppContext)} is called.
      */
     private SpreadsheetParserProvider spreadsheetParserProvider;
+
+    @Override
+    public ExpressionNumberKind expressionNumberKind() {
+        return this.spreadsheetMetadata.expressionNumberKind();
+    }
+
+    @Override
+    public MathContext mathContext() {
+        return this.spreadsheetMetadata.mathContext();
+    }
 
     // history eventListener............................................................................................
 
