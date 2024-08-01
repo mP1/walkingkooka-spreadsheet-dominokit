@@ -61,7 +61,10 @@ public final class SpreadsheetFormatterNameLinkListComponent implements HtmlElem
                         .stream()
                         .map(SpreadsheetFormatterNameLinkListComponent::linkText)
                         .collect(Collectors.toList()),
-                SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext.with(context) // context
+                SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext.with(
+                        context.formatterName(),
+                        context
+                ) // context
         );
     }
 

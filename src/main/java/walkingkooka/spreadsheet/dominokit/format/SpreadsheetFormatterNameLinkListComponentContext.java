@@ -18,7 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 
+import java.util.Optional;
+
 public interface SpreadsheetFormatterNameLinkListComponentContext extends HistoryTokenContext, SpreadsheetFormatterProvider {
+
+    /**
+     * Returns the currently selected {@link SpreadsheetFormatterName}.
+     */
+    Optional<SpreadsheetFormatterName> formatterName();
 }

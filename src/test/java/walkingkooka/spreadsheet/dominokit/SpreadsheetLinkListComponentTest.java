@@ -24,11 +24,13 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -98,7 +100,31 @@ public final class SpreadsheetLinkListComponentTest implements ClassTesting<Spre
     public void testRefreshWhenEmpty() {
         this.refreshAndCheck(
                 Lists.empty(),
+                Optional.empty(), // no selection
                 "SpreadsheetLinkListComponent\n"
+        );
+    }
+
+    @Test
+    public void testRefreshWithSelectionAndWhenNotEmpty() {
+        this.refreshAndCheck(
+                Lists.of(
+                        "apple1",
+                        "banana2",
+                        "carrot3"
+                ),
+                Optional.of(
+                        SpreadsheetFormatterName.with("banana2")
+                ),
+                "SpreadsheetLinkListComponent\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      Title123\n" +
+                        "        SpreadsheetFlexLayout\n" +
+                        "          ROW\n" +
+                        "            \"Label-apple1\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/save%20apple1] id=LinkList123-0-Link\n" +
+                        "            \"Label-banana2\" DISABLED [#/1/Spreadsheet123/cell/A1/formatter/date/save/save%20banana2] id=LinkList123-1-Link\n" +
+                        "            \"Label-carrot3\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/save%20carrot3] id=LinkList123-2-Link\n"
         );
     }
 
@@ -110,6 +136,7 @@ public final class SpreadsheetLinkListComponentTest implements ClassTesting<Spre
                         "banana2",
                         "carrot3"
                 ),
+                Optional.empty(),
                 "SpreadsheetLinkListComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
@@ -123,6 +150,7 @@ public final class SpreadsheetLinkListComponentTest implements ClassTesting<Spre
     }
 
     private void refreshAndCheck(final List<String> texts,
+                                 final Optional<SpreadsheetFormatterName> selected,
                                  final String expected) {
         final SpreadsheetLinkListComponent list = SpreadsheetLinkListComponent.with(
                 ID,
@@ -133,6 +161,13 @@ public final class SpreadsheetLinkListComponentTest implements ClassTesting<Spre
         list.refresh(
                 texts,
                 new FakeSpreadsheetLinkListComponentContext() {
+
+                    @Override
+                    public boolean isDisabled(final String text) {
+                        return selected.map(SpreadsheetFormatterName::value)
+                                .equals(Optional.of(text));
+                    }
+
                     @Override
                     public String saveText(final String text) {
                         return "save " + text;

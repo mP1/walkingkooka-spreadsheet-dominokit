@@ -114,7 +114,7 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
                                         context.saveText(text)
                                 )
                         )
-                );
+                ).setDisabled(context.isDisabled(text));
     }
 
     private final Function<String, String> labelMaker;
