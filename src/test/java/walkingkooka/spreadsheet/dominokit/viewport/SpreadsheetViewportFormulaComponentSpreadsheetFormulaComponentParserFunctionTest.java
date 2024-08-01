@@ -34,33 +34,25 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserProviders;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursors;
-import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.util.FunctionTesting;
 
-import java.math.RoundingMode;
-import java.time.LocalDateTime;
-import java.util.Locale;
 import java.util.Optional;
-import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunctionTest implements FunctionTesting<SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction, String, SpreadsheetFormula> {
-
-    private final static ExpressionNumberKind EXPRESSION_NUMBER_KIND = ExpressionNumberKind.BIG_DECIMAL;
+public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunctionTest implements FunctionTesting<SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction, String, SpreadsheetFormula>,
+        SpreadsheetMetadataTesting {
 
     private final static HttpMethod METHOD = HttpMethod.GET;
 
@@ -68,21 +60,10 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
 
     private final static SpreadsheetId ID = SpreadsheetId.with(2);
 
-    private final static SpreadsheetMetadata METADATA = SpreadsheetMetadata.EMPTY
-            .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID)
-            .set(SpreadsheetMetadataPropertyName.LOCALE, Locale.forLanguageTag("EN-AU"))
-            .loadFromLocale()
-            .set(SpreadsheetMetadataPropertyName.EXPRESSION_NUMBER_KIND, EXPRESSION_NUMBER_KIND)
-            .set(SpreadsheetMetadataPropertyName.PRECISION, 10)
-            .set(SpreadsheetMetadataPropertyName.ROUNDING_MODE, RoundingMode.HALF_UP)
-            .set(SpreadsheetMetadataPropertyName.DEFAULT_YEAR, 50)
-            .set(SpreadsheetMetadataPropertyName.TWO_DIGIT_YEAR, 50);
-
-    private final static SpreadsheetParserProvider SPREADSHEET_PARSER_PROVIDER = SpreadsheetParserProviders.spreadsheetParsePattern(
-            SpreadsheetFormatterProviders.fake()
+    private final static SpreadsheetMetadata METADATA = METADATA_EN_AU.set(
+            SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+            ID
     );
-
-    private final static Supplier<LocalDateTime> NOW = LocalDateTime::now;
 
     @Test
     public void testUnknownLabelFails() {
@@ -124,7 +105,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
                         this.appContext(
                                 SpreadsheetSelection.A1,
-                                METADATA
+                                METADATA_EN_AU
                         )
                 ),
                 "=1.5"
