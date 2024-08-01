@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelector
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTextComponent;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTextComponentAlternative;
@@ -78,6 +79,9 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                 SpreadsheetPatternKind.parseValues(),
                 context
         );
+
+        this.parserNames = SpreadsheetParserNameLinkListComponent.empty(ID + "-parserNames-");
+        this.parserName = Optional.empty();
 
         this.table = SpreadsheetFormatterTableComponent.empty(
                 ID + SpreadsheetElementIds.TABLE + "-"
@@ -128,6 +132,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                         true, // includeClose
                         context
                 ).appendChild(this.tabs)
+                .appendChild(this.parserNames)
                 .appendChild(this.table)
                 .appendChild(this.appender)
                 .appendChild(this.removeOrReplace)
@@ -153,6 +158,10 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     // tabs............................................................................................................
 
     private final SpreadsheetPatternKindTabsComponent tabs;
+
+    // tabs............................................................................................................
+
+    private final SpreadsheetParserNameLinkListComponent parserNames;
 
     // sample...........................................................................................................
 
@@ -191,6 +200,9 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                 text,
                 context
         );
+
+        this.parserName = edit.selector()
+                .map(SpreadsheetParserSelector::name);
 
         this.table.refresh(
                 edit.samples(),
@@ -367,6 +379,14 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
 
         this.tabs.refresh(context);
 
+        this.parserNames.refresh(
+                SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext.with(
+                        context, // HistoryTokenContext
+                        context, // SpreadsheetParserProvider,
+                        this.parserName
+                )
+        );
+
         this.clear.setHistoryToken(
                 Optional.of(
                         historyToken.clearSave()
@@ -379,6 +399,8 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                 )
         );
     }
+
+    private Optional<SpreadsheetParserName> parserName;
 
     // Date/Time format
     // Text format
