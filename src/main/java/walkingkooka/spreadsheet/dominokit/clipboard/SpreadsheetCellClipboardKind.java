@@ -81,8 +81,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
                                    final AppContext context) {
-            SpreadsheetCell cell = context.unmarshallContext()
-                    .unmarshall(
+            SpreadsheetCell cell = context.unmarshall(
                             JsonNode.object()
                                     .appendChild(node),
                             SpreadsheetCell.class
@@ -206,8 +205,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                     SpreadsheetFormula.EMPTY
             ).setFormatter(
                     Optional.ofNullable(
-                            context.unmarshallContext()
-                                    .unmarshall(
+                            context.unmarshall(
                                             node,
                                             SpreadsheetFormatterSelector.class
                                     )
@@ -258,8 +256,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                     SpreadsheetFormula.EMPTY
             ).setParser(
                     Optional.ofNullable(
-                            context.unmarshallContext()
-                                    .unmarshall(
+                            context.unmarshall(
                                             node,
                                             SpreadsheetParserSelector.class
                                     )
@@ -306,8 +303,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
             ).setFormula(
                     SpreadsheetFormula.EMPTY
             ).setStyle(
-                    context.unmarshallContext()
-                            .unmarshall(
+                    context.unmarshall(
                                     node,
                                     TextStyle.class
                             )
@@ -357,8 +353,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                     SpreadsheetFormula.EMPTY
             ).setFormattedValue(
                     Optional.ofNullable(
-                            context.unmarshallContext()
-                                    .unmarshallWithType(node)
+                            context.unmarshallWithType(node)
                     )
             );
         }

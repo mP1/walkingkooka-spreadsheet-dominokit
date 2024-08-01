@@ -847,7 +847,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         .toSpreadsheetCellRange(
                                 new FakeAppContext() {
                                     @Override
-                                    public JsonNodeUnmarshallContext unmarshallContext() {
+                                    public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
                                         return METADATA_EN_AU.jsonNodeUnmarshallContext();
                                     }
                                 })
@@ -951,7 +951,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         .toSpreadsheetCellRange(
                                 new FakeAppContext() {
                                     @Override
-                                    public JsonNodeUnmarshallContext unmarshallContext() {
+                                    public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
                                         return METADATA_EN_AU.jsonNodeUnmarshallContext();
                                     }
 

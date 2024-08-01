@@ -69,6 +69,8 @@ public interface AppContext extends CanGiveFocus,
         HasSpreadsheetLabelMappingFetcher,
         HasSpreadsheetMetadata,
         HasSpreadsheetMetadataFetcher,
+        JsonNodeMarshallContext,
+        JsonNodeUnmarshallContext,
         SpreadsheetComparatorProvider,
         SpreadsheetFormatterProvider,
         SpreadsheetFormatterContext,
@@ -162,18 +164,6 @@ public interface AppContext extends CanGiveFocus,
         this.spreadsheetMetadataFetcher()
                 .loadSpreadsheetMetadata(id);
     }
-
-    // json............................................................................................................
-
-    /**
-     * {@see JsonNodeMarshallContext}
-     */
-    JsonNodeMarshallContext marshallContext();
-
-    /**
-     * {@see JsonNodeUnmarshallContext}
-     */
-    JsonNodeUnmarshallContext unmarshallContext();
 
     // viewport.........................................................................................................
 

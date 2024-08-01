@@ -790,8 +790,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
         this.unmarshallAndCheck(
                 SpreadsheetCellClipboardKind.FORMATTER,
-                APP_CONTEXT.marshallContext()
-                        .marshall(formatter),
+                APP_CONTEXT.marshall(formatter),
                 EMPTY_FORMULA.setFormatter(
                         Optional.of(formatter)
                 )
@@ -814,8 +813,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
         this.unmarshallAndCheck(
                 SpreadsheetCellClipboardKind.PARSER,
-                APP_CONTEXT.marshallContext()
-                        .marshall(parser),
+                APP_CONTEXT.marshall(parser),
                 EMPTY_FORMULA.setParser(
                         Optional.of(parser)
                 )
@@ -840,8 +838,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
         this.unmarshallAndCheck(
                 SpreadsheetCellClipboardKind.STYLE,
-                APP_CONTEXT.marshallContext()
-                        .marshall(style),
+                APP_CONTEXT.marshall(style),
                 EMPTY_FORMULA.setStyle(style)
         );
     }
@@ -861,8 +858,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
         this.unmarshallAndCheck(
                 SpreadsheetCellClipboardKind.FORMATTED_VALUE,
-                APP_CONTEXT.marshallContext()
-                        .marshallWithType(value),
+                APP_CONTEXT.marshallWithType(value),
                 EMPTY_FORMULA.setFormattedValue(
                         Optional.of(value)
                 )
@@ -882,7 +878,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 SpreadsheetCellClipboardKind.CELL,
                 SpreadsheetCellClipboardKind.CELL.marshall(
                         cell,
-                        APP_CONTEXT.marshallContext()
+                        APP_CONTEXT
                 ),
                 expected
         );
@@ -910,15 +906,13 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         }
 
         @Override
-        public JsonNodeMarshallContext marshallContext() {
-            return this.spreadsheetMetadata()
-                    .jsonNodeMarshallContext();
+        public JsonNodeMarshallContext jsonNodeMarshallContext() {
+            return JSON_NODE_MARSHALL_CONTEXT;
         }
 
         @Override
-        public JsonNodeUnmarshallContext unmarshallContext() {
-            return this.spreadsheetMetadata()
-                    .jsonNodeUnmarshallContext();
+        public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
+            return JSON_NODE_UNMARSHALL_CONTEXT;
         }
 
         @Override

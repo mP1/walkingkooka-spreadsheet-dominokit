@@ -86,8 +86,7 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
                         id,
                         mapping.label()
                 ),
-                this.context.marshallContext()
-                        .marshall(mapping)
+                this.context.marshall(mapping)
                         .toString()
         );
     }
