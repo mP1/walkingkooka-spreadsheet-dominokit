@@ -20,17 +20,40 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetLinkListComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
+
+import java.util.Optional;
 
 final class SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext implements SpreadsheetLinkListComponentContext,
         HistoryTokenContextDelegator {
 
-    static SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext with(final HistoryTokenContext context) {
-        return new SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext(context);
+    static SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext with(final Optional<SpreadsheetFormatterName> name,
+                                                                                             final HistoryTokenContext context) {
+        return new SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext(
+                name,
+                context
+        );
     }
 
-    private SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext(final HistoryTokenContext context) {
+    private SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext(final Optional<SpreadsheetFormatterName> name,
+                                                                                         final HistoryTokenContext context) {
+        this.name = name;
         this.context = context;
     }
+
+    @Override
+    public boolean isDisabled(final String text) {
+        Optional<SpreadsheetFormatterName> name = this.name;
+
+        return name.isPresent() &&
+                SpreadsheetFormatterName.CASE_SENSITIVITY.equals(
+                        name.map(SpreadsheetFormatterName::value)
+                                .orElse(null),
+                        text
+                );
+    }
+
+    private final Optional<SpreadsheetFormatterName> name;
 
     @Override
     public String saveText(final String text) {

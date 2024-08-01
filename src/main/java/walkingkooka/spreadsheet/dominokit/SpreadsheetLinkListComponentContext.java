@@ -25,6 +25,15 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 public interface SpreadsheetLinkListComponentContext extends HistoryTokenContext {
 
     /**
+     * Called during a render to test if a text item is disabled.
+     * <br>
+     * This supports a UI to enter a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector} consisting of
+     * links(this component) and a textbox where user may have entered a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterName}
+     * and the link holding that formatter name should  be disabled.
+     */
+    boolean isDisabled(final String text);
+
+    /**
      * Builds the save text that will be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSave(String)}.
      */
     String saveText(final String text);

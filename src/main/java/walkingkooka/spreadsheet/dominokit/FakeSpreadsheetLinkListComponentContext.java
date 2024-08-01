@@ -20,6 +20,12 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 
 public class FakeSpreadsheetLinkListComponentContext extends FakeHistoryTokenContext implements SpreadsheetLinkListComponentContext {
+
+    @Override
+    public boolean isDisabled(final String text) {
+        throw new UnsupportedOperationException();
+    }
+
     @Override
     public String saveText(final String text) {
         throw new UnsupportedOperationException();

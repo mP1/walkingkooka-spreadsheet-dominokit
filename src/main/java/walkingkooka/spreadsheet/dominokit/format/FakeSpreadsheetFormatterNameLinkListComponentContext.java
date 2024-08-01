@@ -34,6 +34,11 @@ public class FakeSpreadsheetFormatterNameLinkListComponentContext extends FakeHi
         implements SpreadsheetFormatterNameLinkListComponentContext {
 
     @Override
+    public Optional<SpreadsheetFormatterName> formatterName() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector selector) {
         throw new UnsupportedOperationException();
     }
