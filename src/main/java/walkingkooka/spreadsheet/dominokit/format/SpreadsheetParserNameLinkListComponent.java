@@ -1,0 +1,107 @@
+/*
+ * Copyright 2023 Miroslav Pokorny (github.com/mP1)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package walkingkooka.spreadsheet.dominokit.format;
+
+import elemental2.dom.HTMLDivElement;
+import elemental2.dom.Node;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
+import walkingkooka.text.CaseKind;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
+
+import java.util.stream.Collectors;
+
+/**
+ * A component that list all available {@link SpreadsheetParserName} by querying {@link SpreadsheetParserProvider#spreadsheetParserInfos()}.
+ */
+public final class SpreadsheetParserNameLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetParserNameLinkListComponent>,
+        TreePrintable {
+
+    static SpreadsheetParserNameLinkListComponent empty(final String id) {
+        return new SpreadsheetParserNameLinkListComponent(id);
+    }
+
+    private SpreadsheetParserNameLinkListComponent(final String id) {
+        super();
+        this.list = SpreadsheetLinkListComponent.with(
+                id,
+                "", // title
+                SpreadsheetParserNameLinkListComponent::spreadsheetParserNameToLinkLabel
+        );
+    }
+
+    private static String spreadsheetParserNameToLinkLabel(final String formatterName) {
+        return CaseKind.KEBAB.change(
+                formatterName,
+                CaseKind.TITLE
+        );
+    }
+
+    public void refresh(final SpreadsheetParserNameLinkListComponentContext context) {
+        this.list.refresh(
+                context.spreadsheetParserInfos()
+                        .stream()
+                        .map(SpreadsheetParserNameLinkListComponent::linkText)
+                        .collect(Collectors.toList()),
+                SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext.with(
+                        context.parserName(),
+                        context
+                ) // context
+        );
+    }
+
+    private static String linkText(final SpreadsheetParserInfo info) {
+        return info.name()
+                .value();
+    }
+
+    @Override
+    public SpreadsheetParserNameLinkListComponent setCssText(final String css) {
+        this.list.setCssText(css);
+        return this;
+    }
+
+    @Override
+    public Node node() {
+        return this.list.element();
+    }
+
+    @Override
+    public HTMLDivElement element() {
+        return this.list.element();
+    }
+
+    private final SpreadsheetLinkListComponent list;
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+
+        printer.indent();
+        {
+            this.list.printTree(printer);
+        }
+        printer.outdent();
+    }
+}
