@@ -40,6 +40,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -60,6 +61,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.Set;
 
 public final class SpreadsheetFormatterSelectorDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetFormatterSelectorDialogComponent>,
         HistoryTokenTesting,
@@ -101,6 +103,21 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "            \"Text\" [#/1/Spreadsheet123/cell/A1/formatter/text] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
                         "          TAB 4\n" +
                         "            \"Time\" [#/1/Spreadsheet123/cell/A1/formatter/time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
+                        "      SpreadsheetFormatterNameLinkListComponent\n" +
+                        "        SpreadsheetLinkListComponent\n" +
+                        "          SpreadsheetCard\n" +
+                        "            Card\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"Automatic\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/automatic] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-0-Link\n" +
+                        "                  \"Collection\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-1-Link\n" +
+                        "                  \"Date Format Pattern\" DISABLED [#/1/Spreadsheet123/cell/A1/formatter/date/save/date-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-2-Link\n" +
+                        "                  \"Date Time Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/date-time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-3-Link\n" +
+                        "                  \"General\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/general] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-4-Link\n" +
+                        "                  \"Number Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/number-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-5-Link\n" +
+                        "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-6-Link\n" +
+                        "                  \"Text Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/text-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-7-Link\n" +
+                        "                  \"Time Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-8-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -175,6 +192,21 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "            \"Text\" [#/1/Spreadsheet123/cell/A1/formatter/text] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
                         "          TAB 4\n" +
                         "            \"Time\" [#/1/Spreadsheet123/cell/A1/formatter/time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
+                        "      SpreadsheetFormatterNameLinkListComponent\n" +
+                        "        SpreadsheetLinkListComponent\n" +
+                        "          SpreadsheetCard\n" +
+                        "            Card\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"Automatic\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/automatic] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-0-Link\n" +
+                        "                  \"Collection\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-1-Link\n" +
+                        "                  \"Date Format Pattern\" DISABLED [#/1/Spreadsheet123/cell/A1/formatter/date/save/date-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-2-Link\n" +
+                        "                  \"Date Time Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/date-time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-3-Link\n" +
+                        "                  \"General\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/general] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-4-Link\n" +
+                        "                  \"Number Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/number-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-5-Link\n" +
+                        "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-6-Link\n" +
+                        "                  \"Text Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/text-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-7-Link\n" +
+                        "                  \"Time Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-8-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -281,6 +313,21 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "            \"Text\" [#/1/Spreadsheet123/cell/A1/formatter/text] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
                         "          TAB 4\n" +
                         "            \"Time\" [#/1/Spreadsheet123/cell/A1/formatter/time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
+                        "      SpreadsheetFormatterNameLinkListComponent\n" +
+                        "        SpreadsheetLinkListComponent\n" +
+                        "          SpreadsheetCard\n" +
+                        "            Card\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"Automatic\" [#/1/Spreadsheet123/cell/A1/formatter/date-time/save/automatic] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-0-Link\n" +
+                        "                  \"Collection\" [#/1/Spreadsheet123/cell/A1/formatter/date-time/save/collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-1-Link\n" +
+                        "                  \"Date Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/date-time/save/date-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-2-Link\n" +
+                        "                  \"Date Time Format Pattern\" DISABLED [#/1/Spreadsheet123/cell/A1/formatter/date-time/save/date-time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-3-Link\n" +
+                        "                  \"General\" [#/1/Spreadsheet123/cell/A1/formatter/date-time/save/general] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-4-Link\n" +
+                        "                  \"Number Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/date-time/save/number-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-5-Link\n" +
+                        "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet123/cell/A1/formatter/date-time/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-6-Link\n" +
+                        "                  \"Text Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/date-time/save/text-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-7-Link\n" +
+                        "                  \"Time Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/date-time/save/time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-8-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -406,6 +453,21 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "            \"Text\" [#/1/Spreadsheet123/cell/A1/formatter/text] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
                         "          TAB 4\n" +
                         "            \"Time\" [#/1/Spreadsheet123/cell/A1/formatter/time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
+                        "      SpreadsheetFormatterNameLinkListComponent\n" +
+                        "        SpreadsheetLinkListComponent\n" +
+                        "          SpreadsheetCard\n" +
+                        "            Card\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"Automatic\" [#/1/Spreadsheet123/cell/A1/formatter/number/save/automatic] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-0-Link\n" +
+                        "                  \"Collection\" [#/1/Spreadsheet123/cell/A1/formatter/number/save/collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-1-Link\n" +
+                        "                  \"Date Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/number/save/date-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-2-Link\n" +
+                        "                  \"Date Time Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/number/save/date-time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-3-Link\n" +
+                        "                  \"General\" [#/1/Spreadsheet123/cell/A1/formatter/number/save/general] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-4-Link\n" +
+                        "                  \"Number Format Pattern\" DISABLED [#/1/Spreadsheet123/cell/A1/formatter/number/save/number-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-5-Link\n" +
+                        "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet123/cell/A1/formatter/number/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-6-Link\n" +
+                        "                  \"Text Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/number/save/text-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-7-Link\n" +
+                        "                  \"Time Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/number/save/time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-8-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -552,6 +614,21 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "            \"Text\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
                         "          TAB 4\n" +
                         "            \"Time\" [#/1/Spreadsheet123/cell/A1/formatter/time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
+                        "      SpreadsheetFormatterNameLinkListComponent\n" +
+                        "        SpreadsheetLinkListComponent\n" +
+                        "          SpreadsheetCard\n" +
+                        "            Card\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"Automatic\" [#/1/Spreadsheet123/cell/A1/formatter/text/save/automatic] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-0-Link\n" +
+                        "                  \"Collection\" [#/1/Spreadsheet123/cell/A1/formatter/text/save/collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-1-Link\n" +
+                        "                  \"Date Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/text/save/date-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-2-Link\n" +
+                        "                  \"Date Time Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/text/save/date-time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-3-Link\n" +
+                        "                  \"General\" [#/1/Spreadsheet123/cell/A1/formatter/text/save/general] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-4-Link\n" +
+                        "                  \"Number Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/text/save/number-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-5-Link\n" +
+                        "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet123/cell/A1/formatter/text/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-6-Link\n" +
+                        "                  \"Text Format Pattern\" DISABLED [#/1/Spreadsheet123/cell/A1/formatter/text/save/text-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-7-Link\n" +
+                        "                  \"Time Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/text/save/time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-8-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -624,6 +701,21 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "            \"Text\" [#/1/Spreadsheet123/cell/A1/formatter/text] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
                         "          TAB 4 SELECTED\n" +
                         "            \"Time\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
+                        "      SpreadsheetFormatterNameLinkListComponent\n" +
+                        "        SpreadsheetLinkListComponent\n" +
+                        "          SpreadsheetCard\n" +
+                        "            Card\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"Automatic\" [#/1/Spreadsheet123/cell/A1/formatter/time/save/automatic] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-0-Link\n" +
+                        "                  \"Collection\" [#/1/Spreadsheet123/cell/A1/formatter/time/save/collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-1-Link\n" +
+                        "                  \"Date Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/time/save/date-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-2-Link\n" +
+                        "                  \"Date Time Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/time/save/date-time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-3-Link\n" +
+                        "                  \"General\" [#/1/Spreadsheet123/cell/A1/formatter/time/save/general] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-4-Link\n" +
+                        "                  \"Number Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/time/save/number-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-5-Link\n" +
+                        "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet123/cell/A1/formatter/time/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-6-Link\n" +
+                        "                  \"Text Format Pattern\" [#/1/Spreadsheet123/cell/A1/formatter/time/save/text-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-7-Link\n" +
+                        "                  \"Time Format Pattern\" DISABLED [#/1/Spreadsheet123/cell/A1/formatter/time/save/time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-8-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -711,6 +803,21 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "            \"Text\" [#/1/Spreadsheet123/metadata/text-formatter] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
                         "          TAB 4\n" +
                         "            \"Time\" [#/1/Spreadsheet123/metadata/time-formatter] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
+                        "      SpreadsheetFormatterNameLinkListComponent\n" +
+                        "        SpreadsheetLinkListComponent\n" +
+                        "          SpreadsheetCard\n" +
+                        "            Card\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"Automatic\" [#/1/Spreadsheet123/metadata/date-formatter/save/automatic] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-0-Link\n" +
+                        "                  \"Collection\" [#/1/Spreadsheet123/metadata/date-formatter/save/collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-1-Link\n" +
+                        "                  \"Date Format Pattern\" DISABLED [#/1/Spreadsheet123/metadata/date-formatter/save/date-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-2-Link\n" +
+                        "                  \"Date Time Format Pattern\" [#/1/Spreadsheet123/metadata/date-formatter/save/date-time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-3-Link\n" +
+                        "                  \"General\" [#/1/Spreadsheet123/metadata/date-formatter/save/general] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-4-Link\n" +
+                        "                  \"Number Format Pattern\" [#/1/Spreadsheet123/metadata/date-formatter/save/number-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-5-Link\n" +
+                        "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet123/metadata/date-formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-6-Link\n" +
+                        "                  \"Text Format Pattern\" [#/1/Spreadsheet123/metadata/date-formatter/save/text-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-7-Link\n" +
+                        "                  \"Time Format Pattern\" [#/1/Spreadsheet123/metadata/date-formatter/save/time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-8-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -817,6 +924,21 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "            \"Text\" [#/1/Spreadsheet123/metadata/text-formatter] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
                         "          TAB 4\n" +
                         "            \"Time\" [#/1/Spreadsheet123/metadata/time-formatter] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
+                        "      SpreadsheetFormatterNameLinkListComponent\n" +
+                        "        SpreadsheetLinkListComponent\n" +
+                        "          SpreadsheetCard\n" +
+                        "            Card\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"Automatic\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/automatic] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-0-Link\n" +
+                        "                  \"Collection\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-1-Link\n" +
+                        "                  \"Date Format Pattern\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/date-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-2-Link\n" +
+                        "                  \"Date Time Format Pattern\" DISABLED [#/1/Spreadsheet123/metadata/date-time-formatter/save/date-time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-3-Link\n" +
+                        "                  \"General\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/general] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-4-Link\n" +
+                        "                  \"Number Format Pattern\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/number-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-5-Link\n" +
+                        "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-6-Link\n" +
+                        "                  \"Text Format Pattern\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/text-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-7-Link\n" +
+                        "                  \"Time Format Pattern\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-8-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -942,6 +1064,21 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "            \"Text\" [#/1/Spreadsheet123/metadata/text-formatter] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
                         "          TAB 4\n" +
                         "            \"Time\" [#/1/Spreadsheet123/metadata/time-formatter] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
+                        "      SpreadsheetFormatterNameLinkListComponent\n" +
+                        "        SpreadsheetLinkListComponent\n" +
+                        "          SpreadsheetCard\n" +
+                        "            Card\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"Automatic\" [#/1/Spreadsheet123/metadata/number-formatter/save/automatic] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-0-Link\n" +
+                        "                  \"Collection\" [#/1/Spreadsheet123/metadata/number-formatter/save/collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-1-Link\n" +
+                        "                  \"Date Format Pattern\" [#/1/Spreadsheet123/metadata/number-formatter/save/date-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-2-Link\n" +
+                        "                  \"Date Time Format Pattern\" [#/1/Spreadsheet123/metadata/number-formatter/save/date-time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-3-Link\n" +
+                        "                  \"General\" [#/1/Spreadsheet123/metadata/number-formatter/save/general] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-4-Link\n" +
+                        "                  \"Number Format Pattern\" DISABLED [#/1/Spreadsheet123/metadata/number-formatter/save/number-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-5-Link\n" +
+                        "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet123/metadata/number-formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-6-Link\n" +
+                        "                  \"Text Format Pattern\" [#/1/Spreadsheet123/metadata/number-formatter/save/text-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-7-Link\n" +
+                        "                  \"Time Format Pattern\" [#/1/Spreadsheet123/metadata/number-formatter/save/time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-8-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -1088,6 +1225,21 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "            \"Text\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
                         "          TAB 4\n" +
                         "            \"Time\" [#/1/Spreadsheet123/metadata/time-formatter] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
+                        "      SpreadsheetFormatterNameLinkListComponent\n" +
+                        "        SpreadsheetLinkListComponent\n" +
+                        "          SpreadsheetCard\n" +
+                        "            Card\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"Automatic\" [#/1/Spreadsheet123/metadata/text-formatter/save/automatic] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-0-Link\n" +
+                        "                  \"Collection\" [#/1/Spreadsheet123/metadata/text-formatter/save/collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-1-Link\n" +
+                        "                  \"Date Format Pattern\" [#/1/Spreadsheet123/metadata/text-formatter/save/date-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-2-Link\n" +
+                        "                  \"Date Time Format Pattern\" [#/1/Spreadsheet123/metadata/text-formatter/save/date-time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-3-Link\n" +
+                        "                  \"General\" [#/1/Spreadsheet123/metadata/text-formatter/save/general] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-4-Link\n" +
+                        "                  \"Number Format Pattern\" [#/1/Spreadsheet123/metadata/text-formatter/save/number-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-5-Link\n" +
+                        "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet123/metadata/text-formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-6-Link\n" +
+                        "                  \"Text Format Pattern\" DISABLED [#/1/Spreadsheet123/metadata/text-formatter/save/text-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-7-Link\n" +
+                        "                  \"Time Format Pattern\" [#/1/Spreadsheet123/metadata/text-formatter/save/time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-8-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -1160,6 +1312,21 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "            \"Text\" [#/1/Spreadsheet123/metadata/text-formatter] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
                         "          TAB 4 SELECTED\n" +
                         "            \"Time\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
+                        "      SpreadsheetFormatterNameLinkListComponent\n" +
+                        "        SpreadsheetLinkListComponent\n" +
+                        "          SpreadsheetCard\n" +
+                        "            Card\n" +
+                        "              SpreadsheetFlexLayout\n" +
+                        "                ROW\n" +
+                        "                  \"Automatic\" [#/1/Spreadsheet123/metadata/time-formatter/save/automatic] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-0-Link\n" +
+                        "                  \"Collection\" [#/1/Spreadsheet123/metadata/time-formatter/save/collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-1-Link\n" +
+                        "                  \"Date Format Pattern\" [#/1/Spreadsheet123/metadata/time-formatter/save/date-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-2-Link\n" +
+                        "                  \"Date Time Format Pattern\" [#/1/Spreadsheet123/metadata/time-formatter/save/date-time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-3-Link\n" +
+                        "                  \"General\" [#/1/Spreadsheet123/metadata/time-formatter/save/general] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-4-Link\n" +
+                        "                  \"Number Format Pattern\" [#/1/Spreadsheet123/metadata/time-formatter/save/number-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-5-Link\n" +
+                        "                  \"Spreadsheet Pattern Collection\" [#/1/Spreadsheet123/metadata/time-formatter/save/spreadsheet-pattern-collection] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-6-Link\n" +
+                        "                  \"Text Format Pattern\" [#/1/Spreadsheet123/metadata/time-formatter/save/text-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-7-Link\n" +
+                        "                  \"Time Format Pattern\" DISABLED [#/1/Spreadsheet123/metadata/time-formatter/save/time-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-formatterNames-8-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -1614,6 +1781,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             @Override
             public char positiveSign() {
                 return SPREADSHEET_FORMATTER_CONTEXT.positiveSign();
+            }
+
+            // SpreadsheetFormatterProvider.............................................................................
+
+            @Override
+            public Set<SpreadsheetFormatterInfo> spreadsheetFormatterInfos() {
+                return SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterInfos();
             }
         };
     }
