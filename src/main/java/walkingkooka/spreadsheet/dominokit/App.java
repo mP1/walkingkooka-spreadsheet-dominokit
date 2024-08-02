@@ -47,10 +47,8 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviderDelegator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.convert.SpreadsheetConvertersConverterProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
@@ -146,6 +144,7 @@ public class App implements EntryPoint,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler,
         ConverterProviderDelegator,
+        SpreadsheetComparatorProviderDelegator,
         SpreadsheetFormatterContextDelegator,
         SpreadsheetFormatterProviderDelegator,
         SpreadsheetParserProviderDelegator {
@@ -735,16 +734,11 @@ public class App implements EntryPoint,
      */
     private ConverterProvider converterProvider;
 
-    // SpreadsheetFormatProvider........................................................................................
+    // SpreadsheetComparatorProvider....................................................................................
 
     @Override
-    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
-        return this.spreadsheetComparatorProvider.spreadsheetComparator(spreadsheetComparatorName);
-    }
-
-    @Override
-    public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
-        return this.spreadsheetComparatorProvider.spreadsheetComparatorInfos();
+    public SpreadsheetComparatorProvider spreadsheetComparatorProvider() {
+        return this.spreadsheetComparatorProvider;
     }
 
     /**

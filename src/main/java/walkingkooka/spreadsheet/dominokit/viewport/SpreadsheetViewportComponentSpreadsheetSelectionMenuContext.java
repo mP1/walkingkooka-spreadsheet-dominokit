@@ -17,9 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviderDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
@@ -37,6 +36,7 @@ import java.util.Set;
  * A {@link SpreadsheetSelectionMenuContext} used by a {@link SpreadsheetViewportComponent}.
  */
 final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implements SpreadsheetSelectionMenuContext,
+        SpreadsheetComparatorProviderDelegator,
         HistoryTokenContextDelegator {
 
     static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<SpreadsheetCellFormatterSaveHistoryToken> recentFormatPatterns,
@@ -95,14 +95,11 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
                 .selectionSummary();
     }
 
-    @Override
-    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
-        return this.context.spreadsheetComparator(spreadsheetComparatorName);
-    }
+    // SpreadsheetComparatorProvider....................................................................................
 
     @Override
-    public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
-        return this.context.spreadsheetComparatorInfos();
+    public SpreadsheetComparatorProvider spreadsheetComparatorProvider() {
+        return this.context;
     }
 
     // HistoryTokenContext..............................................................................................
