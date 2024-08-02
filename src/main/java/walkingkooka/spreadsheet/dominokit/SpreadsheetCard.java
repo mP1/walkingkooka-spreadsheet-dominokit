@@ -22,6 +22,7 @@ import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.cards.Card;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -47,7 +48,10 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
     public SpreadsheetCard setTitle(final String title) {
         Objects.requireNonNull(title, "title");
 
-        this.card.setTitle(title);
+        // TODO need to discover how to remove a title because setTitle(null) still shows an empty header
+        if (false == CharSequences.isNullOrEmpty(title)) {
+            this.card.setTitle(title);
+        }
         return this;
     }
 
