@@ -29,7 +29,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A {@link SpreadsheetPatternDialogComponentContext} for editing patterns for a cell format pattern.
+ * A {@link SpreadsheetFormatterSelectorDialogComponentContext} for editing a cell {@link SpreadsheetFormatterSelector}.
  */
 final class SpreadsheetFormatterSelectorDialogComponentContextBasicCell extends SpreadsheetFormatterSelectorDialogComponentContextBasic {
 
