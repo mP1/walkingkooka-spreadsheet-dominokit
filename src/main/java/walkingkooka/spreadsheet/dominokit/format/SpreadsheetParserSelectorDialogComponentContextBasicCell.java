@@ -49,6 +49,11 @@ final class SpreadsheetParserSelectorDialogComponentContextBasicCell extends Spr
     }
 
     @Override
+    public boolean shouldShowTabs() {
+        return false;
+    }
+
+    @Override
     public String undo() {
         String text = "";
 

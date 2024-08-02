@@ -43,6 +43,11 @@ public interface SpreadsheetParserSelectorDialogComponentContext extends CanGive
     String dialogTitle();
 
     /**
+     * Tabs should only be shown when editing a metadata formatter.
+     */
+    boolean shouldShowTabs();
+
+    /**
      * Provides the UNDO text.
      */
     String undo();
