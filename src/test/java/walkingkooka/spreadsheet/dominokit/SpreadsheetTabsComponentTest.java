@@ -36,7 +36,7 @@ public final class SpreadsheetTabsComponentTest implements ClassTesting<Spreadsh
                         new FakeHistoryTokenContext() {
                             @Override
                             public HistoryToken historyToken() {
-                                return HistoryToken.parseString("1/Untitled/cell/B1/formatter/time");
+                                return HistoryToken.parseString("1/Untitled/cell/B1/formatter");
                             }
                         }
                 ),
@@ -51,7 +51,7 @@ public final class SpreadsheetTabsComponentTest implements ClassTesting<Spreadsh
                                 new FakeHistoryTokenContext() {
                                     @Override
                                     public HistoryToken historyToken() {
-                                        return HistoryToken.parseString("1/Untitled/cell/B1/formatter/time");
+                                        return HistoryToken.parseString("1/Untitled/cell/B1/formatter");
                                     }
                                 }
                         ).appendTab("tab-1", "Tab-1A")
@@ -74,7 +74,7 @@ public final class SpreadsheetTabsComponentTest implements ClassTesting<Spreadsh
                                 new FakeHistoryTokenContext() {
                                     @Override
                                     public HistoryToken historyToken() {
-                                        return HistoryToken.parseString("1/Untitled/cell/B1/formatter/time");
+                                        return HistoryToken.parseString("1/Untitled/cell/B1/formatter");
                                     }
                                 }
                         ).appendTab("tab-1", "Tab-1A")
@@ -108,20 +108,20 @@ public final class SpreadsheetTabsComponentTest implements ClassTesting<Spreadsh
         tabs.anchor(0)
                 .setHistoryToken(
                         Optional.of(
-                                HistoryToken.parseString("1/Untitled/cell/B1/formatter/date")
+                                HistoryToken.parseString("1/Untitled/cell/B1/formatter")
                         )
 
                 );
         tabs.anchor(1)
                 .setHistoryToken(
                         Optional.of(
-                                HistoryToken.parseString("1/Untitled/cell/B1/formatter/number")
+                                HistoryToken.parseString("1/Untitled/cell/B1/formatter")
                         )
                 );
         tabs.anchor(2)
                 .setHistoryToken(
                         Optional.of(
-                                HistoryToken.parseString("1/Untitled/cell/B1/formatter/text")
+                                HistoryToken.parseString("1/Untitled/cell/B1/formatter")
                         )
                 );
 
@@ -129,11 +129,11 @@ public final class SpreadsheetTabsComponentTest implements ClassTesting<Spreadsh
                 tabs,
                 "SpreadsheetTabsComponent\n" +
                         "  TAB 0\n" +
-                        "    \"Date\" [#1/Untitled/cell/B1/formatter/date] id=date-tab\n" +
+                        "    \"Date\" [#1/Untitled/cell/B1/formatter] id=date-tab\n" +
                         "  TAB 1 SELECTED\n" +
-                        "    \"Number\" [#1/Untitled/cell/B1/formatter/number] id=number-tab\n" +
+                        "    \"Number\" [#1/Untitled/cell/B1/formatter] id=number-tab\n" +
                         "  TAB 2\n" +
-                        "    \"Text\" [#1/Untitled/cell/B1/formatter/text] id=text-tab\n"
+                        "    \"Text\" [#1/Untitled/cell/B1/formatter] id=text-tab\n"
         );
     }
 

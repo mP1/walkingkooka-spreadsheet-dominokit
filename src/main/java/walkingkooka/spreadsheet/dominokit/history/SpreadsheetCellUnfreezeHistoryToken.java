@@ -21,13 +21,10 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-
-import java.util.Optional;
 
 /**
  * The inverse of freeze, removes any selected frozen cells.
@@ -82,11 +79,6 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
     }
 
     @Override
-    public HistoryToken setFormatter() {
-        return this;
-    }
-
-    @Override
     public HistoryToken setFormula() {
         return this.setFormula0();
     }
@@ -100,16 +92,6 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
                 name,
                 anchoredSelection
         ).setUnfreeze();
-    }
-
-    @Override
-    public HistoryToken setParser() {
-        return this;
-    }
-
-    @Override
-    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this;
     }
 
     @Override

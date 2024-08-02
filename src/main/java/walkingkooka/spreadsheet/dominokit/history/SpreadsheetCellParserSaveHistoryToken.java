@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
@@ -32,13 +31,11 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
     static SpreadsheetCellParserSaveHistoryToken with(final SpreadsheetId id,
                                                       final SpreadsheetName name,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
-                                                      final SpreadsheetPatternKind spreadsheetPatternKind,
                                                       final Optional<SpreadsheetParserSelector> spreadsheetParserSelector) {
         return new SpreadsheetCellParserSaveHistoryToken(
                 id,
                 name,
                 anchoredSelection,
-                spreadsheetPatternKind,
                 spreadsheetParserSelector
         );
     }
@@ -46,13 +43,11 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
     private SpreadsheetCellParserSaveHistoryToken(final SpreadsheetId id,
                                                   final SpreadsheetName name,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
-                                                  final SpreadsheetPatternKind spreadsheetPatternKind,
                                                   final Optional<SpreadsheetParserSelector> spreadsheetParserSelector) {
         super(
                 id,
                 name,
                 anchoredSelection,
-                Optional.of(spreadsheetPatternKind),
                 spreadsheetParserSelector
         );
     }
@@ -62,8 +57,7 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
         return HistoryToken.cellParserSelect(
                 this.id(),
                 this.name(),
-                this.anchoredSelection(),
-                this.spreadsheetPatternKind.get()
+                this.anchoredSelection()
         );
     }
 
@@ -75,31 +69,16 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
                 id,
                 name,
                 anchoredSelection,
-                this.spreadsheetPatternKind.get(),
-                this.spreadsheetParserSelector
-        );
-    }
-
-    @Override//
-    HistoryToken replacePatternKind0(final SpreadsheetPatternKind patternKind) {
-        return new SpreadsheetCellParserSaveHistoryToken(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                patternKind,
                 this.spreadsheetParserSelector
         );
     }
 
     @Override
     HistoryToken setSave0(final String value) {
-        final SpreadsheetPatternKind kind = this.spreadsheetPatternKind.get();
-
         return new SpreadsheetCellParserSaveHistoryToken(
                 this.id(),
                 this.name(),
                 this.anchoredSelection(),
-                kind,
                 Optional.ofNullable(
                         value.isEmpty() ?
                                 null :
@@ -108,14 +87,10 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
         );
     }
 
-    // cell/A1/parser/SpreadsheetPatternKind/save/SpreadsheetParserSelector
+    // cell/A1/parser/save/SpreadsheetParserSelector
     @Override //
     UrlFragment parserUrlFragment() {
-        return this.spreadsheetPatternKind.get()
-                .urlFragment()
-                .appendSlashThen(
-                        this.saveUrlFragment(this.spreadsheetParserSelector)
-                );
+        return this.saveUrlFragment(this.spreadsheetParserSelector);
     }
 
     @Override

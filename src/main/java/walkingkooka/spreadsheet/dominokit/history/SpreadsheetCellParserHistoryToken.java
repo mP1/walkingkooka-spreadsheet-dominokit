@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
@@ -31,58 +30,23 @@ public abstract class SpreadsheetCellParserHistoryToken extends SpreadsheetCellH
     SpreadsheetCellParserHistoryToken(final SpreadsheetId id,
                                       final SpreadsheetName name,
                                       final AnchoredSpreadsheetSelection anchoredSelection,
-                                      final Optional<SpreadsheetPatternKind> spreadsheetPatternKind,
                                       final Optional<SpreadsheetParserSelector> spreadsheetParserSelector) {
         super(id, name, anchoredSelection);
-        this.spreadsheetPatternKind = Objects.requireNonNull(spreadsheetPatternKind, "spreadsheetPatternKind");
-        if (spreadsheetPatternKind.isPresent()) {
-            final SpreadsheetPatternKind kind = spreadsheetPatternKind.get();
-            if (kind.isFormatPattern()) {
-                throw new IllegalArgumentException("Invalid kind " + kind);
-            }
-        }
         this.spreadsheetParserSelector = Objects.requireNonNull(spreadsheetParserSelector, "spreadsheetParserSelector");
     }
 
-    final Optional<SpreadsheetPatternKind> spreadsheetPatternKind;
-
     final Optional<SpreadsheetParserSelector> spreadsheetParserSelector;
-
-    @Override //
-    final HistoryToken setFormatter() {
-        return HistoryToken.cellFormatterUnselect(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
-    @Override //
-    final HistoryToken setParser() {
-        return HistoryToken.cellParserUnselect(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
-    @Override //
-    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return patternKind.isPresent() ?
-                this.replacePatternKind0(patternKind.get()) :
-                this.setParser();
-    }
-
-    abstract HistoryToken replacePatternKind0(final SpreadsheetPatternKind patternKind);
 
     @Override
     public final HistoryToken setFormula() {
         return setFormula0();
     }
 
-    @Override //
+    @Override // /cell/A1/parser/
     final UrlFragment cellUrlFragment() {
-        return this.parserUrlFragment();
+        return PARSER.appendSlashThen(
+                this.parserUrlFragment()
+        );
     }
 
     abstract UrlFragment parserUrlFragment();

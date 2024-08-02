@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -37,38 +36,6 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     private final static SpreadsheetParsePattern PATTERN = SpreadsheetPattern.parseDateParsePattern("yyyy-mm-dd");
 
     @Test
-    public void testWithNullSpreadsheetParseKindFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetCellParserSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        null,
-                        Optional.of(
-                                PATTERN.spreadsheetParserSelector()
-                        )
-                )
-        );
-    }
-
-    @Test
-    public void testWithInvalidSpreadsheetParseKindFails() {
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetCellParserSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetPatternKind.DATE_FORMAT_PATTERN,
-                        Optional.of(
-                                PATTERN.spreadsheetParserSelector()
-                        )
-                )
-        );
-    }
-
-    @Test
     public void testWithNullSpreadsheetParserSelectorFails() {
         assertThrows(
                 NullPointerException.class,
@@ -76,7 +43,6 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        PATTERN.patternKind(),
                         null
                 )
         );
@@ -86,7 +52,7 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/parser/date/save/date-parse-pattern yyyy-mm-dd");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/parser/save/date-parse-pattern yyyy-mm-dd");
     }
 
     @Test
@@ -96,10 +62,9 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        PATTERN.patternKind(),
                         Optional.empty()
                 ),
-                "/123/SpreadsheetName456/cell/A1/parser/date/save/"
+                "/123/SpreadsheetName456/cell/A1/parser/save/"
         );
     }
 
@@ -107,7 +72,7 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/parser/date/save/date-parse-pattern yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/parser/save/date-parse-pattern yyyy-mm-dd"
         );
     }
 
@@ -115,7 +80,7 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
                 SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/parser/date/save/date-parse-pattern yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/*/top-left/parser/save/date-parse-pattern yyyy-mm-dd"
         );
     }
 
@@ -123,7 +88,7 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/123/SpreadsheetName456/cell/Label123/parser/date/save/date-parse-pattern yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/Label123/parser/save/date-parse-pattern yyyy-mm-dd"
         );
     }
 
@@ -136,8 +101,7 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
                 HistoryToken.cellParserSelect(
                         ID,
                         NAME,
-                        SELECTION,
-                        PATTERN.patternKind()
+                        SELECTION
                 )
         );
     }
@@ -147,21 +111,18 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     @Test
     public void testClose() {
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/ddd");
-        final SpreadsheetPatternKind spreadsheetPatternKind = pattern.patternKind();
 
         this.closeAndCheck(
                 HistoryToken.cellParserSave(
                         ID,
                         NAME,
                         SELECTION,
-                        spreadsheetPatternKind,
                         Optional.of(pattern.spreadsheetParserSelector())
                 ),
                 HistoryToken.cellParserSelect(
                         ID,
                         NAME,
-                        SELECTION,
-                        spreadsheetPatternKind
+                        SELECTION
                 )
         );
     }
@@ -180,7 +141,6 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
                         ID,
                         NAME,
                         SELECTION,
-                        PATTERN.patternKind(),
                         Optional.of(selector)
                 )
         );
@@ -195,7 +155,6 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
                         ID,
                         NAME,
                         SELECTION,
-                        PATTERN.patternKind(),
                         Optional.empty()
                 )
         );
@@ -209,7 +168,6 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
                 id,
                 name,
                 selection,
-                PATTERN.patternKind(),
                 Optional.of(
                         PATTERN.spreadsheetParserSelector()
                 )

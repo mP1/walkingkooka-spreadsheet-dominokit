@@ -31,14 +31,14 @@ public final class SpreadsheetCellFormatterUnselectHistoryTokenTest extends Spre
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/formatter");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/formatter/toolbar");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/formatter"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/formatter/toolbar"
         );
     }
 
@@ -46,7 +46,7 @@ public final class SpreadsheetCellFormatterUnselectHistoryTokenTest extends Spre
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
                 SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/formatter"
+                "/123/SpreadsheetName456/cell/*/top-left/formatter/toolbar"
         );
     }
 
@@ -54,7 +54,7 @@ public final class SpreadsheetCellFormatterUnselectHistoryTokenTest extends Spre
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/123/SpreadsheetName456/cell/Label123/formatter"
+                "/123/SpreadsheetName456/cell/Label123/formatter/toolbar"
         );
     }
 

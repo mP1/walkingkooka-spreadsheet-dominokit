@@ -23,7 +23,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
@@ -49,10 +48,10 @@ public class SpreadsheetParserNameLinkListComponentTest implements ClassTesting<
                         "      Card\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Date Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/date/save/date-parse-pattern] id=ID123-0-Link\n" +
-                        "            \"Date Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/date/save/date-time-parse-pattern] id=ID123-1-Link\n" +
-                        "            \"Number Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/date/save/number-parse-pattern] id=ID123-2-Link\n" +
-                        "            \"Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/date/save/time-parse-pattern] id=ID123-3-Link\n"
+                        "            \"Date Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-parse-pattern] id=ID123-0-Link\n" +
+                        "            \"Date Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time-parse-pattern] id=ID123-1-Link\n" +
+                        "            \"Number Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/number-parse-pattern] id=ID123-2-Link\n" +
+                        "            \"Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/time-parse-pattern] id=ID123-3-Link\n"
         );
     }
 
@@ -68,10 +67,10 @@ public class SpreadsheetParserNameLinkListComponentTest implements ClassTesting<
                         "      Card\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Date Parse Pattern\" DISABLED [#/1/SpreadsheetName123/cell/A1/parser/date/save/date-parse-pattern] id=ID123-0-Link\n" +
-                        "            \"Date Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/date/save/date-time-parse-pattern] id=ID123-1-Link\n" +
-                        "            \"Number Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/date/save/number-parse-pattern] id=ID123-2-Link\n" +
-                        "            \"Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/date/save/time-parse-pattern] id=ID123-3-Link\n"
+                        "            \"Date Parse Pattern\" DISABLED [#/1/SpreadsheetName123/cell/A1/parser/save/date-parse-pattern] id=ID123-0-Link\n" +
+                        "            \"Date Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time-parse-pattern] id=ID123-1-Link\n" +
+                        "            \"Number Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/number-parse-pattern] id=ID123-2-Link\n" +
+                        "            \"Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/time-parse-pattern] id=ID123-3-Link\n"
         );
     }
 
@@ -94,8 +93,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements ClassTesting<
                         return HistoryToken.cellParserSelect(
                                 SpreadsheetId.with(1),
                                 SpreadsheetName.with("SpreadsheetName123"),
-                                SpreadsheetSelection.A1.setDefaultAnchor(),
-                                SpreadsheetPatternKind.DATE_PARSE_PATTERN
+                                SpreadsheetSelection.A1.setDefaultAnchor()
                         );
                     }
                 }

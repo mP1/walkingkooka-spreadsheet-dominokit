@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -30,50 +29,22 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 public final class SpreadsheetCellParserSelectHistoryTokenTest extends SpreadsheetCellParserHistoryTokenTestCase<SpreadsheetCellParserSelectHistoryToken> {
 
     private final static SpreadsheetParsePattern PATTERN = SpreadsheetPattern.parseDateParsePattern("yyyy-mm-dd");
-
-    @Test
-    public void testWithNullSpreadsheetParseKindFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetCellParserSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        null
-                )
-        );
-    }
-
-    @Test
-    public void testWithInvalidSpreadsheetParseKindFails() {
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetCellParserSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetPatternKind.DATE_FORMAT_PATTERN
-                )
-        );
-    }
 
     // urlFragment......................................................................................................
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/parser/date");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/parser");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/parser/date"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/parser"
         );
     }
 
@@ -81,7 +52,7 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
                 SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/parser/date"
+                "/123/SpreadsheetName456/cell/*/top-left/parser"
         );
     }
 
@@ -89,7 +60,7 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/123/SpreadsheetName456/cell/Label123/parser/date"
+                "/123/SpreadsheetName456/cell/Label123/parser"
         );
     }
 
@@ -127,7 +98,6 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
                         ID,
                         NAME,
                         SELECTION,
-                        PATTERN.patternKind(),
                         Optional.of(selector)
                 )
         );
@@ -142,7 +112,6 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
                         ID,
                         NAME,
                         SELECTION,
-                        PATTERN.patternKind(),
                         Optional.empty()
                 )
         );
@@ -155,8 +124,7 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
         return SpreadsheetCellParserSelectHistoryToken.with(
                 id,
                 name,
-                selection,
-                PATTERN.patternKind()
+                selection
         );
     }
 

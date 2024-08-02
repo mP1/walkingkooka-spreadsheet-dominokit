@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
@@ -48,7 +47,6 @@ public final class SpreadsheetCellParserUnselectHistoryToken extends Spreadsheet
                 id,
                 name,
                 anchoredSelection,
-                Optional.empty(), // SpreadsheetPatternKind
                 Optional.empty() // SpreadsheetParserSelector
         );
     }
@@ -69,25 +67,15 @@ public final class SpreadsheetCellParserUnselectHistoryToken extends Spreadsheet
         );
     }
 
-    @Override//
-    HistoryToken replacePatternKind0(final SpreadsheetPatternKind patternKind) {
-        return HistoryToken.cellParserSelect(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                patternKind
-        );
-    }
-
     @Override
     HistoryToken setSave0(final String value) {
         return this; // cant "save", because of missing SpreadsheetParserSelector
     }
 
-    // cell/A1/parser
+    // cell/A1/parser/toolbar
     @Override //
     UrlFragment parserUrlFragment() {
-        return PARSER;
+        return TOOLBAR;
     }
 
     @Override

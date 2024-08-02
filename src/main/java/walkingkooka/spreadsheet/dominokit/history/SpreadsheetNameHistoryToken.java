@@ -67,11 +67,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     abstract HistoryToken setDelete0();
 
     /**
-     * Creates a format pattern from {@link SpreadsheetNameHistoryToken}.
-     */
-    abstract HistoryToken setFormatter();
-
-    /**
      * Creates a freeze {@link SpreadsheetNameHistoryToken}.
      */
     abstract HistoryToken setFreeze0();
@@ -142,11 +137,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     abstract AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection);
 
     /**
-     * Creates a parse pattern {@link SpreadsheetNameHistoryToken}.
-     */
-    abstract HistoryToken setParser();
-
-    /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link SpreadsheetPatternKind}.
      */
     abstract HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind);
@@ -162,45 +152,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     abstract HistoryToken setUnfreeze0();
 
     // parse............................................................................................................
-
-    final HistoryToken parseFormatPattern(final TextCursor cursor) {
-        return this.setFormatter()
-                .setPatternKind(
-                        this.parsePatternKind(
-                                cursor,
-                                "formatter"
-                        )
-                );
-    }
-
-    final HistoryToken parseParser(final TextCursor cursor) {
-        return this.setParser()
-                .setPatternKind(
-                        this.parsePatternKind(
-                                cursor,
-                                PARSER_STRING
-                        )
-                );
-    }
-
-    private Optional<SpreadsheetPatternKind> parsePatternKind(final TextCursor cursor,
-                                                              final String prefix) {
-        return parseComponent(cursor)
-                .flatMap(
-                        k -> {
-                            SpreadsheetPatternKind kind = null;
-
-                            for (final SpreadsheetPatternKind possible : SpreadsheetPatternKind.values()) {
-                                if (possible.urlFragment().value().equals(prefix + "/" + k)) {
-                                    kind = possible;
-                                    break;
-                                }
-                            }
-
-                            return Optional.ofNullable(kind);
-                        }
-                );
-    }
 
     final HistoryToken parseSave(final TextCursor cursor) {
         return this instanceof SpreadsheetCellSelectHistoryToken ?

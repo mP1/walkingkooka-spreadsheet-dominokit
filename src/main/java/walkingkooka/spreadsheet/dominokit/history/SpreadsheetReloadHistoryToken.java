@@ -99,11 +99,6 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override //
-    HistoryToken setFormatter() {
-        return this;
-    }
-
-    @Override //
     HistoryToken setFreeze0() {
         return this;
     }
@@ -126,11 +121,6 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     @Override //
     AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
-    }
-
-    @Override //
-    HistoryToken setParser() {
-        return this;
     }
 
     @Override //

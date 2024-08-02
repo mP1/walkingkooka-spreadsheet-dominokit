@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
@@ -32,13 +31,11 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
     static SpreadsheetCellFormatterSaveHistoryToken with(final SpreadsheetId id,
                                                          final SpreadsheetName name,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                                         final SpreadsheetPatternKind spreadsheetPatternKind,
                                                          final Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector) {
         return new SpreadsheetCellFormatterSaveHistoryToken(
                 id,
                 name,
                 anchoredSelection,
-                spreadsheetPatternKind,
                 spreadsheetFormatterSelector
         );
     }
@@ -46,13 +43,11 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
     private SpreadsheetCellFormatterSaveHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                                     final SpreadsheetPatternKind spreadsheetPatternKind,
                                                      final Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector) {
         super(
                 id,
                 name,
                 anchoredSelection,
-                Optional.of(spreadsheetPatternKind),
                 spreadsheetFormatterSelector
         );
     }
@@ -62,8 +57,7 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
         return HistoryToken.cellFormatterSelect(
                 this.id(),
                 this.name(),
-                this.anchoredSelection(),
-                this.spreadsheetPatternKind.get()
+                this.anchoredSelection()
         );
     }
 
@@ -75,32 +69,16 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
                 id,
                 name,
                 anchoredSelection,
-                this.patternKind()
-                        .get(),
-                this.spreadsheetFormatterSelector
-        );
-    }
-
-    @Override//
-    HistoryToken replacePatternKind0(final SpreadsheetPatternKind patternKind) {
-        return new SpreadsheetCellFormatterSaveHistoryToken(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                patternKind,
                 this.spreadsheetFormatterSelector
         );
     }
 
     @Override
     HistoryToken setSave0(final String value) {
-        final SpreadsheetPatternKind kind = this.spreadsheetPatternKind.get();
-
         return new SpreadsheetCellFormatterSaveHistoryToken(
                 this.id(),
                 this.name(),
                 this.anchoredSelection(),
-                kind,
                 Optional.ofNullable(
                         value.isEmpty() ?
                                 null :
@@ -109,14 +87,10 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
         );
     }
 
-    // cell/A1/formatter/SpreadsheetPatternKind/save/SpreadsheetFormatterSelector
+    // cell/A1/formatter/save/SpreadsheetFormatterSelector
     @Override
     UrlFragment formatterUrlFragment() {
-        return this.spreadsheetPatternKind.get()
-                .urlFragment()
-                .appendSlashThen(
-                        this.saveUrlFragment(this.spreadsheetFormatterSelector)
-                );
+        return this.saveUrlFragment(this.spreadsheetFormatterSelector);
     }
 
     @Override

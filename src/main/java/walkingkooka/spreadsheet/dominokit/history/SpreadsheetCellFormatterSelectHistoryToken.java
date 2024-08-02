@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
@@ -31,25 +30,21 @@ public final class SpreadsheetCellFormatterSelectHistoryToken extends Spreadshee
 
     static SpreadsheetCellFormatterSelectHistoryToken with(final SpreadsheetId id,
                                                            final SpreadsheetName name,
-                                                           final AnchoredSpreadsheetSelection anchoredSelection,
-                                                           final SpreadsheetPatternKind spreadsheetPatternKind) {
+                                                           final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormatterSelectHistoryToken(
                 id,
                 name,
-                anchoredSelection,
-                spreadsheetPatternKind
+                anchoredSelection
         );
     }
 
     private SpreadsheetCellFormatterSelectHistoryToken(final SpreadsheetId id,
                                                        final SpreadsheetName name,
-                                                       final AnchoredSpreadsheetSelection anchoredSelection,
-                                                       final SpreadsheetPatternKind spreadsheetPatternKind) {
+                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
                 anchoredSelection,
-                Optional.of(spreadsheetPatternKind),
                 Optional.empty() // SpreadsheetFormatterSelector
         );
     }
@@ -66,18 +61,7 @@ public final class SpreadsheetCellFormatterSelectHistoryToken extends Spreadshee
         return new SpreadsheetCellFormatterSelectHistoryToken(
                 id,
                 name,
-                anchoredSelection,
-                this.spreadsheetPatternKind.get()
-        );
-    }
-
-    @Override//
-    HistoryToken replacePatternKind0(final SpreadsheetPatternKind patternKind) {
-        return new SpreadsheetCellFormatterSelectHistoryToken(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                patternKind
+                anchoredSelection
         );
     }
 
@@ -87,7 +71,6 @@ public final class SpreadsheetCellFormatterSelectHistoryToken extends Spreadshee
                 this.id(),
                 this.name(),
                 this.anchoredSelection(),
-                this.spreadsheetPatternKind.get(),
                 Optional.ofNullable(
                         value.isEmpty() ?
                                 null :
@@ -96,12 +79,10 @@ public final class SpreadsheetCellFormatterSelectHistoryToken extends Spreadshee
         );
     }
 
-    // cell/A1/formatter/SpreadsheetPatternKind
+    // cell/A1/formatter
     @Override
     UrlFragment formatterUrlFragment() {
-        return this.patternKind()
-                .get()
-                .urlFragment();
+        return SELECT;
     }
 
     @Override
