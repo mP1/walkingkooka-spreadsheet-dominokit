@@ -221,6 +221,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment STYLE = UrlFragment.parse(STYLE_STRING);
 
+    final static String TOOLBAR_STRING = "toolbar";
+
+    final static UrlFragment TOOLBAR = UrlFragment.parse(TOOLBAR_STRING);
+
     final static String UNFREEZE_STRING = "unfreeze";
 
     final static UrlFragment UNFREEZE = UrlFragment.parse(UNFREEZE_STRING);
