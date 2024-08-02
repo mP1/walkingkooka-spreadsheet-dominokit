@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
@@ -37,38 +36,6 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
     private final static SpreadsheetFormatPattern PATTERN = SpreadsheetPattern.parseDateFormatPattern("yyyy-mm-dd");
 
     @Test
-    public void testWithNullSpreadsheetParseKindFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetCellFormatterSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        null,
-                        Optional.of(
-                                PATTERN.spreadsheetFormatterSelector()
-                        )
-                )
-        );
-    }
-
-    @Test
-    public void testWithInvalidSpreadsheetParseKindFails() {
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetCellFormatterSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetPatternKind.DATE_PARSE_PATTERN,
-                        Optional.of(
-                                PATTERN.spreadsheetFormatterSelector()
-                        )
-                )
-        );
-    }
-
-    @Test
     public void testWithNullSpreadsheetFormatterSelectorFails() {
         assertThrows(
                 NullPointerException.class,
@@ -76,7 +43,6 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        PATTERN.patternKind(),
                         null
                 )
         );
@@ -86,7 +52,7 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/formatter/date/save/date-format-pattern yyyy-mm-dd");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/formatter/save/date-format-pattern yyyy-mm-dd");
     }
 
     @Test
@@ -96,10 +62,9 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        PATTERN.patternKind(),
                         Optional.empty()
                 ),
-                "/123/SpreadsheetName456/cell/A1/formatter/date/save/"
+                "/123/SpreadsheetName456/cell/A1/formatter/save/"
         );
     }
 
@@ -107,7 +72,7 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
                 RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/formatter/date/save/date-format-pattern yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/B2:C3/top-left/formatter/save/date-format-pattern yyyy-mm-dd"
         );
     }
 
@@ -115,7 +80,7 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
                 SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/formatter/date/save/date-format-pattern yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/*/top-left/formatter/save/date-format-pattern yyyy-mm-dd"
         );
     }
 
@@ -123,7 +88,7 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
                 LABEL,
-                "/123/SpreadsheetName456/cell/Label123/formatter/date/save/date-format-pattern yyyy-mm-dd"
+                "/123/SpreadsheetName456/cell/Label123/formatter/save/date-format-pattern yyyy-mm-dd"
         );
     }
 
@@ -136,8 +101,7 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
                 HistoryToken.cellFormatterSelect(
                         ID,
                         NAME,
-                        SELECTION,
-                        PATTERN.patternKind()
+                        SELECTION
                 )
         );
     }
@@ -147,21 +111,18 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
     @Test
     public void testClose() {
         final SpreadsheetFormatPattern formatPattern = SpreadsheetPattern.parseTextFormatPattern("@");
-        final SpreadsheetPatternKind spreadsheetPatternKind = formatPattern.patternKind();
 
         this.closeAndCheck(
                 HistoryToken.cellFormatterSave(
                         ID,
                         NAME,
                         SELECTION,
-                        spreadsheetPatternKind,
                         Optional.of(formatPattern.spreadsheetFormatterSelector())
                 ),
                 HistoryToken.cellFormatterSelect(
                         ID,
                         NAME,
-                        SELECTION,
-                        spreadsheetPatternKind
+                        SELECTION
                 )
         );
     }
@@ -180,7 +141,6 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
                         ID,
                         NAME,
                         SELECTION,
-                        PATTERN.patternKind(),
                         Optional.of(selector)
                 )
         );
@@ -195,7 +155,6 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
                         ID,
                         NAME,
                         SELECTION,
-                        PATTERN.patternKind(),
                         Optional.empty()
                 )
         );
@@ -209,7 +168,6 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
                 id,
                 name,
                 selection,
-                PATTERN.patternKind(),
                 Optional.of(
                         PATTERN.toFormat()
                                 .spreadsheetFormatterSelector()

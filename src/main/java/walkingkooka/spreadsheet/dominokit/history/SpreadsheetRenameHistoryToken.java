@@ -57,11 +57,6 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
         return this;
     }
 
-    @Override //
-    final HistoryToken setFormatter() {
-        return this;
-    }
-
     @Override
     public final HistoryToken setFormula() {
         return this; // should not happen
@@ -89,10 +84,6 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
     @Override //
     final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
-    }
-
-    @Override final HistoryToken setParser() {
-        return this;
     }
 
     @Override //

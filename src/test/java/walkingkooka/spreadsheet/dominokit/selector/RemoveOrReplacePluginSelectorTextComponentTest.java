@@ -56,7 +56,7 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
     @Test
     public void testRefreshNoTextComponents() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter/date",
+                "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
                 Lists.empty(), // textComponents
                 "RemoveOrReplacePluginSelectorTextComponent\n" // expected
@@ -66,7 +66,7 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
     @Test
     public void testRefreshDateFormatTextComponents() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter/date",
+                "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
                 Lists.of(
                         SpreadsheetFormatterSelectorTextComponent.with(
@@ -114,21 +114,21 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                         "      Remove / Replace component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"d\" [#/1/Untitled/cell/A1/formatter/date/save/date-format-pattern%20myy] id=id123-remove-0-Link\n" +
-                        "                \"dd\" [/1/Untitled/cell/A1/formatter/date/save/date-format-pattern%20ddmyy] id=id123-remove-0-Link-replace-0-MenuItem\n" +
-                        "                \"ddd\" [/1/Untitled/cell/A1/formatter/date/save/date-format-pattern%20dddmyy] id=id123-remove-0-Link-replace-1-MenuItem\n" +
-                        "            \"m\" [#/1/Untitled/cell/A1/formatter/date/save/date-format-pattern%20dyy] id=id123-remove-1-Link\n" +
-                        "                \"mm\" [/1/Untitled/cell/A1/formatter/date/save/date-format-pattern%20dmmyy] id=id123-remove-1-Link-replace-0-MenuItem\n" +
-                        "                \"mmm\" [/1/Untitled/cell/A1/formatter/date/save/date-format-pattern%20dmmmyy] id=id123-remove-1-Link-replace-1-MenuItem\n" +
-                        "            \"yy\" [#/1/Untitled/cell/A1/formatter/date/save/date-format-pattern%20dm] id=id123-remove-2-Link\n" +
-                        "                \"yyyy\" [/1/Untitled/cell/A1/formatter/date/save/date-format-pattern%20dmyyyy] id=id123-remove-2-Link-replace-0-MenuItem\n" // expected
+                        "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20myy] id=id123-remove-0-Link\n" +
+                        "                \"dd\" [/1/Untitled/cell/A1/formatter/save/date-format-pattern%20ddmyy] id=id123-remove-0-Link-replace-0-MenuItem\n" +
+                        "                \"ddd\" [/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dddmyy] id=id123-remove-0-Link-replace-1-MenuItem\n" +
+                        "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dyy] id=id123-remove-1-Link\n" +
+                        "                \"mm\" [/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmmyy] id=id123-remove-1-Link-replace-0-MenuItem\n" +
+                        "                \"mmm\" [/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmmmyy] id=id123-remove-1-Link-replace-1-MenuItem\n" +
+                        "            \"yy\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dm] id=id123-remove-2-Link\n" +
+                        "                \"yyyy\" [/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmyyyy] id=id123-remove-2-Link-replace-0-MenuItem\n" // expected
         );
     }
 
     @Test
     public void testRefreshDateTimeFormatTextComponents() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter/date-time",
+                "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN,
                 Lists.of(
                         SpreadsheetFormatterSelectorTextComponent.with(
@@ -182,15 +182,15 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                         "      Remove / Replace component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"m\" [#/1/Untitled/cell/A1/formatter/date-time/save/date-time-format-pattern%20yyhm] id=id123-remove-0-Link\n" +
-                        "                \"mm\" [/1/Untitled/cell/A1/formatter/date-time/save/date-time-format-pattern%20mmyyhm] id=id123-remove-0-Link-replace-0-MenuItem\n" +
-                        "                \"mmm\" [/1/Untitled/cell/A1/formatter/date-time/save/date-time-format-pattern%20mmmyyhm] id=id123-remove-0-Link-replace-1-MenuItem\n" +
-                        "            \"yy\" [#/1/Untitled/cell/A1/formatter/date-time/save/date-time-format-pattern%20mhm] id=id123-remove-1-Link\n" +
-                        "                \"yyyy\" [/1/Untitled/cell/A1/formatter/date-time/save/date-time-format-pattern%20myyyyhm] id=id123-remove-1-Link-replace-0-MenuItem\n" +
-                        "            \"h\" [#/1/Untitled/cell/A1/formatter/date-time/save/date-time-format-pattern%20myym] id=id123-remove-2-Link\n" +
-                        "                \"hh\" [/1/Untitled/cell/A1/formatter/date-time/save/date-time-format-pattern%20myyhhm] id=id123-remove-2-Link-replace-0-MenuItem\n" +
-                        "            \"m\" [#/1/Untitled/cell/A1/formatter/date-time/save/date-time-format-pattern%20myyh] id=id123-remove-3-Link\n" +
-                        "                \"mm\" [/1/Untitled/cell/A1/formatter/date-time/save/date-time-format-pattern%20myyhmm] id=id123-remove-3-Link-replace-0-MenuItem\n" // expected
+                        "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20yyhm] id=id123-remove-0-Link\n" +
+                        "                \"mm\" [/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20mmyyhm] id=id123-remove-0-Link-replace-0-MenuItem\n" +
+                        "                \"mmm\" [/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20mmmyyhm] id=id123-remove-0-Link-replace-1-MenuItem\n" +
+                        "            \"yy\" [#/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20mhm] id=id123-remove-1-Link\n" +
+                        "                \"yyyy\" [/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20myyyyhm] id=id123-remove-1-Link-replace-0-MenuItem\n" +
+                        "            \"h\" [#/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20myym] id=id123-remove-2-Link\n" +
+                        "                \"hh\" [/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20myyhhm] id=id123-remove-2-Link-replace-0-MenuItem\n" +
+                        "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20myyh] id=id123-remove-3-Link\n" +
+                        "                \"mm\" [/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20myyhmm] id=id123-remove-3-Link-replace-0-MenuItem\n" // expected
         );
     }
 
@@ -198,7 +198,7 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
     @Test
     public void testRefreshNumberFormatTextComponents() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter/number",
+                "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN,
                 Lists.of(
                         SpreadsheetFormatterSelectorTextComponent.with(
@@ -218,15 +218,15 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                         "      Remove / Replace component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"$\" [#/1/Untitled/cell/A1/formatter/number/save/number-format-pattern%200] id=id123-remove-0-Link\n" +
-                        "            \"0\" [#/1/Untitled/cell/A1/formatter/number/save/number-format-pattern%20$] id=id123-remove-1-Link\n" // expected
+                        "            \"$\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%200] id=id123-remove-0-Link\n" +
+                        "            \"0\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%20$] id=id123-remove-1-Link\n" // expected
         );
     }
 
     @Test
     public void testRefreshTextFormatTextComponents() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter/text",
+                "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.TEXT_FORMAT_PATTERN,
                 Lists.of(
                         SpreadsheetFormatterSelectorTextComponent.with(
@@ -241,14 +241,14 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                         "      Remove / Replace component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"@\" [#/1/Untitled/cell/A1/formatter/text/save/] id=id123-remove-0-Link\n"  // expected
+                        "            \"@\" [#/1/Untitled/cell/A1/formatter/save/] id=id123-remove-0-Link\n"  // expected
         );
     }
 
     @Test
     public void testRefreshTextFormatTextComponents2() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter/text",
+                "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.TEXT_FORMAT_PATTERN,
                 Lists.of(
                         SpreadsheetFormatterSelectorTextComponent.with(
@@ -268,15 +268,15 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                         "      Remove / Replace component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"@\" [#/1/Untitled/cell/A1/formatter/text/save/text-format-pattern%20%22Hello%22] id=id123-remove-0-Link\n" +
-                        "            \"\"Hello\"\" [#/1/Untitled/cell/A1/formatter/text/save/text-format-pattern%20@] id=id123-remove-1-Link\n" // expected
+                        "            \"@\" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20%22Hello%22] id=id123-remove-0-Link\n" +
+                        "            \"\"Hello\"\" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20@] id=id123-remove-1-Link\n" // expected
         );
     }
 
     @Test
     public void testRefreshTimeFormatTextComponents() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter/time",
+                "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.TIME_FORMAT_PATTERN,
                 Lists.of(
                         SpreadsheetFormatterSelectorTextComponent.with(
@@ -306,10 +306,10 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                         "      Remove / Replace component(s)\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"h\" [#/1/Untitled/cell/A1/formatter/time/save/time-format-pattern%20m] id=id123-remove-0-Link\n" +
-                        "                \"hh\" [/1/Untitled/cell/A1/formatter/time/save/time-format-pattern%20hhm] id=id123-remove-0-Link-replace-0-MenuItem\n" +
-                        "            \"m\" [#/1/Untitled/cell/A1/formatter/time/save/time-format-pattern%20h] id=id123-remove-1-Link\n" +
-                        "                \"mm\" [/1/Untitled/cell/A1/formatter/time/save/time-format-pattern%20hmm] id=id123-remove-1-Link-replace-0-MenuItem\n" // expected
+                        "            \"h\" [#/1/Untitled/cell/A1/formatter/save/time-format-pattern%20m] id=id123-remove-0-Link\n" +
+                        "                \"hh\" [/1/Untitled/cell/A1/formatter/save/time-format-pattern%20hhm] id=id123-remove-0-Link-replace-0-MenuItem\n" +
+                        "            \"m\" [#/1/Untitled/cell/A1/formatter/save/time-format-pattern%20h] id=id123-remove-1-Link\n" +
+                        "                \"mm\" [/1/Untitled/cell/A1/formatter/save/time-format-pattern%20hmm] id=id123-remove-1-Link-replace-0-MenuItem\n" // expected
         );
     }
 

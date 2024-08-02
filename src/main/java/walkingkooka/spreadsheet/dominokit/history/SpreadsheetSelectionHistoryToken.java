@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFind;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.text.cursor.TextCursor;
@@ -74,7 +75,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 result = this.parseFind(cursor);
                 break;
             case FORMATTER_STRING:
-                result = this.parseFormatPattern(cursor);
+                result = this.setFormatter();
                 break;
             case FORMULA_STRING:
                 result = this.setFormula();
@@ -102,7 +103,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 );
                 break;
             case PARSER_STRING:
-                result = this.parseParser(cursor);
+                result = this.setParser();
                 break;
             case PASTE_STRING:
                 result = this.parsePaste(cursor);
@@ -115,6 +116,9 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 break;
             case STYLE_STRING:
                 result = this.parseStyle(cursor);
+                break;
+            case TOOLBAR_STRING:
+                result = this.setToolbar();
                 break;
             case UNFREEZE_STRING:
                 result = this.setUnfreeze();
@@ -279,5 +283,11 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
     private static String parseComponentOrNull(final TextCursor cursor) {
         return parseComponent(cursor)
                 .orElse(null);
+    }
+
+    // pattern kind......................................................................................................
+    @Override //
+    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
+        return this;
     }
 }

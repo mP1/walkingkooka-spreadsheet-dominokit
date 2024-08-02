@@ -21,10 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-
-import java.util.Optional;
 
 /**
  * Base class for both cell sort history tokens.
@@ -65,20 +62,6 @@ public abstract class SpreadsheetCellSortHistoryToken extends SpreadsheetCellHis
         );
     }
 
-    @Override //
-    final HistoryToken setFormatter() {
-        return this;
-    }
-
-    @Override //
-    final HistoryToken setParser() {
-        return this;
-    }
-
-    @Override
-    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this;
-    }
 
     @Override final HistoryToken setSave0(final String value) {
         return HistoryToken.cellSortSave(

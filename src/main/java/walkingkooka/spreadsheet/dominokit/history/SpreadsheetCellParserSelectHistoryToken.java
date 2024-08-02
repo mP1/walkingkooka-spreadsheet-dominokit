@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
@@ -31,25 +30,21 @@ public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCe
 
     static SpreadsheetCellParserSelectHistoryToken with(final SpreadsheetId id,
                                                         final SpreadsheetName name,
-                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                        final SpreadsheetPatternKind spreadsheetPatternKind) {
+                                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellParserSelectHistoryToken(
                 id,
                 name,
-                anchoredSelection,
-                spreadsheetPatternKind
+                anchoredSelection
         );
     }
 
     private SpreadsheetCellParserSelectHistoryToken(final SpreadsheetId id,
                                                     final SpreadsheetName name,
-                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                    final SpreadsheetPatternKind spreadsheetPatternKind) {
+                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
                 id,
                 name,
                 anchoredSelection,
-                Optional.of(spreadsheetPatternKind),
                 Optional.empty() // SpreadsheetParserSelector
         );
     }
@@ -66,18 +61,7 @@ public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCe
         return new SpreadsheetCellParserSelectHistoryToken(
                 id,
                 name,
-                anchoredSelection,
-                this.spreadsheetPatternKind.get()
-        );
-    }
-
-    @Override//
-    HistoryToken replacePatternKind0(final SpreadsheetPatternKind patternKind) {
-        return new SpreadsheetCellParserSelectHistoryToken(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                patternKind
+                anchoredSelection
         );
     }
 
@@ -87,7 +71,6 @@ public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCe
                 this.id(),
                 this.name(),
                 this.anchoredSelection(),
-                this.spreadsheetPatternKind.get(),
                 Optional.ofNullable(
                         value.isEmpty() ?
                                 null :
@@ -96,12 +79,10 @@ public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCe
         );
     }
 
-    // cell/A1/parser/SpreadsheetPatternKind
+    // cell/A1/parser
     @Override //
     UrlFragment parserUrlFragment() {
-        return this.patternKind()
-                .get()
-                .urlFragment();
+        return SELECT;
     }
 
     @Override

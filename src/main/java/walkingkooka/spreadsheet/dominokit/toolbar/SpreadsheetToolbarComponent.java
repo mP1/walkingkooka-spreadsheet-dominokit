@@ -226,8 +226,8 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         return TOOLBAR_ID_PREFIX + "find-cells";
     }
 
-    public static String formatPatternId() {
-        return TOOLBAR_ID_PREFIX + "format-pattern";
+    public static String formatterId() {
+        return TOOLBAR_ID_PREFIX + "formatter";
     }
 
     public static String hideZeroValues() {
@@ -242,8 +242,8 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         return TOOLBAR_ID_PREFIX + "label-create";
     }
 
-    public static String parsePatternId() {
-        return TOOLBAR_ID_PREFIX + "parse-pattern";
+    public static String parserId() {
+        return TOOLBAR_ID_PREFIX + "parser";
     }
 
     public static String reloadId() {

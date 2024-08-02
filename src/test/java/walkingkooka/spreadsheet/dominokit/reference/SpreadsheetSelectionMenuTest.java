@@ -265,13 +265,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
                 Lists.of(
-                        token.setPatternKind(
-                                Optional.of(
-                                        formatPattern.patternKind())
-                        ).setSave(
-                                formatPattern.spreadsheetFormatterSelector()
-                                        .toString()
-                        ).cast(SpreadsheetCellFormatterSaveHistoryToken.class)
+                        token.setFormatter()
+                                .setSave(
+                                        formatPattern.spreadsheetFormatterSelector()
+                                                .toString()
+                                ).cast(SpreadsheetCellFormatterSaveHistoryToken.class)
                 ),
                 Lists.empty()
         );
@@ -474,13 +472,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 token,
                 Lists.empty(),
                 Lists.of(
-                        token.setPatternKind(
-                                Optional.of(
-                                        parsePattern.patternKind())
-                        ).setSave(
-                                parsePattern.spreadsheetParserSelector()
-                                        .toString()
-                        ).cast(SpreadsheetCellParserSaveHistoryToken.class)
+                        token.setParser()
+                                .setSave(
+                                        parsePattern.spreadsheetParserSelector()
+                                                .toString()
+                                ).cast(SpreadsheetCellParserSaveHistoryToken.class)
                 )
         );
 
@@ -683,22 +679,18 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
                 Lists.of(
-                        token.setPatternKind(
-                                Optional.of(
-                                        formatPattern.patternKind())
-                        ).setSave(
-                                formatPattern.spreadsheetFormatterSelector()
-                                        .toString()
-                        ).cast(SpreadsheetCellFormatterSaveHistoryToken.class)
+                        token.setFormatter()
+                                .setSave(
+                                        formatPattern.spreadsheetFormatterSelector()
+                                                .toString()
+                                ).cast(SpreadsheetCellFormatterSaveHistoryToken.class)
                 ),
                 Lists.of(
-                        token.setPatternKind(
-                                Optional.of(
-                                        parsePattern.patternKind())
-                        ).setSave(
-                                parsePattern.spreadsheetParserSelector()
-                                        .toString()
-                        ).cast(SpreadsheetCellParserSaveHistoryToken.class)
+                        token.setParser()
+                                .setSave(
+                                        parsePattern.spreadsheetParserSelector()
+                                                .toString()
+                                ).cast(SpreadsheetCellParserSaveHistoryToken.class)
                 )
         );
 

@@ -22,11 +22,9 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * Base class for clipboard operations for a cell/cell-range. This represents a clipboard action the value is not
@@ -67,29 +65,6 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
                 this.name(),
                 this.anchoredSelection()
         );
-    }
-
-    @Override //
-    final HistoryToken setFormatter() {
-        return cellFormatterUnselect(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
-    @Override //
-    final HistoryToken setParser() {
-        return cellParserUnselect(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
-    @Override //
-    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this;
     }
 
     @Override //

@@ -31,7 +31,6 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
@@ -86,7 +85,6 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                SpreadsheetPatternKind.DATE_FORMAT_PATTERN,
                 Optional.of(
                         SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
                                 .spreadsheetFormatterSelector()
@@ -97,7 +95,6 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
                 Optional.of(
                         SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
                                 .spreadsheetFormatterSelector()
@@ -133,7 +130,6 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                SpreadsheetPatternKind.DATE_FORMAT_PATTERN,
                 Optional.of(
                         SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
                                 .spreadsheetFormatterSelector()
@@ -144,7 +140,6 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
                 Optional.of(
                         SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
                                 .spreadsheetFormatterSelector()
@@ -181,7 +176,6 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
                 Optional.of(
                         SpreadsheetPattern.parseTextFormatPattern("@")
                                 .spreadsheetFormatterSelector()
@@ -192,7 +186,6 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
                 Optional.of(
                         SpreadsheetPattern.parseTextFormatPattern("@@")
                                 .spreadsheetFormatterSelector()
@@ -203,7 +196,6 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
                 Optional.of(
                         SpreadsheetPattern.parseTextFormatPattern("@@@")
                                 .spreadsheetFormatterSelector()
@@ -220,7 +212,6 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                SpreadsheetPatternKind.TEXT_FORMAT_PATTERN,
                 Optional.of(
                         SpreadsheetPattern.parseTextFormatPattern("@@@@")
                                 .spreadsheetFormatterSelector()
@@ -281,7 +272,6 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                                 ID,
                                 NAME,
                                 CELL.setDefaultAnchor(),
-                                SpreadsheetPatternKind.DATE_FORMAT_PATTERN,
                                 Optional.of(
                                         SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
                                                 .spreadsheetFormatterSelector()
@@ -317,7 +307,6 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                                 ID,
                                 NAME,
                                 CELL.setDefaultAnchor(),
-                                SpreadsheetPatternKind.DATE_FORMAT_PATTERN,
                                 Optional.of(
                                         SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
                                                 .spreadsheetFormatterSelector()
@@ -328,7 +317,7 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
 
         this.toStringAndCheck(
                 recorder,
-                "max=3 SpreadsheetCellFormatterSaveHistoryToken \"/1/SpreadsheetName123/cell/A1/formatter/date/save/date-format-pattern%20dd/mm/yyyy\""
+                "max=3 SpreadsheetCellFormatterSaveHistoryToken \"/1/SpreadsheetName123/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyy\""
         );
     }
 

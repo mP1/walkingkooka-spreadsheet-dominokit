@@ -21,10 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-
-import java.util.Optional;
 
 /**
  * This token represents an action to delete a cell or cell range.
@@ -69,11 +66,6 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    public HistoryToken setFormatter() {
-        return this;
-    }
-
-    @Override
     public HistoryToken setFormula() {
         return setFormula0();
     }
@@ -87,16 +79,6 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
                 name,
                 anchoredSelection
         ).setDelete();
-    }
-
-    @Override
-    public HistoryToken setParser() {
-        return this;
-    }
-
-    @Override
-    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this;
     }
 
     @Override

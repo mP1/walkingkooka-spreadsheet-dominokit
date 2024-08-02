@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
 
@@ -122,9 +121,9 @@ public final class SpreadsheetLinkListComponentTest implements ClassTesting<Spre
                         "      Title123\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Label-apple1\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/save%20apple1] id=LinkList123-0-Link\n" +
-                        "            \"Label-banana2\" DISABLED [#/1/Spreadsheet123/cell/A1/formatter/date/save/save%20banana2] id=LinkList123-1-Link\n" +
-                        "            \"Label-carrot3\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/save%20carrot3] id=LinkList123-2-Link\n"
+                        "            \"Label-apple1\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20apple1] id=LinkList123-0-Link\n" +
+                        "            \"Label-banana2\" DISABLED [#/1/Spreadsheet123/cell/A1/formatter/save/save%20banana2] id=LinkList123-1-Link\n" +
+                        "            \"Label-carrot3\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20carrot3] id=LinkList123-2-Link\n"
         );
     }
 
@@ -143,9 +142,9 @@ public final class SpreadsheetLinkListComponentTest implements ClassTesting<Spre
                         "      Title123\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Label-apple1\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/save%20apple1] id=LinkList123-0-Link\n" +
-                        "            \"Label-banana2\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/save%20banana2] id=LinkList123-1-Link\n" +
-                        "            \"Label-carrot3\" [#/1/Spreadsheet123/cell/A1/formatter/date/save/save%20carrot3] id=LinkList123-2-Link\n"
+                        "            \"Label-apple1\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20apple1] id=LinkList123-0-Link\n" +
+                        "            \"Label-banana2\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20banana2] id=LinkList123-1-Link\n" +
+                        "            \"Label-carrot3\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20carrot3] id=LinkList123-2-Link\n"
         );
     }
 
@@ -178,8 +177,7 @@ public final class SpreadsheetLinkListComponentTest implements ClassTesting<Spre
                         return HistoryToken.cellFormatterSelect(
                                 SpreadsheetId.with(1),
                                 SpreadsheetName.with("Spreadsheet123"),
-                                SpreadsheetSelection.A1.setDefaultAnchor(),
-                                SpreadsheetPatternKind.DATE_FORMAT_PATTERN
+                                SpreadsheetSelection.A1.setDefaultAnchor()
                         );
                     }
                 }

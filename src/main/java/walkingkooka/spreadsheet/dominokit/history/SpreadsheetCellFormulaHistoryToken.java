@@ -20,10 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-
-import java.util.Optional;
 
 abstract public class SpreadsheetCellFormulaHistoryToken extends SpreadsheetCellHistoryToken {
 
@@ -43,19 +40,4 @@ abstract public class SpreadsheetCellFormulaHistoryToken extends SpreadsheetCell
     }
 
     abstract UrlFragment formulaUrlFragment();
-
-    @Override
-    public final HistoryToken setFormatter() {
-        return this;
-    }
-
-    @Override
-    public final HistoryToken setParser() {
-        return this;
-    }
-
-    @Override //
-    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this; // ignore extra pattern
-    }
 }

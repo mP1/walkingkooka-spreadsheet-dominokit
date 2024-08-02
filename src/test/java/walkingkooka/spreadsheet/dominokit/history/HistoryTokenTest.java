@@ -1459,108 +1459,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
-        this.checkEquals(
-                historyToken.setPatternKind(
-                        Optional.of(kind)
-                ),
-                HistoryToken.cellFormatterSelect(
-                        ID,
-                        NAME,
-                        viewport,
-                        kind
-                )
-        );
-    }
-
-    @Test
-    public void testSetPatternKindCell2() {
-        final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
-        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_TIME_PARSE_PATTERN;
-        final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
-
-        this.checkEquals(
-                historyToken.setPatternKind(
-                        Optional.of(kind)
-                ),
-                HistoryToken.cellParserSelect(
-                        ID,
-                        NAME,
-                        viewport,
-                        kind
-                )
-        );
-    }
-
-    @Test
-    public void testSetPatternKindColumn() {
-        final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
-        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
-        final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
-
         assertSame(
+                historyToken,
                 historyToken.setPatternKind(
                         Optional.of(kind)
-                ),
-                historyToken
-        );
-    }
-
-    @Test
-    public void testSetPatternKindRow() {
-        final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
-        final SpreadsheetPatternKind kind = SpreadsheetPatternKind.DATE_FORMAT_PATTERN;
-        final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
-
-        assertSame(
-                historyToken.setPatternKind(
-                        Optional.of(kind)
-                ),
-                historyToken
-        );
-    }
-
-    // clearPatternKind.................................................................................................
-
-    @Test
-    public void testClearPatternKindOnCellTextFormatPattern() {
-        this.clearPatternKindAndCheck(
-                HistoryToken.cellFormatterSelect(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetPatternKind.TEXT_FORMAT_PATTERN
-                ),
-                HistoryToken.cellFormatterUnselect(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
                 )
-        );
-    }
-
-    @Test
-    public void testClearPatternKindOnCellTimeParsePattern() {
-        this.clearPatternKindAndCheck(
-                HistoryToken.cellParserSelect(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetPatternKind.TIME_PARSE_PATTERN
-                ),
-                HistoryToken.cellParserUnselect(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
-        );
-    }
-
-    private void clearPatternKindAndCheck(final HistoryToken historyToken,
-                                          final HistoryToken expected) {
-        this.checkEquals(
-                expected,
-                historyToken.clearPatternKind(),
-                historyToken::toString
         );
     }
 
@@ -2866,53 +2769,28 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // cell/pattern.......................................................................................................
+    // cell/formatter/parser............................................................................................
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterMissingPatternKind() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormatter() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/A1/formatter",
-                HistoryToken.cellFormatterUnselect(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellParserMissingPatternKind() {
-        this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/parser",
-                HistoryToken.cellParserUnselect(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterInvalidPatternKind() {
-        this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/formatter/!invalid",
-                HistoryToken.cellFormatterUnselect(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterDateFormatPatternKind() {
-        this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/formatter/date",
                 HistoryToken.cellFormatterSelect(
                         ID,
                         NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetPatternKind.DATE_FORMAT_PATTERN
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellFormatterToolbar() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/formatter/toolbar",
+                HistoryToken.cellFormatterUnselect(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
                 )
         );
     }
@@ -2920,12 +2798,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellFormatterSaveEmptyDateFormat() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/formatter/date/save/",
+                "/123/SpreadsheetName456/cell/A1/formatter/save/",
                 HistoryToken.cellFormatterSave(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetPatternKind.DATE_FORMAT_PATTERN,
                         Optional.empty()
                 )
         );
@@ -2937,13 +2814,36 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 .spreadsheetFormatterSelector();
 
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/formatter/time/save/" + selector,
+                "/123/SpreadsheetName456/cell/A1/formatter/save/" + selector,
                 HistoryToken.cellFormatterSave(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetPatternKind.TIME_FORMAT_PATTERN,
                         Optional.of(selector)
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellParser() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/parser",
+                HistoryToken.cellParserSelect(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
+                )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellParserToolbar() {
+        this.parseStringAndCheck(
+                "/123/SpreadsheetName456/cell/A1/parser/toolbar",
+                HistoryToken.cellParserUnselect(
+                        ID,
+                        NAME,
+                        CELL.setDefaultAnchor()
                 )
         );
     }
@@ -2954,12 +2854,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 .spreadsheetParserSelector();
 
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/parser/time/save/" + selector,
+                "/123/SpreadsheetName456/cell/A1/parser/save/" + selector,
                 HistoryToken.cellParserSave(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetPatternKind.TIME_PARSE_PATTERN,
                         Optional.of(selector)
                 )
         );
@@ -3357,7 +3256,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnPattern() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/formatter/date/yymmdd",
+                "/123/SpreadsheetName456/column/AA/formatter/yymmdd",
                 HistoryToken.column(
                         ID,
                         NAME,
@@ -3730,7 +3629,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowPattern() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/formatter/date/yymmdd",
+                "/123/SpreadsheetName456/row/11/formatter/yymmdd",
                 HistoryToken.row(
                         ID,
                         NAME,
@@ -3918,7 +3817,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelPattern() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/formatter/date/yymmdd",
+                "/123/SpreadsheetName456/label/Label123/formatter/yymmdd",
                 LABEL_MAPPING_HHT
         );
     }

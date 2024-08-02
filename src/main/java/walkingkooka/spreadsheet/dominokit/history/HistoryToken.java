@@ -351,13 +351,11 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellFormatterSaveHistoryToken cellFormatterSave(final SpreadsheetId id,
                                                                              final SpreadsheetName name,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                             final SpreadsheetPatternKind spreadsheetPatternKind,
                                                                              final Optional<SpreadsheetFormatterSelector> selector) {
         return SpreadsheetCellFormatterSaveHistoryToken.with(
                 id,
                 name,
                 anchoredSelection,
-                spreadsheetPatternKind,
                 selector
         );
     }
@@ -367,13 +365,11 @@ public abstract class HistoryToken implements HasUrlFragment,
      */
     public static SpreadsheetCellFormatterSelectHistoryToken cellFormatterSelect(final SpreadsheetId id,
                                                                                  final SpreadsheetName name,
-                                                                                 final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                                 final SpreadsheetPatternKind spreadsheetPatternKind) {
+                                                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellFormatterSelectHistoryToken.with(
                 id,
                 name,
-                anchoredSelection,
-                spreadsheetPatternKind
+                anchoredSelection
         );
     }
 
@@ -450,13 +446,11 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellParserSaveHistoryToken cellParserSave(final SpreadsheetId id,
                                                                        final SpreadsheetName name,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                       final SpreadsheetPatternKind spreadsheetPatternKind,
                                                                        final Optional<SpreadsheetParserSelector> selector) {
         return SpreadsheetCellParserSaveHistoryToken.with(
                 id,
                 name,
                 anchoredSelection,
-                spreadsheetPatternKind,
                 selector
         );
     }
@@ -466,13 +460,11 @@ public abstract class HistoryToken implements HasUrlFragment,
      */
     public static SpreadsheetCellParserSelectHistoryToken cellParserSelect(final SpreadsheetId id,
                                                                            final SpreadsheetName name,
-                                                                           final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                           final SpreadsheetPatternKind spreadsheetPatternKind) {
+                                                                           final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellParserSelectHistoryToken.with(
                 id,
                 name,
-                anchoredSelection,
-                spreadsheetPatternKind
+                anchoredSelection
         );
     }
 
@@ -1439,8 +1431,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             closed = cellFormatterSelect(
                     formatter.id(),
                     formatter.name(),
-                    formatter.anchoredSelection(),
-                    formatter.patternKind().get()
+                    formatter.anchoredSelection()
             );
         }
 
@@ -1460,8 +1451,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             closed = cellParserSelect(
                     parser.id(),
                     parser.name(),
-                    parser.anchoredSelection(),
-                    parser.patternKind().get()
+                    parser.anchoredSelection()
             );
         }
 
@@ -1733,6 +1723,28 @@ public abstract class HistoryToken implements HasUrlFragment,
      */
     public abstract HistoryToken setFormula();
 
+    /**
+     * If possible selects a formatter {@link HistoryToken}.
+     */
+    public final HistoryToken setFormatter() {
+        HistoryToken historyToken;
+
+        if (this instanceof SpreadsheetCellSelectHistoryToken) {
+            final SpreadsheetCellSelectHistoryToken cell = this.cast(SpreadsheetCellSelectHistoryToken.class);
+
+            historyToken = HistoryToken.cellFormatterSelect(
+                    cell.id(),
+                    cell.name(),
+                    cell.anchoredSelection()
+            );
+
+        } else {
+            historyToken = this;
+        }
+
+        return historyToken;
+    }
+    
     /**
      * if possible creates a freeze.
      */
@@ -2052,21 +2064,11 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final Optional<SpreadsheetPatternKind> patternKind() {
         final Optional<SpreadsheetPatternKind> kind;
 
-        if (this instanceof SpreadsheetCellFormatterHistoryToken) {
-            kind = this.cast(SpreadsheetCellFormatterHistoryToken.class)
-                    .spreadsheetPatternKind;
+        if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
+            kind = this.cast(SpreadsheetMetadataPropertyHistoryToken.class)
+                    .patternKind0();
         } else {
-            if (this instanceof SpreadsheetCellParserHistoryToken) {
-                kind = this.cast(SpreadsheetCellParserHistoryToken.class)
-                        .spreadsheetPatternKind;
-            } else {
-                if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
-                    kind = this.cast(SpreadsheetMetadataPropertyHistoryToken.class)
-                            .patternKind0();
-                } else {
-                    kind = Optional.empty();
-                }
-            }
+            kind = Optional.empty();
         }
 
         return kind;
@@ -2091,6 +2093,28 @@ public abstract class HistoryToken implements HasUrlFragment,
                         SpreadsheetNameHistoryToken::replacePatternKind,
                         kind
                 );
+    }
+
+    /**
+     * If possible selects a formatter {@link HistoryToken}.
+     */
+    public final HistoryToken setParser() {
+        HistoryToken historyToken;
+
+        if (this instanceof SpreadsheetCellSelectHistoryToken) {
+            final SpreadsheetCellSelectHistoryToken cell = this.cast(SpreadsheetCellSelectHistoryToken.class);
+
+            historyToken = HistoryToken.cellParserSelect(
+                    cell.id(),
+                    cell.name(),
+                    cell.anchoredSelection()
+            );
+
+        } else {
+            historyToken = this;
+        }
+
+        return historyToken;
     }
 
     public final HistoryToken setReload() {
@@ -2224,6 +2248,30 @@ public abstract class HistoryToken implements HasUrlFragment,
                 SpreadsheetNameHistoryToken::setStyle0,
                 propertyName
         );
+    }
+
+    public final HistoryToken setToolbar() {
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetCellFormatterSelectHistoryToken) {
+            final SpreadsheetCellFormatterSelectHistoryToken formatter = this.cast(SpreadsheetCellFormatterSelectHistoryToken.class);
+            historyToken = cellFormatterUnselect(
+                    formatter.id(),
+                    formatter.name(),
+                    formatter.anchoredSelection()
+            );
+        }
+
+        if (this instanceof SpreadsheetCellParserSelectHistoryToken) {
+            final SpreadsheetCellParserSelectHistoryToken parser = this.cast(SpreadsheetCellParserSelectHistoryToken.class);
+            historyToken = cellParserUnselect(
+                    parser.id(),
+                    parser.name(),
+                    parser.anchoredSelection()
+            );
+        }
+
+        return historyToken;
     }
 
     /**

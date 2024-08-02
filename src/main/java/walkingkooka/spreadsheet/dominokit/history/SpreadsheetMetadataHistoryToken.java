@@ -93,11 +93,6 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
         return this;
     }
 
-    @Override
-    public final HistoryToken setFormatter() {
-        return this;
-    }
-
     @Override //
     final HistoryToken setFreeze0() {
         return this;
@@ -121,11 +116,6 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     @Override //
     final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
-    }
-
-    @Override
-    public final HistoryToken setParser() {
-        return this;
     }
 
     @Override //

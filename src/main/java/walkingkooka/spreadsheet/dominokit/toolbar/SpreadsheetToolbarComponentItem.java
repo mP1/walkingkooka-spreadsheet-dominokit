@@ -75,10 +75,10 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     }
 
     /**
-     * {@link SpreadsheetToolbarComponentItemAnchorPatternFormat}
+     * {@link SpreadsheetToolbarComponentItemAnchorFormatter}
      */
     static SpreadsheetToolbarComponentItem<?> formatPattern(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemAnchorPatternFormat.with(context);
+        return SpreadsheetToolbarComponentItemAnchorFormatter.with(context);
     }
 
     /**
@@ -122,10 +122,10 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     }
 
     /**
-     * {@link SpreadsheetToolbarComponentItemAnchorPatternParse}
+     * {@link SpreadsheetToolbarComponentItemAnchorParser}
      */
     static SpreadsheetToolbarComponentItem<?> parsePattern(final HistoryTokenContext context) {
-        return SpreadsheetToolbarComponentItemAnchorPatternParse.with(context);
+        return SpreadsheetToolbarComponentItemAnchorParser.with(context);
     }
 
     /**

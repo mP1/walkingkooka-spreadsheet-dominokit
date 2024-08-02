@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStyle;
@@ -71,15 +70,6 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    public HistoryToken setFormatter() {
-        return cellFormatterUnselect(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
-    @Override
     public HistoryToken setFormula() {
         return setFormula0();
     }
@@ -93,45 +83,6 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 name,
                 anchoredSelection
         );
-    }
-
-    @Override
-    public HistoryToken setParser() {
-        return cellParserUnselect(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
-    @Override
-    HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        final SpreadsheetId id = this.id();
-        final SpreadsheetName name = this.name();
-        final AnchoredSpreadsheetSelection anchoredSelection = this.anchoredSelection();
-
-        final HistoryToken historyToken;
-
-        if (patternKind.isPresent()) {
-            final SpreadsheetPatternKind spreadsheetPatternKind = patternKind.get();
-            historyToken = spreadsheetPatternKind.isFormatPattern() ?
-                    cellFormatterSelect(
-                            id,
-                            name,
-                            anchoredSelection,
-                            spreadsheetPatternKind
-                    ) :
-                    cellParserSelect(
-                            id,
-                            name,
-                            anchoredSelection,
-                            spreadsheetPatternKind
-                    );
-        } else {
-            historyToken = this;
-        }
-
-        return historyToken;
     }
 
     @Override

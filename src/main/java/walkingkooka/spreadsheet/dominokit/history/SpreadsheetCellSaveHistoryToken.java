@@ -23,7 +23,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -70,11 +69,6 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     }
 
     @Override //
-    final HistoryToken setFormatter() {
-        return this;
-    }
-
-    @Override //
     final HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
                                                       final SpreadsheetName name,
                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
@@ -84,16 +78,6 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
                 anchoredSelection,
                 this.value()
         );
-    }
-
-    @Override //
-    final HistoryToken setParser() {
-        return this;
-    }
-
-    @Override //
-    final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this;
     }
 
     static Set<SpreadsheetCell> parseCells(final TextCursor cursor) {
