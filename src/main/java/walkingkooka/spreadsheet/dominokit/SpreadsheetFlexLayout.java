@@ -21,6 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.DivElement;
+import org.dominokit.domino.ui.style.CssClass;
 import org.dominokit.domino.ui.style.SpacingCss;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
@@ -33,13 +34,16 @@ import java.util.Objects;
  */
 public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
 
+    private final static CssClass GAP = SpacingCss.dui_gap_1;
+
     public static SpreadsheetFlexLayout column() {
         final SpreadsheetFlexLayout flex = new SpreadsheetFlexLayout(true);
         flex.div.addCss(
                 SpacingCss.dui_flex_col,
                 //SpacingCss.dui_v_full,
                 SpacingCss.dui_items_start,
-                SpacingCss.dui_gap_4);
+                GAP
+        );
         return flex;
     }
 
@@ -51,7 +55,8 @@ public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
                 SpacingCss.dui_flex_row,
                 SpacingCss.dui_h_full,
                 SpacingCss.dui_items_start,
-                SpacingCss.dui_gap_4);
+                GAP
+        );
         return flex;
     }
 
