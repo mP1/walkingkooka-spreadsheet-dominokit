@@ -35,13 +35,9 @@ import org.dominokit.domino.ui.layout.RightDrawerSize;
 import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.notifications.Notification.Position;
 import org.gwtproject.core.client.Scheduler;
-import walkingkooka.convert.Converter;
-import walkingkooka.convert.ConverterContext;
-import walkingkooka.convert.provider.ConverterInfo;
-import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterProvider;
+import walkingkooka.convert.provider.ConverterProviderDelegator;
 import walkingkooka.convert.provider.ConverterProviders;
-import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
@@ -132,7 +128,6 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 
 import java.math.MathContext;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,6 +145,7 @@ public class App implements EntryPoint,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler,
+        ConverterProviderDelegator,
         SpreadsheetFormatterContextDelegator,
         SpreadsheetFormatterProviderDelegator,
         SpreadsheetParserProviderDelegator {
@@ -730,22 +726,8 @@ public class App implements EntryPoint,
     // ConverterProvider................................................................................................
 
     @Override
-    public <C extends ConverterContext> Converter<C> converter(final ConverterSelector selector) {
-        return this.converterProvider.converter(selector);
-    }
-
-    @Override
-    public <C extends ConverterContext> Converter<C> converter(final ConverterName converterName,
-                                                               final List<?> values) {
-        return this.converterProvider.converter(
-                converterName,
-                values
-        );
-    }
-
-    @Override
-    public Set<ConverterInfo> converterInfos() {
-        return this.converterProvider.converterInfos();
+    public ConverterProvider converterProvider() {
+        return this.converterProvider;
     }
 
     /**
