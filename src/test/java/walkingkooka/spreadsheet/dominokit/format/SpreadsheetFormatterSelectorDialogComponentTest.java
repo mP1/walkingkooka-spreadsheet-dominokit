@@ -89,7 +89,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 context,
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Date formatter\n" +
+                        "    Formatter\n" +
                         "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -178,7 +178,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 context,
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Date formatter\n" +
+                        "    Formatter\n" +
                         "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -299,7 +299,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 context,
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Date Time formatter\n" +
+                        "    Formatter\n" +
                         "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -439,7 +439,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 context,
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Number formatter\n" +
+                        "    Formatter\n" +
                         "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -600,7 +600,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 context,
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Text formatter\n" +
+                        "    Formatter\n" +
                         "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -687,7 +687,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 context,
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Time formatter\n" +
+                        "    Formatter\n" +
                         "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
