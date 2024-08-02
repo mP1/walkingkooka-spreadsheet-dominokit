@@ -91,18 +91,6 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "  SpreadsheetDialogComponent\n" +
                         "    Formatter\n" +
                         "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
-                        "      SpreadsheetPatternKindTabsComponent\n" +
-                        "        SpreadsheetTabsComponent\n" +
-                        "          TAB 0 SELECTED\n" +
-                        "            \"Date\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-format\n" +
-                        "          TAB 1\n" +
-                        "            \"Date Time\" [#/1/Spreadsheet123/cell/A1/formatter/date-time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-time-format\n" +
-                        "          TAB 2\n" +
-                        "            \"Number\" [#/1/Spreadsheet123/cell/A1/formatter/number] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-number-format\n" +
-                        "          TAB 3\n" +
-                        "            \"Text\" [#/1/Spreadsheet123/cell/A1/formatter/text] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
-                        "          TAB 4\n" +
-                        "            \"Time\" [#/1/Spreadsheet123/cell/A1/formatter/time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
                         "      SpreadsheetFormatterNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -180,18 +168,6 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "  SpreadsheetDialogComponent\n" +
                         "    Formatter\n" +
                         "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
-                        "      SpreadsheetPatternKindTabsComponent\n" +
-                        "        SpreadsheetTabsComponent\n" +
-                        "          TAB 0 SELECTED\n" +
-                        "            \"Date\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-format\n" +
-                        "          TAB 1\n" +
-                        "            \"Date Time\" [#/1/Spreadsheet123/cell/A1/formatter/date-time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-time-format\n" +
-                        "          TAB 2\n" +
-                        "            \"Number\" [#/1/Spreadsheet123/cell/A1/formatter/number] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-number-format\n" +
-                        "          TAB 3\n" +
-                        "            \"Text\" [#/1/Spreadsheet123/cell/A1/formatter/text] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
-                        "          TAB 4\n" +
-                        "            \"Time\" [#/1/Spreadsheet123/cell/A1/formatter/time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
                         "      SpreadsheetFormatterNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -301,18 +277,6 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "  SpreadsheetDialogComponent\n" +
                         "    Formatter\n" +
                         "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
-                        "      SpreadsheetPatternKindTabsComponent\n" +
-                        "        SpreadsheetTabsComponent\n" +
-                        "          TAB 0\n" +
-                        "            \"Date\" [#/1/Spreadsheet123/cell/A1/formatter/date] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-format\n" +
-                        "          TAB 1 SELECTED\n" +
-                        "            \"Date Time\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-time-format\n" +
-                        "          TAB 2\n" +
-                        "            \"Number\" [#/1/Spreadsheet123/cell/A1/formatter/number] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-number-format\n" +
-                        "          TAB 3\n" +
-                        "            \"Text\" [#/1/Spreadsheet123/cell/A1/formatter/text] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
-                        "          TAB 4\n" +
-                        "            \"Time\" [#/1/Spreadsheet123/cell/A1/formatter/time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
                         "      SpreadsheetFormatterNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -441,18 +405,6 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "  SpreadsheetDialogComponent\n" +
                         "    Formatter\n" +
                         "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
-                        "      SpreadsheetPatternKindTabsComponent\n" +
-                        "        SpreadsheetTabsComponent\n" +
-                        "          TAB 0\n" +
-                        "            \"Date\" [#/1/Spreadsheet123/cell/A1/formatter/date] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-format\n" +
-                        "          TAB 1\n" +
-                        "            \"Date Time\" [#/1/Spreadsheet123/cell/A1/formatter/date-time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-time-format\n" +
-                        "          TAB 2 SELECTED\n" +
-                        "            \"Number\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-Tabs-number-format\n" +
-                        "          TAB 3\n" +
-                        "            \"Text\" [#/1/Spreadsheet123/cell/A1/formatter/text] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
-                        "          TAB 4\n" +
-                        "            \"Time\" [#/1/Spreadsheet123/cell/A1/formatter/time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
                         "      SpreadsheetFormatterNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -602,18 +554,6 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "  SpreadsheetDialogComponent\n" +
                         "    Formatter\n" +
                         "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
-                        "      SpreadsheetPatternKindTabsComponent\n" +
-                        "        SpreadsheetTabsComponent\n" +
-                        "          TAB 0\n" +
-                        "            \"Date\" [#/1/Spreadsheet123/cell/A1/formatter/date] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-format\n" +
-                        "          TAB 1\n" +
-                        "            \"Date Time\" [#/1/Spreadsheet123/cell/A1/formatter/date-time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-time-format\n" +
-                        "          TAB 2\n" +
-                        "            \"Number\" [#/1/Spreadsheet123/cell/A1/formatter/number] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-number-format\n" +
-                        "          TAB 3 SELECTED\n" +
-                        "            \"Text\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
-                        "          TAB 4\n" +
-                        "            \"Time\" [#/1/Spreadsheet123/cell/A1/formatter/time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
                         "      SpreadsheetFormatterNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -689,18 +629,6 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "  SpreadsheetDialogComponent\n" +
                         "    Formatter\n" +
                         "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
-                        "      SpreadsheetPatternKindTabsComponent\n" +
-                        "        SpreadsheetTabsComponent\n" +
-                        "          TAB 0\n" +
-                        "            \"Date\" [#/1/Spreadsheet123/cell/A1/formatter/date] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-format\n" +
-                        "          TAB 1\n" +
-                        "            \"Date Time\" [#/1/Spreadsheet123/cell/A1/formatter/date-time] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-date-time-format\n" +
-                        "          TAB 2\n" +
-                        "            \"Number\" [#/1/Spreadsheet123/cell/A1/formatter/number] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-number-format\n" +
-                        "          TAB 3\n" +
-                        "            \"Text\" [#/1/Spreadsheet123/cell/A1/formatter/text] id=SpreadsheetFormatterSelectorDialogComponent-Tabs-text-format\n" +
-                        "          TAB 4 SELECTED\n" +
-                        "            \"Time\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-Tabs-time-format\n" +
                         "      SpreadsheetFormatterNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +

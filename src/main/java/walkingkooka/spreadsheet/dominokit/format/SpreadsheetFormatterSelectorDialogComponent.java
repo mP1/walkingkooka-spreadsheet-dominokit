@@ -73,11 +73,13 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
-        this.tabs = SpreadsheetPatternKindTabsComponent.empty(
-                ID + SpreadsheetElementIds.TABS + "-",
-                SpreadsheetPatternKind.formatValues(),
-                context
-        );
+        this.tabs = context.shouldShowTabs() ?
+                SpreadsheetPatternKindTabsComponent.empty(
+                        ID + SpreadsheetElementIds.TABS + "-",
+                        SpreadsheetPatternKind.formatValues(),
+                        context
+                ) :
+                null;
 
         this.formatterNames = SpreadsheetFormatterNameLinkListComponent.empty(ID + "-formatterNames-");
 
@@ -122,13 +124,18 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
 
-        return SpreadsheetDialogComponent.with(
-                        ID,
-                        context.dialogTitle(),
-                        true, // includeClose
-                        context
-                ).appendChild(this.tabs)
-                .appendChild(this.formatterNames)
+        SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+                ID,
+                context.dialogTitle(),
+                true, // includeClose
+                context
+        );
+
+        if (null != this.tabs) {
+            dialog.appendChild(this.tabs);
+        }
+
+        return dialog.appendChild(this.formatterNames)
                 .appendChild(this.table)
                 .appendChild(this.appender)
                 .appendChild(this.removeOrReplace)
@@ -153,6 +160,9 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
     // tabs............................................................................................................
 
+    /**
+     * This will be null when editing a cell formatter.
+     */
     private final SpreadsheetPatternKindTabsComponent tabs;
 
     // formatterNames...................................................................................................
@@ -366,7 +376,9 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 context.dialogTitle()
         );
 
-        this.tabs.refresh(context);
+        if (null != this.tabs) {
+            this.tabs.refresh(context);
+        }
 
         this.formatterNames.refresh(
                 SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext.with(
