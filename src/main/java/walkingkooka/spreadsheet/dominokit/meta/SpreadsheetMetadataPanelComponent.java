@@ -38,9 +38,10 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySty
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
@@ -110,19 +111,19 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
 
         items.add(this.generalFormatNumberDigitCount());
 
-        //items.add(this.dateFormatPattern());
-        //items.add(this.dateParsePattern());
+        items.add(this.dateFormatter());
+        items.add(this.dateParser());
 
-        //items.add(this.dateTimeFormatPattern());
-        //items.add(this.dateTimeParsePattern());
+        items.add(this.dateTimeFormatter());
+        items.add(this.dateTimeParser());
 
-        //items.add(this.numberFormatPattern());
-        //items.add(this.numberParsePattern());
+        items.add(this.numberFormatter());
+        items.add(this.numberParser());
 
-        //items.add(this.textFormatPattern());
+        items.add(this.textFormatter());
 
-        //items.add(this.timeFormatPattern());
-        //items.add(this.timeParsePattern());
+        items.add(this.timeFormatter());
+        items.add(this.timeParser());
 
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
@@ -302,59 +303,59 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
         );
     }
 
-//    private SpreadsheetMetadataPanelComponentItem<SpreadsheetDateFormatPattern> dateFormatPattern() {
-//        return spreadsheetPattern(
-//                SpreadsheetMetadataPropertyName.DATE_FORMATTER
-//        );
-//    }
-//
-//    private SpreadsheetMetadataPanelComponentItem<SpreadsheetDateParsePattern> dateParsePattern() {
-//        return spreadsheetPattern(
-//                SpreadsheetMetadataPropertyName.DATE_PARSER
-//        );
-//    }
-//
-//    private SpreadsheetMetadataPanelComponentItem<SpreadsheetDateTimeFormatPattern> dateTimeFormatPattern() {
-//        return spreadsheetPattern(
-//                SpreadsheetMetadataPropertyName.DATE_TIME_FORMATTER
-//        );
-//    }
-//
-//    private SpreadsheetMetadataPanelComponentItem<SpreadsheetDateTimeParsePattern> dateTimeParsePattern() {
-//        return spreadsheetPattern(
-//                SpreadsheetMetadataPropertyName.DATETIME_PARSER
-//        );
-//    }
-//
-//    private SpreadsheetMetadataPanelComponentItem<SpreadsheetNumberFormatPattern> numberFormatPattern() {
-//        return spreadsheetPattern(
-//                SpreadsheetMetadataPropertyName.NUMBER_FORMATTER
-//        );
-//    }
-//
-//    private SpreadsheetMetadataPanelComponentItem<SpreadsheetNumberParsePattern> numberParsePattern() {
-//        return spreadsheetPattern(
-//                SpreadsheetMetadataPropertyName.NUMBER_PARSER
-//        );
-//    }
-//
-//    private SpreadsheetMetadataPanelComponentItem<SpreadsheetTextFormatPattern> textFormatPattern() {
-//        return spreadsheetPattern(
-//                SpreadsheetMetadataPropertyName.TEXT_FORMATTER
-//        );
-//    }
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector> dateFormatter() {
+        return link(
+                SpreadsheetMetadataPropertyName.DATE_FORMATTER
+        );
+    }
 
-//    private SpreadsheetMetadataPanelComponentItem<SpreadsheetTimeFormatPattern> timeFormatPattern() {
-//        return spreadsheetPattern(
-//                SpreadsheetMetadataPropertyName.TIME_FORMATTER
-//        );
-//    }
-//
-//    private SpreadsheetMetadataPanelComponentItem<SpreadsheetTimeParsePattern> timeParsePattern() {
-//        return spreadsheetPattern(
-//                SpreadsheetMetadataPropertyName.TIME_PARSER
-//        );
-//    }
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector> dateParser() {
+        return link(
+                SpreadsheetMetadataPropertyName.DATE_PARSER
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector> dateTimeFormatter() {
+        return link(
+                SpreadsheetMetadataPropertyName.DATE_TIME_FORMATTER
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector> dateTimeParser() {
+        return link(
+                SpreadsheetMetadataPropertyName.DATE_TIME_PARSER
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector> numberFormatter() {
+        return link(
+                SpreadsheetMetadataPropertyName.NUMBER_FORMATTER
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector> numberParser() {
+        return link(
+                SpreadsheetMetadataPropertyName.NUMBER_PARSER
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector> textFormatter() {
+        return link(
+                SpreadsheetMetadataPropertyName.TEXT_FORMATTER
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterSelector> timeFormatter() {
+        return link(
+                SpreadsheetMetadataPropertyName.TIME_FORMATTER
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector> timeParser() {
+        return link(
+                SpreadsheetMetadataPropertyName.TIME_PARSER
+        );
+    }
 
     /**
      * Factory that displays a slider with thumbs for each Enum value.
@@ -364,6 +365,16 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
         return SpreadsheetMetadataPanelComponentItem.enumValue(
                 propertyName,
                 values,
+                this.context
+        );
+    }
+
+    /**
+     * Factory that creates a link that opens a dialog.
+     */
+    private <T> SpreadsheetMetadataPanelComponentItem<T> link(final SpreadsheetMetadataPropertyName<T> propertyName) {
+        return SpreadsheetMetadataPanelComponentItem.link(
+                propertyName,
                 this.context
         );
     }
@@ -399,16 +410,6 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
      */
     private SpreadsheetMetadataPanelComponentItem<?> spreadsheetNameComponent() {
         return SpreadsheetMetadataPanelComponentItem.spreadsheetName(
-                this.context
-        );
-    }
-
-    /**
-     * Factory that creates a link that opens the pattern editor dialog
-     */
-    private <T extends SpreadsheetPattern> SpreadsheetMetadataPanelComponentItem<T> spreadsheetPattern(final SpreadsheetMetadataPropertyName<T> propertyName) {
-        return SpreadsheetMetadataPanelComponentItem.spreadsheetPattern(
-                propertyName,
                 this.context
         );
     }
