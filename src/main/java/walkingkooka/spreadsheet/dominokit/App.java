@@ -25,9 +25,11 @@ import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.Headers;
 import org.dominokit.domino.ui.cards.Card;
+import org.dominokit.domino.ui.elements.SectionElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.icons.lib.Icons;
+import org.dominokit.domino.ui.layout.AppLayout;
 import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.layout.RightDrawerSize;
 import org.dominokit.domino.ui.notifications.Notification;
@@ -328,6 +330,9 @@ public class App implements EntryPoint,
                                                 SpreadsheetMetadataPanelComponentContexts.appContext(this)
                                         ))
                 );
+        layout.onRightDrawerClosed(
+                (AppLayout a, final SectionElement s) -> this.appLayoutRightPanelClosed()
+        );
 
         final Icon<?> rightToggleIcon = Icons.menu_open();
         rightToggleIcon.addClickListener(
@@ -387,6 +392,16 @@ public class App implements EntryPoint,
                 this.layout.isRightDrawerOpen() ?
                         token.metadataHide() :
                         token.metadataShow()
+        );
+    }
+
+    /**
+     * This event is fired when the right panel closes, such as when the user clicks away from it and the history token needs to be updated.
+     */
+    private void appLayoutRightPanelClosed() {
+        this.pushHistoryToken(
+                this.historyToken()
+                        .metadataHide()
         );
     }
 
