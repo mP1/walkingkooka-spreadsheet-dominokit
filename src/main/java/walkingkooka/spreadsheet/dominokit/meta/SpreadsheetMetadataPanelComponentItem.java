@@ -84,6 +84,17 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     }
 
     /**
+     * {@see SpreadsheetMetadataPanelComponentItemAnchor}
+     */
+    public static <T> SpreadsheetMetadataPanelComponentItemAnchor<T> link(final SpreadsheetMetadataPropertyName<T> propertyName,
+                                                                          final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemAnchor.with(
+                propertyName,
+                context
+        );
+    }
+
+    /**
      * {@see SpreadsheetMetadataPanelComponentItemNumber}
      */
     static SpreadsheetMetadataPanelComponentItemNumber number(final SpreadsheetMetadataPropertyName<Integer> propertyName,
