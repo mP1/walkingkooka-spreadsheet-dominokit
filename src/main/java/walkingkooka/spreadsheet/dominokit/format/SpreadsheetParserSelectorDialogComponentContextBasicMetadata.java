@@ -57,6 +57,11 @@ final class SpreadsheetParserSelectorDialogComponentContextBasicMetadata extends
                 .trim();
     }
 
+    @Override
+    public boolean shouldShowTabs() {
+        return true;
+    }
+
     /**
      * Retrieves the {@link SpreadsheetPatternKind} from the history token,
      * and then reads the value for its {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName}.

@@ -73,11 +73,13 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
-        this.tabs = SpreadsheetPatternKindTabsComponent.empty(
-                ID + SpreadsheetElementIds.TABS + "-",
-                SpreadsheetPatternKind.parseValues(),
-                context
-        );
+        this.tabs = context.shouldShowTabs() ?
+                SpreadsheetPatternKindTabsComponent.empty(
+                        ID + SpreadsheetElementIds.TABS + "-",
+                        SpreadsheetPatternKind.parseValues(),
+                        context
+                ) :
+                null;
 
         this.parserNames = SpreadsheetParserNameLinkListComponent.empty(ID + "-parserNames-");
         this.parserName = Optional.empty();
@@ -121,13 +123,18 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetParserSelectorDialogComponentContext context = this.context;
 
-        return SpreadsheetDialogComponent.with(
-                        ID,
-                        context.dialogTitle(),
-                        true, // includeClose
-                        context
-                ).appendChild(this.tabs)
-                .appendChild(this.parserNames)
+        SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+                ID,
+                context.dialogTitle(),
+                true, // includeClose
+                context
+        );
+
+        if (null != this.tabs) {
+            dialog.appendChild(this.tabs);
+        }
+
+        return dialog.appendChild(this.parserNames)
                 .appendChild(this.table)
                 .appendChild(this.appender)
                 .appendChild(this.removeOrReplace)
@@ -152,6 +159,9 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
 
     // tabs............................................................................................................
 
+    /**
+     * This will be null when editing a cell formatter.
+     */
     private final SpreadsheetPatternKindTabsComponent tabs;
 
     // tabs............................................................................................................
@@ -369,7 +379,9 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                 context.dialogTitle()
         );
 
-        this.tabs.refresh(context);
+        if (null != this.tabs) {
+            this.tabs.refresh(context);
+        }
 
         this.parserNames.refresh(
                 SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext.with(
