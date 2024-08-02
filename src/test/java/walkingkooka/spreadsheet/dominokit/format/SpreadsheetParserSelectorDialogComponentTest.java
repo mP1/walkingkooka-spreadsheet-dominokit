@@ -91,7 +91,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 context,
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Date parser\n" +
+                        "    Parser\n" +
                         "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -173,7 +173,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 context,
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Date parser\n" +
+                        "    Parser\n" +
                         "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -287,7 +287,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 context,
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Date Time parser\n" +
+                        "    Parser\n" +
                         "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -420,7 +420,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 context,
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Number parser\n" +
+                        "    Parser\n" +
                         "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
@@ -574,7 +574,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 context,
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    Time parser\n" +
+                        "    Parser\n" +
                         "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +

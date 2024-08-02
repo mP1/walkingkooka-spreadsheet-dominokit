@@ -29,7 +29,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A {@link SpreadsheetPatternDialogComponentContext} for editing patterns for a cell parser
+ * A {@link SpreadsheetParserSelectorDialogComponentContext} for editing a cell {@link SpreadsheetParserSelector}.
  */
 final class SpreadsheetParserSelectorDialogComponentContextBasicCell extends SpreadsheetParserSelectorDialogComponentContextBasic {
 
@@ -41,6 +41,11 @@ final class SpreadsheetParserSelectorDialogComponentContextBasicCell extends Spr
 
     private SpreadsheetParserSelectorDialogComponentContextBasicCell(final AppContext context) {
         super(context);
+    }
+
+    @Override
+    public String dialogTitle() {
+        return "Parser";
     }
 
     @Override

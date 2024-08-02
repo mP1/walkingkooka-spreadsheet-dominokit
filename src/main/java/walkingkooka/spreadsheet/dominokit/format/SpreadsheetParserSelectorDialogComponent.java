@@ -42,7 +42,6 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTextComponent;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTextComponentAlternative;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
-import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -122,13 +121,9 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetParserSelectorDialogComponentContext context = this.context;
 
-        // patternKind might not always be present so default to empty title when absent. title will be non empty when it is actually shown.
         return SpreadsheetDialogComponent.with(
                         ID,
-                        context.historyToken()
-                                .patternKind()
-                                .map(SpreadsheetParserSelectorDialogComponent::title)
-                                .orElse(""),
+                        context.dialogTitle(),
                         true, // includeClose
                         context
                 ).appendChild(this.tabs)
@@ -371,10 +366,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         final HistoryToken historyToken = context.historyToken();
 
         this.dialog.setTitle(
-                title(
-                        historyToken.patternKind()
-                                .get()
-                )
+                context.dialogTitle()
         );
 
         this.tabs.refresh(context);
@@ -401,16 +393,4 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     }
 
     private Optional<SpreadsheetParserName> parserName;
-
-    // Date/Time format
-    // Text format
-    static String title(final SpreadsheetPatternKind kind) {
-        return CaseKind.SNAKE.change(
-                        kind.name(),
-                        CaseKind.TITLE
-                ).replace("Pattern", "")
-                .replace("Format", "formatter")
-                .replace("Parse", "parser")
-                .trim();
-    }
 }
