@@ -44,17 +44,6 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
         return this.anchoredSelection;
     }
 
-    /**
-     * Factory method where sub-classes create a new instance with the given {@link AnchoredSpreadsheetSelection}.
-     */
-    final HistoryToken setDifferentAnchoredSelection(final AnchoredSpreadsheetSelection anchoredSelection) {
-        return this.replaceIdNameAnchoredSelection(
-                this.id(),
-                this.name(),
-                anchoredSelection
-        );
-    }
-
     private final AnchoredSpreadsheetSelection anchoredSelection;
 
     @Override //
