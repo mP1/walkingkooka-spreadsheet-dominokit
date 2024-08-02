@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.text.CaseKind;
 
 import java.util.Objects;
 
@@ -37,6 +38,23 @@ final class SpreadsheetFormatterSelectorDialogComponentContextBasicMetadata exte
 
     private SpreadsheetFormatterSelectorDialogComponentContextBasicMetadata(final AppContext context) {
         super(context);
+    }
+
+    @Override
+    public String dialogTitle() {
+        return this.historyToken()
+                .patternKind()
+                .map(this::prepareTitle)
+                .orElse("");
+    }
+
+    private String prepareTitle(final SpreadsheetPatternKind kind) {
+        return CaseKind.SNAKE.change(
+                        kind.name(),
+                        CaseKind.TITLE
+                ).replace("Pattern", "")
+                .replace("Format", "formatter")
+                .trim();
     }
 
     /**

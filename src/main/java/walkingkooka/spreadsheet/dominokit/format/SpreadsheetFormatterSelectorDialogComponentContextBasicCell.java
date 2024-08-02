@@ -44,6 +44,11 @@ final class SpreadsheetFormatterSelectorDialogComponentContextBasicCell extends 
     }
 
     @Override
+    public String dialogTitle() {
+        return "Formatter";
+    }
+
+    @Override
     public String undo() {
         String text = "";
 
