@@ -169,11 +169,11 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.content_cut();
     }
 
-    public static MdiIcon formatPattern() {
+    public static MdiIcon formatter() {
         return Icons.format_text();
     }
 
-    public static MdiIcon formatPatternRemove() {
+    public static MdiIcon formatterRemove() {
         return Icons.format_clear();
     }
 

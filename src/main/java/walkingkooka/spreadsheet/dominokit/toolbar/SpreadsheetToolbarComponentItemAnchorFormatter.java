@@ -48,7 +48,7 @@ final class SpreadsheetToolbarComponentItemAnchorFormatter extends SpreadsheetTo
         super(
                 SpreadsheetToolbarComponent.formatterId(),
                 Optional.of(
-                        SpreadsheetIcons.formatPattern()
+                        SpreadsheetIcons.formatter()
                 ),
                 "Formatting",
                 "Formatting...",
