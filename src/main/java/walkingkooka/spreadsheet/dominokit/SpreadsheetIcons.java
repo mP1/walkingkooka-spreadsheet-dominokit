@@ -197,11 +197,11 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.palette();
     }
 
-    public static MdiIcon parsePattern() {
+    public static MdiIcon parser() {
         return Icons.format_text();
     }
 
-    public static MdiIcon parsePatternRemove() {
+    public static MdiIcon parserRemove() {
         return Icons.format_clear();
     }
 

@@ -48,7 +48,7 @@ final class SpreadsheetToolbarComponentItemAnchorParser extends SpreadsheetToolb
         super(
                 SpreadsheetToolbarComponent.parserId(),
                 Optional.of(
-                        SpreadsheetIcons.parsePattern()
+                        SpreadsheetIcons.parser()
                 ),
                 "Parsing",
                 "Parser(s)...",
