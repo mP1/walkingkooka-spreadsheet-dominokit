@@ -43,5 +43,5 @@ public interface FetcherWatcher {
     void onError(final Object cause,
                  final AppContext context);
 
-    void onNoResponse(final AppContext context);
+    void onEmptyResponse(final AppContext context);
 }

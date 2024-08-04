@@ -115,7 +115,7 @@ public interface AppContext extends CanGiveFocus,
                 new SpreadsheetMetadataFetcherWatcher() {
 
                     @Override
-                    public void onNoResponse(final AppContext context) {
+                    public void onEmptyResponse(final AppContext context) {
                         // nop
                     }
 

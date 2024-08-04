@@ -151,7 +151,7 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                watcher.onNoResponse(context);
+                watcher.onEmptyResponse(context);
                 break;
             case "SpreadsheetLabelMapping":
                 watcher.onSpreadsheetLabelMapping(

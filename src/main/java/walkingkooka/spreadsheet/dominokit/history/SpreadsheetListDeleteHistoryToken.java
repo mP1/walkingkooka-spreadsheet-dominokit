@@ -141,7 +141,7 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
                     }
 
                     @Override
-                    public void onNoResponse(final AppContext context) {
+                    public void onEmptyResponse(final AppContext context) {
 
                     }
                 }
