@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistory
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -45,7 +45,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopEmptyResponseFetcherWatcher,
-        SpreadsheetLabelMappingFetcherWatcher {
+        SpreadsheetLabelFetcherWatcher {
 
     /**
      * Creates a new {@link SpreadsheetLabelMappingDialogComponent}.
@@ -275,7 +275,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private boolean loadLabel;
 
-    // SpreadsheetLabelMappingFetcherWatcher...................................................................................
+    // SpreadsheetLabelFetcherWatcher...................................................................................
 
     @Override
     public void onSpreadsheetLabelMapping(final SpreadsheetId id,

@@ -23,27 +23,12 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
 import java.util.Optional;
 
-public final class SpreadsheetLabelMappingFetcherWatchers extends FetcherWatchers<SpreadsheetLabelMappingFetcherWatcher>
-        implements SpreadsheetLabelMappingFetcherWatcher{
-
-    public static SpreadsheetLabelMappingFetcherWatchers empty() {
-        return new SpreadsheetLabelMappingFetcherWatchers();
-    }
-
-    private SpreadsheetLabelMappingFetcherWatchers() {
-        super();
-    }
+public class FakeSpreadsheetLabelFetcherWatcher extends FakeFetcherWatcher implements SpreadsheetLabelFetcherWatcher {
 
     @Override
     public void onSpreadsheetLabelMapping(final SpreadsheetId id,
                                           final Optional<SpreadsheetLabelMapping> mapping,
                                           final AppContext context) {
-        this.fire(
-                SpreadsheetLabelMappingFetcherWatchersEvent.with(
-                        id,
-                        mapping,
-                        context
-                )
-        );
+        throw new UnsupportedOperationException();
     }
 }

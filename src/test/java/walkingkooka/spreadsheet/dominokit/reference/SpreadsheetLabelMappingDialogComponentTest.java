@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -150,7 +150,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
         return new FakeAppContext() {
 
             @Override
-            public Runnable addSpreadsheetLabelMappingFetcherWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher) {
+            public Runnable addSpreadsheetLabelFetcherWatcher(final SpreadsheetLabelFetcherWatcher watcher) {
                 return null;
             }
 

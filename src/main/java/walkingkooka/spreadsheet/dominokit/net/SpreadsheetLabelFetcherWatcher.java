@@ -17,11 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-public interface HasSpreadsheetLabelMappingFetcher {
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
-    Runnable addSpreadsheetLabelMappingFetcherWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher);
+import java.util.Optional;
 
-    Runnable addSpreadsheetLabelMappingFetcherWatcherOnce(final SpreadsheetLabelMappingFetcherWatcher watcher);
+/**
+ * A watcher that receives all {@link SpreadsheetLabelMapping} response events.
+ */
+public interface SpreadsheetLabelFetcherWatcher extends FetcherWatcher {
 
-    SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher();
+    void onSpreadsheetLabelMapping(final SpreadsheetId id,
+                                   final Optional<SpreadsheetLabelMapping> mapping,
+                                   final AppContext context);
 }

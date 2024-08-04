@@ -39,8 +39,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
@@ -129,17 +129,17 @@ public class FakeAppContext implements AppContext,
     // SpreadsheetLabelWatcher..........................................................................................
 
     @Override
-    public Runnable addSpreadsheetLabelMappingFetcherWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher) {
+    public Runnable addSpreadsheetLabelFetcherWatcher(final SpreadsheetLabelFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Runnable addSpreadsheetLabelMappingFetcherWatcherOnce(final SpreadsheetLabelMappingFetcherWatcher watcher) {
+    public Runnable addSpreadsheetLabelFetcherWatcherOnce(final SpreadsheetLabelFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher() {
+    public SpreadsheetLabelFetcher spreadsheetLabelFetcher() {
         throw new UnsupportedOperationException();
     }
 
