@@ -82,6 +82,9 @@ import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatchers;
@@ -117,6 +120,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviders;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.JsonNodeMarshallUnmarshallContextDelegator;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
@@ -141,6 +145,7 @@ public class App implements EntryPoint,
         JsonNodeMarshallUnmarshallContextDelegator,
         NopEmptyResponseFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
+        SpreadsheetFormatterFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler,
         ConverterProviderDelegator,
@@ -188,6 +193,14 @@ public class App implements EntryPoint,
                 this
         );
         this.addSpreadsheetDeltaFetcherWatcher(this);
+
+        // formatter
+        this.spreadsheetFormatterWatchers = SpreadsheetFormatterFetcherWatchers.empty();
+        this.spreadsheetFormatterFetcher = SpreadsheetFormatterFetcher.with(
+                this.spreadsheetFormatterWatchers,
+                this
+        );
+        this.addSpreadsheetFormatterFetcherWatcher(this);
 
         // labelMapping
         this.spreadsheetLabelMappingFetcherWatchers = SpreadsheetLabelMappingFetcherWatchers.empty();
@@ -527,6 +540,41 @@ public class App implements EntryPoint,
                             );
                         }
                 );
+    }
+
+    // SpreadsheetFormatter.................................................................................................
+
+    @Override
+    public SpreadsheetFormatterFetcher spreadsheetFormatterFetcher() {
+        return this.spreadsheetFormatterFetcher;
+    }
+
+    private final SpreadsheetFormatterFetcher spreadsheetFormatterFetcher;
+
+    @Override
+    public Runnable addSpreadsheetFormatterFetcherWatcher(final SpreadsheetFormatterFetcherWatcher watcher) {
+        return this.spreadsheetFormatterWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetFormatterFetcherWatcherOnce(final SpreadsheetFormatterFetcherWatcher watcher) {
+        return this.spreadsheetFormatterWatchers.addOnce(watcher);
+    }
+
+    /**
+     * A collection of listeners for {@link SpreadsheetFormatterFetcherWatcher}
+     */
+    private final SpreadsheetFormatterFetcherWatchers spreadsheetFormatterWatchers;
+
+    @Override
+    public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
+                                                   final SpreadsheetFormatterSelectorEdit edit,
+                                                   final AppContext context) {
+        this.spreadsheetFormatterWatchers.onSpreadsheetFormatterSelectorEdit(
+                id,
+                edit,
+                context
+        );
     }
 
     // SpreadsheetLabelMapping..........................................................................................
