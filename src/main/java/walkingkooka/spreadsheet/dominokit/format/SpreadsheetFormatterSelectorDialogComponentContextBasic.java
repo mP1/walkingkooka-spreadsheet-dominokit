@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
@@ -76,11 +75,6 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
     @Override
     public final void giveFocus(final Runnable focus) {
         this.context.giveFocus(focus);
-    }
-
-    @Override
-    public final Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
     }
 
     @Override
