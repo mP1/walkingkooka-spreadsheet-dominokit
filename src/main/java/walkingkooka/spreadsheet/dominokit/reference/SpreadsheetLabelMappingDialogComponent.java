@@ -133,7 +133,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                 .setLabel("Label")
                 .required()
                 .addChangeListener(
-                        (oldValue, newValue) -> this.refresh()
+                        (oldValue, newValue) -> this.refreshLinksAndLoadLabels()
                 );
     }
 
@@ -149,9 +149,9 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                 .setId(ID_PREFIX + "target-TextBox")
                 .setLabel("Cell, cell range or Label")
                 .addChangeListener(
-                        (oldValue, newValue) -> this.refresh()
+                        (oldValue, newValue) -> this.refreshLinksAndLoadLabels()
                 ).addKeyupListener(
-                        (e) -> this.refresh()
+                        (e) -> this.refreshLinksAndLoadLabels()
                 );
     }
 
@@ -240,10 +240,10 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
      */
     @Override
     public void refresh(final AppContext context) {
-        this.refresh();
+        this.refreshLinksAndLoadLabels();
     }
 
-    private void refresh() {
+    private void refreshLinksAndLoadLabels() {
         this.refreshSave();
         this.refreshUndo();
         this.refreshDelete();
@@ -283,7 +283,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                                           final AppContext context) {
         this.undoLabel = mapping.map(SpreadsheetLabelMapping::label);
         this.undoTarget = mapping.map(SpreadsheetLabelMapping::target);
-        this.refresh();
+        this.refreshLinksAndLoadLabels();
     }
 
     // Object..........................................................................................................
