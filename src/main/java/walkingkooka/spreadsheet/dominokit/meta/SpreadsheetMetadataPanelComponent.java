@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataHistoryToke
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseWatcher;
+import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -60,7 +60,7 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
         ComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
-        NopEmptyResponseWatcher,
+        NopEmptyResponseFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher {
 
     public static SpreadsheetMetadataPanelComponent with(final OpenableComponent drawer,

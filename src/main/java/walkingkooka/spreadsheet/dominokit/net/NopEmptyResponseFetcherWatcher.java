@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public interface NopEmptyResponseWatcher extends FetcherWatcher {
+public interface NopEmptyResponseFetcherWatcher extends FetcherWatcher {
 
     default void onEmptyResponse(final AppContext context) {
         // ignore
