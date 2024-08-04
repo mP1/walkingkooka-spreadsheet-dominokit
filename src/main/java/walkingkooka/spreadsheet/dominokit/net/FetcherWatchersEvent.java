@@ -41,6 +41,10 @@ abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consume
         );
     }
 
+    static <W extends FetcherWatcher> EmptyResponseFetcherWatchersEvent<W> empty(final AppContext context) {
+        return EmptyResponseFetcherWatchersEvent.with(context);
+    }
+
     static <W extends FetcherWatcher> ErrorFetcherWatchersEvent<W> error(final Object cause,
                                                                          final AppContext context) {
         return ErrorFetcherWatchersEvent.with(cause, context);
@@ -60,10 +64,6 @@ abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consume
                 body,
                 context
         );
-    }
-
-    static <W extends FetcherWatcher> NoResponseFetcherWatchersEvent<W> noResponse(final AppContext context) {
-        return NoResponseFetcherWatchersEvent.with(context);
     }
 
     FetcherWatchersEvent(final AppContext context) {

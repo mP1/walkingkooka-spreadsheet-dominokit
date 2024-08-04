@@ -22,13 +22,13 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 /**
  * The event payload used by {@link FetcherWatcher#onEmptyResponse(AppContext)}.
  */
-final class NoResponseFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
+final class EmptyResponseFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
 
-    static <W extends FetcherWatcher> NoResponseFetcherWatchersEvent<W> with(final AppContext context) {
-        return new NoResponseFetcherWatchersEvent<>(context);
+    static <W extends FetcherWatcher> EmptyResponseFetcherWatchersEvent<W> with(final AppContext context) {
+        return new EmptyResponseFetcherWatchersEvent<>(context);
     }
 
-    private NoResponseFetcherWatchersEvent(final AppContext context) {
+    private EmptyResponseFetcherWatchersEvent(final AppContext context) {
         super(context);
     }
 
