@@ -36,18 +36,11 @@ final class ErrorFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherW
     }
 
     @Override
-    public void accept(final W watcher) {
-        try {
-            watcher.onError(
-                    this.cause,
-                    this.context
-            );
-        } catch (final Exception cause) {
-            this.context.error(
-                    this.getClass().getSimpleName() + ".accept exception: " + cause.getMessage(),
-                    cause
-            );
-        }
+    void fire(final W watcher) {
+        watcher.onError(
+                this.cause,
+                this.context
+        );
     }
 
     private final Object cause;

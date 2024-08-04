@@ -37,18 +37,11 @@ final class SpreadsheetMetadataFetcherWatchersEvent extends FetcherWatchersEvent
     }
 
     @Override
-    public void accept(final SpreadsheetMetadataFetcherWatcher watcher) {
-        try {
-            watcher.onSpreadsheetMetadata(
-                    this.metadata,
-                    this.context
-            );
-        } catch (final Exception cause) {
-            this.context.error(
-                    "SpreadsheetMetadataFetcherWatchersEvent.accept exception: " + cause.getMessage(),
-                    cause
-            );
-        }
+    void fire(final SpreadsheetMetadataFetcherWatcher watcher) {
+        watcher.onSpreadsheetMetadata(
+                this.metadata,
+                this.context
+        );
     }
 
     private final SpreadsheetMetadata metadata;

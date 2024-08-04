@@ -60,22 +60,15 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
     }
 
     @Override
-    public void accept(final W watcher) {
-        try {
-            watcher.onFailure(
-                    this.method,
-                    this.url,
-                    this.status,
-                    this.headers,
-                    this.body,
-                    this.context
-            );
-        } catch (final Exception cause) {
-            this.context.error(
-                    this.getClass().getSimpleName() + ".accept exception: " + cause.getMessage(),
-                    cause
-            );
-        }
+    void fire(final W watcher) {
+        watcher.onFailure(
+                this.method,
+                this.url,
+                this.status,
+                this.headers,
+                this.body,
+                this.context
+        );
     }
 
     private final HttpMethod method;
