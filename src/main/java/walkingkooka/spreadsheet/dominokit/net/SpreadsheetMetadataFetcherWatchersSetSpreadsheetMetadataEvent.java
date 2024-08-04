@@ -42,18 +42,11 @@ final class SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent extend
     }
 
     @Override
-    public void accept(final SpreadsheetMetadataFetcherWatcher watcher) {
-        try {
-            watcher.onSpreadsheetMetadataSet(
-                    this.metadatas,
-                    this.context
-            );
-        } catch (final Exception cause) {
-            this.context.error(
-                    "SpreadsheetMetadataFetcherWatchersEvent.accept exception: " + cause.getMessage(),
-                    cause
-            );
-        }
+    void fire(final SpreadsheetMetadataFetcherWatcher watcher) {
+        watcher.onSpreadsheetMetadataSet(
+                this.metadatas,
+                this.context
+        );
     }
 
     private final Set<SpreadsheetMetadata> metadatas;

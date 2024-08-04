@@ -186,7 +186,7 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         }
 
         @Override
-        public void accept(final TestFetcherWatcher watcher) {
+        void fire(final TestFetcherWatcher watcher) {
             watcher.onSuccess(
                     this.context
             );
@@ -291,7 +291,7 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         }
 
         @Override
-        public void accept(final TestFetcherWatcher2 watcher) {
+        void fire(final TestFetcherWatcher2 watcher) {
             watcher.onSuccess(
                     this.context
             );

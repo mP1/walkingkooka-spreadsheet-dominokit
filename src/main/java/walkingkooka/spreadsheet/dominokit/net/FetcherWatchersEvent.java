@@ -70,6 +70,23 @@ abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consume
         this.context = context;
     }
 
+    @Override
+    public final void accept(final W watcher) {
+        try {
+            this.fire(watcher);
+        } catch (final Exception cause) {
+            this.context.error(
+                    this.getClass().getSimpleName() + ".accept exception: " + cause.getMessage(),
+                    cause
+            );
+        }
+    }
+
+    /**
+     * Sub-classes should implement this method, note any caught {@link Exception} will be logged as an ERROR.
+     */
+    abstract void fire(final W watcher);
+
     final AppContext context;
 
     @Override

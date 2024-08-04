@@ -50,20 +50,13 @@ final class SpreadsheetDeltaFetcherWatchersEvent extends FetcherWatchersEvent<Sp
     }
 
     @Override
-    public void accept(final SpreadsheetDeltaFetcherWatcher watcher) {
-        try {
-            watcher.onSpreadsheetDelta(
-                    this.method,
-                    this.url,
-                    this.delta,
-                    this.context
-            );
-        } catch (final Exception cause) {
-            this.context.error(
-                    "SpreadsheetDeltaFetcherWatchersEvent.accept exception: " + cause.getMessage(),
-                    cause
-            );
-        }
+    void fire(final SpreadsheetDeltaFetcherWatcher watcher) {
+        watcher.onSpreadsheetDelta(
+                this.method,
+                this.url,
+                this.delta,
+                this.context
+        );
     }
 
     private final HttpMethod method;

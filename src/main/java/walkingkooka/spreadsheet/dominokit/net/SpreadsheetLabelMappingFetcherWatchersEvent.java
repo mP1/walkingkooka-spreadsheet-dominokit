@@ -47,19 +47,12 @@ final class SpreadsheetLabelMappingFetcherWatchersEvent extends FetcherWatchersE
     }
 
     @Override
-    public void accept(final SpreadsheetLabelMappingFetcherWatcher watcher) {
-        try {
-            watcher.onSpreadsheetLabelMapping(
-                    this.id,
-                    this.mapping,
-                    this.context
-            );
-        } catch (final Exception cause) {
-            this.context.error(
-                    "SpreadsheetLabelMappingFetcherWatchersEvent.accept exception: " + cause.getMessage(),
-                    cause
-            );
-        }
+    void fire(final SpreadsheetLabelMappingFetcherWatcher watcher) {
+        watcher.onSpreadsheetLabelMapping(
+                this.id,
+                this.mapping,
+                this.context
+        );
     }
 
     private final SpreadsheetId id;
