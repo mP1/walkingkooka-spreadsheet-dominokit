@@ -37,25 +37,25 @@ import java.util.Optional;
 /**
  * Fetcher for {@link SpreadsheetFormatterSelector} end points.
  */
-public final class SpreadsheetFormatterSelectorFetcher implements Fetcher {
+public final class SpreadsheetFormatterFetcher implements Fetcher {
 
     static {
         SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT.toString(); // force json unmarshaller to register
     }
 
-    public static SpreadsheetFormatterSelectorFetcher with(final SpreadsheetFormatterSelectorFetcherWatcher watcher,
-                                                           final AppContext context) {
+    public static SpreadsheetFormatterFetcher with(final SpreadsheetFormatterFetcherWatcher watcher,
+                                                   final AppContext context) {
         Objects.requireNonNull(watcher, "watcher");
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetFormatterSelectorFetcher(
+        return new SpreadsheetFormatterFetcher(
                 watcher,
                 context
         );
     }
 
-    private SpreadsheetFormatterSelectorFetcher(final SpreadsheetFormatterSelectorFetcherWatcher watcher,
-                                                final AppContext context) {
+    private SpreadsheetFormatterFetcher(final SpreadsheetFormatterFetcherWatcher watcher,
+                                        final AppContext context) {
         this.watcher = watcher;
         this.context = context;
     }
@@ -163,7 +163,7 @@ public final class SpreadsheetFormatterSelectorFetcher implements Fetcher {
         );
     }
 
-    private final SpreadsheetFormatterSelectorFetcherWatcher watcher;
+    private final SpreadsheetFormatterFetcherWatcher watcher;
 
     @Override
     public int waitingRequestCount() {
