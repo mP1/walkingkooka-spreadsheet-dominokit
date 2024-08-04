@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseWatcher;
+import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
@@ -47,7 +47,7 @@ import java.util.function.Function;
  */
 public final class SpreadsheetMetadataColorPickerComponent implements SpreadsheetMetadataFetcherWatcher,
         NopFetcherWatcher,
-        NopEmptyResponseWatcher,
+        NopEmptyResponseFetcherWatcher,
         IsElement<HTMLTableElement> {
 
     private final static String ID = "color-picker";

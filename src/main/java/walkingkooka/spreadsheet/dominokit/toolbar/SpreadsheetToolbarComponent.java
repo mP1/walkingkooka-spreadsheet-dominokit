@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseWatcher;
+import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
@@ -48,7 +48,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         SpreadsheetViewportComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
-        NopEmptyResponseWatcher,
+        NopEmptyResponseFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
         TreePrintable {
 

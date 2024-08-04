@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseWatcher;
+import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -44,7 +44,7 @@ import java.util.Optional;
 public final class SpreadsheetLabelMappingDialogComponent implements SpreadsheetDialogComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
-        NopEmptyResponseWatcher,
+        NopEmptyResponseFetcherWatcher,
         SpreadsheetLabelMappingFetcherWatcher {
 
     /**
