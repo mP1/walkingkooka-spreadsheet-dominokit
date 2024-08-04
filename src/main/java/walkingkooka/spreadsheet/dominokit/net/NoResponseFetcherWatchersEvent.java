@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
 /**
- * The event payload used by {@link FetcherWatcher#onNoResponse(AppContext)}.
+ * The event payload used by {@link FetcherWatcher#onEmptyResponse(AppContext)}.
  */
 final class NoResponseFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
 
@@ -35,7 +35,7 @@ final class NoResponseFetcherWatchersEvent<W extends FetcherWatcher> extends Fet
     @Override
     public void accept(final W watcher) {
         try {
-            watcher.onNoResponse(
+            watcher.onEmptyResponse(
                     this.context
             );
         } catch (final Exception cause) {

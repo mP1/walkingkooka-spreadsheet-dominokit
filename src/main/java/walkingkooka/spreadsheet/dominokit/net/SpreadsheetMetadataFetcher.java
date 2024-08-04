@@ -255,7 +255,7 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                watcher.onNoResponse(
+                watcher.onEmptyResponse(
                         context
                 );
                 break;

@@ -916,7 +916,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onNoResponse(context);
+                this.watcher.onEmptyResponse(context);
             case "SpreadsheetDelta":
                 // http://server/api/spreadsheet/1/cell
                 this.watcher.onSpreadsheetDelta(

@@ -169,8 +169,8 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         }
 
         @Override
-        public void onNoResponse(final AppContext context) {
-            this.b.append("onNoResponse");
+        public void onEmptyResponse(final AppContext context) {
+            this.b.append("onEmptyResponse");
         }
 
         @Override
@@ -274,7 +274,7 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         }
 
         @Override
-        public void onNoResponse(AppContext context) {
+        public void onEmptyResponse(AppContext context) {
             throw new UnsupportedOperationException();
         }
 

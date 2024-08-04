@@ -235,7 +235,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
     // SpreadsheetMetadataFetcherWatcher................................................................................
 
     @Override
-    public void onNoResponse(final AppContext context) {
+    public void onEmptyResponse(final AppContext context) {
         // ignore
     }
 
