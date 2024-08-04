@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
 
 /**
- * A mostly complete {@link SpreadsheetPatternDialogComponentContext}.
+ * A mostly complete {@link SpreadsheetParserSelectorDialogComponent}.
  */
 abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements SpreadsheetParserSelectorDialogComponentContext,
         HistoryTokenContextDelegator,
