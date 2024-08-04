@@ -19,15 +19,29 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 
-/**
- * A watcher that receives all {@link SpreadsheetFormatterSelector} response events.
- */
-public interface SpreadsheetFormatterSelectorFetcherWatcher extends FetcherWatcher {
+public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<SpreadsheetFormatterFetcherWatcher>
+        implements SpreadsheetFormatterFetcherWatcher {
 
-    void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
-                                            final SpreadsheetFormatterSelectorEdit edit,
-                                            final AppContext context);
+    public static SpreadsheetFormatterFetcherWatchers empty() {
+        return new SpreadsheetFormatterFetcherWatchers();
+    }
+
+    private SpreadsheetFormatterFetcherWatchers() {
+        super();
+    }
+
+    @Override
+    public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
+                                                   final SpreadsheetFormatterSelectorEdit edit,
+                                                   final AppContext context) {
+        this.fire(
+                SpreadsheetFormatterFetcherWatchersEvent.with(
+                        id,
+                        edit,
+                        context
+                )
+        );
+    }
 }

@@ -22,30 +22,30 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 
 /**
- * The event payload used by {@link SpreadsheetFormatterSelectorFetcherWatchers}.
+ * The event payload used by {@link SpreadsheetFormatterFetcherWatchers}.
  */
-final class SpreadsheetFormatterSelectorFetcherWatchersEvent extends FetcherWatchersEvent<SpreadsheetFormatterSelectorFetcherWatcher> {
+final class SpreadsheetFormatterFetcherWatchersEvent extends FetcherWatchersEvent<SpreadsheetFormatterFetcherWatcher> {
 
-    static SpreadsheetFormatterSelectorFetcherWatchersEvent with(final SpreadsheetId id,
-                                                                 final SpreadsheetFormatterSelectorEdit edit,
-                                                                 final AppContext context) {
-        return new SpreadsheetFormatterSelectorFetcherWatchersEvent(
+    static SpreadsheetFormatterFetcherWatchersEvent with(final SpreadsheetId id,
+                                                         final SpreadsheetFormatterSelectorEdit edit,
+                                                         final AppContext context) {
+        return new SpreadsheetFormatterFetcherWatchersEvent(
                 id,
                 edit,
                 context
         );
     }
 
-    private SpreadsheetFormatterSelectorFetcherWatchersEvent(final SpreadsheetId id,
-                                                             final SpreadsheetFormatterSelectorEdit edit,
-                                                             final AppContext context) {
+    private SpreadsheetFormatterFetcherWatchersEvent(final SpreadsheetId id,
+                                                     final SpreadsheetFormatterSelectorEdit edit,
+                                                     final AppContext context) {
         super(context);
         this.id = id;
         this.edit = edit;
     }
 
     @Override
-    void fire(final SpreadsheetFormatterSelectorFetcherWatcher watcher) {
+    void fire(final SpreadsheetFormatterFetcherWatcher watcher) {
         watcher.onSpreadsheetFormatterSelectorEdit(
                 this.id,
                 this.edit,
