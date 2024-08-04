@@ -53,6 +53,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaHateosResourceMappings;
+import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaUrlQueryParameters;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
@@ -171,7 +172,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
         if (path.isPresent()) {
             result = result.addParameter(
-                    CELL_RANGE_PATH,
+                    SpreadsheetDeltaUrlQueryParameters.CELL_RANGE_PATH,
                     CaseKind.kebabEnumName(
                             path.get()
                     )
@@ -179,7 +180,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         }
         if (max.isPresent()) {
             result = result.addParameter(
-                    MAX,
+                    SpreadsheetDeltaUrlQueryParameters.MAX,
                     String.valueOf(
                             max.getAsInt()
                     )
@@ -187,7 +188,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         }
         if (offset.isPresent()) {
             result = result.addParameter(
-                    OFFSET,
+                    SpreadsheetDeltaUrlQueryParameters.OFFSET,
                     String.valueOf(
                             offset.getAsInt()
                     )
@@ -195,26 +196,19 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         }
         if (query.isPresent()) {
             result = result.addParameter(
-                    QUERY,
+                    SpreadsheetDeltaUrlQueryParameters.QUERY,
                     query.get()
             );
         }
         if (valueType.isPresent()) {
             result = result.addParameter(
-                    VALUE_TYPE,
+                    SpreadsheetDeltaUrlQueryParameters.VALUE_TYPE,
                     valueType.get()
             );
         }
 
         return result;
     }
-
-    final static UrlParameterName CELL_RANGE_PATH = UrlParameterName.with("cell-range-path");
-    final static UrlParameterName MAX = UrlParameterName.with("max");
-    final static UrlParameterName OFFSET = UrlParameterName.with("offset");
-    final static UrlParameterName QUERY = UrlParameterName.with("query");
-
-    final static UrlParameterName VALUE_TYPE = UrlParameterName.with("value-type");
 
     public static UrlQueryString viewportAndWindowQueryString(final SpreadsheetViewport viewport,
                                                               final SpreadsheetViewportWindows window) {
@@ -238,10 +232,10 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         final SpreadsheetViewportRectangle rectangle = viewport.rectangle();
 
         UrlQueryString result = UrlQueryString.EMPTY
-                .addParameter(HOME, rectangle.home().toString())
-                .addParameter(WIDTH, String.valueOf(rectangle.width()))
-                .addParameter(HEIGHT, String.valueOf(rectangle.height()))
-                .addParameter(INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
+                .addParameter(SpreadsheetDeltaUrlQueryParameters.HOME, rectangle.home().toString())
+                .addParameter(SpreadsheetDeltaUrlQueryParameters.WIDTH, String.valueOf(rectangle.width()))
+                .addParameter(SpreadsheetDeltaUrlQueryParameters.HEIGHT, String.valueOf(rectangle.height()))
+                .addParameter(SpreadsheetDeltaUrlQueryParameters.INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
 
         final Optional<AnchoredSpreadsheetSelection> maybeAnchored = viewport.anchoredSelection();
         if (maybeAnchored.isPresent()) {
@@ -249,17 +243,17 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
             final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
             result = result.addParameter(
-                    SELECTION,
+                    SpreadsheetDeltaUrlQueryParameters.SELECTION,
                     selection.toStringMaybeStar()
             ).addParameter(
-                    SELECTION_TYPE,
+                    SpreadsheetDeltaUrlQueryParameters.SELECTION_TYPE,
                     selection.selectionTypeName()
             );
 
             final SpreadsheetViewportAnchor anchor = anchoredSpreadsheetSelection.anchor();
             if (SpreadsheetViewportAnchor.NONE != anchor) {
                 result = result.addParameter(
-                        SELECTION_ANCHOR,
+                        SpreadsheetDeltaUrlQueryParameters.SELECTION_ANCHOR,
                         anchor.kebabText()
                 );
             }
@@ -268,7 +262,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         final List<SpreadsheetViewportNavigation> navigations = viewport.navigations();
         if (false == navigations.isEmpty()) {
             result = result.addParameter(
-                    NAVIGATION,
+                    SpreadsheetDeltaUrlQueryParameters.NAVIGATION,
                     SpreadsheetViewport.SEPARATOR.toSeparatedString(
                             navigations,
                             SpreadsheetViewportNavigation::text
@@ -279,25 +273,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         return result;
     }
 
-    private final static UrlParameterName HOME = UrlParameterName.with("home");
-
-    private final static UrlParameterName WIDTH = UrlParameterName.with("width");
-
-    private final static UrlParameterName HEIGHT = UrlParameterName.with("height");
-
-    private final static UrlParameterName INCLUDE_FROZEN_COLUMNS_ROWS = UrlParameterName.with("includeFrozenColumnsRows");
-
-    private final static UrlParameterName SELECTION = UrlParameterName.with("selection");
-
-    private final static UrlParameterName SELECTION_TYPE = UrlParameterName.with("selectionType");
-
-    private final static UrlParameterName SELECTION_ANCHOR = UrlParameterName.with("selectionAnchor");
-
-    /**
-     * Holds a direction resulting from entering an arrow key etc.
-     */
-    private final static UrlParameterName NAVIGATION = UrlParameterName.with("navigation");
-
     /**
      * Appends the given window to the given {@link UrlQueryString}
      */
@@ -307,12 +282,10 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         return window.isEmpty() ?
                 UrlQueryString.EMPTY :
                 UrlQueryString.EMPTY.addParameter(
-                        WINDOW,
+                        SpreadsheetDeltaUrlQueryParameters.WINDOW,
                         window.toString()
                 );
     }
-
-    private final static UrlParameterName WINDOW = UrlParameterName.with("window");
 
     public static SpreadsheetDeltaFetcher with(final SpreadsheetDeltaFetcherWatcher watcher,
                                                final AppContext context) {
