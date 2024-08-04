@@ -101,7 +101,7 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
                                final AppContext context) {
         context.pushHistoryToken(previous);
 
-        context.spreadsheetLabelMappingFetcher()
+        context.spreadsheetLabelFetcher()
                 .deleteLabelMapping(
                         this.id(),
                         this.labelName // getter returns Optional label

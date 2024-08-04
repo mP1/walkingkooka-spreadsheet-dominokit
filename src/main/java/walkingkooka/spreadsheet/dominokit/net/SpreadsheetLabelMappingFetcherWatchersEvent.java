@@ -24,9 +24,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import java.util.Optional;
 
 /**
- * The event payload used by {@link SpreadsheetLabelMappingFetcherWatchers}.
+ * The event payload used by {@link SpreadsheetLabelFetcherWatchers}.
  */
-final class SpreadsheetLabelMappingFetcherWatchersEvent extends FetcherWatchersEvent<SpreadsheetLabelMappingFetcherWatcher> {
+final class SpreadsheetLabelMappingFetcherWatchersEvent extends FetcherWatchersEvent<SpreadsheetLabelFetcherWatcher> {
 
     static SpreadsheetLabelMappingFetcherWatchersEvent with(final SpreadsheetId id,
                                                             final Optional<SpreadsheetLabelMapping> mapping,
@@ -47,7 +47,7 @@ final class SpreadsheetLabelMappingFetcherWatchersEvent extends FetcherWatchersE
     }
 
     @Override
-    void fire(final SpreadsheetLabelMappingFetcherWatcher watcher) {
+    void fire(final SpreadsheetLabelFetcherWatcher watcher) {
         watcher.onSpreadsheetLabelMapping(
                 this.id,
                 this.mapping,

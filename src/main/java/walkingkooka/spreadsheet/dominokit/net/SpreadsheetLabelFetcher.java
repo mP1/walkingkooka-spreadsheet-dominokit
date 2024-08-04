@@ -34,26 +34,26 @@ import walkingkooka.text.CharSequences;
 import java.util.Objects;
 import java.util.Optional;
 
-public final class SpreadsheetLabelMappingFetcher implements Fetcher {
+public final class SpreadsheetLabelFetcher implements Fetcher {
 
     static {
         SpreadsheetSelection.labelName("Label")
                 .mapping(SpreadsheetSelection.A1); // force json unmarshaller register
     }
 
-    public static SpreadsheetLabelMappingFetcher with(final SpreadsheetLabelMappingFetcherWatcher watcher,
-                                                      final AppContext context) {
+    public static SpreadsheetLabelFetcher with(final SpreadsheetLabelFetcherWatcher watcher,
+                                               final AppContext context) {
         Objects.requireNonNull(watcher, "watcher");
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetLabelMappingFetcher(
+        return new SpreadsheetLabelFetcher(
                 watcher,
                 context
         );
     }
 
-    private SpreadsheetLabelMappingFetcher(final SpreadsheetLabelMappingFetcherWatcher watcher,
-                                           final AppContext context) {
+    private SpreadsheetLabelFetcher(final SpreadsheetLabelFetcherWatcher watcher,
+                                    final AppContext context) {
         this.watcher = watcher;
         this.context = context;
     }
@@ -137,7 +137,7 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
                           final String body) {
-        final SpreadsheetLabelMappingFetcherWatcher watcher = this.watcher;
+        final SpreadsheetLabelFetcherWatcher watcher = this.watcher;
         final AppContext context = this.context;
 
         this.logSuccess(
@@ -196,7 +196,7 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
         );
     }
 
-    private final SpreadsheetLabelMappingFetcherWatcher watcher;
+    private final SpreadsheetLabelFetcherWatcher watcher;
 
     @Override
     public int waitingRequestCount() {

@@ -32,7 +32,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWatchersTestCase<SpreadsheetLabelMappingFetcherWatchers> {
+public final class SpreadsheetLabelFetcherWatchersTest extends FetcherWatchersTestCase<SpreadsheetLabelFetcherWatchers> {
 
     @Test
     public void testAddThenFire() {
@@ -45,18 +45,18 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
         );
         final AppContext appContext = AppContexts.fake();
 
-        final SpreadsheetLabelMappingFetcherWatchers watchers = SpreadsheetLabelMappingFetcherWatchers.empty();
+        final SpreadsheetLabelFetcherWatchers watchers = SpreadsheetLabelFetcherWatchers.empty();
         watchers.add(
-                new FakeSpreadsheetLabelMappingFetcherWatcher() {
+                new FakeSpreadsheetLabelFetcherWatcher() {
                     @Override
                     public void onSpreadsheetLabelMapping(final SpreadsheetId id,
                                                           final Optional<SpreadsheetLabelMapping> mapping,
                                                           final AppContext context) {
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(spreadsheetId, id);
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(spreadsheetLabelMapping, mapping);
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(appContext, context);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(spreadsheetId, id);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(spreadsheetLabelMapping, mapping);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.fired++;
+                        SpreadsheetLabelFetcherWatchersTest.this.fired++;
                     }
                 });
         watchers.onSpreadsheetLabelMapping(spreadsheetId, spreadsheetLabelMapping, appContext);
@@ -75,18 +75,18 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
         );
         final AppContext appContext = AppContexts.fake();
 
-        final SpreadsheetLabelMappingFetcherWatchers watchers = SpreadsheetLabelMappingFetcherWatchers.empty();
+        final SpreadsheetLabelFetcherWatchers watchers = SpreadsheetLabelFetcherWatchers.empty();
         watchers.addOnce(
-                new FakeSpreadsheetLabelMappingFetcherWatcher() {
+                new FakeSpreadsheetLabelFetcherWatcher() {
                     @Override
                     public void onSpreadsheetLabelMapping(final SpreadsheetId id,
                                                           final Optional<SpreadsheetLabelMapping> mapping,
                                                           final AppContext context) {
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(spreadsheetId, id);
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(spreadsheetLabelMapping, mapping);
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(appContext, context);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(spreadsheetId, id);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(spreadsheetLabelMapping, mapping);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.fired++;
+                        SpreadsheetLabelFetcherWatchersTest.this.fired++;
                     }
                 });
         watchers.onSpreadsheetLabelMapping(spreadsheetId, spreadsheetLabelMapping, appContext);
@@ -108,21 +108,21 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
         final Optional<String> body = Optional.of("Body123");
         final AppContext appContext = AppContexts.fake();
 
-        final SpreadsheetLabelMappingFetcherWatchers watchers = SpreadsheetLabelMappingFetcherWatchers.empty();
+        final SpreadsheetLabelFetcherWatchers watchers = SpreadsheetLabelFetcherWatchers.empty();
         watchers.add(
-                new FakeSpreadsheetLabelMappingFetcherWatcher() {
+                new FakeSpreadsheetLabelFetcherWatcher() {
 
                     @Override
                     public void onBegin(final HttpMethod m,
                                         final Url u,
                                         final Optional<String> b,
                                         final AppContext context) {
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(method, m);
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(u, u);
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(b, b);
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(appContext, context);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(method, m);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(u, u);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(b, b);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.fired++;
+                        SpreadsheetLabelFetcherWatchersTest.this.fired++;
                     }
                 });
         watchers.onBegin(method, url, body, appContext);
@@ -142,16 +142,16 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
         final Object cause = "cause-123";
         final AppContext appContext = AppContexts.fake();
 
-        final SpreadsheetLabelMappingFetcherWatchers watchers = SpreadsheetLabelMappingFetcherWatchers.empty();
+        final SpreadsheetLabelFetcherWatchers watchers = SpreadsheetLabelFetcherWatchers.empty();
         watchers.add(
-                new FakeSpreadsheetLabelMappingFetcherWatcher() {
+                new FakeSpreadsheetLabelFetcherWatcher() {
                     @Override
                     public void onError(final Object c,
                                         final AppContext context) {
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(cause, c);
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(appContext, context);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(cause, c);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.fired++;
+                        SpreadsheetLabelFetcherWatchersTest.this.fired++;
                     }
                 });
         watchers.onError(cause, appContext);
@@ -175,9 +175,9 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
         final String body = "Body-failure-789";
         final AppContext appContext = AppContexts.fake();
 
-        final SpreadsheetLabelMappingFetcherWatchers watchers = SpreadsheetLabelMappingFetcherWatchers.empty();
+        final SpreadsheetLabelFetcherWatchers watchers = SpreadsheetLabelFetcherWatchers.empty();
         watchers.add(
-                new FakeSpreadsheetLabelMappingFetcherWatcher() {
+                new FakeSpreadsheetLabelFetcherWatcher() {
 
                     @Override
                     public void onFailure(final HttpMethod m,
@@ -186,14 +186,14 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
                                           final Headers h,
                                           final String b,
                                           final AppContext context) {
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(method, m);
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(url, u);
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(status, s);
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(headers, h);
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(body, b);
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.checkEquals(appContext, context);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(method, m);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(url, u);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(status, s);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(headers, h);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(body, b);
+                        SpreadsheetLabelFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetLabelMappingFetcherWatchersTest.this.fired++;
+                        SpreadsheetLabelFetcherWatchersTest.this.fired++;
                     }
                 });
         watchers.onFailure(method, url, status, headers, body, appContext);
@@ -211,7 +211,7 @@ public final class SpreadsheetLabelMappingFetcherWatchersTest extends FetcherWat
     // ClassTesting....................................................................................................
 
     @Override
-    public Class<SpreadsheetLabelMappingFetcherWatchers> type() {
-        return SpreadsheetLabelMappingFetcherWatchers.class;
+    public Class<SpreadsheetLabelFetcherWatchers> type() {
+        return SpreadsheetLabelFetcherWatchers.class;
     }
 }

@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 /**
@@ -32,7 +32,7 @@ public interface SpreadsheetLabelMappingDialogComponentContext extends Spreadshe
     void loadLabel(final SpreadsheetLabelName name);
 
     /**
-     * Adds the given {@link SpreadsheetLabelMappingFetcherWatcher}.
+     * Adds the given {@link SpreadsheetLabelFetcherWatcher}.
      */
-    void addLabelMappingWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher);
+    void addLabelMappingWatcher(final SpreadsheetLabelFetcherWatcher watcher);
 }

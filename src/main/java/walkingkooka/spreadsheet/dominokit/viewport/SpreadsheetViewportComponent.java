@@ -67,7 +67,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryTok
 import walkingkooka.spreadsheet.dominokit.history.util.HistoryTokenRecorder;
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
@@ -102,7 +102,7 @@ import java.util.function.Supplier;
  */
 public final class SpreadsheetViewportComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetViewportComponent>,
         SpreadsheetDeltaFetcherWatcher,
-        SpreadsheetLabelMappingFetcherWatcher,
+        SpreadsheetLabelFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         ComponentLifecycle,
         SpreadsheetViewportComponentLifecycle,
@@ -140,7 +140,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         this.root = this.root();
 
         context.addHistoryTokenWatcher(this);
-        context.addSpreadsheetLabelMappingFetcherWatcher(this);
+        context.addSpreadsheetLabelFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
 
@@ -1211,7 +1211,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
     }
 
-    // SpreadsheetLabelMappingFetcherWatcher............................................................................
+    // SpreadsheetLabelFetcherWatcher...................................................................................
 
     /**
      * Any label mapping change should refresh the viewport cells.

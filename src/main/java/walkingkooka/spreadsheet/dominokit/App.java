@@ -85,9 +85,9 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelMappingFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers;
@@ -203,9 +203,9 @@ public class App implements EntryPoint,
         this.addSpreadsheetFormatterFetcherWatcher(this);
 
         // labelMapping
-        this.spreadsheetLabelMappingFetcherWatchers = SpreadsheetLabelMappingFetcherWatchers.empty();
-        this.spreadsheetLabelMappingFetcher = SpreadsheetLabelMappingFetcher.with(
-                this.spreadsheetLabelMappingFetcherWatchers,
+        this.spreadsheetLabelFetcherWatchers = SpreadsheetLabelFetcherWatchers.empty();
+        this.spreadsheetLabelFetcher = SpreadsheetLabelFetcher.with(
+                this.spreadsheetLabelFetcherWatchers,
                 this
         );
 
@@ -580,26 +580,26 @@ public class App implements EntryPoint,
     // SpreadsheetLabelMapping..........................................................................................
 
     @Override
-    public Runnable addSpreadsheetLabelMappingFetcherWatcher(final SpreadsheetLabelMappingFetcherWatcher watcher) {
-        return this.spreadsheetLabelMappingFetcherWatchers.add(watcher);
+    public Runnable addSpreadsheetLabelFetcherWatcher(final SpreadsheetLabelFetcherWatcher watcher) {
+        return this.spreadsheetLabelFetcherWatchers.add(watcher);
     }
 
     @Override
-    public Runnable addSpreadsheetLabelMappingFetcherWatcherOnce(final SpreadsheetLabelMappingFetcherWatcher watcher) {
-        return this.spreadsheetLabelMappingFetcherWatchers.addOnce(watcher);
+    public Runnable addSpreadsheetLabelFetcherWatcherOnce(final SpreadsheetLabelFetcherWatcher watcher) {
+        return this.spreadsheetLabelFetcherWatchers.addOnce(watcher);
     }
 
     /**
-     * A collection of listeners for {@link SpreadsheetLabelMappingFetcherWatcher}
+     * A collection of listeners for {@link SpreadsheetLabelFetcherWatcher}
      */
-    private final SpreadsheetLabelMappingFetcherWatchers spreadsheetLabelMappingFetcherWatchers;
+    private final SpreadsheetLabelFetcherWatchers spreadsheetLabelFetcherWatchers;
 
     @Override
-    public SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher() {
-        return this.spreadsheetLabelMappingFetcher;
+    public SpreadsheetLabelFetcher spreadsheetLabelFetcher() {
+        return this.spreadsheetLabelFetcher;
     }
 
-    private final SpreadsheetLabelMappingFetcher spreadsheetLabelMappingFetcher;
+    private final SpreadsheetLabelFetcher spreadsheetLabelFetcher;
 
     // SpreadsheetMetadata..............................................................................................
 
