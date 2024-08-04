@@ -33,8 +33,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
+import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
@@ -73,7 +73,7 @@ import java.util.stream.Collectors;
  * for the cells in the spreadsheet viewport TABLE.
  */
 public final class SpreadsheetViewportCache implements NopFetcherWatcher,
-        NopNoResponseWatcher,
+        NopEmptyResponseWatcher,
         HistoryTokenWatcher,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,

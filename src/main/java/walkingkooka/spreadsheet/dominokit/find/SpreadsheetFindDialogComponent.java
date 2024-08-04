@@ -36,8 +36,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
+import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetCellRangeReferenceComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -57,7 +57,7 @@ import java.util.function.Function;
 public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
-        NopNoResponseWatcher,
+        NopEmptyResponseWatcher,
         SpreadsheetDeltaFetcherWatcher {
 
     /**

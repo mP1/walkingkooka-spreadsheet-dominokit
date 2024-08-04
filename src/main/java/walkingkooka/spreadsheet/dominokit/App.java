@@ -78,7 +78,7 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponentContexts;
-import walkingkooka.spreadsheet.dominokit.net.NopNoResponseWatcher;
+import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
@@ -139,7 +139,7 @@ public class App implements EntryPoint,
         WindowResizeWatcher,
         HistoryTokenWatcher,
         JsonNodeMarshallUnmarshallContextDelegator,
-        NopNoResponseWatcher,
+        NopEmptyResponseWatcher,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler,
