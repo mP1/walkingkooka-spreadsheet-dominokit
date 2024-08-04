@@ -227,6 +227,9 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     @Override
     public void openGiveFocus(final AppContext context) {
+        this.label.clearValue();
+        this.target.clearValue();
+
         context.giveFocus(
                 this.label::focus
         );
