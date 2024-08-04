@@ -18,8 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.net.AbsoluteOrRelativeUrl;
-import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout;
@@ -30,11 +28,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTextComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTextComponent;
-import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponent;
@@ -55,7 +51,6 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopEmptyResponseFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher {
 
     /**
@@ -70,7 +65,6 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     private SpreadsheetFormatterSelectorDialogComponent(final SpreadsheetFormatterSelectorDialogComponentContext context) {
         this.context = context;
         context.addHistoryTokenWatcher(this);
-        context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.tabs = context.shouldShowTabs() ?
@@ -304,16 +298,6 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
      * A CLOSE link which will close the dialog.
      */
     private final HistoryTokenAnchorComponent close;
-
-    // SpreadsheetDeltaFetcherWatcher...................................................................................
-
-    @Override
-    public void onSpreadsheetDelta(final HttpMethod method,
-                                   final AbsoluteOrRelativeUrl url,
-                                   final SpreadsheetDelta delta,
-                                   final AppContext context) {
-        this.refreshIfOpen(context);
-    }
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override
