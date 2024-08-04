@@ -91,7 +91,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
         this.removeOrReplace = RemoveOrReplacePluginSelectorTextComponent.empty(ID + "-removeOrReplace-");
 
-        this.textBox = this.textBox(ID);
+        this.textBox = this.textBox();
 
         this.save = this.anchor("Save")
                 .setDisabled(true);
@@ -119,7 +119,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     // dialog...........................................................................................................
 
     /**
-     * Creates the modal dialog, loaded with the pattern textbox and some buttons.
+     * Creates the modal dialog, loaded with the {@link SpreadsheetFormatterSelector} textbox and some buttons.
      */
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
@@ -186,7 +186,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     /**
      * Creates the pattern text box and installs a value change listener.
      */
-    private SpreadsheetFormatterSelectorComponent textBox(final String id) {
+    private SpreadsheetFormatterSelectorComponent textBox() {
         return SpreadsheetFormatterSelectorComponent.empty()
                 .setId(ID + SpreadsheetElementIds.TEXT_BOX)
                 .addKeyupListener(
