@@ -380,15 +380,12 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     static RelativeUrl findCellsUrl(final SpreadsheetId id,
                                     final SpreadsheetCellRangeReference cells,
                                     final SpreadsheetCellFind find) {
-        checkId(id);
-        Objects.requireNonNull(cells, "cells");
-        Objects.requireNonNull(find, "find");
-
         return Url.parseRelative(
                 "/api/spreadsheet/" +
-                        id +
+                        Objects.requireNonNull(id, "id") +
                         "/cell/" +
-                        cells.toStringMaybeStar() +
+                        Objects.requireNonNull(cells, "cells")
+                                .toStringMaybeStar() +
                         "/find"
         ).setQuery(
                 cellFindQueryString(
@@ -400,11 +397,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     public void insertAfterColumn(final SpreadsheetId id,
                                   final SpreadsheetSelection selection,
                                   final int count) {
-        checkId(id);
-        checkColumnOrColumnRange(selection);
-
-        this.context.debug("SpreadsheetDeltaFetcher.insertAfterColumn " + id + ", " + selection + ", " + count);
-
         // http://localhost:3000/api/spreadsheet/1/column/ABC/after?count=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
         this.insertColumnOrRow(
                 id,
@@ -417,11 +409,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     public void insertBeforeColumn(final SpreadsheetId id,
                                    final SpreadsheetSelection selection,
                                    final int count) {
-        checkId(id);
-        checkColumnOrColumnRange(selection);
-
-        this.context.debug("SpreadsheetDeltaFetcher.insertBeforeColumn " + id + ", " + selection + ", " + count);
-
         // http://localhost:3000/api/spreadsheet/1/column/ABC/before?count=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
         this.insertColumnOrRow(
                 id,
@@ -434,11 +421,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     public void insertAfterRow(final SpreadsheetId id,
                                final SpreadsheetSelection selection,
                                final int count) {
-        checkId(id);
-        checkRowOrRowRange(selection);
-
-        this.context.debug("SpreadsheetDeltaFetcher.insertAfterRow " + id + ", " + selection + ", " + count);
-
         // http://localhost:3000/api/spreadsheet/1/row/ABC/after?count=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
         this.insertColumnOrRow(
                 id,
@@ -451,11 +433,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     public void insertBeforeRow(final SpreadsheetId id,
                                 final SpreadsheetSelection selection,
                                 final int count) {
-        checkId(id);
-        checkRowOrRowRange(selection);
-
-        this.context.debug("SpreadsheetDeltaFetcher.insertBeforeRow " + id + ", " + selection + ", " + count);
-
         // http://localhost:3000/api/spreadsheet/1/row/ABC/before?count=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
         this.insertColumnOrRow(
                 id,
@@ -496,25 +473,19 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
      */
     public void deleteCells(final SpreadsheetId id,
                             final SpreadsheetViewport viewport) {
-        checkId(id);
-        checkViewport(viewport);
-
-        final AppContext context = this.context;
-
-        context.debug("SpreadsheetDeltaFetcher.deleteCells " + id + " " + viewport);
-
         // DELETE http://localhost:3000/api/spreadsheet/1f/cell/$cells
         this.delete(
                 url(
                         id,
-                        viewport.anchoredSelection()
+                        checkViewport(viewport)
+                                .anchoredSelection()
                                 .get()
                                 .selection()
                 ).setQuery(
                         viewportQueryString(
                                 viewport
                         ).addParameters(
-                                context.lastCellFindQueryString()
+                                this.context.lastCellFindQueryString()
                         )
                 )
         );
@@ -525,13 +496,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
      */
     public void loadCells(final SpreadsheetId id,
                           final SpreadsheetViewport viewport) {
-        checkId(id);
-        checkViewport(viewport);
-
-        final AppContext context = this.context;
-
-        context.debug("SpreadsheetDeltaFetcher.loadCells " + id + " " + viewport);
-
         // load cells for the new window...
         // http://localhost:3000/api/spreadsheet/1f/cell/*/force-recompute?home=A1&width=1712&height=765&includeFrozenColumnsRows=true
         this.get(
@@ -543,7 +507,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         viewportQueryString(
                                 viewport
                         ).addParameters(
-                                context.lastCellFindQueryString()
+                                this.context.lastCellFindQueryString()
                         )
                 )
         );
@@ -853,32 +817,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     // checkXXX.........................................................................................................
 
-    private static SpreadsheetId checkId(final SpreadsheetId id) {
-        return Objects.requireNonNull(id, "id");
-    }
-
     private static SpreadsheetSelection checkSelection(final SpreadsheetSelection selection) {
         return Objects.requireNonNull(selection, "selection");
-    }
-
-    private static SpreadsheetSelection checkColumnOrColumnRange(final SpreadsheetSelection selection) {
-        checkSelection(selection);
-
-        if (false == selection.isColumnReference() && false == selection.isColumnRangeReference()) {
-            throw new IllegalArgumentException("Expected column or column range but got " + selection);
-        }
-
-        return selection;
-    }
-
-    private static SpreadsheetSelection checkRowOrRowRange(final SpreadsheetSelection selection) {
-        checkSelection(selection);
-
-        if (false == selection.isRowReference() && false == selection.isRowRangeReference()) {
-            throw new IllegalArgumentException("Expected row or row range but got " + selection);
-        }
-
-        return selection;
     }
 
     private static SpreadsheetViewport checkViewport(final SpreadsheetViewport viewport) {
