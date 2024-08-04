@@ -113,7 +113,7 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
     }
 
     @Override
-    public void onEmptyResponse(final AppContext context) {
+    public final void onEmptyResponse(final AppContext context) {
         this.fire(
                 FetcherWatchersEvent.empty(
                         context
