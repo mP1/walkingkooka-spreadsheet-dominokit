@@ -22,7 +22,6 @@ import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
-import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
@@ -730,14 +729,12 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 ).setQuery(
                         this.context.lastCellFindAndViewportAndWindowQueryString()
                                 .addParameter(
-                                        COMPARATORS,
+                                        SpreadsheetDeltaUrlQueryParameters.COMPARATORS,
                                         comparators.text()
                                 )
                 )
         );
     }
-
-    private final static UrlParameterName COMPARATORS = UrlParameterName.with("comparators");
 
     private void patchDelta(final AbsoluteOrRelativeUrl url,
                             final JsonNode delta) {
