@@ -453,16 +453,18 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         context.lastCellFindAndViewportAndWindowQueryString()
                 );
 
+        // /api/spreadsheet/SpreadsheetId/column/A:B/insertBefore?count=1
         this.post(
-                Url.parseRelative(
-                        "/api/spreadsheet/" +
-                                id +
-                                "/" +
+                SpreadsheetMetadataFetcher.url(
+                        id
+                ).appendPath(
+                        UrlPath.parse(
                                 selection.cellColumnOrRowText() +
-                                "/" +
-                                selection.toStringMaybeStar() +
-                                "/" +
-                                afterOrBefore
+                                        UrlPath.SEPARATOR +
+                                        selection.toStringMaybeStar() +
+                                        UrlPath.SEPARATOR +
+                                        afterOrBefore
+                        )
                 ).setQuery(queryString),
                 ""
         );
