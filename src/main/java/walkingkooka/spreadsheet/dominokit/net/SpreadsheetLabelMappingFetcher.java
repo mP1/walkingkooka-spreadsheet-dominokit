@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.server.label.SpreadsheetLabelHateosResourceMappings;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -111,15 +112,13 @@ public final class SpreadsheetLabelMappingFetcher implements Fetcher {
     public static RelativeUrl url(final SpreadsheetId id, 
                                   final SpreadsheetLabelName labelName) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPath(LABEL)
+                .appendPathName(SpreadsheetLabelHateosResourceMappings.LABEL.toUrlPathName())
                 .appendPath(
                         UrlPath.parse(
                                 labelName.value()
                         )
                 );
     }
-
-    private final static UrlPath LABEL = UrlPath.parse("/label");
 
     @Override
     public void onBegin(final HttpMethod method,

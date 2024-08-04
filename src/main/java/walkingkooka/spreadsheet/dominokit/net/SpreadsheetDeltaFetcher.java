@@ -22,11 +22,11 @@ import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
-import walkingkooka.net.Url;
 import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
+import walkingkooka.net.header.LinkRelation;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -52,6 +52,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
+import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaHateosResourceMappings;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
@@ -337,16 +338,15 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.postDelta(
                 url(
                         id,
-                        selection,
-                        CLEAR
+                        selection
+                ).appendPathName(
+                        SpreadsheetDeltaHateosResourceMappings.CLEAR.toUrlPathName()
                 ).setQuery(
                         context.lastCellFindAndViewportAndWindowQueryString()
                 ),
                 SpreadsheetDelta.EMPTY
         );
     }
-
-    private final static UrlPath CLEAR = UrlPath.parse("/clear");
 
     /**
      * DELETEs the given {@link SpreadsheetViewport} such as a cell/column/row.
@@ -380,18 +380,20 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     static RelativeUrl findCellsUrl(final SpreadsheetId id,
                                     final SpreadsheetCellRangeReference cells,
                                     final SpreadsheetCellFind find) {
-        return Url.parseRelative(
-                "/api/spreadsheet/" +
-                        Objects.requireNonNull(id, "id") +
-                        "/cell/" +
-                        Objects.requireNonNull(cells, "cells")
-                                .toStringMaybeStar() +
-                        "/find"
-        ).setQuery(
-                cellFindQueryString(
-                        find
-                )
-        );
+        return SpreadsheetMetadataFetcher.url(id)
+                .appendPathName(SpreadsheetDeltaHateosResourceMappings.CELL.toUrlPathName())
+                .appendPathName(
+                        UrlPathName.with(
+                                Objects.requireNonNull(cells, "cells")
+                                        .toStringMaybeStar()
+                        )
+                ).appendPathName(
+                        SpreadsheetDeltaHateosResourceMappings.FIND.toUrlPathName()
+                ).setQuery(
+                        cellFindQueryString(
+                                find
+                        )
+                );
     }
 
     public void insertAfterColumn(final SpreadsheetId id,
@@ -401,7 +403,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.insertColumnOrRow(
                 id,
                 selection,
-                "after",
+                SpreadsheetDeltaHateosResourceMappings.AFTER,
                 count
         );
     }
@@ -413,7 +415,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.insertColumnOrRow(
                 id,
                 selection,
-                "before",
+                SpreadsheetDeltaHateosResourceMappings.BEFORE,
                 count
         );
     }
@@ -425,7 +427,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.insertColumnOrRow(
                 id,
                 selection,
-                "after",
+                SpreadsheetDeltaHateosResourceMappings.AFTER,
                 count
         );
     }
@@ -437,14 +439,14 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         this.insertColumnOrRow(
                 id,
                 selection,
-                "before",
+                SpreadsheetDeltaHateosResourceMappings.BEFORE,
                 count
         );
     }
 
     private void insertColumnOrRow(final SpreadsheetId id,
                                    final SpreadsheetSelection selection,
-                                   final String afterOrBefore,
+                                   final LinkRelation<?> afterOrBefore,
                                    final int count) {
         final AppContext context = this.context;
 
@@ -461,11 +463,10 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                         UrlPath.parse(
                                 selection.cellColumnOrRowText() +
                                         UrlPath.SEPARATOR +
-                                        selection.toStringMaybeStar() +
-                                        UrlPath.SEPARATOR +
-                                        afterOrBefore
+                                        selection.toStringMaybeStar()
                         )
-                ).setQuery(queryString),
+                        ).appendPathName(afterOrBefore.toUrlPathName())
+                        .setQuery(queryString),
                 ""
         );
     }
@@ -751,18 +752,17 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                 url(
                         id,
                         selection
-                ).appendPath(SORT)
-                        .setQuery(
-                                this.context.lastCellFindAndViewportAndWindowQueryString()
-                                        .addParameter(
-                                                COMPARATORS,
-                                                comparators.text()
-                                        )
-                        )
+                ).appendPathName(
+                        SpreadsheetDeltaHateosResourceMappings.SORT.toUrlPathName()
+                ).setQuery(
+                        this.context.lastCellFindAndViewportAndWindowQueryString()
+                                .addParameter(
+                                        COMPARATORS,
+                                        comparators.text()
+                                )
+                )
         );
     }
-
-    private final static UrlPath SORT = UrlPath.parse("sort");
 
     private final static UrlParameterName COMPARATORS = UrlParameterName.with("comparators");
 
