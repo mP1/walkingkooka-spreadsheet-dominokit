@@ -91,6 +91,9 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialogComponent;
@@ -203,6 +206,13 @@ public class App implements EntryPoint,
         this.spreadsheetLabelFetcherWatchers = SpreadsheetLabelFetcherWatchers.empty();
         this.spreadsheetLabelFetcher = SpreadsheetLabelFetcher.with(
                 this.spreadsheetLabelFetcherWatchers,
+                this
+        );
+
+        // parser
+        this.spreadsheetParserWatchers = SpreadsheetParserFetcherWatchers.empty();
+        this.spreadsheetParserFetcher = SpreadsheetParserFetcher.with(
+                this.spreadsheetParserWatchers,
                 this
         );
 
@@ -712,6 +722,30 @@ public class App implements EntryPoint,
     }
 
     private SpreadsheetMetadata spreadsheetMetadata;
+
+    // SpreadsheetParserFetcher.........................................................................................
+
+    @Override
+    public SpreadsheetParserFetcher spreadsheetParserFetcher() {
+        return this.spreadsheetParserFetcher;
+    }
+
+    private final SpreadsheetParserFetcher spreadsheetParserFetcher;
+
+    @Override
+    public Runnable addSpreadsheetParserFetcherWatcher(final SpreadsheetParserFetcherWatcher watcher) {
+        return this.spreadsheetParserWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetParserFetcherWatcherOnce(final SpreadsheetParserFetcherWatcher watcher) {
+        return this.spreadsheetParserWatchers.addOnce(watcher);
+    }
+
+    /**
+     * A collection of listeners for {@link SpreadsheetParserFetcherWatcher}
+     */
+    private final SpreadsheetParserFetcherWatchers spreadsheetParserWatchers;
 
     // SpreadsheetFormatterContext......................................................................................
 

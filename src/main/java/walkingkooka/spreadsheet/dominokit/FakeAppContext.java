@@ -43,6 +43,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
@@ -163,6 +165,23 @@ public class FakeAppContext implements AppContext,
         throw new UnsupportedOperationException();
     }
 
+    // SpreadsheetParserWatcher.........................................................................................
+
+    @Override
+    public Runnable addSpreadsheetParserFetcherWatcher(final SpreadsheetParserFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addSpreadsheetParserFetcherWatcherOnce(final SpreadsheetParserFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SpreadsheetParserFetcher spreadsheetParserFetcher() {
+        throw new UnsupportedOperationException();
+    }
+    
     // json.............................................................................................................
 
     @Override
