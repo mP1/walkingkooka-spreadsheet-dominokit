@@ -617,7 +617,7 @@ public class App implements EntryPoint,
 
     @Override
     public Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.metadataWatchers.add(watcher);
+        return this.metadataWatchers.addOnce(watcher);
     }
 
     /**
