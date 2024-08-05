@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.server.SpreadsheetHttpServerLinkRelations;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterHateosResourceMappings;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.json.JsonNode;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -68,7 +69,8 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
                         id,
                         EDIT
                 ),
-                selector
+                JsonNode.string(selector)
+                        .toString()
         );
     }
 
