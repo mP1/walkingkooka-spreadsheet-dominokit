@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.ToStringBuilder;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Objects;
@@ -42,34 +42,34 @@ public final class SpreadsheetSelectionSummary {
             TextStyle.EMPTY
     );
 
-    public static SpreadsheetSelectionSummary with(final Optional<SpreadsheetFormatPattern> formatPattern,
-                                                   final Optional<SpreadsheetParsePattern> parsePattern,
+    public static SpreadsheetSelectionSummary with(final Optional<SpreadsheetFormatterSelector> formatter,
+                                                   final Optional<SpreadsheetParserSelector> parser,
                                                    final TextStyle style) {
         return new SpreadsheetSelectionSummary(
-                Objects.requireNonNull(formatPattern, "formatPattern"),
-                Objects.requireNonNull(parsePattern, "parsePattern"),
+                Objects.requireNonNull(formatter, "formatter"),
+                Objects.requireNonNull(parser, "parser"),
                 Objects.requireNonNull(style, "style")
         );
     }
 
-    private SpreadsheetSelectionSummary(final Optional<SpreadsheetFormatPattern> formatPattern,
-                                       final Optional<SpreadsheetParsePattern> parsePattern,
+    private SpreadsheetSelectionSummary(final Optional<SpreadsheetFormatterSelector> formatter,
+                                        final Optional<SpreadsheetParserSelector> parser,
                                        final TextStyle style) {
-        this.formatPattern = formatPattern;
-        this.parsePattern = parsePattern;
+        this.formatter = formatter;
+        this.parser = parser;
         this.style = style;
     }
 
-    private final Optional<SpreadsheetFormatPattern> formatPattern;
+    private final Optional<SpreadsheetFormatterSelector> formatter;
 
-    public Optional<SpreadsheetFormatPattern> formatPattern() {
-        return this.formatPattern;
+    public Optional<SpreadsheetFormatterSelector> formatter() {
+        return this.formatter;
     }
 
-    private final Optional<SpreadsheetParsePattern> parsePattern;
+    private final Optional<SpreadsheetParserSelector> parser;
 
-    public Optional<SpreadsheetParsePattern> parsePattern() {
-        return this.parsePattern;
+    public Optional<SpreadsheetParserSelector> parser() {
+        return this.parser;
     }
 
     private final TextStyle style;
@@ -83,8 +83,8 @@ public final class SpreadsheetSelectionSummary {
     @Override
     public int hashCode() {
         return Objects.hash(
-                this.formatPattern,
-                this.parsePattern,
+                this.formatter,
+                this.parser,
                 this.style
         );
     }
@@ -96,16 +96,16 @@ public final class SpreadsheetSelectionSummary {
     }
 
     private boolean equals0(final SpreadsheetSelectionSummary other) {
-        return this.formatPattern.equals(other.formatPattern) &&
-                this.parsePattern.equals(other.parsePattern) &&
+        return this.formatter.equals(other.formatter) &&
+                this.parser.equals(other.parser) &&
                 this.style.equals(other.style);
     }
 
     @Override
     public String toString() {
         return ToStringBuilder.empty()
-                .value(this.formatPattern)
-                .value(this.parsePattern)
+                .value(this.formatter)
+                .value(this.parser)
                 .value(this.style)
                 .build();
     }

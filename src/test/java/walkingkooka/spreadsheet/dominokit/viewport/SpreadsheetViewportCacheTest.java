@@ -44,11 +44,11 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
@@ -2782,7 +2782,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testSelectionSummaryFormatPatterns() {
+    public void testSelectionSummarySpreadsheetFormatterSelector() {
         final TestAppContext context = this.context();
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
@@ -2795,8 +2795,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        final SpreadsheetFormatPattern date = SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd");
-        final SpreadsheetFormatPattern text = SpreadsheetPattern.parseTextFormatPattern("@@@");
+        final SpreadsheetFormatterSelector date = SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
+                .spreadsheetFormatterSelector();
+        final SpreadsheetFormatterSelector text = SpreadsheetPattern.parseTextFormatPattern("@@@")
+                .spreadsheetFormatterSelector();
 
         cache.onSpreadsheetDelta(
                 METHOD,
@@ -2806,17 +2808,13 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
                                 ).setFormatter(
-                                        Optional.of(
-                                                date.spreadsheetFormatterSelector()
-                                        )
+                                        Optional.of(date)
                                 ),
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
                                         ).setFormatter(
-                                                Optional.of(
-                                                        date.spreadsheetFormatterSelector()
-                                                )
+                                                Optional.of(date)
                                         ),
                                 SpreadsheetSelection.parseCell("B1")
                                         .setFormula(
@@ -2826,9 +2824,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
                                         ).setFormatter(
-                                                Optional.of(
-                                                        text.spreadsheetFormatterSelector()
-                                                )
+                                                Optional.of(text)
                                         )
                         )
                 ),
@@ -2846,7 +2842,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testSelectionSummaryFormatPatternsClash() {
+    public void testSelectionSummarySpreadsheetFormatterSelectorClash() {
         final TestAppContext context = this.context();
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
@@ -2859,8 +2855,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        final SpreadsheetFormatPattern date = SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd");
-        final SpreadsheetFormatPattern text = SpreadsheetPattern.parseTextFormatPattern("@@@");
+        final SpreadsheetFormatterSelector date = SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
+                .spreadsheetFormatterSelector();
+        final SpreadsheetFormatterSelector text = SpreadsheetPattern.parseTextFormatPattern("@@@")
+                .spreadsheetFormatterSelector();
 
         cache.onSpreadsheetDelta(
                 METHOD,
@@ -2870,17 +2868,13 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
                                 ).setFormatter(
-                                        Optional.of(
-                                                date.spreadsheetFormatterSelector()
-                                        )
+                                        Optional.of(date)
                                 ),
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
                                         ).setFormatter(
-                                                Optional.of(
-                                                        text.spreadsheetFormatterSelector()
-                                                )
+                                                Optional.of(text)
                                         )
                         )
                 ),
@@ -2898,7 +2892,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testSelectionSummaryParsePatterns() {
+    public void testSelectionSummarySpreadsheetParserSelector() {
         final TestAppContext context = this.context();
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
@@ -2911,8 +2905,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        final SpreadsheetParsePattern date = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd");
-        final SpreadsheetParsePattern time = SpreadsheetPattern.parseTimeParsePattern("hh/mm/ss");
+        final SpreadsheetParserSelector date = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd")
+                .spreadsheetParserSelector();
+        final SpreadsheetParserSelector time = SpreadsheetPattern.parseTimeParsePattern("hh/mm/ss")
+                .spreadsheetParserSelector();
 
         cache.onSpreadsheetDelta(
                 METHOD,
@@ -2922,17 +2918,13 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
                                 ).setParser(
-                                        Optional.of(
-                                                date.spreadsheetParserSelector()
-                                        )
+                                        Optional.of(date)
                                 ),
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
                                         ).setParser(
-                                                Optional.of(
-                                                        date.spreadsheetParserSelector()
-                                                )
+                                                Optional.of(date)
                                         ),
                                 SpreadsheetSelection.parseCell("B1")
                                         .setFormula(
@@ -2942,9 +2934,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
                                         ).setParser(
-                                                Optional.of(
-                                                        time.spreadsheetParserSelector()
-                                                )
+                                                Optional.of(time)
                                         )
                         )
                 ),
@@ -2962,7 +2952,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testSelectionSummaryParsePatternsClash() {
+    public void testSelectionSummarySpreadsheetParserSelectorClash() {
         final TestAppContext context = this.context();
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
@@ -2975,8 +2965,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        final SpreadsheetParsePattern date = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd");
-        final SpreadsheetParsePattern time = SpreadsheetPattern.parseTimeParsePattern("hh/mm/ss");
+        final SpreadsheetParserSelector date = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd")
+                .spreadsheetParserSelector();
+        final SpreadsheetParserSelector time = SpreadsheetPattern.parseTimeParsePattern("hh/mm/ss")
+                .spreadsheetParserSelector();
 
         cache.onSpreadsheetDelta(
                 METHOD,
@@ -2986,17 +2978,13 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
                                 ).setParser(
-                                        Optional.of(
-                                                date.spreadsheetParserSelector()
-                                        )
+                                        Optional.of(date)
                                 ),
                                 SpreadsheetSelection.parseCell("A2")
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
                                         ).setParser(
-                                                Optional.of(
-                                                        time.spreadsheetParserSelector()
-                                                )
+                                                Optional.of(time)
                                         )
                         )
                 ),
@@ -3213,8 +3201,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        final SpreadsheetFormatPattern format1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
-        final SpreadsheetFormatPattern format2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00");
+        final SpreadsheetFormatterSelector formatter1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                .spreadsheetFormatterSelector();
+        final SpreadsheetFormatterSelector formatter2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00")
+                .spreadsheetFormatterSelector();
 
         final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
         final Color color1 = Color.parse("#111");
@@ -3231,9 +3221,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
                                 ).setFormatter(
-                                        Optional.of(
-                                                format1.spreadsheetFormatterSelector()
-                                        )
+                                        Optional.of(formatter1)
                                 ).setStyle(
                                         TextStyle.EMPTY.set(colorName, color1)
                                                 .set(textAlign, align1)
@@ -3242,9 +3230,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
                                         ).setFormatter(
-                                                Optional.of(
-                                                        format2.spreadsheetFormatterSelector()
-                                                )
+                                                Optional.of(formatter2)
                                         ).setStyle(
                                                 TextStyle.EMPTY.set(colorName, color1)
                                                         .set(textAlign, align2)
@@ -3266,7 +3252,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         this.selectionSummaryAndCheck(
                 cache,
                 SpreadsheetSelectionSummary.with(
-                        Optional.of(format2), // format
+                        Optional.of(formatter2), // format
                         Optional.empty(), // parse
                         TextStyle.EMPTY.set(
                                 colorName,
@@ -3293,8 +3279,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        final SpreadsheetFormatPattern format1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
-        final SpreadsheetFormatPattern format2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00");
+        final SpreadsheetFormatterSelector formatter1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                .spreadsheetFormatterSelector();
+        final SpreadsheetFormatterSelector formatter2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00")
+                .spreadsheetFormatterSelector();
 
         final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
         final Color color1 = Color.parse("#111");
@@ -3311,9 +3299,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
                                 ).setFormatter(
-                                        Optional.of(
-                                                format1.spreadsheetFormatterSelector()
-                                        )
+                                        Optional.of(formatter1)
                                 ).setStyle(
                                         TextStyle.EMPTY.set(colorName, color1)
                                                 .set(textAlign, align1)
@@ -3322,9 +3308,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
                                         ).setFormatter(
-                                                Optional.of(
-                                                        format2.spreadsheetFormatterSelector()
-                                                )
+                                                Optional.of(formatter2)
                                         ).setStyle(
                                                 TextStyle.EMPTY.set(colorName, color1)
                                                         .set(textAlign, align2)
@@ -3364,8 +3348,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        final SpreadsheetFormatPattern format1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
-        final SpreadsheetFormatPattern format2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00");
+        final SpreadsheetFormatterSelector formatter1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                .spreadsheetFormatterSelector();
+        final SpreadsheetFormatterSelector formatter2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00")
+                .spreadsheetFormatterSelector();
 
         final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
         final Color color1 = Color.parse("#111");
@@ -3381,9 +3367,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
                                 ).setFormatter(
-                                        Optional.of(
-                                                format1.spreadsheetFormatterSelector()
-                                        )
+                                        Optional.of(formatter1)
                                 ).setStyle(
                                         TextStyle.EMPTY.set(colorName, color1)
                                                 .set(textAlign, align1)
@@ -3392,9 +3376,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
                                         ).setFormatter(
-                                                Optional.of(
-                                                        format2.spreadsheetFormatterSelector()
-                                                )
+                                                Optional.of(formatter2)
                                         ).setStyle(
                                                 TextStyle.EMPTY.set(colorName, color1)
                                                         .set(textAlign, align1)
@@ -3414,9 +3396,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
                                 ).setFormatter(
-                                        Optional.of(
-                                                format1.spreadsheetFormatterSelector()
-                                        )
+                                        Optional.of(formatter1)
                                 ).setStyle(
                                         TextStyle.EMPTY.set(colorName, color1)
                                                 .set(textAlign, align2)
@@ -3425,9 +3405,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
                                         ).setFormatter(
-                                                Optional.of(
-                                                        format2.spreadsheetFormatterSelector()
-                                                )
+                                                Optional.of(formatter2)
                                         ).setStyle(
                                                 TextStyle.EMPTY.set(colorName, color1)
                                                         .set(textAlign, align2)
@@ -3463,8 +3441,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                 )
         );
 
-        final SpreadsheetFormatPattern format1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
-        final SpreadsheetFormatPattern format2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00");
+        final SpreadsheetFormatterSelector formatter1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                .spreadsheetFormatterSelector();
+        final SpreadsheetFormatterSelector formatter2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00")
+                .spreadsheetFormatterSelector();
 
         final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
         final Color color1 = Color.parse("#111");
@@ -3480,9 +3460,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                 SpreadsheetSelection.A1.setFormula(
                                         SpreadsheetFormula.EMPTY
                                 ).setFormatter(
-                                        Optional.of(
-                                                format1.spreadsheetFormatterSelector()
-                                        )
+                                        Optional.of(formatter1)
                                 ).setStyle(
                                         TextStyle.EMPTY.set(colorName, color1)
                                 ),
@@ -3490,9 +3468,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
                                         ).setFormatter(
-                                                Optional.of(
-                                                        format2.spreadsheetFormatterSelector()
-                                                )
+                                                Optional.of(formatter2)
                                         ).setStyle(
                                                 TextStyle.EMPTY.set(colorName, color1)
                                                         .set(textAlign, align1)
@@ -3513,9 +3489,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                         .setFormula(
                                                 SpreadsheetFormula.EMPTY
                                         ).setFormatter(
-                                                Optional.of(
-                                                        format2.spreadsheetFormatterSelector()
-                                                )
+                                                Optional.of(formatter2)
                                         ).setStyle(
                                                 TextStyle.EMPTY.set(colorName, color1)
                                                         .set(textAlign, align2)
