@@ -120,7 +120,6 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviders;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.JsonNodeMarshallUnmarshallContextDelegator;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
@@ -145,7 +144,6 @@ public class App implements EntryPoint,
         JsonNodeMarshallUnmarshallContextDelegator,
         NopEmptyResponseFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
-        SpreadsheetFormatterFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler,
         ConverterProviderDelegator,
@@ -200,7 +198,6 @@ public class App implements EntryPoint,
                 this.spreadsheetFormatterWatchers,
                 this
         );
-        this.addSpreadsheetFormatterFetcherWatcher(this);
 
         // labelMapping
         this.spreadsheetLabelFetcherWatchers = SpreadsheetLabelFetcherWatchers.empty();
@@ -565,17 +562,6 @@ public class App implements EntryPoint,
      * A collection of listeners for {@link SpreadsheetFormatterFetcherWatcher}
      */
     private final SpreadsheetFormatterFetcherWatchers spreadsheetFormatterWatchers;
-
-    @Override
-    public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
-                                                   final SpreadsheetFormatterSelectorEdit edit,
-                                                   final AppContext context) {
-        this.spreadsheetFormatterWatchers.onSpreadsheetFormatterSelectorEdit(
-                id,
-                edit,
-                context
-        );
-    }
 
     // SpreadsheetLabelMapping..........................................................................................
 
