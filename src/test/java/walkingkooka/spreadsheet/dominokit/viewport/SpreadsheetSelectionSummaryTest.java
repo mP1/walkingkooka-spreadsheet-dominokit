@@ -23,9 +23,9 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -37,12 +37,12 @@ public final class SpreadsheetSelectionSummaryTest implements HashCodeEqualsDefi
         ClassTesting<SpreadsheetSelectionSummary>,
         ToStringTesting<SpreadsheetSelectionSummary> {
 
-    private final static Optional<SpreadsheetFormatPattern> FORMAT = Optional.of(
-            SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+    private final static Optional<SpreadsheetFormatterSelector> FORMATTER = Optional.of(
+            SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
     );
 
-    private final static Optional<SpreadsheetParsePattern> PARSE = Optional.of(
-            SpreadsheetPattern.parseNumberParsePattern("#.##")
+    private final static Optional<SpreadsheetParserSelector> PARSER = Optional.of(
+            SpreadsheetPattern.parseNumberParsePattern("#.##").spreadsheetParserSelector()
     );
 
     private final static TextStyle STYLE = TextStyle.EMPTY.set(
@@ -51,23 +51,23 @@ public final class SpreadsheetSelectionSummaryTest implements HashCodeEqualsDefi
     );
 
     @Test
-    public void testWithNullFormatPatternFails() {
+    public void testWithNullFormatterFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> SpreadsheetSelectionSummary.with(
                         null,
-                        PARSE,
+                        PARSER,
                         STYLE
                 )
         );
     }
 
     @Test
-    public void testWithNullParsePatternFails() {
+    public void testWithNullParserFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> SpreadsheetSelectionSummary.with(
-                        FORMAT,
+                        FORMATTER,
                         null,
                         STYLE
                 )
@@ -79,8 +79,8 @@ public final class SpreadsheetSelectionSummaryTest implements HashCodeEqualsDefi
         assertThrows(
                 NullPointerException.class,
                 () -> SpreadsheetSelectionSummary.with(
-                        FORMAT,
-                        PARSE,
+                        FORMATTER,
+                        PARSER,
                         null
                 )
         );
@@ -93,7 +93,7 @@ public final class SpreadsheetSelectionSummaryTest implements HashCodeEqualsDefi
         this.checkNotEquals(
                 SpreadsheetSelectionSummary.with(
                         Optional.empty(),
-                        PARSE,
+                        PARSER,
                         STYLE
                 )
         );
@@ -103,7 +103,7 @@ public final class SpreadsheetSelectionSummaryTest implements HashCodeEqualsDefi
     public void testEqualsDifferentParsePattern() {
         this.checkNotEquals(
                 SpreadsheetSelectionSummary.with(
-                        FORMAT,
+                        FORMATTER,
                         Optional.empty(),
                         STYLE
                 )
@@ -114,8 +114,8 @@ public final class SpreadsheetSelectionSummaryTest implements HashCodeEqualsDefi
     public void testEqualsDifferentStyle() {
         this.checkNotEquals(
                 SpreadsheetSelectionSummary.with(
-                        FORMAT,
-                        PARSE,
+                        FORMATTER,
+                        PARSER,
                         TextStyle.EMPTY
                 )
         );
@@ -124,8 +124,8 @@ public final class SpreadsheetSelectionSummaryTest implements HashCodeEqualsDefi
     @Override
     public SpreadsheetSelectionSummary createObject() {
         return SpreadsheetSelectionSummary.with(
-                FORMAT,
-                PARSE,
+                FORMATTER,
+                PARSER,
                 STYLE
         );
     }
@@ -136,11 +136,11 @@ public final class SpreadsheetSelectionSummaryTest implements HashCodeEqualsDefi
     public void testToStringAll() {
         this.toStringAndCheck(
                 SpreadsheetSelectionSummary.with(
-                        FORMAT,
-                        PARSE,
+                        FORMATTER,
+                        PARSER,
                         STYLE
                 ),
-                FORMAT.get() + " " + PARSE.get() + " " + STYLE
+                FORMATTER.get() + " " + PARSER.get() + " " + STYLE
         );
     }
 

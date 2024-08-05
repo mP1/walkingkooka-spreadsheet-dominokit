@@ -41,8 +41,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -340,25 +338,14 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             SpreadsheetSelectionSummary selectionSummary = SpreadsheetSelectionSummary.EMPTY;
 
             if (null != selectionNotLabel) {
-                final Set<SpreadsheetFormatPattern> formatPatterns = Sets.hash();
-                final Set<SpreadsheetParsePattern> parsePatterns = Sets.hash();
+                final Set<SpreadsheetFormatterSelector> formatters = Sets.hash();
+                final Set<SpreadsheetParserSelector> parsers = Sets.hash();
                 final Map<TextStylePropertyName<?>, Set<Object>> styleNameToValues = Maps.sorted();
 
                 for (final SpreadsheetCell cell : this.cells.values()) {
                     if (selectionNotLabel.test(cell.reference())) {
-                        final SpreadsheetFormatPattern formatPattern = cell.formatter()
-                                .flatMap(SpreadsheetFormatterSelector::spreadsheetFormatPattern)
-                                .orElse(null);
-                        if (null != formatPattern) {
-                            formatPatterns.add(formatPattern);
-                        }
-
-                        final SpreadsheetParsePattern parsePattern = cell.parser()
-                                .flatMap(SpreadsheetParserSelector::spreadsheetParsePattern)
-                                .orElse(null);
-                        if (null != parsePattern) {
-                            parsePatterns.add(parsePattern);
-                        }
+                        cell.formatter().ifPresent(formatters::add);
+                        cell.parser().ifPresent(parsers::add);
 
                         for (final Entry<TextStylePropertyName<?>, Object> styleNameAndValue : cell.style().value().entrySet()) {
                             final TextStylePropertyName<?> styleName = styleNameAndValue.getKey();
@@ -379,12 +366,12 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                     }
                 }
 
-                final SpreadsheetFormatPattern formatPattern = formatPatterns.size() == 1 ?
-                        formatPatterns.iterator().next() :
+                final SpreadsheetFormatterSelector formatter = formatters.size() == 1 ?
+                        formatters.iterator().next() :
                         null;
 
-                final SpreadsheetParsePattern parsePattern = parsePatterns.size() == 1 ?
-                        parsePatterns.iterator().next() :
+                final SpreadsheetParserSelector parser = parsers.size() == 1 ?
+                        parsers.iterator().next() :
                         null;
 
                 final Map<TextStylePropertyName<?>, Object> styleNameToValue = Maps.sorted();
@@ -399,10 +386,10 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                     }
                 }
 
-                if (formatPatterns.size() + parsePatterns.size() + styleNameToValues.size() > 0) {
+                if (formatters.size() + parsers.size() + styleNameToValues.size() > 0) {
                     selectionSummary = SpreadsheetSelectionSummary.with(
-                            Optional.ofNullable(formatPattern), // format
-                            Optional.ofNullable(parsePattern), // parse
+                            Optional.ofNullable(formatter), // format
+                            Optional.ofNullable(parser), // parse
                             TextStyle.EMPTY.setValues(styleNameToValue) // style
                     );
                 }
