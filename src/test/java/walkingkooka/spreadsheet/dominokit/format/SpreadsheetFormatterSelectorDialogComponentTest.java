@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifec
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
@@ -143,7 +144,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "              text is empty\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" +
+                        "          \"Save\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" + // save is disabled !!!
                         "          \"Undo\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetFormatterSelectorDialogComponent-close-Link\n"
@@ -1481,6 +1482,11 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         converterName,
                         values
                 );
+            }
+
+            @Override
+            public Runnable addSpreadsheetFormatterFetcherWatcher(final SpreadsheetFormatterFetcherWatcher watcher) {
+                return null;
             }
 
             @Test

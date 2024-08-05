@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.spreadsheet.dominokit.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetFormatterFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEditContext;
@@ -29,6 +31,7 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdi
  */
 public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanGiveFocus,
         ComponentLifecycleMatcher,
+        HasSpreadsheetFormatterFetcher,
         SpreadsheetDialogComponentContext,
         SpreadsheetFormatterProvider,
         SpreadsheetPatternKindTabsComponentContext,
@@ -50,6 +53,11 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
      * Provides the UNDO text.
      */
     String undo();
+
+    /**
+     * Adds a {@link SpreadsheetFormatterFetcherWatcher}.
+     */
+    Runnable addSpreadsheetFormatterFetcherWatcher(final SpreadsheetFormatterFetcherWatcher watcher);
 
     /**
      * Adds a {@link SpreadsheetMetadataFetcherWatcher}.

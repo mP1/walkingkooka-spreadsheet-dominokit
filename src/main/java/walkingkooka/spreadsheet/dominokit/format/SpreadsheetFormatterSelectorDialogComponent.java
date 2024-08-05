@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout;
@@ -26,8 +27,10 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifec
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTextComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTextComponent;
@@ -51,6 +54,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopEmptyResponseFetcherWatcher,
+        SpreadsheetFormatterFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher {
 
     /**
@@ -65,6 +69,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     private SpreadsheetFormatterSelectorDialogComponent(final SpreadsheetFormatterSelectorDialogComponentContext context) {
         this.context = context;
         context.addHistoryTokenWatcher(this);
+        context.addSpreadsheetFormatterFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.tabs = context.shouldShowTabs() ?
@@ -201,6 +206,60 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 context
         );
 
+        // couldnt get edit in browser, try server
+        if (edit.message().startsWith("Unknown ")) {
+            context.spreadsheetFormatterFetcher()
+                    .edit(
+                            context.historyToken()
+                                    .cast(SpreadsheetIdHistoryToken.class)
+                                    .id(), // id
+                            text
+                    );
+        } else {
+            this.onSpreadsheetFormatterSelectorEdit(
+                    edit,
+                    context
+            );
+        }
+    }
+
+    /**
+     * Retrieves the current {@link SpreadsheetFormatterSelector}.
+     */
+    private String text() {
+        return this.textBox.stringValue()
+                .orElse("");
+    }
+
+    // @VisibleForTesting
+    void setText(final String text) {
+        this.textBox.setStringValue(
+                Optional.of(text)
+        );
+        this.onTextBox(text);
+    }
+
+    /**
+     * The {@link SpreadsheetFormatterSelectorComponent} that holds the pattern in text form.
+     */
+    private final SpreadsheetFormatterSelectorComponent textBox;
+
+    // SpreadsheetFormatterFetcherWatcher...............................................................................
+
+    @Override
+    public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
+                                                   final SpreadsheetFormatterSelectorEdit edit,
+                                                   final AppContext context) {
+        if (this.isOpen()) {
+            this.onSpreadsheetFormatterSelectorEdit(
+                    edit,
+                    this.context
+            );
+        }
+    }
+
+    private void onSpreadsheetFormatterSelectorEdit(final SpreadsheetFormatterSelectorEdit edit,
+                                                    final SpreadsheetFormatterSelectorDialogComponentContext context) {
         this.formatterName = edit.selector()
                 .map(SpreadsheetFormatterSelector::name);
 
@@ -240,42 +299,26 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         );
 
         // enable SAVE if no error exists
-        this.save.setHistoryToken(
-                Optional.of(
-                        context.historyToken()
-                                .setSave(
-                                        Optional.ofNullable(
-                                                hasNoError ?
-                                                        text :
-                                                        null
-                                        )
-                                )
-                )
-        );
+        final String text = this.text();
+        if (text.isEmpty() || hasNoError) {
+            this.save.setHistoryToken(
+                    Optional.of(
+                            context.historyToken()
+                                    .setSave(
+                                            Optional.of(
+                                                    edit.selector()
+                                                            .map(SpreadsheetFormatterSelector::toString)
+                                                            .orElse("")
+                                            )
+                                    )
+                    )
+            );
+        } else {
+            this.save.setDisabled(true);
+        }
 
         this.refreshTitleTabsClearClose();
     }
-
-    /**
-     * Retrieves the current {@link SpreadsheetFormatterSelector}.
-     */
-    private String text() {
-        return this.textBox.stringValue()
-                .orElse("");
-    }
-
-    // @VisibleForTesting
-    void setText(final String text) {
-        this.textBox.setStringValue(
-                Optional.of(text)
-        );
-        this.onTextBox(text);
-    }
-
-    /**
-     * The {@link SpreadsheetFormatterSelectorComponent} that holds the pattern in text form.
-     */
-    private final SpreadsheetFormatterSelectorComponent textBox;
 
     // dialog links.....................................................................................................
 
