@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.dominokit.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetFormatterFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
@@ -53,6 +54,11 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
      * Provides the UNDO text.
      */
     String undo();
+
+    /**
+     * Adds a {@link SpreadsheetDeltaFetcherWatcher}.
+     */
+    Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
 
     /**
      * Adds a {@link SpreadsheetFormatterFetcherWatcher}.
