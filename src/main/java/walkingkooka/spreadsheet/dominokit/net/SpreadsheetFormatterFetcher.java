@@ -42,6 +42,15 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
 
     static {
         SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT.toString(); // force json unmarshaller to register
+
+        try {
+            SpreadsheetFormatterSelectorEdit.parse(
+                    null,
+                    null
+            );
+        } catch (final NullPointerException ignore) {
+            // nop
+        }
     }
 
     public static SpreadsheetFormatterFetcher with(final SpreadsheetFormatterFetcherWatcher watcher,
