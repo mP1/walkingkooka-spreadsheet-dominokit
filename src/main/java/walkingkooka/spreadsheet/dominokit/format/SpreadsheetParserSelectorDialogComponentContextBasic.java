@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
@@ -97,6 +99,23 @@ abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements S
     @Override
     public final Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
+    }
+
+    // SpreadsheetParserFetcher.........................................................................................
+
+    @Override
+    public final SpreadsheetParserFetcher spreadsheetParserFetcher() {
+        return this.context.spreadsheetParserFetcher();
+    }
+
+    @Override
+    public final Runnable addSpreadsheetParserFetcherWatcher(final SpreadsheetParserFetcherWatcher watcher) {
+        return this.context.addSpreadsheetParserFetcherWatcher(watcher);
+    }
+
+    @Override
+    public final Runnable addSpreadsheetParserFetcherWatcherOnce(final SpreadsheetParserFetcherWatcher watcher) {
+        return this.context.addSpreadsheetParserFetcherWatcherOnce(watcher);
     }
 
     // log..............................................................................................................

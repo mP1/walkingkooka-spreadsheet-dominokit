@@ -141,7 +141,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "              text is empty\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
+                        "          \"Save\" DISABLED id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
                         "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
