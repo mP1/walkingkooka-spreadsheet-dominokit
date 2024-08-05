@@ -20,8 +20,10 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.spreadsheet.dominokit.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetParserFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEditContext;
 
@@ -30,11 +32,11 @@ import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEditConte
  */
 public interface SpreadsheetParserSelectorDialogComponentContext extends CanGiveFocus,
         ComponentLifecycleMatcher,
+        HasSpreadsheetParserFetcher,
         SpreadsheetDialogComponentContext,
         SpreadsheetParserProvider,
         SpreadsheetPatternKindTabsComponentContext,
         SpreadsheetParserSelectorEditContext {
-
 
     /**
      * Logic to provide the dialog title. In some cases the title might not be currently enabled as it is extracted from
@@ -56,6 +58,11 @@ public interface SpreadsheetParserSelectorDialogComponentContext extends CanGive
      * Adds a {@link SpreadsheetDeltaFetcherWatcher}.
      */
     Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
+
+    /**
+     * Adds a {@link SpreadsheetParserFetcherWatcher}.
+     */
+    Runnable addSpreadsheetParserFetcherWatcher(final SpreadsheetParserFetcherWatcher watcher);
 
     /**
      * Adds a {@link SpreadsheetMetadataFetcherWatcher}.

@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout;
@@ -28,10 +29,12 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifec
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTextComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTextComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -56,7 +59,8 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         NopFetcherWatcher,
         NopEmptyResponseFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
-        SpreadsheetMetadataFetcherWatcher {
+        SpreadsheetMetadataFetcherWatcher,
+        SpreadsheetParserFetcherWatcher {
 
     /**
      * Creates a new {@link SpreadsheetParserSelectorDialogComponent}.
@@ -207,6 +211,60 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                 context
         );
 
+        // couldnt get edit in browser, try server
+        if (edit.message().startsWith("Unknown ")) {
+            context.spreadsheetParserFetcher()
+                    .edit(
+                            context.historyToken()
+                                    .cast(SpreadsheetIdHistoryToken.class)
+                                    .id(), // id
+                            text
+                    );
+        } else {
+            this.onSpreadsheetParserSelectorEdit(
+                    edit,
+                    context
+            );
+        }
+    }
+
+    /**
+     * Retrieves the current {@link SpreadsheetParserSelector}.
+     */
+    private String text() {
+        return this.textBox.stringValue()
+                .orElse("");
+    }
+
+    // @VisibleForTesting
+    void setText(final String text) {
+        this.textBox.setStringValue(
+                Optional.of(text)
+        );
+        this.onTextBox(text);
+    }
+
+    /**
+     * The {@link SpreadsheetParserSelectorComponent} that holds the pattern in text form.
+     */
+    private final SpreadsheetParserSelectorComponent textBox;
+
+    // SpreadsheetParserFetcherWatcher..................................................................................
+
+    @Override
+    public void onSpreadsheetParserSelectorEdit(final SpreadsheetId id,
+                                                final SpreadsheetParserSelectorEdit edit,
+                                                final AppContext context) {
+        if (this.isOpen()) {
+            this.onSpreadsheetParserSelectorEdit(
+                    edit,
+                    this.context
+            );
+        }
+    }
+
+    private void onSpreadsheetParserSelectorEdit(final SpreadsheetParserSelectorEdit edit,
+                                                 final SpreadsheetParserSelectorDialogComponentContext context) {
         this.parserName = edit.selector()
                 .map(SpreadsheetParserSelector::name);
 
@@ -250,42 +308,26 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         );
 
         // enable SAVE if no error exists
-        this.save.setHistoryToken(
-                Optional.of(
-                        context.historyToken()
-                                .setSave(
-                                        Optional.ofNullable(
-                                                hasNoError ?
-                                                        text :
-                                                        null
-                                        )
-                                )
-                )
-        );
+        final String text = this.text();
+        if (text.isEmpty() || hasNoError) {
+            this.save.setHistoryToken(
+                    Optional.of(
+                            context.historyToken()
+                                    .setSave(
+                                            Optional.of(
+                                                    edit.selector()
+                                                            .map(SpreadsheetParserSelector::toString)
+                                                            .orElse("")
+                                            )
+                                    )
+                    )
+            );
+        } else {
+            this.save.setDisabled(true);
+        }
 
         this.refreshTitleTabsClearClose();
     }
-
-    /**
-     * Retrieves the current {@link SpreadsheetParserSelector}.
-     */
-    private String text() {
-        return this.textBox.stringValue()
-                .orElse("");
-    }
-
-    // @VisibleForTesting
-    void setText(final String text) {
-        this.textBox.setStringValue(
-                Optional.of(text)
-        );
-        this.onTextBox(text);
-    }
-
-    /**
-     * The {@link SpreadsheetParserSelectorComponent} that holds the pattern in text form.
-     */
-    private final SpreadsheetParserSelectorComponent textBox;
 
     // dialog links.....................................................................................................
 
