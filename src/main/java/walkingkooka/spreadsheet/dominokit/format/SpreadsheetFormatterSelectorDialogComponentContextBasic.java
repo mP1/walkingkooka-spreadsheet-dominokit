@@ -46,7 +46,7 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
     SpreadsheetFormatterSelectorDialogComponentContextBasic(final AppContext context) {
         super();
 
-        this.throttler = Throttler.empty(2000);
+        this.throttler = Throttler.empty(Throttler.KEYBOARD_DELAY);
         this.context = context;
     }
 

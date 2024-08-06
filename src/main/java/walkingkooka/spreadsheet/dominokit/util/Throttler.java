@@ -27,6 +27,8 @@ import java.util.Objects;
  */
 public final class Throttler {
 
+    public final static long KEYBOARD_DELAY = 1500;
+
     /**
      * Creates a new {@link Throttler}.
      */
