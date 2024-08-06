@@ -20,12 +20,14 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.util.Throttler;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
@@ -46,6 +48,7 @@ abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements S
     SpreadsheetParserSelectorDialogComponentContextBasic(final AppContext context) {
         super();
 
+        this.throttler = Throttler.empty(Throttler.KEYBOARD_DELAY);
         this.context = context;
     }
 
@@ -117,6 +120,24 @@ abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements S
     public final Runnable addSpreadsheetParserFetcherWatcherOnce(final SpreadsheetParserFetcherWatcher watcher) {
         return this.context.addSpreadsheetParserFetcherWatcherOnce(watcher);
     }
+
+    @Override
+    public final void spreadsheetParsersEdit(final String text) {
+        this.throttler.add(
+                () -> this.spreadsheetParserFetcher()
+                        .edit(
+                                context.historyToken()
+                                        .cast(SpreadsheetIdHistoryToken.class)
+                                        .id(), // id
+                                text
+                        )
+        );
+    }
+
+    /**
+     * Used to throttle calls to /formatter/STAR/edit
+     */
+    private final Throttler throttler;
 
     // log..............................................................................................................
 
