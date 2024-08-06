@@ -62,11 +62,6 @@ public final class Throttler {
                     public void onInvoke(final Object... ignored) {
                         Throttler.this.onTimerExpire();
                     }
-
-                    @Override
-                    public String toString() {
-                        return String.valueOf(Throttler.this.next); // might be null
-                    }
                 },
                 this.delay
         );
