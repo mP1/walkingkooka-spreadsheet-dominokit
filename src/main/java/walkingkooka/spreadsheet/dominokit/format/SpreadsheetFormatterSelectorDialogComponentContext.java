@@ -56,6 +56,13 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
     String undo();
 
     /**
+     * Invokes the server end point
+     * <br>
+     * /api/spreadsheet/1/formatter/&#47;/edit
+     */
+    void spreadsheetFormattersEdit(final String text);
+
+    /**
      * Adds a {@link SpreadsheetDeltaFetcherWatcher}.
      */
     Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
