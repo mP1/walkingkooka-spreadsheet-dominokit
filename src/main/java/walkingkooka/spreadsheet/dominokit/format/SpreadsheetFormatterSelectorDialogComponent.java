@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifec
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -215,13 +214,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
         // couldnt get edit in browser, try server
         if (edit.message().startsWith("Unknown ")) {
-            context.spreadsheetFormatterFetcher()
-                    .edit(
-                            context.historyToken()
-                                    .cast(SpreadsheetIdHistoryToken.class)
-                                    .id(), // id
-                            text
-                    );
+            context.spreadsheetFormattersEdit(text);
         } else {
             this.onSpreadsheetFormatterSelectorEdit(
                     edit,

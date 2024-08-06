@@ -20,12 +20,14 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.util.Throttler;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
@@ -44,6 +46,7 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
     SpreadsheetFormatterSelectorDialogComponentContextBasic(final AppContext context) {
         super();
 
+        this.throttler = Throttler.empty(2000);
         this.context = context;
     }
 
@@ -84,6 +87,24 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
     public final Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
     }
+
+    @Override
+    public final void spreadsheetFormattersEdit(final String text) {
+        this.throttler.add(
+                () -> this.spreadsheetFormatterFetcher()
+                        .edit(
+                                context.historyToken()
+                                        .cast(SpreadsheetIdHistoryToken.class)
+                                        .id(), // id
+                                text
+                        )
+        );
+    }
+
+    /**
+     * Used to throttle calls to /formatter/STAR/edit
+     */
+    private final Throttler throttler;
 
     @Override
     public final SpreadsheetFormatterFetcher spreadsheetFormatterFetcher() {
