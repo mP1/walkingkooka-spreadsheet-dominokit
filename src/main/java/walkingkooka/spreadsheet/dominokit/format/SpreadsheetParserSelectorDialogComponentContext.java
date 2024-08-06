@@ -50,6 +50,13 @@ public interface SpreadsheetParserSelectorDialogComponentContext extends CanGive
     boolean shouldShowTabs();
 
     /**
+     * Invokes the server end point
+     * <br>
+     * /api/spreadsheet/1/parser/&#47;/edit
+     */
+    void spreadsheetParsersEdit(final String text);
+
+    /**
      * Provides the UNDO text.
      */
     String undo();
