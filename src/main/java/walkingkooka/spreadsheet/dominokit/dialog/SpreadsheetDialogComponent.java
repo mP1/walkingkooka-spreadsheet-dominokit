@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
-import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
@@ -88,16 +87,6 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
                 .id(id);
 
         this.setTitle(title);
-
-        // Stops extra empty area below some dialogs
-        final CSSStyleDeclaration style = this.element()
-                .style;
-
-        style.setProperty("margin-top", "20vh"); // not sure why 10vh gives no space
-        style.setProperty("margin-bottom", "10vh");
-
-        style.setProperty("height", "auto");
-        style.setProperty("max-height", "90vh");
     }
 
     private HistoryTokenAnchorComponent closeLink(final String id,
