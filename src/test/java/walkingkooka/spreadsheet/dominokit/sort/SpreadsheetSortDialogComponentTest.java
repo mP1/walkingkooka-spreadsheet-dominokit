@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.sort;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.plugin.ProviderContext;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -1504,8 +1505,12 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
             }
 
             @Override
-            public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
-                return SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparator(spreadsheetComparatorName);
+            public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName name,
+                                                                  final ProviderContext context) {
+                return SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparator(
+                        name,
+                        context
+                );
             }
 
             @Override
@@ -1530,8 +1535,12 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                     }
 
                     @Override
-                    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
-                        return context.spreadsheetComparator(spreadsheetComparatorName);
+                    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName name,
+                                                                          final ProviderContext c) {
+                        return context.spreadsheetComparator(
+                                name,
+                                context
+                        );
                     }
 
                     @Override

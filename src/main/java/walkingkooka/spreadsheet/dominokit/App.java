@@ -38,6 +38,8 @@ import org.gwtproject.core.client.Scheduler;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviderDelegator;
 import walkingkooka.convert.provider.ConverterProviders;
+import walkingkooka.environment.EnvironmentContext;
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
@@ -45,6 +47,9 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
+import walkingkooka.plugin.ProviderContext;
+import walkingkooka.plugin.ProviderContextDelegator;
+import walkingkooka.plugin.ProviderContexts;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
@@ -146,6 +151,7 @@ public class App implements EntryPoint,
         HistoryTokenWatcher,
         JsonNodeMarshallUnmarshallContextDelegator,
         NopEmptyResponseFetcherWatcher,
+        ProviderContextDelegator,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler,
@@ -215,6 +221,8 @@ public class App implements EntryPoint,
                 this.spreadsheetParserWatchers,
                 this
         );
+
+        this.providerContext = ProviderContexts.fake();
 
         // history
         this.history = Historys.elemental(loggingContext);
@@ -656,7 +664,8 @@ public class App implements EntryPoint,
                     this.converterProvider,
                     this.spreadsheetFormatterProvider,
                     () -> this.now(), // not sure why but method ref fails.
-                    this.viewportCache
+                    this.viewportCache, // SpreadsheetLabelNameResolver
+                    this // ProviderContext
             );
 
             this.parserContext = metadata.parserContext(
@@ -668,6 +677,14 @@ public class App implements EntryPoint,
                     metadata.expressionNumberKind(),
                     metadata.mathContext()
             );
+
+            final EnvironmentContext environmentContext = metadata.environmentContext();
+            this.providerContext = new ProviderContext() {
+                @Override
+                public <T> Optional<T> environmentValue(final EnvironmentValueName<T> name) {
+                    return environmentContext.environmentValue(name);
+                }
+            };
 
             final Optional<SpreadsheetId> maybeId = metadata.id();
             final Optional<SpreadsheetName> maybeName = metadata.name();
@@ -767,6 +784,15 @@ public class App implements EntryPoint,
     }
 
     private SpreadsheetParserContext parserContext;
+
+    // ProviderContext..................................................................................................
+
+    @Override
+    public ProviderContext providerContext() {
+        return this.providerContext;
+    }
+
+    private ProviderContext providerContext;
 
     // json.............................................................................................................
 

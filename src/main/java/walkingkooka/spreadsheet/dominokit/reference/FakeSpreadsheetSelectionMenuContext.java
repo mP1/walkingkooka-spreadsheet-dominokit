@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
+import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
@@ -64,7 +65,8 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryTokenContext
     }
 
     @Override
-    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
+    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName name,
+                                                          final ProviderContext context) {
         throw new UnsupportedOperationException();
     }
 

@@ -27,6 +27,7 @@ import walkingkooka.net.Url;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
+import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
@@ -75,6 +76,7 @@ public interface AppContext extends CanGiveFocus,
         HasSpreadsheetParserFetcher,
         JsonNodeMarshallContext,
         JsonNodeUnmarshallContext,
+        ProviderContext,
         SpreadsheetComparatorProvider,
         SpreadsheetFormatterProvider,
         SpreadsheetFormatterContext,

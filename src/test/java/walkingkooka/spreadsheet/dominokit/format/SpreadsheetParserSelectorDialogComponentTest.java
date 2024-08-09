@@ -24,6 +24,7 @@ import walkingkooka.convert.Converter;
 import walkingkooka.convert.ConverterContext;
 import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterSelector;
+import walkingkooka.plugin.ProviderContext;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -1258,30 +1259,42 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             }
 
             @Override
-            public <C extends ConverterContext> Converter<C> converter(final ConverterSelector selector) {
-                return SpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(selector);
+            public <C extends ConverterContext> Converter<C> converter(final ConverterSelector selector,
+                                                                       final ProviderContext context) {
+                return SpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(
+                        selector,
+                        context
+                );
             }
 
             @Override
             public <C extends ConverterContext> Converter<C> converter(final ConverterName converterName,
-                                                                       final List<?> values) {
+                                                                       final List<?> values,
+                                                                       final ProviderContext context) {
                 return SpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(
                         converterName,
-                        values
+                        values,
+                        context
                 );
             }
 
             @Test
-            public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector) {
-                return SpreadsheetMetadataTesting.SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(selector);
+            public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
+                                                       final ProviderContext context) {
+                return SpreadsheetMetadataTesting.SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(
+                        selector,
+                        context
+                );
             }
 
             @Override
             public SpreadsheetParser spreadsheetParser(final SpreadsheetParserName name,
-                                                       final List<?> values) {
+                                                       final List<?> values,
+                                                       final ProviderContext context) {
                 return SpreadsheetMetadataTesting.SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(
                         name,
-                        values
+                        values,
+                        context
                 );
             }
 

@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
+import walkingkooka.plugin.ProviderContext;
+import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
@@ -41,7 +43,8 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
         HistoryTokenContextDelegator,
         LoggingContextDelegator,
         SpreadsheetFormatterContextDelegator,
-        SpreadsheetFormatterProviderDelegator {
+        SpreadsheetFormatterProviderDelegator,
+        ProviderContextDelegator {
 
     SpreadsheetFormatterSelectorDialogComponentContextBasic(final AppContext context) {
         super();
@@ -66,6 +69,13 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
 
     @Override
     public final SpreadsheetFormatterProvider spreadsheetFormatterProvider() {
+        return this.context;
+    }
+
+    // ProviderContext..................................................................................................
+
+    @Override
+    public final ProviderContext providerContext() {
         return this.context;
     }
 
