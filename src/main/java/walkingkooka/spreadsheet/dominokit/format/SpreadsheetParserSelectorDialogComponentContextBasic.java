@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
+import walkingkooka.plugin.ProviderContext;
+import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
@@ -43,7 +45,8 @@ abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements S
         LoggingContextDelegator,
         SpreadsheetFormatterContextDelegator,
         SpreadsheetFormatterProviderDelegator,
-        SpreadsheetParserProviderDelegator {
+        SpreadsheetParserProviderDelegator,
+        ProviderContextDelegator {
 
     SpreadsheetParserSelectorDialogComponentContextBasic(final AppContext context) {
         super();
@@ -138,6 +141,13 @@ abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements S
      * Used to throttle calls to /formatter/STAR/edit
      */
     private final Throttler throttler;
+
+    // ProviderContext..................................................................................................
+
+    @Override
+    public final ProviderContext providerContext() {
+        return this.context;
+    }
 
     // log..............................................................................................................
 

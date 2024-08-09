@@ -23,6 +23,7 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.header.MediaType;
+import walkingkooka.plugin.ProviderContext;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -961,9 +962,13 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                     }
 
                                     @Override
-                                    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector spreadsheetparserSelector) {
+                                    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
+                                                                               final ProviderContext context) {
                                         return SpreadsheetParserProviders.spreadsheetParsePattern(SpreadsheetFormatterProviders.fake())
-                                                .spreadsheetParser(spreadsheetparserSelector);
+                                                .spreadsheetParser(
+                                                        selector,
+                                                        context
+                                                );
                                     }
                                 })
         );

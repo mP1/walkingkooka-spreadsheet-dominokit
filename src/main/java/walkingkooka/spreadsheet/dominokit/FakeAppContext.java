@@ -24,7 +24,9 @@ import walkingkooka.convert.ConverterContext;
 import walkingkooka.convert.provider.ConverterInfo;
 import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterSelector;
+import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.net.header.MediaType;
+import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
@@ -181,7 +183,14 @@ public class FakeAppContext implements AppContext,
     public SpreadsheetParserFetcher spreadsheetParserFetcher() {
         throw new UnsupportedOperationException();
     }
-    
+
+    // ProviderContext..................................................................................................
+
+    @Override
+    public <T> Optional<T> environmentValue(final EnvironmentValueName<T> name) {
+        throw new UnsupportedOperationException();
+    }
+
     // json.............................................................................................................
 
     @Override
@@ -197,7 +206,8 @@ public class FakeAppContext implements AppContext,
     // SpreadsheetComparatorProvider....................................................................................
 
     @Override
-    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName spreadsheetComparatorName) {
+    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName name,
+                                                          final ProviderContext context) {
         throw new UnsupportedOperationException();
     }
 
@@ -209,13 +219,15 @@ public class FakeAppContext implements AppContext,
     // ConverterProvider................................................................................................
 
     @Override
-    public <C extends ConverterContext> Converter<C> converter(final ConverterSelector selector) {
+    public <C extends ConverterContext> Converter<C> converter(final ConverterSelector selector,
+                                                               final ProviderContext context) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public <C extends ConverterContext> Converter<C> converter(final ConverterName converterName,
-                                                               final List<?> values) {
+                                                               final List<?> values,
+                                                               final ProviderContext context) {
         throw new UnsupportedOperationException();
     }
 
@@ -228,12 +240,14 @@ public class FakeAppContext implements AppContext,
 
     @Override
     public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterName name,
-                                                     final List<?> values) {
+                                                     final List<?> values,
+                                                     final ProviderContext context) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector spreadsheetFormatterSelector) {
+    public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector selector,
+                                                     final ProviderContext context) {
         throw new UnsupportedOperationException();
     }
 
@@ -256,13 +270,15 @@ public class FakeAppContext implements AppContext,
     // SpreadsheetParserProvider........................................................................................
 
     @Override
-    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector spreadsheetparserSelector) {
+    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
+                                               final ProviderContext context) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public SpreadsheetParser spreadsheetParser(final SpreadsheetParserName name,
-                                               final List<?> values) {
+                                               final List<?> values,
+                                               final ProviderContext context) {
         throw new UnsupportedOperationException();
     }
 

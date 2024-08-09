@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
+import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
@@ -38,13 +39,15 @@ public class FakeSpreadsheetParserNameLinkListComponentContext extends FakeHisto
     }
 
     @Override
-    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector) {
+    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
+                                               final ProviderContext context) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public SpreadsheetParser spreadsheetParser(final SpreadsheetParserName name,
-                                               final List<?> values) {
+                                               final List<?> values,
+                                               final ProviderContext context) {
         throw new UnsupportedOperationException();
     }
 

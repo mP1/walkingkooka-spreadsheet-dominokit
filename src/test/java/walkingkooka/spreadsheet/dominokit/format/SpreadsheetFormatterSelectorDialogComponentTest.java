@@ -24,6 +24,7 @@ import walkingkooka.convert.Converter;
 import walkingkooka.convert.ConverterContext;
 import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterSelector;
+import walkingkooka.plugin.ProviderContext;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -1472,16 +1473,22 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             }
 
             @Override
-            public <C extends ConverterContext> Converter<C> converter(final ConverterSelector selector) {
-                return SpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(selector);
+            public <C extends ConverterContext> Converter<C> converter(final ConverterSelector selector,
+                                                                       final ProviderContext context) {
+                return SpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(
+                        selector,
+                        context
+                );
             }
 
             @Override
             public <C extends ConverterContext> Converter<C> converter(final ConverterName converterName,
-                                                                       final List<?> values) {
+                                                                       final List<?> values,
+                                                                       final ProviderContext context) {
                 return SpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(
                         converterName,
-                        values
+                        values,
+                        context
                 );
             }
 
@@ -1496,16 +1503,22 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             }
 
             @Test
-            public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector selector) {
-                return SpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatter(selector);
+            public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector selector,
+                                                             final ProviderContext context) {
+                return SpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatter(
+                        selector,
+                        context
+                );
             }
 
             @Override
             public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterName name,
-                                                             final List<?> values) {
+                                                             final List<?> values,
+                                                             final ProviderContext context) {
                 return SpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatter(
                         name,
-                        values
+                        values,
+                        context
                 );
             }
 

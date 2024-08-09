@@ -24,6 +24,7 @@ import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.HasMediaTypeTesting;
 import walkingkooka.net.header.MediaType;
+import walkingkooka.plugin.ProviderContext;
 import walkingkooka.predicate.PredicateTesting;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
@@ -914,8 +915,12 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         }
 
         @Override
-        public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector) {
-            return SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(selector);
+        public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
+                                                   final ProviderContext context) {
+            return SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(
+                    selector,
+                    context
+            );
         }
     };
 

@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.find;
 
+import walkingkooka.plugin.ProviderContext;
+import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
@@ -33,7 +35,8 @@ import java.time.LocalDateTime;
 final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext,
         HistoryTokenContextDelegator,
         LoggingContextDelegator,
-        SpreadsheetParserProviderDelegator {
+        SpreadsheetParserProviderDelegator,
+        ProviderContextDelegator {
 
     static AppContextSpreadsheetFindDialogComponentContext with(final AppContext context) {
         return new AppContextSpreadsheetFindDialogComponentContext(context);
@@ -85,6 +88,13 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
 
     @Override
     public SpreadsheetParserProvider spreadsheetParserProvider() {
+        return this.context;
+    }
+
+    // ProviderContext..................................................................................................
+
+    @Override
+    public ProviderContext providerContext() {
         return this.context;
     }
 

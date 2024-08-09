@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.find;
 
+import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
@@ -60,13 +62,15 @@ public class FakeSpreadsheetFindDialogComponentContext extends FakeHistoryTokenC
     }
 
     @Override
-    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector) {
+    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
+                                               final ProviderContext context) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public SpreadsheetParser spreadsheetParser(final SpreadsheetParserName name,
-                                               final List<?> values) {
+                                               final List<?> values,
+                                               final ProviderContext context) {
         throw new UnsupportedOperationException();
     }
 
@@ -84,6 +88,15 @@ public class FakeSpreadsheetFindDialogComponentContext extends FakeHistoryTokenC
     public Set<SpreadsheetParserInfo> spreadsheetParserInfos() {
         throw new UnsupportedOperationException();
     }
+
+    // ProviderContext..................................................................................................
+
+    @Override
+    public <T> Optional<T> environmentValue(final EnvironmentValueName<T> name) {
+        throw new UnsupportedOperationException();
+    }
+
+    // LoggingContext...................................................................................................
 
     @Override
     public void debug(final Object... values) {

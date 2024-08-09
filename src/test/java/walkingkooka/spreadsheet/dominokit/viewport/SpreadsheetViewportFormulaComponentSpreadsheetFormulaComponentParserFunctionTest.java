@@ -22,6 +22,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
+import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetErrorKind;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -230,7 +231,10 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 text,
                 SpreadsheetFormula.parse(
                         TextCursors.charSequence(text),
-                        metadata.parser(SPREADSHEET_PARSER_PROVIDER),
+                        metadata.parser(
+                                SPREADSHEET_PARSER_PROVIDER,
+                                PROVIDER_CONTEXT
+                        ),
                         metadata.parserContext(NOW)
                 )
         );
@@ -336,7 +340,10 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 text,
                 SpreadsheetFormula.parse(
                         TextCursors.charSequence(text),
-                        METADATA.parser(SPREADSHEET_PARSER_PROVIDER),
+                        METADATA.parser(
+                                SPREADSHEET_PARSER_PROVIDER,
+                                PROVIDER_CONTEXT
+                        ),
                         METADATA.parserContext(NOW)
                 )
         );
@@ -383,8 +390,12 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             }
 
             @Override
-            public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector) {
-                return SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(selector);
+            public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
+                                                       final ProviderContext context) {
+                return SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(
+                        selector,
+                        context
+                );
             }
 
             @Override

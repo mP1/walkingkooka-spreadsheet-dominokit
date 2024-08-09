@@ -64,14 +64,20 @@ final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParser
         if (maybeCell.isPresent()) {
             final SpreadsheetCell cell = maybeCell.get();
             parser = cell.parser()
-                    .map(p -> context.spreadsheetParser(p))
-                    .orElse(null);
+                    .map(p -> context.spreadsheetParser(
+                                    p,
+                                    context
+                            )
+                    ).orElse(null);
         }
 
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
         if (null == parser) {
             parser = SpreadsheetParsers.valueOrExpression(
-                    metadata.parser(this.context) // context as SpreadsheetParserProvider
+                    metadata.parser(
+                            context, // SpreadsheetParserProvider
+                            context // ProviderContext
+                    )
             );
         }
         final SpreadsheetParserContext parserContext = metadata.parserContext(
