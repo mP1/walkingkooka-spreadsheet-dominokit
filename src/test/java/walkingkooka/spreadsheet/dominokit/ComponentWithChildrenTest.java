@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public final class ComponentWithChildrenTest implements TreePrintableTesting,
-        CanBeEmptyTesting<SpreadsheetCard> {
+        CanBeEmptyTesting {
 
     @Test
     public void testCanBeEmptyWithNoChildren() {
@@ -88,10 +88,5 @@ public final class ComponentWithChildrenTest implements TreePrintableTesting,
                         ),
                 false
         );
-    }
-
-    @Override
-    public SpreadsheetCard createCanBeEmpty() {
-        return SpreadsheetCard.empty();
     }
 }
