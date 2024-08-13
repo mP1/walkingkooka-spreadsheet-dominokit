@@ -280,8 +280,8 @@ public class App implements EntryPoint,
 
         SpreadsheetSortDialogComponent.with(
                 SpreadsheetSortDialogComponentContexts.basic(
-                        this.spreadsheetComparatorProvider,
-                        this
+                        this, // SpreadsheetComparatorProvider
+                        this // HistoryTokenContext
                 )
         );
 
