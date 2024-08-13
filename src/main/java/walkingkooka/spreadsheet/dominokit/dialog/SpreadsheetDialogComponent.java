@@ -127,8 +127,12 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
     }
 
     private void fireClose() {
-        this.context.historyToken()
-                .close();
+        final HistoryTokenContext context = this.context;
+
+        context.pushHistoryToken(
+                context.historyToken()
+                        .close()
+        );
     }
 
     private final HistoryTokenContext context;
