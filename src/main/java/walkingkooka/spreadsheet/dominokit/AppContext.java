@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Headers;
 import walkingkooka.Context;
-import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.locale.HasLocale;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -29,7 +28,6 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -45,11 +43,10 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
+import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
@@ -65,7 +62,7 @@ import java.util.Set;
  */
 public interface AppContext extends CanGiveFocus,
         ClipboardContext,
-        ConverterProvider,
+        SpreadsheetProvider,
         HasLocale,
         HasNow,
         HasSpreadsheetDeltaFetcher,
@@ -77,10 +74,7 @@ public interface AppContext extends CanGiveFocus,
         JsonNodeMarshallContext,
         JsonNodeUnmarshallContext,
         ProviderContext,
-        SpreadsheetComparatorProvider,
-        SpreadsheetFormatterProvider,
         SpreadsheetFormatterContext,
-        SpreadsheetParserProvider,
         SpreadsheetParserContext,
         HistoryTokenContext,
         LoggingContext,
