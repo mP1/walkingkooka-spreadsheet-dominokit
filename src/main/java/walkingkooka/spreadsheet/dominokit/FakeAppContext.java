@@ -20,16 +20,8 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.Either;
 import walkingkooka.color.Color;
 import walkingkooka.convert.Converter;
-import walkingkooka.convert.ConverterContext;
-import walkingkooka.convert.provider.ConverterInfo;
-import walkingkooka.convert.provider.ConverterName;
-import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.net.header.MediaType;
-import walkingkooka.plugin.ProviderContext;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
@@ -49,19 +41,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderSamplesContext;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.parser.SpreadsheetParser;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTextComponent;
+import walkingkooka.spreadsheet.provider.FakeSpreadsheetProvider;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -78,10 +59,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.OptionalInt;
-import java.util.Set;
 import java.util.function.Predicate;
 
-public class FakeAppContext implements AppContext,
+public class FakeAppContext extends FakeSpreadsheetProvider
+        implements AppContext,
         JsonNodeMarshallUnmarshallContextDelegator {
 
     @Override
@@ -200,100 +181,6 @@ public class FakeAppContext implements AppContext,
 
     @Override
     public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
-        throw new UnsupportedOperationException();
-    }
-
-    // SpreadsheetComparatorProvider....................................................................................
-
-    @Override
-    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName name,
-                                                          final ProviderContext context) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
-        throw new UnsupportedOperationException();
-    }
-
-    // ConverterProvider................................................................................................
-
-    @Override
-    public <C extends ConverterContext> Converter<C> converter(final ConverterSelector selector,
-                                                               final ProviderContext context) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public <C extends ConverterContext> Converter<C> converter(final ConverterName converterName,
-                                                               final List<?> values,
-                                                               final ProviderContext context) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Set<ConverterInfo> converterInfos() {
-        throw new UnsupportedOperationException();
-    }
-
-    // SpreadsheetFormatterProvider.....................................................................................
-
-    @Override
-    public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterName name,
-                                                     final List<?> values,
-                                                     final ProviderContext context) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector selector,
-                                                     final ProviderContext context) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<SpreadsheetFormatterSelectorTextComponent> spreadsheetFormatterNextTextComponent(final SpreadsheetFormatterSelector selector) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public List<SpreadsheetFormatterSample> spreadsheetFormatterSamples(final SpreadsheetFormatterName name,
-                                                                        final SpreadsheetFormatterProviderSamplesContext context) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Set<SpreadsheetFormatterInfo> spreadsheetFormatterInfos() {
-        throw new UnsupportedOperationException();
-    }
-
-    // SpreadsheetParserProvider........................................................................................
-
-    @Override
-    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
-                                               final ProviderContext context) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserName name,
-                                               final List<?> values,
-                                               final ProviderContext context) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<SpreadsheetParserSelectorTextComponent> spreadsheetParserNextTextComponent(final SpreadsheetParserSelector selector) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector(final SpreadsheetParserSelector selector) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Set<SpreadsheetParserInfo> spreadsheetParserInfos() {
         throw new UnsupportedOperationException();
     }
 

@@ -36,7 +36,6 @@ import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.notifications.Notification.Position;
 import org.gwtproject.core.client.Scheduler;
 import walkingkooka.convert.provider.ConverterProvider;
-import walkingkooka.convert.provider.ConverterProviderDelegator;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentValueName;
@@ -52,8 +51,6 @@ import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.plugin.ProviderContexts;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviderDelegator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.convert.SpreadsheetConvertersConverterProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
@@ -117,18 +114,20 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContexts;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContexts;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviders;
+import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
+import walkingkooka.spreadsheet.provider.SpreadsheetProviderDelegator;
+import walkingkooka.spreadsheet.provider.SpreadsheetProviders;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
 import walkingkooka.tree.json.JsonNodeMarshallUnmarshallContextDelegator;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
@@ -155,11 +154,8 @@ public class App implements EntryPoint,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler,
-        ConverterProviderDelegator,
-        SpreadsheetComparatorProviderDelegator,
-        SpreadsheetFormatterContextDelegator,
-        SpreadsheetFormatterProviderDelegator,
-        SpreadsheetParserProviderDelegator {
+        SpreadsheetProviderDelegator,
+        SpreadsheetFormatterContextDelegator {
 
     public App() {
         GWT.setUncaughtExceptionHandler(this);
@@ -171,10 +167,13 @@ public class App implements EntryPoint,
         final LoggingContext loggingContext = LoggingContexts.elemental();
         this.loggingContext = loggingContext;
 
-        this.converterProvider = ConverterProviders.empty();
-        this.spreadsheetComparatorProvider = SpreadsheetComparatorProviders.empty();
-        this.spreadsheetFormatterProvider = SpreadsheetFormatterProviders.empty();
-        this.spreadsheetParserProvider = SpreadsheetParserProviders.empty();
+        this.spreadsheetProvider = SpreadsheetProviders.basic(
+                ConverterProviders.empty(),
+                ExpressionFunctionProviders.empty(),
+                SpreadsheetComparatorProviders.empty(),
+                SpreadsheetFormatterProviders.empty(),
+                SpreadsheetParserProviders.empty()
+        );
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                 ExpressionNumberKind.DEFAULT,
@@ -640,29 +639,33 @@ public class App implements EntryPoint,
             final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
             this.spreadsheetMetadata = metadata;
 
-            this.spreadsheetComparatorProvider = metadata.spreadsheetComparatorProvider(
-                    SpreadsheetComparatorProviders.spreadsheetComparators()
-            );
-
-            this.spreadsheetFormatterProvider = metadata.spreadsheetFormatterProvider(
+            final SpreadsheetFormatterProvider spreadsheetFormatterProvider = metadata.spreadsheetFormatterProvider(
                     SpreadsheetFormatterProviders.spreadsheetFormatPattern()
             );
 
-            this.spreadsheetParserProvider = metadata.spreadsheetParserProvider(
-                    SpreadsheetParserProviders.spreadsheetParsePattern(this.spreadsheetFormatterProvider)
+            final SpreadsheetParserProvider spreadsheetParserProvider = metadata.spreadsheetParserProvider(
+                    SpreadsheetParserProviders.spreadsheetParsePattern(spreadsheetFormatterProvider)
             );
 
-            this.converterProvider = metadata.converterProvider(
-                    SpreadsheetConvertersConverterProviders.spreadsheetConverters(
-                            metadata,
-                            this.spreadsheetFormatterProvider,
-                            this.spreadsheetParserProvider
+            final ConverterProvider converterProvider = SpreadsheetConvertersConverterProviders.spreadsheetConverters(
+                    metadata,
+                    spreadsheetFormatterProvider,
+                    spreadsheetParserProvider
+            );
+
+            this.spreadsheetProvider = metadata.spreadsheetProvider(
+                    SpreadsheetProviders.basic(
+                            converterProvider,
+                            ExpressionFunctionProviders.empty(),
+                            SpreadsheetComparatorProviders.spreadsheetComparators(),
+                            spreadsheetFormatterProvider,
+                            spreadsheetParserProvider
                     )
             );
 
             this.formatterContext = metadata.formatterContext(
-                    this.converterProvider,
-                    this.spreadsheetFormatterProvider,
+                    converterProvider,
+                    spreadsheetFormatterProvider,
                     () -> this.now(), // not sure why but method ref fails.
                     this.viewportCache, // SpreadsheetLabelNameResolver
                     this // ProviderContext
@@ -819,50 +822,14 @@ public class App implements EntryPoint,
     // ConverterProvider................................................................................................
 
     @Override
-    public ConverterProvider converterProvider() {
-        return this.converterProvider;
+    public SpreadsheetProvider spreadsheetProvider() {
+        return this.spreadsheetProvider;
     }
 
     /**
      * This will be updated every time {@link #onSpreadsheetMetadata(SpreadsheetMetadata, AppContext)} is called.
      */
-    private ConverterProvider converterProvider;
-
-    // SpreadsheetComparatorProvider....................................................................................
-
-    @Override
-    public SpreadsheetComparatorProvider spreadsheetComparatorProvider() {
-        return this.spreadsheetComparatorProvider;
-    }
-
-    /**
-     * This will be updated every time {@link #onSpreadsheetMetadata(SpreadsheetMetadata, AppContext)} is called.
-     */
-    private SpreadsheetComparatorProvider spreadsheetComparatorProvider;
-
-    // SpreadsheetFormatterProvider.....................................................................................
-
-    @Override
-    public SpreadsheetFormatterProvider spreadsheetFormatterProvider() {
-        return this.spreadsheetFormatterProvider;
-    }
-
-    /**
-     * This will be updated every time {@link #onSpreadsheetMetadata(SpreadsheetMetadata, AppContext)} is called.
-     */
-    private SpreadsheetFormatterProvider spreadsheetFormatterProvider;
-
-    // SpreadsheetParserProvider....................................................................................
-
-    @Override
-    public SpreadsheetParserProvider spreadsheetParserProvider() {
-        return this.spreadsheetParserProvider;
-    }
-
-    /**
-     * This will be updated every time {@link #onSpreadsheetMetadata(SpreadsheetMetadata, AppContext)} is called.
-     */
-    private SpreadsheetParserProvider spreadsheetParserProvider;
+    private SpreadsheetProvider spreadsheetProvider;
 
     @Override
     public ExpressionNumberKind expressionNumberKind() {
