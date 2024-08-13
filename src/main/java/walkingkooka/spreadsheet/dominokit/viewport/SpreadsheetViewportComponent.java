@@ -145,11 +145,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         context.addSpreadsheetDeltaFetcherWatcher(this);
 
         this.recentFormatter = this.recentFormatterOrParserSaves(
-                historyToken -> historyToken instanceof SpreadsheetCellFormatterSaveHistoryToken, // is format true
+                historyToken -> historyToken instanceof SpreadsheetCellFormatterSaveHistoryToken,
                 context
         );
         this.recentParser = this.recentFormatterOrParserSaves(
-                historyToken -> historyToken instanceof SpreadsheetCellParserSaveHistoryToken, // is format false
+                historyToken -> historyToken instanceof SpreadsheetCellParserSaveHistoryToken,
                 context
         );
 
