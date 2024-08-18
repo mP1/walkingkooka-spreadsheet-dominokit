@@ -38,7 +38,6 @@ import org.gwtproject.core.client.Scheduler;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.environment.EnvironmentContext;
-import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
@@ -682,12 +681,7 @@ public class App implements EntryPoint,
             );
 
             final EnvironmentContext environmentContext = metadata.environmentContext();
-            this.providerContext = new ProviderContext() {
-                @Override
-                public <T> Optional<T> environmentValue(final EnvironmentValueName<T> name) {
-                    return environmentContext.environmentValue(name);
-                }
-            };
+            this.providerContext = ProviderContexts.basic(environmentContext);
 
             final Optional<SpreadsheetId> maybeId = metadata.id();
             final Optional<SpreadsheetName> maybeName = metadata.name();
