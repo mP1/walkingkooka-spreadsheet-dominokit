@@ -217,7 +217,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                        "  \"Formatter\" id=test-menu-SubMenu DISABLED\n" +
+                        "  \"Formatter\" id=test-menu-SubMenu\n" +
+                        "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -426,7 +427,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                        "  \"Formatter\" id=test-menu-SubMenu DISABLED\n" +
+                        "  \"Formatter\" id=test-menu-SubMenu\n" +
+                        "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -634,7 +636,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                        "  \"Formatter\" id=test-menu-SubMenu DISABLED\n" +
+                        "  \"Formatter\" id=test-menu-SubMenu\n" +
+                        "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -871,6 +874,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "      \"Medium\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20yyyy/mm/ddd] id=test-formatter-date-format-pattern-MenuItem\n" +
                         "    \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
                         "      \"Default text\" [/1/SpreadsheetName-1/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
+                        "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -1068,7 +1072,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/*/save/] id=test-clear-style-MenuItem\n" +
-                        "  \"Formatter\" id=test-menu-SubMenu DISABLED\n" +
+                        "  \"Formatter\" id=test-menu-SubMenu\n" +
+                        "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter] id=test-formatter-edit-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/delete] id=test-delete-MenuItem\n" +
