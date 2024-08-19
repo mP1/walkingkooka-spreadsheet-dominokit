@@ -37,7 +37,7 @@ public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<S
                                                    final SpreadsheetFormatterSelectorEdit edit,
                                                    final AppContext context) {
         this.fire(
-                SpreadsheetFormatterFetcherWatchersEvent.with(
+                SpreadsheetFormatterFetcherWatchersEditEvent.with(
                         id,
                         edit,
                         context

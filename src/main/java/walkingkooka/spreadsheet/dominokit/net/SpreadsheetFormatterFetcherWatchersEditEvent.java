@@ -24,21 +24,21 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdi
 /**
  * The event payload used by {@link SpreadsheetFormatterFetcherWatchers}.
  */
-final class SpreadsheetFormatterFetcherWatchersEvent extends FetcherWatchersEvent<SpreadsheetFormatterFetcherWatcher> {
+final class SpreadsheetFormatterFetcherWatchersEditEvent extends FetcherWatchersEvent<SpreadsheetFormatterFetcherWatcher> {
 
-    static SpreadsheetFormatterFetcherWatchersEvent with(final SpreadsheetId id,
-                                                         final SpreadsheetFormatterSelectorEdit edit,
-                                                         final AppContext context) {
-        return new SpreadsheetFormatterFetcherWatchersEvent(
+    static SpreadsheetFormatterFetcherWatchersEditEvent with(final SpreadsheetId id,
+                                                             final SpreadsheetFormatterSelectorEdit edit,
+                                                             final AppContext context) {
+        return new SpreadsheetFormatterFetcherWatchersEditEvent(
                 id,
                 edit,
                 context
         );
     }
 
-    private SpreadsheetFormatterFetcherWatchersEvent(final SpreadsheetId id,
-                                                     final SpreadsheetFormatterSelectorEdit edit,
-                                                     final AppContext context) {
+    private SpreadsheetFormatterFetcherWatchersEditEvent(final SpreadsheetId id,
+                                                         final SpreadsheetFormatterSelectorEdit edit,
+                                                         final AppContext context) {
         super(context);
         this.id = id;
         this.edit = edit;
