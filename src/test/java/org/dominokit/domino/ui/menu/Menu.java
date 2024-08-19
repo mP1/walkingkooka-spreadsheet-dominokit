@@ -59,6 +59,7 @@ public class Menu<V> implements TreePrintable {
         this.text = text;
         this.icon = icon;
         this.badge = badge;
+        this.disabled = false;
     }
 
     private final String id;
@@ -75,6 +76,9 @@ public class Menu<V> implements TreePrintable {
     }
 
     private final List<Object> children = Lists.array();
+
+
+    public boolean disabled;
 
     @Override
     public void printTree(final IndentingPrinter printer) {
@@ -102,6 +106,11 @@ public class Menu<V> implements TreePrintable {
             printer.print(" id=");
             printer.print(id);
         }
+
+        if (this.disabled) {
+            printer.print(" DISABLED");
+        }
+
         printer.lineStart();
 
         printer.indent();
