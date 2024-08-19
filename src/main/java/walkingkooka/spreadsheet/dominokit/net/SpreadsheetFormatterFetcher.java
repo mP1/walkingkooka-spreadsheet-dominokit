@@ -170,14 +170,14 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
                         context
                 );
                 break;
-            case "SpreadsheetFormatterSelectorMenu":
+            case "SpreadsheetFormatterSelectorMenuList":
                 // http://server/api/spreadsheet/1/formatter/*/menu
-                this.watcher.onSpreadsheetFormatterSelectorMenu(
+                this.watcher.onSpreadsheetFormatterSelectorMenuList(
                         SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
                                 .get(), // the request url
                         this.parse(
                                 body,
-                                SpreadsheetFormatterSelectorMenu.class
+                                SpreadsheetFormatterSelectorMenuList.class
                         ), // menu
                         context
                 );

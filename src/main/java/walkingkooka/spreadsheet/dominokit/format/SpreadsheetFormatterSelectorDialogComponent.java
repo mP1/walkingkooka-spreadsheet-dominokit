@@ -44,7 +44,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponent
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -322,9 +322,9 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     }
 
     @Override
-    public void onSpreadsheetFormatterSelectorMenu(final SpreadsheetId id,
-                                                   final SpreadsheetFormatterSelectorMenu menu,
-                                                   final AppContext context) {
+    public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
+                                                       final SpreadsheetFormatterSelectorMenuList menu,
+                                                       final AppContext context) {
         // nop
     }
 
