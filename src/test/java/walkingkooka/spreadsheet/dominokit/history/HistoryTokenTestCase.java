@@ -230,6 +230,17 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // setFormatter..........................................................................................................
+
+    final void setFormatterAndCheck(final HistoryToken token,
+                                    final HistoryToken expected) {
+        this.checkEquals(
+                expected,
+                token.setFormatter(),
+                () -> token + " setFormatter"
+        );
+    }
+    
     // setMetadataPropertyName..........................................................................................
 
     @Test
