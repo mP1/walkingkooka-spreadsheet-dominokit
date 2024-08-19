@@ -83,6 +83,16 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
         );
     }
 
+    // /api/spreadsheet/SpreadsheetId/formatter/*/menu
+    public void menu(final SpreadsheetId id) {
+        this.get(
+                url(
+                        id,
+                        MENU
+                )
+        );
+    }
+
     // /api/spreadsheet/1/formatter/*/edit
 
     static RelativeUrl url(final SpreadsheetId id,
@@ -99,6 +109,10 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
 
     private final static UrlPath EDIT = UrlPath.parse(
             "/*/" + SpreadsheetHttpServerLinkRelations.EDIT
+    );
+
+    private final static UrlPath MENU = UrlPath.parse(
+            "/*/" + SpreadsheetHttpServerLinkRelations.MENU
     );
 
     // Fetcher..........................................................................................................
