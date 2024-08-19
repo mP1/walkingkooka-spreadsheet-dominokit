@@ -39,21 +39,21 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         SpreadsheetComparatorProviderDelegator,
         HistoryTokenContextDelegator {
 
-    static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<SpreadsheetCellFormatterSaveHistoryToken> recentFormatPatterns,
-                                                                            final List<SpreadsheetCellParserSaveHistoryToken> recentParsePatterns,
+    static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors,
+                                                                            final List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors,
                                                                             final AppContext context) {
         return new SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(
-                recentFormatPatterns,
-                recentParsePatterns,
+                recentSpreadsheetFormatterSelectors,
+                recentSpreadsheetParserSelectors,
                 context
         );
     }
 
-    private SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(final List<SpreadsheetCellFormatterSaveHistoryToken> recentFormatPatterns,
-                                                                        final List<SpreadsheetCellParserSaveHistoryToken> recentParsePatterns,
+    private SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(final List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors,
+                                                                        final List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors,
                                                                         final AppContext context) {
-        this.recentFormatPatterns = recentFormatPatterns;
-        this.recentParsePatterns = recentParsePatterns;
+        this.recentSpreadsheetFormatterSelectors = recentSpreadsheetFormatterSelectors;
+        this.recentSpreadsheetParserSelectors = recentSpreadsheetParserSelectors;
         this.context = context;
     }
 
@@ -65,17 +65,17 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
 
     @Override
     public List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors() {
-        return this.recentFormatPatterns;
+        return this.recentSpreadsheetFormatterSelectors;
     }
 
-    private final List<SpreadsheetCellFormatterSaveHistoryToken> recentFormatPatterns;
+    private final List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors;
 
     @Override
     public List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors() {
-        return this.recentParsePatterns;
+        return this.recentSpreadsheetParserSelectors;
     }
 
-    private final List<SpreadsheetCellParserSaveHistoryToken> recentParsePatterns;
+    private final List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors;
 
     @Override
     public String idPrefix() {
