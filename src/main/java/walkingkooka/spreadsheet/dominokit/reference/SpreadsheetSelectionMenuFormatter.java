@@ -45,15 +45,34 @@ final class SpreadsheetSelectionMenuFormatter {
         build0(
                 historyToken.setFormatter(),
                 menu,
+                context.idPrefix() + "formatter-",
                 context
         );
     }
 
-    private static void build0(final HistoryToken historyToken,
-                               final SpreadsheetContextMenu menu,
-                               final SpreadsheetSelectionMenuContext context) {
-        final Map<SpreadsheetFormatterName, List<SpreadsheetFormatterSelectorMenu>> nameToMenus = context.spreadsheetFormatterSelectorsMenus()
-                .stream()
+    static void build0(final HistoryToken historyToken,
+                       final SpreadsheetContextMenu menu,
+                       final String idPrefix,
+                       final SpreadsheetSelectionMenuContext context) {
+        buildSpreadsheetFormatterSelectorsMenus(
+                historyToken,
+                menu,
+                idPrefix,
+                context.spreadsheetFormatterSelectorsMenus()
+        );
+
+        buildEdit(
+                historyToken,
+                menu,
+                idPrefix
+        );
+    }
+
+    private static void buildSpreadsheetFormatterSelectorsMenus(final HistoryToken historyToken,
+                                                                final SpreadsheetContextMenu menu,
+                                                                final String idPrefix,
+                                                                final List<SpreadsheetFormatterSelectorMenu> menus) {
+        final Map<SpreadsheetFormatterName, List<SpreadsheetFormatterSelectorMenu>> nameToMenus = menus.stream()
                 .collect(
                         Collectors.toMap(
                                 (SpreadsheetFormatterSelectorMenu m) -> m.selector().name(),
@@ -62,9 +81,9 @@ final class SpreadsheetSelectionMenuFormatter {
                                     first.add(m);
                                     return first;
                                 },
-                                (List<SpreadsheetFormatterSelectorMenu> menus, List<SpreadsheetFormatterSelectorMenu> merge) -> {
-                                    menus.addAll(merge);
-                                    return menus;
+                                (List<SpreadsheetFormatterSelectorMenu> before, List<SpreadsheetFormatterSelectorMenu> merge) -> {
+                                    before.addAll(merge);
+                                    return before;
                                 }
                         )
                 );
@@ -73,7 +92,7 @@ final class SpreadsheetSelectionMenuFormatter {
         for (final Entry<SpreadsheetFormatterName, List<SpreadsheetFormatterSelectorMenu>> nameAndMenus : new TreeMap<>(nameToMenus).entrySet()) {
             final String name = nameAndMenus.getKey().value();
 
-            final String nameMenuId = context.idPrefix() + "formatter-" + name;
+            final String nameMenuId = idPrefix + name;
 
             final SpreadsheetContextMenu nameMenu = menu.subMenu(
                     nameMenuId + SpreadsheetElementIds.SUB_MENU,
@@ -99,6 +118,21 @@ final class SpreadsheetSelectionMenuFormatter {
                 );
             }
         }
+    }
+
+    private static void buildEdit(final HistoryToken historyToken,
+                                  final SpreadsheetContextMenu menu,
+                                  final String idPrefix) {
+        menu.item(
+                SpreadsheetContextMenuItem.with(
+                        idPrefix + "edit" + SpreadsheetElementIds.MENU_ITEM,
+                        "Edit..."
+                ).historyToken(
+                        Optional.of(
+                                historyToken
+                        )
+                )
+        );
     }
 
     /**

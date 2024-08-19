@@ -94,7 +94,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                         "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20yy/mm/dd] id=test-formatter-date-format-pattern-MenuItem\n" +
                         "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20yyyy/mm/ddd] id=test-formatter-date-format-pattern-MenuItem\n" +
                         "  \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
-                        "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n"
+                        "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
+                        "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n"
         );
     }
 
@@ -169,7 +170,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                         "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20yyyy/mm/ddd] id=test-formatter-date-time-format-pattern-MenuItem\n" +
                         "    \"Long\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20yyyy/mmm/dddd] id=test-formatter-date-time-format-pattern-MenuItem\n" +
                         "  \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
-                        "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n"
+                        "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
+                        "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n"
         );
     }
 
