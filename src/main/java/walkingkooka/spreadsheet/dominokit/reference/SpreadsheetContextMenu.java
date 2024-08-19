@@ -66,6 +66,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
         this.menu = menu;
         this.context = context;
         this.allowSeparator = false;
+        this.empty = true;
     }
 
     /**
@@ -138,6 +139,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
                 this
         );
         this.allowSeparator = true;
+        this.empty = false;
 
         return new SpreadsheetContextMenu(
                 subMenu,
@@ -192,6 +194,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
                 this
         );
         this.allowSeparator = true;
+        this.empty = false;
 
         return this;
     }
@@ -245,6 +248,18 @@ public final class SpreadsheetContextMenu implements TreePrintable {
      * Used to prevent adding a separator as the first item, and to prevent adding to a separator immediately after another.
      */
     private boolean allowSeparator;
+
+    /**
+     * Disables this menu if its empty. This should only be called after all items have been added.
+     */
+    public SpreadsheetContextMenu disableIfEmpty() {
+        if (this.empty) {
+            SpreadsheetContextMenuNative.menuDisable(this);
+        }
+        return this;
+    }
+
+    private boolean empty;
 
     /**
      * Gives focus to the menu

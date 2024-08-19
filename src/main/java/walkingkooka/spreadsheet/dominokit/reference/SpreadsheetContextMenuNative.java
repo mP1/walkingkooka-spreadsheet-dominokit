@@ -152,4 +152,8 @@ final class SpreadsheetContextMenuNative {
     static void menuAppendChildSeparator(final SpreadsheetContextMenu menu) {
         menu.menu.appendChild(new Separator());
     }
+
+    static void menuDisable(final SpreadsheetContextMenu menu) {
+        menu.menu.disable();
+    }
 }
