@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -49,6 +50,11 @@ public interface SpreadsheetSelectionMenuContext extends Context,
      * Returns recent {@link SpreadsheetCellFormatterSaveHistoryToken}.
      */
     List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors();
+
+    /**
+     * Returns the {@link List<SpreadsheetFormatterSelectorMenu>} for the current {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
+     */
+    List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus();
 
     /**
      * Returns recent {@link SpreadsheetCellParserSaveHistoryToken}.

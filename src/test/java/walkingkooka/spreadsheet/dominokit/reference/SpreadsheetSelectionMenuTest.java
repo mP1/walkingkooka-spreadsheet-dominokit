@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHisto
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetNumberParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -42,6 +43,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.lang.reflect.Method;
@@ -62,9 +64,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 SpreadsheetSelection.A1.setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(
-                token,
-                Lists.empty(),
-                Lists.empty()
+                token
         );
 
         final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
@@ -217,6 +217,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
+                        "  \"Formatter\" id=test-menu-SubMenu DISABLED\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -271,6 +272,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                                                 .toString()
                                 ).cast(SpreadsheetCellFormatterSaveHistoryToken.class)
                 ),
+                Lists.empty(),
                 Lists.empty()
         );
 
@@ -424,6 +426,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
+                        "  \"Formatter\" id=test-menu-SubMenu DISABLED\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -470,6 +473,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
+                Lists.empty(),
                 Lists.empty(),
                 Lists.of(
                         token.setParser()
@@ -630,6 +634,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
+                        "  \"Formatter\" id=test-menu-SubMenu DISABLED\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -666,7 +671,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     }
 
     @Test
-    public void testCellRecentSpreadsheetFormatterSelectorAndSpreadsheetParserSelector() {
+    public void testCellRecentSpreadsheetFormatterSelectorAndSpreadsheetParserSelectorAndSpreadsheetFormatterSelectorMenus() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cell(
                 SpreadsheetId.with(1), // id
                 SpreadsheetName.with("SpreadsheetName-1"), // name
@@ -684,6 +689,22 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                                         formatPattern.spreadsheetFormatterSelector()
                                                 .toString()
                                 ).cast(SpreadsheetCellFormatterSaveHistoryToken.class)
+                ),
+                Lists.of(
+                        SpreadsheetFormatterSelectorMenu.with(
+                                "Short",
+                                SpreadsheetPattern.parseDateFormatPattern("yy/mm/dd")
+                                        .spreadsheetFormatterSelector()
+                        ),
+                        SpreadsheetFormatterSelectorMenu.with(
+                                "Medium",
+                                SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/ddd")
+                                        .spreadsheetFormatterSelector()
+                        ),
+                        SpreadsheetFormatterSelectorMenu.with(
+                                "Default text",
+                                SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT
+                        )
                 ),
                 Lists.of(
                         token.setParser()
@@ -844,6 +865,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
+                        "  \"Formatter\" id=test-menu-SubMenu\n" +
+                        "    \"Date Format Pattern\" id=test-formatter-date-format-pattern-SubMenu\n" +
+                        "      \"Short\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20yy/mm/dd] id=test-formatter-date-format-pattern-MenuItem\n" +
+                        "      \"Medium\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20yyyy/mm/ddd] id=test-formatter-date-format-pattern-MenuItem\n" +
+                        "    \"Text Format Pattern\" id=test-formatter-text-format-pattern-SubMenu\n" +
+                        "      \"Default text\" [/1/SpreadsheetName-1/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -888,9 +915,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         .setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(
-                token,
-                Lists.empty(), // no recent format patterns
-                Lists.empty() // no recent parse patterns
+                token
         );
 
         final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
@@ -1043,6 +1068,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/*/save/] id=test-clear-style-MenuItem\n" +
+                        "  \"Formatter\" id=test-menu-SubMenu DISABLED\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/delete] id=test-delete-MenuItem\n" +
@@ -1755,12 +1781,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
         return this.context(
                 historyToken,
                 Lists.empty(), // format patterns
+                Lists.empty(), // SpreadsheetFormatterSelectorMenu
                 Lists.empty() // parse patterns
         );
     }
 
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
                                                     final List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors,
+                                                    final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus,
                                                     final List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors) {
         return new FakeSpreadsheetSelectionMenuContext() {
 
@@ -1785,6 +1813,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             @Override
             public List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors() {
                 return recentSpreadsheetFormatterSelectors;
+            }
+
+            @Override
+            public List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus() {
+                return spreadsheetFormatterSelectorMenus;
             }
 
             @Override

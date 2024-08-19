@@ -112,6 +112,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     context
             );
 
+            format(
+                    historyToken,
+                    menu,
+                    context
+            );
+
             hideIfZero(
                     historyToken,
                     menu,
@@ -244,6 +250,23 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 kind.name().toLowerCase(),
                 CaseKind.TITLE
         );
+    }
+
+    private static void format(final HistoryToken historyToken,
+                               final SpreadsheetContextMenu menu,
+                               final SpreadsheetSelectionMenuContext context) {
+        final SpreadsheetContextMenu subMenu = menu.subMenu(
+                context.idPrefix() + "menu" + SpreadsheetElementIds.SUB_MENU,
+                "Formatter"
+        );
+
+        SpreadsheetSelectionMenuFormat.build(
+                historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
+                subMenu,
+                context
+        );
+
+        subMenu.disableIfEmpty();
     }
 
     private static void hideIfZero(final HistoryToken historyToken,
