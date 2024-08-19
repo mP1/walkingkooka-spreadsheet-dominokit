@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 
 public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<SpreadsheetFormatterFetcherWatcher>
         implements SpreadsheetFormatterFetcherWatcher {
@@ -40,6 +41,19 @@ public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<S
                 SpreadsheetFormatterFetcherWatchersEditEvent.with(
                         id,
                         edit,
+                        context
+                )
+        );
+    }
+
+    @Override
+    public void onSpreadsheetFormatterSelectorMenu(final SpreadsheetId id,
+                                                   final SpreadsheetFormatterSelectorMenu menu,
+                                                   final AppContext context) {
+        this.fire(
+                SpreadsheetFormatterFetcherWatchersMenuEvent.with(
+                        id,
+                        menu,
                         context
                 )
         );
