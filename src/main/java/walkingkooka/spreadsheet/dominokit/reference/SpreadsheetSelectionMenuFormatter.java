@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
  * Creates a sub menu for each {@link SpreadsheetFormatterName} in the {@link SpreadsheetSelectionMenuContext#spreadsheetFormatterSelectorsMenus()},
  * with items for each {@link SpreadsheetFormatterSelectorMenu} using the labels and {@link SpreadsheetFormatterSelector}.
  */
-final class SpreadsheetSelectionMenuFormat {
+final class SpreadsheetSelectionMenuFormatter {
 
     static void build(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                       final SpreadsheetContextMenu menu,
@@ -104,7 +104,7 @@ final class SpreadsheetSelectionMenuFormat {
     /**
      * Stop creation
      */
-    private SpreadsheetSelectionMenuFormat() {
+    private SpreadsheetSelectionMenuFormatter() {
         throw new UnsupportedOperationException();
     }
 }

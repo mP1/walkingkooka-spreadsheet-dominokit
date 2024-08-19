@@ -260,7 +260,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 "Formatter"
         );
 
-        SpreadsheetSelectionMenuFormat.build(
+        SpreadsheetSelectionMenuFormatter.build(
                 historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
                 subMenu,
                 context

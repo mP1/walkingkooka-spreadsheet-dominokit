@@ -38,9 +38,9 @@ import walkingkooka.text.printer.TreePrintableTesting;
 import java.util.List;
 import java.util.Optional;
 
-public final class SpreadsheetSelectionMenuFormatTest implements TreePrintableTesting,
+public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintableTesting,
         SpreadsheetMetadataTesting,
-        ClassTesting<SpreadsheetSelectionMenuFormat> {
+        ClassTesting<SpreadsheetSelectionMenuFormatter> {
 
     @Test
     public void testBuild() {
@@ -81,7 +81,7 @@ public final class SpreadsheetSelectionMenuFormatTest implements TreePrintableTe
                 context
         );
 
-        SpreadsheetSelectionMenuFormat.build(
+        SpreadsheetSelectionMenuFormatter.build(
                 historyToken,
                 menu,
                 context
@@ -152,7 +152,7 @@ public final class SpreadsheetSelectionMenuFormatTest implements TreePrintableTe
                 context
         );
 
-        SpreadsheetSelectionMenuFormat.build(
+        SpreadsheetSelectionMenuFormatter.build(
                 historyToken,
                 menu,
                 context
@@ -197,8 +197,8 @@ public final class SpreadsheetSelectionMenuFormatTest implements TreePrintableTe
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetSelectionMenuFormat> type() {
-        return SpreadsheetSelectionMenuFormat.class;
+    public Class<SpreadsheetSelectionMenuFormatter> type() {
+        return SpreadsheetSelectionMenuFormatter.class;
     }
 
     @Override
