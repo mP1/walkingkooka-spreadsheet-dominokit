@@ -44,6 +44,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponent
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -318,6 +319,13 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         }
 
         this.refreshTitleTabsClearClose();
+    }
+
+    @Override
+    public void onSpreadsheetFormatterSelectorMenu(final SpreadsheetId id,
+                                                   final SpreadsheetFormatterSelectorMenu menu,
+                                                   final AppContext context) {
+        // nop
     }
 
     // dialog links.....................................................................................................

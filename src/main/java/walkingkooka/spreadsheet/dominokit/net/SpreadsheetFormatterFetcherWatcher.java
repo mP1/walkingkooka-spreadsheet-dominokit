@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 
 /**
  * A watcher that receives all {@link SpreadsheetFormatterSelector} response events.
@@ -29,5 +30,9 @@ public interface SpreadsheetFormatterFetcherWatcher extends FetcherWatcher {
 
     void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
                                             final SpreadsheetFormatterSelectorEdit edit,
+                                            final AppContext context);
+
+    void onSpreadsheetFormatterSelectorMenu(final SpreadsheetId id,
+                                            final SpreadsheetFormatterSelectorMenu menu,
                                             final AppContext context);
 }

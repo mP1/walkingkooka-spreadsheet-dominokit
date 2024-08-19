@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServerLinkRelations;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterHateosResourceMappings;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
@@ -156,6 +157,18 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
                                 body,
                                 SpreadsheetFormatterSelectorEdit.class
                         ), // edit
+                        context
+                );
+                break;
+            case "SpreadsheetFormatterSelectorMenu":
+                // http://server/api/spreadsheet/1/formatter/*/menu
+                this.watcher.onSpreadsheetFormatterSelectorMenu(
+                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                                .get(), // the request url
+                        this.parse(
+                                body,
+                                SpreadsheetFormatterSelectorMenu.class
+                        ), // menu
                         context
                 );
                 break;
