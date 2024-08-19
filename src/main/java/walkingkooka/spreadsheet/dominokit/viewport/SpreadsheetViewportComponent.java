@@ -68,6 +68,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryTok
 import walkingkooka.spreadsheet.dominokit.history.util.HistoryTokenRecorder;
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
@@ -75,6 +76,7 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuTargets;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -87,8 +89,12 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationList;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.tree.text.Length;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -103,6 +109,7 @@ import java.util.function.Supplier;
  */
 public final class SpreadsheetViewportComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetViewportComponent>,
         SpreadsheetDeltaFetcherWatcher,
+        SpreadsheetFormatterFetcherWatcher,
         SpreadsheetLabelFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         ComponentLifecycle,
@@ -141,6 +148,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         this.root = this.root();
 
         context.addHistoryTokenWatcher(this);
+        context.addSpreadsheetFormatterFetcherWatcher(this);
         context.addSpreadsheetLabelFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
@@ -149,6 +157,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 historyToken -> historyToken instanceof SpreadsheetCellFormatterSaveHistoryToken,
                 context
         );
+
+        this.spreadsheetFormatterSelectorMenus = null;
+
         this.recentParser = this.recentFormatterOrParserSaves(
                 historyToken -> historyToken instanceof SpreadsheetCellParserSaveHistoryToken,
                 context
@@ -536,12 +547,17 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                     context
             );
 
+            List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus = this.spreadsheetFormatterSelectorMenus;
+            if (null == spreadsheetFormatterSelectorMenus) {
+                spreadsheetFormatterSelectorMenus = Lists.empty();
+            }
+
             SpreadsheetSelectionMenu.build(
                     historyToken,
                     menu,
                     SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
                             this.recentFormatter.tokens(),
-                            Lists.empty(), // SpreadsheetFormatterSelectorMenu
+                            spreadsheetFormatterSelectorMenus,
                             this.recentParser.tokens(),
                             context
                     )
@@ -552,6 +568,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     }
 
     private final HistoryTokenRecorder<SpreadsheetCellFormatterSaveHistoryToken> recentFormatter;
+
+    /**
+     * This should be updated each time the {@link SpreadsheetMetadataPropertyName#SPREADSHEET_FORMATTERS} property changes.
+     */
+    private List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus;
 
     private final HistoryTokenRecorder<SpreadsheetCellParserSaveHistoryToken> recentParser;
 
@@ -1213,6 +1234,23 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
     }
 
+    // SpreadsheetFormatterFetcherWatcher...............................................................................
+
+    @Override
+    public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
+                                                   final SpreadsheetFormatterSelectorEdit edit,
+                                                   final AppContext context) {
+        // nop
+    }
+
+    @Override
+    public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
+                                                       final SpreadsheetFormatterSelectorMenuList menus,
+                                                       final AppContext context) {
+        this.spreadsheetFormatterSelectorMenus = menus;
+        this.refresh(context);
+    }
+
     // SpreadsheetLabelFetcherWatcher...................................................................................
 
     /**
@@ -1242,6 +1280,21 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             this.reload = true;
         }
 
+        boolean fetchSpreadsheetFormatterSelectorsMenu = false;
+
+        // will be null initially
+        if (null == this.spreadsheetFormatterSelectorMenus) {
+            fetchSpreadsheetFormatterSelectorsMenu = true;
+        } else {
+            if (this.reload) {
+                fetchSpreadsheetFormatterSelectorsMenu = true; // cant hurt to "reload"
+            } else {
+                // if formatters changed better reload formatter menu
+                final Optional<SpreadsheetFormatterInfoSet> oldSpreadsheetFormatterSelectors = metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_FORMATTERS);
+                final Optional<SpreadsheetFormatterInfoSet> newSpreadsheetFormatterSelectors = this.metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_FORMATTERS);
+                fetchSpreadsheetFormatterSelectorsMenu = false == oldSpreadsheetFormatterSelectors.equals(newSpreadsheetFormatterSelectors);
+            }
+        }
         this.metadata = metadata;
 
         this.loadViewportCellsIfNecessary(context);
@@ -1249,6 +1302,14 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         // the returned metadata isnt any different from the current metadata skip rendering again.
         if (this.reload) {
             this.componentLifecycleHistoryTokenQuery(context);
+        }
+
+        if (fetchSpreadsheetFormatterSelectorsMenu) {
+            context.spreadsheetFormatterFetcher()
+                    .menu(
+                            metadata.id()
+                                    .get()
+                    );
         }
     }
 
