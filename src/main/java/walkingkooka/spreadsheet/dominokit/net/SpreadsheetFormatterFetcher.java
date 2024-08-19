@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.net;
 
 import elemental2.dom.Headers;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.UrlPath;
@@ -30,6 +31,7 @@ import walkingkooka.spreadsheet.server.SpreadsheetHttpServerLinkRelations;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterHateosResourceMappings;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
@@ -42,8 +44,6 @@ import java.util.Optional;
 public final class SpreadsheetFormatterFetcher implements Fetcher {
 
     static {
-        SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT.toString(); // force json unmarshaller to register
-
         try {
             SpreadsheetFormatterSelectorEdit.parse(
                     null,
@@ -52,6 +52,16 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
         } catch (final NullPointerException ignore) {
             // nop
         }
+
+        // force json unmarshaller to register
+        SpreadsheetFormatterSelectorMenuList.with(
+                Lists.of(
+                        SpreadsheetFormatterSelectorMenu.with(
+                                "Label",
+                                SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT
+                        )
+                )
+        ); // force JSON registry
     }
 
     public static SpreadsheetFormatterFetcher with(final SpreadsheetFormatterFetcherWatcher watcher,
