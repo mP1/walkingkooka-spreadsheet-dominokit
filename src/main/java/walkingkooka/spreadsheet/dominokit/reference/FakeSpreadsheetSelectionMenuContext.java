@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 
 import java.util.List;
 import java.util.Set;
@@ -41,6 +42,11 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryTokenContext
 
     @Override
     public List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus() {
         throw new UnsupportedOperationException();
     }
 

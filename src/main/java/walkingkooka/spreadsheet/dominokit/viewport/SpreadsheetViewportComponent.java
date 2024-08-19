@@ -34,6 +34,7 @@ import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.utils.ElementsFactory;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
@@ -540,6 +541,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                     menu,
                     SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
                             this.recentFormatter.tokens(),
+                            Lists.empty(), // SpreadsheetFormatterSelectorMenu
                             this.recentParser.tokens(),
                             context
                     )

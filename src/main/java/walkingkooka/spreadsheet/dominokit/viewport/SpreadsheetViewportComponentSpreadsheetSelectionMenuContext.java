@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuCont
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 
 import java.util.List;
 import java.util.Set;
@@ -40,20 +41,26 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         HistoryTokenContextDelegator {
 
     static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors,
+                                                                            final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus,
                                                                             final List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors,
                                                                             final AppContext context) {
         return new SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(
                 recentSpreadsheetFormatterSelectors,
+                spreadsheetFormatterSelectorsMenus,
                 recentSpreadsheetParserSelectors,
                 context
         );
     }
 
     private SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(final List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors,
+                                                                        final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus,
                                                                         final List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors,
                                                                         final AppContext context) {
         this.recentSpreadsheetFormatterSelectors = recentSpreadsheetFormatterSelectors;
+        this.spreadsheetFormatterSelectorsMenus = spreadsheetFormatterSelectorsMenus;
+
         this.recentSpreadsheetParserSelectors = recentSpreadsheetParserSelectors;
+
         this.context = context;
     }
 
@@ -69,6 +76,13 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     private final List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors;
+
+    @Override
+    public List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus() {
+        return this.spreadsheetFormatterSelectorsMenus;
+    }
+
+    private final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus;
 
     @Override
     public List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors() {
