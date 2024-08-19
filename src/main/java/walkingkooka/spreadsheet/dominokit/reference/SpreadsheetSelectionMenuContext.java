@@ -23,7 +23,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
@@ -49,7 +51,7 @@ public interface SpreadsheetSelectionMenuContext extends Context,
     /**
      * Returns recent {@link SpreadsheetCellFormatterSaveHistoryToken}.
      */
-    List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors();
+    List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors();
 
     /**
      * Returns the {@link List<SpreadsheetFormatterSelectorMenu>} for the current {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
@@ -59,7 +61,7 @@ public interface SpreadsheetSelectionMenuContext extends Context,
     /**
      * Returns recent {@link SpreadsheetCellParserSaveHistoryToken}.
      */
-    List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors();
+    List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors();
 
     /**
      * Returns the id prefix which should be assigned to items in the menu.

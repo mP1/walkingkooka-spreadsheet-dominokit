@@ -22,10 +22,10 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviderDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
@@ -40,9 +40,9 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         SpreadsheetComparatorProviderDelegator,
         HistoryTokenContextDelegator {
 
-    static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors,
+    static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                                             final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus,
-                                                                            final List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors,
+                                                                            final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
                                                                             final AppContext context) {
         return new SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(
                 recentSpreadsheetFormatterSelectors,
@@ -52,9 +52,9 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         );
     }
 
-    private SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(final List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors,
+    private SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                                         final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus,
-                                                                        final List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors,
+                                                                        final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
                                                                         final AppContext context) {
         this.recentSpreadsheetFormatterSelectors = recentSpreadsheetFormatterSelectors;
         this.spreadsheetFormatterSelectorsMenus = spreadsheetFormatterSelectorsMenus;
@@ -71,11 +71,11 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     @Override
-    public List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors() {
+    public List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors() {
         return this.recentSpreadsheetFormatterSelectors;
     }
 
-    private final List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors;
+    private final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors;
 
     @Override
     public List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus() {
@@ -85,11 +85,11 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     private final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus;
 
     @Override
-    public List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors() {
+    public List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors() {
         return this.recentSpreadsheetParserSelectors;
     }
 
-    private final List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors;
+    private final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors;
 
     @Override
     public String idPrefix() {

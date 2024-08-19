@@ -25,75 +25,77 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Predicate;
+import java.util.Optional;
+import java.util.function.Function;
 
 /**
- * A {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher} that captures and keeps at most the last
- * {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} instances. The {@link java.util.function.Predicate}
- * and max are all configurable at create time.
+ * A {@link HistoryTokenWatcher} that watches all history token events, and filters only a certain type mostly extracting the save value.
  * <br>
  * This is useful for tracking the last pattern saves and then create menu items in a menu.
  */
-public final class HistoryTokenRecorder<T extends HistoryToken> implements HistoryTokenWatcher {
+public final class HistoryTokenRecorder<T> implements HistoryTokenWatcher {
 
-    public static <T extends HistoryToken> HistoryTokenRecorder<T> with(final Predicate<HistoryToken> predicate,
-                                                                        final int max) {
-        Objects.requireNonNull(predicate, "predicate");
+    public static <T> HistoryTokenRecorder<T> with(final Function<HistoryToken, Optional<T>> mapper,
+                                                   final int max) {
+        Objects.requireNonNull(mapper, "mapper");
         if (max <= 0) {
             throw new IllegalArgumentException("Invalid max " + max + " <= 0");
         }
 
         return new HistoryTokenRecorder<>(
-                predicate,
+                mapper,
                 max
         );
     }
 
-    private HistoryTokenRecorder(final Predicate<HistoryToken> predicate,
+    private HistoryTokenRecorder(final Function<HistoryToken, Optional<T>> mapper,
                                  final int max) {
-        this.predicate = predicate;
+        this.mapper = mapper;
         this.max = max;
     }
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
+        final List<T> values = this.values;
 
-        final List<T> tokens = this.tokens;
+        final Optional<T> maybeNewValue = this.mapper.apply(
+                context.historyToken()
+        );
+        if (maybeNewValue.isPresent()) {
+            final T newValue = maybeNewValue.get();
 
-        final HistoryToken token = context.historyToken();
-        if (this.predicate.test(token)) {
-            tokens.remove(token);
-            tokens.add(
+            values.remove(newValue);
+            values.add(
                     0,
-                    (T) token
+                    newValue
             );
-            final int size = tokens.size();
+            final int size = values.size();
             if (size > this.max) {
-                tokens.remove(
+                values.remove(
                         size - 1
                 ); // remove oldest.
             }
         }
     }
 
-    private final Predicate<HistoryToken> predicate;
+    private final Function<HistoryToken, Optional<T>> mapper;
 
     /**
-     * Clears the cache of tokens.
+     * Clears the cache of values.
      */
     public void clear() {
-        this.tokens.clear();
+        this.values.clear();
     }
 
     /**
-     * Return the last {#max} tokens, with the first element holding the most recent {@link HistoryToken}.
+     * Return the last {#max} values, with the first element holding the most recent {@link HistoryToken}.
      */
-    public List<T> tokens() {
-        return Lists.readOnly(this.tokens);
+    public List<T> values() {
+        return Lists.readOnly(this.values);
     }
 
-    private final List<T> tokens = Lists.linkedList();
+    private final List<T> values = Lists.linkedList();
 
     private final int max;
 
@@ -102,7 +104,7 @@ public final class HistoryTokenRecorder<T extends HistoryToken> implements Histo
         return ToStringBuilder.empty()
                 .label("max")
                 .value(this.max)
-                .value(this.tokens)
+                .value(this.values)
                 .build();
     }
 }

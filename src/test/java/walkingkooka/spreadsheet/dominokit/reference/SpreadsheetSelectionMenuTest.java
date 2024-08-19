@@ -27,9 +27,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
@@ -40,6 +38,7 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
@@ -267,11 +266,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
                 Lists.of(
-                        token.setFormatter()
-                                .setSave(
-                                        formatPattern.spreadsheetFormatterSelector()
-                                                .toString()
-                                ).cast(SpreadsheetCellFormatterSaveHistoryToken.class)
+                        formatPattern.spreadsheetFormatterSelector()
                 ),
                 Lists.empty(),
                 Lists.empty()
@@ -478,11 +473,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 Lists.empty(),
                 Lists.empty(),
                 Lists.of(
-                        token.setParser()
-                                .setSave(
-                                        parsePattern.spreadsheetParserSelector()
-                                                .toString()
-                                ).cast(SpreadsheetCellParserSaveHistoryToken.class)
+                        parsePattern.spreadsheetParserSelector()
                 )
         );
 
@@ -687,11 +678,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
                 Lists.of(
-                        token.setFormatter()
-                                .setSave(
-                                        formatPattern.spreadsheetFormatterSelector()
-                                                .toString()
-                                ).cast(SpreadsheetCellFormatterSaveHistoryToken.class)
+                        formatPattern.spreadsheetFormatterSelector()
                 ),
                 Lists.of(
                         SpreadsheetFormatterSelectorMenu.with(
@@ -710,11 +697,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         )
                 ),
                 Lists.of(
-                        token.setParser()
-                                .setSave(
-                                        parsePattern.spreadsheetParserSelector()
-                                                .toString()
-                                ).cast(SpreadsheetCellParserSaveHistoryToken.class)
+                        parsePattern.spreadsheetParserSelector()
                 )
         );
 
@@ -1792,9 +1775,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     }
 
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
-                                                    final List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors,
+                                                    final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                     final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus,
-                                                    final List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors) {
+                                                    final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors) {
         return new FakeSpreadsheetSelectionMenuContext() {
 
             @Override
@@ -1816,7 +1799,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             }
 
             @Override
-            public List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors() {
+            public List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors() {
                 return recentSpreadsheetFormatterSelectors;
             }
 
@@ -1826,7 +1809,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             }
 
             @Override
-            public List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors() {
+            public List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors() {
                 return recentSpreadsheetParserSelectors;
             }
 

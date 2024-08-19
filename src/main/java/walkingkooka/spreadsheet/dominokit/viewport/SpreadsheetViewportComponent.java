@@ -77,9 +77,10 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuTarget
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -154,14 +155,24 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         context.addSpreadsheetDeltaFetcherWatcher(this);
 
         this.recentFormatter = this.recentFormatterOrParserSaves(
-                historyToken -> historyToken instanceof SpreadsheetCellFormatterSaveHistoryToken,
+                historyToken -> Optional.ofNullable(
+                        historyToken instanceof SpreadsheetCellFormatterSaveHistoryToken ?
+                                historyToken.cast(SpreadsheetCellFormatterSaveHistoryToken.class).spreadsheetFormatterSelector()
+                                        .orElse(null) :
+                                null
+                ),
                 context
         );
 
         this.spreadsheetFormatterSelectorMenus = null;
 
         this.recentParser = this.recentFormatterOrParserSaves(
-                historyToken -> historyToken instanceof SpreadsheetCellParserSaveHistoryToken,
+                historyToken -> Optional.ofNullable(
+                        historyToken instanceof SpreadsheetCellParserSaveHistoryToken ?
+                                historyToken.cast(SpreadsheetCellParserSaveHistoryToken.class).spreadsheetParserSelector()
+                                        .orElse(null) :
+                                null
+                ),
                 context
         );
 
@@ -169,12 +180,13 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     }
 
     /**
-     * Creates a {@link HistoryTokenRecorder} which will keep the most recent saves of a {@link SpreadsheetPattern}.
+     * Creates a {@link HistoryTokenRecorder} which will keep the most recent saves of a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector} or
+     * {@link walkingkooka.spreadsheet.parser.SpreadsheetParserSelector}.
      */
-    private HistoryTokenRecorder recentFormatterOrParserSaves(final Predicate<HistoryToken> predicate,
-                                                              final HistoryTokenContext context) {
-        final HistoryTokenRecorder recorder = HistoryTokenRecorder.with(
-                predicate,
+    private <T> HistoryTokenRecorder<T> recentFormatterOrParserSaves(final Function<HistoryToken, Optional<T>> mapper,
+                                                                     final HistoryTokenContext context) {
+        final HistoryTokenRecorder<T> recorder = HistoryTokenRecorder.with(
+                mapper,
                 MAX_RECENT_COUNT
         );
         context.addHistoryTokenWatcher(recorder);
@@ -556,9 +568,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                     historyToken,
                     menu,
                     SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
-                            this.recentFormatter.tokens(),
+                            this.recentFormatter.values(),
                             spreadsheetFormatterSelectorMenus,
-                            this.recentParser.tokens(),
+                            this.recentParser.values(),
                             context
                     )
             );
@@ -567,14 +579,14 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
     }
 
-    private final HistoryTokenRecorder<SpreadsheetCellFormatterSaveHistoryToken> recentFormatter;
+    private final HistoryTokenRecorder<SpreadsheetFormatterSelector> recentFormatter;
 
     /**
      * This should be updated each time the {@link SpreadsheetMetadataPropertyName#SPREADSHEET_FORMATTERS} property changes.
      */
     private List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus;
 
-    private final HistoryTokenRecorder<SpreadsheetCellParserSaveHistoryToken> recentParser;
+    private final HistoryTokenRecorder<SpreadsheetParserSelector> recentParser;
 
     /**
      * A TABLE that holds the grid of cells including the column and row headers.

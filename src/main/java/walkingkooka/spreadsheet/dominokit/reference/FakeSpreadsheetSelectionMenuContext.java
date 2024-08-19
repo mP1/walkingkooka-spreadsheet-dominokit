@@ -22,10 +22,10 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
@@ -41,7 +41,7 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryTokenContext
     }
 
     @Override
-    public List<SpreadsheetCellFormatterSaveHistoryToken> recentSpreadsheetFormatterSelectors() {
+    public List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors() {
         throw new UnsupportedOperationException();
     }
 
@@ -51,7 +51,7 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryTokenContext
     }
 
     @Override
-    public List<SpreadsheetCellParserSaveHistoryToken> recentSpreadsheetParserSelectors() {
+    public List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors() {
         throw new UnsupportedOperationException();
     }
 
