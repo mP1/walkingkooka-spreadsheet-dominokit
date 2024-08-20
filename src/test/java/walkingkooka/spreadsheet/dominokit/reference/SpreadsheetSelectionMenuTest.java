@@ -51,7 +51,6 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.lang.reflect.Method;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 
@@ -2071,7 +2070,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadata.EMPTY.set(
                         SpreadsheetMetadataPropertyName.LOCALE,
-                        Locale.forLanguageTag("EN-AU")
+                        LOCALE
                 ).loadFromLocale();
             }
 
