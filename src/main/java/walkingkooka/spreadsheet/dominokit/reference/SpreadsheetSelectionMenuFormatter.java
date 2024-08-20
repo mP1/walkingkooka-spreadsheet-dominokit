@@ -61,11 +61,15 @@ final class SpreadsheetSelectionMenuFormatter {
                 context.spreadsheetFormatterSelectorsMenus()
         );
 
+        menu.separator();
+
         buildEdit(
                 historyToken,
                 menu,
                 idPrefix
         );
+
+        menu.separator();
     }
 
     private static void buildSpreadsheetFormatterSelectorsMenus(final HistoryToken historyToken,
