@@ -320,6 +320,9 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         textCase(historyToken, menu, context);
         textWrapping(menu, context);
         border(menu, context);
+
+        menu.separator();
+
         clearStyle(historyToken, menu, context);
 
         menu.separator();
