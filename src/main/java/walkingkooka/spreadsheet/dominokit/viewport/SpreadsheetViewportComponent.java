@@ -61,6 +61,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightSaveHi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
@@ -94,6 +95,7 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdi
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStyleProperty;
 
 import java.util.List;
 import java.util.Objects;
@@ -175,6 +177,17 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 ),
                 context
         );
+
+        this.recentTextStyleProperties = HistoryTokenRecorder.with(
+                (historyToken) -> Optional.ofNullable(
+                        historyToken instanceof SpreadsheetCellStyleSaveHistoryToken ?
+                                historyToken.cast(SpreadsheetCellStyleSaveHistoryToken.class)
+                                        .textStyleProperty() :
+                                null
+                ),
+                MAX_RECENT_COUNT
+        );
+        context.addHistoryTokenWatcher(this.recentTextStyleProperties);
 
         this.setVisibility(false);
     }
@@ -571,6 +584,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                             this.recentFormatter.values(),
                             spreadsheetFormatterSelectorMenus,
                             this.recentParser.values(),
+                            this.recentTextStyleProperties.values(),
                             context
                     )
             );
@@ -587,6 +601,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus;
 
     private final HistoryTokenRecorder<SpreadsheetParserSelector> recentParser;
+
+    /**
+     * Records {@link TextStyleProperty} saves.
+     */
+    private final HistoryTokenRecorder<TextStyleProperty<?>> recentTextStyleProperties;
 
     /**
      * A TABLE that holds the grid of cells including the column and row headers.

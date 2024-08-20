@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
+import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -60,6 +61,11 @@ public interface SpreadsheetSelectionMenuContext extends Context,
      * Returns recent {@link SpreadsheetParserSelector}.
      */
     List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors();
+
+    /**
+     * Returns recent {@link TextStyleProperty}
+     */
+    List<TextStyleProperty<?>> recentTextStyleProperties();
 
     /**
      * Returns the id prefix which should be assigned to items in the menu.

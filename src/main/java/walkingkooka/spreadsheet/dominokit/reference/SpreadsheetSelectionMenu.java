@@ -45,6 +45,7 @@ import walkingkooka.tree.text.Overflow;
 import walkingkooka.tree.text.OverflowWrap;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextDecorationLine;
+import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;
@@ -326,6 +327,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         clearStyle(historyToken, menu, context);
 
         menu.separator();
+
+        recentStyle(historyToken, menu, context);
     }
 
     private static void color(final HistoryToken historyToken,
@@ -387,6 +390,34 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                 )
                         )
         );
+    }
+
+    private static void recentStyle(final HistoryToken historyToken,
+                                    final SpreadsheetContextMenu menu,
+                                    final SpreadsheetSelectionMenuContext context) {
+        int i = 0;
+        final String idPrefix = context.idPrefix() + "recent-style";
+
+        for (final TextStyleProperty<?> style : context.recentTextStyleProperties()) {
+            final TextStylePropertyName<?> name = style.name();
+            final Optional<?> value = style.value();
+
+            final String label = CaseKind.KEBAB.change(
+                    name.value(),
+                    CaseKind.TITLE
+            );
+
+            menu.item(
+                    historyToken.setStyle(name)
+                            .setSave(value)
+                            .contextMenuItem(
+                                    idPrefix + "-" + i + SpreadsheetElementIds.MENU_ITEM,
+                                    value.isPresent() ?
+                                            "Set " + label + " " + value.get() :
+                                            "Clear " + label
+                            )
+            );
+        }
     }
 
     private static void clearDelete(final HistoryToken historyToken,
