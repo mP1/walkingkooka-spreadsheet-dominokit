@@ -20,8 +20,6 @@ package walkingkooka.spreadsheet.dominokit.reference;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
@@ -49,7 +47,7 @@ public interface SpreadsheetSelectionMenuContext extends Context,
     Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection);
 
     /**
-     * Returns recent {@link SpreadsheetCellFormatterSaveHistoryToken}.
+     * Returns recent {@link SpreadsheetFormatterSelector}.
      */
     List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors();
 
@@ -59,7 +57,7 @@ public interface SpreadsheetSelectionMenuContext extends Context,
     List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus();
 
     /**
-     * Returns recent {@link SpreadsheetCellParserSaveHistoryToken}.
+     * Returns recent {@link SpreadsheetParserSelector}.
      */
     List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors();
 
