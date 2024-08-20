@@ -182,7 +182,9 @@ final class SpreadsheetSelectionMenuFormatter {
                                     label + " " + text
                     ).historyToken(
                             Optional.of(
-                                    historyToken
+                                    historyToken.setSave(
+                                            selector.toString()
+                                    )
                             )
                     )
             );
