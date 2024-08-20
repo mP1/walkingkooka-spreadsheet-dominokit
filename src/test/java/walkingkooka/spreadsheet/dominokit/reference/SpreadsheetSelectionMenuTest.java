@@ -858,8 +858,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "    -----\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                         "    -----\n" +
-                        "    \"Set Text Align CENTER\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/CENTER] id=test-recent-style-0-MenuItem\n" +
                         "    \"Set Color #123456\" [/1/SpreadsheetName-1/cell/A1/style/color/save/%23123456] id=test-recent-style-0-MenuItem\n" +
+                        "    \"Set Text Align CENTER\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/CENTER] id=test-recent-style-0-MenuItem\n" +
                         "    \"Clear Vertical Align\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/] id=test-recent-style-0-MenuItem\n" +
                         "  \"Formatter\" id=test-menu-SubMenu\n" +
                         "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
