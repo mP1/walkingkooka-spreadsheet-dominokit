@@ -36,6 +36,18 @@ import java.util.stream.Collectors;
 /**
  * Creates a sub menu for each {@link SpreadsheetFormatterName} in the {@link SpreadsheetSelectionMenuContext#spreadsheetFormatterSelectorsMenus()},
  * with items for each {@link SpreadsheetFormatterSelectorMenu} using the labels and {@link SpreadsheetFormatterSelector}.
+ * <pre>
+ * Formatter
+ *   Date Format Pattern
+ *     Short
+ *     Medium
+ *     Long
+ *   ---
+ *   Edit
+ *   ---
+ *   Date Format Pattern dd/mm/yy
+ *   Date Format Pattern ddd/mmm/yyyy
+ * </pre>
  */
 final class SpreadsheetSelectionMenuFormatter {
 
@@ -70,6 +82,13 @@ final class SpreadsheetSelectionMenuFormatter {
         );
 
         menu.separator();
+
+        buildRecents(
+                historyToken,
+                menu,
+                idPrefix,
+                context.recentSpreadsheetFormatterSelectors()
+        );
     }
 
     private static void buildSpreadsheetFormatterSelectorsMenus(final HistoryToken historyToken,
@@ -137,6 +156,39 @@ final class SpreadsheetSelectionMenuFormatter {
                         )
                 )
         );
+    }
+
+    private static void buildRecents(final HistoryToken historyToken,
+                                     final SpreadsheetContextMenu menu,
+                                     final String idPrefix,
+                                     final List<SpreadsheetFormatterSelector> selectors) {
+
+        int i = 0;
+
+        for (final SpreadsheetFormatterSelector selector : selectors) {
+            final String label = CaseKind.KEBAB.change(
+                    selector.name()
+                            .value(),
+                    CaseKind.TITLE
+            );
+
+            final String text = selector.text();
+
+            menu.item(
+                    SpreadsheetContextMenuItem.with(
+                            idPrefix + "recent-" + i + SpreadsheetElementIds.MENU_ITEM,
+                            text.isEmpty() ?
+                                    label :
+                                    label + " " + text
+                    ).historyToken(
+                            Optional.of(
+                                    historyToken
+                            )
+                    )
+            );
+
+            i++;
+        }
     }
 
     /**

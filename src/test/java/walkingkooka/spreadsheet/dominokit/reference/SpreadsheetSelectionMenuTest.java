@@ -261,12 +261,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 SpreadsheetSelection.A1.setDefaultAnchor()
         );
 
-        final SpreadsheetDateFormatPattern formatPattern = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
-
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
                 Lists.of(
-                        formatPattern.spreadsheetFormatterSelector()
+                        SpreadsheetFormatterSelector.parse("date-format-pattern recent-1A"),
+                        SpreadsheetFormatterSelector.parse("date-format-pattern recent-2B"),
+                        SpreadsheetFormatterSelector.parse("date-format-pattern recent-3C")
                 ),
                 Lists.empty(),
                 Lists.empty()
@@ -424,6 +424,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                         "  \"Formatter\" id=test-menu-SubMenu\n" +
                         "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
+                        "    -----\n" +
+                        "    \"Date Format Pattern recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-recent-0-MenuItem\n" +
+                        "    \"Date Format Pattern recent-2B\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-recent-1-MenuItem\n" +
+                        "    \"Date Format Pattern recent-3C\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-recent-2-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -678,8 +682,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
                 Lists.of(
-                        formatPattern.spreadsheetFormatterSelector()
-                ),
+                        SpreadsheetFormatterSelector.parse("date-format-pattern recent-1A")
+                ), // recent formatters
                 Lists.of(
                         SpreadsheetFormatterSelectorMenu.with(
                                 "Short",
@@ -697,8 +701,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         )
                 ),
                 Lists.of(
-                        parsePattern.spreadsheetParserSelector()
-                )
+                        SpreadsheetParserSelector.parse("date-parse-pattern recent-1A"),
+                        SpreadsheetParserSelector.parse("date-parse-pattern recent-2B")
+                ) // recent parsers
         );
 
         final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
@@ -859,6 +864,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "      \"Default text\" [/1/SpreadsheetName-1/cell/A1/formatter/save/text-format-pattern%20@] id=test-formatter-text-format-pattern-MenuItem\n" +
                         "    -----\n" +
                         "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
+                        "    -----\n" +
+                        "    \"Date Format Pattern recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-recent-0-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
