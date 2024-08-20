@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
+import walkingkooka.tree.text.TextStyleProperty;
 
 import java.util.List;
 import java.util.Set;
@@ -43,11 +44,13 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                                             final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus,
                                                                             final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
+                                                                            final List<TextStyleProperty<?>> recentTextStyleProperties,
                                                                             final AppContext context) {
         return new SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(
                 recentSpreadsheetFormatterSelectors,
                 spreadsheetFormatterSelectorsMenus,
                 recentSpreadsheetParserSelectors,
+                recentTextStyleProperties,
                 context
         );
     }
@@ -55,11 +58,14 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     private SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                                         final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus,
                                                                         final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
+                                                                        final List<TextStyleProperty<?>> recentTextStyleProperties,
                                                                         final AppContext context) {
         this.recentSpreadsheetFormatterSelectors = recentSpreadsheetFormatterSelectors;
         this.spreadsheetFormatterSelectorsMenus = spreadsheetFormatterSelectorsMenus;
 
         this.recentSpreadsheetParserSelectors = recentSpreadsheetParserSelectors;
+
+        this.recentTextStyleProperties = recentTextStyleProperties;
 
         this.context = context;
     }
@@ -90,6 +96,13 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     private final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors;
+
+    @Override
+    public List<TextStyleProperty<?>> recentTextStyleProperties() {
+        return this.recentTextStyleProperties;
+    }
+
+    private final List<TextStyleProperty<?>> recentTextStyleProperties;
 
     @Override
     public String idPrefix() {

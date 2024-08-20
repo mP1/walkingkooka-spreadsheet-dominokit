@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
@@ -195,6 +196,35 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                 Optional.of(PROPERTY_VALUE)
         );
     }
+
+    // textStyleProperty................................................................................................
+
+    @Test
+    public void testTextStyleProperty() {
+        final TextStylePropertyName<Color> name = TextStylePropertyName.COLOR;
+        final Optional<Color> value = Optional.of(
+                Color.parse("#123456")
+        );
+
+        final SpreadsheetCellStyleSaveHistoryToken historyToken = SpreadsheetCellStyleSaveHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                name,
+                value
+        );
+
+        this.checkEquals(
+                TextStyleProperty.with(
+                        name,
+                        value
+                ),
+                historyToken.textStyleProperty(),
+                historyToken::toString
+        );
+    }
+
+    // class............................................................................................................
 
     @Override
     public Class<SpreadsheetCellStyleSaveHistoryToken<Color>> type() {

@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -109,5 +110,12 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                         this.propertyName(),
                         this.propertyValue()
                 );
+    }
+
+    public TextStyleProperty<T> textStyleProperty() {
+        return TextStyleProperty.with(
+                this.propertyName(),
+                this.propertyValue()
+        );
     }
 }

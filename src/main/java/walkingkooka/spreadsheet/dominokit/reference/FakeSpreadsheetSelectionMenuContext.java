@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
+import walkingkooka.tree.text.TextStyleProperty;
 
 import java.util.List;
 import java.util.Set;
@@ -52,6 +53,11 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryTokenContext
 
     @Override
     public List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<TextStyleProperty<?>> recentTextStyleProperties() {
         throw new UnsupportedOperationException();
     }
 
