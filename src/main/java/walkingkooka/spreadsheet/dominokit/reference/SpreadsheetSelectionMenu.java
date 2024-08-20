@@ -56,6 +56,7 @@ import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -398,7 +399,9 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         int i = 0;
         final String idPrefix = context.idPrefix() + "recent-style";
 
-        for (final TextStyleProperty<?> style : context.recentTextStyleProperties()) {
+        // sort recent before creating menu items...
+
+        for (final TextStyleProperty<?> style : new TreeSet<>(context.recentTextStyleProperties())) {
             final TextStylePropertyName<?> name = style.name();
             final Optional<?> value = style.value();
 
