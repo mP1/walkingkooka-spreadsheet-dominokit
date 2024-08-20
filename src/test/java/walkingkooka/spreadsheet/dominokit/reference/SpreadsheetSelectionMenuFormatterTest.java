@@ -83,8 +83,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                 "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                         "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                         "  -----\n" +
-                        "  \"Date Format Pattern recent-1A\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-recent-0-MenuItem\n" +
-                        "  \"Date Format Pattern recent-2B\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-recent-1-MenuItem\n"
+                        "  \"Date Format Pattern recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
+                        "  \"Date Format Pattern recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
         );
     }
 
@@ -230,8 +230,8 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
                         "  -----\n" +
                         "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                         "  -----\n" +
-                        "  \"Date Format Pattern recent-1A\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-recent-0-MenuItem\n" +
-                        "  \"Date Format Pattern recent-2B\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-recent-1-MenuItem\n"
+                        "  \"Date Format Pattern recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
+                        "  \"Date Format Pattern recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
         );
     }
 

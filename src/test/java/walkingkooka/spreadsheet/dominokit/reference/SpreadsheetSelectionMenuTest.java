@@ -425,9 +425,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "  \"Formatter\" id=test-menu-SubMenu\n" +
                         "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                         "    -----\n" +
-                        "    \"Date Format Pattern recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-recent-0-MenuItem\n" +
-                        "    \"Date Format Pattern recent-2B\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-recent-1-MenuItem\n" +
-                        "    \"Date Format Pattern recent-3C\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-recent-2-MenuItem\n" +
+                        "    \"Date Format Pattern recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
+                        "    \"Date Format Pattern recent-2B\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-2B] id=test-formatter-recent-1-MenuItem\n" +
+                        "    \"Date Format Pattern recent-3C\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-3C] id=test-formatter-recent-2-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -865,7 +865,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "    -----\n" +
                         "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
                         "    -----\n" +
-                        "    \"Date Format Pattern recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-recent-0-MenuItem\n" +
+                        "    \"Date Format Pattern recent-1A\" [/1/SpreadsheetName-1/cell/A1/formatter/save/date-format-pattern%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
                         "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/metadata/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
                         "  -----\n" +
                         "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
