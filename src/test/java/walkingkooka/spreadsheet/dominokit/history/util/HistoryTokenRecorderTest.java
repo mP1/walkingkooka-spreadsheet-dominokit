@@ -241,6 +241,46 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
         );
     }
 
+    @Test
+    public void testOnHistoryTokenChangeSpreadsheetIdChange() {
+        final HistoryTokenRecorder<SpreadsheetFormatterSelector> recorder = HistoryTokenRecorder.with(
+                (t) -> Optional.ofNullable(
+                        t instanceof SpreadsheetCellFormatterSaveHistoryToken ?
+                                t.cast(
+                                                SpreadsheetCellFormatterSaveHistoryToken.class
+                                        ).spreadsheetFormatterSelector()
+                                        .orElse(null) :
+                                null
+                ),
+                3
+        );
+
+        final SpreadsheetFormatterSelector keep1 = SpreadsheetPattern.parseTextFormatPattern("@")
+                .spreadsheetFormatterSelector();
+
+        final SpreadsheetFormatterSelector keep2 = SpreadsheetPattern.parseTextFormatPattern("@@")
+                .spreadsheetFormatterSelector();
+
+        this.onHistoryChangeAndCheck(
+                recorder,
+                Lists.of(
+                        HistoryToken.cellFormatterSave(
+                                ID,
+                                NAME,
+                                CELL.setDefaultAnchor(),
+                                Optional.of(keep1)
+                        ),
+                        HistoryToken.cellFormatterSave(
+                                SpreadsheetId.with(2),
+                                NAME,
+                                CELL.setDefaultAnchor(),
+                                Optional.of(keep2)
+                        )
+                ),
+                keep2
+        );
+    }
+
     private void onHistoryChangeAndCheck(final HistoryTokenRecorder recorder,
                                          final List<HistoryToken> fired,
                                          final SpreadsheetFormatterSelector... expected) {
