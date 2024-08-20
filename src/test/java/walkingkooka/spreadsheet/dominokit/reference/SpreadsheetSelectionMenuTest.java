@@ -215,6 +215,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                        "    -----\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                         "  \"Formatter\" id=test-menu-SubMenu\n" +
                         "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
@@ -421,6 +422,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                        "    -----\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                         "  \"Formatter\" id=test-menu-SubMenu\n" +
                         "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
@@ -630,6 +632,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                        "    -----\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                         "  \"Formatter\" id=test-menu-SubMenu\n" +
                         "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
@@ -855,6 +858,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                        "    -----\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                         "  \"Formatter\" id=test-menu-SubMenu\n" +
                         "    \"Date Format Pattern\" id=test-formatter-date-format-pattern-SubMenu\n" +
@@ -1062,6 +1066,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                         "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
                         "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                        "    -----\n" +
                         "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/*/save/] id=test-clear-style-MenuItem\n" +
                         "  \"Formatter\" id=test-menu-SubMenu\n" +
                         "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter] id=test-formatter-edit-MenuItem\n" +
