@@ -150,12 +150,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         this.root = this.root();
 
-        context.addHistoryTokenWatcher(this);
-        context.addSpreadsheetFormatterFetcherWatcher(this);
-        context.addSpreadsheetLabelFetcherWatcher(this);
-        context.addSpreadsheetMetadataFetcherWatcher(this);
-        context.addSpreadsheetDeltaFetcherWatcher(this);
-
         this.recentFormatter = this.recentFormatterOrParserSaves(
                 historyToken -> Optional.ofNullable(
                         historyToken instanceof SpreadsheetCellFormatterSaveHistoryToken ?
@@ -190,6 +184,13 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         context.addHistoryTokenWatcher(this.recentTextStyleProperties);
 
         this.setVisibility(false);
+
+        // SpreadsheetViewportComponent#addHistoryTokenWatcher must happen after recent HistoryTokenWatchers
+        context.addHistoryTokenWatcher(this);
+        context.addSpreadsheetFormatterFetcherWatcher(this);
+        context.addSpreadsheetLabelFetcherWatcher(this);
+        context.addSpreadsheetMetadataFetcherWatcher(this);
+        context.addSpreadsheetDeltaFetcherWatcher(this);
     }
 
     /**
