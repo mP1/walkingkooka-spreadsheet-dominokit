@@ -19,9 +19,11 @@ package walkingkooka.spreadsheet.dominokit.history.util;
 
 import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 
 import java.util.List;
 import java.util.Objects;
@@ -57,11 +59,16 @@ public final class HistoryTokenRecorder<T> implements HistoryTokenWatcher {
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
+        final HistoryToken historyToken = context.historyToken();
+
         final List<T> values = this.values;
 
-        final Optional<T> maybeNewValue = this.mapper.apply(
-                context.historyToken()
+        this.maybeClearValues(
+                historyToken,
+                values
         );
+
+        final Optional<T> maybeNewValue = this.mapper.apply(historyToken);
         if (maybeNewValue.isPresent()) {
             final T newValue = maybeNewValue.get();
 
@@ -80,6 +87,33 @@ public final class HistoryTokenRecorder<T> implements HistoryTokenWatcher {
     }
 
     private final Function<HistoryToken, Optional<T>> mapper;
+
+    /**
+     * If the {@link SpreadsheetId} changes or is cleared, clear/empty the values.
+     */
+    private void maybeClearValues(final HistoryToken historyToken,
+                                  final List<T> values) {
+        boolean clearValues = false;
+
+        if (historyToken instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = historyToken.cast(SpreadsheetNameHistoryToken.class);
+            final SpreadsheetId id = spreadsheetNameHistoryToken.id();
+            if (false == id.equals(this.id)) {
+                this.id = id;
+                clearValues = true;
+            }
+        } else {
+            clearValues = true;
+        }
+        if (clearValues) {
+            values.clear();
+        }
+    }
+
+    /**
+     * The id of the enclosing spreadsheet id. When this changes {@link #values} will be cleared.
+     */
+    private SpreadsheetId id;
 
     /**
      * Clears the cache of values.
