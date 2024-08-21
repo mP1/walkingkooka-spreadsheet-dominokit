@@ -110,29 +110,23 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
      * Prepares a new {@link Dialog} with a navbar which will hold the title and a close icon.
      */
     private Dialog dialog(final NavBar navBar) {
+        // cant use Dialog Close listener to fire current HistoryToken.close() because that causes problems.
+        //
+        // 1. show spreadsheet list
+        // 2. user clicks load spreadsheet with id
+        // 3. listener sees load spreadsheet with id
+        // 4. dialog closes and fires listener, which fires current history token.close which "changes" history token.
+        //
+        // 3 & 4 break the history tokens.
         return Dialog.create()
                 //.setType(DialogType.DEFAULT) // large
-                .setAutoClose(true)
                 .setModal(true)
                 .setStretchWidth(DialogSize.LARGE)
                 .setStretchHeight(DialogSize.LARGE)
                 .withHeader(
                         (d, header) ->
                                 header.appendChild(navBar)
-                ).addCloseListener(this::onClose);
-    }
-
-    private void onClose(final Dialog dialog) {
-        this.fireClose();
-    }
-
-    private void fireClose() {
-        final HistoryTokenContext context = this.context;
-
-        context.pushHistoryToken(
-                context.historyToken()
-                        .close()
-        );
+                );
     }
 
     private final HistoryTokenContext context;
