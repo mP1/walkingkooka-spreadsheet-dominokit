@@ -294,7 +294,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         final SpreadsheetFindDialogComponentContext context = this.context;
 
         // if setter failed ignore, validation will eventually show an error for the field.
-        HistoryToken token = null;
+        HistoryToken token;
         try {
             token = updater.apply(
                     context.historyToken()
@@ -306,7 +306,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
         // only update history token if setter was successful.
         if (token instanceof SpreadsheetCellFindHistoryToken) {
-            this.context.pushHistoryToken(token);
+            context.pushHistoryToken(token);
         }
     }
 
