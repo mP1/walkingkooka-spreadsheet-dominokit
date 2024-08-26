@@ -32,14 +32,14 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class RemoveOrReplacePluginSelectorTextComponentTest implements ClassTesting<RemoveOrReplacePluginSelectorTextComponent<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative>>,
+public final class RemoveOrReplacePluginSelectorTokenTest implements ClassTesting<RemoveOrReplacePluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative>>,
         TreePrintableTesting {
 
     @Test
     public void testEmptyWithNullPrefixFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> RemoveOrReplacePluginSelectorTextComponent.empty(null)
+                () -> RemoveOrReplacePluginSelectorToken.empty(null)
         );
     }
 
@@ -47,7 +47,7 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
     public void testEmptyWithEmptyPrefixFails() {
         assertThrows(
                 IllegalArgumentException.class,
-                () -> RemoveOrReplacePluginSelectorTextComponent.empty("")
+                () -> RemoveOrReplacePluginSelectorToken.empty("")
         );
     }
 
@@ -59,7 +59,7 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                 "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
                 Lists.empty(), // textComponents
-                "RemoveOrReplacePluginSelectorTextComponent\n" // expected
+                "RemoveOrReplacePluginSelectorToken\n" // expected
         );
     }
 
@@ -108,7 +108,7 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                                 )
                         )
                 ), // textComponents
-                "RemoveOrReplacePluginSelectorTextComponent\n" +
+                "RemoveOrReplacePluginSelectorToken\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove / Replace component(s)\n" +
@@ -176,7 +176,7 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                                 )
                         )
                 ), // textComponents
-                "RemoveOrReplacePluginSelectorTextComponent\n" +
+                "RemoveOrReplacePluginSelectorToken\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove / Replace component(s)\n" +
@@ -212,7 +212,7 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                                 SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
                         )
                 ), // textComponents
-                "RemoveOrReplacePluginSelectorTextComponent\n" +
+                "RemoveOrReplacePluginSelectorToken\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove / Replace component(s)\n" +
@@ -235,7 +235,7 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                                 SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
                         )
                 ), // textComponents
-                "RemoveOrReplacePluginSelectorTextComponent\n" +
+                "RemoveOrReplacePluginSelectorToken\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove / Replace component(s)\n" +
@@ -262,7 +262,7 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                                 SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
                         )
                 ), // textComponents
-                "RemoveOrReplacePluginSelectorTextComponent\n" +
+                "RemoveOrReplacePluginSelectorToken\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove / Replace component(s)\n" +
@@ -300,7 +300,7 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                                 )
                         )
                 ), // textComponents
-                "RemoveOrReplacePluginSelectorTextComponent\n" +
+                "RemoveOrReplacePluginSelectorToken\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove / Replace component(s)\n" +
@@ -317,7 +317,7 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
                                  final SpreadsheetFormatterName formatterName,
                                  final List<SpreadsheetFormatterSelectorTextComponent> textComponents,
                                  final String expected) {
-        final RemoveOrReplacePluginSelectorTextComponent<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative> component = RemoveOrReplacePluginSelectorTextComponent.empty("id123-");
+        final RemoveOrReplacePluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative> component = RemoveOrReplacePluginSelectorToken.empty("id123-");
         component.refresh(
                 textComponents,
                 new FakeRemoveOrReplacePluginSelectorTextComponentContext() {
@@ -345,8 +345,8 @@ public final class RemoveOrReplacePluginSelectorTextComponentTest implements Cla
     // Class............................................................................................................
 
     @Override
-    public Class<RemoveOrReplacePluginSelectorTextComponent<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative>> type() {
-        return Cast.to(RemoveOrReplacePluginSelectorTextComponent.class);
+    public Class<RemoveOrReplacePluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative>> type() {
+        return Cast.to(RemoveOrReplacePluginSelectorToken.class);
     }
 
     @Override
