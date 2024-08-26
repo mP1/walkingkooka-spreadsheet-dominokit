@@ -269,8 +269,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 context
         );
 
-        final SpreadsheetFormatterSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTextComponentContext appenderRemoveOrReplaceContext =
-                SpreadsheetFormatterSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTextComponentContext.with(
+        final SpreadsheetFormatterSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTokenContext appenderRemoveOrReplaceContext =
+                SpreadsheetFormatterSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTokenContext.with(
                         edit.selector()
                                 .map(SpreadsheetFormatterSelector::name)
                                 .orElse(null),

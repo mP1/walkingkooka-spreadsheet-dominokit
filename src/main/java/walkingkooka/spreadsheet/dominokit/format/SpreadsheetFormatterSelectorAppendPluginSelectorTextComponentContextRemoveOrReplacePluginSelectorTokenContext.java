@@ -19,31 +19,31 @@ package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
-import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTextComponentContext;
+import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenContext;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTextComponentContext;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 
-final class SpreadsheetParserSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTextComponentContext implements AppendPluginSelectorTextComponentContext,
+final class SpreadsheetFormatterSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTokenContext implements AppendPluginSelectorTokenContext,
         RemoveOrReplacePluginSelectorTextComponentContext,
         HistoryTokenContextDelegator {
 
-    static SpreadsheetParserSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTextComponentContext with(final SpreadsheetParserName name,
-                                                                                                                                   final HistoryTokenContext context) {
-        return new SpreadsheetParserSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTextComponentContext(
+    static SpreadsheetFormatterSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTokenContext with(final SpreadsheetFormatterName name,
+                                                                                                                              final HistoryTokenContext context) {
+        return new SpreadsheetFormatterSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTokenContext(
                 name,
                 context
         );
     }
 
-    private SpreadsheetParserSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTextComponentContext(final SpreadsheetParserName name,
-                                                                                                                               final HistoryTokenContext context) {
+    private SpreadsheetFormatterSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTokenContext(final SpreadsheetFormatterName name,
+                                                                                                                          final HistoryTokenContext context) {
         this.name = name;
         this.context = context;
     }
 
     @Override
     public String saveText(final String text) {
-        final SpreadsheetParserName name = this.name;
+        final SpreadsheetFormatterName name = this.name;
 
         return null == name ?
                 text :
@@ -51,7 +51,7 @@ final class SpreadsheetParserSelectorAppendPluginSelectorTextComponentContextRem
                         .toString();
     }
 
-    private final SpreadsheetParserName name;
+    private final SpreadsheetFormatterName name;
 
     // HistoryTokenContext..............................................................................................
 

@@ -63,7 +63,7 @@ public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A
 
     public void refresh(final List<T> textComponents,
                         final List<A> alternatives,
-                        final AppendPluginSelectorTextComponentContext context) {
+                        final AppendPluginSelectorTokenContext context) {
         this.refresh0(
                 Lists.immutable(
                         Objects.requireNonNull(textComponents, "textComponents")
@@ -77,7 +77,7 @@ public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A
 
     void refresh0(final List<T> textComponents,
                   final ImmutableList<A> alternatives,
-                  final AppendPluginSelectorTextComponentContext context) {
+                  final AppendPluginSelectorTokenContext context) {
         this.root.hide();
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
 
@@ -106,7 +106,7 @@ public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A
     private HistoryTokenAnchorComponent appendAnchor(final String textComponent,
                                                      final A alternative,
                                                      final int index,
-                                                     final AppendPluginSelectorTextComponentContext context) {
+                                                     final AppendPluginSelectorTokenContext context) {
         final HistoryToken historyToken = context.historyToken();
 
         return historyToken.link(
