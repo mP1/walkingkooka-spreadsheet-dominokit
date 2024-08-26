@@ -270,8 +270,8 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                 )
         );
 
-        final SpreadsheetParserSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTokenContext appenderRemoveOrReplaceContext =
-                SpreadsheetParserSelectorAppendPluginSelectorTextComponentContextRemoveOrReplacePluginSelectorTokenContext.with(
+        final SpreadsheetParserSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext appenderRemoveOrReplaceContext =
+                SpreadsheetParserSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext.with(
                         edit.selector()
                                 .map(SpreadsheetParserSelector::name)
                                 .orElse(null),
