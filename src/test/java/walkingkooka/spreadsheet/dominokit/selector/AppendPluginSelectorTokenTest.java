@@ -280,7 +280,7 @@ public final class AppendPluginSelectorTokenTest implements ClassTesting<AppendP
         component.refresh(
                 textComponents,
                 append,
-                new FakeAppendPluginSelectorTextComponentContext() {
+                new FakeAppendPluginSelectorTokenContext() {
 
                     @Override
                     public String saveText(final String text) {
