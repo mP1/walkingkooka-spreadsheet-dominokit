@@ -279,7 +279,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                 );
 
         this.appender.refresh(
-                edit.textComponents(),
+                edit.tokens(),
                 edit.next()
                         .map(SpreadsheetParserSelectorToken::alternatives)
                         .orElse(Lists.empty()),
@@ -287,7 +287,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         );
 
         this.removeOrReplace.refresh(
-                edit.textComponents(),
+                edit.tokens(),
                 appenderRemoveOrReplaceContext
         );
 
