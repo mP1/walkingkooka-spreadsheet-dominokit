@@ -21,8 +21,8 @@ import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import walkingkooka.collect.list.ImmutableList;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.plugin.PluginSelectorTextComponentAlternativeLike;
-import walkingkooka.plugin.PluginSelectorTextComponentLike;
+import walkingkooka.plugin.PluginSelectorTokenAlternativeLike;
+import walkingkooka.plugin.PluginSelectorTokenLike;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
@@ -41,15 +41,15 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * A component with links for each {@link PluginSelectorTextComponentLike}, with context menu items which support replacing the item.
+ * A component with links for each {@link PluginSelectorTokenLike}, with context menu items which support replacing the item.
  */
-public final class RemoveOrReplacePluginSelectorTextComponent<T extends PluginSelectorTextComponentLike<A>, A extends PluginSelectorTextComponentAlternativeLike> implements HtmlElementComponent<HTMLDivElement, RemoveOrReplacePluginSelectorTextComponent<T, A>>,
+public final class RemoveOrReplacePluginSelectorTextComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, RemoveOrReplacePluginSelectorTextComponent<T, A>>,
         TreePrintable {
 
     /**
      * Creates an empty {@link RemoveOrReplacePluginSelectorTextComponent}.
      */
-    public static <T extends PluginSelectorTextComponentLike<A>, A extends PluginSelectorTextComponentAlternativeLike> RemoveOrReplacePluginSelectorTextComponent<T, A> empty(final String id) {
+    public static <T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> RemoveOrReplacePluginSelectorTextComponent<T, A> empty(final String id) {
         return new RemoveOrReplacePluginSelectorTextComponent<>(
                 CharSequences.failIfNullOrEmpty(id, "id")
         );
@@ -81,7 +81,7 @@ public final class RemoveOrReplacePluginSelectorTextComponent<T extends PluginSe
 
         final ImmutableList<String> textComponentText = Lists.immutable(
                 textComponents.stream()
-                        .map(PluginSelectorTextComponentLike::text)
+                        .map(PluginSelectorTokenLike::text)
                         .collect(Collectors.toList())
         );
 
