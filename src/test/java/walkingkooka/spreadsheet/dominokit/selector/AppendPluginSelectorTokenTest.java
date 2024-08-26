@@ -32,14 +32,14 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class AppendPluginSelectorTextComponentTest implements ClassTesting<AppendPluginSelectorTextComponent<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative>>,
+public final class AppendPluginSelectorTokenTest implements ClassTesting<AppendPluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative>>,
         TreePrintableTesting {
 
     @Test
     public void testEmptyWithNullPrefixFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> AppendPluginSelectorTextComponent.empty(null)
+                () -> AppendPluginSelectorToken.empty(null)
         );
     }
 
@@ -47,7 +47,7 @@ public final class AppendPluginSelectorTextComponentTest implements ClassTesting
     public void testEmptyWithEmptyPrefixFails() {
         assertThrows(
                 IllegalArgumentException.class,
-                () -> AppendPluginSelectorTextComponent.empty("")
+                () -> AppendPluginSelectorToken.empty("")
         );
     }
 
@@ -60,7 +60,7 @@ public final class AppendPluginSelectorTextComponentTest implements ClassTesting
                 SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
                 Lists.empty(), // textComponents
                 Lists.empty(), // append
-                "AppendPluginSelectorTextComponent\n" // expected
+                "AppendPluginSelectorToken\n" // expected
         );
     }
 
@@ -80,7 +80,7 @@ public final class AppendPluginSelectorTextComponentTest implements ClassTesting
                                 "m"
                         )
                 ),
-                "AppendPluginSelectorTextComponent\n" +
+                "AppendPluginSelectorToken\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Append component(s)\n" +
@@ -123,7 +123,7 @@ public final class AppendPluginSelectorTextComponentTest implements ClassTesting
                                 "m"
                         )
                 ),
-                "AppendPluginSelectorTextComponent\n" +
+                "AppendPluginSelectorToken\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Append component(s)\n" +
@@ -166,7 +166,7 @@ public final class AppendPluginSelectorTextComponentTest implements ClassTesting
                                 "m"
                         )
                 ),
-                "AppendPluginSelectorTextComponent\n" +
+                "AppendPluginSelectorToken\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Append component(s)\n" +
@@ -199,7 +199,7 @@ public final class AppendPluginSelectorTextComponentTest implements ClassTesting
                                 "#"
                         )
                 ),
-                "AppendPluginSelectorTextComponent\n" +
+                "AppendPluginSelectorToken\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Append component(s)\n" +
@@ -232,7 +232,7 @@ public final class AppendPluginSelectorTextComponentTest implements ClassTesting
                                 "_ "
                         )
                 ),
-                "AppendPluginSelectorTextComponent\n" +
+                "AppendPluginSelectorToken\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Append component(s)\n" +
@@ -261,7 +261,7 @@ public final class AppendPluginSelectorTextComponentTest implements ClassTesting
                                 "m"
                         )
                 ),
-                "AppendPluginSelectorTextComponent\n" +
+                "AppendPluginSelectorToken\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Append component(s)\n" +
@@ -276,7 +276,7 @@ public final class AppendPluginSelectorTextComponentTest implements ClassTesting
                                  final List<SpreadsheetFormatterSelectorTextComponent> textComponents,
                                  final List<SpreadsheetFormatterSelectorTextComponentAlternative> append,
                                  final String expected) {
-        final AppendPluginSelectorTextComponent<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative> component = AppendPluginSelectorTextComponent.empty("id123-");
+        final AppendPluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative> component = AppendPluginSelectorToken.empty("id123-");
         component.refresh(
                 textComponents,
                 append,
@@ -305,8 +305,8 @@ public final class AppendPluginSelectorTextComponentTest implements ClassTesting
     // Class............................................................................................................
 
     @Override
-    public Class<AppendPluginSelectorTextComponent<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative>> type() {
-        return Cast.to(AppendPluginSelectorTextComponent.class);
+    public Class<AppendPluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative>> type() {
+        return Cast.to(AppendPluginSelectorToken.class);
     }
 
     @Override

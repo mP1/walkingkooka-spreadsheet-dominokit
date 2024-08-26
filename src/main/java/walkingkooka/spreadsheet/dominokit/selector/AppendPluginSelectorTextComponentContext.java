@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.selector;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
 /**
- * Context for {@link AppendPluginSelectorTextComponent}.
+ * Context for {@link AppendPluginSelectorToken}.
  */
 public interface AppendPluginSelectorTextComponentContext extends HistoryTokenContext {
 
