@@ -133,7 +133,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999\n" +
                         "      AppendPluginSelectorToken\n" +
-                        "      RemoveOrReplacePluginSelectorTextComponent\n" +
+                        "      RemoveOrReplacePluginSelectorToken\n" +
                         "      SpreadsheetParserSelectorComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -219,7 +219,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"mmm\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyymmm] id=SpreadsheetParserSelectorDialogComponent-appender-append-6-Link\n" +
                         "                  \"mmmm\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyymmmm] id=SpreadsheetParserSelectorDialogComponent-appender-append-7-Link\n" +
                         "                  \"mmmmm\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyymmmmm] id=SpreadsheetParserSelectorDialogComponent-appender-append-8-Link\n" +
-                        "      RemoveOrReplacePluginSelectorTextComponent\n" +
+                        "      RemoveOrReplacePluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -333,7 +333,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"mmmmm\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=SpreadsheetParserSelectorDialogComponent-appender-append-16-Link\n" +
                         "                  \"yy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ssyy] id=SpreadsheetParserSelectorDialogComponent-appender-append-17-Link\n" +
                         "                  \"yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ssyyyy] id=SpreadsheetParserSelectorDialogComponent-appender-append-18-Link\n" +
-                        "      RemoveOrReplacePluginSelectorTextComponent\n" +
+                        "      RemoveOrReplacePluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -493,7 +493,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"/\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20$%230.00/] id=SpreadsheetParserSelectorDialogComponent-appender-append-5-Link\n" +
                         "                  \"?\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20$%230.00?] id=SpreadsheetParserSelectorDialogComponent-appender-append-6-Link\n" +
                         "                  \"E\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20$%230.00E] id=SpreadsheetParserSelectorDialogComponent-appender-append-7-Link\n" +
-                        "      RemoveOrReplacePluginSelectorTextComponent\n" +
+                        "      RemoveOrReplacePluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -579,7 +579,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"hh\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern%20hh:mmhh] id=SpreadsheetParserSelectorDialogComponent-appender-append-7-Link\n" +
                         "                  \"s\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern%20hh:mms] id=SpreadsheetParserSelectorDialogComponent-appender-append-8-Link\n" +
                         "                  \"ss\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern%20hh:mmss] id=SpreadsheetParserSelectorDialogComponent-appender-append-9-Link\n" +
-                        "      RemoveOrReplacePluginSelectorTextComponent\n" +
+                        "      RemoveOrReplacePluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -685,7 +685,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"mmm\" [#/1/Spreadsheet123/metadata/date-parser/save/date-parse-pattern%20dd/mm/yyyymmm] id=SpreadsheetParserSelectorDialogComponent-appender-append-6-Link\n" +
                         "                  \"mmmm\" [#/1/Spreadsheet123/metadata/date-parser/save/date-parse-pattern%20dd/mm/yyyymmmm] id=SpreadsheetParserSelectorDialogComponent-appender-append-7-Link\n" +
                         "                  \"mmmmm\" [#/1/Spreadsheet123/metadata/date-parser/save/date-parse-pattern%20dd/mm/yyyymmmmm] id=SpreadsheetParserSelectorDialogComponent-appender-append-8-Link\n" +
-                        "      RemoveOrReplacePluginSelectorTextComponent\n" +
+                        "      RemoveOrReplacePluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -809,7 +809,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"mmmmm\" [#/1/Spreadsheet123/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=SpreadsheetParserSelectorDialogComponent-appender-append-16-Link\n" +
                         "                  \"yy\" [#/1/Spreadsheet123/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ssyy] id=SpreadsheetParserSelectorDialogComponent-appender-append-17-Link\n" +
                         "                  \"yyyy\" [#/1/Spreadsheet123/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ssyyyy] id=SpreadsheetParserSelectorDialogComponent-appender-append-18-Link\n" +
-                        "      RemoveOrReplacePluginSelectorTextComponent\n" +
+                        "      RemoveOrReplacePluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -979,7 +979,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"/\" [#/1/Spreadsheet123/metadata/number-parser/save/number-parse-pattern%20$%230.00/] id=SpreadsheetParserSelectorDialogComponent-appender-append-5-Link\n" +
                         "                  \"?\" [#/1/Spreadsheet123/metadata/number-parser/save/number-parse-pattern%20$%230.00?] id=SpreadsheetParserSelectorDialogComponent-appender-append-6-Link\n" +
                         "                  \"E\" [#/1/Spreadsheet123/metadata/number-parser/save/number-parse-pattern%20$%230.00E] id=SpreadsheetParserSelectorDialogComponent-appender-append-7-Link\n" +
-                        "      RemoveOrReplacePluginSelectorTextComponent\n" +
+                        "      RemoveOrReplacePluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -1075,7 +1075,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"hh\" [#/1/Spreadsheet123/metadata/time-parser/save/time-parse-pattern%20hh:mmhh] id=SpreadsheetParserSelectorDialogComponent-appender-append-7-Link\n" +
                         "                  \"s\" [#/1/Spreadsheet123/metadata/time-parser/save/time-parse-pattern%20hh:mms] id=SpreadsheetParserSelectorDialogComponent-appender-append-8-Link\n" +
                         "                  \"ss\" [#/1/Spreadsheet123/metadata/time-parser/save/time-parse-pattern%20hh:mmss] id=SpreadsheetParserSelectorDialogComponent-appender-append-9-Link\n" +
-                        "      RemoveOrReplacePluginSelectorTextComponent\n" +
+                        "      RemoveOrReplacePluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +

@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorToken;
-import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTextComponent;
+import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -94,7 +94,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
 
         this.appender = AppendPluginSelectorToken.empty(ID + "-appender-");
 
-        this.removeOrReplace = RemoveOrReplacePluginSelectorTextComponent.empty(ID + "-removeOrReplace-");
+        this.removeOrReplace = RemoveOrReplacePluginSelectorToken.empty(ID + "-removeOrReplace-");
 
         this.textBox = this.textBox(ID);
 
@@ -182,7 +182,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
 
     // removeOrReplace..................................................................................................
 
-    private final RemoveOrReplacePluginSelectorTextComponent<SpreadsheetParserSelectorTextComponent, SpreadsheetParserSelectorTextComponentAlternative> removeOrReplace;
+    private final RemoveOrReplacePluginSelectorToken<SpreadsheetParserSelectorTextComponent, SpreadsheetParserSelectorTextComponentAlternative> removeOrReplace;
 
     // textBox..........................................................................................................
 

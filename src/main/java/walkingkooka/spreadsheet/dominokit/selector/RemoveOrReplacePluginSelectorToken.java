@@ -43,19 +43,19 @@ import java.util.stream.Collectors;
 /**
  * A component with links for each {@link PluginSelectorTokenLike}, with context menu items which support replacing the item.
  */
-public final class RemoveOrReplacePluginSelectorTextComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, RemoveOrReplacePluginSelectorTextComponent<T, A>>,
+public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, RemoveOrReplacePluginSelectorToken<T, A>>,
         TreePrintable {
 
     /**
-     * Creates an empty {@link RemoveOrReplacePluginSelectorTextComponent}.
+     * Creates an empty {@link RemoveOrReplacePluginSelectorToken}.
      */
-    public static <T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> RemoveOrReplacePluginSelectorTextComponent<T, A> empty(final String id) {
-        return new RemoveOrReplacePluginSelectorTextComponent<>(
+    public static <T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> RemoveOrReplacePluginSelectorToken<T, A> empty(final String id) {
+        return new RemoveOrReplacePluginSelectorToken<>(
                 CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
 
-    private RemoveOrReplacePluginSelectorTextComponent(final String id) {
+    private RemoveOrReplacePluginSelectorToken(final String id) {
         this.id = id;
 
         this.flex = SpreadsheetFlexLayout.row();
@@ -198,7 +198,7 @@ public final class RemoveOrReplacePluginSelectorTextComponent<T extends PluginSe
     // setCssText.......................................................................................................
 
     @Override
-    public RemoveOrReplacePluginSelectorTextComponent setCssText(final String css) {
+    public RemoveOrReplacePluginSelectorToken setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.root.setCssText(css);
