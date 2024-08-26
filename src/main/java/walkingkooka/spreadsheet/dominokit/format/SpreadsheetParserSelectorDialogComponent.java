@@ -41,8 +41,8 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTextComponent;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTextComponentAlternative;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorToken;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTokenAlternative;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.text.CharSequences;
 
@@ -178,11 +178,11 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
 
     // appender.........................................................................................................
 
-    private final AppendPluginSelectorToken<SpreadsheetParserSelectorTextComponent, SpreadsheetParserSelectorTextComponentAlternative> appender;
+    private final AppendPluginSelectorToken<SpreadsheetParserSelectorToken, SpreadsheetParserSelectorTokenAlternative> appender;
 
     // removeOrReplace..................................................................................................
 
-    private final RemoveOrReplacePluginSelectorToken<SpreadsheetParserSelectorTextComponent, SpreadsheetParserSelectorTextComponentAlternative> removeOrReplace;
+    private final RemoveOrReplacePluginSelectorToken<SpreadsheetParserSelectorToken, SpreadsheetParserSelectorTokenAlternative> removeOrReplace;
 
     // textBox..........................................................................................................
 
@@ -281,7 +281,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         this.appender.refresh(
                 edit.textComponents(),
                 edit.next()
-                        .map(SpreadsheetParserSelectorTextComponent::alternatives)
+                        .map(SpreadsheetParserSelectorToken::alternatives)
                         .orElse(Lists.empty()),
                 appenderRemoveOrReplaceContext
         );
