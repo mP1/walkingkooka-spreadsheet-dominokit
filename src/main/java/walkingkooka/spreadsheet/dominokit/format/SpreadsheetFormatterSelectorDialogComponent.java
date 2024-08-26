@@ -278,7 +278,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 );
 
         this.appender.refresh(
-                edit.textComponents(),
+                edit.tokens(),
                 edit.next()
                         .map(SpreadsheetFormatterSelectorToken::alternatives)
                         .orElse(Lists.empty()),
@@ -286,7 +286,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         );
 
         this.removeOrReplace.refresh(
-                edit.textComponents(),
+                edit.tokens(),
                 appenderRemoveOrReplaceContext
         );
 
