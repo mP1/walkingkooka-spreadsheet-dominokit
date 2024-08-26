@@ -39,8 +39,8 @@ import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelector
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponent;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponentAlternative;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorToken;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTokenAlternative;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
@@ -181,11 +181,11 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
     // appender.........................................................................................................
 
-    private final AppendPluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative> appender;
+    private final AppendPluginSelectorToken<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative> appender;
 
     // removeOrReplace..................................................................................................
 
-    private final RemoveOrReplacePluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative> removeOrReplace;
+    private final RemoveOrReplacePluginSelectorToken<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative> removeOrReplace;
 
     // textBox..........................................................................................................
 
@@ -280,7 +280,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         this.appender.refresh(
                 edit.textComponents(),
                 edit.next()
-                        .map(SpreadsheetFormatterSelectorTextComponent::alternatives)
+                        .map(SpreadsheetFormatterSelectorToken::alternatives)
                         .orElse(Lists.empty()),
                 appenderRemoveOrReplaceContext
         );

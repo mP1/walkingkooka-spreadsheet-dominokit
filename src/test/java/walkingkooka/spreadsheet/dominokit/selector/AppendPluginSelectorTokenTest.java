@@ -24,15 +24,15 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponent;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponentAlternative;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorToken;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTokenAlternative;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class AppendPluginSelectorTokenTest implements ClassTesting<AppendPluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative>>,
+public final class AppendPluginSelectorTokenTest implements ClassTesting<AppendPluginSelectorToken<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative>>,
         TreePrintableTesting {
 
     @Test
@@ -71,11 +71,11 @@ public final class AppendPluginSelectorTokenTest implements ClassTesting<AppendP
                 SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
                 Lists.empty(), // textComponents
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                 "d",
                                 "d"
                         ),
-                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                 "m",
                                 "m"
                         )
@@ -97,28 +97,28 @@ public final class AppendPluginSelectorTokenTest implements ClassTesting<AppendP
                 "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "d",
                                 "d",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         ),
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "m",
                                 "m",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         ),
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "yy",
                                 "yy",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         )
                 ), // textComponents
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                 "d",
                                 "d"
                         ),
-                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                 "m",
                                 "m"
                         )
@@ -140,28 +140,28 @@ public final class AppendPluginSelectorTokenTest implements ClassTesting<AppendP
                 "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN,
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "d",
                                 "d",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         ),
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "m",
                                 "m",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         ),
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "yy",
                                 "yy",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         )
                 ), // textComponents
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                 "d",
                                 "d"
                         ),
-                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                 "m",
                                 "m"
                         )
@@ -183,18 +183,18 @@ public final class AppendPluginSelectorTokenTest implements ClassTesting<AppendP
                 "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN,
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "$",
                                 "$",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         )
                 ), // textComponents
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                 "0",
                                 "0"
                         ),
-                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                 "#",
                                 "#"
                         )
@@ -216,18 +216,18 @@ public final class AppendPluginSelectorTokenTest implements ClassTesting<AppendP
                 "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.TEXT_FORMAT_PATTERN,
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "@",
                                 "@",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         )
                 ), // textComponents
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                 "@",
                                 "@"
                         ),
-                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                 "_ ",
                                 "_ "
                         )
@@ -249,14 +249,14 @@ public final class AppendPluginSelectorTokenTest implements ClassTesting<AppendP
                 "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.TIME_FORMAT_PATTERN,
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "h",
                                 "h",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         )
                 ), // textComponents
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                 "m",
                                 "m"
                         )
@@ -273,10 +273,10 @@ public final class AppendPluginSelectorTokenTest implements ClassTesting<AppendP
 
     private void refreshAndCheck(final String historyToken,
                                  final SpreadsheetFormatterName formatterName,
-                                 final List<SpreadsheetFormatterSelectorTextComponent> textComponents,
-                                 final List<SpreadsheetFormatterSelectorTextComponentAlternative> append,
+                                 final List<SpreadsheetFormatterSelectorToken> textComponents,
+                                 final List<SpreadsheetFormatterSelectorTokenAlternative> append,
                                  final String expected) {
-        final AppendPluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative> component = AppendPluginSelectorToken.empty("id123-");
+        final AppendPluginSelectorToken<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative> component = AppendPluginSelectorToken.empty("id123-");
         component.refresh(
                 textComponents,
                 append,
@@ -305,7 +305,7 @@ public final class AppendPluginSelectorTokenTest implements ClassTesting<AppendP
     // Class............................................................................................................
 
     @Override
-    public Class<AppendPluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative>> type() {
+    public Class<AppendPluginSelectorToken<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative>> type() {
         return Cast.to(AppendPluginSelectorToken.class);
     }
 

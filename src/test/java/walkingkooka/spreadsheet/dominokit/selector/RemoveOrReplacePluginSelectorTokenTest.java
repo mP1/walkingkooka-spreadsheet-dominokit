@@ -24,15 +24,15 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponent;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTextComponentAlternative;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorToken;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTokenAlternative;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class RemoveOrReplacePluginSelectorTokenTest implements ClassTesting<RemoveOrReplacePluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative>>,
+public final class RemoveOrReplacePluginSelectorTokenTest implements ClassTesting<RemoveOrReplacePluginSelectorToken<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative>>,
         TreePrintableTesting {
 
     @Test
@@ -69,39 +69,39 @@ public final class RemoveOrReplacePluginSelectorTokenTest implements ClassTestin
                 "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "d",
                                 "d",
                                 Lists.of(
-                                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                                 "dd",
                                                 "dd"
                                         ),
-                                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                                 "ddd",
                                                 "ddd"
                                         )
                                 )
                         ),
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "m",
                                 "m",
                                 Lists.of(
-                                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                                 "mm",
                                                 "mm"
                                         ),
-                                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                                 "mmm",
                                                 "mmm"
                                         )
                                 )
                         ),
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "yy",
                                 "yy",
                                 Lists.of(
-                                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                                 "yyyy",
                                                 "yyyy"
                                         )
@@ -131,45 +131,45 @@ public final class RemoveOrReplacePluginSelectorTokenTest implements ClassTestin
                 "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN,
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "m",
                                 "m",
                                 Lists.of(
-                                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                                 "mm",
                                                 "mm"
                                         ),
-                                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                                 "mmm",
                                                 "mmm"
                                         )
                                 )
                         ),
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "yy",
                                 "yy",
                                 Lists.of(
-                                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                                 "yyyy",
                                                 "yyyy"
                                         )
                                 )
                         ),
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "h",
                                 "h",
                                 Lists.of(
-                                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                                 "hh",
                                                 "hh"
                                         )
                                 )
                         ),
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "m",
                                 "m",
                                 Lists.of(
-                                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                                 "mm",
                                                 "mm"
                                         )
@@ -201,15 +201,15 @@ public final class RemoveOrReplacePluginSelectorTokenTest implements ClassTestin
                 "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN,
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "$",
                                 "$",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         ),
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "0",
                                 "0",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         )
                 ), // textComponents
                 "RemoveOrReplacePluginSelectorToken\n" +
@@ -229,10 +229,10 @@ public final class RemoveOrReplacePluginSelectorTokenTest implements ClassTestin
                 "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.TEXT_FORMAT_PATTERN,
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "@",
                                 "@",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         )
                 ), // textComponents
                 "RemoveOrReplacePluginSelectorToken\n" +
@@ -251,15 +251,15 @@ public final class RemoveOrReplacePluginSelectorTokenTest implements ClassTestin
                 "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.TEXT_FORMAT_PATTERN,
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "@",
                                 "@",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         ),
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "\"Hello\"",
                                 "\"Hello\"",
-                                SpreadsheetFormatterSelectorTextComponent.NO_ALTERNATIVES
+                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                         )
                 ), // textComponents
                 "RemoveOrReplacePluginSelectorToken\n" +
@@ -279,21 +279,21 @@ public final class RemoveOrReplacePluginSelectorTokenTest implements ClassTestin
                 "/1/Untitled/cell/A1/formatter",
                 SpreadsheetFormatterName.TIME_FORMAT_PATTERN,
                 Lists.of(
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "h",
                                 "h",
                                 Lists.of(
-                                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                                 "hh",
                                                 "hh"
                                         )
                                 )
                         ),
-                        SpreadsheetFormatterSelectorTextComponent.with(
+                        SpreadsheetFormatterSelectorToken.with(
                                 "m",
                                 "m",
                                 Lists.of(
-                                        SpreadsheetFormatterSelectorTextComponentAlternative.with(
+                                        SpreadsheetFormatterSelectorTokenAlternative.with(
                                                 "mm",
                                                 "mm"
                                         )
@@ -315,9 +315,9 @@ public final class RemoveOrReplacePluginSelectorTokenTest implements ClassTestin
 
     private void refreshAndCheck(final String historyToken,
                                  final SpreadsheetFormatterName formatterName,
-                                 final List<SpreadsheetFormatterSelectorTextComponent> textComponents,
+                                 final List<SpreadsheetFormatterSelectorToken> textComponents,
                                  final String expected) {
-        final RemoveOrReplacePluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative> component = RemoveOrReplacePluginSelectorToken.empty("id123-");
+        final RemoveOrReplacePluginSelectorToken<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative> component = RemoveOrReplacePluginSelectorToken.empty("id123-");
         component.refresh(
                 textComponents,
                 new FakeRemoveOrReplacePluginSelectorTokenContext() {
@@ -345,7 +345,7 @@ public final class RemoveOrReplacePluginSelectorTokenTest implements ClassTestin
     // Class............................................................................................................
 
     @Override
-    public Class<RemoveOrReplacePluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative>> type() {
+    public Class<RemoveOrReplacePluginSelectorToken<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative>> type() {
         return Cast.to(RemoveOrReplacePluginSelectorToken.class);
     }
 
