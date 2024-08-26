@@ -132,7 +132,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetParserSelectorDialogComponent-Table-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999\n" +
-                        "      AppendPluginSelectorTextComponent\n" +
+                        "      AppendPluginSelectorToken\n" +
                         "      RemoveOrReplacePluginSelectorTextComponent\n" +
                         "      SpreadsheetParserSelectorComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
@@ -204,7 +204,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetParserSelectorDialogComponent-Table-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999\n" +
-                        "      AppendPluginSelectorTextComponent\n" +
+                        "      AppendPluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append component(s)\n" +
@@ -308,7 +308,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelectorDialogComponent-Table-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
-                        "      AppendPluginSelectorTextComponent\n" +
+                        "      AppendPluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append component(s)\n" +
@@ -479,7 +479,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20$%23,%23%230.00] id=SpreadsheetParserSelectorDialogComponent-Table-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $0.00\n" +
-                        "      AppendPluginSelectorTextComponent\n" +
+                        "      AppendPluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append component(s)\n" +
@@ -563,7 +563,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelectorDialogComponent-Table-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12:58:00 PM\n" +
-                        "      AppendPluginSelectorTextComponent\n" +
+                        "      AppendPluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append component(s)\n" +
@@ -670,7 +670,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/metadata/date-parser/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetParserSelectorDialogComponent-Table-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999\n" +
-                        "      AppendPluginSelectorTextComponent\n" +
+                        "      AppendPluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append component(s)\n" +
@@ -784,7 +784,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/metadata/date-time-parser/save/date-time-parse-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelectorDialogComponent-Table-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
-                        "      AppendPluginSelectorTextComponent\n" +
+                        "      AppendPluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append component(s)\n" +
@@ -965,7 +965,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"$#,##0.00\" [#/1/Spreadsheet123/metadata/number-parser/save/number-parse-pattern%20$%23,%23%230.00] id=SpreadsheetParserSelectorDialogComponent-Table-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $0.00\n" +
-                        "      AppendPluginSelectorTextComponent\n" +
+                        "      AppendPluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append component(s)\n" +
@@ -1059,7 +1059,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/metadata/time-parser/save/time-parse-pattern%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelectorDialogComponent-Table-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12:58:00 PM\n" +
-                        "      AppendPluginSelectorTextComponent\n" +
+                        "      AppendPluginSelectorToken\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append component(s)\n" +

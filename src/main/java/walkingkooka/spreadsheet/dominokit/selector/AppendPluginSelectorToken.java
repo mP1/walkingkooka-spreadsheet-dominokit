@@ -40,19 +40,19 @@ import java.util.stream.Collectors;
 /**
  * A component which displays links which append possible tokens to the current selector text.
  */
-public final class AppendPluginSelectorTextComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, AppendPluginSelectorTextComponent<T, A>>,
+public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, AppendPluginSelectorToken<T, A>>,
         TreePrintable {
 
     /**
-     * Creates an empty {@link AppendPluginSelectorTextComponent}.
+     * Creates an empty {@link AppendPluginSelectorToken}.
      */
-    public static <T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> AppendPluginSelectorTextComponent<T, A> empty(final String id) {
-        return new AppendPluginSelectorTextComponent<>(
+    public static <T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> AppendPluginSelectorToken<T, A> empty(final String id) {
+        return new AppendPluginSelectorToken<>(
                 CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
 
-    private AppendPluginSelectorTextComponent(final String id) {
+    private AppendPluginSelectorToken(final String id) {
         this.id = id;
 
         this.flex = SpreadsheetFlexLayout.row();
@@ -138,7 +138,7 @@ public final class AppendPluginSelectorTextComponent<T extends PluginSelectorTok
     // setCssText.......................................................................................................
 
     @Override
-    public AppendPluginSelectorTextComponent setCssText(final String css) {
+    public AppendPluginSelectorToken setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.root.setCssText(css);

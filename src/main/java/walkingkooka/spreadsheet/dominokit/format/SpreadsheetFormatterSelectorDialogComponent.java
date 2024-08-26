@@ -34,7 +34,7 @@ import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTextComponent;
+import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorToken;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTextComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
@@ -93,7 +93,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 ID + SpreadsheetElementIds.TABLE + "-"
         );
 
-        this.appender = AppendPluginSelectorTextComponent.empty(ID + "-appender-");
+        this.appender = AppendPluginSelectorToken.empty(ID + "-appender-");
 
         this.removeOrReplace = RemoveOrReplacePluginSelectorTextComponent.empty(ID + "-removeOrReplace-");
 
@@ -181,7 +181,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
     // appender.........................................................................................................
 
-    private final AppendPluginSelectorTextComponent<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative> appender;
+    private final AppendPluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative> appender;
 
     // removeOrReplace..................................................................................................
 
