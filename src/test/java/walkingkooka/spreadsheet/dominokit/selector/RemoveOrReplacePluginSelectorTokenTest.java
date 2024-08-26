@@ -320,7 +320,7 @@ public final class RemoveOrReplacePluginSelectorTokenTest implements ClassTestin
         final RemoveOrReplacePluginSelectorToken<SpreadsheetFormatterSelectorTextComponent, SpreadsheetFormatterSelectorTextComponentAlternative> component = RemoveOrReplacePluginSelectorToken.empty("id123-");
         component.refresh(
                 textComponents,
-                new FakeRemoveOrReplacePluginSelectorTextComponentContext() {
+                new FakeRemoveOrReplacePluginSelectorTokenContext() {
 
                     @Override
                     public String saveText(final String text) {

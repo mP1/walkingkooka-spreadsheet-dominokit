@@ -65,7 +65,7 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
     }
 
     public void refresh(final List<T> textComponents,
-                        final RemoveOrReplacePluginSelectorTextComponentContext context) {
+                        final RemoveOrReplacePluginSelectorTokenContext context) {
         this.refresh0(
                 Lists.immutable(
                         Objects.requireNonNull(textComponents, "textComponents")
@@ -75,7 +75,7 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
     }
 
     void refresh0(final ImmutableList<T> textComponents,
-                  final RemoveOrReplacePluginSelectorTextComponentContext context) {
+                  final RemoveOrReplacePluginSelectorTokenContext context) {
         this.root.hide();
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
 
@@ -109,7 +109,7 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
     private HistoryTokenAnchorComponent removeAnchor(final T textComponent,
                                                      final ImmutableList<String> textComponents,
                                                      final int index,
-                                                     final RemoveOrReplacePluginSelectorTextComponentContext context) {
+                                                     final RemoveOrReplacePluginSelectorTokenContext context) {
         final HistoryToken historyToken = context.historyToken();
 
         final HistoryTokenAnchorComponent anchor = historyToken.link(
@@ -148,7 +148,7 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
                                              final T textComponent,
                                              final ImmutableList<String> textComponents,
                                              final int index,
-                                             final RemoveOrReplacePluginSelectorTextComponentContext context) {
+                                             final RemoveOrReplacePluginSelectorTokenContext context) {
         SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.wrap(
                 anchor,
                 context
