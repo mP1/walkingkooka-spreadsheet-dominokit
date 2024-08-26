@@ -21,8 +21,8 @@ import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import walkingkooka.collect.list.ImmutableList;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.plugin.PluginSelectorTextComponentAlternativeLike;
-import walkingkooka.plugin.PluginSelectorTextComponentLike;
+import walkingkooka.plugin.PluginSelectorTokenAlternativeLike;
+import walkingkooka.plugin.PluginSelectorTokenLike;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetFlexLayout;
@@ -40,13 +40,13 @@ import java.util.stream.Collectors;
 /**
  * A component which displays links which append possible tokens to the current selector text.
  */
-public final class AppendPluginSelectorTextComponent<T extends PluginSelectorTextComponentLike<A>, A extends PluginSelectorTextComponentAlternativeLike> implements HtmlElementComponent<HTMLDivElement, AppendPluginSelectorTextComponent<T, A>>,
+public final class AppendPluginSelectorTextComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, AppendPluginSelectorTextComponent<T, A>>,
         TreePrintable {
 
     /**
      * Creates an empty {@link AppendPluginSelectorTextComponent}.
      */
-    public static <T extends PluginSelectorTextComponentLike<A>, A extends PluginSelectorTextComponentAlternativeLike> AppendPluginSelectorTextComponent<T, A> empty(final String id) {
+    public static <T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> AppendPluginSelectorTextComponent<T, A> empty(final String id) {
         return new AppendPluginSelectorTextComponent<>(
                 CharSequences.failIfNullOrEmpty(id, "id")
         );
@@ -82,7 +82,7 @@ public final class AppendPluginSelectorTextComponent<T extends PluginSelectorTex
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
 
         final String baseTextComponent = textComponents.stream()
-                .map(PluginSelectorTextComponentLike::text)
+                .map(PluginSelectorTokenLike::text)
                 .collect(Collectors.joining());
 
         int i = 0;
