@@ -50,6 +50,7 @@ import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.plugin.ProviderContexts;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.convert.SpreadsheetConvertersConverterProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
@@ -644,6 +645,10 @@ public class App implements EntryPoint,
             final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
             this.spreadsheetMetadata = metadata;
 
+            final SpreadsheetComparatorProvider spreadsheetComparatorProvider = metadata.spreadsheetComparatorProvider(
+                    SpreadsheetComparatorProviders.spreadsheetComparators()
+            );
+            
             final SpreadsheetExporterProvider spreadsheetExporterProvider = metadata.spreadsheetExporterProvider(
                     SpreadsheetExporterProviders.spreadsheetExport()
             );
@@ -670,7 +675,7 @@ public class App implements EntryPoint,
                     SpreadsheetProviders.basic(
                             converterProvider,
                             ExpressionFunctionProviders.empty(),
-                            SpreadsheetComparatorProviders.spreadsheetComparators(),
+                            spreadsheetComparatorProvider,
                             spreadsheetExporterProvider,
                             spreadsheetFormatterProvider,
                             spreadsheetImporterProvider,
