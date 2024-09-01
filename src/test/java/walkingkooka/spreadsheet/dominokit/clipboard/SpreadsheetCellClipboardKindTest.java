@@ -52,7 +52,6 @@ import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -301,8 +300,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testMediaTypeCell() {
         this.mediaTypeAndCheck(
                 SpreadsheetCellClipboardKind.CELL,
-                MediaType.APPLICATION_JSON.setSuffixes(
-                        List.of(
+                MediaType.APPLICATION_JSON.setSuffix(
+                        Optional.of(
                                 SpreadsheetCell.class.getName()
                         )
                 )
@@ -313,8 +312,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testMediaTypeFormula() {
         this.mediaTypeAndCheck(
                 SpreadsheetCellClipboardKind.FORMULA,
-                MediaType.APPLICATION_JSON.setSuffixes(
-                        List.of(
+                MediaType.APPLICATION_JSON.setSuffix(
+                        Optional.of(
                                 SpreadsheetFormula.class.getName()
                         )
                 )

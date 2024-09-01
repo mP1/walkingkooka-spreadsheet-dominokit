@@ -397,8 +397,8 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     SpreadsheetCellClipboardKind(final Class<?> type,
                                  final Function<SpreadsheetCell, Object> valueExtractor,
                                  final String urlFragment) {
-        this.mediaType = MediaType.APPLICATION_JSON.setSuffixes(
-                Lists.of(
+        this.mediaType = MediaType.APPLICATION_JSON.setSuffix(
+                Optional.of(
                         type.getName()
                 )
         );
