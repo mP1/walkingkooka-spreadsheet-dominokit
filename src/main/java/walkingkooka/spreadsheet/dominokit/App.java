@@ -109,6 +109,8 @@ import walkingkooka.spreadsheet.dominokit.toolbar.SpreadsheetToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterProvider;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterProviders;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContexts;
@@ -172,6 +174,7 @@ public class App implements EntryPoint,
                 ConverterProviders.empty(),
                 ExpressionFunctionProviders.empty(),
                 SpreadsheetComparatorProviders.empty(),
+                SpreadsheetExporterProviders.empty(),
                 SpreadsheetFormatterProviders.empty(),
                 SpreadsheetImporterProviders.empty(),
                 SpreadsheetParserProviders.empty()
@@ -641,6 +644,10 @@ public class App implements EntryPoint,
             final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
             this.spreadsheetMetadata = metadata;
 
+            final SpreadsheetExporterProvider spreadsheetExporterProvider = metadata.spreadsheetExporterProvider(
+                    SpreadsheetExporterProviders.spreadsheetExport()
+            );
+            
             final SpreadsheetFormatterProvider spreadsheetFormatterProvider = metadata.spreadsheetFormatterProvider(
                     SpreadsheetFormatterProviders.spreadsheetFormatPattern()
             );
@@ -664,6 +671,7 @@ public class App implements EntryPoint,
                             converterProvider,
                             ExpressionFunctionProviders.empty(),
                             SpreadsheetComparatorProviders.spreadsheetComparators(),
+                            spreadsheetExporterProvider,
                             spreadsheetFormatterProvider,
                             spreadsheetImporterProvider,
                             spreadsheetParserProvider
