@@ -114,6 +114,8 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContexts;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterProvider;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterProviders;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
@@ -171,6 +173,7 @@ public class App implements EntryPoint,
                 ExpressionFunctionProviders.empty(),
                 SpreadsheetComparatorProviders.empty(),
                 SpreadsheetFormatterProviders.empty(),
+                SpreadsheetImporterProviders.empty(),
                 SpreadsheetParserProviders.empty()
         );
 
@@ -642,6 +645,10 @@ public class App implements EntryPoint,
                     SpreadsheetFormatterProviders.spreadsheetFormatPattern()
             );
 
+            final SpreadsheetImporterProvider spreadsheetImporterProvider = metadata.spreadsheetImporterProvider(
+                    SpreadsheetImporterProviders.spreadsheetImport()
+            );
+
             final SpreadsheetParserProvider spreadsheetParserProvider = metadata.spreadsheetParserProvider(
                     SpreadsheetParserProviders.spreadsheetParsePattern(spreadsheetFormatterProvider)
             );
@@ -658,6 +665,7 @@ public class App implements EntryPoint,
                             ExpressionFunctionProviders.empty(),
                             SpreadsheetComparatorProviders.spreadsheetComparators(),
                             spreadsheetFormatterProvider,
+                            spreadsheetImporterProvider,
                             spreadsheetParserProvider
                     )
             );
