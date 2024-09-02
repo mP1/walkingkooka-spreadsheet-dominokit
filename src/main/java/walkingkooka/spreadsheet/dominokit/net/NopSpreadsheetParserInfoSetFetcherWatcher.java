@@ -20,19 +20,12 @@ package walkingkooka.spreadsheet.dominokit.net;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
-import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 
-/**
- * A watcher that receives all {@link SpreadsheetParserSelector} response events.
- */
-public interface SpreadsheetParserFetcherWatcher extends FetcherWatcher {
+public interface NopSpreadsheetParserInfoSetFetcherWatcher extends SpreadsheetParserFetcherWatcher {
 
-    void onSpreadsheetParserInfoSet(final SpreadsheetId id,
-                                    final SpreadsheetParserInfoSet infos,
-                                    final AppContext context);
-
-    void onSpreadsheetParserSelectorEdit(final SpreadsheetId id,
-                                         final SpreadsheetParserSelectorEdit edit,
-                                         final AppContext context);
+    default void onSpreadsheetParserInfoSet(final SpreadsheetId id,
+                                            final SpreadsheetParserInfoSet infos,
+                                            final AppContext context) {
+        // ignore
+    }
 }
