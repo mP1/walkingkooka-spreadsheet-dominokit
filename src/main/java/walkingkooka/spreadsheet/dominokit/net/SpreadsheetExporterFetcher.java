@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * Fetcher for {@link SpreadsheetExporter} end points.
  */
-public final class SpreadsheetExporterFetcher implements Fetcher {
+public final class SpreadsheetExporterFetcher extends Fetcher<SpreadsheetExporterFetcherWatcher> {
 
     private final static UrlPath EXPORTER = UrlPath.parse(
             SpreadsheetExporterHateosResourceMappings.EXPORTER.value()
@@ -44,24 +44,20 @@ public final class SpreadsheetExporterFetcher implements Fetcher {
         SpreadsheetExporterName.CASE_SENSITIVITY.toString(); // force json unmarshaller to register
     }
 
-    private final SpreadsheetExporterFetcherWatcher watcher;
-
-    // Fetcher..........................................................................................................
-    private final AppContext context;
-    private int waitingRequestCount;
-
-    private SpreadsheetExporterFetcher(final SpreadsheetExporterFetcherWatcher watcher,
-                                       final AppContext context) {
-        this.watcher = watcher;
-        this.context = context;
-    }
-
     public static SpreadsheetExporterFetcher with(final SpreadsheetExporterFetcherWatcher watcher,
                                                   final AppContext context) {
         Objects.requireNonNull(watcher, "watcher");
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetExporterFetcher(
+                watcher,
+                context
+        );
+    }
+
+    private SpreadsheetExporterFetcher(final SpreadsheetExporterFetcherWatcher watcher,
+                                       final AppContext context) {
+        super(
                 watcher,
                 context
         );
@@ -86,14 +82,6 @@ public final class SpreadsheetExporterFetcher implements Fetcher {
                           final String body) {
         final AppContext context = this.context;
 
-        this.logSuccess(
-                method,
-                url,
-                contentTypeName,
-                body,
-                context
-        );
-
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 this.watcher.onEmptyResponse(context);
@@ -113,32 +101,5 @@ public final class SpreadsheetExporterFetcher implements Fetcher {
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
-    }
-
-    @Override
-    public SpreadsheetExporterFetcherWatcher watcher() {
-        return this.watcher;
-    }
-
-    @Override
-    public int waitingRequestCount() {
-        return this.waitingRequestCount;
-    }
-
-    @Override
-    public void setWaitingRequestCount(final int waitingRequestCount) {
-        this.waitingRequestCount = waitingRequestCount;
-    }
-
-    @Override
-    public AppContext context() {
-        return this.context;
-    }
-
-    // Object..........................................................................................................
-
-    @Override
-    public String toString() {
-        return this.watcher.toString();
     }
 }

@@ -39,7 +39,7 @@ import java.util.Objects;
 /**
  * Fetcher for {@link SpreadsheetFormatterSelector} end points.
  */
-public final class SpreadsheetFormatterFetcher implements Fetcher {
+public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormatterFetcherWatcher> {
 
     static {
         try {
@@ -75,8 +75,10 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
 
     private SpreadsheetFormatterFetcher(final SpreadsheetFormatterFetcherWatcher watcher,
                                         final AppContext context) {
-        this.watcher = watcher;
-        this.context = context;
+        super(
+                watcher,
+                context
+        );
     }
 
     // GET /api/spreadsheet/SpreadsheetId/formatter/*/edit
@@ -133,14 +135,6 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
                           final String body) {
         final AppContext context = this.context;
 
-        this.logSuccess(
-                method,
-                url,
-                contentTypeName,
-                body,
-                context
-        );
-
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 this.watcher.onEmptyResponse(context);
@@ -184,38 +178,5 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
-    }
-
-    @Override
-    public SpreadsheetFormatterFetcherWatcher watcher() {
-        return this.watcher;
-    }
-
-    private final SpreadsheetFormatterFetcherWatcher watcher;
-
-    @Override
-    public int waitingRequestCount() {
-        return this.waitingRequestCount;
-    }
-
-    @Override
-    public void setWaitingRequestCount(final int waitingRequestCount) {
-        this.waitingRequestCount = waitingRequestCount;
-    }
-
-    private int waitingRequestCount;
-
-    @Override
-    public AppContext context() {
-        return this.context;
-    }
-
-    private final AppContext context;
-
-    // Object..........................................................................................................
-
-    @Override
-    public String toString() {
-        return this.watcher.toString();
     }
 }

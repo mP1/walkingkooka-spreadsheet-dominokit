@@ -32,7 +32,7 @@ import walkingkooka.text.CharSequences;
 import java.util.Objects;
 import java.util.Optional;
 
-public final class SpreadsheetLabelFetcher implements Fetcher {
+public final class SpreadsheetLabelFetcher extends Fetcher<SpreadsheetLabelFetcherWatcher> {
 
     static {
         SpreadsheetSelection.labelName("Label")
@@ -52,8 +52,10 @@ public final class SpreadsheetLabelFetcher implements Fetcher {
 
     private SpreadsheetLabelFetcher(final SpreadsheetLabelFetcherWatcher watcher,
                                     final AppContext context) {
-        this.watcher = watcher;
-        this.context = context;
+        super(
+                watcher,
+                context
+        );
     }
 
     /**
@@ -107,7 +109,7 @@ public final class SpreadsheetLabelFetcher implements Fetcher {
     }
 
     // GET http://localhost:3000/api/spreadsheet/1/label/Label123
-    public static RelativeUrl url(final SpreadsheetId id, 
+    public static RelativeUrl url(final SpreadsheetId id,
                                   final SpreadsheetLabelName labelName) {
         return SpreadsheetMetadataFetcher.url(id)
                 .appendPathName(SpreadsheetLabelHateosResourceMappings.LABEL.toUrlPathName())
@@ -125,14 +127,6 @@ public final class SpreadsheetLabelFetcher implements Fetcher {
                           final String body) {
         final SpreadsheetLabelFetcherWatcher watcher = this.watcher;
         final AppContext context = this.context;
-
-        this.logSuccess(
-                method,
-                url,
-                contentTypeName,
-                body,
-                context
-        );
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
@@ -156,36 +150,5 @@ public final class SpreadsheetLabelFetcher implements Fetcher {
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quoteAndEscape(contentTypeName));
         }
-    }
-
-    @Override
-    public SpreadsheetLabelFetcherWatcher watcher() {
-        return this.watcher;
-    }
-
-    private final SpreadsheetLabelFetcherWatcher watcher;
-
-    @Override
-    public int waitingRequestCount() {
-        return this.waitingRequestCount;
-    }
-
-    @Override
-    public void setWaitingRequestCount(final int waitingRequestCount) {
-        this.waitingRequestCount = waitingRequestCount;
-    }
-
-    private int waitingRequestCount;
-
-    @Override
-    public AppContext context() {
-        return this.context;
-    }
-
-    private final AppContext context;
-
-    @Override
-    public String toString() {
-        return this.watcher.toString();
     }
 }

@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import elemental2.dom.Headers;
 import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -27,7 +26,6 @@ import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.header.LinkRelation;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -90,7 +88,7 @@ import java.util.function.BiFunction;
  * Since a spreadsheet is mostly about updating cells in some way that means {@link SpreadsheetDelta} is the primary mechanism
  * to send payloads to the server and receiving the updates from that processing.
  */
-public final class SpreadsheetDeltaFetcher implements Fetcher {
+public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetcherWatcher> {
 
     static {
         SpreadsheetDelta.EMPTY.toString(); // force json unmarshaller to register
@@ -299,8 +297,10 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
 
     private SpreadsheetDeltaFetcher(final SpreadsheetDeltaFetcherWatcher watcher,
                                     final AppContext context) {
-        this.watcher = watcher;
-        this.context = context;
+        super(
+                watcher,
+                context
+        );
     }
 
     public void clear(final SpreadsheetId id,
@@ -540,7 +540,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                                        final SpreadsheetSelection selection,
                                        final Map<SpreadsheetCellReference, T> cellToStyles,
                                        final BiFunction<Map<SpreadsheetCellReference, T>, JsonNodeMarshallContext, JsonNode> patcher) {
-        final AppContext context = this.context();
+        final AppContext context = this.context;
 
         this.post(
                 url(
@@ -618,7 +618,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     public void saveCells(final SpreadsheetId id,
                           final SpreadsheetSelection selection,
                           final Set<SpreadsheetCell> cells) {
-        final AppContext context = this.context();
+        final AppContext context = this.context;
 
         this.postDelta(
                 url(
@@ -634,7 +634,7 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     public void saveFormulaText(final SpreadsheetId id,
                                 final SpreadsheetSelection selection,
                                 final String formulaText) {
-        final AppContext context = this.context();
+        final AppContext context = this.context;
 
         // PATCH cell with new formula
         this.patchDelta(
@@ -806,14 +806,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
                           final String body) {
         final AppContext context = this.context;
 
-        this.logSuccess(
-                method,
-                url,
-                contentTypeName,
-                body,
-                context
-        );
-
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 this.watcher.onEmptyResponse(context);
@@ -833,53 +825,5 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
-    }
-
-    public void onFailure(final HttpMethod method,
-                          final AbsoluteOrRelativeUrl url,
-                          final HttpStatus status,
-                          final Headers headers,
-                          final String body) {
-        this.watcher.onFailure(
-                method,
-                url,
-                status,
-                headers,
-                body,
-                this.context
-        );
-    }
-
-    @Override
-    public SpreadsheetDeltaFetcherWatcher watcher() {
-        return this.watcher;
-    }
-
-    private final SpreadsheetDeltaFetcherWatcher watcher;
-
-    @Override
-    public int waitingRequestCount() {
-        return this.waitingRequestCount;
-    }
-
-    @Override
-    public void setWaitingRequestCount(final int waitingRequestCount) {
-        this.waitingRequestCount = waitingRequestCount;
-    }
-
-    private int waitingRequestCount;
-
-    @Override
-    public AppContext context() {
-        return this.context;
-    }
-
-    private final AppContext context;
-
-    // Object..........................................................................................................
-
-    @Override
-    public String toString() {
-        return this.watcher.toString();
     }
 }

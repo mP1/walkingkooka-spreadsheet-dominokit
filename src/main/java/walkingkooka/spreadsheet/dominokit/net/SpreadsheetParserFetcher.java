@@ -37,7 +37,7 @@ import java.util.Objects;
 /**
  * Fetcher for {@link SpreadsheetParserSelector} end points.
  */
-public final class SpreadsheetParserFetcher implements Fetcher {
+public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFetcherWatcher> {
 
     static {
         SpreadsheetParserName.DATE_PARSER_PATTERN.setText("yyyy"); // force json unmarshaller to register
@@ -65,8 +65,10 @@ public final class SpreadsheetParserFetcher implements Fetcher {
 
     private SpreadsheetParserFetcher(final SpreadsheetParserFetcherWatcher watcher,
                                      final AppContext context) {
-        this.watcher = watcher;
-        this.context = context;
+        super(
+                watcher,
+                context
+        );
     }
 
     // POST /api/spreadsheet/SpreadsheetId/parser/*/edit
@@ -113,14 +115,6 @@ public final class SpreadsheetParserFetcher implements Fetcher {
                           final String body) {
         final AppContext context = this.context;
 
-        this.logSuccess(
-                method,
-                url,
-                contentTypeName,
-                body,
-                context
-        );
-
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 this.watcher.onEmptyResponse(context);
@@ -152,38 +146,5 @@ public final class SpreadsheetParserFetcher implements Fetcher {
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
-    }
-
-    @Override
-    public SpreadsheetParserFetcherWatcher watcher() {
-        return this.watcher;
-    }
-
-    private final SpreadsheetParserFetcherWatcher watcher;
-
-    @Override
-    public int waitingRequestCount() {
-        return this.waitingRequestCount;
-    }
-
-    @Override
-    public void setWaitingRequestCount(final int waitingRequestCount) {
-        this.waitingRequestCount = waitingRequestCount;
-    }
-
-    private int waitingRequestCount;
-
-    @Override
-    public AppContext context() {
-        return this.context;
-    }
-
-    private final AppContext context;
-
-    // Object..........................................................................................................
-
-    @Override
-    public String toString() {
-        return this.watcher.toString();
     }
 }
