@@ -140,8 +140,8 @@ public final class SpreadsheetParserFetcher implements Fetcher {
             case "":
                 this.watcher.onEmptyResponse(context);
                 break;
-            case "SpreadsheetFormatterInfoSet":
-                // GET http://server/api/spreadsheet/1/formatter
+            case "SpreadsheetParserInfoSet":
+                // GET http://server/api/spreadsheet/1/parser
                 this.watcher.onSpreadsheetParserInfoSet(
                         SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
                                 .get(), // the request url
