@@ -134,6 +134,7 @@ public final class SpreadsheetParserFetcher implements Fetcher {
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 this.watcher.onEmptyResponse(context);
+                break;
             case "SpreadsheetParserSelectorEdit":
                 // http://server/api/spreadsheet/1/parser/*/edit
                 this.watcher.onSpreadsheetParserSelectorEdit(

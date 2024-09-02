@@ -159,6 +159,7 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 this.watcher.onEmptyResponse(context);
+                break;
             case "SpreadsheetFormatterInfoSet":
                 // GET http://server/api/spreadsheet/1/formatter
                 this.watcher.onSpreadsheetFormatterInfoSet(
