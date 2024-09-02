@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * Fetcher for {@link SpreadsheetComparator} end points.
  */
-public final class SpreadsheetComparatorFetcher implements Fetcher {
+public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetComparatorFetcherWatcher> {
 
     private final static UrlPath COMPARATOR = UrlPath.parse(
             SpreadsheetComparatorHateosResourceMappings.COMPARATOR.value()
@@ -42,12 +42,6 @@ public final class SpreadsheetComparatorFetcher implements Fetcher {
 
     static {
         SpreadsheetComparatorName.CASE_SENSITIVITY.toString(); // force json unmarshaller to register
-    }
-
-    private SpreadsheetComparatorFetcher(final SpreadsheetComparatorFetcherWatcher watcher,
-                                         final AppContext context) {
-        this.watcher = watcher;
-        this.context = context;
     }
 
     // Fetcher..........................................................................................................
@@ -63,9 +57,12 @@ public final class SpreadsheetComparatorFetcher implements Fetcher {
         );
     }
 
-    static RelativeUrl comparator(final SpreadsheetId id) {
-        return SpreadsheetMetadataFetcher.url(id)
-                .appendPath(COMPARATOR);
+    private SpreadsheetComparatorFetcher(final SpreadsheetComparatorFetcherWatcher watcher,
+                                         final AppContext context) {
+        super(
+                watcher,
+                context
+        );
     }
 
     // GET /api/spreadsheet/SpreadsheetId/comparator/*
@@ -75,20 +72,17 @@ public final class SpreadsheetComparatorFetcher implements Fetcher {
         );
     }
 
+    static RelativeUrl comparator(final SpreadsheetId id) {
+        return SpreadsheetMetadataFetcher.url(id)
+                .appendPath(COMPARATOR);
+    }
+
     @Override
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
                           final String body) {
         final AppContext context = this.context;
-
-        this.logSuccess(
-                method,
-                url,
-                contentTypeName,
-                body,
-                context
-        );
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
@@ -109,38 +103,5 @@ public final class SpreadsheetComparatorFetcher implements Fetcher {
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
-    }
-
-    @Override
-    public SpreadsheetComparatorFetcherWatcher watcher() {
-        return this.watcher;
-    }
-
-    private final SpreadsheetComparatorFetcherWatcher watcher;
-
-    @Override
-    public int waitingRequestCount() {
-        return this.waitingRequestCount;
-    }
-
-    @Override
-    public void setWaitingRequestCount(final int waitingRequestCount) {
-        this.waitingRequestCount = waitingRequestCount;
-    }
-
-    private int waitingRequestCount;
-
-    @Override
-    public AppContext context() {
-        return this.context;
-    }
-
-    private final AppContext context;
-
-    // Object..........................................................................................................
-
-    @Override
-    public String toString() {
-        return this.watcher.toString();
     }
 }

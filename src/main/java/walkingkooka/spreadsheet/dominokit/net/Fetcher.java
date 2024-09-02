@@ -28,15 +28,20 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
 import walkingkooka.net.http.server.hateos.HateosResourceMapping;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
 import java.util.Optional;
 
-public interface Fetcher {
+abstract class Fetcher<W extends FetcherWatcher> {
 
-    default void delete(final AbsoluteOrRelativeUrl url) {
+    Fetcher(final W watcher,
+            final AppContext context) {
+        this.watcher = watcher;
+        this.context = context;
+    }
+
+    final void delete(final AbsoluteOrRelativeUrl url) {
         this.fetch(
                 HttpMethod.DELETE,
                 url,
@@ -44,7 +49,7 @@ public interface Fetcher {
         );
     }
 
-    default void get(final AbsoluteOrRelativeUrl url) {
+    final void get(final AbsoluteOrRelativeUrl url) {
         this.fetch(
                 HttpMethod.GET,
                 url,
@@ -52,8 +57,8 @@ public interface Fetcher {
         );
     }
 
-    default void patch(final AbsoluteOrRelativeUrl url,
-                       final String body) {
+    final void patch(final AbsoluteOrRelativeUrl url,
+                     final String body) {
         this.fetch(
                 HttpMethod.PATCH,
                 url,
@@ -61,8 +66,8 @@ public interface Fetcher {
         );
     }
 
-    default void post(final AbsoluteOrRelativeUrl url,
-                      final String body) {
+    final void post(final AbsoluteOrRelativeUrl url,
+                    final String body) {
         this.fetch(
                 HttpMethod.POST,
                 url,
@@ -70,8 +75,8 @@ public interface Fetcher {
         );
     }
 
-    default void put(final AbsoluteOrRelativeUrl url,
-                     final String body) {
+    final void put(final AbsoluteOrRelativeUrl url,
+                   final String body) {
         this.fetch(
                 HttpMethod.PUT,
                 url,
@@ -79,9 +84,9 @@ public interface Fetcher {
         );
     }
 
-    default void fetch(final HttpMethod method,
-                       final AbsoluteOrRelativeUrl url,
-                       final Optional<String> body) {
+    final void fetch(final HttpMethod method,
+                     final AbsoluteOrRelativeUrl url,
+                     final Optional<String> body) {
         final RequestInit requestInit = RequestInit.create();
         requestInit.setMethod(method.value());
 
@@ -123,7 +128,7 @@ public interface Fetcher {
                                         this.setWaitingRequestCount(this.waitingRequestCount() - 1);
 
                                         if (response.ok) {
-                                            this.onSuccess(
+                                            this.fireSuccess(
                                                     method,
                                                     url,
                                                     response.headers.get(
@@ -159,104 +164,123 @@ public interface Fetcher {
     /**
      * Called just before a fetch begins.
      */
-    default void onBegin(final HttpMethod method,
+    private void onBegin(final HttpMethod method,
                          final AbsoluteOrRelativeUrl url,
                          final Optional<String> body) {
-        this.watcher()
-                .onBegin(
-                        method,
-                        url,
-                        body,
-                        this.context()
-                );
+        this.watcher.onBegin(
+                method,
+                url,
+                body,
+                this.context
+        );
     }
 
     /**
-     * Success assumes a json response.
+     * Logs a debug level message with the given parameters and then calls #onSuccess.
      */
-    void onSuccess(final HttpMethod method,
-                   final AbsoluteOrRelativeUrl url,
-                   final String contentTypeName,
-                   final String body);
-
-    /**
-     * This method is invoked for non OK responses.
-     */
-    default void onFailure(final HttpMethod method,
-                           final AbsoluteOrRelativeUrl url,
-                           final HttpStatus status,
-                           final Headers headers,
-                           final String body) {
-        this.watcher()
-                .onFailure(
-                        method,
-                        url,
-                        status,
-                        headers,
-                        body,
-                        this.context()
-                );
-    }
-
-    default void onError(final Object cause) {
-        this.watcher()
-                .onError(
-                        cause,
-                        this.context()
-                );
-    }
-
-    FetcherWatcher watcher();
-
-    default void logSuccess(final HttpMethod method,
-                            final AbsoluteOrRelativeUrl url,
-                            final String contentTypeName,
-                            final String body,
-                            final LoggingContext context) {
+    private void fireSuccess(final HttpMethod method,
+                             final AbsoluteOrRelativeUrl url,
+                             final String contentTypeName,
+                             final String body) {
         String actualBodyLength = "";
         if (false == CharSequences.isNullOrEmpty(body)) {
             actualBodyLength = " " + body.length();
         }
 
-        context.debug(this.getClass().getSimpleName() + ".onSuccess " + method + " " + url + " " + contentTypeName + actualBodyLength);
+        this.context.debug(this.getClass().getSimpleName() + ".onSuccess " + method + " " + url + " " + contentTypeName + actualBodyLength);
+
+        this.onSuccess(
+                method,
+                url,
+                contentTypeName,
+                body
+        );
     }
+
+    /**
+     * Success assumes a json response.
+     */
+    abstract void onSuccess(final HttpMethod method,
+                            final AbsoluteOrRelativeUrl url,
+                            final String contentTypeName,
+                            final String body);
+
+    /**
+     * This method is invoked for non 2xx responses.
+     */
+    private void onFailure(final HttpMethod method,
+                           final AbsoluteOrRelativeUrl url,
+                           final HttpStatus status,
+                           final Headers headers,
+                           final String body) {
+        this.watcher.onFailure(
+                method,
+                url,
+                status,
+                headers,
+                body,
+                this.context
+        );
+    }
+
+    private void onError(final Object cause) {
+        this.watcher.onError(
+                cause,
+                this.context
+        );
+    }
+
+    final W watcher;
+
     /**
      * Parses the JSON String into the requested type.
      */
-    default <T> T parse(final String json,
-                        final Class<T> type) {
-        return this.context()
-                .unmarshall(
-                        JsonNode.parse(
-                                json
-                        ),
-                        type
-                );
+    final <T> T parse(final String json,
+                      final Class<T> type) {
+        return this.context.unmarshall(
+                JsonNode.parse(
+                        json
+                ),
+                type
+        );
     }
 
     /**
      * Parses the JSON String into the requested type.
      */
-    default String toJson(final Object value) {
-        return this.context()
-                .marshall(
-                        value
-                ).toString();
+    final String toJson(final Object value) {
+        return this.context.marshall(
+                value
+        ).toString();
     }
 
     /**
-     * {@link AppContext} used by default methods to retrieve marshall/unmarshall and log.
+     * {@link AppContext} used by final methods to retrieve marshall/unmarshall and log.
      */
-    AppContext context();
+    final AppContext context;
 
     /**
      * Returns the number of outstanding or inflight requests.
      */
-    int waitingRequestCount();
+    public final int waitingRequestCount() {
+        return this.waitingRequestCount;
+    }
+
 
     /**
      * This method is only intended to be called by {@link #fetch(HttpMethod, AbsoluteOrRelativeUrl, Optional)},
      * during various parts of the fetch lifecycle.
      */
-    void setWaitingRequestCount(final int waitingRequestCount);
+    public final void setWaitingRequestCount(final int waitingRequestCount) {
+        this.waitingRequestCount = waitingRequestCount;
+    }
+
+    private int waitingRequestCount;
+
+    // Object..........................................................................................................
+
+    @Override
+    public final String toString() {
+        return this.watcher.toString();
+    }
 }

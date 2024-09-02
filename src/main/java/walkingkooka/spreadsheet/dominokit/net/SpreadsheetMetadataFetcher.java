@@ -64,7 +64,7 @@ import java.util.OptionalInt;
  * Deletion of spreadsheets is accomplished by simplying call {@link SpreadsheetMetadataFetcher#deleteSpreadsheetMetadata(SpreadsheetId)}}.
  * </br>
  */
-public final class SpreadsheetMetadataFetcher implements Fetcher {
+public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadataFetcherWatcher> {
 
     static {
         SpreadsheetMetadataSet.with(
@@ -110,8 +110,10 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
 
     private SpreadsheetMetadataFetcher(final SpreadsheetMetadataFetcherWatcher watcher,
                                        final AppContext context) {
-        this.watcher = watcher;
-        this.context = context;
+        super(
+                watcher,
+                context
+        );
     }
 
     /**
@@ -231,14 +233,6 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
         final SpreadsheetMetadataFetcherWatcher watcher = this.watcher;
         final AppContext context = this.context;
 
-        this.logSuccess(
-                method,
-                url,
-                contentTypeName,
-                body,
-                context
-        );
-
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 watcher.onEmptyResponse(
@@ -266,36 +260,5 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quoteAndEscape(contentTypeName));
         }
-    }
-
-    @Override
-    public SpreadsheetMetadataFetcherWatcher watcher() {
-        return this.watcher;
-    }
-
-    private final SpreadsheetMetadataFetcherWatcher watcher;
-
-    @Override
-    public int waitingRequestCount() {
-        return this.waitingRequestCount;
-    }
-
-    @Override
-    public void setWaitingRequestCount(final int waitingRequestCount) {
-        this.waitingRequestCount = waitingRequestCount;
-    }
-
-    private int waitingRequestCount;
-
-    @Override
-    public AppContext context() {
-        return this.context;
-    }
-
-    private final AppContext context;
-
-    @Override
-    public String toString() {
-        return this.watcher.toString();
     }
 }
