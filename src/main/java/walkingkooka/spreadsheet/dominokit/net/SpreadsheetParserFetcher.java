@@ -71,14 +71,12 @@ public final class SpreadsheetParserFetcher implements Fetcher {
         this.context = context;
     }
 
-    // /api/spreadsheet/SpreadsheetId/parser/*/edit
+    // POST /api/spreadsheet/SpreadsheetId/parser/*/edit
     public void edit(final SpreadsheetId id,
                      final String selector) {
         this.post(
-                url(
-                        id,
-                        EDIT
-                ),
+                parser(id)
+                        .appendPath(EDIT),
                 JsonNode.string(selector)
                         .toString()
         );
@@ -86,20 +84,19 @@ public final class SpreadsheetParserFetcher implements Fetcher {
 
     // /api/spreadsheet/1/parser/*/edit
 
-    static RelativeUrl url(final SpreadsheetId id,
-                           final UrlPath path) {
+    private final static UrlPath EDIT = UrlPath.parse(
+            "/*/" + SpreadsheetHttpServerLinkRelations.EDIT
+    );
+
+    // /api/spreadsheet/1/parser
+
+    static RelativeUrl parser(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPath(
-                        PARSER
-                ).appendPath(path);
+                .appendPath(PARSER);
     }
 
     private final static UrlPath PARSER = UrlPath.parse(
             SpreadsheetParserHateosResourceMappings.PARSER.value()
-    );
-
-    private final static UrlPath EDIT = UrlPath.parse(
-            "/*/" + SpreadsheetHttpServerLinkRelations.EDIT
     );
 
     // Fetcher..........................................................................................................
