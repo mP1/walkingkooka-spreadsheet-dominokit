@@ -68,6 +68,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.util.HistoryTokenRecorder;
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.NopSpreadsheetFormatterInfoSetFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
@@ -113,6 +114,7 @@ import java.util.function.Supplier;
 public final class SpreadsheetViewportComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetViewportComponent>,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetFormatterFetcherWatcher,
+        NopSpreadsheetFormatterInfoSetFetcherWatcher,
         SpreadsheetLabelFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         ComponentLifecycle,

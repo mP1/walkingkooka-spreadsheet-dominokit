@@ -26,6 +26,7 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServerLinkRelations;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterHateosResourceMappings;
@@ -158,6 +159,18 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 this.watcher.onEmptyResponse(context);
+            case "SpreadsheetFormatterInfoSet":
+                // GET http://server/api/spreadsheet/1/formatter
+                this.watcher.onSpreadsheetFormatterInfoSet(
+                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                                .get(), // the request url
+                        this.parse(
+                                body,
+                                SpreadsheetFormatterInfoSet.class
+                        ), // edit
+                        context
+                );
+                break;
             case "SpreadsheetFormatterSelectorEdit":
                 // http://server/api/spreadsheet/1/formatter/*/edit
                 this.watcher.onSpreadsheetFormatterSelectorEdit(
