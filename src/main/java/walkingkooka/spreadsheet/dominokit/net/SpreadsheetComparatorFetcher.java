@@ -17,12 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import elemental2.dom.Headers;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
@@ -32,7 +30,6 @@ import walkingkooka.spreadsheet.server.comparator.SpreadsheetComparatorHateosRes
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * Fetcher for {@link SpreadsheetComparator} end points.
@@ -46,12 +43,6 @@ public final class SpreadsheetComparatorFetcher implements Fetcher {
     static {
         SpreadsheetComparatorName.CASE_SENSITIVITY.toString(); // force json unmarshaller to register
     }
-
-    private final SpreadsheetComparatorFetcherWatcher watcher;
-    private final AppContext context;
-
-    // /api/spreadsheet/1/comparator
-    private int waitingRequestCount;
 
     private SpreadsheetComparatorFetcher(final SpreadsheetComparatorFetcherWatcher watcher,
                                          final AppContext context) {
@@ -81,18 +72,6 @@ public final class SpreadsheetComparatorFetcher implements Fetcher {
     public void infoSet(final SpreadsheetId id) {
         this.get(
                 comparator(id)
-        );
-    }
-
-    @Override
-    public void onBegin(final HttpMethod method,
-                        final AbsoluteOrRelativeUrl url,
-                        final Optional<String> body) {
-        this.watcher.onBegin(
-                method,
-                url,
-                body,
-                this.context
         );
     }
 
@@ -133,28 +112,11 @@ public final class SpreadsheetComparatorFetcher implements Fetcher {
     }
 
     @Override
-    public void onFailure(final HttpMethod method,
-                          final AbsoluteOrRelativeUrl url,
-                          final HttpStatus status,
-                          final Headers headers,
-                          final String body) {
-        this.watcher.onFailure(
-                method,
-                url,
-                status,
-                headers,
-                body,
-                this.context
-        );
+    public SpreadsheetComparatorFetcherWatcher watcher() {
+        return this.watcher;
     }
 
-    @Override
-    public void onError(final Object cause) {
-        this.watcher.onError(
-                cause,
-                this.context
-        );
-    }
+    private final SpreadsheetComparatorFetcherWatcher watcher;
 
     @Override
     public int waitingRequestCount() {
@@ -166,10 +128,14 @@ public final class SpreadsheetComparatorFetcher implements Fetcher {
         this.waitingRequestCount = waitingRequestCount;
     }
 
+    private int waitingRequestCount;
+
     @Override
     public AppContext context() {
         return this.context;
     }
+
+    private final AppContext context;
 
     // Object..........................................................................................................
 

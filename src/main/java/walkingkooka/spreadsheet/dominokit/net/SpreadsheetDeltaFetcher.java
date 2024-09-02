@@ -800,18 +800,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     // Fetcher.........................................................................................................
 
     @Override
-    public void onBegin(final HttpMethod method,
-                        final AbsoluteOrRelativeUrl url,
-                        final Optional<String> body) {
-        this.watcher.onBegin(
-                method,
-                url,
-                body,
-                this.context
-        );
-    }
-
-    @Override
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
@@ -847,7 +835,6 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
         }
     }
 
-    @Override
     public void onFailure(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
                           final HttpStatus status,
@@ -864,11 +851,8 @@ public final class SpreadsheetDeltaFetcher implements Fetcher {
     }
 
     @Override
-    public void onError(final Object cause) {
-        this.watcher.onError(
-                cause,
-                this.context
-        );
+    public SpreadsheetDeltaFetcherWatcher watcher() {
+        return this.watcher;
     }
 
     private final SpreadsheetDeltaFetcherWatcher watcher;

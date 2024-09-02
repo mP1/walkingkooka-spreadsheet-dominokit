@@ -159,9 +159,17 @@ public interface Fetcher {
     /**
      * Called just before a fetch begins.
      */
-    void onBegin(final HttpMethod method,
-                 final AbsoluteOrRelativeUrl url,
-                 final Optional<String> body);
+    default void onBegin(final HttpMethod method,
+                         final AbsoluteOrRelativeUrl url,
+                         final Optional<String> body) {
+        this.watcher()
+                .onBegin(
+                        method,
+                        url,
+                        body,
+                        this.context()
+                );
+    }
 
     /**
      * Success assumes a json response.
@@ -170,6 +178,35 @@ public interface Fetcher {
                    final AbsoluteOrRelativeUrl url,
                    final String contentTypeName,
                    final String body);
+
+    /**
+     * This method is invoked for non OK responses.
+     */
+    default void onFailure(final HttpMethod method,
+                           final AbsoluteOrRelativeUrl url,
+                           final HttpStatus status,
+                           final Headers headers,
+                           final String body) {
+        this.watcher()
+                .onFailure(
+                        method,
+                        url,
+                        status,
+                        headers,
+                        body,
+                        this.context()
+                );
+    }
+
+    default void onError(final Object cause) {
+        this.watcher()
+                .onError(
+                        cause,
+                        this.context()
+                );
+    }
+
+    FetcherWatcher watcher();
 
     default void logSuccess(final HttpMethod method,
                             final AbsoluteOrRelativeUrl url,
@@ -211,17 +248,6 @@ public interface Fetcher {
      * {@link AppContext} used by default methods to retrieve marshall/unmarshall and log.
      */
     AppContext context();
-
-    /**
-     * This method is invoked for non OK responses.
-     */
-    void onFailure(final HttpMethod method,
-                   final AbsoluteOrRelativeUrl url,
-                   final HttpStatus status,
-                   final Headers headers,
-                   final String body);
-
-    void onError(final Object cause);
 
     /**
      * Returns the number of outstanding or inflight requests.
