@@ -19,17 +19,31 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 
 public final class SpreadsheetParserFetcherWatchers extends FetcherWatchers<SpreadsheetParserFetcherWatcher>
         implements SpreadsheetParserFetcherWatcher {
 
+    private SpreadsheetParserFetcherWatchers() {
+        super();
+    }
+
     public static SpreadsheetParserFetcherWatchers empty() {
         return new SpreadsheetParserFetcherWatchers();
     }
 
-    private SpreadsheetParserFetcherWatchers() {
-        super();
+    @Override
+    public void onSpreadsheetParserInfoSet(final SpreadsheetId id,
+                                           final SpreadsheetParserInfoSet infos,
+                                           final AppContext context) {
+        this.fire(
+                SpreadsheetParserFetcherWatchersInfoSetEvent.with(
+                        id,
+                        infos,
+                        context
+                )
+        );
     }
 
     @Override

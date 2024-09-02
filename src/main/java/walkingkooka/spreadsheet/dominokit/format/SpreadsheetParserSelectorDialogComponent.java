@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.NopSpreadsheetParserInfoSetFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
@@ -59,7 +60,8 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         NopEmptyResponseFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
-        SpreadsheetParserFetcherWatcher {
+        SpreadsheetParserFetcherWatcher,
+        NopSpreadsheetParserInfoSetFetcherWatcher {
 
     /**
      * Creates a new {@link SpreadsheetParserSelectorDialogComponent}.
