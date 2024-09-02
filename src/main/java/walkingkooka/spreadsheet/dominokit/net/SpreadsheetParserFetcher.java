@@ -17,12 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import elemental2.dom.Headers;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
@@ -35,7 +33,6 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * Fetcher for {@link SpreadsheetParserSelector} end points.
@@ -110,18 +107,6 @@ public final class SpreadsheetParserFetcher implements Fetcher {
     // Fetcher..........................................................................................................
 
     @Override
-    public void onBegin(final HttpMethod method,
-                        final AbsoluteOrRelativeUrl url,
-                        final Optional<String> body) {
-        this.watcher.onBegin(
-                method,
-                url,
-                body,
-                this.context
-        );
-    }
-
-    @Override
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
@@ -170,27 +155,8 @@ public final class SpreadsheetParserFetcher implements Fetcher {
     }
 
     @Override
-    public void onFailure(final HttpMethod method,
-                          final AbsoluteOrRelativeUrl url,
-                          final HttpStatus status,
-                          final Headers headers,
-                          final String body) {
-        this.watcher.onFailure(
-                method,
-                url,
-                status,
-                headers,
-                body,
-                this.context
-        );
-    }
-
-    @Override
-    public void onError(final Object cause) {
-        this.watcher.onError(
-                cause,
-                this.context
-        );
+    public SpreadsheetParserFetcherWatcher watcher() {
+        return this.watcher;
     }
 
     private final SpreadsheetParserFetcherWatcher watcher;

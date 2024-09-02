@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-import elemental2.dom.Headers;
 import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -28,7 +27,6 @@ import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -226,18 +224,6 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
     }
 
     @Override
-    public void onBegin(final HttpMethod method,
-                        final AbsoluteOrRelativeUrl url,
-                        final Optional<String> body) {
-        this.watcher.onBegin(
-                method,
-                url,
-                body,
-                this.context
-        );
-    }
-
-    @Override
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
@@ -283,27 +269,8 @@ public final class SpreadsheetMetadataFetcher implements Fetcher {
     }
 
     @Override
-    public void onFailure(final HttpMethod method,
-                          final AbsoluteOrRelativeUrl url,
-                          final HttpStatus status,
-                          final Headers headers,
-                          final String body) {
-        this.watcher.onFailure(
-                method,
-                url,
-                status,
-                headers,
-                body,
-                this.context
-        );
-    }
-
-    @Override
-    public void onError(final Object cause) {
-        this.watcher.onError(
-                cause,
-                this.context
-        );
+    public SpreadsheetMetadataFetcherWatcher watcher() {
+        return this.watcher;
     }
 
     private final SpreadsheetMetadataFetcherWatcher watcher;
