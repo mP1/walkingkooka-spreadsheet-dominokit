@@ -82,49 +82,49 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
         this.context = context;
     }
 
-    // /api/spreadsheet/SpreadsheetId/formatter/*/edit
+    // GET /api/spreadsheet/SpreadsheetId/formatter/*/edit
     public void edit(final SpreadsheetId id,
                      final String selector) {
         this.post(
-                url(
-                        id,
-                        EDIT
-                ),
+                formatter(id)
+                        .appendPath(EDIT),
                 JsonNode.string(selector)
                         .toString()
         );
     }
 
-    // /api/spreadsheet/SpreadsheetId/formatter/*/menu
-    public void menu(final SpreadsheetId id) {
-        this.get(
-                url(
-                        id,
-                        MENU
-                )
-        );
-    }
-
-    // /api/spreadsheet/1/formatter/*/edit
-
-    static RelativeUrl url(final SpreadsheetId id,
-                           final UrlPath path) {
-        return SpreadsheetMetadataFetcher.url(id)
-                .appendPath(
-                        FORMATTER
-                ).appendPath(path);
-    }
-
-    private final static UrlPath FORMATTER = UrlPath.parse(
-            SpreadsheetFormatterHateosResourceMappings.FORMATTER.value()
-    );
-
     private final static UrlPath EDIT = UrlPath.parse(
             "/*/" + SpreadsheetHttpServerLinkRelations.EDIT
     );
 
+    // GET /api/spreadsheet/SpreadsheetId/formatter/*
+    public void infoSet(final SpreadsheetId id) {
+        this.get(
+                formatter(id)
+        );
+    }
+
+    // GET /api/spreadsheet/SpreadsheetId/formatter/*/menu
+    public void menu(final SpreadsheetId id) {
+        this.get(
+                formatter(id)
+                        .appendPath(MENU)
+        );
+    }
+
     private final static UrlPath MENU = UrlPath.parse(
             "/*/" + SpreadsheetHttpServerLinkRelations.MENU
+    );
+
+    // api/spreadsheet/SpreadsheetId/formatter
+
+    static RelativeUrl formatter(final SpreadsheetId id) {
+        return SpreadsheetMetadataFetcher.url(id)
+                .appendPath(FORMATTER);
+    }
+
+    private final static UrlPath FORMATTER = UrlPath.parse(
+            SpreadsheetFormatterHateosResourceMappings.FORMATTER.value()
     );
 
     // Fetcher..........................................................................................................
@@ -164,7 +164,7 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
                 // GET http://server/api/spreadsheet/1/formatter
                 this.watcher.onSpreadsheetFormatterInfoSet(
                         SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(), // the request url
+                                .get(), // the request formatter
                         this.parse(
                                 body,
                                 SpreadsheetFormatterInfoSet.class
@@ -176,7 +176,7 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
                 // http://server/api/spreadsheet/1/formatter/*/edit
                 this.watcher.onSpreadsheetFormatterSelectorEdit(
                         SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(), // the request url
+                                .get(), // the request formatter
                         this.parse(
                                 body,
                                 SpreadsheetFormatterSelectorEdit.class
@@ -188,7 +188,7 @@ public final class SpreadsheetFormatterFetcher implements Fetcher {
                 // http://server/api/spreadsheet/1/formatter/*/menu
                 this.watcher.onSpreadsheetFormatterSelectorMenuList(
                         SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(), // the request url
+                                .get(), // the request formatter
                         this.parse(
                                 body,
                                 SpreadsheetFormatterSelectorMenuList.class

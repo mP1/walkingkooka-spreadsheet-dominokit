@@ -898,7 +898,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                         selection,
                         path
                 ),
-                "url " + id + ", " + selection + ", " + path
+                "formatter " + id + ", " + selection + ", " + path
         );
     }
 }
