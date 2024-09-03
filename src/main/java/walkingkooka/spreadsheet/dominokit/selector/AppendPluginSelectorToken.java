@@ -138,7 +138,7 @@ public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A
     // setCssText.......................................................................................................
 
     @Override
-    public AppendPluginSelectorToken setCssText(final String css) {
+    public AppendPluginSelectorToken<T, A> setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.root.setCssText(css);
