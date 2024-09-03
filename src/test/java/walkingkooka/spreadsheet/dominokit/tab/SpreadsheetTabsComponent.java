@@ -15,10 +15,11 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.tab;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
@@ -31,20 +32,24 @@ import java.util.Objects;
  */
 public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentLike, TestHtmlElementComponent<HTMLDivElement, SpreadsheetTabsComponent> {
 
-    public static SpreadsheetTabsComponent with(final HistoryTokenContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetTabsComponent(context);
-    }
+    private final HistoryTokenContext context;
+    private final List<HistoryTokenAnchorComponent> anchors;
+    private int activate = -1;
 
     private SpreadsheetTabsComponent(final HistoryTokenContext context) {
         this.anchors = Lists.array();
         this.context = context;
     }
 
+    public static SpreadsheetTabsComponent with(final HistoryTokenContext context) {
+        Objects.requireNonNull(context, "context");
+
+        return new SpreadsheetTabsComponent(context);
+    }
+
     @Override
     public SpreadsheetTabsComponent appendTab(final String id,
-                                                                                 final String title) {
+                                              final String title) {
         CharSequences.failIfNullOrEmpty(id, "id");
         CharSequences.failIfNullOrEmpty(title, "title");
 
@@ -58,8 +63,6 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
         return this;
     }
 
-    private final HistoryTokenContext context;
-
     /**
      * Returns the anchor for the given tab.
      */
@@ -67,8 +70,6 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
     public HistoryTokenAnchorComponent anchor(final int index) {
         return this.anchors.get(index);
     }
-
-    private final List<HistoryTokenAnchorComponent> anchors;
 
     /**
      * Activate the given tab and de-actives all other tabs.
@@ -83,8 +84,6 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
     public int selectedTab() {
         return this.activate;
     }
-
-    private int activate = -1;
 
     @Override
     public int tabCount() {
