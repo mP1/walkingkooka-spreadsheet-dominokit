@@ -161,7 +161,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "                  Missing '='\n" +
                         "          \"Move Up\" DISABLED id=sort-comparator-1-moveUp-Link\n" +
                         "          \"Move Down\" DISABLED id=sort-comparator-1-moveDown-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
@@ -190,7 +190,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "                  Missing comparator name\n" +
                         "          \"Move Up\" DISABLED id=sort-comparator-1-moveUp-Link\n" +
                         "          \"Move Down\" DISABLED id=sort-comparator-1-moveDown-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
@@ -219,7 +219,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "                  Missing comparator name\n" +
                         "          \"Move Up\" DISABLED id=sort-comparator-1-moveUp-Link\n" +
                         "          \"Move Down\" DISABLED id=sort-comparator-1-moveDown-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
@@ -246,7 +246,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "                [A=comparator-1] id=sort-comparator-1-TextBox\n" +
                         "          \"Move Up\" DISABLED id=sort-comparator-1-moveUp-Link\n" +
                         "          \"Move Down\" DISABLED id=sort-comparator-1-moveDown-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
@@ -277,7 +277,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "                [A=comparator-1,comparator-2] id=sort-comparator-1-TextBox\n" +
                         "          \"Move Up\" DISABLED id=sort-comparator-1-moveUp-Link\n" +
                         "          \"Move Down\" DISABLED id=sort-comparator-1-moveDown-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
@@ -354,7 +354,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "                [A=comparator-1] id=sort-comparator-1-TextBox\n" +
                         "          \"Move Up\" DISABLED id=sort-comparator-1-moveUp-Link\n" +
                         "          \"Move Down\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/B=comparator-2;A=comparator-1;C=comparator-3] id=sort-comparator-1-moveDown-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
@@ -416,7 +416,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "                [B=comparator-2] id=sort-comparator-1-TextBox\n" +
                         "          \"Move Up\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/B=comparator-2;A=comparator-1;C=comparator-3] id=sort-comparator-1-moveUp-Link\n" +
                         "          \"Move Down\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;C=comparator-3;B=comparator-2] id=sort-comparator-1-moveDown-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
@@ -468,7 +468,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "                [C=comparator-3] id=sort-comparator-1-TextBox\n" +
                         "          \"Move Up\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;C=comparator-3;B=comparator-2] id=sort-comparator-1-moveUp-Link\n" +
                         "          \"Move Down\" DISABLED id=sort-comparator-1-moveDown-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Append comparator(s)\n" +
