@@ -17,10 +17,29 @@
 
 package walkingkooka.spreadsheet.dominokit.comparator;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 
 public final class SpreadsheetComparatorInfoSetComponentTest implements ClassTesting2<SpreadsheetComparatorInfoSetComponent> {
+
+    @Test
+    public void testParseAndText() {
+        final SpreadsheetComparatorInfoSet infos = SpreadsheetComparatorInfoSet.with(
+                SpreadsheetComparatorProviders.spreadsheetComparators()
+                        .spreadsheetComparatorInfos()
+        );
+
+        this.checkEquals(
+                infos,
+                SpreadsheetComparatorInfoSet.parse(infos.text())
+        );
+    }
+
+    // class............................................................................................................
+
     @Override
     public Class<SpreadsheetComparatorInfoSetComponent> type() {
         return SpreadsheetComparatorInfoSetComponent.class;

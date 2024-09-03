@@ -17,11 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.comparator;
 
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 
-public final class SpreadsheetComparatorInfoSetComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetComparatorInfoSetComponent, SpreadsheetFormatterSelector> {
+public final class SpreadsheetComparatorInfoSetComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetComparatorInfoSetComponent, SpreadsheetComparatorInfoSet> {
 
     public static SpreadsheetComparatorInfoSetComponent empty() {
         return new SpreadsheetComparatorInfoSetComponent();
@@ -29,19 +29,19 @@ public final class SpreadsheetComparatorInfoSetComponent implements ValueSpreads
 
     private SpreadsheetComparatorInfoSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetFormatterSelector::parse,
-                SpreadsheetFormatterSelector::toString
+                SpreadsheetComparatorInfoSet::parse,
+                SpreadsheetComparatorInfoSet::text
         );
     }
 
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetFormatterSelector> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetComparatorInfoSet> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<SpreadsheetFormatterSelector> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetComparatorInfoSet> textBox;
 
     // Object...........................................................................................................
 
