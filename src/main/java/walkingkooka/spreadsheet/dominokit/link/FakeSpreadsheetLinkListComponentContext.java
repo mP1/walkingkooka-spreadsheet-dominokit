@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.link;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 

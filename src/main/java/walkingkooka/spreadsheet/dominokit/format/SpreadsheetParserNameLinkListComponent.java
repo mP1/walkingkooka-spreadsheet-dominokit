@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.format;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;

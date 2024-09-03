@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
-import walkingkooka.spreadsheet.dominokit.SpreadsheetLinkListComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponentContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 
 import java.util.Optional;
