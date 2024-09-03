@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.format;
+package walkingkooka.spreadsheet.dominokit.patternkind;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
@@ -81,6 +81,6 @@ public final class SpreadsheetPatternKindTabsComponentTest implements ClassTesti
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+        return JavaVisibility.PUBLIC;
     }
 }

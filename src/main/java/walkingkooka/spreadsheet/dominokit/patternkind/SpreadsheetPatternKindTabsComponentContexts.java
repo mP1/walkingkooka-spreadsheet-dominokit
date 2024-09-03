@@ -15,9 +15,24 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.format;
+package walkingkooka.spreadsheet.dominokit.patternkind;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.reflect.PublicStaticHelper;
 
-public class FakeSpreadsheetPatternKindTabsComponentContext extends FakeHistoryTokenContext implements SpreadsheetPatternKindTabsComponentContext {
+public final class SpreadsheetPatternKindTabsComponentContexts implements PublicStaticHelper {
+
+    /**
+     * {@see FakeSpreadsheetPatternKindTabsComponentContext}
+     */
+    public static SpreadsheetPatternKindTabsComponentContext fake() {
+        return new FakeSpreadsheetPatternKindTabsComponentContext();
+    }
+
+
+    /**
+     * Stop creation
+     */
+    private SpreadsheetPatternKindTabsComponentContexts() {
+        throw new UnsupportedOperationException();
+    }
 }

@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.net.NopSpreadsheetParserInfoSetFetcher
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.patternkind.SpreadsheetPatternKindTabsComponent;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorToken;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;

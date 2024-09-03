@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.format;
+package walkingkooka.spreadsheet.dominokit.patternkind;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
@@ -33,15 +33,15 @@ import java.util.Optional;
 /**
  * A tab component that displays tabs for each of the given {@link SpreadsheetPatternKind}.
  */
-final class SpreadsheetPatternKindTabsComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternKindTabsComponent>,
+public final class SpreadsheetPatternKindTabsComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternKindTabsComponent>,
         TreePrintable {
 
     /**
      * Creates an empty {@link SpreadsheetPatternKindTabsComponent}.
      */
-    static SpreadsheetPatternKindTabsComponent empty(final String id,
-                                                     final SpreadsheetPatternKind[] kinds,
-                                                     final SpreadsheetPatternKindTabsComponentContext context) {
+    public static SpreadsheetPatternKindTabsComponent empty(final String id,
+                                                            final SpreadsheetPatternKind[] kinds,
+                                                            final SpreadsheetPatternKindTabsComponentContext context) {
         return new SpreadsheetPatternKindTabsComponent(
                 id,
                 kinds,
@@ -103,7 +103,7 @@ final class SpreadsheetPatternKindTabsComponent implements HtmlElementComponent<
     /**
      * Iterates over the links in each tab updating the link, disabling and activating as necessary.
      */
-    void refresh(final SpreadsheetPatternKindTabsComponentContext context) {
+    public void refresh(final SpreadsheetPatternKindTabsComponentContext context) {
         final SpreadsheetTabsComponent tabs = this.tabsComponent;
         final SpreadsheetPatternKind kind = context.historyToken().patternKind()
                 .orElse(null);
