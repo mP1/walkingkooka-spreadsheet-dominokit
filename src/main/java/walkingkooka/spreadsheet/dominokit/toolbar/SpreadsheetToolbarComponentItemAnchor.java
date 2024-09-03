@@ -21,9 +21,9 @@ import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetTooltipComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
 
 import java.util.Optional;
 

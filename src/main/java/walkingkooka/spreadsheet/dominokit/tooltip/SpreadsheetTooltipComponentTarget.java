@@ -15,9 +15,10 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.tooltip;
 
 import elemental2.dom.HTMLElement;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 
 /**
  * A target that receives a {@link SpreadsheetTooltipComponent}. It will events as tooltips are attached/detached.

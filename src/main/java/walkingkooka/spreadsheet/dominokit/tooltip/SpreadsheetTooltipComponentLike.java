@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.tooltip;
 
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
