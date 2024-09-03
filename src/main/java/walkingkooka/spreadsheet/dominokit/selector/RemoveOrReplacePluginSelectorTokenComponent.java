@@ -88,7 +88,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
         int i = 0;
         for (final T token : tokens) {
             flex.appendChild(
-                    this.removeAnchor(
+                    this.anchor(
                             token,
                             tokenText,
                             i,
@@ -106,10 +106,10 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
     /**
      * Creates an anchor which will contain the label/text and a context menu with alternatives.
      */
-    private HistoryTokenAnchorComponent removeAnchor(final T token,
-                                                     final ImmutableList<String> tokens,
-                                                     final int index,
-                                                     final RemoveOrReplacePluginSelectorTokenComponentContext context) {
+    private HistoryTokenAnchorComponent anchor(final T token,
+                                               final ImmutableList<String> tokens,
+                                               final int index,
+                                               final RemoveOrReplacePluginSelectorTokenComponentContext context) {
         final HistoryToken historyToken = context.historyToken();
 
         final HistoryTokenAnchorComponent anchor = historyToken.link(
@@ -191,7 +191,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
     private final SpreadsheetCard root;
 
     /**
-     * The parent holding LINKS which contain the pattern without a component.
+     * The parent holding remove/replace LINKS
      */
     private final SpreadsheetFlexLayout flex;
 
