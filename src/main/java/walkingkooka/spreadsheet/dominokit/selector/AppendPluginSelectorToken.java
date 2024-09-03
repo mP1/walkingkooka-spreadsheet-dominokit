@@ -61,12 +61,12 @@ public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A
                 .appendChild(this.flex);
     }
 
-    public void refresh(final List<T> textComponents,
+    public void refresh(final List<T> tokens,
                         final List<A> alternatives,
                         final AppendPluginSelectorTokenContext context) {
         this.refresh0(
                 Lists.immutable(
-                        Objects.requireNonNull(textComponents, "textComponents")
+                        Objects.requireNonNull(tokens, "tokens")
                 ),
                 Lists.immutable(
                         Objects.requireNonNull(alternatives, "alternatives")
@@ -75,13 +75,13 @@ public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A
         );
     }
 
-    void refresh0(final List<T> textComponents,
+    void refresh0(final List<T> tokens,
                   final ImmutableList<A> alternatives,
                   final AppendPluginSelectorTokenContext context) {
         this.root.hide();
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
 
-        final String baseTextComponent = textComponents.stream()
+        final String baseTextComponent = tokens.stream()
                 .map(PluginSelectorTokenLike::text)
                 .collect(Collectors.joining());
 
@@ -98,12 +98,12 @@ public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A
             i++;
         }
 
-        if (false == textComponents.isEmpty()) {
+        if (false == tokens.isEmpty()) {
             this.root.show();
         }
     }
 
-    private HistoryTokenAnchorComponent appendAnchor(final String textComponent,
+    private HistoryTokenAnchorComponent appendAnchor(final String token,
                                                      final A alternative,
                                                      final int index,
                                                      final AppendPluginSelectorTokenContext context) {
@@ -116,7 +116,7 @@ public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A
                         Optional.of(
                                 historyToken.setSave(
                                         context.saveText(
-                                                textComponent + alternative.text()
+                                                token + alternative.text()
                                         )
                                 )
                         )
