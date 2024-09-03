@@ -19,24 +19,24 @@ package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
-import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenContext;
+import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponentContext;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 
-final class SpreadsheetFormatterSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext implements AppendPluginSelectorTokenContext,
+final class SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenComponentContext implements AppendPluginSelectorTokenComponentContext,
         RemoveOrReplacePluginSelectorTokenContext,
         HistoryTokenContextDelegator {
 
-    static SpreadsheetFormatterSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext with(final SpreadsheetFormatterName name,
-                                                                                                                      final HistoryTokenContext context) {
-        return new SpreadsheetFormatterSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext(
+    static SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenComponentContext with(final SpreadsheetFormatterName name,
+                                                                                                                                        final HistoryTokenContext context) {
+        return new SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenComponentContext(
                 name,
                 context
         );
     }
 
-    private SpreadsheetFormatterSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext(final SpreadsheetFormatterName name,
-                                                                                                                  final HistoryTokenContext context) {
+    private SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenComponentContext(final SpreadsheetFormatterName name,
+                                                                                                                                    final HistoryTokenContext context) {
         this.name = name;
         this.context = context;
     }

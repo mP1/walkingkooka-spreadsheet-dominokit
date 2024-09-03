@@ -40,19 +40,19 @@ import java.util.stream.Collectors;
 /**
  * A component which displays links which append possible tokens to the current selector text.
  */
-public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, AppendPluginSelectorToken<T, A>>,
+public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, AppendPluginSelectorTokenComponent<T, A>>,
         TreePrintable {
 
     /**
-     * Creates an empty {@link AppendPluginSelectorToken}.
+     * Creates an empty {@link AppendPluginSelectorTokenComponent}.
      */
-    public static <T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> AppendPluginSelectorToken<T, A> empty(final String id) {
-        return new AppendPluginSelectorToken<>(
+    public static <T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> AppendPluginSelectorTokenComponent<T, A> empty(final String id) {
+        return new AppendPluginSelectorTokenComponent<>(
                 CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
 
-    private AppendPluginSelectorToken(final String id) {
+    private AppendPluginSelectorTokenComponent(final String id) {
         this.id = id;
 
         this.flex = SpreadsheetFlexLayout.row();
@@ -63,7 +63,7 @@ public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A
 
     public void refresh(final List<T> tokens,
                         final List<A> alternatives,
-                        final AppendPluginSelectorTokenContext context) {
+                        final AppendPluginSelectorTokenComponentContext context) {
         this.refresh0(
                 Lists.immutable(
                         Objects.requireNonNull(tokens, "tokens")
@@ -77,7 +77,7 @@ public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A
 
     void refresh0(final List<T> tokens,
                   final ImmutableList<A> alternatives,
-                  final AppendPluginSelectorTokenContext context) {
+                  final AppendPluginSelectorTokenComponentContext context) {
         this.root.hide();
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
 
@@ -106,7 +106,7 @@ public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A
     private HistoryTokenAnchorComponent appendAnchor(final String token,
                                                      final A alternative,
                                                      final int index,
-                                                     final AppendPluginSelectorTokenContext context) {
+                                                     final AppendPluginSelectorTokenComponentContext context) {
         final HistoryToken historyToken = context.historyToken();
 
         return historyToken.link(
@@ -138,7 +138,7 @@ public final class AppendPluginSelectorToken<T extends PluginSelectorTokenLike<A
     // setCssText.......................................................................................................
 
     @Override
-    public AppendPluginSelectorToken<T, A> setCssText(final String css) {
+    public AppendPluginSelectorTokenComponent<T, A> setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.root.setCssText(css);

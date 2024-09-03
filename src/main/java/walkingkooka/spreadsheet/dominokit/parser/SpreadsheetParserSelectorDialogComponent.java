@@ -37,7 +37,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.patternkind.SpreadsheetPatternKindTabsComponent;
-import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorToken;
+import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
@@ -96,7 +96,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                 ID + SpreadsheetElementIds.TABLE + "-"
         );
 
-        this.appender = AppendPluginSelectorToken.empty(ID + "-appender-");
+        this.appender = AppendPluginSelectorTokenComponent.empty(ID + "-appender-");
 
         this.removeOrReplace = RemoveOrReplacePluginSelectorToken.empty(ID + "-removeOrReplace-");
 
@@ -182,7 +182,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
 
     // appender.........................................................................................................
 
-    private final AppendPluginSelectorToken<SpreadsheetParserSelectorToken, SpreadsheetParserSelectorTokenAlternative> appender;
+    private final AppendPluginSelectorTokenComponent<SpreadsheetParserSelectorToken, SpreadsheetParserSelectorTokenAlternative> appender;
 
     // removeOrReplace..................................................................................................
 
@@ -274,8 +274,8 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                 )
         );
 
-        final SpreadsheetParserSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext appenderRemoveOrReplaceContext =
-                SpreadsheetParserSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext.with(
+        final SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext appenderRemoveOrReplaceContext =
+                SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext.with(
                         edit.selector()
                                 .map(SpreadsheetParserSelector::name)
                                 .orElse(null),
