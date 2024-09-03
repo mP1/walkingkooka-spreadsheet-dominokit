@@ -254,7 +254,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "                ROW\n" +
                         "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-2] id=sort-comparator-1-append-0-Link\n" +
                         "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-3] id=sort-comparator-1-append-1-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove comparator(s)\n" +
@@ -284,7 +284,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-2,comparator-3] id=sort-comparator-1-append-0-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove comparator(s)\n" +
@@ -308,7 +308,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "                [A=comparator-1,comparator-2,comparator-3] id=sort-comparator-1-TextBox\n" +
                         "          \"Move Up\" DISABLED id=sort-comparator-1-moveUp-Link\n" +
                         "          \"Move Down\" DISABLED id=sort-comparator-1-moveDown-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove comparator(s)\n" +
@@ -362,7 +362,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "                ROW\n" +
                         "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-2;B=comparator-2;C=comparator-3] id=sort-comparator-1-append-0-Link\n" +
                         "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1,comparator-3;B=comparator-2;C=comparator-3] id=sort-comparator-1-append-1-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove comparator(s)\n" +
@@ -424,7 +424,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "                ROW\n" +
                         "                  \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2,comparator-1;C=comparator-3] id=sort-comparator-1-append-0-Link\n" +
                         "                  \"comparator-3\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2,comparator-3;C=comparator-3] id=sort-comparator-1-append-1-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove comparator(s)\n" +
@@ -476,7 +476,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "                ROW\n" +
                         "                  \"comparator-1\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2;C=comparator-3,comparator-1] id=sort-comparator-1-append-0-Link\n" +
                         "                  \"comparator-2\" [#/1/SpreadsheetName123/cell/A1:C3/top-right/sort/edit/A=comparator-1;B=comparator-2;C=comparator-3,comparator-2] id=sort-comparator-1-append-1-Link\n" +
-                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "      SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove comparator(s)\n" +

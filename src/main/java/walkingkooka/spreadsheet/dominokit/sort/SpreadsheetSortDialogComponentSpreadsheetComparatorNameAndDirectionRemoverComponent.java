@@ -36,22 +36,22 @@ import java.util.function.Function;
 /**
  * A container that presents LINKS each missing a component from the parent {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
  */
-final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover implements HtmlElementComponent<HTMLDivElement, SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover>,
+final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent>,
         TreePrintable {
 
     /**
-     * Creates an empty {@link SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover}.
+     * Creates an empty {@link SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent}.
      */
-    static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover empty(final String id,
-                                                                                            final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
-        return new SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(
+    static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent empty(final String id,
+                                                                                                     final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
+        return new SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent(
                 id,
                 setter
         );
     }
 
-    private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover(final String id,
-                                                                                       final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
+    private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent(final String id,
+                                                                                                final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
         this.root = SpreadsheetCard.empty()
                 .setTitle("Remove comparator(s)");
 
@@ -128,7 +128,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover setCssText(final String css) {
+    public SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent setCssText(final String css) {
         this.root.setCssText(css);
         return this;
     }
