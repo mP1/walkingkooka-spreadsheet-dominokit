@@ -39,7 +39,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderTest implements ClassTesting<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender>,
+public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponentTest implements ClassTesting<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent>,
         TreePrintableTesting {
 
     // cell.............................................................................................................
@@ -63,7 +63,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
                 (names) -> HistoryToken.parseString("/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text," + names),
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Append comparator(s)\n" +
@@ -84,7 +84,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "C", // columnOrRow
                 "comparator-3", // namesList
                 "/1/spreadsheetName23/column/B:C/right/sort/edit/", // historyToken
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Append comparator(s)\n" +
@@ -104,7 +104,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "3", // columnOrRow
                 "comparator-3", // namesList
                 "/1/spreadsheetName23/row/2:3/bottom/sort/edit/", // historyToken
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Append comparator(s)\n" +
@@ -186,7 +186,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                                  final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                                  final SpreadsheetSortDialogComponentContext context,
                                  final String expected) {
-        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender.empty(
+        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent.empty(
                 "sort-comparator-" + index + "-",
                 columnOrRowSpreadsheetComparatorNamesToHistoryToken
         );
@@ -204,8 +204,8 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     }
 
     @Override
-    public Class<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender> type() {
-        return SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender.class;
+    public Class<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent> type() {
+        return SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent.class;
     }
 
     @Override

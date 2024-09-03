@@ -101,7 +101,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         this.moveDownLink = moveDownLink;
         this.moveDown = moveDown;
 
-        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender.empty(
+        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent.empty(
                 id,
                 (newNames) -> setter.apply(
                         Optional.of(newNames)
@@ -179,7 +179,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
 
     private final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveDown;
 
-    private final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppender appender;
+    private final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender;
 
     private final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover;
 
