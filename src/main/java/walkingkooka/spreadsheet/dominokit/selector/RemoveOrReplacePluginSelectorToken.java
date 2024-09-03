@@ -64,33 +64,33 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
                 .appendChild(this.flex);
     }
 
-    public void refresh(final List<T> textComponents,
+    public void refresh(final List<T> tokens,
                         final RemoveOrReplacePluginSelectorTokenContext context) {
         this.refresh0(
                 Lists.immutable(
-                        Objects.requireNonNull(textComponents, "textComponents")
+                        Objects.requireNonNull(tokens, "tokens")
                 ),
                 Objects.requireNonNull(context, "context")
         );
     }
 
-    void refresh0(final ImmutableList<T> textComponents,
+    void refresh0(final ImmutableList<T> tokens,
                   final RemoveOrReplacePluginSelectorTokenContext context) {
         this.root.hide();
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
 
-        final ImmutableList<String> textComponentText = Lists.immutable(
-                textComponents.stream()
+        final ImmutableList<String> tokenText = Lists.immutable(
+                tokens.stream()
                         .map(PluginSelectorTokenLike::text)
                         .collect(Collectors.toList())
         );
 
         int i = 0;
-        for (final T textComponent : textComponents) {
+        for (final T token : tokens) {
             flex.appendChild(
                     this.removeAnchor(
-                            textComponent,
-                            textComponentText,
+                            token,
+                            tokenText,
                             i,
                             context
                     )
@@ -98,7 +98,7 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
             i++;
         }
 
-        if (false == textComponents.isEmpty()) {
+        if (false == tokens.isEmpty()) {
             this.root.show();
         }
     }
@@ -106,33 +106,33 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
     /**
      * Creates an anchor which will contain the label/text and a context menu with alternatives.
      */
-    private HistoryTokenAnchorComponent removeAnchor(final T textComponent,
-                                                     final ImmutableList<String> textComponents,
+    private HistoryTokenAnchorComponent removeAnchor(final T token,
+                                                     final ImmutableList<String> tokens,
                                                      final int index,
                                                      final RemoveOrReplacePluginSelectorTokenContext context) {
         final HistoryToken historyToken = context.historyToken();
 
         final HistoryTokenAnchorComponent anchor = historyToken.link(
                         this.id + "remove-" + index
-                ).setTextContent(textComponent.label())
+                ).setTextContent(token.label())
                 .setHistoryToken(
                         Optional.of(
                                 historyToken.setSave(
                                         context.saveText(
-                                                textComponents.removeAtIndex(index)
+                                                tokens.removeAtIndex(index)
                                                         .stream()
                                                         .collect(Collectors.joining(""))
                                         )
                                 )
                         )
                 );
-        final Collection<A> alternatives = textComponent.alternatives();
+        final Collection<A> alternatives = token.alternatives();
 
         if (false == alternatives.isEmpty()) {
             this.contextMenuWithAlternatives(
                     anchor,
-                    textComponent,
-                    textComponents,
+                    token,
+                    tokens,
                     index,
                     context
             );
@@ -145,8 +145,8 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
      * Builds a context menu with the alternatives as items.
      */
     private void contextMenuWithAlternatives(final HistoryTokenAnchorComponent anchor,
-                                             final T textComponent,
-                                             final ImmutableList<String> textComponents,
+                                             final T token,
+                                             final ImmutableList<String> tokens,
                                              final int index,
                                              final RemoveOrReplacePluginSelectorTokenContext context) {
         SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.wrap(
@@ -156,7 +156,7 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
         final HistoryToken historyToken = context.historyToken();
 
         final ImmutableList<A> alternatives = Lists.immutable(
-                textComponent.alternatives()
+                token.alternatives()
         );
 
         final String id = anchor.id();
@@ -166,7 +166,7 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
             contextMenu = contextMenu.item(
                     historyToken.setSave(
                                     context.saveText(
-                                            textComponents.replace(
+                                            tokens.replace(
                                                             index,
                                                             alternative.text()
                                                     ).stream()
