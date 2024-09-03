@@ -36,7 +36,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.patternkind.SpreadsheetPatternKindTabsComponent;
-import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorToken;
+import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
@@ -96,7 +96,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 ID + SpreadsheetElementIds.TABLE + "-"
         );
 
-        this.appender = AppendPluginSelectorToken.empty(ID + "-appender-");
+        this.appender = AppendPluginSelectorTokenComponent.empty(ID + "-appender-");
 
         this.removeOrReplace = RemoveOrReplacePluginSelectorToken.empty(ID + "-removeOrReplace-");
 
@@ -184,7 +184,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
     // appender.........................................................................................................
 
-    private final AppendPluginSelectorToken<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative> appender;
+    private final AppendPluginSelectorTokenComponent<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative> appender;
 
     // removeOrReplace..................................................................................................
 
@@ -272,8 +272,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 context
         );
 
-        final SpreadsheetFormatterSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext appenderRemoveOrReplaceContext =
-                SpreadsheetFormatterSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext.with(
+        final SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenComponentContext appenderRemoveOrReplaceContext =
+                SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenComponentContext.with(
                         edit.selector()
                                 .map(SpreadsheetFormatterSelector::name)
                                 .orElse(null),

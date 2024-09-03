@@ -19,24 +19,24 @@ package walkingkooka.spreadsheet.dominokit.parser;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
-import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenContext;
+import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponentContext;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 
-final class SpreadsheetParserSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext implements AppendPluginSelectorTokenContext,
+final class SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext implements AppendPluginSelectorTokenComponentContext,
         RemoveOrReplacePluginSelectorTokenContext,
         HistoryTokenContextDelegator {
 
-    static SpreadsheetParserSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext with(final SpreadsheetParserName name,
-                                                                                                                   final HistoryTokenContext context) {
-        return new SpreadsheetParserSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext(
+    static SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext with(final SpreadsheetParserName name,
+                                                                                                                                     final HistoryTokenContext context) {
+        return new SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext(
                 name,
                 context
         );
     }
 
-    private SpreadsheetParserSelectorAppendPluginSelectorTokenContextRemoveOrReplacePluginSelectorTokenContext(final SpreadsheetParserName name,
-                                                                                                               final HistoryTokenContext context) {
+    private SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext(final SpreadsheetParserName name,
+                                                                                                                                 final HistoryTokenContext context) {
         this.name = name;
         this.context = context;
     }

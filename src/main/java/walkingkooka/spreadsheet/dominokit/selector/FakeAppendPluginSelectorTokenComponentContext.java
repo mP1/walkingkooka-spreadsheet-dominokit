@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.selector;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 
-public class FakeAppendPluginSelectorTokenContext extends FakeHistoryTokenContext implements AppendPluginSelectorTokenContext {
+public class FakeAppendPluginSelectorTokenComponentContext extends FakeHistoryTokenContext implements AppendPluginSelectorTokenComponentContext {
     @Override
     public String saveText(final String text) {
         throw new UnsupportedOperationException();
