@@ -45,7 +45,7 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
     /**
      * Creates an empty {@link SpreadsheetFormatterTableComponent}.
      */
-    static SpreadsheetFormatterTableComponent empty(final String id) {
+    public static SpreadsheetFormatterTableComponent empty(final String id) {
         return new SpreadsheetFormatterTableComponent(
                 CharSequences.failIfNullOrEmpty(id, "id")
         );

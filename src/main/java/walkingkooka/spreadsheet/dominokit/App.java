@@ -63,8 +63,6 @@ import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.format.SpreadsheetParserSelectorDialogComponent;
-import walkingkooka.spreadsheet.dominokit.format.SpreadsheetParserSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.history.History;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -96,6 +94,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponent;
+import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialogComponent;

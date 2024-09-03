@@ -15,8 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.format;
+package walkingkooka.spreadsheet.dominokit.parser;
 
+import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterTableComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
