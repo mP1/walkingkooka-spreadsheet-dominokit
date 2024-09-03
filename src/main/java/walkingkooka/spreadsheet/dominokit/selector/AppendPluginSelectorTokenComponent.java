@@ -88,7 +88,7 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
         int i = 0;
         for (final A alternative : alternatives) {
             flex.appendChild(
-                    this.appendAnchor(
+                    this.anchor(
                             baseTextComponent,
                             alternative,
                             i,
@@ -103,10 +103,10 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
         }
     }
 
-    private HistoryTokenAnchorComponent appendAnchor(final String token,
-                                                     final A alternative,
-                                                     final int index,
-                                                     final AppendPluginSelectorTokenComponentContext context) {
+    private HistoryTokenAnchorComponent anchor(final String token,
+                                               final A alternative,
+                                               final int index,
+                                               final AppendPluginSelectorTokenComponentContext context) {
         final HistoryToken historyToken = context.historyToken();
 
         return historyToken.link(
