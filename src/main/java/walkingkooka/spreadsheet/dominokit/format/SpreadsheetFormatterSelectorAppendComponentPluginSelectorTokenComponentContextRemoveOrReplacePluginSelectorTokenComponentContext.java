@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponentContext;
-import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenContext;
+import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponentContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 
 final class SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext implements AppendPluginSelectorTokenComponentContext,
-        RemoveOrReplacePluginSelectorTokenContext,
+        RemoveOrReplacePluginSelectorTokenComponentContext,
         HistoryTokenContextDelegator {
 
     static SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext with(final SpreadsheetFormatterName name,

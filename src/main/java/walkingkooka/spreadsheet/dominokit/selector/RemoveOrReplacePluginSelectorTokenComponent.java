@@ -43,19 +43,19 @@ import java.util.stream.Collectors;
 /**
  * A component with links for each {@link PluginSelectorTokenLike}, with context menu items which support replacing the item.
  */
-public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, RemoveOrReplacePluginSelectorToken<T, A>>,
+public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, RemoveOrReplacePluginSelectorTokenComponent<T, A>>,
         TreePrintable {
 
     /**
-     * Creates an empty {@link RemoveOrReplacePluginSelectorToken}.
+     * Creates an empty {@link RemoveOrReplacePluginSelectorTokenComponent}.
      */
-    public static <T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> RemoveOrReplacePluginSelectorToken<T, A> empty(final String id) {
-        return new RemoveOrReplacePluginSelectorToken<>(
+    public static <T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> RemoveOrReplacePluginSelectorTokenComponent<T, A> empty(final String id) {
+        return new RemoveOrReplacePluginSelectorTokenComponent<>(
                 CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
 
-    private RemoveOrReplacePluginSelectorToken(final String id) {
+    private RemoveOrReplacePluginSelectorTokenComponent(final String id) {
         this.id = id;
 
         this.flex = SpreadsheetFlexLayout.row();
@@ -65,7 +65,7 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
     }
 
     public void refresh(final List<T> tokens,
-                        final RemoveOrReplacePluginSelectorTokenContext context) {
+                        final RemoveOrReplacePluginSelectorTokenComponentContext context) {
         this.refresh0(
                 Lists.immutable(
                         Objects.requireNonNull(tokens, "tokens")
@@ -75,7 +75,7 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
     }
 
     void refresh0(final ImmutableList<T> tokens,
-                  final RemoveOrReplacePluginSelectorTokenContext context) {
+                  final RemoveOrReplacePluginSelectorTokenComponentContext context) {
         this.root.hide();
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
 
@@ -109,7 +109,7 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
     private HistoryTokenAnchorComponent removeAnchor(final T token,
                                                      final ImmutableList<String> tokens,
                                                      final int index,
-                                                     final RemoveOrReplacePluginSelectorTokenContext context) {
+                                                     final RemoveOrReplacePluginSelectorTokenComponentContext context) {
         final HistoryToken historyToken = context.historyToken();
 
         final HistoryTokenAnchorComponent anchor = historyToken.link(
@@ -148,7 +148,7 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
                                              final T token,
                                              final ImmutableList<String> tokens,
                                              final int index,
-                                             final RemoveOrReplacePluginSelectorTokenContext context) {
+                                             final RemoveOrReplacePluginSelectorTokenComponentContext context) {
         SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.wrap(
                 anchor,
                 context
@@ -198,7 +198,7 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
     // setCssText.......................................................................................................
 
     @Override
-    public RemoveOrReplacePluginSelectorToken<T, A> setCssText(final String css) {
+    public RemoveOrReplacePluginSelectorTokenComponent<T, A> setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.root.setCssText(css);

@@ -137,7 +137,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
-                        "      RemoveOrReplacePluginSelectorToken\n" +
+                        "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                         "      SpreadsheetFormatterSelectorComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -228,7 +228,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "                  \"mmm\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyymmm] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-6-Link\n" +
                         "                  \"mmmm\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyymmmm] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-7-Link\n" +
                         "                  \"mmmmm\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyymmmmm] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-8-Link\n" +
-                        "      RemoveOrReplacePluginSelectorToken\n" +
+                        "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -347,7 +347,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "                  \"mmmmm\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-16-Link\n" +
                         "                  \"yy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssyy] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-17-Link\n" +
                         "                  \"yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssyyyy] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-18-Link\n" +
-                        "      RemoveOrReplacePluginSelectorToken\n" +
+                        "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -512,7 +512,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "                  \"/\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%230.00/] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-5-Link\n" +
                         "                  \"?\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%230.00?] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-6-Link\n" +
                         "                  \"E\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%230.00E] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-7-Link\n" +
-                        "      RemoveOrReplacePluginSelectorToken\n" +
+                        "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -590,7 +590,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "                  \"* \" [#/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22*%20] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-0-Link\n" +
                         "                  \"@\" [#/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22@] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-1-Link\n" +
                         "                  \"_ \" [#/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22_%20] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-2-Link\n" +
-                        "      RemoveOrReplacePluginSelectorToken\n" +
+                        "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -678,7 +678,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "                  \"hh\" [#/1/Spreadsheet123/cell/A1/formatter/save/time-format-pattern%20hh:mmhh] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-7-Link\n" +
                         "                  \"s\" [#/1/Spreadsheet123/cell/A1/formatter/save/time-format-pattern%20hh:mms] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-8-Link\n" +
                         "                  \"ss\" [#/1/Spreadsheet123/cell/A1/formatter/save/time-format-pattern%20hh:mmss] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-9-Link\n" +
-                        "      RemoveOrReplacePluginSelectorToken\n" +
+                        "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -791,7 +791,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "                  \"mmm\" [#/1/Spreadsheet123/metadata/date-formatter/save/date-format-pattern%20dd/mm/yyyymmm] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-6-Link\n" +
                         "                  \"mmmm\" [#/1/Spreadsheet123/metadata/date-formatter/save/date-format-pattern%20dd/mm/yyyymmmm] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-7-Link\n" +
                         "                  \"mmmmm\" [#/1/Spreadsheet123/metadata/date-formatter/save/date-format-pattern%20dd/mm/yyyymmmmm] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-8-Link\n" +
-                        "      RemoveOrReplacePluginSelectorToken\n" +
+                        "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -922,7 +922,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "                  \"mmmmm\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-16-Link\n" +
                         "                  \"yy\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssyy] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-17-Link\n" +
                         "                  \"yyyy\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ssyyyy] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-18-Link\n" +
-                        "      RemoveOrReplacePluginSelectorToken\n" +
+                        "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -1099,7 +1099,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "                  \"/\" [#/1/Spreadsheet123/metadata/number-formatter/save/number-format-pattern%20$%230.00/] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-5-Link\n" +
                         "                  \"?\" [#/1/Spreadsheet123/metadata/number-formatter/save/number-format-pattern%20$%230.00?] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-6-Link\n" +
                         "                  \"E\" [#/1/Spreadsheet123/metadata/number-formatter/save/number-format-pattern%20$%230.00E] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-7-Link\n" +
-                        "      RemoveOrReplacePluginSelectorToken\n" +
+                        "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -1189,7 +1189,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "                  \"* \" [#/1/Spreadsheet123/metadata/text-formatter/save/text-format-pattern%20@%20%22Hello%22*%20] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-0-Link\n" +
                         "                  \"@\" [#/1/Spreadsheet123/metadata/text-formatter/save/text-format-pattern%20@%20%22Hello%22@] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-1-Link\n" +
                         "                  \"_ \" [#/1/Spreadsheet123/metadata/text-formatter/save/text-format-pattern%20@%20%22Hello%22_%20] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-2-Link\n" +
-                        "      RemoveOrReplacePluginSelectorToken\n" +
+                        "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
@@ -1289,7 +1289,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "                  \"hh\" [#/1/Spreadsheet123/metadata/time-formatter/save/time-format-pattern%20hh:mmhh] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-7-Link\n" +
                         "                  \"s\" [#/1/Spreadsheet123/metadata/time-formatter/save/time-format-pattern%20hh:mms] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-8-Link\n" +
                         "                  \"ss\" [#/1/Spreadsheet123/metadata/time-formatter/save/time-format-pattern%20hh:mmss] id=SpreadsheetFormatterSelectorDialogComponent-appender-append-9-Link\n" +
-                        "      RemoveOrReplacePluginSelectorToken\n" +
+                        "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove / Replace component(s)\n" +
