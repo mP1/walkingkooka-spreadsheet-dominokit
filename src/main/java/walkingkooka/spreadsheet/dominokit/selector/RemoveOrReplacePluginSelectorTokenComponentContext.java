@@ -20,9 +20,9 @@ package walkingkooka.spreadsheet.dominokit.selector;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
 /**
- * Context for {@link RemoveOrReplacePluginSelectorToken}.
+ * Context for {@link RemoveOrReplacePluginSelectorTokenComponent}.
  */
-public interface RemoveOrReplacePluginSelectorTokenContext extends HistoryTokenContext {
+public interface RemoveOrReplacePluginSelectorTokenComponentContext extends HistoryTokenContext {
 
     /**
      * Builds the save text that will be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSave(String)}.

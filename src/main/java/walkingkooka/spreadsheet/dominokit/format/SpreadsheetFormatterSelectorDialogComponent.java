@@ -37,7 +37,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.patternkind.SpreadsheetPatternKindTabsComponent;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponent;
-import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorToken;
+import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -98,7 +98,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
         this.appender = AppendPluginSelectorTokenComponent.empty(ID + "-appender-");
 
-        this.removeOrReplace = RemoveOrReplacePluginSelectorToken.empty(ID + "-removeOrReplace-");
+        this.removeOrReplace = RemoveOrReplacePluginSelectorTokenComponent.empty(ID + "-removeOrReplace-");
 
         this.textBox = this.textBox();
 
@@ -188,7 +188,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
     // removeOrReplace..................................................................................................
 
-    private final RemoveOrReplacePluginSelectorToken<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative> removeOrReplace;
+    private final RemoveOrReplacePluginSelectorTokenComponent<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative> removeOrReplace;
 
     // textBox..........................................................................................................
 
