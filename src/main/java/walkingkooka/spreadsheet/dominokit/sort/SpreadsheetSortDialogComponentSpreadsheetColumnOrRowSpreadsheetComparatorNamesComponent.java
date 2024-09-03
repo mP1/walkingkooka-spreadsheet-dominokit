@@ -109,7 +109,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         );
         this.appender = appender;
 
-        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.empty(
+        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent.empty(
                 id,
                 setter
         );
@@ -181,7 +181,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
 
     private final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender;
 
-    private final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover;
+    private final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent remover;
 
     // ValueComponent...................................................................................................
 

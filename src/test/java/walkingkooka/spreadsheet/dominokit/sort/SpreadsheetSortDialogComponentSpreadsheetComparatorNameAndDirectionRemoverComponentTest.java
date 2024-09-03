@@ -34,7 +34,7 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverTest implements ClassTesting<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover>,
+public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponentTest implements ClassTesting<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent>,
         TreePrintableTesting {
 
     // cell.............................................................................................................
@@ -65,7 +65,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "A", // columnOrRow
                 "comparator-1", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove comparator(s)\n" +
@@ -79,7 +79,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "A", // columnOrRow
                 "comparator-1,comparator-2,comparator-3", // namesList
                 "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove comparator(s)\n" +
@@ -100,7 +100,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                                 names.map(SpreadsheetColumnOrRowSpreadsheetComparatorNames::text)
                                         .orElse("")
                 ),
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove comparator(s)\n" +
@@ -118,7 +118,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "B", // columnOrRow
                 "comparator-1,comparator-2,comparator-3", // namesList
                 "/1/spreadsheetName23/column/B:C/right/sort/edit/", // historyToken
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove comparator(s)\n" +
@@ -136,7 +136,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                 "3", // columnOrRow
                 "comparator-1,comparator-2,comparator-3", // namesList
                 "/1/spreadsheetName23/row/3:4/top/sort/edit/", // historyToken
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Remove comparator(s)\n" +
@@ -198,7 +198,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                                  final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter,
                                  final SpreadsheetSortDialogComponentContext context,
                                  final String expected) {
-        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.empty(
+        final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent.empty(
                 "sort-comparator-0-",
                 setter
         );
@@ -218,8 +218,8 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover> type() {
-        return SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover.class;
+    public Class<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent> type() {
+        return SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent.class;
     }
 
     @Override

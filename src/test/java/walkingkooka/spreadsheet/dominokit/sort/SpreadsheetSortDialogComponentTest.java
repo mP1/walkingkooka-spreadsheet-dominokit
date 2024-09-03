@@ -138,7 +138,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z=text,text-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z=text,time] id=sort-comparatorNames-0-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/Z=text,year] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -216,7 +216,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99=text,text-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99=text,time] id=sort-comparatorNames-0-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/99=text,year] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -439,7 +439,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text,time] id=sort-comparatorNames-0-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text,year] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -512,7 +512,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text,text2,text-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text,text2,time] id=sort-comparatorNames-0-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text,text2,year] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -586,7 +586,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive;C=text2] id=sort-comparatorNames-0-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text,time;C=text2] id=sort-comparatorNames-0-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text,year;C=text2] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -623,7 +623,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text-case-insensitive] id=sort-comparatorNames-1-append-12-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,time] id=sort-comparatorNames-1-append-13-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,year] id=sort-comparatorNames-1-append-14-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -687,7 +687,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive;B=text2] id=sort-comparatorNames-0-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text,time;B=text2] id=sort-comparatorNames-0-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text,year;B=text2] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -726,7 +726,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text-case-insensitive] id=sort-comparatorNames-1-append-12-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,time] id=sort-comparatorNames-1-append-13-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,year] id=sort-comparatorNames-1-append-14-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -787,7 +787,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B=text,text-case-insensitive;C=text2] id=sort-comparatorNames-0-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B=text,time;C=text2] id=sort-comparatorNames-0-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B=text,year;C=text2] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -824,7 +824,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text-case-insensitive] id=sort-comparatorNames-1-append-12-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,time] id=sort-comparatorNames-1-append-13-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,year] id=sort-comparatorNames-1-append-14-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -902,7 +902,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text,text-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text,time] id=sort-comparatorNames-0-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text,year] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -983,7 +983,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text,text-case-insensitive;B=text-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text,time;B=text-case-insensitive] id=sort-comparatorNames-0-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text,year;B=text-case-insensitive] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -1021,7 +1021,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,text] id=sort-comparatorNames-1-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,time] id=sort-comparatorNames-1-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,year] id=sort-comparatorNames-1-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -1088,7 +1088,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text,text-case-insensitive;2=text-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text,time;2=text-case-insensitive] id=sort-comparatorNames-0-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text,year;2=text-case-insensitive] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -1126,7 +1126,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,text] id=sort-comparatorNames-1-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,time] id=sort-comparatorNames-1-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,year] id=sort-comparatorNames-1-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -1191,7 +1191,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3=text,text-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3=text,time] id=sort-comparatorNames-0-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3=text,year] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -1272,7 +1272,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3=text,text-case-insensitive;4=text;3=text-case-insensitive] id=sort-comparatorNames-0-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3=text,time;4=text;3=text-case-insensitive] id=sort-comparatorNames-0-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3=text,year;4=text;3=text-case-insensitive] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -1308,7 +1308,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3=text;4=text,text-case-insensitive;3=text-case-insensitive] id=sort-comparatorNames-1-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3=text;4=text,time;3=text-case-insensitive] id=sort-comparatorNames-1-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3=text;4=text,year;3=text-case-insensitive] id=sort-comparatorNames-1-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -1346,7 +1346,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,text] id=sort-comparatorNames-2-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,time] id=sort-comparatorNames-2-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,year] id=sort-comparatorNames-2-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -1413,7 +1413,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3=text,text-case-insensitive;A=text] id=sort-comparatorNames-0-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3=text,time;A=text] id=sort-comparatorNames-0-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3=text,year;A=text] id=sort-comparatorNames-0-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
@@ -1451,7 +1451,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                         "                            \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3=text;A=text,text-case-insensitive] id=sort-comparatorNames-1-append-11-Link\n" +
                         "                            \"time\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3=text;A=text,time] id=sort-comparatorNames-1-append-12-Link\n" +
                         "                            \"year\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3=text;A=text,year] id=sort-comparatorNames-1-append-13-Link\n" +
-                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemover\n" +
+                        "                SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
                         "                  SpreadsheetCard\n" +
                         "                    Card\n" +
                         "                      Remove comparator(s)\n" +
