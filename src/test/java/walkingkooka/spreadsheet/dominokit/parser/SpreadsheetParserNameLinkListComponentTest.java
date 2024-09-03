@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.format;
+package walkingkooka.spreadsheet.dominokit.parser;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
