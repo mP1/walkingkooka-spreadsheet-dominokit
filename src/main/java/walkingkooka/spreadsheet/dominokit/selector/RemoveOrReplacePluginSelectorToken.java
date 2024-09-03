@@ -198,7 +198,7 @@ public final class RemoveOrReplacePluginSelectorToken<T extends PluginSelectorTo
     // setCssText.......................................................................................................
 
     @Override
-    public RemoveOrReplacePluginSelectorToken setCssText(final String css) {
+    public RemoveOrReplacePluginSelectorToken<T, A> setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.root.setCssText(css);
