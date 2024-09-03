@@ -21,9 +21,9 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.net.Url;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetTooltipComponent;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;

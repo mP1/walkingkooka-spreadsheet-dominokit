@@ -32,9 +32,9 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetTooltipComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
 

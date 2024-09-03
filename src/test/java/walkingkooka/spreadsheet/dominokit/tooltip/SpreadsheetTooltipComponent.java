@@ -15,9 +15,8 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit;
+package walkingkooka.spreadsheet.dominokit.tooltip;
 
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.dominokit.domino.ui.popover.Tooltip;
 import walkingkooka.text.CharSequences;
@@ -46,45 +45,36 @@ public final class SpreadsheetTooltipComponent implements SpreadsheetTooltipComp
     private SpreadsheetTooltipComponent(final SpreadsheetTooltipComponentTarget component,
                                         final String text,
                                         final DropDirection direction) {
-        this.tooltip = Tooltip.create(
-                component.element(),
-                text
-        ).setPosition(direction);
-        this.direction = direction;
-
+        this.text = text;
         component.tooltipAttached(this);
         this.component = component;
     }
 
+    /**
+     * Getter that returns the text content of this tooltip.
+     */
     @Override
     public String textContent() {
-        return this.tooltipTextNode().textContent;
+        return this.text;
     }
 
     @Override
     public SpreadsheetTooltipComponent setTextContent(final String text) {
         CharSequences.failIfNullOrEmpty(text, "text");
 
-        this.tooltip.setTooltip(text, this.direction);
+        this.text = text;
         return this;
     }
 
-    private final DropDirection direction;
-
-    private Node tooltipTextNode() {
-        return this.tooltip.element().lastChild;
-    }
+    private String text;
 
     /**
      * Removes the tooltip.
      */
     @Override
     public void detach() {
-        this.tooltip.detach();
         this.component.tooltipDetached();
     }
-
-    private final Tooltip tooltip;
 
     private final SpreadsheetTooltipComponentTarget component;
 }
