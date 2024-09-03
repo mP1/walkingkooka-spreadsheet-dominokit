@@ -22,13 +22,14 @@ import elemental2.dom.HTMLElement;
 /**
  * A target that receives a {@link SpreadsheetTooltipComponent}. It will events as tooltips are attached/detached.
  */
-public interface SpreadsheetTooltipComponentTarget<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends HtmlElementComponent<E, C> {
+public interface SpreadsheetTooltipComponentTarget<E extends HTMLElement,
+        C extends HtmlElementComponent<E, C>
+        > extends HtmlElementComponent<E, C> {
 
     /**
      * Attaches a new {@link SpreadsheetTooltipComponent} to the target.
      */
     void tooltipAttached(final SpreadsheetTooltipComponent tooltip);
-
 
     /**
      * Announces that the tooltip has been detached.
