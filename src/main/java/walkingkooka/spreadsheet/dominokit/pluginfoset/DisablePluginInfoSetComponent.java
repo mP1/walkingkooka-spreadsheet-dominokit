@@ -103,7 +103,7 @@ public final class DisablePluginInfoSetComponent<N extends PluginNameLike<N>, I 
         final HistoryToken historyToken = context.historyToken();
 
         return historyToken.link(
-                        this.id + "remove-" + index
+                this.id + "disable-" + index
         ).setTextContent(
                 info.name()
                         .kebabToTitleCase()
