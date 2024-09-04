@@ -49,9 +49,9 @@ public final class SpreadsheetParserNameLinkListComponent implements HtmlElement
         );
     }
 
-    private static String spreadsheetParserNameToLinkLabel(final String formatterName) {
+    private static String spreadsheetParserNameToLinkLabel(final String parserName) {
         return CaseKind.KEBAB.change(
-                formatterName,
+                parserName,
                 CaseKind.TITLE
         );
     }
