@@ -66,16 +66,12 @@ final class SpreadsheetSelectionMenuSort {
         // for each comparator info build a sub menu.
         for (final SpreadsheetComparatorInfo info : spreadsheetComparatorInfos) {
             final SpreadsheetComparatorName name = info.name();
-            final String nameText = name.value();
 
-            final String subMenuId = idPrefix + nameText;
+            final String subMenuId = idPrefix + name.value();
 
             final SpreadsheetContextMenu subMenu = menu.subMenu(
                     subMenuId + SpreadsheetElementIds.SUB_MENU,
-                    CaseKind.KEBAB.change(
-                            nameText,
-                            CaseKind.TITLE
-                    )
+                    name.kebabToTitleCase()
             );
 
             final String upDownPrefixId = subMenuId + '-';
