@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.collect.set.Sets;
+import walkingkooka.collect.set.SortedSets;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetCellRange;
@@ -279,7 +279,7 @@ public final class ClipboardTextItem implements HasText,
                         .stringOrFail()
         );
 
-        final Set<SpreadsheetCell> values = Sets.sorted();
+        final Set<SpreadsheetCell> values = SortedSets.tree();
 
         for (final JsonNode value : json.getOrFail(VALUE_PROPERTY_NAME)
                 .objectOrFail()
