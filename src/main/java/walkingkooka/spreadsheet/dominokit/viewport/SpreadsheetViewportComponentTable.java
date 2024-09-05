@@ -25,7 +25,7 @@ import org.dominokit.domino.ui.elements.TableElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
-import walkingkooka.collect.set.Sets;
+import walkingkooka.collect.set.SortedSets;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
@@ -67,7 +67,7 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
         this.id = null;
         this.name = null;
 
-        this.rows = Sets.sorted();
+        this.rows = SortedSets.tree();
         this.rowsToTableRowCells = Maps.sorted();
     }
 

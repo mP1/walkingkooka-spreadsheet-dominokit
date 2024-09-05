@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.collect.set.Sets;
+import walkingkooka.collect.set.SortedSets;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -55,7 +55,7 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
         this.labelToNonLabel = labelToNonLabel;
         this.window = window;
 
-        final Set<SpreadsheetLabelName> done = Sets.sorted();
+        final Set<SpreadsheetLabelName> done = SortedSets.tree();
 
         for (final SpreadsheetLabelMapping mapping : mappings) {
             this.label = mapping.label();
@@ -119,7 +119,7 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
         for (final SpreadsheetCellReference cell : range) {
             Set<SpreadsheetLabelName> labels = cellToLabels.get(cell);
             if (null == labels) {
-                labels = Sets.sorted();
+                labels = SortedSets.tree();
                 cellToLabels.put(cell, labels);
             }
             labels.add(label);
@@ -150,7 +150,7 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = this.cellToLabels;
         Set<SpreadsheetLabelName> labels = cellToLabels.get(cell);
         if (null == labels) {
-            labels = Sets.sorted();
+            labels = SortedSets.tree();
             cellToLabels.put(cell, labels);
         }
 

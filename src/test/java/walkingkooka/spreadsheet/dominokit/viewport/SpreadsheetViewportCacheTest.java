@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.iterator.IteratorTesting;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.collect.set.SortedSets;
 import walkingkooka.color.Color;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
@@ -3645,7 +3646,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
 
-        final Set<SpreadsheetCellReference> cells = Sets.sorted();
+        final Set<SpreadsheetCellReference> cells = SortedSets.tree();
         cells.addAll(cache.matchedCells);
         cells.removeAll(cache.cells.keySet());
 

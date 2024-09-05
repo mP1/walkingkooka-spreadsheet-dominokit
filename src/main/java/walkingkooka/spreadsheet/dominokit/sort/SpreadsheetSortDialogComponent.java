@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.sort;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.collect.set.Sets;
+import walkingkooka.collect.set.SortedSets;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -246,7 +246,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                 firstColumnOrRow
         );
 
-        final Set<SpreadsheetColumnOrRowReference> previousColumnOrRows = Sets.sorted();
+        final Set<SpreadsheetColumnOrRowReference> previousColumnOrRows = SortedSets.tree();
         int i = 0;
         for (String name : names) {
             this.getOrCreateColumnOrRowComparatorNamesComponent(

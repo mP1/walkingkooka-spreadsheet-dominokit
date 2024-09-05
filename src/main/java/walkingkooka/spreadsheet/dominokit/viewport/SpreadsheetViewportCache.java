@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.collect.set.SortedSets;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetCell;
@@ -188,7 +189,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                                 m.target()
                         ).test(nonLabelSelection)
                 )
-                .collect(Collectors.toCollection(Sets::sorted));
+                .collect(Collectors.toCollection(SortedSets::tree));
     }
 
     /**
@@ -257,7 +258,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     public SpreadsheetCellRange cellRange(final SpreadsheetCellRangeReference range) {
         Objects.requireNonNull(range, "range");
 
-        final Set<SpreadsheetCell> cells = Sets.sorted();
+        final Set<SpreadsheetCell> cells = SortedSets.tree();
         final Iterator<SpreadsheetCell> iterator = this.cells(range);
 
         while (iterator.hasNext()) {
@@ -279,7 +280,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * A cache of all matched cells. Anytime the window or {link SpreadsheetCellFind} changes this entire cache needs
      * to be cleared and all cells in the viewport reloaded.
      */
-    final Set<SpreadsheetCellReference> matchedCells = Sets.sorted();
+    final Set<SpreadsheetCellReference> matchedCells = SortedSets.tree();
 
     /**
      * A cache of columns, this is used mostly to track hidden columns.
