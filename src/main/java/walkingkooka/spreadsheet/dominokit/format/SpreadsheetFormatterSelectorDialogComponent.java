@@ -193,7 +193,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     // textBox..........................................................................................................
 
     /**
-     * Creates the pattern text box and installs a value change listener.
+     * Creates a text box to edit the {@link SpreadsheetFormatterSelector} and installs a few value change type listeners
      */
     private SpreadsheetFormatterSelectorComponent textBox() {
         return SpreadsheetFormatterSelectorComponent.empty()
