@@ -191,7 +191,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     // textBox..........................................................................................................
 
     /**
-     * Creates the pattern text box and installs a value change listener.
+     * Creates a text box to edit the {@link SpreadsheetParserSelector} and installs a few value change type listeners
      */
     private SpreadsheetParserSelectorComponent textBox(final String id) {
         return SpreadsheetParserSelectorComponent.empty()
