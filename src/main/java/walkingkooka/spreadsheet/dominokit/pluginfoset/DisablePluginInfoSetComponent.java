@@ -78,7 +78,7 @@ public final class DisablePluginInfoSetComponent<N extends PluginNameLike<N>, I 
                 flex.appendChild(
                         this.anchor(
                                 availableInfo,
-                                enabledInfos,
+                                enabledInfos.delete(availableInfo),
                                 i,
                                 context
                         )
