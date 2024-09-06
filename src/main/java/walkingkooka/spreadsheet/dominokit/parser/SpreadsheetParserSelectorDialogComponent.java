@@ -126,7 +126,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     // dialog...........................................................................................................
 
     /**
-     * Creates the modal dialog, loaded with the pattern textbox and some buttons.
+     * Creates the modal dialog, loaded with the {@link SpreadsheetParserSelector} textbox and some buttons.
      */
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetParserSelectorDialogComponentContext context = this.context;
@@ -242,7 +242,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     }
 
     /**
-     * The {@link SpreadsheetParserSelectorComponent} that holds the pattern in text form.
+     * The {@link SpreadsheetParserSelectorComponent} that holds the {@link SpreadsheetParserSelector} in text form.
      */
     private final SpreadsheetParserSelectorComponent textBox;
 
@@ -329,17 +329,17 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     // dialog links.....................................................................................................
 
     /**
-     * A SAVE link which will be updated each time the pattern box is also updated.
+     * A SAVE link which will be updated each time the {@link #textBox} is also updated.
      */
     private final HistoryTokenAnchorComponent save;
 
     /**
-     * A UNDO link which will be updated each time the pattern is saved.
+     * A UNDO link which will be updated each time the {@link #textBox} is saved.
      */
     private final HistoryTokenAnchorComponent undo;
 
     /**
-     * A CLEAR link which will save an empty pattern.
+     * A CLEAR link which will save an empty {@link SpreadsheetParserSelector}.
      */
     private final HistoryTokenAnchorComponent clear;
 
