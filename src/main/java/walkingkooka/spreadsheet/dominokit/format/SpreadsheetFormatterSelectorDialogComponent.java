@@ -244,7 +244,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     }
 
     /**
-     * The {@link SpreadsheetFormatterSelectorComponent} that holds the pattern in text form.
+     * The {@link SpreadsheetFormatterSelectorComponent} that holds the {@link SpreadsheetFormatterSelector} in text form.
      */
     private final SpreadsheetFormatterSelectorComponent textBox;
 
@@ -334,17 +334,17 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     // dialog links.....................................................................................................
 
     /**
-     * A SAVE link which will be updated each time the pattern box is also updated.
+     * A SAVE link which will be updated each time the {@link #textBox} is also updated.
      */
     private final HistoryTokenAnchorComponent save;
 
     /**
-     * A UNDO link which will be updated each time the pattern is saved.
+     * A UNDO link which will be updated each time the {@link SpreadsheetFormatterSelector} is saved.
      */
     private final HistoryTokenAnchorComponent undo;
 
     /**
-     * A CLEAR link which will save an empty pattern.
+     * A CLEAR link which will save an empty {@link SpreadsheetFormatterSelector}.
      */
     private final HistoryTokenAnchorComponent clear;
 
