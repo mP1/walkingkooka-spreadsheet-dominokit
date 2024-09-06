@@ -113,6 +113,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.pluginfoset.PluginInfoSetDialogComponent;
+import walkingkooka.spreadsheet.dominokit.pluginfoset.PluginInfoSetDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialogComponent;
@@ -328,6 +330,28 @@ public class App implements EntryPoint,
                         this.metadataFetcherWatchers,
                         this
                 )
+        );
+
+        PluginInfoSetDialogComponent.with(
+                PluginInfoSetDialogComponentContexts.converters(this)
+        );
+        PluginInfoSetDialogComponent.with(
+                PluginInfoSetDialogComponentContexts.comparators(this)
+        );
+        PluginInfoSetDialogComponent.with(
+                PluginInfoSetDialogComponentContexts.exporters(this)
+        );
+        PluginInfoSetDialogComponent.with(
+                PluginInfoSetDialogComponentContexts.expressionFunctions(this)
+        );
+        PluginInfoSetDialogComponent.with(
+                PluginInfoSetDialogComponentContexts.formatters(this)
+        );
+        PluginInfoSetDialogComponent.with(
+                PluginInfoSetDialogComponentContexts.importers(this)
+        );
+        PluginInfoSetDialogComponent.with(
+                PluginInfoSetDialogComponentContexts.parsers(this)
         );
 
         SpreadsheetNameDialogComponent.with(
