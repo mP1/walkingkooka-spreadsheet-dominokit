@@ -118,8 +118,8 @@ public final class DisablePluginInfoSetComponentTest implements ClassTesting<Dis
                         "      Disable\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Formatter3\" [#/1/SpreadsheetName123/metadata/spreadsheet-formatters/save/https://example.com/info3%20formatter3,https://example.com/info4%20formatter4] id=base-id-123-disable-0-Link\n" +
-                        "            \"Formatter4\" [#/1/SpreadsheetName123/metadata/spreadsheet-formatters/save/https://example.com/info3%20formatter3,https://example.com/info4%20formatter4] id=base-id-123-disable-1-Link\n"
+                        "            \"Formatter3\" [#/1/SpreadsheetName123/metadata/spreadsheet-formatters/save/https://example.com/info4%20formatter4] id=base-id-123-disable-0-Link\n" +
+                        "            \"Formatter4\" [#/1/SpreadsheetName123/metadata/spreadsheet-formatters/save/https://example.com/info3%20formatter3] id=base-id-123-disable-1-Link\n"
         );
     }
 
