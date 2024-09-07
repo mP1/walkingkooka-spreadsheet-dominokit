@@ -29,6 +29,8 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.net.ConverterFetcher;
+import walkingkooka.spreadsheet.dominokit.net.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
@@ -97,6 +99,23 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public SpreadsheetComparatorFetcher spreadsheetComparatorFetcher() {
+        throw new UnsupportedOperationException();
+    }
+
+    // ConverterWatcher.................................................................................................
+
+    @Override
+    public Runnable addConverterFetcherWatcher(final ConverterFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addConverterFetcherWatcherOnce(final ConverterFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ConverterFetcher converterFetcher() {
         throw new UnsupportedOperationException();
     }
     

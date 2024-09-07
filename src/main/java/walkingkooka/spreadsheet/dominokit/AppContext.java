@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.net.HasConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetComparatorFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetExporterFetcher;
@@ -69,6 +70,7 @@ public interface AppContext extends CanGiveFocus,
         HasLocale,
         HasNow,
         HasSpreadsheetComparatorFetcher,
+        HasConverterFetcher,
         HasSpreadsheetDeltaFetcher,
         HasSpreadsheetExporterFetcher,
         HasSpreadsheetFormatterFetcher,
