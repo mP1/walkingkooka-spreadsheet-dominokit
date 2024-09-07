@@ -31,6 +31,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.net.ConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.net.ConverterFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.ExpressionFunctionFetcher;
+import walkingkooka.spreadsheet.dominokit.net.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
@@ -153,6 +155,23 @@ public class FakeAppContext extends FakeSpreadsheetProvider
         throw new UnsupportedOperationException();
     }
 
+    // ExpressionFunctionWatcher........................................................................................
+
+    @Override
+    public Runnable addExpressionFunctionFetcherWatcher(final ExpressionFunctionFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addExpressionFunctionFetcherWatcherOnce(final ExpressionFunctionFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ExpressionFunctionFetcher expressionFunctionFetcher() {
+        throw new UnsupportedOperationException();
+    }
+    
     // SpreadsheetFormatterWatcher......................................................................................
 
     @Override
