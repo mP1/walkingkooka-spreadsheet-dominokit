@@ -50,6 +50,7 @@ import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.plugin.ProviderContexts;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.convert.SpreadsheetConvertersConverterProviders;
@@ -79,6 +80,9 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
@@ -155,6 +159,7 @@ public class App implements EntryPoint,
         JsonNodeMarshallUnmarshallContextDelegator,
         NopEmptyResponseFetcherWatcher,
         ProviderContextDelegator,
+        SpreadsheetComparatorFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler,
@@ -198,6 +203,14 @@ public class App implements EntryPoint,
         this.formatterContext = SpreadsheetFormatterContexts.fake();
         this.parserContext = SpreadsheetParserContexts.fake();
 
+        // comparator
+        this.spreadsheetComparatorWatchers = SpreadsheetComparatorFetcherWatchers.empty();
+        this.spreadsheetComparatorFetcher = SpreadsheetComparatorFetcher.with(
+                this.spreadsheetComparatorWatchers,
+                this
+        );
+        this.addSpreadsheetComparatorFetcherWatcher(this);
+        
         // delta
         this.spreadsheetDeltaWatchers = SpreadsheetDeltaFetcherWatchers.empty();
         this.spreadsheetDeltaFetcher = SpreadsheetDeltaFetcher.with(
@@ -507,7 +520,36 @@ public class App implements EntryPoint,
         context.error(cause);
     }
 
+    // SpreadsheetComparator............................................................................................
 
+    @Override
+    public SpreadsheetComparatorFetcher spreadsheetComparatorFetcher() {
+        return this.spreadsheetComparatorFetcher;
+    }
+
+    private final SpreadsheetComparatorFetcher spreadsheetComparatorFetcher;
+
+    @Override
+    public Runnable addSpreadsheetComparatorFetcherWatcher(final SpreadsheetComparatorFetcherWatcher watcher) {
+        return this.spreadsheetComparatorWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetComparatorFetcherWatcherOnce(final SpreadsheetComparatorFetcherWatcher watcher) {
+        return this.spreadsheetComparatorWatchers.addOnce(watcher);
+    }
+
+    /**
+     * A collection of listeners for {@link SpreadsheetComparatorFetcherWatcher}
+     */
+    private final SpreadsheetComparatorFetcherWatchers spreadsheetComparatorWatchers;
+
+    public void onSpreadsheetComparatorInfoSet(final SpreadsheetId id,
+                                               final SpreadsheetComparatorInfoSet infos,
+                                               final AppContext context) {
+        // nop
+    }
+    
     // SpreadsheetDelta.................................................................................................
 
     @Override
