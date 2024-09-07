@@ -92,6 +92,9 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetExporterFetcherWatchers
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetImporterFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetImporterFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetImporterFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatchers;
@@ -125,6 +128,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContexts;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterProvider;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterProviders;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -166,6 +170,7 @@ public class App implements EntryPoint,
         SpreadsheetComparatorFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetExporterFetcherWatcher,
+        SpreadsheetImporterFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler,
         SpreadsheetProviderDelegator,
@@ -238,6 +243,14 @@ public class App implements EntryPoint,
                 this.spreadsheetFormatterWatchers,
                 this
         );
+
+        // importer
+        this.spreadsheetImporterWatchers = SpreadsheetImporterFetcherWatchers.empty();
+        this.spreadsheetImporterFetcher = SpreadsheetImporterFetcher.with(
+                this.spreadsheetImporterWatchers,
+                this
+        );
+        this.addSpreadsheetImporterFetcherWatcher(this);
 
         // labelMapping
         this.spreadsheetLabelFetcherWatchers = SpreadsheetLabelFetcherWatchers.empty();
@@ -672,6 +685,37 @@ public class App implements EntryPoint,
      * A collection of listeners for {@link SpreadsheetFormatterFetcherWatcher}
      */
     private final SpreadsheetFormatterFetcherWatchers spreadsheetFormatterWatchers;
+
+    // SpreadsheetImporter..............................................................................................
+
+    @Override
+    public SpreadsheetImporterFetcher spreadsheetImporterFetcher() {
+        return this.spreadsheetImporterFetcher;
+    }
+
+    private final SpreadsheetImporterFetcher spreadsheetImporterFetcher;
+
+    @Override
+    public Runnable addSpreadsheetImporterFetcherWatcher(final SpreadsheetImporterFetcherWatcher watcher) {
+        return this.spreadsheetImporterWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetImporterFetcherWatcherOnce(final SpreadsheetImporterFetcherWatcher watcher) {
+        return this.spreadsheetImporterWatchers.addOnce(watcher);
+    }
+
+    /**
+     * A collection of listeners for {@link SpreadsheetImporterFetcherWatcher}
+     */
+    private final SpreadsheetImporterFetcherWatchers spreadsheetImporterWatchers;
+
+    @Override
+    public void onSpreadsheetImporterInfoSet(final SpreadsheetId id,
+                                             final SpreadsheetImporterInfoSet infos,
+                                             final AppContext context) {
+        // nop
+    }
 
     // SpreadsheetLabelMapping..........................................................................................
 
