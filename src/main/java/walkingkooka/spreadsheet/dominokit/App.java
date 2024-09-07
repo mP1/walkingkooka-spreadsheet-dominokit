@@ -199,66 +199,15 @@ public class App implements EntryPoint,
 
     private final SpreadsheetAppLayout layout;
     private final ClipboardContext clipboardContext = ClipboardContexts.elemental();
-    private final SpreadsheetComparatorFetcher spreadsheetComparatorFetcher;
-    /**
-     * A collection of listeners for {@link SpreadsheetComparatorFetcherWatcher}
-     */
-    private final SpreadsheetComparatorFetcherWatchers spreadsheetComparatorWatchers;
-    private final ConverterFetcher converterFetcher;
-    /**
-     * A collection of listeners for {@link ConverterFetcherWatcher}
-     */
-    private final ConverterFetcherWatchers converterWatchers;
 
     // window...........................................................................................................
-    private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher;
 
     // ClipboardContext.................................................................................................
-    /**
-     * A collection of listeners for {@link SpreadsheetDeltaFetcherWatcher}
-     */
-    private final SpreadsheetDeltaFetcherWatchers spreadsheetDeltaWatchers;
-    private final SpreadsheetExporterFetcher spreadsheetExporterFetcher;
-    /**
-     * A collection of listeners for {@link SpreadsheetExporterFetcherWatcher}
-     */
-    private final SpreadsheetExporterFetcherWatchers spreadsheetExporterWatchers;
-
-    // Fetcher..........................................................................................................
-    private final SpreadsheetFormatterFetcher spreadsheetFormatterFetcher;
-    /**
-     * A collection of listeners for {@link SpreadsheetFormatterFetcherWatcher}
-     */
-    private final SpreadsheetFormatterFetcherWatchers spreadsheetFormatterWatchers;
-    private final SpreadsheetImporterFetcher spreadsheetImporterFetcher;
-
-    // SpreadsheetComparator............................................................................................
-    /**
-     * A collection of listeners for {@link SpreadsheetImporterFetcherWatcher}
-     */
-    private final SpreadsheetImporterFetcherWatchers spreadsheetImporterWatchers;
-    /**
-     * A collection of listeners for {@link SpreadsheetLabelFetcherWatcher}
-     */
-    private final SpreadsheetLabelFetcherWatchers spreadsheetLabelFetcherWatchers;
-    private final SpreadsheetLabelFetcher spreadsheetLabelFetcher;
-    private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher;
-    /**
-     * A collection of listeners for {@link SpreadsheetMetadataFetcherWatcher}
-     */
-    private final SpreadsheetMetadataFetcherWatchers metadataWatchers;
-    private final SpreadsheetParserFetcher spreadsheetParserFetcher;
-
-    // Converter............................................................................................
-    /**
-     * A collection of listeners for {@link SpreadsheetParserFetcherWatcher}
-     */
-    private final SpreadsheetParserFetcherWatchers spreadsheetParserWatchers;
     private final History history;
     private final HistoryTokenWatchers historyWatchers;
     private final SpreadsheetViewportCache viewportCache;
     /**
-     * Init here to avoid race conditions with other fields like {@link #metadataWatchers}.
+     * Init here to avoid race conditions with other fields like {@link #metadataFetcherWatchers}.
      */
     private final SpreadsheetViewportComponent viewportComponent;
     private final LoggingContext loggingContext;
@@ -324,9 +273,9 @@ public class App implements EntryPoint,
 
         // metadata
         this.spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
-        this.metadataWatchers = SpreadsheetMetadataFetcherWatchers.empty();
+        this.metadataFetcherWatchers = SpreadsheetMetadataFetcherWatchers.empty();
         this.spreadsheetMetadataFetcher = SpreadsheetMetadataFetcher.with(
-                this.metadataWatchers,
+                this.metadataFetcherWatchers,
                 this
         );
         this.addSpreadsheetMetadataFetcherWatcher(this);
@@ -335,33 +284,33 @@ public class App implements EntryPoint,
         this.parserContext = SpreadsheetParserContexts.fake();
 
         // comparator
-        this.spreadsheetComparatorWatchers = SpreadsheetComparatorFetcherWatchers.empty();
+        this.spreadsheetComparatorFetcherWatchers = SpreadsheetComparatorFetcherWatchers.empty();
         this.spreadsheetComparatorFetcher = SpreadsheetComparatorFetcher.with(
-                this.spreadsheetComparatorWatchers,
+                this.spreadsheetComparatorFetcherWatchers,
                 this
         );
         this.addSpreadsheetComparatorFetcherWatcher(this);
 
         // converter
-        this.converterWatchers = ConverterFetcherWatchers.empty();
+        this.converterFetcherWatchers = ConverterFetcherWatchers.empty();
         this.converterFetcher = ConverterFetcher.with(
-                this.converterWatchers,
+                this.converterFetcherWatchers,
                 this
         );
         this.addConverterFetcherWatcher(this);
 
         // delta
-        this.spreadsheetDeltaWatchers = SpreadsheetDeltaFetcherWatchers.empty();
+        this.spreadsheetDeltaFetcherWatchers = SpreadsheetDeltaFetcherWatchers.empty();
         this.spreadsheetDeltaFetcher = SpreadsheetDeltaFetcher.with(
-                this.spreadsheetDeltaWatchers,
+                this.spreadsheetDeltaFetcherWatchers,
                 this
         );
         this.addSpreadsheetDeltaFetcherWatcher(this);
 
         // exporter
-        this.spreadsheetExporterWatchers = SpreadsheetExporterFetcherWatchers.empty();
+        this.spreadsheetExporterFetcherWatchers = SpreadsheetExporterFetcherWatchers.empty();
         this.spreadsheetExporterFetcher = SpreadsheetExporterFetcher.with(
-                this.spreadsheetExporterWatchers,
+                this.spreadsheetExporterFetcherWatchers,
                 this
         );
         this.addSpreadsheetExporterFetcherWatcher(this);
@@ -375,16 +324,16 @@ public class App implements EntryPoint,
         this.addExpressionFunctionFetcherWatcher(this);
 
         // formatter
-        this.spreadsheetFormatterWatchers = SpreadsheetFormatterFetcherWatchers.empty();
+        this.spreadsheetFormatterFetcherWatchers = SpreadsheetFormatterFetcherWatchers.empty();
         this.spreadsheetFormatterFetcher = SpreadsheetFormatterFetcher.with(
-                this.spreadsheetFormatterWatchers,
+                this.spreadsheetFormatterFetcherWatchers,
                 this
         );
 
         // importer
-        this.spreadsheetImporterWatchers = SpreadsheetImporterFetcherWatchers.empty();
+        this.spreadsheetImporterFetcherWatchers = SpreadsheetImporterFetcherWatchers.empty();
         this.spreadsheetImporterFetcher = SpreadsheetImporterFetcher.with(
-                this.spreadsheetImporterWatchers,
+                this.spreadsheetImporterFetcherWatchers,
                 this
         );
         this.addSpreadsheetImporterFetcherWatcher(this);
@@ -397,9 +346,9 @@ public class App implements EntryPoint,
         );
 
         // parser
-        this.spreadsheetParserWatchers = SpreadsheetParserFetcherWatchers.empty();
+        this.spreadsheetParserFetcherWatchers = SpreadsheetParserFetcherWatchers.empty();
         this.spreadsheetParserFetcher = SpreadsheetParserFetcher.with(
-                this.spreadsheetParserWatchers,
+                this.spreadsheetParserFetcherWatchers,
                 this
         );
 
@@ -419,7 +368,7 @@ public class App implements EntryPoint,
                 SpreadsheetListComponentContexts.basic(
                         this,
                         this.spreadsheetMetadataFetcher,
-                        this.metadataWatchers,
+                        this.metadataFetcherWatchers,
                         this
                 )
         );
@@ -728,15 +677,19 @@ public class App implements EntryPoint,
         return this.spreadsheetComparatorFetcher;
     }
 
+    private final SpreadsheetComparatorFetcher spreadsheetComparatorFetcher;
+
     @Override
     public Runnable addSpreadsheetComparatorFetcherWatcher(final SpreadsheetComparatorFetcherWatcher watcher) {
-        return this.spreadsheetComparatorWatchers.add(watcher);
+        return this.spreadsheetComparatorFetcherWatchers.add(watcher);
     }
 
     @Override
     public Runnable addSpreadsheetComparatorFetcherWatcherOnce(final SpreadsheetComparatorFetcherWatcher watcher) {
-        return this.spreadsheetComparatorWatchers.addOnce(watcher);
+        return this.spreadsheetComparatorFetcherWatchers.addOnce(watcher);
     }
+
+    private final SpreadsheetComparatorFetcherWatchers spreadsheetComparatorFetcherWatchers;
 
     @Override
     public void onSpreadsheetComparatorInfoSet(final SpreadsheetId id,
@@ -752,15 +705,19 @@ public class App implements EntryPoint,
         return this.converterFetcher;
     }
 
+    private final ConverterFetcher converterFetcher;
+
     @Override
     public Runnable addConverterFetcherWatcher(final ConverterFetcherWatcher watcher) {
-        return this.converterWatchers.add(watcher);
+        return this.converterFetcherWatchers.add(watcher);
     }
 
     @Override
     public Runnable addConverterFetcherWatcherOnce(final ConverterFetcherWatcher watcher) {
-        return this.converterWatchers.addOnce(watcher);
+        return this.converterFetcherWatchers.addOnce(watcher);
     }
+
+    private final ConverterFetcherWatchers converterFetcherWatchers;
 
     @Override
     public void onConverterInfoSet(final SpreadsheetId id,
@@ -769,22 +726,26 @@ public class App implements EntryPoint,
         // nop
     }
 
+    // SpreadsheetDeltaFetcher..........................................................................................
+
     @Override
     public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
         return this.spreadsheetDeltaFetcher;
     }
 
+    private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher;
+
     @Override
     public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.spreadsheetDeltaWatchers.add(watcher);
+        return this.spreadsheetDeltaFetcherWatchers.add(watcher);
     }
-
-    // SpreadsheetParserFetcher.........................................................................................
 
     @Override
     public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.spreadsheetDeltaWatchers.addOnce(watcher);
+        return this.spreadsheetDeltaFetcherWatchers.addOnce(watcher);
     }
+
+    private final SpreadsheetDeltaFetcherWatchers spreadsheetDeltaFetcherWatchers;
 
     @Override
     public void onSpreadsheetDelta(final HttpMethod method,
@@ -816,20 +777,26 @@ public class App implements EntryPoint,
                 );
     }
 
+    // SpreadsheetExporterFetcher.......................................................................................
+
     @Override
     public SpreadsheetExporterFetcher spreadsheetExporterFetcher() {
         return this.spreadsheetExporterFetcher;
     }
 
+    private final SpreadsheetExporterFetcher spreadsheetExporterFetcher;
+
     @Override
     public Runnable addSpreadsheetExporterFetcherWatcher(final SpreadsheetExporterFetcherWatcher watcher) {
-        return this.spreadsheetExporterWatchers.add(watcher);
+        return this.spreadsheetExporterFetcherWatchers.add(watcher);
     }
 
     @Override
     public Runnable addSpreadsheetExporterFetcherWatcherOnce(final SpreadsheetExporterFetcherWatcher watcher) {
-        return this.spreadsheetExporterWatchers.addOnce(watcher);
+        return this.spreadsheetExporterFetcherWatchers.addOnce(watcher);
     }
+
+    private final SpreadsheetExporterFetcherWatchers spreadsheetExporterFetcherWatchers;
 
     // ExpressionFunctionFetcher........................................................................................
 
@@ -859,8 +826,6 @@ public class App implements EntryPoint,
 
     private final ExpressionFunctionFetcherWatchers expressionFunctionFetcherWatchers;
 
-    // SpreadsheetFormatterContext......................................................................................
-
     @Override
     public void onSpreadsheetExporterInfoSet(final SpreadsheetId id,
                                              final SpreadsheetExporterInfoSet infos,
@@ -868,40 +833,46 @@ public class App implements EntryPoint,
         // nop
     }
 
+    // SpreadsheetFormatterFetcher......................................................................................
+
     @Override
     public SpreadsheetFormatterFetcher spreadsheetFormatterFetcher() {
         return this.spreadsheetFormatterFetcher;
     }
 
-    // SpreadsheetParserContext.........................................................................................
+    private final SpreadsheetFormatterFetcher spreadsheetFormatterFetcher;
 
     @Override
     public Runnable addSpreadsheetFormatterFetcherWatcher(final SpreadsheetFormatterFetcherWatcher watcher) {
-        return this.spreadsheetFormatterWatchers.add(watcher);
+        return this.spreadsheetFormatterFetcherWatchers.add(watcher);
     }
 
     @Override
     public Runnable addSpreadsheetFormatterFetcherWatcherOnce(final SpreadsheetFormatterFetcherWatcher watcher) {
-        return this.spreadsheetFormatterWatchers.addOnce(watcher);
+        return this.spreadsheetFormatterFetcherWatchers.addOnce(watcher);
     }
 
-    // ProviderContext..................................................................................................
+    private final SpreadsheetFormatterFetcherWatchers spreadsheetFormatterFetcherWatchers;
+
+    // SpreadsheetImporterFetcher.......................................................................................
 
     @Override
     public SpreadsheetImporterFetcher spreadsheetImporterFetcher() {
         return this.spreadsheetImporterFetcher;
     }
 
+    private final SpreadsheetImporterFetcher spreadsheetImporterFetcher;
+
     @Override
     public Runnable addSpreadsheetImporterFetcherWatcher(final SpreadsheetImporterFetcherWatcher watcher) {
-        return this.spreadsheetImporterWatchers.add(watcher);
+        return this.spreadsheetImporterFetcherWatchers.add(watcher);
     }
 
-    // json.............................................................................................................
+    private final SpreadsheetImporterFetcherWatchers spreadsheetImporterFetcherWatchers;
 
     @Override
     public Runnable addSpreadsheetImporterFetcherWatcherOnce(final SpreadsheetImporterFetcherWatcher watcher) {
-        return this.spreadsheetImporterWatchers.addOnce(watcher);
+        return this.spreadsheetImporterFetcherWatchers.addOnce(watcher);
     }
 
     @Override
@@ -910,6 +881,15 @@ public class App implements EntryPoint,
                                              final AppContext context) {
         // nop
     }
+
+    // SPreadsheetLabelFetcher..........................................................................................
+
+    @Override
+    public SpreadsheetLabelFetcher spreadsheetLabelFetcher() {
+        return this.spreadsheetLabelFetcher;
+    }
+
+    private final SpreadsheetLabelFetcher spreadsheetLabelFetcher;
 
     @Override
     public Runnable addSpreadsheetLabelFetcherWatcher(final SpreadsheetLabelFetcherWatcher watcher) {
@@ -921,29 +901,28 @@ public class App implements EntryPoint,
         return this.spreadsheetLabelFetcherWatchers.addOnce(watcher);
     }
 
-    // ConverterProvider................................................................................................
+    private final SpreadsheetLabelFetcherWatchers spreadsheetLabelFetcherWatchers;
 
-    @Override
-    public SpreadsheetLabelFetcher spreadsheetLabelFetcher() {
-        return this.spreadsheetLabelFetcher;
-    }
+    // SpreadsheetMetadataFetcher.......................................................................................
 
     @Override
     public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
         return this.spreadsheetMetadataFetcher;
     }
 
+    private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher;
+
     @Override
     public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.metadataWatchers.add(watcher);
+        return this.metadataFetcherWatchers.add(watcher);
     }
 
     @Override
     public Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.metadataWatchers.addOnce(watcher);
+        return this.metadataFetcherWatchers.addOnce(watcher);
     }
 
-    // history eventListener............................................................................................
+    private final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers;
 
     /**
      * Update the spreadsheet-id, spreadsheet-name and viewport selection from the given {@link SpreadsheetMetadata}.
@@ -1067,22 +1046,28 @@ public class App implements EntryPoint,
         return this.spreadsheetMetadata;
     }
 
-    // AppContext history...............................................................................................
+    // SpreadsheetParserFetcher..........................................................................................
 
     @Override
     public SpreadsheetParserFetcher spreadsheetParserFetcher() {
         return this.spreadsheetParserFetcher;
     }
 
+    private final SpreadsheetParserFetcher spreadsheetParserFetcher;
+
     @Override
     public Runnable addSpreadsheetParserFetcherWatcher(final SpreadsheetParserFetcherWatcher watcher) {
-        return this.spreadsheetParserWatchers.add(watcher);
+        return this.spreadsheetParserFetcherWatchers.add(watcher);
     }
 
     @Override
     public Runnable addSpreadsheetParserFetcherWatcherOnce(final SpreadsheetParserFetcherWatcher watcher) {
-        return this.spreadsheetParserWatchers.addOnce(watcher);
+        return this.spreadsheetParserFetcherWatchers.addOnce(watcher);
     }
+
+    private final SpreadsheetParserFetcherWatchers spreadsheetParserFetcherWatchers;
+
+    // SpreadsheetFormatterContext......................................................................................
 
     @Override
     public SpreadsheetFormatterContext spreadsheetFormatterContext() {
