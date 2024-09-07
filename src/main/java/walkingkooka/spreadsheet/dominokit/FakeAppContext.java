@@ -33,6 +33,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetExporterFetcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetExporterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcher;
@@ -110,6 +112,23 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
+        throw new UnsupportedOperationException();
+    }
+
+    // SpreadsheetExporterWatcher.......................................................................................
+
+    @Override
+    public Runnable addSpreadsheetExporterFetcherWatcher(final SpreadsheetExporterFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addSpreadsheetExporterFetcherWatcherOnce(final SpreadsheetExporterFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SpreadsheetExporterFetcher spreadsheetExporterFetcher() {
         throw new UnsupportedOperationException();
     }
 
