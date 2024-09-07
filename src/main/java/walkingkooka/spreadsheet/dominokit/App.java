@@ -708,12 +708,12 @@ public class App implements EntryPoint,
         context.error(cause);
     }
 
+    // SpreadsheetComparatorFetcher.....................................................................................
+
     @Override
     public SpreadsheetComparatorFetcher spreadsheetComparatorFetcher() {
         return this.spreadsheetComparatorFetcher;
     }
-
-    // SpreadsheetMetadata..............................................................................................
 
     @Override
     public Runnable addSpreadsheetComparatorFetcherWatcher(final SpreadsheetComparatorFetcherWatcher watcher) {
