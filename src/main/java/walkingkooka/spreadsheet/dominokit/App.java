@@ -83,6 +83,9 @@ import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent
 import walkingkooka.spreadsheet.dominokit.net.ConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.net.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.ConverterFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.net.ExpressionFunctionFetcher;
+import walkingkooka.spreadsheet.dominokit.net.ExpressionFunctionFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.ExpressionFunctionFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcherWatcher;
@@ -147,6 +150,7 @@ import walkingkooka.spreadsheet.provider.SpreadsheetProviders;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
@@ -175,6 +179,7 @@ public class App implements EntryPoint,
         ConverterFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetExporterFetcherWatcher,
+        ExpressionFunctionFetcherWatcher,
         SpreadsheetImporterFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler,
@@ -360,6 +365,14 @@ public class App implements EntryPoint,
                 this
         );
         this.addSpreadsheetExporterFetcherWatcher(this);
+
+        // expressionFunction
+        this.expressionFunctionFetcherWatchers = ExpressionFunctionFetcherWatchers.empty();
+        this.expressionFunctionFetcher = ExpressionFunctionFetcher.with(
+                this.expressionFunctionFetcherWatchers,
+                this
+        );
+        this.addExpressionFunctionFetcherWatcher(this);
 
         // formatter
         this.spreadsheetFormatterWatchers = SpreadsheetFormatterFetcherWatchers.empty();
@@ -817,6 +830,34 @@ public class App implements EntryPoint,
     public Runnable addSpreadsheetExporterFetcherWatcherOnce(final SpreadsheetExporterFetcherWatcher watcher) {
         return this.spreadsheetExporterWatchers.addOnce(watcher);
     }
+
+    // ExpressionFunctionFetcher........................................................................................
+
+    @Override
+    public ExpressionFunctionFetcher expressionFunctionFetcher() {
+        return this.expressionFunctionFetcher;
+    }
+
+    private final ExpressionFunctionFetcher expressionFunctionFetcher;
+
+    @Override
+    public Runnable addExpressionFunctionFetcherWatcher(final ExpressionFunctionFetcherWatcher watcher) {
+        return this.expressionFunctionFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addExpressionFunctionFetcherWatcherOnce(final ExpressionFunctionFetcherWatcher watcher) {
+        return this.expressionFunctionFetcherWatchers.addOnce(watcher);
+    }
+
+    @Override
+    public void onExpressionFunctionInfoSet(final SpreadsheetId id,
+                                            final ExpressionFunctionInfoSet infos,
+                                            final AppContext context) {
+        // nop
+    }
+
+    private final ExpressionFunctionFetcherWatchers expressionFunctionFetcherWatchers;
 
     // SpreadsheetFormatterContext......................................................................................
 
