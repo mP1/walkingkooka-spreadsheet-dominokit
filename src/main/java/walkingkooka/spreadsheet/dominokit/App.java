@@ -557,6 +557,7 @@ public class App implements EntryPoint,
      */
     private final SpreadsheetComparatorFetcherWatchers spreadsheetComparatorWatchers;
 
+    @Override
     public void onSpreadsheetComparatorInfoSet(final SpreadsheetId id,
                                                final SpreadsheetComparatorInfoSet infos,
                                                final AppContext context) {
