@@ -186,66 +186,6 @@ public class App implements EntryPoint,
         SpreadsheetProviderDelegator,
         SpreadsheetFormatterContextDelegator {
 
-    /**
-     * A constant
-     */
-    private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
-
-    // fileList anchor.................................................................................................
-    private final static Locale LOCALE = Locale.forLanguageTag("EN-AU"); // TODO use browser locale
-    private final HistoryTokenAnchorComponent files;
-
-    // SpreadsheetAppLayout.............................................................................................
-
-    private final SpreadsheetAppLayout layout;
-    private final ClipboardContext clipboardContext = ClipboardContexts.elemental();
-
-    // window...........................................................................................................
-
-    // ClipboardContext.................................................................................................
-    private final History history;
-    private final HistoryTokenWatchers historyWatchers;
-    private final SpreadsheetViewportCache viewportCache;
-    /**
-     * Init here to avoid race conditions with other fields like {@link #metadataFetcherWatchers}.
-     */
-    private final SpreadsheetViewportComponent viewportComponent;
-    private final LoggingContext loggingContext;
-
-    // SpreadsheetDelta.................................................................................................
-    private SpreadsheetMetadata spreadsheetMetadata;
-    /**
-     * A new {@link SpreadsheetFormatterContext} is created each time a new {@link SpreadsheetMetadata} arrives.
-     */
-    private SpreadsheetFormatterContext formatterContext;
-    private SpreadsheetParserContext parserContext;
-    private ProviderContext providerContext;
-    private JsonNodeUnmarshallContext unmarshallContext;
-    /**
-     * This will be updated every time {@link #onSpreadsheetMetadata(SpreadsheetMetadata, AppContext)} is called.
-     */
-    private SpreadsheetProvider spreadsheetProvider;
-
-    // SpreadsheetExporter..............................................................................................
-    private HistoryToken firePrevious;
-    /**
-     * Used to track if the history token actually changed. Changes will fire the HistoryToken#onChange method.
-     */
-    private HistoryToken previousToken;
-    private boolean viewportHighlightEnabled = false;
-    /**
-     * A {@link Runnable} which will give focus to some element. This is used to track and prevent multiple give focus attempts
-     */
-    private Runnable giveFocus;
-    private SpreadsheetCellFind lastCellFind = SpreadsheetCellFind.empty();
-    private OptionalInt defaultCount = OptionalInt.of(10);
-
-    // SpreadsheetFormatter.................................................................................................
-    /**
-     * Used to track when resizing stops, after resizing stops a reload will happen if SpreadsheetListDialogComponent is displayed.
-     */
-    private long lastResize;
-
     public App() {
         GWT.setUncaughtExceptionHandler(this);
         SpreadsheetDelta.EMPTY.toString(); // force json register.
@@ -419,54 +359,12 @@ public class App implements EntryPoint,
         this.layout = this.prepareLayout();
     }
 
-    /**
-     * Only PATCH the spreadsheet metadata on the server if the local {@link SpreadsheetMetadata} has a different
-     * {@link AnchoredSpreadsheetSelection}. Note we ignore the previous {@link HistoryToken} because that might cause
-     * synching issues where
-     * <pre>
-     * click A1
-     *   load viewport selection=A1
-     * click B2
-     *   load viewport selection=A2
-     * load viewport response
-     *   update local metadata selection=A1
-     *   push history selection=A1
-     *   DONT want to PATCH metadata selection=A1 as this will cause load viewport selection=A2 to be ovewritten.
-     * </pre>
-     */
-    private static void patchMetadataIfSelectionChanged(final HistoryToken historyToken,
-                                                        final AppContext context) {
-        if (historyToken instanceof SpreadsheetIdHistoryToken) {
-            // check against local metadata NOT previous history selection, otherwise PATCH will be made
-            // when a loadViewport has not yet updated history token with response selection.
-            final Optional<AnchoredSpreadsheetSelection> selection = historyToken.anchoredSelectionOrEmpty();
+    // EntryPoint.......................................................................................................
 
-            final Optional<AnchoredSpreadsheetSelection> previousSelection = context.spreadsheetMetadata()
-                    .get(SpreadsheetMetadataPropertyName.VIEWPORT)
-                    .flatMap(SpreadsheetViewport::anchoredSelection);
-            if (false == selection.equals(previousSelection)) {
-
-                context.debug("App.patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
-
-                // initially metadata will be empty because it has not yet loaded, context.viewport below will fail.
-                if (context.spreadsheetMetadata()
-                        .get(SpreadsheetMetadataPropertyName.VIEWPORT)
-                        .isPresent()) {
-                    final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) historyToken;
-                    context.spreadsheetMetadataFetcher()
-                            .patchMetadata(
-                                    spreadsheetIdHistoryToken.id(),
-                                    SpreadsheetMetadataPropertyName.VIEWPORT.patch(
-                                            selection.map(
-                                                    s -> context.viewport(
-                                                            Optional.of(s)
-                                                    )
-                                            ).orElse(null)
-                                    )
-                            );
-                }
-            }
-        }
+    @Override
+    public void onModuleLoad() {
+        this.fireInitialHistoryToken();
+        this.fireWindowSizeLater(this::onWindowResize);
     }
 
     /**
@@ -542,7 +440,7 @@ public class App implements EntryPoint,
         return layout;
     }
 
-    // SpreadsheetImporter..............................................................................................
+    private final HistoryTokenAnchorComponent files;
 
     /**
      * A {@link HistoryTokenAnchorComponent} which is updated to something like #/1/SpreadsheetName/rename, which
@@ -592,6 +490,8 @@ public class App implements EntryPoint,
         );
     }
 
+    private final SpreadsheetAppLayout layout;
+
     /**
      * This event is fired when the right panel closes, such as when the user clicks away from it and the history token needs to be updated.
      */
@@ -600,12 +500,6 @@ public class App implements EntryPoint,
                 this.historyToken()
                         .metadataHide()
         );
-    }
-
-    @Override
-    public void onModuleLoad() {
-        this.fireInitialHistoryToken();
-        this.fireWindowSizeLater(this::onWindowResize);
     }
 
     private void onWindowResize(final Integer width,
@@ -626,6 +520,8 @@ public class App implements EntryPoint,
         this.computeAndSaveSpreadsheetListDialogComponentDefaultCount(newHeight);
     }
 
+    // ClipboardContext.................................................................................................
+
     @Override
     public void readClipboardItem(final Predicate<MediaType> filter,
                                   final ClipboardContextReadWatcher watcher) {
@@ -635,8 +531,6 @@ public class App implements EntryPoint,
         );
     }
 
-    // SpreadsheetLabelMapping..........................................................................................
-
     @Override
     public void writeClipboardItem(final ClipboardTextItem item,
                                    final ClipboardContextWriteWatcher watcher) {
@@ -645,6 +539,10 @@ public class App implements EntryPoint,
                 watcher
         );
     }
+
+    private final ClipboardContext clipboardContext = ClipboardContexts.elemental();
+
+    // Fetcher..........................................................................................................
 
     @Override
     public void onBegin(final HttpMethod method,
@@ -1046,6 +944,18 @@ public class App implements EntryPoint,
         return this.spreadsheetMetadata;
     }
 
+    private SpreadsheetMetadata spreadsheetMetadata;
+
+    @Override
+    public ExpressionNumberKind expressionNumberKind() {
+        return this.spreadsheetMetadata.expressionNumberKind();
+    }
+
+    @Override
+    public MathContext mathContext() {
+        return this.spreadsheetMetadata.mathContext();
+    }
+
     // SpreadsheetParserFetcher..........................................................................................
 
     @Override
@@ -1067,29 +977,14 @@ public class App implements EntryPoint,
 
     private final SpreadsheetParserFetcherWatchers spreadsheetParserFetcherWatchers;
 
-    // SpreadsheetFormatterContext......................................................................................
-
-    @Override
-    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-        return this.formatterContext;
-    }
-
-    @Override
-    public char valueSeparator() {
-        return this.parserContext.valueSeparator();
-    }
-
-    // HistoryTokenWatcher...............................................................................................
-
-    @Override
-    public ProviderContext providerContext() {
-        return this.providerContext;
-    }
+    // JsonNodeMarshallContext..........................................................................................
 
     @Override
     public JsonNodeMarshallContext jsonNodeMarshallContext() {
         return MARSHALL_CONTEXT;
     }
+
+    private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 
     /**
      * The {@link JsonNodeUnmarshallContext} will be updated each time a new {@link SpreadsheetMetadata} is received.
@@ -1099,20 +994,49 @@ public class App implements EntryPoint,
         return this.unmarshallContext;
     }
 
+    private JsonNodeUnmarshallContext unmarshallContext;
+
+    // SpreadsheetFormatterContext......................................................................................
+
+    @Override
+    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
+        return this.formatterContext;
+    }
+
+    /**
+     * A new {@link SpreadsheetFormatterContext} is created each time a new {@link SpreadsheetMetadata} arrives.
+     */
+    private SpreadsheetFormatterContext formatterContext;
+
+    // SpreadsheetParserContext.........................................................................................
+
+    @Override
+    public char valueSeparator() {
+        return this.parserContext.valueSeparator();
+    }
+
+    private SpreadsheetParserContext parserContext;
+
+    // ProviderContext..................................................................................................
+
+    @Override
+    public ProviderContext providerContext() {
+        return this.providerContext;
+    }
+
+    private ProviderContext providerContext;
+
+    // SpreadsheetProvider..............................................................................................
+
     @Override
     public SpreadsheetProvider spreadsheetProvider() {
         return this.spreadsheetProvider;
     }
 
-    @Override
-    public ExpressionNumberKind expressionNumberKind() {
-        return this.spreadsheetMetadata.expressionNumberKind();
-    }
-
-    @Override
-    public MathContext mathContext() {
-        return this.spreadsheetMetadata.mathContext();
-    }
+    /**
+     * This will be updated every time {@link #onSpreadsheetMetadata(SpreadsheetMetadata, AppContext)} is called.
+     */
+    private SpreadsheetProvider spreadsheetProvider;
 
     // reload...........................................................................................................
 
@@ -1158,6 +1082,11 @@ public class App implements EntryPoint,
     }
 
     /**
+     * Used to track if the history token actually changed. Changes will fire the HistoryToken#onChange method.
+     */
+    private HistoryToken previousToken;
+
+    /**
      * Pushes the given {@link HistoryToken} to the browser location#hash.
      */
     @Override
@@ -1179,6 +1108,8 @@ public class App implements EntryPoint,
         return this.history.historyToken();
     }
 
+    private final History history;
+
     @Override
     public void fireCurrentHistoryToken() {
         final HistoryToken previous = this.historyToken();
@@ -1194,6 +1125,8 @@ public class App implements EntryPoint,
         }
     }
 
+    private HistoryToken firePrevious;
+
     @Override
     public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
         return this.historyWatchers.add(watcher);
@@ -1204,7 +1137,7 @@ public class App implements EntryPoint,
         return this.historyWatchers.addOnce(watcher);
     }
 
-    // focus............................................................................................................
+    private final HistoryTokenWatchers historyWatchers;
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
@@ -1229,6 +1162,58 @@ public class App implements EntryPoint,
         }
     }
 
+    /**
+     * Only PATCH the spreadsheet metadata on the server if the local {@link SpreadsheetMetadata} has a different
+     * {@link AnchoredSpreadsheetSelection}. Note we ignore the previous {@link HistoryToken} because that might cause
+     * synching issues where
+     * <pre>
+     * click A1
+     *   load viewport selection=A1
+     * click B2
+     *   load viewport selection=A2
+     * load viewport response
+     *   update local metadata selection=A1
+     *   push history selection=A1
+     *   DONT want to PATCH metadata selection=A1 as this will cause load viewport selection=A2 to be ovewritten.
+     * </pre>
+     */
+    private static void patchMetadataIfSelectionChanged(final HistoryToken historyToken,
+                                                        final AppContext context) {
+        if (historyToken instanceof SpreadsheetIdHistoryToken) {
+            // check against local metadata NOT previous history selection, otherwise PATCH will be made
+            // when a loadViewport has not yet updated history token with response selection.
+            final Optional<AnchoredSpreadsheetSelection> selection = historyToken.anchoredSelectionOrEmpty();
+
+            final Optional<AnchoredSpreadsheetSelection> previousSelection = context.spreadsheetMetadata()
+                    .get(SpreadsheetMetadataPropertyName.VIEWPORT)
+                    .flatMap(SpreadsheetViewport::anchoredSelection);
+            if (false == selection.equals(previousSelection)) {
+
+                context.debug("App.patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
+
+                // initially metadata will be empty because it has not yet loaded, context.viewport below will fail.
+                if (context.spreadsheetMetadata()
+                        .get(SpreadsheetMetadataPropertyName.VIEWPORT)
+                        .isPresent()) {
+                    final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) historyToken;
+                    context.spreadsheetMetadataFetcher()
+                            .patchMetadata(
+                                    spreadsheetIdHistoryToken.id(),
+                                    SpreadsheetMetadataPropertyName.VIEWPORT.patch(
+                                            selection.map(
+                                                    s -> context.viewport(
+                                                            Optional.of(s)
+                                                    )
+                                            ).orElse(null)
+                                    )
+                            );
+                }
+            }
+        }
+    }
+
+    // SpreadsheetViewport..............................................................................................
+
     @Override
     public void reload() {
         this.viewportComponent.loadViewportCells(this);
@@ -1242,7 +1227,12 @@ public class App implements EntryPoint,
         );
     }
 
-    // cellFind.........................................................................................................
+    /**
+     * Init here to avoid race conditions with other fields like {@link #metadataFetcherWatchers}.
+     */
+    private final SpreadsheetViewportComponent viewportComponent;
+
+    // SpreadsheetViewportCache.........................................................................................
 
     /**
      * Cache for the contents of the viewport.
@@ -1251,6 +1241,10 @@ public class App implements EntryPoint,
     public SpreadsheetViewportCache spreadsheetViewportCache() {
         return this.viewportCache;
     }
+
+    private final SpreadsheetViewportCache viewportCache;
+
+    // viewportHighlightEnabled.........................................................................................
 
     /**
      * Returns true if viewport {@link SpreadsheetCellFind} highlighting is enabled.
@@ -1264,6 +1258,8 @@ public class App implements EntryPoint,
     public void setViewportHighlightEnabled(final boolean viewportHighlightEnabled) {
         this.viewportHighlightEnabled = viewportHighlightEnabled;
     }
+
+    private boolean viewportHighlightEnabled = false;
 
     // HasLocale........................................................................................................
 
@@ -1297,14 +1293,17 @@ public class App implements EntryPoint,
         }
     }
 
-    // HasNow...........................................................................................................
+    /**
+     * A {@link Runnable} which will give focus to some element. This is used to track and prevent multiple give focus attempts
+     */
+    private Runnable giveFocus;
+
+    // lastCellFind......................................................................................................
 
     @Override
     public SpreadsheetCellFind lastCellFind() {
         return this.lastCellFind;
     }
-
-    // SpreadsheetListDialogComponent...................................................................................
 
     @Override
     public void setLastCellFind(final SpreadsheetCellFind lastCellFind) {
@@ -1312,22 +1311,32 @@ public class App implements EntryPoint,
         this.lastCellFind = lastCellFind;
     }
 
+    private SpreadsheetCellFind lastCellFind = SpreadsheetCellFind.empty();
+
+    // HasLocale........................................................................................................
+
     @Override
     public Locale locale() {
         return LOCALE;
     }
+
+    private final static Locale LOCALE = Locale.forLanguageTag("EN-AU"); // TODO use browser locale
+
+    // HasNow...........................................................................................................
 
     @Override
     public LocalDateTime now() {
         return LocalDateTime.now();
     }
 
+    // defaultCount.....................................................................................................
+
     @Override
     public OptionalInt spreadsheetListDialogComponentDefaultCount() {
         return this.defaultCount;
     }
 
-    // logging..........................................................................................................
+    private OptionalInt defaultCount = OptionalInt.of(10);
 
     private void computeAndSaveSpreadsheetListDialogComponentDefaultCount(final int windowHeight) {
         // height - 350 reserved for dialog title, links along bottom etc divided by 32 for each row
@@ -1357,10 +1366,19 @@ public class App implements EntryPoint,
         );
     }
 
+    /**
+     * Used to track when resizing stops, after resizing stops a reload will happen if SpreadsheetListDialogComponent is displayed.
+     */
+    private long lastResize;
+
+    // UncaughtExceptionHandler.........................................................................................
+
     @Override
     public void onUncaughtException(final Throwable caught) {
         this.error(caught);
     }
+
+    // LoggingContext...................................................................................................
 
     @Override
     public void debug(final Object... values) {
@@ -1379,4 +1397,6 @@ public class App implements EntryPoint,
                 ).setPosition(Position.TOP_MIDDLE)
                 .show();
     }
+
+    private final LoggingContext loggingContext;
 }
