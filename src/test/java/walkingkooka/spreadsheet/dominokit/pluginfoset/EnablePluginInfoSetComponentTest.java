@@ -68,7 +68,7 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
                 "EnablePluginInfoSetComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Disable\n" +
+                        "      Enable\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"Formatter1\" [#/1/SpreadsheetName123/metadata/spreadsheet-formatters/save/https://example.com/info1%20formatter1] id=base-id-123-enable-0-Link\n" +
@@ -159,7 +159,7 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
                 "EnablePluginInfoSetComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
-                        "      Disable\n" +
+                        "      Enable\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"Formatter1\" [#/1/SpreadsheetName123/metadata/spreadsheet-formatters/save/https://example.com/info1%20formatter1,https://example.com/info3%20formatter3,https://example.com/info4%20formatter4] id=base-id-123-enable-0-Link\n" +
