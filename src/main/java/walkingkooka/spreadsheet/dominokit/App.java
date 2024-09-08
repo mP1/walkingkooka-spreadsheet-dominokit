@@ -156,6 +156,7 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMen
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionProvider;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
@@ -236,6 +237,7 @@ public class App implements EntryPoint,
                 this.spreadsheetComparatorFetcherWatchers,
                 this
         );
+        this.spreadsheetComparatorInfoSet = SpreadsheetComparatorInfoSet.EMPTY;
         this.addSpreadsheetComparatorFetcherWatcher(this);
 
         // converter
@@ -244,6 +246,7 @@ public class App implements EntryPoint,
                 this.converterFetcherWatchers,
                 this
         );
+        this.converterInfoSet = ConverterInfoSet.EMPTY;
         this.addConverterFetcherWatcher(this);
 
         // delta
@@ -260,6 +263,7 @@ public class App implements EntryPoint,
                 this.spreadsheetExporterFetcherWatchers,
                 this
         );
+        this.spreadsheetExporterInfoSet = SpreadsheetExporterInfoSet.EMPTY;
         this.addSpreadsheetExporterFetcherWatcher(this);
 
         // expressionFunction
@@ -268,6 +272,7 @@ public class App implements EntryPoint,
                 this.expressionFunctionFetcherWatchers,
                 this
         );
+        this.expressionFunctionInfoSet = ExpressionFunctionInfoSet.EMPTY;
         this.addExpressionFunctionFetcherWatcher(this);
 
         // formatter
@@ -276,6 +281,7 @@ public class App implements EntryPoint,
                 this.spreadsheetFormatterFetcherWatchers,
                 this
         );
+        this.spreadsheetFormatterInfoSet = SpreadsheetFormatterInfoSet.EMPTY;
         this.addSpreadsheetFormatterFetcherWatcher(this);
 
         // importer
@@ -284,6 +290,7 @@ public class App implements EntryPoint,
                 this.spreadsheetImporterFetcherWatchers,
                 this
         );
+        this.spreadsheetImporterInfoSet = SpreadsheetImporterInfoSet.EMPTY;
         this.addSpreadsheetImporterFetcherWatcher(this);
 
         // labelMapping
@@ -299,6 +306,7 @@ public class App implements EntryPoint,
                 this.spreadsheetParserFetcherWatchers,
                 this
         );
+        this.spreadsheetParserInfoSet = SpreadsheetParserInfoSet.EMPTY;
         this.addSpreadsheetParserFetcherWatcher(this);
 
         this.providerContext = ProviderContexts.fake();
@@ -602,8 +610,13 @@ public class App implements EntryPoint,
     public void onSpreadsheetComparatorInfoSet(final SpreadsheetId id,
                                                final SpreadsheetComparatorInfoSet infos,
                                                final AppContext context) {
-        // nop
+        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
+            this.spreadsheetComparatorInfoSet = infos;
+            this.refreshSpreadsheetProvider();
+        }
     }
+
+    private SpreadsheetComparatorInfoSet spreadsheetComparatorInfoSet;
 
     // ConverterFetcher.................................................................................................
 
@@ -630,8 +643,13 @@ public class App implements EntryPoint,
     public void onConverterInfoSet(final SpreadsheetId id,
                                    final ConverterInfoSet infos,
                                    final AppContext context) {
-        // nop
+        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
+            this.converterInfoSet = infos;
+            this.refreshSpreadsheetProvider();
+        }
     }
+
+    private ConverterInfoSet converterInfoSet;
 
     // SpreadsheetDeltaFetcher..........................................................................................
 
@@ -709,8 +727,13 @@ public class App implements EntryPoint,
     public void onSpreadsheetExporterInfoSet(final SpreadsheetId id,
                                              final SpreadsheetExporterInfoSet infos,
                                              final AppContext context) {
-        // nop
+        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
+            this.spreadsheetExporterInfoSet = infos;
+            this.refreshSpreadsheetProvider();
+        }
     }
+
+    private SpreadsheetExporterInfoSet spreadsheetExporterInfoSet;
 
     // ExpressionFunctionFetcher........................................................................................
 
@@ -731,14 +754,19 @@ public class App implements EntryPoint,
         return this.expressionFunctionFetcherWatchers.addOnce(watcher);
     }
 
+    private final ExpressionFunctionFetcherWatchers expressionFunctionFetcherWatchers;
+
     @Override
     public void onExpressionFunctionInfoSet(final SpreadsheetId id,
                                             final ExpressionFunctionInfoSet infos,
                                             final AppContext context) {
-        // nop
+        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
+            this.expressionFunctionInfoSet = infos;
+            this.refreshSpreadsheetProvider();
+        }
     }
 
-    private final ExpressionFunctionFetcherWatchers expressionFunctionFetcherWatchers;
+    private ExpressionFunctionInfoSet expressionFunctionInfoSet;
 
     // SpreadsheetFormatterFetcher......................................................................................
 
@@ -765,8 +793,13 @@ public class App implements EntryPoint,
     public void onSpreadsheetFormatterInfoSet(final SpreadsheetId id,
                                               final SpreadsheetFormatterInfoSet infos,
                                               final AppContext context) {
-        // nop
+        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
+            this.spreadsheetFormatterInfoSet = infos;
+            this.refreshSpreadsheetProvider();
+        }
     }
+
+    private SpreadsheetFormatterInfoSet spreadsheetFormatterInfoSet;
 
     @Override
     public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
@@ -807,8 +840,13 @@ public class App implements EntryPoint,
     public void onSpreadsheetImporterInfoSet(final SpreadsheetId id,
                                              final SpreadsheetImporterInfoSet infos,
                                              final AppContext context) {
-        // nop
+        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
+            this.spreadsheetImporterInfoSet = infos;
+            this.refreshSpreadsheetProvider();
+        }
     }
+
+    private SpreadsheetImporterInfoSet spreadsheetImporterInfoSet;
 
     // SPreadsheetLabelFetcher..........................................................................................
 
@@ -863,47 +901,11 @@ public class App implements EntryPoint,
             final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
             this.spreadsheetMetadata = metadata;
 
-            final SpreadsheetComparatorProvider spreadsheetComparatorProvider = metadata.spreadsheetComparatorProvider(
-                    SpreadsheetComparatorProviders.spreadsheetComparators()
-            );
-
-            final SpreadsheetExporterProvider spreadsheetExporterProvider = metadata.spreadsheetExporterProvider(
-                    SpreadsheetExporterProviders.spreadsheetExport()
-            );
-
-            final SpreadsheetFormatterProvider spreadsheetFormatterProvider = metadata.spreadsheetFormatterProvider(
-                    SpreadsheetFormatterProviders.spreadsheetFormatPattern()
-            );
-
-            final SpreadsheetImporterProvider spreadsheetImporterProvider = metadata.spreadsheetImporterProvider(
-                    SpreadsheetImporterProviders.spreadsheetImport()
-            );
-
-            final SpreadsheetParserProvider spreadsheetParserProvider = metadata.spreadsheetParserProvider(
-                    SpreadsheetParserProviders.spreadsheetParsePattern(spreadsheetFormatterProvider)
-            );
-
-            final ConverterProvider converterProvider = SpreadsheetConvertersConverterProviders.spreadsheetConverters(
-                    metadata,
-                    spreadsheetFormatterProvider,
-                    spreadsheetParserProvider
-            );
-
-            this.spreadsheetProvider = metadata.spreadsheetProvider(
-                    SpreadsheetProviders.basic(
-                            converterProvider,
-                            ExpressionFunctionProviders.empty(),
-                            spreadsheetComparatorProvider,
-                            spreadsheetExporterProvider,
-                            spreadsheetFormatterProvider,
-                            spreadsheetImporterProvider,
-                            spreadsheetParserProvider
-                    )
-            );
+            final SpreadsheetProvider spreadsheetProvider = this.refreshSpreadsheetProvider();
 
             this.formatterContext = metadata.formatterContext(
-                    converterProvider,
-                    spreadsheetFormatterProvider,
+                    spreadsheetProvider,// ConverterProvider
+                    spreadsheetProvider, // SpreadsheetFormatterProvider
                     () -> this.now(), // not sure why but method ref fails.
                     this.viewportCache, // SpreadsheetLabelNameResolver
                     this // ProviderContext
@@ -954,6 +956,22 @@ public class App implements EntryPoint,
                         context.debug("App.onSpreadsheetMetadata new spreadsheet " + id + " loaded, firing history token again");
 
                         context.fireCurrentHistoryToken();
+
+                        // need to also load all PluginInfoSetLikes...as they are also used to build menus etc.
+                        context.converterFetcher()
+                                .infoSet(id);
+                        context.spreadsheetComparatorFetcher()
+                                .infoSet(id);
+                        context.spreadsheetExporterFetcher()
+                                .infoSet(id);
+                        context.expressionFunctionFetcher()
+                                .infoSet(id);
+                        context.spreadsheetFormatterFetcher()
+                                .infoSet(id);
+                        context.spreadsheetImporterFetcher()
+                                .infoSet(id);
+                        context.spreadsheetParserFetcher()
+                                .infoSet(id);
                     }
                 }
             }
@@ -1011,8 +1029,13 @@ public class App implements EntryPoint,
     public void onSpreadsheetParserInfoSet(final SpreadsheetId id,
                                            final SpreadsheetParserInfoSet infos,
                                            final AppContext context) {
-        // nop
+        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
+            this.spreadsheetParserInfoSet = infos;
+            this.refreshSpreadsheetProvider();
+        }
     }
+
+    private SpreadsheetParserInfoSet spreadsheetParserInfoSet;
 
     @Override
     public void onSpreadsheetParserSelectorEdit(final SpreadsheetId id,
@@ -1077,8 +1100,78 @@ public class App implements EntryPoint,
         return this.spreadsheetProvider;
     }
 
+    private SpreadsheetProvider refreshSpreadsheetProvider() {
+        final SpreadsheetMetadata metadata = this.spreadsheetMetadata();
+
+        final SpreadsheetComparatorProvider spreadsheetComparatorProvider = metadata.spreadsheetComparatorProvider(
+                SpreadsheetComparatorProviders.mapped(
+                        this.spreadsheetComparatorInfoSet,
+                        SpreadsheetComparatorProviders.spreadsheetComparators()
+                )
+        );
+
+        final SpreadsheetExporterProvider spreadsheetExporterProvider = metadata.spreadsheetExporterProvider(
+                SpreadsheetExporterProviders.mapped(
+                        this.spreadsheetExporterInfoSet,
+                        SpreadsheetExporterProviders.spreadsheetExport()
+                )
+        );
+
+        final ExpressionFunctionProvider expressionFunctionProvider = metadata.expressionFunctionProvider(
+                ExpressionFunctionProviders.mapped(
+                        this.expressionFunctionInfoSet,
+                        ExpressionFunctionProviders.empty() // TODO should have a non empty EFP
+                )
+        );
+
+        final SpreadsheetFormatterProvider spreadsheetFormatterProvider = metadata.spreadsheetFormatterProvider(
+                SpreadsheetFormatterProviders.mapped(
+                        this.spreadsheetFormatterInfoSet,
+                        SpreadsheetFormatterProviders.spreadsheetFormatPattern()
+                )
+        );
+
+        final SpreadsheetImporterProvider spreadsheetImporterProvider = metadata.spreadsheetImporterProvider(
+                SpreadsheetImporterProviders.mapped(
+                        this.spreadsheetImporterInfoSet,
+                        SpreadsheetImporterProviders.spreadsheetImport()
+                )
+        );
+
+        final SpreadsheetParserProvider spreadsheetParserProvider = metadata.spreadsheetParserProvider(
+                SpreadsheetParserProviders.mapped(
+                        this.spreadsheetParserInfoSet,
+                        SpreadsheetParserProviders.spreadsheetParsePattern(spreadsheetFormatterProvider)
+                )
+        );
+
+        final ConverterProvider converterProvider = ConverterProviders.mapped(
+                this.converterInfoSet,
+                SpreadsheetConvertersConverterProviders.spreadsheetConverters(
+                        metadata,
+                        spreadsheetFormatterProvider,
+                        spreadsheetParserProvider
+                )
+        );
+
+        this.spreadsheetProvider = metadata.spreadsheetProvider(
+                SpreadsheetProviders.basic(
+                        converterProvider,
+                        expressionFunctionProvider,
+                        spreadsheetComparatorProvider,
+                        spreadsheetExporterProvider,
+                        spreadsheetFormatterProvider,
+                        spreadsheetImporterProvider,
+                        spreadsheetParserProvider
+                )
+        );
+
+        return this.spreadsheetProvider;
+    }
+
     /**
-     * This will be updated every time {@link #onSpreadsheetMetadata(SpreadsheetMetadata, AppContext)} is called.
+     * This will be updated every time anytime a new {@link SpreadsheetMetadata} or any of its component are recieved by
+     * a onXXX watcher method.
      */
     private SpreadsheetProvider spreadsheetProvider;
 
