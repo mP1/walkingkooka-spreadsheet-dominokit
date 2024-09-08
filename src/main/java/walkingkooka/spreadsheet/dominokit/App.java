@@ -133,6 +133,7 @@ import walkingkooka.spreadsheet.export.SpreadsheetExporterProviders;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContexts;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
@@ -149,6 +150,8 @@ import walkingkooka.spreadsheet.provider.SpreadsheetProviderDelegator;
 import walkingkooka.spreadsheet.provider.SpreadsheetProviders;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
@@ -180,6 +183,7 @@ public class App implements EntryPoint,
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetExporterFetcherWatcher,
         ExpressionFunctionFetcherWatcher,
+        SpreadsheetFormatterFetcherWatcher,
         SpreadsheetImporterFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler,
@@ -269,6 +273,7 @@ public class App implements EntryPoint,
                 this.spreadsheetFormatterFetcherWatchers,
                 this
         );
+        this.addSpreadsheetFormatterFetcherWatcher(this);
 
         // importer
         this.spreadsheetImporterFetcherWatchers = SpreadsheetImporterFetcherWatchers.empty();
@@ -751,6 +756,27 @@ public class App implements EntryPoint,
     }
 
     private final SpreadsheetFormatterFetcherWatchers spreadsheetFormatterFetcherWatchers;
+
+    @Override
+    public void onSpreadsheetFormatterInfoSet(final SpreadsheetId id,
+                                              final SpreadsheetFormatterInfoSet infos,
+                                              final AppContext context) {
+        // nop
+    }
+
+    @Override
+    public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
+                                                   final SpreadsheetFormatterSelectorEdit edit,
+                                                   final AppContext context) {
+        // nop
+    }
+
+    @Override
+    public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
+                                                       final SpreadsheetFormatterSelectorMenuList menu,
+                                                       final AppContext context) {
+        // nop
+    }
 
     // SpreadsheetImporterFetcher.......................................................................................
 
