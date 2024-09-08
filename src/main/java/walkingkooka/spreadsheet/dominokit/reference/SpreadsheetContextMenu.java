@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.Menu;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
@@ -118,12 +119,12 @@ public final class SpreadsheetContextMenu implements TreePrintable {
                                           final Optional<Icon<?>> icon,
                                           final Optional<String> badge) {
         CharSequences.failIfNullOrEmpty(id, "id");
-        if (false == id.endsWith(SUB_MENU_ID_SUFFIX)) {
+        if (false == id.endsWith(SpreadsheetElementIds.SUB_MENU)) {
             throw new IllegalArgumentException(
                     "Invalid subMenu id " +
                             CharSequences.quote(id) +
                             " missing " +
-                            CharSequences.quote(SUB_MENU_ID_SUFFIX)
+                            CharSequences.quote(SpreadsheetElementIds.SUB_MENU)
             );
         }
 
@@ -146,8 +147,6 @@ public final class SpreadsheetContextMenu implements TreePrintable {
                 this.context
         );
     }
-
-    private final static String SUB_MENU_ID_SUFFIX = "-SubMenu";
 
     /**
      * Adds a checked menu item, conditionally setting the check mark and conditional clearing/saving the value.
