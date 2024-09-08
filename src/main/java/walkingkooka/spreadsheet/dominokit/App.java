@@ -705,6 +705,13 @@ public class App implements EntryPoint,
 
     private final SpreadsheetExporterFetcherWatchers spreadsheetExporterFetcherWatchers;
 
+    @Override
+    public void onSpreadsheetExporterInfoSet(final SpreadsheetId id,
+                                             final SpreadsheetExporterInfoSet infos,
+                                             final AppContext context) {
+        // nop
+    }
+
     // ExpressionFunctionFetcher........................................................................................
 
     @Override
@@ -732,13 +739,6 @@ public class App implements EntryPoint,
     }
 
     private final ExpressionFunctionFetcherWatchers expressionFunctionFetcherWatchers;
-
-    @Override
-    public void onSpreadsheetExporterInfoSet(final SpreadsheetId id,
-                                             final SpreadsheetExporterInfoSet infos,
-                                             final AppContext context) {
-        // nop
-    }
 
     // SpreadsheetFormatterFetcher......................................................................................
 
