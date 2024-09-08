@@ -71,7 +71,10 @@ final class SpreadsheetSelectionMenuSort {
 
             final SpreadsheetContextMenu subMenu = menu.subMenu(
                     subMenuId + SpreadsheetElementIds.SUB_MENU,
-                    name.kebabToTitleCase()
+                    CaseKind.KEBAB.change(
+                            name.value(),
+                            CaseKind.TITLE
+                    )
             );
 
             final String upDownPrefixId = subMenuId + '-';

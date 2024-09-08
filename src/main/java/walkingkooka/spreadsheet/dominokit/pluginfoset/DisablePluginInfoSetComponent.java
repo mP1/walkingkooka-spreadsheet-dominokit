@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -105,15 +106,18 @@ public final class DisablePluginInfoSetComponent<N extends PluginNameLike<N>, I 
         return historyToken.link(
                 this.id + "disable-" + index
         ).setTextContent(
-                info.name()
-                        .kebabToTitleCase()
+                CaseKind.KEBAB.change(
+                        info.name()
+                                .value(),
+                        CaseKind.TITLE
+                )
         ).setHistoryToken(
-                        Optional.of(
-                                historyToken.setSave(
-                                        infos.text()
-                                )
+                Optional.of(
+                        historyToken.setSave(
+                                infos.text()
                         )
-                );
+                )
+        );
     }
 
     /**

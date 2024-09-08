@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHi
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
+import walkingkooka.text.CaseKind;
 
 import java.util.List;
 import java.util.Map;
@@ -117,7 +118,10 @@ final class SpreadsheetSelectionMenuFormatter {
 
             final SpreadsheetContextMenu nameMenu = menu.subMenu(
                     nameMenuId + SpreadsheetElementIds.SUB_MENU,
-                    name.kebabToTitleCase()
+                    CaseKind.KEBAB.change(
+                            name.value(),
+                            CaseKind.TITLE
+                    )
             );
 
             for (final SpreadsheetFormatterSelectorMenu spreadsheetFormatterSelectorMenu : nameAndMenus.getValue()) {
@@ -161,8 +165,11 @@ final class SpreadsheetSelectionMenuFormatter {
         int i = 0;
 
         for (final SpreadsheetFormatterSelector selector : selectors) {
-            final String label = selector.name()
-                    .kebabToTitleCase();
+            final String label = CaseKind.KEBAB.change(
+                    selector.name()
+                            .value(),
+                    CaseKind.TITLE
+            );
 
             final String text = selector.text();
 
