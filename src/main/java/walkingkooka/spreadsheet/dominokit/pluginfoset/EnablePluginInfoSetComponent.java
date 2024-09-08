@@ -58,7 +58,7 @@ public final class EnablePluginInfoSetComponent<N extends PluginNameLike<N>, I e
 
         this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle("Disable")
+                .setTitle("Enable")
                 .appendChild(this.flex);
     }
 
