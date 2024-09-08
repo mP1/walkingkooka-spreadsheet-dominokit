@@ -19,10 +19,10 @@ package walkingkooka.spreadsheet.dominokit.pluginfoset;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
+import walkingkooka.naming.Name;
 import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
-import walkingkooka.plugin.PluginNameLike;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
@@ -41,13 +41,13 @@ import java.util.stream.Collectors;
 /**
  * A component that contains a horizontal panel holding links of enabled {@link PluginInfoLike}.
  */
-public final class DisablePluginInfoSetComponent<N extends PluginNameLike<N>, I extends PluginInfoLike<I, N>, S extends PluginInfoSetLike<S, I, N>> implements HtmlElementComponent<HTMLDivElement, DisablePluginInfoSetComponent<N, I, S>>,
+public final class DisablePluginInfoSetComponent<N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, S extends PluginInfoSetLike<S, I, N>> implements HtmlElementComponent<HTMLDivElement, DisablePluginInfoSetComponent<N, I, S>>,
         TreePrintable {
 
     /**
      * Creates an empty {@link DisablePluginInfoSetComponent}.
      */
-    public static <N extends PluginNameLike<N>, I extends PluginInfoLike<I, N>, S extends PluginInfoSetLike<S, I, N>> DisablePluginInfoSetComponent<N, I, S> empty(final String id) {
+    public static <N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, S extends PluginInfoSetLike<S, I, N>> DisablePluginInfoSetComponent<N, I, S> empty(final String id) {
         return new DisablePluginInfoSetComponent<>(
                 CharSequences.failIfNullOrEmpty(id, "id")
         );
