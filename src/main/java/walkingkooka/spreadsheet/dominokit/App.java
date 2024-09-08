@@ -143,6 +143,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContexts;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviders;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
@@ -152,6 +153,7 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
+import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
@@ -187,6 +189,7 @@ public class App implements EntryPoint,
         SpreadsheetImporterFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         UncaughtExceptionHandler,
+        SpreadsheetParserFetcherWatcher,
         SpreadsheetProviderDelegator,
         SpreadsheetFormatterContextDelegator {
 
@@ -296,6 +299,7 @@ public class App implements EntryPoint,
                 this.spreadsheetParserFetcherWatchers,
                 this
         );
+        this.addSpreadsheetParserFetcherWatcher(this);
 
         this.providerContext = ProviderContexts.fake();
 
@@ -1002,6 +1006,20 @@ public class App implements EntryPoint,
     }
 
     private final SpreadsheetParserFetcherWatchers spreadsheetParserFetcherWatchers;
+
+    @Override
+    public void onSpreadsheetParserInfoSet(final SpreadsheetId id,
+                                           final SpreadsheetParserInfoSet infos,
+                                           final AppContext context) {
+        // nop
+    }
+
+    @Override
+    public void onSpreadsheetParserSelectorEdit(final SpreadsheetId id,
+                                                final SpreadsheetParserSelectorEdit edit,
+                                                final AppContext context) {
+        // nop
+    }
 
     // JsonNodeMarshallContext..........................................................................................
 
