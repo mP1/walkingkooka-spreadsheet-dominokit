@@ -474,7 +474,10 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetMetadataHistoryToken &&
                 false == token.isMetadataFormatter() &&
-                false == token.isMetadataParser(); // if editing formatter-selector or parser-selector
+                false == token.isMetadataParser() && // if editing formatter-selector or parser-selector
+                false == token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
+                        .propertyName()
+                        .isPlugin();
     }
 
     @Override
