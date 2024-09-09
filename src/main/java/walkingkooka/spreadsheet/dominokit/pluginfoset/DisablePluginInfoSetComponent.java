@@ -89,7 +89,7 @@ public final class DisablePluginInfoSetComponent<N extends Name & Comparable<N>,
             }
         }
 
-        if (false == enabledInfos.isEmpty()) {
+        if (i > 0) {
             this.root.show();
         }
     }
