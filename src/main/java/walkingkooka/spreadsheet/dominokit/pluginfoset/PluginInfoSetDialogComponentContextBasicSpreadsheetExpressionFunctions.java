@@ -62,7 +62,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctio
 
     @Override
     void loadPluginInfoSet0(final SpreadsheetId id) {
-        this.context.spreadsheetFormatterFetcher()
+        this.context.expressionFunctionFetcher()
                 .infoSet(id);
     }
 

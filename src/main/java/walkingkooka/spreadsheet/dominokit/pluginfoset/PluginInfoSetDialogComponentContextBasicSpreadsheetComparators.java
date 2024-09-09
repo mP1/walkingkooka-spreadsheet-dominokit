@@ -62,7 +62,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetComparators exten
 
     @Override
     void loadPluginInfoSet0(final SpreadsheetId id) {
-        this.context.spreadsheetFormatterFetcher()
+        this.context.spreadsheetComparatorFetcher()
                 .infoSet(id);
     }
 
