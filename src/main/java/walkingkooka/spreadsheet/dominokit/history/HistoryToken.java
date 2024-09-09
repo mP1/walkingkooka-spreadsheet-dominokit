@@ -1864,6 +1864,16 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * Returns true if a {@link SpreadsheetMetadataPropertyName#isPlugin()} property is being edited/viewed.
+     */
+    public final boolean isMetadataPlugin() {
+        return this instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
+                this.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
+                        .propertyName()
+                        .isPlugin();
+    }
+
+    /**
      * Would be setter, returning a {@link HistoryToken} with the given {@link SpreadsheetId} and {@link SpreadsheetName},
      * creating a new instance if necessary.
      */
