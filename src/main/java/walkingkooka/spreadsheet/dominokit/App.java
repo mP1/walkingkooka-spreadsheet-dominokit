@@ -537,10 +537,16 @@ public class App implements EntryPoint,
      * This event is fired when the right panel closes, such as when the user clicks away from it and the history token needs to be updated.
      */
     private void appLayoutRightPanelClosed() {
-        this.pushHistoryToken(
-                this.historyToken()
-                        .metadataHide()
-        );
+        final HistoryToken token = this.historyToken();
+
+        // HACK only hide metadata panel if NOT displaying a metadata editor dialog
+        if (false == token.isMetadataFormatter() &&
+                false == token.isMetadataParser() &&
+                false == token.isMetadataPlugin()) {
+            this.pushHistoryToken(
+                    token.metadataHide()
+            );
+        }
     }
 
     private void onWindowResize(final Integer width,

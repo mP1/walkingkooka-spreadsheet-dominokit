@@ -23,8 +23,10 @@ import org.dominokit.domino.ui.elements.TBodyElement;
 import org.dominokit.domino.ui.elements.TableElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
@@ -38,12 +40,17 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySty
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 
 import java.math.RoundingMode;
 import java.util.List;
@@ -124,6 +131,14 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
 
         items.add(this.timeFormatter());
         items.add(this.timeParser());
+
+        items.add(this.comparators());
+        items.add(this.converters());
+        items.add(this.exporters());
+        items.add(this.expressionFunctions());
+        items.add(this.formatters());
+        items.add(this.importers());
+        items.add(this.parsers());
 
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
@@ -354,6 +369,48 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector> timeParser() {
         return link(
                 SpreadsheetMetadataPropertyName.TIME_PARSER
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetComparatorInfoSet> comparators() {
+        return link(
+                SpreadsheetMetadataPropertyName.SPREADSHEET_COMPARATORS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<ConverterInfoSet> converters() {
+        return link(
+                SpreadsheetMetadataPropertyName.CONVERTERS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetExporterInfoSet> exporters() {
+        return link(
+                SpreadsheetMetadataPropertyName.SPREADSHEET_EXPORTERS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionInfoSet> expressionFunctions() {
+        return link(
+                SpreadsheetMetadataPropertyName.EXPRESSION_FUNCTIONS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterInfoSet> formatters() {
+        return link(
+                SpreadsheetMetadataPropertyName.SPREADSHEET_FORMATTERS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetImporterInfoSet> importers() {
+        return link(
+                SpreadsheetMetadataPropertyName.SPREADSHEET_IMPORTERS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserInfoSet> parsers() {
+        return link(
+                SpreadsheetMetadataPropertyName.SPREADSHEET_PARSERS
         );
     }
 
