@@ -62,7 +62,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetImporters extends
 
     @Override
     void loadPluginInfoSet0(final SpreadsheetId id) {
-        this.context.spreadsheetFormatterFetcher()
+        this.context.spreadsheetImporterFetcher()
                 .infoSet(id);
     }
 
