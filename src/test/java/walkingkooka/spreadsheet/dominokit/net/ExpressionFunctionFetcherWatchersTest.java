@@ -28,7 +28,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
 
 import java.util.Optional;
 
@@ -45,10 +44,7 @@ public final class ExpressionFunctionFetcherWatchersTest extends FetcherWatchers
         this.fired = 0;
 
         final SpreadsheetId id = SpreadsheetId.with(1);
-        final ExpressionFunctionInfoSet infos = ExpressionFunctionInfoSet.with(
-                ExpressionFunctionProviders.empty()
-                        .expressionFunctionInfos()
-        );
+        final ExpressionFunctionInfoSet infos = ExpressionFunctionInfoSet.EMPTY;
         final AppContext context = AppContexts.fake();
 
         final ExpressionFunctionFetcherWatchers watchers = ExpressionFunctionFetcherWatchers.empty();
@@ -79,10 +75,7 @@ public final class ExpressionFunctionFetcherWatchersTest extends FetcherWatchers
         this.fired = 0;
 
         final SpreadsheetId id = SpreadsheetId.with(1);
-        final ExpressionFunctionInfoSet infos = ExpressionFunctionInfoSet.with(
-                ExpressionFunctionProviders.empty()
-                        .expressionFunctionInfos()
-        );
+        final ExpressionFunctionInfoSet infos = ExpressionFunctionInfoSet.EMPTY;
         final AppContext context = AppContexts.fake();
 
         final ExpressionFunctionFetcherWatchers watchers = ExpressionFunctionFetcherWatchers.empty();

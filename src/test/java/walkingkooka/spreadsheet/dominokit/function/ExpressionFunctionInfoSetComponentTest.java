@@ -28,9 +28,7 @@ public final class ExpressionFunctionInfoSetComponentTest implements ClassTestin
 
     @Test
     public void testParseAndText() {
-        final ExpressionFunctionInfoSet infos = ExpressionFunctionInfoSet.with(
-                EXPRESSION_FUNCTION_PROVIDER.expressionFunctionInfos()
-        );
+        final ExpressionFunctionInfoSet infos = EXPRESSION_FUNCTION_PROVIDER.expressionFunctionInfos();
 
         this.checkEquals(
                 infos,
