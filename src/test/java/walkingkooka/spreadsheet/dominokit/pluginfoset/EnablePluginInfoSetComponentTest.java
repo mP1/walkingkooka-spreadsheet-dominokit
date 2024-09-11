@@ -50,9 +50,7 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
 
         final EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet> component = EnablePluginInfoSetComponent.empty("base-id-123-");
         component.refresh(
-                SpreadsheetFormatterInfoSet.with(
-                        Sets.empty()
-                ), // enabled
+                SpreadsheetFormatterInfoSet.EMPTY, // enabled
                 SpreadsheetFormatterInfoSet.with(
                         Sets.of(
                                 info1,

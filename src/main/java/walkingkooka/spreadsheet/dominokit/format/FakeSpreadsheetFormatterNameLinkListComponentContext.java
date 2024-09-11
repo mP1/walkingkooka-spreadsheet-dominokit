@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderSamplesContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorToken;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 public class FakeSpreadsheetFormatterNameLinkListComponentContext extends FakeHistoryTokenContext
         implements SpreadsheetFormatterNameLinkListComponentContext {
@@ -64,7 +63,7 @@ public class FakeSpreadsheetFormatterNameLinkListComponentContext extends FakeHi
     }
 
     @Override
-    public Set<SpreadsheetFormatterInfo> spreadsheetFormatterInfos() {
+    public SpreadsheetFormatterInfoSet spreadsheetFormatterInfos() {
         throw new UnsupportedOperationException();
     }
 }
