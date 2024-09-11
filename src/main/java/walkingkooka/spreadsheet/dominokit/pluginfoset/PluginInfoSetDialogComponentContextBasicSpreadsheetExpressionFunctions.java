@@ -111,8 +111,6 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctio
 
     @Override
     public ExpressionFunctionInfoSet providerInfoSet() {
-        return ExpressionFunctionInfoSet.with(
-                this.context.expressionFunctionInfos()
-        );
+        return this.context.expressionFunctionInfos();
     }
 }
