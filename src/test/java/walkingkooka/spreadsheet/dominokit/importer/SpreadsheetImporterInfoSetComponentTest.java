@@ -27,10 +27,8 @@ public final class SpreadsheetImporterInfoSetComponentTest implements ClassTesti
 
     @Test
     public void testParseAndText() {
-        final SpreadsheetImporterInfoSet infos = SpreadsheetImporterInfoSet.with(
-                SpreadsheetImporterProviders.spreadsheetImport()
-                        .spreadsheetImporterInfos()
-        );
+        final SpreadsheetImporterInfoSet infos = SpreadsheetImporterProviders.spreadsheetImport()
+                .spreadsheetImporterInfos();
 
         this.checkEquals(
                 infos,
