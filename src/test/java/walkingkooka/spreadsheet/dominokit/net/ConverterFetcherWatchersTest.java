@@ -45,10 +45,8 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
         this.fired = 0;
 
         final SpreadsheetId id = SpreadsheetId.with(1);
-        final ConverterInfoSet infos = ConverterInfoSet.with(
-                ConverterProviders.empty()
-                        .converterInfos()
-        );
+        final ConverterInfoSet infos = ConverterProviders.empty()
+                .converterInfos();
         final AppContext context = AppContexts.fake();
 
         final ConverterFetcherWatchers watchers = ConverterFetcherWatchers.empty();
@@ -79,10 +77,7 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
         this.fired = 0;
 
         final SpreadsheetId id = SpreadsheetId.with(1);
-        final ConverterInfoSet infos = ConverterInfoSet.with(
-                ConverterProviders.empty()
-                        .converterInfos()
-        );
+        final ConverterInfoSet infos = ConverterInfoSet.EMPTY;
         final AppContext context = AppContexts.fake();
 
         final ConverterFetcherWatchers watchers = ConverterFetcherWatchers.empty();

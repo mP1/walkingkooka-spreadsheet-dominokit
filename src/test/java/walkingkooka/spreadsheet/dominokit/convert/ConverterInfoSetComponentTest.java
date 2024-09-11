@@ -27,10 +27,8 @@ public final class ConverterInfoSetComponentTest implements ClassTesting2<Conver
 
     @Test
     public void testParseAndText() {
-        final ConverterInfoSet infos = ConverterInfoSet.with(
-                ConverterProviders.converters()
-                        .converterInfos()
-        );
+        final ConverterInfoSet infos = ConverterProviders.converters()
+                .converterInfos();
 
         this.checkEquals(
                 infos,
