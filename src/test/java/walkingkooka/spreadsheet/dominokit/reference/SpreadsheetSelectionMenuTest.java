@@ -26,7 +26,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnHistoryToken;
@@ -2075,7 +2075,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             }
 
             @Override
-            public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
+            public SpreadsheetComparatorInfoSet spreadsheetComparatorInfos() {
                 return SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparatorInfos();
             }
         };

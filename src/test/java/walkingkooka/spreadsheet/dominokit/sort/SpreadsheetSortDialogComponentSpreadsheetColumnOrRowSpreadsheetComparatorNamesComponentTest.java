@@ -24,6 +24,7 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
@@ -31,7 +32,6 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Arrays;
 import java.util.Optional;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -534,19 +534,21 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                     }
 
                     @Override
-                    public Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos() {
-                        return Sets.of(
-                                SpreadsheetComparatorInfo.with(
-                                        Url.parseAbsolute("https://example.com/comparator-1"),
-                                        SpreadsheetComparatorName.with("comparator-1")
-                                ),
-                                SpreadsheetComparatorInfo.with(
-                                        Url.parseAbsolute("https://example.com/comparator-2"),
-                                        SpreadsheetComparatorName.with("comparator-2")
-                                ),
-                                SpreadsheetComparatorInfo.with(
-                                        Url.parseAbsolute("https://example.com/comparator-3"),
-                                        SpreadsheetComparatorName.with("comparator-3")
+                    public SpreadsheetComparatorInfoSet spreadsheetComparatorInfos() {
+                        return SpreadsheetComparatorInfoSet.with(
+                                Sets.of(
+                                        SpreadsheetComparatorInfo.with(
+                                                Url.parseAbsolute("https://example.com/comparator-1"),
+                                                SpreadsheetComparatorName.with("comparator-1")
+                                        ),
+                                        SpreadsheetComparatorInfo.with(
+                                                Url.parseAbsolute("https://example.com/comparator-2"),
+                                                SpreadsheetComparatorName.with("comparator-2")
+                                        ),
+                                        SpreadsheetComparatorInfo.with(
+                                                Url.parseAbsolute("https://example.com/comparator-3"),
+                                                SpreadsheetComparatorName.with("comparator-3")
+                                        )
                                 )
                         );
                     }
