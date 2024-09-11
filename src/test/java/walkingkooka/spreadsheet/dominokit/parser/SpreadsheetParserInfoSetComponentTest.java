@@ -28,9 +28,7 @@ public final class SpreadsheetParserInfoSetComponentTest implements ClassTesting
 
     @Test
     public void testParseAndText() {
-        final SpreadsheetParserInfoSet infos = SpreadsheetParserInfoSet.with(
-                SPREADSHEET_PARSER_PROVIDER.spreadsheetParserInfos()
-        );
+        final SpreadsheetParserInfoSet infos = SPREADSHEET_PARSER_PROVIDER.spreadsheetParserInfos();
 
         this.checkEquals(
                 infos,

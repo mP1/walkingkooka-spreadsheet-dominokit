@@ -119,8 +119,6 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetParsers extends P
 
     @Override
     public SpreadsheetParserInfoSet providerInfoSet() {
-        return SpreadsheetParserInfoSet.with(
-                this.context.spreadsheetParserInfos()
-        );
+        return this.context.spreadsheetParserInfos();
     }
 }
