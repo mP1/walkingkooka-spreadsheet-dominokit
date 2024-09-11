@@ -21,14 +21,13 @@ import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorToken;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 public class FakeSpreadsheetParserNameLinkListComponentContext extends FakeHistoryTokenContext
         implements SpreadsheetParserNameLinkListComponentContext {
@@ -62,7 +61,7 @@ public class FakeSpreadsheetParserNameLinkListComponentContext extends FakeHisto
     }
 
     @Override
-    public Set<SpreadsheetParserInfo> spreadsheetParserInfos() {
+    public SpreadsheetParserInfoSet spreadsheetParserInfos() {
         throw new UnsupportedOperationException();
     }
 }

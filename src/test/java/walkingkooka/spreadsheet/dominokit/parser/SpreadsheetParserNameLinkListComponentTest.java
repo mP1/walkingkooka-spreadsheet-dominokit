@@ -24,13 +24,12 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
-import java.util.Set;
 
 public class SpreadsheetParserNameLinkListComponentTest implements ClassTesting<SpreadsheetParserNameLinkListComponent>,
         TreePrintableTesting,
@@ -80,7 +79,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements ClassTesting<
         parsers.refresh(
                 new FakeSpreadsheetParserNameLinkListComponentContext() {
                     @Override
-                    public Set<SpreadsheetParserInfo> spreadsheetParserInfos() {
+                    public SpreadsheetParserInfoSet spreadsheetParserInfos() {
                         return SPREADSHEET_PARSER_PROVIDER.spreadsheetParserInfos();
                     }
 

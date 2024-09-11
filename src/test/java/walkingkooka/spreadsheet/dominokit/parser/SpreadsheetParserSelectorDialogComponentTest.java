@@ -49,7 +49,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorToken;
@@ -63,7 +63,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
-import java.util.Set;
 
 public final class SpreadsheetParserSelectorDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetParserSelectorDialogComponent>,
         HistoryTokenTesting,
@@ -1304,7 +1303,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
             }
 
             @Override
-            public Set<SpreadsheetParserInfo> spreadsheetParserInfos() {
+            public SpreadsheetParserInfoSet spreadsheetParserInfos() {
                 return SPREADSHEET_PARSER_PROVIDER.spreadsheetParserInfos();
             }
 
