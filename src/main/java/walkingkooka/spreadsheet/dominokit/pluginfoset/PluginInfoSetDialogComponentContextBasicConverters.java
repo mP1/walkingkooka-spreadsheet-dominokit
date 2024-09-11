@@ -111,8 +111,6 @@ final class PluginInfoSetDialogComponentContextBasicConverters extends PluginInf
 
     @Override
     public ConverterInfoSet providerInfoSet() {
-        return ConverterInfoSet.with(
-                this.context.converterInfos()
-        );
+        return this.context.converterInfos();
     }
 }
