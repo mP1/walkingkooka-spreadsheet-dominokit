@@ -41,7 +41,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderSamplesContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
@@ -62,7 +62,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
-import java.util.Set;
 
 public final class SpreadsheetFormatterSelectorDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetFormatterSelectorDialogComponent>,
         HistoryTokenTesting,
@@ -1724,7 +1723,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             // SpreadsheetFormatterProvider.............................................................................
 
             @Override
-            public Set<SpreadsheetFormatterInfo> spreadsheetFormatterInfos() {
+            public SpreadsheetFormatterInfoSet spreadsheetFormatterInfos() {
                 return SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterInfos();
             }
         };

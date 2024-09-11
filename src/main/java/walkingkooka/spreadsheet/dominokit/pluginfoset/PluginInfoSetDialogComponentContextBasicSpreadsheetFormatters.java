@@ -58,7 +58,8 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters extend
         return SpreadsheetMetadataPropertyName.SPREADSHEET_FORMATTERS;
     }
 
-    @Override public SpreadsheetFormatterInfoSet emptyInfoSet() {
+    @Override
+    public SpreadsheetFormatterInfoSet emptyInfoSet() {
         return SpreadsheetFormatterInfoSet.EMPTY;
     }
 
@@ -127,8 +128,6 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters extend
 
     @Override
     public SpreadsheetFormatterInfoSet providerInfoSet() {
-        return SpreadsheetFormatterInfoSet.with(
-                this.context.spreadsheetFormatterInfos()
-        );
+        return this.context.spreadsheetFormatterInfos();
     }
 }

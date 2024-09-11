@@ -23,14 +23,13 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
-import java.util.Set;
 
 public class SpreadsheetFormatterNameLinkListComponentTest implements ClassTesting<SpreadsheetFormatterNameLinkListComponent>,
         TreePrintableTesting,
@@ -90,7 +89,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements ClassTesti
         formatters.refresh(
                 new FakeSpreadsheetFormatterNameLinkListComponentContext() {
                     @Override
-                    public Set<SpreadsheetFormatterInfo> spreadsheetFormatterInfos() {
+                    public SpreadsheetFormatterInfoSet spreadsheetFormatterInfos() {
                         return SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterInfos();
                     }
 

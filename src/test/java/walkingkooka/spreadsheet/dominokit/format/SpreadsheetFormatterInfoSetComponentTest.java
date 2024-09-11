@@ -27,10 +27,8 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements ClassTest
 
     @Test
     public void testParseAndText() {
-        final SpreadsheetFormatterInfoSet infos = SpreadsheetFormatterInfoSet.with(
-                SpreadsheetFormatterProviders.spreadsheetFormatPattern()
-                        .spreadsheetFormatterInfos()
-        );
+        final SpreadsheetFormatterInfoSet infos = SpreadsheetFormatterProviders.spreadsheetFormatPattern()
+                .spreadsheetFormatterInfos();
 
         this.checkEquals(
                 infos,

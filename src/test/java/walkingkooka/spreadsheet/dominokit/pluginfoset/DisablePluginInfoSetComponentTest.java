@@ -50,9 +50,7 @@ public final class DisablePluginInfoSetComponentTest implements ClassTesting<Dis
 
         final DisablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet> component = DisablePluginInfoSetComponent.empty("base-id-123-");
         component.refresh(
-                SpreadsheetFormatterInfoSet.with(
-                        Sets.empty()
-                ), // enabled
+                SpreadsheetFormatterInfoSet.EMPTY, // enabled
                 SpreadsheetFormatterInfoSet.with(
                         Sets.of(
                                 info1,
