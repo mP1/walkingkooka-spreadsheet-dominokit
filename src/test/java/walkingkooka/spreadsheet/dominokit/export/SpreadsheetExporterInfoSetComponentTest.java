@@ -27,10 +27,8 @@ public final class SpreadsheetExporterInfoSetComponentTest implements ClassTesti
 
     @Test
     public void testParseAndText() {
-        final SpreadsheetExporterInfoSet infos = SpreadsheetExporterInfoSet.with(
-                SpreadsheetExporterProviders.spreadsheetExport()
-                        .spreadsheetExporterInfos()
-        );
+        final SpreadsheetExporterInfoSet infos = SpreadsheetExporterProviders.spreadsheetExport()
+                .spreadsheetExporterInfos();
 
         this.checkEquals(
                 infos,
