@@ -111,8 +111,6 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetExporters extends
 
     @Override
     public SpreadsheetExporterInfoSet providerInfoSet() {
-        return SpreadsheetExporterInfoSet.with(
-                this.context.spreadsheetExporterInfos()
-        );
+        return this.context.spreadsheetExporterInfos();
     }
 }
