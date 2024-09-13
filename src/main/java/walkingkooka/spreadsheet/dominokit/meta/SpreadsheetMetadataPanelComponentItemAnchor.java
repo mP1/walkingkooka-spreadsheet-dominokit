@@ -74,7 +74,12 @@ final class SpreadsheetMetadataPanelComponentItemAnchor<T> extends SpreadsheetMe
 
     @Override
     public void refresh(final AppContext context) {
-        // anchor is never refreshed. Assumes the panel will be recreated when the SpreadsheetId changes.
+        this.anchor.setHistoryToken(
+                Optional.of(
+                        context.historyToken()
+                                .setMetadataPropertyName(this.propertyName)
+                )
+        );
     }
 
     // isElement........................................................................................................
