@@ -1209,7 +1209,7 @@ public class App implements EntryPoint,
     }
 
     /**
-     * This will be updated every time anytime a new {@link SpreadsheetMetadata} or any of its component are recieved by
+     * This will be updated every time anytime a new {@link SpreadsheetMetadata} or any of its component are received by
      * a onXXX watcher method.
      */
     private SpreadsheetProvider spreadsheetProvider;
