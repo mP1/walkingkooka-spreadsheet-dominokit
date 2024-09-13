@@ -931,19 +931,7 @@ public class App implements EntryPoint,
             final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
             this.spreadsheetMetadata = metadata;
 
-            final SpreadsheetProvider spreadsheetProvider = this.refreshSpreadsheetProvider();
-
-            this.formatterContext = metadata.formatterContext(
-                    spreadsheetProvider,// ConverterProvider
-                    spreadsheetProvider, // SpreadsheetFormatterProvider
-                    () -> this.now(), // not sure why but method ref fails.
-                    this.viewportCache, // SpreadsheetLabelNameResolver
-                    this // ProviderContext
-            );
-
-            this.parserContext = metadata.parserContext(
-                    () -> this.now() // not sure why but method ref fails.
-            );
+            this.refreshSpreadsheetProvider();
 
             // update the global JsonNodeUnmarshallContext.
             this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
@@ -1130,7 +1118,7 @@ public class App implements EntryPoint,
         return this.spreadsheetProvider;
     }
 
-    private SpreadsheetProvider refreshSpreadsheetProvider() {
+    private void refreshSpreadsheetProvider() {
         final SpreadsheetMetadata metadata = this.spreadsheetMetadata();
 
         final SpreadsheetComparatorProvider spreadsheetComparatorProvider = metadata.spreadsheetComparatorProvider(
@@ -1184,7 +1172,7 @@ public class App implements EntryPoint,
                 )
         );
 
-        this.spreadsheetProvider = metadata.spreadsheetProvider(
+        final SpreadsheetProvider spreadsheetProvider = metadata.spreadsheetProvider(
                 SpreadsheetProviders.basic(
                         converterProvider,
                         expressionFunctionProvider,
@@ -1195,8 +1183,29 @@ public class App implements EntryPoint,
                         spreadsheetParserProvider
                 )
         );
+        this.spreadsheetProvider = spreadsheetProvider;
 
-        return this.spreadsheetProvider;
+        try {
+            this.formatterContext = metadata.formatterContext(
+                    spreadsheetProvider,// ConverterProvider
+                    spreadsheetProvider, // SpreadsheetFormatterProvider
+                    () -> this.now(), // not sure why but method ref fails.
+                    this.viewportCache, // SpreadsheetLabelNameResolver
+                    this // ProviderContext
+            );
+        } catch (final RuntimeException cause) {
+            this.error("Failed to create SpreadsheetFormatterContext=" + cause.getMessage(), cause.getCause());
+            this.formatterContext = SpreadsheetFormatterContexts.fake();
+        }
+
+        try {
+            this.parserContext = metadata.parserContext(
+                    () -> this.now() // not sure why but method ref fails.
+            );
+        } catch (final RuntimeException cause) {
+            this.error("Failed to create SpreadsheetParserContext=" + cause.getMessage(), cause.getCause());
+            this.parserContext = SpreadsheetParserContexts.fake();
+        }
     }
 
     /**
