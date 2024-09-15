@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
+import walkingkooka.Cast;
 import walkingkooka.Context;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
@@ -33,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -230,8 +232,23 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     @Override
     public void openGiveFocus(final AppContext context) {
-        this.label.clearValue();
-        this.target.clearValue();
+        try {
+            final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
+                    .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
+            this.label.setValue(
+                    token.labelName()
+            );
+            this.target.setValue(
+                    Cast.to(
+                            token.anchoredSelectionOrEmpty()
+                                    .map(AnchoredSpreadsheetSelection::selection)
+                    )
+            );
+
+        } catch (final RuntimeException ignore) {
+            this.label.clearValue();
+            this.target.clearValue();
+        }
 
         context.giveFocus(
                 this.label::focus
