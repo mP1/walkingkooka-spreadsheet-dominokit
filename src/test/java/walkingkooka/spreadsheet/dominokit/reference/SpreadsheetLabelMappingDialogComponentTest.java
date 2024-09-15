@@ -70,8 +70,8 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
     }
 
     @Test
-    public void testAfterLabelSaved() {
-        final AppContext context = appContext("/1/SpreadsheetName111/label/Label999");
+    public void testCreateWithoutLabelAndSaved() {
+        final AppContext context = appContext("/1/SpreadsheetName111/label");
 
         final SpreadsheetLabelMappingDialogComponent dialog = this.dialog(
                 spreadsheetListComponentContext(context)
@@ -140,6 +140,77 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                         "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
                         "          \"Undo\" [#/1/SpreadsheetName111/label/SavedLabel123/save/C3] id=labelMapping-undo-Link\n" +
                         "          \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
+                        "          \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testCreateWithLabelAndSaved() {
+        final AppContext context = appContext("/1/SpreadsheetName111/label/Label999");
+
+        final SpreadsheetLabelMappingDialogComponent dialog = this.dialog(
+                spreadsheetListComponentContext(context)
+        );
+
+        // initially empty
+        this.onHistoryTokenChangeAndCheck(
+                dialog,
+                context,
+                "SpreadsheetLabelMappingDialogComponent\n" +
+                        "  SpreadsheetDialogComponent\n" +
+                        "    Label\n" +
+                        "    id=labelMapping includeClose=true\n" +
+                        "      SpreadsheetLabelComponent\n" +
+                        "        SpreadsheetSuggestBoxComponent\n" +
+                        "          Label [Label999] id=labelMapping-label-TextBox REQUIRED\n" +
+                        "      SpreadsheetExpressionReferenceComponent\n" +
+                        "        ValueSpreadsheetTextBox\n" +
+                        "          SpreadsheetTextBox\n" +
+                        "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
+                        "            Errors\n" +
+                        "              text is empty\n" +
+                        "      SpreadsheetFlexLayout\n" +
+                        "        ROW\n" +
+                        "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
+                        "          \"Undo\" [#/1/SpreadsheetName111/label] id=labelMapping-undo-Link\n" +
+                        "          \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
+                        "          \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
+        );
+
+        dialog.onSpreadsheetDelta(
+                HttpMethod.GET,
+                Url.parseAbsolute("https://example.com/api/spreadsheet/1/label"),
+                SpreadsheetDelta.EMPTY.setLabels(
+                        Sets.of(
+                                SpreadsheetSelection.labelName("SavedLabel123")
+                                        .mapping(SpreadsheetSelection.parseCell("C3"))
+                        )
+                ),
+                context
+        );
+
+        // refresh again ! for now label and expression reference are not updated from the SAVE response
+        this.onHistoryTokenChangeAndCheck(
+                dialog,
+                context,
+                "SpreadsheetLabelMappingDialogComponent\n" +
+                        "  SpreadsheetDialogComponent\n" +
+                        "    Label\n" +
+                        "    id=labelMapping includeClose=true\n" +
+                        "      SpreadsheetLabelComponent\n" +
+                        "        SpreadsheetSuggestBoxComponent\n" +
+                        "          Label [Label999] id=labelMapping-label-TextBox REQUIRED\n" +
+                        "      SpreadsheetExpressionReferenceComponent\n" +
+                        "        ValueSpreadsheetTextBox\n" +
+                        "          SpreadsheetTextBox\n" +
+                        "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
+                        "            Errors\n" +
+                        "              text is empty\n" +
+                        "      SpreadsheetFlexLayout\n" +
+                        "        ROW\n" +
+                        "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
+                        "          \"Undo\" [#/1/SpreadsheetName111/label/SavedLabel123/save/C3] id=labelMapping-undo-Link\n" +
+                        "          \"Delete\" [#/1/SpreadsheetName111/label/Label999/delete] id=labelMapping-delete-Link\n" +
                         "          \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
         );
     }
