@@ -104,18 +104,6 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                         "          \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
         );
 
-        dialog.onSpreadsheetDelta(
-                HttpMethod.GET,
-                Url.parseAbsolute("https://example.com/api/spreadsheet/1/label"),
-                SpreadsheetDelta.EMPTY.setLabels(
-                        Sets.of(
-                                SpreadsheetSelection.labelName("SavedLabel123")
-                                        .mapping(SpreadsheetSelection.parseCell("C3"))
-                        )
-                ),
-                context
-        );
-
         // refresh again ! for now label and expression reference are not updated from the SAVE response
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -138,7 +126,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
-                        "          \"Undo\" [#/1/SpreadsheetName111/label/SavedLabel123/save/C3] id=labelMapping-undo-Link\n" +
+                        "          \"Undo\" [#/1/SpreadsheetName111/label] id=labelMapping-undo-Link\n" +
                         "          \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
                         "          \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
         );
@@ -182,7 +170,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 Url.parseAbsolute("https://example.com/api/spreadsheet/1/label"),
                 SpreadsheetDelta.EMPTY.setLabels(
                         Sets.of(
-                                SpreadsheetSelection.labelName("SavedLabel123")
+                                SpreadsheetSelection.labelName("LoadedLabel123")
                                         .mapping(SpreadsheetSelection.parseCell("C3"))
                         )
                 ),
@@ -199,18 +187,16 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                         "    id=labelMapping includeClose=true\n" +
                         "      SpreadsheetLabelComponent\n" +
                         "        SpreadsheetSuggestBoxComponent\n" +
-                        "          Label [Label999] id=labelMapping-label-TextBox REQUIRED\n" +
+                        "          Label [LoadedLabel123] id=labelMapping-label-TextBox REQUIRED\n" +
                         "      SpreadsheetExpressionReferenceComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
-                        "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
-                        "            Errors\n" +
-                        "              text is empty\n" +
+                        "            Cell, cell range or Label [C3] id=labelMapping-target-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
-                        "          \"Undo\" [#/1/SpreadsheetName111/label/SavedLabel123/save/C3] id=labelMapping-undo-Link\n" +
-                        "          \"Delete\" [#/1/SpreadsheetName111/label/Label999/delete] id=labelMapping-delete-Link\n" +
+                        "          \"Save\" [#/1/SpreadsheetName111/label/LoadedLabel123/save/C3] id=labelMapping-save-Link\n" +
+                        "          \"Undo\" [#/1/SpreadsheetName111/label/LoadedLabel123/save/C3] id=labelMapping-undo-Link\n" +
+                        "          \"Delete\" [#/1/SpreadsheetName111/label/LoadedLabel123/delete] id=labelMapping-delete-Link\n" +
                         "          \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
         );
     }
@@ -260,6 +246,11 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                         SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
                         SpreadsheetName.with("SpreadsheetName111")
                 );
+            }
+
+            @Override
+            public void error(final Object... values) {
+                // load label is expected to fail and cause an error
             }
         };
     }
