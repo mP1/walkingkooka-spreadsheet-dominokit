@@ -232,6 +232,8 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     @Override
     public void openGiveFocus(final AppContext context) {
+        boolean loadLabel = false;
+
         try {
             final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
                     .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
@@ -244,11 +246,17 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                                     .map(AnchoredSpreadsheetSelection::selection)
                     )
             );
-
+            loadLabel = token.labelName()
+                    .isPresent();
         } catch (final RuntimeException ignore) {
             this.label.clearValue();
             this.target.clearValue();
+
+            loadLabel = false;
         }
+
+        this.loadLabel = loadLabel;
+        this.loaded = null;
 
         context.giveFocus(
                 this.label::focus
@@ -264,11 +272,12 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     }
 
     private void refreshLinksAndLoadLabels() {
+        this.refreshLabelAndTarget();
         this.refreshSave();
         this.refreshUndo();
         this.refreshDelete();
 
-        loadLabelIfNecessary();
+        this.loadLabelIfNecessary();
     }
 
     private void loadLabelIfNecessary() {
@@ -295,6 +304,23 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private boolean loadLabel;
 
+    private void refreshLabelAndTarget() {
+        final SpreadsheetLabelMapping loaded = this.loaded;
+
+        if (null != loaded) {
+            this.loaded = null;
+
+            this.label.setValue(
+                    Optional.of(loaded.label())
+            );
+            this.target.setValue(
+                    Optional.of(loaded.target())
+            );
+        }
+    }
+
+    private SpreadsheetLabelMapping loaded;
+
     // SpreadsheetDeltaFetcherWatcher...................................................................................
 
     @Override
@@ -319,6 +345,8 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                         undoTarget = Optional.of(
                                 mapping.target()
                         );
+
+                        this.loaded = mapping;
                         break;
                     default:
                         undoLabel = Optional.empty();
