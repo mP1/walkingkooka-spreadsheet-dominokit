@@ -43,8 +43,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetImporterFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetImporterFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcher;
@@ -206,22 +204,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
         throw new UnsupportedOperationException();
     }
 
-    // SpreadsheetLabelWatcher..........................................................................................
-
-    @Override
-    public Runnable addSpreadsheetLabelFetcherWatcher(final SpreadsheetLabelFetcherWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Runnable addSpreadsheetLabelFetcherWatcherOnce(final SpreadsheetLabelFetcherWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetLabelFetcher spreadsheetLabelFetcher() {
-        throw new UnsupportedOperationException();
-    }
+    // SpreadsheetMetadataWatcher.......................................................................................
 
     @Override
     public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
