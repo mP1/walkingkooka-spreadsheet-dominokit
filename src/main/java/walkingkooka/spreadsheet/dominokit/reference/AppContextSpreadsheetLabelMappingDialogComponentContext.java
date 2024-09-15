@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
@@ -45,14 +45,14 @@ final class AppContextSpreadsheetLabelMappingDialogComponentContext implements S
     }
 
     @Override
-    public void addLabelMappingWatcher(final SpreadsheetLabelFetcherWatcher watcher) {
-        this.context.addSpreadsheetLabelFetcherWatcher(watcher);
+    public void addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+        this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
     }
 
     @Override
     public void loadLabel(final SpreadsheetLabelName name) {
         final AppContext context = this.context;
-        context.spreadsheetLabelFetcher()
+        context.spreadsheetDeltaFetcher()
                 .loadLabelMapping(
                         context.historyToken()
                                 .cast(SpreadsheetIdHistoryToken.class)

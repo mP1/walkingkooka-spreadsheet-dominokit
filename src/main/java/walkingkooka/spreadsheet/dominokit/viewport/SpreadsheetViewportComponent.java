@@ -71,7 +71,6 @@ import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopSpreadsheetFormatterInfoSetFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
@@ -87,7 +86,6 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
@@ -115,7 +113,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         SpreadsheetDeltaFetcherWatcher,
         SpreadsheetFormatterFetcherWatcher,
         NopSpreadsheetFormatterInfoSetFetcherWatcher,
-        SpreadsheetLabelFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         ComponentLifecycle,
         SpreadsheetViewportComponentLifecycle,
@@ -190,7 +187,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         // SpreadsheetViewportComponent#addHistoryTokenWatcher must happen after recent HistoryTokenWatchers
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetFormatterFetcherWatcher(this);
-        context.addSpreadsheetLabelFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
     }
@@ -1283,18 +1279,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                                                        final AppContext context) {
         this.spreadsheetFormatterSelectorMenus = menus;
         this.refresh(context);
-    }
-
-    // SpreadsheetLabelFetcherWatcher...................................................................................
-
-    /**
-     * Any label mapping change should refresh the viewport cells.
-     */
-    @Override
-    public void onSpreadsheetLabelMapping(final SpreadsheetId id,
-                                          final Optional<SpreadsheetLabelMapping> mapping,
-                                          final AppContext context) {
-        this.reload = true; // force a viewport reload.
     }
 
     // metadata.........................................................................................................

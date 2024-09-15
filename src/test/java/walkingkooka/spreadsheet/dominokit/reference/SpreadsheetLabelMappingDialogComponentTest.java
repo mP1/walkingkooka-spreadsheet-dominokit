@@ -18,6 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.set.Sets;
+import walkingkooka.net.Url;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -26,14 +29,14 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Locale;
-import java.util.Optional;
 
 public final class SpreadsheetLabelMappingDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetLabelMappingDialogComponent> {
 
@@ -101,11 +104,14 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                         "          \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
         );
 
-        dialog.onSpreadsheetLabelMapping(
-                SpreadsheetId.with(1), // id
-                Optional.of(
-                        SpreadsheetSelection.labelName("SavedLabel123")
-                                .mapping(SpreadsheetSelection.parseCell("C3"))
+        dialog.onSpreadsheetDelta(
+                HttpMethod.GET,
+                Url.parseAbsolute("https://example.com/api/spreadsheet/1/label"),
+                SpreadsheetDelta.EMPTY.setLabels(
+                        Sets.of(
+                                SpreadsheetSelection.labelName("SavedLabel123")
+                                        .mapping(SpreadsheetSelection.parseCell("C3"))
+                        )
                 ),
                 context
         );
@@ -150,7 +156,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
         return new FakeAppContext() {
 
             @Override
-            public Runnable addSpreadsheetLabelFetcherWatcher(final SpreadsheetLabelFetcherWatcher watcher) {
+            public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
                 return null;
             }
 

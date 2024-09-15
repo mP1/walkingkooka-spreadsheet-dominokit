@@ -18,7 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.Context;
-import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
@@ -30,13 +31,15 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistory
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetLabelFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * A model dialog with several textboxes that allow creation, editing, saving and deletion of a {@link SpreadsheetLabelMapping}.
@@ -45,7 +48,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopEmptyResponseFetcherWatcher,
-        SpreadsheetLabelFetcherWatcher {
+        SpreadsheetDeltaFetcherWatcher {
 
     /**
      * Creates a new {@link SpreadsheetLabelMappingDialogComponent}.
@@ -69,7 +72,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
-        context.addLabelMappingWatcher(this);
+        context.addSpreadsheetDeltaFetcherWatcher(this);
 
         this.undoLabel = Optional.empty();
         this.undoTarget = Optional.empty();
@@ -275,15 +278,46 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private boolean loadLabel;
 
-    // SpreadsheetLabelFetcherWatcher...................................................................................
+    // SpreadsheetDeltaFetcherWatcher...................................................................................
 
     @Override
-    public void onSpreadsheetLabelMapping(final SpreadsheetId id,
-                                          final Optional<SpreadsheetLabelMapping> mapping,
-                                          final AppContext context) {
-        this.undoLabel = mapping.map(SpreadsheetLabelMapping::label);
-        this.undoTarget = mapping.map(SpreadsheetLabelMapping::target);
-        this.refreshLinksAndLoadLabels();
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
+                                   final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        if (this.isOpen()) {
+            final Optional<SpreadsheetLabelName> undoLabel;
+            final Optional<SpreadsheetExpressionReference> undoTarget;
+
+            if (HttpMethod.GET.equals(method) || HttpMethod.POST.equals(method)) {
+                final Set<SpreadsheetLabelMapping> mappings = delta.labels();
+                switch (mappings.size()) {
+                    case 1:
+                        final SpreadsheetLabelMapping mapping = mappings.iterator()
+                                .next();
+
+                        undoLabel = Optional.of(
+                                mapping.label()
+                        );
+                        undoTarget = Optional.of(
+                                mapping.target()
+                        );
+                        break;
+                    default:
+                        undoLabel = Optional.empty();
+                        undoTarget = Optional.empty();
+                        break;
+                }
+            } else {
+                undoLabel = Optional.empty();
+                undoTarget = Optional.empty();
+            }
+
+            this.undoLabel = undoLabel;
+            this.undoTarget = undoTarget;
+
+            this.refreshLinksAndLoadLabels();
+        }
     }
 
     // Object..........................................................................................................

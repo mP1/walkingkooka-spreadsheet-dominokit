@@ -41,7 +41,6 @@ import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetExporterFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetImporterFetcher;
-import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetLabelFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetParserFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
@@ -77,7 +76,6 @@ public interface AppContext extends CanGiveFocus,
         HasExpressionFunctionFetcher,
         HasSpreadsheetFormatterFetcher,
         HasSpreadsheetImporterFetcher,
-        HasSpreadsheetLabelFetcher,
         HasSpreadsheetMetadata,
         HasSpreadsheetMetadataFetcher,
         HasSpreadsheetParserFetcher,

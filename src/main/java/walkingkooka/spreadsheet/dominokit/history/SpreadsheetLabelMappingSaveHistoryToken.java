@@ -114,7 +114,7 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
         final SpreadsheetLabelMapping mapping = this.mapping;
         context.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange0 save " + id + " " + mapping);
 
-        context.spreadsheetLabelFetcher()
+        context.spreadsheetDeltaFetcher()
                 .saveLabelMapping(
                         id,
                         mapping

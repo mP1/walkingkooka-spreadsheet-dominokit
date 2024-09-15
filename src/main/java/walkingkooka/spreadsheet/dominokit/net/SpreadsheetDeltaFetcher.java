@@ -26,6 +26,7 @@ import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.header.LinkRelation;
 import walkingkooka.net.http.HttpMethod;
+import walkingkooka.net.http.server.hateos.HateosResourceName;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -45,6 +46,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
@@ -136,6 +139,64 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         break;
                     case 6: // *
                         match = "*".equals(component.value());
+                        break;
+                    default:
+                        match = false; // too many components so NO
+                        break;
+                }
+
+                if (false == match) {
+                    break;
+                }
+            }
+
+            match = 6 == i;
+        }
+
+        return match;
+    }
+
+    /**
+     * Returns true if the URL is a load/save/delete label
+     */
+    public static boolean isLabel(final HttpMethod method,
+                                  final AbsoluteOrRelativeUrl url) {
+        Objects.requireNonNull(method, "method");
+        Objects.requireNonNull(url, "url");
+
+        boolean match = false;
+
+        if (method.isGetOrHead()) {
+            final UrlPath path = url.path();
+
+            int i = 0;
+            match = true;
+
+            for (final UrlPathName component : Iterables.iterator(path.iterator())) {
+                i++;
+
+                // http://server/api/spreadsheet/1/label
+                switch (i) {
+                    case 1: // ROOT
+                        match = true;
+                        break;
+                    case 2: // /api
+                        match = "api".equals(component.value());
+                        break;
+                    case 3: // /spreadsheet
+                        match = "spreadsheet".equals(component.value());
+                        break;
+                    case 4: // SPREADSHEETID
+                        try {
+                            SpreadsheetId.parse(component.value());
+                        } catch (final RuntimeException ignore) {
+                            match = false;
+                        }
+                        break;
+                    case 5: // label
+                        match = "label".equals(component.value());
+                        break;
+                    case 6: // label-name
                         break;
                     default:
                         match = false; // too many components so NO
@@ -492,6 +553,59 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                     CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
     );
 
+    /**
+     * Loads the given {@link SpreadsheetLabelName}.
+     */
+    public void loadLabelMapping(final SpreadsheetId id,
+                                 final SpreadsheetLabelName labelName) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(labelName, "labelName");
+
+        this.get(
+                url(
+                        id,
+                        labelName
+                )
+        );
+    }
+
+    /**
+     * Saves/Creates the given {@link SpreadsheetLabelMapping}.
+     */
+    public void saveLabelMapping(final SpreadsheetId id,
+                                 final SpreadsheetLabelMapping mapping) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(mapping, "mapping");
+
+        this.post(
+                url(
+                        id,
+                        mapping.label()
+                ),
+                this.context.marshall(
+                        SpreadsheetDelta.EMPTY.setLabels(
+                                Sets.of(mapping)
+                        )
+                ).toString()
+        );
+    }
+
+    /**
+     * DELETEs the given {@link SpreadsheetLabelName}
+     */
+    public void deleteLabelMapping(final SpreadsheetId id,
+                                   final SpreadsheetLabelName labelName) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(labelName, "labelName");
+
+        this.delete(
+                url(
+                        id,
+                        labelName
+                )
+        );
+    }
+
     public void patchCellsFormula(final SpreadsheetId id,
                                   final SpreadsheetSelection selection,
                                   final Map<SpreadsheetCellReference, SpreadsheetFormula> cellToFormulas) {
@@ -786,6 +900,20 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         )
                 ).appendPath(path);
     }
+
+    // GET http://localhost:3000/api/spreadsheet/1/label/Label123
+    static RelativeUrl url(final SpreadsheetId id,
+                           final SpreadsheetLabelName labelName) {
+        return SpreadsheetMetadataFetcher.url(id)
+                .appendPathName(LABEL.toUrlPathName())
+                .appendPath(
+                        UrlPath.parse(
+                                labelName.value()
+                        )
+                );
+    }
+
+    private final static HateosResourceName LABEL = HateosResourceName.with("label");
 
     // checkXXX.........................................................................................................
 
