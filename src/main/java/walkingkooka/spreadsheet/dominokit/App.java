@@ -1158,11 +1158,11 @@ public class App implements EntryPoint,
 
         try {
             this.formatterContext = metadata.formatterContext(
-                    spreadsheetProvider,// ConverterProvider
-                    spreadsheetProvider, // SpreadsheetFormatterProvider
+                    converterProvider,// ConverterProvider
+                    spreadsheetFormatterProvider, // SpreadsheetFormatterProvider
                     () -> this.now(), // not sure why but method ref fails.
                     this.viewportCache, // SpreadsheetLabelNameResolver
-                    this // ProviderContext
+                    this.providerContext // ProviderContext
             );
         } catch (final RuntimeException cause) {
             this.debug(".refreshSpreadsheetProvider Failed to create SpreadsheetFormatterContext=" + cause.getMessage(), cause.getCause());
