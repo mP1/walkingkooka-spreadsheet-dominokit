@@ -51,6 +51,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.provider.FakeSpreadsheetProvider;
+import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -526,6 +527,13 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public OptionalInt spreadsheetListDialogComponentDefaultCount() {
+        throw new UnsupportedOperationException();
+    }
+
+    // system SpreadsheetProvider.......................................................................................
+
+    @Override
+    public SpreadsheetProvider systemSpreadsheetProvider() {
         throw new UnsupportedOperationException();
     }
 

@@ -242,4 +242,12 @@ public interface AppContext extends CanGiveFocus,
      * missing a count.
      */
     OptionalInt spreadsheetListDialogComponentDefaultCount();
+
+    // system SpreadsheetProvider.......................................................................................
+
+    /**
+     * Returns the system {@link SpreadsheetProvider}.<br>
+     * This will be used to provide ENABLE | DISABLE links when editing any {@link SpreadsheetMetadata} {@link walkingkooka.plugin.PluginInfoSetLike}.
+     */
+    SpreadsheetProvider systemSpreadsheetProvider();
 }
