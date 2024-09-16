@@ -1091,49 +1091,49 @@ public class App implements EntryPoint,
         final SpreadsheetMetadata metadata = this.spreadsheetMetadata();
 
         final SpreadsheetComparatorProvider spreadsheetComparatorProvider = metadata.spreadsheetComparatorProvider(
-                SpreadsheetComparatorProviders.mapped(
+                SpreadsheetComparatorProviders.filteredMapped(
                         this.spreadsheetComparatorInfoSet,
                         SpreadsheetComparatorProviders.spreadsheetComparators()
                 )
         );
 
         final SpreadsheetExporterProvider spreadsheetExporterProvider = metadata.spreadsheetExporterProvider(
-                SpreadsheetExporterProviders.mapped(
+                SpreadsheetExporterProviders.filteredMapped(
                         this.spreadsheetExporterInfoSet,
                         SpreadsheetExporterProviders.spreadsheetExport()
                 )
         );
 
         final ExpressionFunctionProvider expressionFunctionProvider = metadata.expressionFunctionProvider(
-                ExpressionFunctionProviders.mapped(
+                ExpressionFunctionProviders.filteredMapped(
                         this.expressionFunctionInfoSet,
                         ExpressionFunctionProviders.empty() // TODO should have a non empty EFP
                 )
         );
 
         final SpreadsheetFormatterProvider spreadsheetFormatterProvider = metadata.spreadsheetFormatterProvider(
-                SpreadsheetFormatterProviders.mapped(
+                SpreadsheetFormatterProviders.filteredMapped(
                         this.spreadsheetFormatterInfoSet,
                         SpreadsheetFormatterProviders.spreadsheetFormatPattern()
                 )
         );
 
         final SpreadsheetImporterProvider spreadsheetImporterProvider = metadata.spreadsheetImporterProvider(
-                SpreadsheetImporterProviders.mapped(
+                SpreadsheetImporterProviders.filteredMapped(
                         this.spreadsheetImporterInfoSet,
                         SpreadsheetImporterProviders.spreadsheetImport()
                 )
         );
 
         final SpreadsheetParserProvider spreadsheetParserProvider = metadata.spreadsheetParserProvider(
-                SpreadsheetParserProviders.mapped(
+                SpreadsheetParserProviders.filteredMapped(
                         this.spreadsheetParserInfoSet,
                         SpreadsheetParserProviders.spreadsheetParsePattern(spreadsheetFormatterProvider)
                 )
         );
 
         final ConverterProvider converterProvider = metadata.converterProvider(
-                ConverterProviders.mapped(
+                ConverterProviders.filteredMapped(
                         this.converterInfoSet,
                         SpreadsheetConvertersConverterProviders.spreadsheetConverters(
                                 metadata,
