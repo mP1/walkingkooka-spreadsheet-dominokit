@@ -1132,12 +1132,14 @@ public class App implements EntryPoint,
                 )
         );
 
-        final ConverterProvider converterProvider = ConverterProviders.mapped(
-                this.converterInfoSet,
-                SpreadsheetConvertersConverterProviders.spreadsheetConverters(
-                        metadata,
-                        spreadsheetFormatterProvider,
-                        spreadsheetParserProvider
+        final ConverterProvider converterProvider = metadata.converterProvider(
+                ConverterProviders.mapped(
+                        this.converterInfoSet,
+                        SpreadsheetConvertersConverterProviders.spreadsheetConverters(
+                                metadata,
+                                spreadsheetFormatterProvider,
+                                spreadsheetParserProvider
+                        )
                 )
         );
 
