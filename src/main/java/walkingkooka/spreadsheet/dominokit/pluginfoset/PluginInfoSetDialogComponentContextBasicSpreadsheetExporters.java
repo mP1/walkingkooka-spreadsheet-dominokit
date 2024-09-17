@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.export.SpreadsheetExporterInfo;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -110,7 +111,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetExporters extends
     }
 
     @Override
-    public SpreadsheetExporterInfoSet providerInfoSet() {
-        return this.context.spreadsheetExporterInfos();
+    SpreadsheetExporterInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+        return spreadsheetProvider.spreadsheetExporterInfos();
     }
 }

@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.text.CaseKind;
 
 import java.util.Objects;
@@ -145,6 +146,15 @@ abstract class PluginInfoSetDialogComponentContextBasic<N extends Name & Compara
     }
 
     abstract SpreadsheetMetadataPropertyName<S> metadataPropertyName();
+
+    @Override
+    public final S providerInfoSet() {
+        return this.providerInfoSet0(
+                this.context.systemSpreadsheetProvider()
+        );
+    }
+
+    abstract S providerInfoSet0(final SpreadsheetProvider spreadsheetProvider);
 
     // focus............................................................................................................
 

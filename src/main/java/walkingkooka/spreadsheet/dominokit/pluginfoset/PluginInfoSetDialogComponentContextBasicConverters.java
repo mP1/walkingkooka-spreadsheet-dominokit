@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.convert.ConverterInfoSetComponent;
 import walkingkooka.spreadsheet.dominokit.net.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -110,7 +111,7 @@ final class PluginInfoSetDialogComponentContextBasicConverters extends PluginInf
     }
 
     @Override
-    public ConverterInfoSet providerInfoSet() {
-        return this.context.converterInfos();
+    ConverterInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+        return spreadsheetProvider.converterInfos();
     }
 }

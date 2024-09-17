@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
+import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 
 import java.util.Optional;
@@ -118,7 +119,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetParsers extends P
     }
 
     @Override
-    public SpreadsheetParserInfoSet providerInfoSet() {
-        return this.context.spreadsheetParserInfos();
+    SpreadsheetParserInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+        return spreadsheetProvider.spreadsheetParserInfos();
     }
 }
