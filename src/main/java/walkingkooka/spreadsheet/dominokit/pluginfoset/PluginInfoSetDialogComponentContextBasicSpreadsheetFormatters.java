@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 
@@ -127,7 +128,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters extend
     }
 
     @Override
-    public SpreadsheetFormatterInfoSet providerInfoSet() {
-        return this.context.spreadsheetFormatterInfos();
+    SpreadsheetFormatterInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+        return spreadsheetProvider.spreadsheetFormatterInfos();
     }
 }

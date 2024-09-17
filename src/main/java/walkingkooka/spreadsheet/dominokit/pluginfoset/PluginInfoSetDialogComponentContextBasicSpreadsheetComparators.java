@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorInfoSetComponent;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -110,9 +111,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetComparators exten
     }
 
     @Override
-    public SpreadsheetComparatorInfoSet providerInfoSet() {
-        return SpreadsheetComparatorInfoSet.with(
-                this.context.spreadsheetComparatorInfos()
-        );
+    SpreadsheetComparatorInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+        return spreadsheetProvider.spreadsheetComparatorInfos();
     }
 }

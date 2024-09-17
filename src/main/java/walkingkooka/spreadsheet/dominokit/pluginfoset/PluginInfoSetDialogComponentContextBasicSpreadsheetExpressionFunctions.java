@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.function.ExpressionFunctionInfoSetComponent;
 import walkingkooka.spreadsheet.dominokit.net.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfo;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
@@ -110,7 +111,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctio
     }
 
     @Override
-    public ExpressionFunctionInfoSet providerInfoSet() {
-        return this.context.expressionFunctionInfos();
+    ExpressionFunctionInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+        return spreadsheetProvider.expressionFunctionInfos();
     }
 }
