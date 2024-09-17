@@ -1090,50 +1090,56 @@ public class App implements EntryPoint,
     private void refreshSpreadsheetProvider() {
         final SpreadsheetMetadata metadata = this.spreadsheetMetadata();
 
-        final SpreadsheetComparatorProvider spreadsheetComparatorProvider = metadata.spreadsheetComparatorProvider(
-                SpreadsheetComparatorProviders.filteredMapped(
-                        this.spreadsheetComparatorInfoSet,
-                        SpreadsheetComparatorProviders.spreadsheetComparators()
-                )
+        final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.mergedMapped(
+                this.spreadsheetComparatorInfoSet.renameIfPresent(
+                        metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_COMPARATORS)
+                                .orElse(SpreadsheetComparatorInfoSet.EMPTY)
+                ),
+                SpreadsheetComparatorProviders.spreadsheetComparators()
         );
 
-        final SpreadsheetExporterProvider spreadsheetExporterProvider = metadata.spreadsheetExporterProvider(
-                SpreadsheetExporterProviders.filteredMapped(
-                        this.spreadsheetExporterInfoSet,
-                        SpreadsheetExporterProviders.spreadsheetExport()
-                )
+        final SpreadsheetExporterProvider spreadsheetExporterProvider = SpreadsheetExporterProviders.mergedMapped(
+                this.spreadsheetExporterInfoSet.renameIfPresent(
+                        metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_EXPORTERS)
+                                .orElse(SpreadsheetExporterInfoSet.EMPTY)
+                ),
+                SpreadsheetExporterProviders.spreadsheetExport()
         );
 
-        final ExpressionFunctionProvider expressionFunctionProvider = metadata.expressionFunctionProvider(
-                ExpressionFunctionProviders.filteredMapped(
-                        this.expressionFunctionInfoSet,
-                        ExpressionFunctionProviders.empty() // TODO should have a non empty EFP
-                )
+        final ExpressionFunctionProvider expressionFunctionProvider = ExpressionFunctionProviders.mergedMapped(
+                this.expressionFunctionInfoSet.renameIfPresent(
+                        metadata.get(SpreadsheetMetadataPropertyName.EXPRESSION_FUNCTIONS)
+                                .orElse(ExpressionFunctionInfoSet.EMPTY)
+                ),
+                ExpressionFunctionProviders.empty() // TODO should have a non empty EFP
         );
 
-        final SpreadsheetFormatterProvider spreadsheetFormatterProvider = metadata.spreadsheetFormatterProvider(
-                SpreadsheetFormatterProviders.filteredMapped(
-                        this.spreadsheetFormatterInfoSet,
-                        SpreadsheetFormatterProviders.spreadsheetFormatPattern()
-                )
+        final SpreadsheetFormatterProvider spreadsheetFormatterProvider = SpreadsheetFormatterProviders.mergedMapped(
+                this.spreadsheetFormatterInfoSet.renameIfPresent(
+                        metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_FORMATTERS)
+                                .orElse(SpreadsheetFormatterInfoSet.EMPTY)
+                ),
+                SpreadsheetFormatterProviders.spreadsheetFormatPattern()
         );
 
-        final SpreadsheetImporterProvider spreadsheetImporterProvider = metadata.spreadsheetImporterProvider(
-                SpreadsheetImporterProviders.filteredMapped(
-                        this.spreadsheetImporterInfoSet,
-                        SpreadsheetImporterProviders.spreadsheetImport()
-                )
+        final SpreadsheetImporterProvider spreadsheetImporterProvider = SpreadsheetImporterProviders.mergedMapped(
+                this.spreadsheetImporterInfoSet.renameIfPresent(
+                        metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_IMPORTERS)
+                                .orElse(SpreadsheetImporterInfoSet.EMPTY)
+                ),
+                SpreadsheetImporterProviders.spreadsheetImport()
         );
 
-        final SpreadsheetParserProvider spreadsheetParserProvider = metadata.spreadsheetParserProvider(
-                SpreadsheetParserProviders.filteredMapped(
-                        this.spreadsheetParserInfoSet,
-                        SpreadsheetParserProviders.spreadsheetParsePattern(spreadsheetFormatterProvider)
-                )
+        final SpreadsheetParserProvider spreadsheetParserProvider = SpreadsheetParserProviders.mergedMapped(
+                this.spreadsheetParserInfoSet.renameIfPresent(
+                        metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_PARSERS)
+                                .orElse(SpreadsheetParserInfoSet.EMPTY)
+                ),
+                SpreadsheetParserProviders.spreadsheetParsePattern(spreadsheetFormatterProvider)
         );
 
         final ConverterProvider converterProvider = metadata.converterProvider(
-                ConverterProviders.filteredMapped(
+                ConverterProviders.mergedMapped(
                         this.converterInfoSet,
                         SpreadsheetConvertersConverterProviders.spreadsheetConverters(
                                 metadata,
@@ -1155,6 +1161,15 @@ public class App implements EntryPoint,
                 )
         );
         this.spreadsheetProvider = spreadsheetProvider;
+        this.systemSpreadsheetProvider = SpreadsheetProviders.basic(
+                converterProvider,
+                expressionFunctionProvider,
+                spreadsheetComparatorProvider,
+                spreadsheetExporterProvider,
+                spreadsheetFormatterProvider,
+                spreadsheetImporterProvider,
+                spreadsheetParserProvider
+        );
 
         try {
             this.formatterContext = metadata.formatterContext(
@@ -1184,6 +1199,15 @@ public class App implements EntryPoint,
      * a onXXX watcher method.
      */
     private SpreadsheetProvider spreadsheetProvider;
+
+    // system SpreadsheetProvider.......................................................................................
+
+    @Override
+    public SpreadsheetProvider systemSpreadsheetProvider() {
+        return this.systemSpreadsheetProvider;
+    }
+
+    private SpreadsheetProvider systemSpreadsheetProvider;
 
     // reload...........................................................................................................
 
