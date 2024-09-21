@@ -104,7 +104,9 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>, 
     }
 
     private void onProviderInfoSet(final S providerInfos) {
-        this.refreshNonResetLinks();
+        if (this.isOpen()) {
+            this.refreshNonResetLinks();
+        }
     }
 
     // ids..............................................................................................................
