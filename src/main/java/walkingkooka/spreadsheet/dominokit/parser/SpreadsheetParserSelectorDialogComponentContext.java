@@ -55,7 +55,7 @@ public interface SpreadsheetParserSelectorDialogComponentContext extends CanGive
      * <br>
      * /api/spreadsheet/1/parser/&#47;/edit
      */
-    void spreadsheetParsersEdit(final String text);
+    void fetchSpreadsheetParsersEdit(final String text);
 
     /**
      * Provides the UNDO text.
