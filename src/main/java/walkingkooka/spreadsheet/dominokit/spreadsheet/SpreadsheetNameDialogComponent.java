@@ -72,7 +72,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
     }
 
     /**
-     * Creates the modal dialog, loaded with the pattern textbox and some buttons.
+     * Creates the modal dialog, loaded with the pattern textbox and some links.
      */
     private SpreadsheetDialogComponent dialogCreate() {
         return SpreadsheetDialogComponent.with(

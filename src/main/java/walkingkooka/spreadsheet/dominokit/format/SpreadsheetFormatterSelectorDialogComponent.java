@@ -128,7 +128,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     // dialog...........................................................................................................
 
     /**
-     * Creates the modal dialog, loaded with the {@link SpreadsheetFormatterSelector} textbox and some buttons.
+     * Creates the modal dialog, loaded with the {@link SpreadsheetFormatterSelector} textbox and some links.
      */
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
