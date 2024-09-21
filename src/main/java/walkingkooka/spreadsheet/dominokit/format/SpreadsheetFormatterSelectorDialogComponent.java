@@ -218,7 +218,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
         // couldnt get edit in browser, try server
         if (edit.message().startsWith("Unknown ")) {
-            context.spreadsheetFormattersEdit(text);
+            context.fetchSpreadsheetFormattersEdit(text);
         } else {
             this.onSpreadsheetFormatterSelectorEdit(
                     edit,

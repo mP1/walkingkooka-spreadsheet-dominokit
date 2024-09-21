@@ -99,7 +99,7 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
     }
 
     @Override
-    public final void spreadsheetFormattersEdit(final String text) {
+    public final void fetchSpreadsheetFormattersEdit(final String text) {
         this.throttler.add(
                 () -> this.spreadsheetFormatterFetcher()
                         .edit(
