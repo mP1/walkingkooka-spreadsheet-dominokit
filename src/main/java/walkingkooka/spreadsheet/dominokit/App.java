@@ -60,6 +60,8 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContexts;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
+import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponent;
+import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponentContexts;
@@ -342,6 +344,10 @@ public class App implements EntryPoint,
         );
         PluginInfoSetDialogComponent.with(
                 PluginInfoSetDialogComponentContexts.parsers(this)
+        );
+
+        SpreadsheetComparatorNameListDialogComponent.with(
+                SpreadsheetComparatorNameListDialogComponentContexts.sortComparators(this)
         );
 
         SpreadsheetNameDialogComponent.with(
