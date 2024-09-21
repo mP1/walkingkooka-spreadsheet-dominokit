@@ -27,6 +27,7 @@ import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
@@ -133,6 +134,8 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
         items.add(this.timeParser());
 
         items.add(this.comparators());
+        items.add(this.sortComparators());
+
         items.add(this.converters());
         items.add(this.exporters());
         items.add(this.expressionFunctions());
@@ -411,6 +414,12 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserInfoSet> parsers() {
         return link(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_PARSERS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetComparatorNameList> sortComparators() {
+        return link(
+                SpreadsheetMetadataPropertyName.SORT_COMPARATORS
         );
     }
 
