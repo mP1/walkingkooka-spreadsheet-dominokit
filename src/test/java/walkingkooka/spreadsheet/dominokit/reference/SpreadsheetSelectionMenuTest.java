@@ -26,7 +26,9 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnHistoryToken;
@@ -53,6 +55,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTesting<SpreadsheetSelectionMenu>,
         TreePrintableTesting,
@@ -267,6 +270,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
+                SpreadsheetComparatorNameList.EMPTY,
                 Lists.of(
                         SpreadsheetFormatterSelector.parse("date-format-pattern recent-1A"),
                         SpreadsheetFormatterSelector.parse("date-format-pattern recent-2B"),
@@ -480,6 +484,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
+                SpreadsheetComparatorNameList.EMPTY,
                 Lists.empty(),
                 Lists.empty(),
                 Lists.of(
@@ -687,6 +692,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
+                SpreadsheetComparatorNameList.EMPTY,
                 Lists.empty(),
                 Lists.empty(),
                 Lists.empty(),
@@ -911,6 +917,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         final SpreadsheetSelectionMenuContext context = this.context(
                 token,
+                SpreadsheetComparatorNameList.EMPTY,
                 Lists.of(
                         SpreadsheetFormatterSelector.parse("date-format-pattern recent-1A")
                 ), // recent formatters
@@ -2009,6 +2016,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken) {
         return this.context(
                 historyToken,
+                SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparatorInfos()
+                        .stream()
+                        .map(SpreadsheetComparatorInfo::name)
+                        .collect(Collectors.toList()),
                 Lists.empty(), // format patterns
                 Lists.empty(), // SpreadsheetFormatterSelectorMenu
                 Lists.empty(), // parse patterns
@@ -2017,6 +2028,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     }
 
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
+                                                    final List<SpreadsheetComparatorName> sortComparatorNames,
                                                     final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                     final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus,
                                                     final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
@@ -2031,6 +2043,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             @Override
             public String idPrefix() {
                 return "test-";
+            }
+
+            @Override
+            public List<SpreadsheetComparatorName> sortComparatorNames() {
+                return sortComparatorNames;
             }
 
             @Override
@@ -2072,11 +2089,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         SpreadsheetMetadataPropertyName.LOCALE,
                         LOCALE
                 ).loadFromLocale();
-            }
-
-            @Override
-            public SpreadsheetComparatorInfoSet spreadsheetComparatorInfos() {
-                return SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparatorInfos();
             }
         };
     }

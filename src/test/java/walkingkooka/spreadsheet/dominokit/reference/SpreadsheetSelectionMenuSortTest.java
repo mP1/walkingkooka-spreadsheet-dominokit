@@ -20,11 +20,13 @@ package walkingkooka.spreadsheet.dominokit.reference;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
@@ -34,12 +36,18 @@ import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
 
+import java.util.Collection;
 import java.util.Optional;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 public class SpreadsheetSelectionMenuSortTest implements ClassTesting<SpreadsheetSelectionMenuSort>,
         SpreadsheetMetadataTesting,
         TreePrintableTesting {
+
+    private final Collection<SpreadsheetComparatorName> SORT_COMPARATOR_NAMES = SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparatorInfos()
+            .stream()
+            .map(SpreadsheetComparatorInfo::name)
+            .collect(Collectors.toList());
 
     @Test
     public void testBuildColumn() {
@@ -54,7 +62,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 SpreadsheetSelection.parseColumn("A"),
                 "column-sort-", // id-prefix
                 SpreadsheetIcons.columnSort(),
-                SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparatorInfos(),
+                SORT_COMPARATOR_NAMES,
                 "\"Sort Column\" id=sort\n" +
                         "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +
                         "    \"Date\" id=column-sort-date-SubMenu\n" +
@@ -120,7 +128,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 SpreadsheetSelection.parseRow("12"),
                 "row-sort-", // id-prefix
                 SpreadsheetIcons.rowSort(),
-                SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparatorInfos(),
+                SORT_COMPARATOR_NAMES,
                 "\"Sort Row\" id=sort\n" +
                         "  (mdi-sort) \"Sort Row\" id=row-sort-SubMenu\n" +
                         "    \"Date\" id=row-sort-date-SubMenu\n" +
@@ -186,7 +194,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 SpreadsheetSelection.parseColumn("B"),
                 "column-sort-", // id-prefix
                 SpreadsheetIcons.columnSort(),
-                SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparatorInfos(),
+                SORT_COMPARATOR_NAMES,
                 "\"Sort Column\" id=sort\n" +
                         "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +
                         "    \"Date\" id=column-sort-date-SubMenu\n" +
@@ -239,11 +247,41 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
         );
     }
 
+    @Test
+    public void testBuildCellColumnLimitedComparatorNames() {
+        final SpreadsheetCellHistoryToken token = HistoryToken.cell(
+                SpreadsheetId.with(1), // id
+                SpreadsheetName.with("SpreadsheetName-1"), // name
+                SpreadsheetSelection.parseCell("B2").setDefaultAnchor()
+        );
+
+        this.buildAndCheck(
+                token,
+                SpreadsheetSelection.parseColumn("B"),
+                "column-sort-", // id-prefix
+                SpreadsheetIcons.columnSort(),
+                Lists.of(
+                        SpreadsheetComparatorName.DAY_OF_MONTH,
+                        SpreadsheetComparatorName.YEAR
+                ),
+                "\"Sort Column\" id=sort\n" +
+                        "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +
+                        "    \"Day Of Month\" id=column-sort-day-of-month-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-month%20UP] id=column-sort-day-of-month-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-month%20DOWN] id=column-sort-day-of-month-DOWN-MenuItem\n" +
+                        "    \"Year\" id=column-sort-year-SubMenu\n" +
+                        "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year%20UP] id=column-sort-year-UP-MenuItem\n" +
+                        "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year%20DOWN] id=column-sort-year-DOWN-MenuItem\n" +
+                        "    -----\n" +
+                        "    \"Edit\" [/1/SpreadsheetName-1/cell/B2/sort/edit/B=] id=column-sort-edit-MenuItem\n"
+        );
+    }
+
     private void buildAndCheck(final HistoryToken historyToken,
                                final SpreadsheetColumnOrRowReference columnOrRow,
                                final String idPrefix,
                                final Icon<?> icon,
-                               final Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos,
+                               final Collection<SpreadsheetComparatorName> sortComparatorNames,
                                final String expected) {
         final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
                 Menu.create(
@@ -260,7 +298,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 columnOrRow,
                 idPrefix,
                 icon,
-                spreadsheetComparatorInfos,
+                sortComparatorNames,
                 menu
         );
 

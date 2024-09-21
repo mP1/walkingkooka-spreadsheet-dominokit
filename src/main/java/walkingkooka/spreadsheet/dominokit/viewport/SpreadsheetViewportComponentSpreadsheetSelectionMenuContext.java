@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviderDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -25,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -68,6 +71,13 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         this.recentTextStyleProperties = recentTextStyleProperties;
 
         this.context = context;
+    }
+
+    @Override
+    public List<SpreadsheetComparatorName> sortComparatorNames() {
+        return this.context.spreadsheetMetadata()
+                .get(SpreadsheetMetadataPropertyName.SORT_COMPARATORS)
+                .orElse(SpreadsheetComparatorNameList.EMPTY);
     }
 
     @Override

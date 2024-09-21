@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.reference;
 
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorDirection;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -27,7 +26,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 
-import java.util.Set;
+import java.util.Collection;
 
 /**
  * Builds the context menu for SORT for column, rows and cells. Context menus for column/row should only call this once,
@@ -40,7 +39,7 @@ final class SpreadsheetSelectionMenuSort {
                       final SpreadsheetColumnOrRowReference columnOrRow,
                       final String idPrefix,
                       final Icon<?> icon,
-                      final Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos,
+                      final Collection<SpreadsheetComparatorName> comparatorNames,
                       final SpreadsheetContextMenu menu) {
         // PREFIX-
 
@@ -48,7 +47,7 @@ final class SpreadsheetSelectionMenuSort {
                 historyToken,
                 columnOrRow,
                 idPrefix,
-                spreadsheetComparatorInfos,
+                comparatorNames,
                 menu.subMenu(
                         CharSequences.subSequence(idPrefix, 0, -1) + SpreadsheetElementIds.SUB_MENU, // -1 removes trailing minus because SUB_MENU includes a minus at the start
                         "Sort " + columnOrRow.textLabel(),
@@ -60,13 +59,11 @@ final class SpreadsheetSelectionMenuSort {
     static void comparatorsMenuItem(final HistoryToken historyToken,
                                     final SpreadsheetColumnOrRowReference columnOrRow,
                                     final String idPrefix,
-                                    final Set<SpreadsheetComparatorInfo> spreadsheetComparatorInfos,
+                                    final Collection<SpreadsheetComparatorName> comparatorNames,
                                     final SpreadsheetContextMenu menu) {
 
         // for each comparator info build a sub menu.
-        for (final SpreadsheetComparatorInfo info : spreadsheetComparatorInfos) {
-            final SpreadsheetComparatorName name = info.name();
-
+        for (final SpreadsheetComparatorName name : comparatorNames) {
             final String subMenuId = idPrefix + name.value();
 
             final SpreadsheetContextMenu subMenu = menu.subMenu(
