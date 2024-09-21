@@ -125,7 +125,7 @@ abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements S
     }
 
     @Override
-    public final void spreadsheetParsersEdit(final String text) {
+    public final void fetchSpreadsheetParsersEdit(final String text) {
         this.throttler.add(
                 () -> this.spreadsheetParserFetcher()
                         .edit(
