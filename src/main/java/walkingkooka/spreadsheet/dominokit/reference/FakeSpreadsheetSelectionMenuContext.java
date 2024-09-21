@@ -17,9 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
-import walkingkooka.plugin.ProviderContext;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
@@ -35,6 +32,11 @@ import java.util.List;
 import java.util.Set;
 
 public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryTokenContext implements SpreadsheetSelectionMenuContext {
+
+    @Override
+    public List<SpreadsheetComparatorName> sortComparatorNames() {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
@@ -73,17 +75,6 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryTokenContext
 
     @Override
     public SpreadsheetMetadata spreadsheetMetadata() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName name,
-                                                          final ProviderContext context) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetComparatorInfoSet spreadsheetComparatorInfos() {
         throw new UnsupportedOperationException();
     }
 }

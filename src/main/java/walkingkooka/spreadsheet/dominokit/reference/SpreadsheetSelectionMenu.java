@@ -997,7 +997,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                 .toColumn(),
                         idPrefix, // id prefix
                         SpreadsheetIcons.columnSort(),
-                        context.spreadsheetComparatorInfos(), // infos
+                        context.sortComparatorNames(),
                         menu
                 );
             }
@@ -1022,7 +1022,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                 .toRow(),
                         idPrefix, // id prefix
                         SpreadsheetIcons.columnSort(),
-                        context.spreadsheetComparatorInfos(), // infos
+                        context.sortComparatorNames(),
                         menu
                 );
             }

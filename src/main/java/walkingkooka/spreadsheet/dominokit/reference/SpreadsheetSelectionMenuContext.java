@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.Context;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -39,8 +39,12 @@ import java.util.Set;
  */
 public interface SpreadsheetSelectionMenuContext extends Context,
         HasSpreadsheetMetadata,
-        HistoryTokenContext,
-        SpreadsheetComparatorProvider {
+        HistoryTokenContext {
+
+    /**
+     * Returns the names of {@link SpreadsheetComparatorName} that will appear in the SORT menus.
+     */
+    List<SpreadsheetComparatorName> sortComparatorNames();
 
     /**
      * Returns all {@link SpreadsheetLabelMapping} for the given {@link SpreadsheetSelection}.
