@@ -61,7 +61,7 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
      * <br>
      * /api/spreadsheet/1/formatter/&#47;/edit
      */
-    void spreadsheetFormattersEdit(final String text);
+    void fetchSpreadsheetFormattersEdit(final String text);
 
     /**
      * Adds a {@link SpreadsheetDeltaFetcherWatcher}.
