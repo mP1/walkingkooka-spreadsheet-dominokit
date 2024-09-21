@@ -1173,10 +1173,10 @@ public class App implements EntryPoint,
 
         try {
             this.formatterContext = metadata.formatterContext(
-                    converterProvider,// ConverterProvider
-                    spreadsheetFormatterProvider, // SpreadsheetFormatterProvider
                     () -> this.now(), // not sure why but method ref fails.
                     this.viewportCache, // SpreadsheetLabelNameResolver
+                    converterProvider,// ConverterProvider
+                    spreadsheetFormatterProvider, // SpreadsheetFormatterProvider
                     this.providerContext // ProviderContext
             );
         } catch (final RuntimeException cause) {
