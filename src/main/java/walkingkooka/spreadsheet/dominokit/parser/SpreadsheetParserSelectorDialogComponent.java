@@ -126,7 +126,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     // dialog...........................................................................................................
 
     /**
-     * Creates the modal dialog, loaded with the {@link SpreadsheetParserSelector} textbox and some buttons.
+     * Creates the modal dialog, loaded with the {@link SpreadsheetParserSelector} textbox and some links.
      */
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetParserSelectorDialogComponentContext context = this.context;
