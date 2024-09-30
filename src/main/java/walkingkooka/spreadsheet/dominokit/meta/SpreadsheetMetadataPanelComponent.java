@@ -395,7 +395,7 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
 
     private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionInfoSet> expressionFunctions() {
         return link(
-                SpreadsheetMetadataPropertyName.EXPRESSION_FUNCTIONS
+                SpreadsheetMetadataPropertyName.FUNCTIONS
         );
     }
 

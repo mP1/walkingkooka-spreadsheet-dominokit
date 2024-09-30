@@ -1114,7 +1114,7 @@ public class App implements EntryPoint,
 
         final ExpressionFunctionProvider expressionFunctionProvider = ExpressionFunctionProviders.mergedMapped(
                 this.expressionFunctionInfoSet.renameIfPresent(
-                        metadata.get(SpreadsheetMetadataPropertyName.EXPRESSION_FUNCTIONS)
+                        metadata.get(SpreadsheetMetadataPropertyName.FUNCTIONS)
                                 .orElse(ExpressionFunctionInfoSet.EMPTY)
                 ),
                 ExpressionFunctionProviders.empty() // TODO should have a non empty EFP
