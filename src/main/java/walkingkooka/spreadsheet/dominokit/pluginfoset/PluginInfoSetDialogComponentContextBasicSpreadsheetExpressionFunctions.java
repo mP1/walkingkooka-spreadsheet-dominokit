@@ -54,7 +54,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctio
 
     @Override
     SpreadsheetMetadataPropertyName<ExpressionFunctionInfoSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.EXPRESSION_FUNCTIONS;
+        return SpreadsheetMetadataPropertyName.FUNCTIONS;
     }
 
     @Override public ExpressionFunctionInfoSet emptyInfoSet() {
