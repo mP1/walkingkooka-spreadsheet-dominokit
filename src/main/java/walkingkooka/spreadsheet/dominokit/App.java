@@ -1098,7 +1098,7 @@ public class App implements EntryPoint,
 
         final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.mergedMapped(
                 this.spreadsheetComparatorInfoSet.renameIfPresent(
-                        metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_COMPARATORS)
+                        metadata.get(SpreadsheetMetadataPropertyName.COMPARATORS)
                                 .orElse(SpreadsheetComparatorInfoSet.EMPTY)
                 ),
                 SpreadsheetComparatorProviders.spreadsheetComparators()
@@ -1106,7 +1106,7 @@ public class App implements EntryPoint,
 
         final SpreadsheetExporterProvider spreadsheetExporterProvider = SpreadsheetExporterProviders.mergedMapped(
                 this.spreadsheetExporterInfoSet.renameIfPresent(
-                        metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_EXPORTERS)
+                        metadata.get(SpreadsheetMetadataPropertyName.EXPORTERS)
                                 .orElse(SpreadsheetExporterInfoSet.EMPTY)
                 ),
                 SpreadsheetExporterProviders.spreadsheetExport()
@@ -1122,7 +1122,7 @@ public class App implements EntryPoint,
 
         final SpreadsheetFormatterProvider spreadsheetFormatterProvider = SpreadsheetFormatterProviders.mergedMapped(
                 this.spreadsheetFormatterInfoSet.renameIfPresent(
-                        metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_FORMATTERS)
+                        metadata.get(SpreadsheetMetadataPropertyName.FORMATTERS)
                                 .orElse(SpreadsheetFormatterInfoSet.EMPTY)
                 ),
                 SpreadsheetFormatterProviders.spreadsheetFormatPattern()
@@ -1130,7 +1130,7 @@ public class App implements EntryPoint,
 
         final SpreadsheetImporterProvider spreadsheetImporterProvider = SpreadsheetImporterProviders.mergedMapped(
                 this.spreadsheetImporterInfoSet.renameIfPresent(
-                        metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_IMPORTERS)
+                        metadata.get(SpreadsheetMetadataPropertyName.IMPORTERS)
                                 .orElse(SpreadsheetImporterInfoSet.EMPTY)
                 ),
                 SpreadsheetImporterProviders.spreadsheetImport()
@@ -1138,7 +1138,7 @@ public class App implements EntryPoint,
 
         final SpreadsheetParserProvider spreadsheetParserProvider = SpreadsheetParserProviders.mergedMapped(
                 this.spreadsheetParserInfoSet.renameIfPresent(
-                        metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_PARSERS)
+                        metadata.get(SpreadsheetMetadataPropertyName.PARSERS)
                                 .orElse(SpreadsheetParserInfoSet.EMPTY)
                 ),
                 SpreadsheetParserProviders.spreadsheetParsePattern(spreadsheetFormatterProvider)

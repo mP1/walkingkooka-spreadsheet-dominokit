@@ -54,7 +54,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetImporters extends
 
     @Override
     SpreadsheetMetadataPropertyName<SpreadsheetImporterInfoSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.SPREADSHEET_IMPORTERS;
+        return SpreadsheetMetadataPropertyName.IMPORTERS;
     }
 
     @Override public SpreadsheetImporterInfoSet emptyInfoSet() {

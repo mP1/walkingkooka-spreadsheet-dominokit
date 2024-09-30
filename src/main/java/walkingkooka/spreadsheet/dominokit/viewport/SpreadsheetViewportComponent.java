@@ -1308,8 +1308,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 fetchSpreadsheetFormatterSelectorsMenu = true; // cant hurt to "reload"
             } else {
                 // if formatters changed better reload formatter menu
-                final Optional<SpreadsheetFormatterInfoSet> oldSpreadsheetFormatterSelectors = metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_FORMATTERS);
-                final Optional<SpreadsheetFormatterInfoSet> newSpreadsheetFormatterSelectors = this.metadata.get(SpreadsheetMetadataPropertyName.SPREADSHEET_FORMATTERS);
+                final Optional<SpreadsheetFormatterInfoSet> oldSpreadsheetFormatterSelectors = metadata.get(SpreadsheetMetadataPropertyName.FORMATTERS);
+                final Optional<SpreadsheetFormatterInfoSet> newSpreadsheetFormatterSelectors = this.metadata.get(SpreadsheetMetadataPropertyName.FORMATTERS);
                 fetchSpreadsheetFormatterSelectorsMenu = false == oldSpreadsheetFormatterSelectors.equals(newSpreadsheetFormatterSelectors);
             }
         }

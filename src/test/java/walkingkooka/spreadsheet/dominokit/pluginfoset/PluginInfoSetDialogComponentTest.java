@@ -65,7 +65,7 @@ public final class PluginInfoSetDialogComponentTest implements SpreadsheetDialog
     @Test
     public void testEmptyTextRefreshAndTreePrint() {
         final AppContext context = this.appContext(
-                HistoryToken.parseString("/1/Spreadsheet123/metadata/spreadsheet-formatters"),
+                HistoryToken.parseString("/1/Spreadsheet123/metadata/formatters"),
                 SpreadsheetFormatterInfoSet.with(
                         Sets.of(
                                 INFO1,
@@ -90,9 +90,9 @@ public final class PluginInfoSetDialogComponentTest implements SpreadsheetDialog
                         "            Enable\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"Text111\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/https://example.com/Text111%20Text111] id=PluginInfoSetDialogComponent-enable-enable-0-Link\n" +
-                        "                  \"Text222\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/https://example.com/Text222%20Text222] id=PluginInfoSetDialogComponent-enable-enable-1-Link\n" +
-                        "                  \"Text333\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/https://example.com/Text333%20Text333] id=PluginInfoSetDialogComponent-enable-enable-2-Link\n" +
+                        "                  \"Text111\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111] id=PluginInfoSetDialogComponent-enable-enable-0-Link\n" +
+                        "                  \"Text222\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text222%20Text222] id=PluginInfoSetDialogComponent-enable-enable-1-Link\n" +
+                        "                  \"Text333\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text333%20Text333] id=PluginInfoSetDialogComponent-enable-enable-2-Link\n" +
                         "      DisablePluginInfoSetComponent\n" +
                         "      SpreadsheetFormatterInfoSetComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
@@ -100,10 +100,10 @@ public final class PluginInfoSetDialogComponentTest implements SpreadsheetDialog
                         "            [] id=PluginInfoSetDialogComponent-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/] id=PluginInfoSetDialogComponent-save-Link\n" +
-                        "          \"Reset\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetDialogComponent-reset-Link\n" +
-                        "          \"Disable All\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/] id=PluginInfoSetDialogComponent-disable all-Link\n" +
-                        "          \"Enable All\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetDialogComponent-enable all-Link\n" +
+                        "          \"Save\" [#/1/Spreadsheet123/metadata/formatters/save/] id=PluginInfoSetDialogComponent-save-Link\n" +
+                        "          \"Reset\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetDialogComponent-reset-Link\n" +
+                        "          \"Disable All\" [#/1/Spreadsheet123/metadata/formatters/save/] id=PluginInfoSetDialogComponent-disable all-Link\n" +
+                        "          \"Enable All\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetDialogComponent-enable all-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=PluginInfoSetDialogComponent-close-Link\n"
         );
     }
@@ -111,7 +111,7 @@ public final class PluginInfoSetDialogComponentTest implements SpreadsheetDialog
     @Test
     public void testRefreshAndTreePrint() {
         final AppContext context = this.appContext(
-                HistoryToken.parseString("/1/Spreadsheet123/metadata/spreadsheet-formatters"),
+                HistoryToken.parseString("/1/Spreadsheet123/metadata/formatters"),
                 SpreadsheetFormatterInfoSet.with(
                         Sets.of(
                                 INFO1,
@@ -140,25 +140,25 @@ public final class PluginInfoSetDialogComponentTest implements SpreadsheetDialog
                         "            Enable\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"Text222\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222] id=PluginInfoSetDialogComponent-enable-enable-0-Link\n" +
-                        "                  \"Text333\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/https://example.com/Text111%20Text111,https://example.com/Text333%20Text333] id=PluginInfoSetDialogComponent-enable-enable-1-Link\n" +
+                        "                  \"Text222\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222] id=PluginInfoSetDialogComponent-enable-enable-0-Link\n" +
+                        "                  \"Text333\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text333%20Text333] id=PluginInfoSetDialogComponent-enable-enable-1-Link\n" +
                         "      DisablePluginInfoSetComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Disable\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"Text111\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/] id=PluginInfoSetDialogComponent-disable-disable-0-Link\n" +
+                        "                  \"Text111\" [#/1/Spreadsheet123/metadata/formatters/save/] id=PluginInfoSetDialogComponent-disable-disable-0-Link\n" +
                         "      SpreadsheetFormatterInfoSetComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [https://example.com/Text111 Text111] id=PluginInfoSetDialogComponent-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/https://example.com/Text111%20Text111] id=PluginInfoSetDialogComponent-save-Link\n" +
-                        "          \"Reset\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetDialogComponent-reset-Link\n" +
-                        "          \"Disable All\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/] id=PluginInfoSetDialogComponent-disable all-Link\n" +
-                        "          \"Enable All\" [#/1/Spreadsheet123/metadata/spreadsheet-formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetDialogComponent-enable all-Link\n" +
+                        "          \"Save\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111] id=PluginInfoSetDialogComponent-save-Link\n" +
+                        "          \"Reset\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetDialogComponent-reset-Link\n" +
+                        "          \"Disable All\" [#/1/Spreadsheet123/metadata/formatters/save/] id=PluginInfoSetDialogComponent-disable all-Link\n" +
+                        "          \"Enable All\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetDialogComponent-enable all-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=PluginInfoSetDialogComponent-close-Link\n"
         );
     }
@@ -216,7 +216,7 @@ public final class PluginInfoSetDialogComponentTest implements SpreadsheetDialog
                 return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
                         token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
                                 .propertyName()
-                                .equals(SpreadsheetMetadataPropertyName.SPREADSHEET_FORMATTERS);
+                                .equals(SpreadsheetMetadataPropertyName.FORMATTERS);
             }
 
             @Override
@@ -249,7 +249,7 @@ public final class PluginInfoSetDialogComponentTest implements SpreadsheetDialog
             @Override
             public SpreadsheetFormatterInfoSet metadataInfoSet() {
                 return context.spreadsheetMetadata()
-                        .getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_FORMATTERS);
+                        .getOrFail(SpreadsheetMetadataPropertyName.FORMATTERS);
             }
 
             @Override
@@ -295,7 +295,7 @@ public final class PluginInfoSetDialogComponentTest implements SpreadsheetDialog
                         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                         SpreadsheetId.with(1)
                 ).setOrRemove(
-                        SpreadsheetMetadataPropertyName.SPREADSHEET_FORMATTERS,
+                        SpreadsheetMetadataPropertyName.FORMATTERS,
                         infos
                 );
             }
