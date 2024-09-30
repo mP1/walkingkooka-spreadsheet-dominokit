@@ -4060,7 +4060,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     // SpreadsheetLabelNameResolver.....................................................................................
 
     @Override
-    public SpreadsheetLabelNameResolver spreadsheetLabelNameResolver() {
+    public SpreadsheetLabelNameResolver createSpreadsheetLabelNameResolver() {
         return this.viewportCache();
     }
 
