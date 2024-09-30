@@ -56,7 +56,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters extend
 
     @Override
     SpreadsheetMetadataPropertyName<SpreadsheetFormatterInfoSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.SPREADSHEET_FORMATTERS;
+        return SpreadsheetMetadataPropertyName.FORMATTERS;
     }
 
     @Override

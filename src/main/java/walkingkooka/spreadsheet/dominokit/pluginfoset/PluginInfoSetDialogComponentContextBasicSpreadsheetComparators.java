@@ -54,7 +54,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetComparators exten
 
     @Override
     SpreadsheetMetadataPropertyName<SpreadsheetComparatorInfoSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.SPREADSHEET_COMPARATORS;
+        return SpreadsheetMetadataPropertyName.COMPARATORS;
     }
 
     @Override public SpreadsheetComparatorInfoSet emptyInfoSet() {

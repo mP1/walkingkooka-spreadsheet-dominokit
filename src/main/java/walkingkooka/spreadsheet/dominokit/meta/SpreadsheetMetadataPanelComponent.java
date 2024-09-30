@@ -377,7 +377,7 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetComparatorInfoSet> comparators() {
         return link(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_COMPARATORS
+                SpreadsheetMetadataPropertyName.COMPARATORS
         );
     }
 
@@ -389,7 +389,7 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetExporterInfoSet> exporters() {
         return link(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_EXPORTERS
+                SpreadsheetMetadataPropertyName.EXPORTERS
         );
     }
 
@@ -401,19 +401,19 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetFormatterInfoSet> formatters() {
         return link(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_FORMATTERS
+                SpreadsheetMetadataPropertyName.FORMATTERS
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetImporterInfoSet> importers() {
         return link(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_IMPORTERS
+                SpreadsheetMetadataPropertyName.IMPORTERS
         );
     }
 
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserInfoSet> parsers() {
         return link(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_PARSERS
+                SpreadsheetMetadataPropertyName.PARSERS
         );
     }
 
