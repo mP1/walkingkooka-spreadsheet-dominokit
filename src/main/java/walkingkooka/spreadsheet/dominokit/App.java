@@ -1155,17 +1155,26 @@ public class App implements EntryPoint,
                 )
         );
 
-        final SpreadsheetProvider spreadsheetProvider = metadata.spreadsheetProvider(
-                SpreadsheetProviders.basic(
-                        converterProvider,
-                        expressionFunctionProvider,
-                        spreadsheetComparatorProvider,
-                        spreadsheetExporterProvider,
-                        spreadsheetFormatterProvider,
-                        spreadsheetImporterProvider,
-                        spreadsheetParserProvider
-                )
-        );
+        // ExpressionFunctionProvider.infos will initially be empty after loading a new spreadsheet which will
+        // result in SpreadsheetMetadata.spreadsheetProvider failing.
+        SpreadsheetProvider spreadsheetProvider;
+        try {
+            spreadsheetProvider = metadata.spreadsheetProvider(
+                    SpreadsheetProviders.basic(
+                            converterProvider,
+                            expressionFunctionProvider,
+                            spreadsheetComparatorProvider,
+                            spreadsheetExporterProvider,
+                            spreadsheetFormatterProvider,
+                            spreadsheetImporterProvider,
+                            spreadsheetParserProvider
+                    )
+            );
+        } catch (final IllegalArgumentException ignore) {
+            spreadsheetProvider = SpreadsheetProviders.fake();
+        }
+
+
         this.spreadsheetProvider = spreadsheetProvider;
         this.systemSpreadsheetProvider = SpreadsheetProviders.basic(
                 converterProvider,
