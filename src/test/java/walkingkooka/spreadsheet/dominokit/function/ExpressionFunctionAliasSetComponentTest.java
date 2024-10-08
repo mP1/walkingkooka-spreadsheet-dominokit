@@ -20,10 +20,10 @@ package walkingkooka.spreadsheet.dominokit.function;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class ExpressionFunctionAliasesComponentTest implements ClassTesting2<ExpressionFunctionAliasesComponent> {
+public final class ExpressionFunctionAliasSetComponentTest implements ClassTesting2<ExpressionFunctionAliasSetComponent> {
     @Override
-    public Class<ExpressionFunctionAliasesComponent> type() {
-        return ExpressionFunctionAliasesComponent.class;
+    public Class<ExpressionFunctionAliasSetComponent> type() {
+        return ExpressionFunctionAliasSetComponent.class;
     }
 
     @Override

@@ -21,32 +21,32 @@ package walkingkooka.spreadsheet.dominokit.function;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliases;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
 
 /**
- * A text box that accepts entry and validates it as a {@link ExpressionFunctionAliases}.
+ * A text box that accepts entry and validates it as a {@link ExpressionFunctionAliasSet}.
  */
-public final class ExpressionFunctionAliasesComponent implements ValueSpreadsheetTextBoxWrapper<ExpressionFunctionAliasesComponent, ExpressionFunctionAliases> {
+public final class ExpressionFunctionAliasSetComponent implements ValueSpreadsheetTextBoxWrapper<ExpressionFunctionAliasSetComponent, ExpressionFunctionAliasSet> {
 
-    public static ExpressionFunctionAliasesComponent empty() {
-        return new ExpressionFunctionAliasesComponent();
+    public static ExpressionFunctionAliasSetComponent empty() {
+        return new ExpressionFunctionAliasSetComponent();
     }
 
-    private ExpressionFunctionAliasesComponent() {
+    private ExpressionFunctionAliasSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                ExpressionFunctionAliases::parse,
-                ExpressionFunctionAliases::toString
+                ExpressionFunctionAliasSet::parse,
+                ExpressionFunctionAliasSet::toString
         );
     }
 
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<ExpressionFunctionAliases> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<ExpressionFunctionAliasSet> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<ExpressionFunctionAliases> textBox;
+    private final ValueSpreadsheetTextBox<ExpressionFunctionAliasSet> textBox;
 
     // Object...........................................................................................................
 
