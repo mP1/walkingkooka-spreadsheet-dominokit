@@ -985,11 +985,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                     element = element.firstElementChild;
                 }
 
-                context.debug("SpreadsheetViewportComponent " + spreadsheetSelection + " focus element " + element);
+                context.debug("SpreadsheetViewportComponent.giveViewportSelectionFocus " + spreadsheetSelection + " focus element " + element);
                 element.focus();
             }
         } else {
-            context.debug("SpreadsheetViewportComponent " + spreadsheetSelection + " element not found!");
+            context.debug("SpreadsheetViewportComponent.giveViewportSelectionFocus " + spreadsheetSelection + " element not found!");
         }
     }
 
