@@ -40,6 +40,7 @@ import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
@@ -77,55 +78,6 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
-
-        // The inner class ComponentLifecycle is used to track SpreadsheetCellFormulaHistoryToken and give focus to
-        // SpreadsheetFormulaComponent.
-        context.addHistoryTokenWatcher(
-                new ComponentLifecycle() {
-
-                    @Override
-                    public boolean shouldIgnore(final HistoryToken token) {
-                        return token instanceof SpreadsheetCellFormulaSaveHistoryToken;
-                    }
-
-                    @Override
-                    public boolean isMatch(final HistoryToken token) {
-                        return token instanceof SpreadsheetCellFormulaHistoryToken;
-                    }
-
-                    @Override
-                    public boolean isOpen() {
-                        return this.open;
-                    }
-
-                    @Override
-                    public void open(final AppContext context) {
-                        this.open = true;
-                    }
-
-                    @Override
-                    public void openGiveFocus(final AppContext context) {
-                        context.giveFocus(SpreadsheetViewportFormulaComponent.this.formula::focus);
-                    }
-
-                    @Override
-                    public void refresh(final AppContext context) {
-                        // NOP
-                    }
-
-                    @Override
-                    public void close(final AppContext context) {
-                        this.open = false;
-                    }
-
-                    private boolean open;
-
-                    @Override
-                    public boolean shouldLogLifecycleChanges() {
-                        return false;
-                    }
-                }
-        );
     }
 
     private void onFocus(final Event event) {
@@ -211,90 +163,138 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
     @Override
     public boolean isOpen() {
-        return false == this.formula.isDisabled();
+        return this.open;
     }
+
+    /**
+     * Will be true when the current history token is a {@link SpreadsheetCellHistoryToken}.
+     */
+    private boolean open;
 
     @Override
     public void open(final AppContext context) {
+        this.open = true;
         this.formula.setDisabled(false);
-
-        this.selection = context.historyToken()
-                .anchoredSelectionOrEmpty()
-                .get()
-                .selection();
+        this.previousHistoryToken = null;
     }
 
+    /**
+     * Mostly contains logic about whether to refresh the formula text, error messages, enable/disable and whether to give focus.
+     */
     @Override
     public void refresh(final AppContext context) {
         final SpreadsheetCellHistoryToken token = context.historyToken()
                 .cast(SpreadsheetCellHistoryToken.class);
-
         final SpreadsheetFormulaComponent formula = this.formula;
-        final SpreadsheetSelection selection = token.anchoredSelection()
-                .selection();
-
-        // if selection change reload formula text
-        if (false == selection.equalsIgnoreReferenceKind(this.selection)) {
-            this.reload(
-                    selection,
-                    context
-            );
-        } else {
-            final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
-
-            // refresh could have happened before label from selection has returned from server.
-            // remove try/catch and if != null when https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2575 implemented.
-            Optional<SpreadsheetCell> cell;
-            try {
-                cell = cache.cell(selection);
-            } catch (final IllegalArgumentException labelNotReady) {
-                cell = null;
-            }
-
-            if (null != cell) {
-                formula.setStringValue(
-                        cell.map(c -> c.formula().text())
-                ).setHelperText(
-                        cell.flatMap(
-                                c -> c.formula()
-                                        .error()
-                                        .map(SpreadsheetError::message)
-                        )
+        final SpreadsheetSelection notLabelSelection = context.spreadsheetViewportCache()
+                .resolveIfLabel(
+                        token.anchoredSelection()
+                                .selection()
                 );
+        final boolean isCellReference = notLabelSelection.isCellReference();
+        formula.setDisabled(false == isCellReference);
+
+        if (isCellReference) {
+            final SpreadsheetCellReference selectedCell = notLabelSelection.toCell();
+
+            // if cell selection changed reload formula text
+            if (false == notLabelSelection.equalsIgnoreReferenceKind(this.selectedCell)) {
+                this.refreshFormula(
+                        selectedCell,
+                        context
+                );
+            } else {
+                final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
+                // refresh could have happened before label from selection has returned from server.
+                // remove try/catch and if != null when https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2575 implemented.
+                Optional<SpreadsheetCell> cell;
+                try {
+                    cell = cache.cell(selectedCell);
+                } catch (final IllegalArgumentException labelNotReady) {
+                    cell = null;
+                }
+
+                context.debug("SpreadsheetViewportFormulaComponent.refresh formula cell: " + cell);
+                if (null != cell) {
+                    formula.setStringValue(
+                            cell.map(c -> c.formula().text())
+                    ).setHelperText(
+                            cell.flatMap(
+                                    c -> c.formula()
+                                            .error()
+                                            .map(SpreadsheetError::message)
+                            )
+                    );
+                }
             }
+
+            if (token instanceof SpreadsheetCellFormulaHistoryToken & false == this.previousHistoryToken instanceof SpreadsheetCellFormulaHistoryToken) {
+                context.debug("SpreadsheetViewportFormulaComponent.refresh giving focus");
+                context.giveFocus(formula::focus);
+            }
+
+            this.selectedCell = selectedCell;
+        } else {
+            // not a cell selection clear the formula & error messages.
+            formula.setStringValue(Optional.empty());
+            formula.setHelperText(Optional.empty());
+            this.selectedCell = null;
         }
+
+        this.previousHistoryToken = token;
     }
 
-    private void reload(final SpreadsheetSelection selection,
-                        final AppContext context) {
+    /**
+     * Refreshes the {@link #formula} text and helper / error message.
+     */
+    private void refreshFormula(final SpreadsheetCellReference cellReference,
+                                final AppContext context) {
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
-        final SpreadsheetSelection nonLabel = cache.resolveIfLabel(selection);
-        final Optional<SpreadsheetCell> cell = cache.cell(nonLabel.toCell());
+        final Optional<SpreadsheetCell> cell = cache.cell(cellReference);
         final Optional<String> text = cell.map((c) -> c.formula().text());
 
-        context.debug("SpreadsheetViewportFormulaComponent.reload text=" + text);
+        context.debug("SpreadsheetViewportFormulaComponent.refreshFormula " + cellReference + " text=" + text);
 
-        this.formula.setStringValue(text);
-        this.formula.validate();
+        final SpreadsheetFormulaComponent formula = this.formula;
+        formula.setStringValue(text);
+        formula.setHelperText(
+                cell.flatMap(
+                        c -> c.formula()
+                                .error()
+                                .map(SpreadsheetError::message)
+                )
+        );
+        formula.validate();
         this.undoText = text;
     }
 
     @Override
     public void openGiveFocus(final AppContext context) {
         // nop MAYBE should give focus here
+        //context.giveFocus(SpreadsheetViewportFormulaComponent.this.formula::focus);
     }
 
     @Override
     public void close(final AppContext context) {
+        this.open = false;
         this.formula.setDisabled(true)
                 .clearValue()
                 .clearHelperText();
 
-        this.selection = null;
+        this.selectedCell = null;
+        this.previousHistoryToken = null;
     }
 
-    private SpreadsheetSelection selection;
+    /**
+     * Holds the last cell selection. This is used to track changes, supporting reloading of the {@link #formula} content
+     */
+    private SpreadsheetCellReference selectedCell;
+
+    /**
+     * Used to test if focus should be given to the {@link #formula} because a new {@link SpreadsheetCellFormulaHistoryToken} happened.
+     */
+    private HistoryToken previousHistoryToken;
 
     @Override
     public boolean shouldLogLifecycleChanges() {
