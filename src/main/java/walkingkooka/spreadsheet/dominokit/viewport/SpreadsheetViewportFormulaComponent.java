@@ -174,7 +174,6 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
     @Override
     public void open(final AppContext context) {
         this.open = true;
-        this.formula.setDisabled(false);
         this.previousHistoryToken = null;
     }
 
