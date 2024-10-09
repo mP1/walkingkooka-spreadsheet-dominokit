@@ -238,7 +238,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
                         .setLabel("Label123")
                         .setValue(Optional.of("Value456"))
                         .setId("id987")
-                        .setDisabled(true)
+                        .disabled()
                         .required()
                         .setHelperText(Optional.of("HelperText789"))
                 ,

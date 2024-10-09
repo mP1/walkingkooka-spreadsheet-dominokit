@@ -278,7 +278,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
     @Override
     public void close(final AppContext context) {
         this.open = false;
-        this.formula.setDisabled(true)
+        this.formula.disabled()
                 .clearValue()
                 .clearHelperText();
 

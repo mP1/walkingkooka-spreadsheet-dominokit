@@ -75,6 +75,10 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
         );
     }
 
+    default C disabled() {
+        return this.setDisabled(true);
+    }
+
     C setDisabled(final boolean disabled);
 
     /**
