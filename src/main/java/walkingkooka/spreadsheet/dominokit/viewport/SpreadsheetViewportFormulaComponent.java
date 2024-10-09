@@ -192,7 +192,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
                                 .selection()
                 );
         final boolean isCellReference = notLabelSelection.isCellReference();
-        formula.setDisabled(false == isCellReference);
+        formula.setEnabled(isCellReference);
 
         if (isCellReference) {
             final SpreadsheetCellReference selectedCell = notLabelSelection.toCell();
