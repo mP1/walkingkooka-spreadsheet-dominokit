@@ -1144,14 +1144,15 @@ public class App implements EntryPoint,
                 SpreadsheetParserProviders.spreadsheetParsePattern(spreadsheetFormatterProvider)
         );
 
-        final ConverterProvider converterProvider = metadata.converterProvider(
-                ConverterProviders.mergedMapped(
-                        this.converterInfoSet,
-                        SpreadsheetConvertersConverterProviders.spreadsheetConverters(
-                                metadata,
-                                spreadsheetFormatterProvider,
-                                spreadsheetParserProvider
-                        )
+        final ConverterProvider converterProvider = ConverterProviders.mergedMapped(
+                this.converterInfoSet.renameIfPresent(
+                        metadata.get(SpreadsheetMetadataPropertyName.CONVERTERS)
+                                .orElse(ConverterInfoSet.EMPTY)
+                ),
+                SpreadsheetConvertersConverterProviders.spreadsheetConverters(
+                        metadata,
+                        spreadsheetFormatterProvider,
+                        spreadsheetParserProvider
                 )
         );
 
