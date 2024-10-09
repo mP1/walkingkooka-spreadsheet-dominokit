@@ -270,8 +270,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
     @Override
     public void openGiveFocus(final AppContext context) {
-        // nop MAYBE should give focus here
-        //context.giveFocus(SpreadsheetViewportFormulaComponent.this.formula::focus);
+        // nop
     }
 
     @Override
