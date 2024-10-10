@@ -99,11 +99,11 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                     TextCursors.charSequence(
                                             formula.text()
                                     ),
-                                    metadata.parser(
+                                    metadata.spreadsheetParser(
                                             context, // SpreadsheetParserProvider
                                             context
                                     ),
-                                    metadata.parserContext(context::now)
+                                    metadata.spreadsheetParserContext(context::now)
                             )
                     );
                 } catch (final RuntimeException ignore) {
@@ -157,11 +157,11 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                             TextCursors.charSequence(
                                     node.stringOrFail()
                             ),
-                            metadata.parser(
+                            metadata.spreadsheetParser(
                                     context, // SpreadsheetParserProvider
                                     context // ProviderContext
                             ),
-                            metadata.parserContext(
+                            metadata.spreadsheetParserContext(
                                     context::now
                             )// parser context
                     )

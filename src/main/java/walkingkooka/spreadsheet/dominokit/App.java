@@ -1191,7 +1191,7 @@ public class App implements EntryPoint,
         }
 
         try {
-            this.parserContext = metadata.parserContext(
+            this.parserContext = metadata.spreadsheetParserContext(
                     () -> this.now() // not sure why but method ref fails.
             );
         } catch (final RuntimeException cause) {
