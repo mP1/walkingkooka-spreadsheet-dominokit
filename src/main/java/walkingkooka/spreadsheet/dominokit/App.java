@@ -1178,7 +1178,7 @@ public class App implements EntryPoint,
         );
 
         try {
-            this.formatterContext = metadata.formatterContext(
+            this.formatterContext = metadata.spreadsheetFormatterContext(
                     () -> this.now(), // not sure why but method ref fails.
                     this.viewportCache, // SpreadsheetLabelNameResolver
                     converterProvider,// ConverterProvider
