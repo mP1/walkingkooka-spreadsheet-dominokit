@@ -74,13 +74,13 @@ final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParser
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
         if (null == parser) {
             parser = SpreadsheetParsers.valueOrExpression(
-                    metadata.parser(
+                    metadata.spreadsheetParser(
                             context, // SpreadsheetParserProvider
                             context // ProviderContext
                     )
             );
         }
-        final SpreadsheetParserContext parserContext = metadata.parserContext(
+        final SpreadsheetParserContext parserContext = metadata.spreadsheetParserContext(
                 context::now
         );
 
