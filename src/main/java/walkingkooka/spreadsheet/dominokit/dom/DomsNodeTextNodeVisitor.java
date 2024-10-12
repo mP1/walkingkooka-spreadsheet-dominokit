@@ -69,7 +69,7 @@ final class DomsNodeTextNodeVisitor extends TextNodeVisitor {
         this.ancestors.push(parent);
 
         final HTMLElement span = createSpan();
-        span.style.cssText = node.textStyle().css();
+        span.style.cssText = node.textStyle().text();
         parent.append(span);
 
         this.parent = span;

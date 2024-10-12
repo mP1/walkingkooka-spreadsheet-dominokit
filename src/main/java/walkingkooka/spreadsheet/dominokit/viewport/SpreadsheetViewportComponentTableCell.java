@@ -64,7 +64,7 @@ abstract class SpreadsheetViewportComponentTableCell {
                         TextStylePropertyName.HEIGHT,
                         height
                 )
-        ).css() + "box-sizing: border-box;";
+        ).text() + "box-sizing: border-box;";
     }
 
     private final static TextStyle STYLE = TextStyle.EMPTY

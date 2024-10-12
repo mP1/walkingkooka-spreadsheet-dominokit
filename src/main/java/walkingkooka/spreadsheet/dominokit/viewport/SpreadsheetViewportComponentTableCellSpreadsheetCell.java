@@ -182,7 +182,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             );
 
             td.style(
-                    style.css() + "box-sizing: border-box;"
+                    style.text() + "box-sizing: border-box;"
             );
 
 
