@@ -30,7 +30,7 @@ This will provide a variety of services that are consumed by the rich web (this 
 
 About 150 functions are currently implemented with automated tests, and available within any expression. For more info
 including a list of available functions
-goto [HERE](https://github.com/mP1/walkingkooka-spreadsheet-server-expression-function)
+goto [HERE](https://github.com/mP1/walkingkooka-spreadsheet-expression-function)
 
 ## Client
 
