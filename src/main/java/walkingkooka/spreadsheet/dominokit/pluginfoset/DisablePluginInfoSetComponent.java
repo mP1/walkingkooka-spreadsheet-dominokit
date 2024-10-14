@@ -26,7 +26,6 @@ import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -100,16 +99,15 @@ public final class DisablePluginInfoSetComponent<N extends Name & Comparable<N>,
                                                final S infos,
                                                final int index,
                                                final DisablePluginInfoSetComponentContext context) {
-        final HistoryToken historyToken = context.historyToken();
-
-        return historyToken.saveLink(
-                this.id + "disable-" + index,
-                CaseKind.kebabToTitle(
-                        info.name()
-                                .value()
-                ),
-                infos.text()
-        );
+        return context.historyToken()
+                .saveLink(
+                        this.id + "disable-" + index,
+                        CaseKind.kebabToTitle(
+                                info.name()
+                                        .value()
+                        ),
+                        infos.text()
+                );
     }
 
     /**
