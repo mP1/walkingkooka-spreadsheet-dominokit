@@ -63,7 +63,7 @@ public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>, 
     }
 
     public void refresh(final S enabledInfos, // value from SpreadsheetMetadata with currently enabled infos
-                        final S availableInfos, // from provider
+                        final S providerInfos, // from provider
                         final EnablePluginInfoSetComponentContext context) {
         this.root.hide();
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
@@ -73,13 +73,13 @@ public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>, 
                 .collect(Collectors.toSet());
 
         int i = 0;
-        for (final I availableInfo : availableInfos) {
-            // if availableInfo.url is absent from enabledInfos.url create link
-            if (false == enabledUrls.contains(availableInfo.url())) {
+        for (final I providerInfo : providerInfos) {
+            // if providerInfo.url is absent from enabledInfos.url create link
+            if (false == enabledUrls.contains(providerInfo.url())) {
                 flex.appendChild(
                         this.anchor(
-                                availableInfo,
-                                enabledInfos.concat(availableInfo),
+                                providerInfo,
+                                enabledInfos.concat(providerInfo),
                                 i,
                                 context
                         )
