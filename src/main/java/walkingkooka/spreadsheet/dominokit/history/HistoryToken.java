@@ -2515,6 +2515,21 @@ public abstract class HistoryToken implements HasUrlFragment,
                 );
     }
 
+    /**
+     * Creates a link with the given ID, text and save value.
+     */
+    public final HistoryTokenAnchorComponent saveLink(final String id,
+                                                      final String text,
+                                                      final String saveText) {
+        return this.link(id)
+                .setTextContent(text)
+                .setHistoryToken(
+                        Optional.of(
+                                this.setSave(saveText)
+                        )
+                );
+    }
+
     // Object...........................................................................................................
 
     @Override
