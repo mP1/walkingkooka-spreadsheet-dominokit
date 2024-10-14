@@ -34,7 +34,6 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -103,20 +102,14 @@ public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>, 
                                                final EnablePluginInfoSetComponentContext context) {
         final HistoryToken historyToken = context.historyToken();
 
-        return historyToken.link(
-                this.id + "enable-" + index
-        ).setTextContent(
+        return historyToken.saveLink(
+                this.id + "enable-" + index,
                 CaseKind.KEBAB.change(
                         info.name()
                                 .value(),
                         CaseKind.TITLE
-                )
-        ).setHistoryToken(
-                Optional.of(
-                        historyToken.setSave(
-                                infos.text()
-                        )
-                )
+                ),
+                infos.text()
         );
     }
 

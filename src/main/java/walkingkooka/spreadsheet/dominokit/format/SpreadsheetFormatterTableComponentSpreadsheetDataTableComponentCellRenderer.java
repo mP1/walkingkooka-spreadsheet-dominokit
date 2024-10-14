@@ -76,15 +76,11 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
                                                 final SpreadsheetFormatterSelector selector) {
         final HistoryToken historyToken = this.context.historyToken();
 
-        return historyToken.link(id)
-                .setTextContent(selector.text())
-                .setHistoryToken(
-                        Optional.of(
-                                historyToken.setSave(
-                                        this.context.formatterTableHistoryTokenSave(selector)
-                                )
-                        )
-                );
+        return historyToken.saveLink(
+                id,
+                selector.text(),
+                this.context.formatterTableHistoryTokenSave(selector)
+        );
     }
 
     private HtmlElementComponent<?, ?> formatted(final TextNode formatted) {
