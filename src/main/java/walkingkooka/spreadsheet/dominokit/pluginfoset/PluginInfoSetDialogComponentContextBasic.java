@@ -100,9 +100,9 @@ abstract class PluginInfoSetDialogComponentContextBasic<N extends Name & Compara
 
     @Override
     public final String dialogTitle() {
-        return CaseKind.KEBAB.change(
-                this.metadataPropertyName().text(),
-                CaseKind.TITLE
+        return CaseKind.kebabToTitle(
+                this.metadataPropertyName()
+                        .text()
         );
     }
 

@@ -45,14 +45,7 @@ public final class SpreadsheetParserNameLinkListComponent implements HtmlElement
         this.list = SpreadsheetLinkListComponent.with(
                 id,
                 "", // title
-                SpreadsheetParserNameLinkListComponent::spreadsheetParserNameToLinkLabel
-        );
-    }
-
-    private static String spreadsheetParserNameToLinkLabel(final String parserName) {
-        return CaseKind.KEBAB.change(
-                parserName,
-                CaseKind.TITLE
+                CaseKind::kebabToTitle
         );
     }
 

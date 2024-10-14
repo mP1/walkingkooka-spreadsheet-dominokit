@@ -64,9 +64,8 @@ final class SpreadsheetComparatorNameListDialogComponentContextSortComparators i
 
     @Override
     public String dialogTitle() {
-        return CaseKind.KEBAB.change(
-                PROPERTY_NAME.text(),
-                CaseKind.TITLE
+        return CaseKind.kebabToTitle(
+                PROPERTY_NAME.text()
         );
     }
 

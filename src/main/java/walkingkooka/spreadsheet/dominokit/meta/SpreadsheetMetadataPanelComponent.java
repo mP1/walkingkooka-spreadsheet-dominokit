@@ -496,9 +496,8 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
      * Helper that converts a {@link SpreadsheetMetadataPropertyName} into a label for display.
      */
     private static String label(final SpreadsheetMetadataPropertyName<?> propertyName) {
-        return CaseKind.KEBAB.change(
-                propertyName.value(),
-                CaseKind.TITLE
+        return CaseKind.kebabToTitle(
+                propertyName.value()
         );
     }
 

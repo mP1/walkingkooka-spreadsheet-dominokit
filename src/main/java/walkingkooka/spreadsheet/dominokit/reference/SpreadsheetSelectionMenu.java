@@ -405,9 +405,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             final TextStylePropertyName<?> name = style.name();
             final Optional<?> value = style.value();
 
-            final String label = CaseKind.KEBAB.change(
-                    name.value(),
-                    CaseKind.TITLE
+            final String label = CaseKind.kebabToTitle(
+                    name.value()
             );
 
             menu.item(

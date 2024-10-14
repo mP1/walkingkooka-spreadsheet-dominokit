@@ -68,9 +68,8 @@ final class SpreadsheetSelectionMenuSort {
 
             final SpreadsheetContextMenu subMenu = menu.subMenu(
                     subMenuId + SpreadsheetElementIds.SUB_MENU,
-                    CaseKind.KEBAB.change(
-                            name.value(),
-                            CaseKind.TITLE
+                    CaseKind.kebabToTitle(
+                            name.value()
                     )
             );
 
