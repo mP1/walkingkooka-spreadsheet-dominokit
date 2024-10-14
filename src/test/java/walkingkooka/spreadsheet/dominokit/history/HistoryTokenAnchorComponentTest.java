@@ -32,14 +32,14 @@ import walkingkooka.text.printer.TreePrintableTesting;
 import java.util.Optional;
 
 public final class HistoryTokenAnchorComponentTest implements TreePrintableTesting,
-        ClassTesting<walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent> {
+        ClassTesting<HistoryTokenAnchorComponent> {
 
     // historyToken.....................................................................................................
 
     @Test
     public void testSetHistoryTokenEmpty() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent.empty(),
+                HistoryTokenAnchorComponent.empty(),
                 ""
         );
     }
@@ -49,7 +49,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
         final String href = "/1/SpreadsheetName234/cell/A1";
 
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent.empty()
+                HistoryTokenAnchorComponent.empty()
                         .setHistoryToken(
                                 Optional.of(
                                         HistoryToken.parseString(href)
@@ -64,7 +64,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
     @Test
     public void testSetHrefNull() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent.empty()
+                HistoryTokenAnchorComponent.empty()
                         .setHref(null),
                 "DISABLED"
         );
@@ -75,7 +75,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
         final String href = "#/1/SpreadsheetName234/cell/A1";
 
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent.empty()
+                HistoryTokenAnchorComponent.empty()
                         .setHref(
                                 Url.parseAbsoluteOrRelative(href)
                         ),
@@ -88,7 +88,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
     @Test
     public void testSetIconAfter() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent.empty()
+                HistoryTokenAnchorComponent.empty()
                         .setIconAfter(
                                 Optional.of(
                                         new Icon<>("Icon123")
@@ -106,7 +106,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
     @Test
     public void testSetIconBefore() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent.empty()
+                HistoryTokenAnchorComponent.empty()
                         .setIconBefore(
                                 Optional.of(
                                         new Icon<>("Icon123")
@@ -124,7 +124,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
     @Test
     public void testSetTextContent() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent.empty()
+                HistoryTokenAnchorComponent.empty()
                         .setTextContent(
                                 "Text123"
                         )
@@ -140,7 +140,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
     @Test
     public void testPrintTreeAll() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent.empty()
+                HistoryTokenAnchorComponent.empty()
                         .setChecked(true)
                         .setIconAfter(
                                 Optional.of(
@@ -162,7 +162,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
     @Test
     public void testPrintTreeAllDisabled() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent.empty()
+                HistoryTokenAnchorComponent.empty()
                         .setChecked(true)
                         .setIconAfter(
                                 Optional.of(
@@ -186,7 +186,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
 
     @Test
     public void testSetSpreadsheetContextMenu() {
-        final walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent anchor = walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent.empty()
+        final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
                 .setTextContent("Hello")
                 .setHref(
                         Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
@@ -226,7 +226,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
 
     @Test
     public void testSpreadsheetTooltipComponent() {
-        final walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent anchor = walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent.empty()
+        final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
                 .setTextContent("Hello")
                 .setHref(
                         Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
@@ -248,7 +248,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent> type() {
+    public Class<HistoryTokenAnchorComponent> type() {
         return HistoryTokenAnchorComponent.class;
     }
 
