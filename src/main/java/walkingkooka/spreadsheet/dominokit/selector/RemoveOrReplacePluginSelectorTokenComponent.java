@@ -37,7 +37,6 @@ import walkingkooka.text.printer.TreePrintable;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -112,20 +111,15 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
                                                final RemoveOrReplacePluginSelectorTokenComponentContext context) {
         final HistoryToken historyToken = context.historyToken();
 
-        final HistoryTokenAnchorComponent anchor = historyToken.link(
-                        this.id + "remove-" + index
-                ).setTextContent(token.label())
-                .setHistoryToken(
-                        Optional.of(
-                                historyToken.setSave(
-                                        context.saveText(
-                                                tokens.removeAtIndex(index)
-                                                        .stream()
-                                                        .collect(Collectors.joining(""))
-                                        )
-                                )
-                        )
-                );
+        final HistoryTokenAnchorComponent anchor = historyToken.saveLink(
+                this.id + "remove-" + index,
+                token.label(),
+                context.saveText(
+                        tokens.removeAtIndex(index)
+                                .stream()
+                                .collect(Collectors.joining(""))
+                )
+        );
         final Collection<A> alternatives = token.alternatives();
 
         if (false == alternatives.isEmpty()) {

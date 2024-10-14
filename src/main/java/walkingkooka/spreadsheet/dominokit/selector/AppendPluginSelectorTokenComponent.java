@@ -34,7 +34,6 @@ import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -109,18 +108,13 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
                                                final AppendPluginSelectorTokenComponentContext context) {
         final HistoryToken historyToken = context.historyToken();
 
-        return historyToken.link(
-                        this.id + "append-" + index
-                ).setTextContent(alternative.label())
-                .setHistoryToken(
-                        Optional.of(
-                                historyToken.setSave(
-                                        context.saveText(
-                                                token + alternative.text()
-                                        )
-                                )
-                        )
-                );
+        return historyToken.saveLink(
+                this.id + "append-" + index,
+                alternative.label(),
+                context.saveText(
+                        token + alternative.text()
+                )
+        );
     }
 
     /**

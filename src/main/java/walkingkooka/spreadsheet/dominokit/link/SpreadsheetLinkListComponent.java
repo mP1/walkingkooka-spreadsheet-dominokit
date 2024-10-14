@@ -31,7 +31,6 @@ import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -108,15 +107,10 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
                                                final SpreadsheetLinkListComponentContext context) {
         final HistoryToken historyToken = context.historyToken();
 
-        return historyToken.link(
-                        this.id + index
-                ).setTextContent(this.labelMaker.apply(text))
-                .setHistoryToken(
-                        Optional.of(
-                                historyToken.setSave(
-                                        context.saveText(text)
-                                )
-                        )
+        return historyToken.saveLink(
+                this.id + index,
+                this.labelMaker.apply(text),
+                context.saveText(text)
                 ).setDisabled(context.isDisabled(text));
     }
 
