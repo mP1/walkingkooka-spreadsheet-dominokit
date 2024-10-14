@@ -136,8 +136,6 @@ abstract class PluginInfoSetDialogComponentContextBasic<N extends Name & Compara
                 .parseUrlFragmentSaveValue(text);
     }
 
-    public abstract S emptyInfoSet();
-
     @Override
     public final S metadataInfoSet() {
         return this.context.spreadsheetMetadata()

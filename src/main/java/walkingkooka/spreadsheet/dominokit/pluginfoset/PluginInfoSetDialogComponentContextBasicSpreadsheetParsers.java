@@ -58,7 +58,8 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetParsers extends P
         return SpreadsheetMetadataPropertyName.PARSERS;
     }
 
-    @Override public SpreadsheetParserInfoSet emptyInfoSet() {
+    @Override
+    public SpreadsheetParserInfoSet emptyInfoSet() {
         return SpreadsheetParserInfoSet.EMPTY;
     }
 

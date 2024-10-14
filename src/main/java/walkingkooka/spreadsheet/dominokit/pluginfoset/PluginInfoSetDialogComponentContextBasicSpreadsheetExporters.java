@@ -57,7 +57,8 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetExporters extends
         return SpreadsheetMetadataPropertyName.EXPORTERS;
     }
 
-    @Override public SpreadsheetExporterInfoSet emptyInfoSet() {
+    @Override
+    public SpreadsheetExporterInfoSet emptyInfoSet() {
         return SpreadsheetExporterInfoSet.EMPTY;
     }
 
