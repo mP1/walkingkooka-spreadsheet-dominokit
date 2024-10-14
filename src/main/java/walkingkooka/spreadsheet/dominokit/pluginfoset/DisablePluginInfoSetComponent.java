@@ -104,10 +104,9 @@ public final class DisablePluginInfoSetComponent<N extends Name & Comparable<N>,
 
         return historyToken.saveLink(
                 this.id + "disable-" + index,
-                CaseKind.KEBAB.change(
+                CaseKind.kebabToTitle(
                         info.name()
-                                .value(),
-                        CaseKind.TITLE
+                                .value()
                 ),
                 infos.text()
         );
