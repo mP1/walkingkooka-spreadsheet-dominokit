@@ -135,10 +135,10 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
         );
     }
 
-    // all..............................................................................................................
+    // TreePrintable....................................................................................................
 
     @Test
-    public void testAll() {
+    public void testPrintTreeAll() {
         this.treePrintAndCheck(
                 walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent.empty()
                         .setChecked(true)
@@ -160,7 +160,7 @@ public final class HistoryTokenAnchorComponentTest implements TreePrintableTesti
     }
 
     @Test
-    public void testAllDisabled() {
+    public void testPrintTreeAllDisabled() {
         this.treePrintAndCheck(
                 walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent.empty()
                         .setChecked(true)
