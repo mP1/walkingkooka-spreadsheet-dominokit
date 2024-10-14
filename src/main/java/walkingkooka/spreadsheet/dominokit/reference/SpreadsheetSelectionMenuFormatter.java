@@ -118,9 +118,8 @@ final class SpreadsheetSelectionMenuFormatter {
 
             final SpreadsheetContextMenu nameMenu = menu.subMenu(
                     nameMenuId + SpreadsheetElementIds.SUB_MENU,
-                    CaseKind.KEBAB.change(
-                            name.value(),
-                            CaseKind.TITLE
+                    CaseKind.kebabToTitle(
+                            name.value()
                     )
             );
 
@@ -165,10 +164,9 @@ final class SpreadsheetSelectionMenuFormatter {
         int i = 0;
 
         for (final SpreadsheetFormatterSelector selector : selectors) {
-            final String label = CaseKind.KEBAB.change(
+            final String label = CaseKind.kebabToTitle(
                     selector.name()
-                            .value(),
-                    CaseKind.TITLE
+                            .value()
             );
 
             final String text = selector.text();

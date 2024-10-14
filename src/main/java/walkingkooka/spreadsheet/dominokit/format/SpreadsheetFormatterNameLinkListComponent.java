@@ -44,14 +44,7 @@ public final class SpreadsheetFormatterNameLinkListComponent implements HtmlElem
         this.list = SpreadsheetLinkListComponent.with(
                 id,
                 "", // title
-                SpreadsheetFormatterNameLinkListComponent::spreadsheetFormatterNameToLinkLabel
-        );
-    }
-
-    private static String spreadsheetFormatterNameToLinkLabel(final String formatterName) {
-        return CaseKind.KEBAB.change(
-                formatterName,
-                CaseKind.TITLE
+                CaseKind::kebabToTitle
         );
     }
 
