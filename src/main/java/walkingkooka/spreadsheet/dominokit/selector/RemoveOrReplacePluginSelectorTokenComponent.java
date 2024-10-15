@@ -109,17 +109,16 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
                                                final ImmutableList<String> tokens,
                                                final int index,
                                                final RemoveOrReplacePluginSelectorTokenComponentContext context) {
-        final HistoryToken historyToken = context.historyToken();
-
-        final HistoryTokenAnchorComponent anchor = historyToken.saveLink(
-                this.id + "remove-" + index,
-                token.label(),
-                context.saveText(
-                        tokens.removeAtIndex(index)
-                                .stream()
-                                .collect(Collectors.joining(""))
-                )
-        );
+        final HistoryTokenAnchorComponent anchor = context.historyToken()
+                .saveLink(
+                        this.id + "remove-" + index,
+                        token.label(),
+                        context.saveText(
+                                tokens.removeAtIndex(index)
+                                        .stream()
+                                        .collect(Collectors.joining(""))
+                        )
+                );
         final Collection<A> alternatives = token.alternatives();
 
         if (false == alternatives.isEmpty()) {
