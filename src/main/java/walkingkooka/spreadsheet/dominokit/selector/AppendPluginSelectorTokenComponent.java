@@ -26,7 +26,6 @@ import walkingkooka.plugin.PluginSelectorTokenLike;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -106,15 +105,14 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
                                                final A alternative,
                                                final int index,
                                                final AppendPluginSelectorTokenComponentContext context) {
-        final HistoryToken historyToken = context.historyToken();
-
-        return historyToken.saveLink(
-                this.id + "append-" + index,
-                alternative.label(),
-                context.saveText(
-                        token + alternative.text()
-                )
-        );
+        return context.historyToken()
+                .saveLink(
+                        this.id + "append-" + index,
+                        alternative.label(),
+                        context.saveText(
+                                token + alternative.text()
+                        )
+                );
     }
 
     /**
