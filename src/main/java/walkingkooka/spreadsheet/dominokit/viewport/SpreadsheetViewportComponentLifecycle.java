@@ -45,7 +45,7 @@ public interface SpreadsheetViewportComponentLifecycle extends ComponentLifecycl
             final SpreadsheetViewportCache viewportCache = this.spreadsheetViewportCache();
             final SpreadsheetViewportWindows windows = viewportCache.windows();
 
-            match = false == metadata.isEmpty() && false == windows.isEmpty();
+            match = metadata.isNotEmpty() && windows.isNotEmpty();
         }
         return match;
     }

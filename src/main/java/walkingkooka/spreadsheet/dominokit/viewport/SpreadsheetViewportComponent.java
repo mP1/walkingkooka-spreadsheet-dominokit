@@ -1346,7 +1346,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             final int height = this.height;
 
             final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-            if (reload && width > 0 && height > 0 && false == metadata.isEmpty()) {
+            if (reload && width > 0 && height > 0 && metadata.isNotEmpty()) {
                 if (metadata.isEmpty()) {
                     context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary waiting for metadata");
                 } else {

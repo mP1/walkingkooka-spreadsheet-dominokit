@@ -146,7 +146,7 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
     //     XXX
     @Override
     public void printTree(final IndentingPrinter printer) {
-        if (false == this.isEmpty()) {
+        if (this.isNotEmpty()) {
             printer.println("SpreadsheetCard");
 
             printer.indent();
