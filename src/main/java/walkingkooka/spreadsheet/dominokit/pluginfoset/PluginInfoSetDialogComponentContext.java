@@ -33,7 +33,7 @@ import java.util.function.Consumer;
 /**
  * A {@link walkingkooka.Context} tht accompanies a {@link PluginInfoSetDialogComponent} provided various inputs.
  */
-public interface PluginInfoSetDialogComponentContext<N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, S extends PluginInfoSetLike<S, I, N>> extends CanGiveFocus,
+public interface PluginInfoSetDialogComponentContext<N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, IS extends PluginInfoSetLike<N, I, IS>> extends CanGiveFocus,
         SpreadsheetDialogComponentContext,
         EnablePluginInfoSetComponentContext,
         DisablePluginInfoSetComponentContext {
@@ -52,7 +52,7 @@ public interface PluginInfoSetDialogComponentContext<N extends Name & Comparable
     /**
      * Creates a textbox that will be used to edit the {@link PluginInfoSetLike}.
      */
-    ValueSpreadsheetTextBoxWrapper<?, S> textBox();
+    ValueSpreadsheetTextBoxWrapper<?, IS> textBox();
 
     /**
      * Adds a {@link SpreadsheetMetadataFetcherWatcher}.<br>
@@ -63,7 +63,7 @@ public interface PluginInfoSetDialogComponentContext<N extends Name & Comparable
     /**
      * Watcher method called whenever {@link #loadProviderInfoSet()} completes.
      */
-    Runnable addProviderFetcherWatcher(final Consumer<S> set);
+    Runnable addProviderFetcherWatcher(final Consumer<IS> set);
 
     /**
      * Loads the {@link PluginInfoSetLike} for the given {@link SpreadsheetId}.
@@ -73,20 +73,20 @@ public interface PluginInfoSetDialogComponentContext<N extends Name & Comparable
     /**
      * Parses the text into a {@link PluginInfoSetLike}.
      */
-    S parse(final String text);
+    IS parse(final String text);
 
     /**
      * Returns an empty {@link PluginInfoSetLike}.
      */
-    S emptyInfoSet();
+    IS emptyInfoSet();
 
     /**
      * The metadata property name which will be used to retrieve the current value of the {@link PluginInfoSetLike}.
      */
-    S metadataInfoSet();
+    IS metadataInfoSet();
 
     /**
      * Returns a {@link PluginInfoSetLike} sourced from the provider.
      */
-    S providerInfoSet();
+    IS providerInfoSet();
 }

@@ -39,7 +39,7 @@ import java.util.Objects;
 /**
  * Base class that captures a lot of common functionality for a {@link PluginInfoSetDialogComponentContext}.
  */
-abstract class PluginInfoSetDialogComponentContextBasic<N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, S extends PluginInfoSetLike<S, I, N>> implements PluginInfoSetDialogComponentContext<N, I, S>,
+abstract class PluginInfoSetDialogComponentContextBasic<N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, IS extends PluginInfoSetLike<N, I, IS>> implements PluginInfoSetDialogComponentContext<N, I, IS>,
         HistoryTokenContextDelegator,
         LoggingContextDelegator {
 
@@ -131,28 +131,28 @@ abstract class PluginInfoSetDialogComponentContextBasic<N extends Name & Compara
     abstract void loadPluginInfoSet0(final SpreadsheetId id);
 
     @Override
-    public final S parse(final String text) {
+    public final IS parse(final String text) {
         return this.metadataPropertyName()
                 .parseUrlFragmentSaveValue(text);
     }
 
     @Override
-    public final S metadataInfoSet() {
+    public final IS metadataInfoSet() {
         return this.context.spreadsheetMetadata()
                 .getIgnoringDefaults(this.metadataPropertyName())
                 .orElse(this.emptyInfoSet());
     }
 
-    abstract SpreadsheetMetadataPropertyName<S> metadataPropertyName();
+    abstract SpreadsheetMetadataPropertyName<IS> metadataPropertyName();
 
     @Override
-    public final S providerInfoSet() {
+    public final IS providerInfoSet() {
         return this.providerInfoSet0(
                 this.context.systemSpreadsheetProvider()
         );
     }
 
-    abstract S providerInfoSet0(final SpreadsheetProvider spreadsheetProvider);
+    abstract IS providerInfoSet0(final SpreadsheetProvider spreadsheetProvider);
 
     // focus............................................................................................................
 

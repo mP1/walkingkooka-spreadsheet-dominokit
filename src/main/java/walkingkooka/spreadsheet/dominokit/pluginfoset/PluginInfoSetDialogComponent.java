@@ -55,7 +55,7 @@ import java.util.Set;
  * CLOSE
  * </pre>
  */
-public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, S extends PluginInfoSetLike<S, I, N>> implements SpreadsheetDialogComponentLifecycle,
+public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, IS extends PluginInfoSetLike<N, I, IS>> implements SpreadsheetDialogComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopEmptyResponseFetcherWatcher,
@@ -64,13 +64,13 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>, 
     /**
      * Creates a new {@link PluginInfoSetDialogComponent}.
      */
-    public static <N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, S extends PluginInfoSetLike<S, I, N>> PluginInfoSetDialogComponent<N, I, S> with(final PluginInfoSetDialogComponentContext<N, I, S> context) {
+    public static <N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, IS extends PluginInfoSetLike<N, I, IS>> PluginInfoSetDialogComponent<N, I, IS> with(final PluginInfoSetDialogComponentContext<N, I, IS> context) {
         return new PluginInfoSetDialogComponent<>(
                 Objects.requireNonNull(context, "context")
         );
     }
 
-    private PluginInfoSetDialogComponent(final PluginInfoSetDialogComponentContext<N, I, S> context) {
+    private PluginInfoSetDialogComponent(final PluginInfoSetDialogComponentContext<N, I, IS> context) {
         this.context = context;
         context.addHistoryTokenWatcher(this);
 
@@ -103,7 +103,7 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>, 
         this.dialog = this.dialogCreate();
     }
 
-    private void onProviderInfoSet(final S providerInfos) {
+    private void onProviderInfoSet(final IS providerInfos) {
         if (this.isOpen()) {
             this.refreshNonResetLinks();
         }
@@ -124,7 +124,7 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>, 
      * Creates the modal dialog, loaded with the {@link PluginInfoSetLike} textbox and some links.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final PluginInfoSetDialogComponentContext<N, I, S> context = this.context;
+        final PluginInfoSetDialogComponentContext<N, I, IS> context = this.context;
 
         return SpreadsheetDialogComponent.with(
                         ID,
@@ -155,11 +155,11 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>, 
 
     // enable...........................................................................................................
 
-    private final EnablePluginInfoSetComponent<N, I, S> enable;
+    private final EnablePluginInfoSetComponent<N, I, IS> enable;
 
     // disable..........................................................................................................
 
-    private final DisablePluginInfoSetComponent<N, I, S> disable;
+    private final DisablePluginInfoSetComponent<N, I, IS> disable;
 
     // textBox..........................................................................................................
 
@@ -195,7 +195,7 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>, 
     /**
      * The {@link ValueSpreadsheetTextBoxWrapper} that holds the {@link PluginInfoSetLike} in text form.
      */
-    private final ValueSpreadsheetTextBoxWrapper<?, S> textBox;
+    private final ValueSpreadsheetTextBoxWrapper<?, IS> textBox;
 
     // dialog links.....................................................................................................
 
@@ -265,7 +265,7 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>, 
         this.context.loadProviderInfoSet();
     }
 
-    private void refreshReset(final S infos) {
+    private void refreshReset(final IS infos) {
         this.reset.setHistoryToken(
                 Optional.of(
                         this.context.historyToken()
@@ -283,18 +283,18 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>, 
     }
 
     private void refreshNonResetLinks() {
-        final Optional<S> metadataInfos = this.textBox.value();
+        final Optional<IS> metadataInfos = this.textBox.value();
         this.refreshNonResetLinks(
                 metadataInfos.orElse(this.context.emptyInfoSet())
         );
     }
 
-    private void refreshNonResetLinks(final S metadataInfos) {
-        final PluginInfoSetDialogComponentContext<N, I, S> context = this.context;
+    private void refreshNonResetLinks(final IS metadataInfos) {
+        final PluginInfoSetDialogComponentContext<N, I, IS> context = this.context;
 
         final HistoryToken historyToken = context.historyToken();
 
-        final S providerInfos = context.providerInfoSet();
+        final IS providerInfos = context.providerInfoSet();
 
         this.enable.refresh(
                 metadataInfos,
@@ -337,5 +337,5 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>, 
         );
     }
 
-    private final PluginInfoSetDialogComponentContext<N, I, S> context;
+    private final PluginInfoSetDialogComponentContext<N, I, IS> context;
 }
