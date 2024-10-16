@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.find;
 
+import walkingkooka.CanBeEmpty;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
@@ -28,7 +29,8 @@ import java.util.OptionalInt;
 /**
  * Captures the parameter values of a cell find.
  */
-public final class SpreadsheetCellFind implements HasUrlFragment {
+public final class SpreadsheetCellFind implements HasUrlFragment,
+        CanBeEmpty {
 
     public static SpreadsheetCellFind empty() {
         return EMPTY;
@@ -177,6 +179,7 @@ public final class SpreadsheetCellFind implements HasUrlFragment {
     /**
      * Returns true if all properties are empty.
      */
+    @Override
     public boolean isEmpty() {
         return this == EMPTY;
     }
