@@ -184,7 +184,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
      */
     @Override
     public void printTree(final IndentingPrinter printer) {
-        if (false == this.root.isEmpty()) {
+        if (this.root.isNotEmpty()) {
             printer.println(this.getClass().getSimpleName());
             printer.indent();
             {
