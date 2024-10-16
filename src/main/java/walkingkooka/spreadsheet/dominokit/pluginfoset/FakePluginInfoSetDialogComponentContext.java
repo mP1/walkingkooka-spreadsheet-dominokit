@@ -27,8 +27,8 @@ import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 
 import java.util.function.Consumer;
 
-public class FakePluginInfoSetDialogComponentContext<N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, S extends PluginInfoSetLike<S, I, N>> extends FakeHistoryTokenContext
-        implements PluginInfoSetDialogComponentContext<N, I, S> {
+public class FakePluginInfoSetDialogComponentContext<N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, IS extends PluginInfoSetLike<N, I, IS>> extends FakeHistoryTokenContext
+        implements PluginInfoSetDialogComponentContext<N, I, IS> {
     @Override
     public String dialogTitle() {
         throw new UnsupportedOperationException();
@@ -45,7 +45,7 @@ public class FakePluginInfoSetDialogComponentContext<N extends Name & Comparable
     }
 
     @Override
-    public Runnable addProviderFetcherWatcher(final Consumer<S> set) {
+    public Runnable addProviderFetcherWatcher(final Consumer<IS> set) {
         throw new UnsupportedOperationException();
     }
 
@@ -60,22 +60,22 @@ public class FakePluginInfoSetDialogComponentContext<N extends Name & Comparable
     }
 
     @Override
-    public S parse(final String text) {
+    public IS parse(final String text) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public S emptyInfoSet() {
+    public IS emptyInfoSet() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public S metadataInfoSet() {
+    public IS metadataInfoSet() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public S providerInfoSet() {
+    public IS providerInfoSet() {
         throw new UnsupportedOperationException();
     }
 

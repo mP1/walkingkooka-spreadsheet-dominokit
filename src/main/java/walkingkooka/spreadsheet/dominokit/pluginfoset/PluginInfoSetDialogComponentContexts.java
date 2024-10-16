@@ -79,7 +79,7 @@ public final class PluginInfoSetDialogComponentContexts implements PublicStaticH
     /**
      * {@see FakePluginInfoSetDialogComponentContext}
      */
-    public static <N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, S extends PluginInfoSetLike<S, I, N>> PluginInfoSetDialogComponentContext<N, I, S> fake() {
+    public static <N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, IS extends PluginInfoSetLike<N, I, IS>> PluginInfoSetDialogComponentContext<N, I, IS> fake() {
         return new FakePluginInfoSetDialogComponentContext<>();
     }
 

@@ -39,13 +39,13 @@ import java.util.stream.Collectors;
 /**
  * A component that contains a horizontal panel holding links of disabled {@link PluginInfoLike} which will enable.
  */
-public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, S extends PluginInfoSetLike<S, I, N>> implements HtmlElementComponent<HTMLDivElement, EnablePluginInfoSetComponent<N, I, S>>,
+public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, IS extends PluginInfoSetLike<N, I, IS>> implements HtmlElementComponent<HTMLDivElement, EnablePluginInfoSetComponent<N, I, IS>>,
         TreePrintable {
 
     /**
      * Creates an empty {@link EnablePluginInfoSetComponent}.
      */
-    public static <N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, S extends PluginInfoSetLike<S, I, N>> EnablePluginInfoSetComponent<N, I, S> empty(final String id) {
+    public static <N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, IS extends PluginInfoSetLike<N, I, IS>> EnablePluginInfoSetComponent<N, I, IS> empty(final String id) {
         return new EnablePluginInfoSetComponent<>(
                 CharSequences.failIfNullOrEmpty(id, "id")
         );
@@ -60,8 +60,8 @@ public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>, 
                 .appendChild(this.flex);
     }
 
-    public void refresh(final S enabledInfos, // value from SpreadsheetMetadata with currently enabled infos
-                        final S providerInfos, // from provider
+    public void refresh(final IS enabledInfos, // value from SpreadsheetMetadata with currently enabled infos
+                        final IS providerInfos, // from provider
                         final EnablePluginInfoSetComponentContext context) {
         this.root.hide();
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
@@ -96,7 +96,7 @@ public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>, 
      * Creates an anchor which will when clicked saves the plugin without this {@link PluginInfoLike}.
      */
     private HistoryTokenAnchorComponent anchor(final I info,
-                                               final S infos,
+                                               final IS infos,
                                                final int index,
                                                final EnablePluginInfoSetComponentContext context) {
         return context.historyToken()
@@ -125,7 +125,7 @@ public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>, 
     // setCssText.......................................................................................................
 
     @Override
-    public EnablePluginInfoSetComponent<N, I, S> setCssText(final String css) {
+    public EnablePluginInfoSetComponent<N, I, IS> setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.root.setCssText(css);
