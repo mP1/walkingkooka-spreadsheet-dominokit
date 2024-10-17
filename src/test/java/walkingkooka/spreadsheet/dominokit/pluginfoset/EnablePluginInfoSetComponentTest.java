@@ -26,13 +26,21 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterAlias;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.printer.TreePrintableTesting;
 
-public final class EnablePluginInfoSetComponentTest implements ClassTesting<EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet>>,
+public final class EnablePluginInfoSetComponentTest implements ClassTesting<EnablePluginInfoSetComponent<SpreadsheetFormatterName,
+        SpreadsheetFormatterInfo,
+        SpreadsheetFormatterInfoSet,
+        SpreadsheetFormatterSelector,
+        SpreadsheetFormatterAlias,
+        SpreadsheetFormatterAliasSet>>,
         TreePrintableTesting {
 
     @Test
@@ -48,7 +56,7 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
         );
 
 
-        final EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet> component = EnablePluginInfoSetComponent.empty("base-id-123-");
+        final EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetComponent.empty("base-id-123-");
         component.refresh(
                 SpreadsheetFormatterInfoSet.EMPTY, // enabled
                 SpreadsheetFormatterInfoSet.with(
@@ -87,7 +95,7 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
         );
 
 
-        final EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet> component = EnablePluginInfoSetComponent.empty("base-id-123-");
+        final EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetComponent.empty("base-id-123-");
         component.refresh(
                 SpreadsheetFormatterInfoSet.with(
                         Sets.of(
@@ -133,7 +141,7 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
                 SpreadsheetFormatterName.with("formatter4")
         );
 
-        final EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet> component = EnablePluginInfoSetComponent.empty("base-id-123-");
+        final EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetComponent.empty("base-id-123-");
         component.refresh(
                 SpreadsheetFormatterInfoSet.with(
                         Sets.of(
@@ -181,7 +189,7 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
     // class............................................................................................................
 
     @Override
-    public Class<EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet>> type() {
+    public Class<EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet>> type() {
         return Cast.to(EnablePluginInfoSetComponent.class);
     }
 

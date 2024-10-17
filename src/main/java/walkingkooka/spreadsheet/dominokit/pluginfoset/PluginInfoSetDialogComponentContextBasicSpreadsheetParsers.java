@@ -27,16 +27,24 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserInfoSetComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAlias;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetDialogComponentContextBasicSpreadsheetParsers extends PluginInfoSetDialogComponentContextBasic<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet> {
+final class PluginInfoSetDialogComponentContextBasicSpreadsheetParsers extends PluginInfoSetDialogComponentContextBasic<SpreadsheetParserName,
+        SpreadsheetParserInfo,
+        SpreadsheetParserInfoSet,
+        SpreadsheetParserSelector,
+        SpreadsheetParserAlias,
+        SpreadsheetParserAliasSet> {
 
     static PluginInfoSetDialogComponentContextBasicSpreadsheetParsers with(final AppContext context) {
         return new PluginInfoSetDialogComponentContextBasicSpreadsheetParsers(context);

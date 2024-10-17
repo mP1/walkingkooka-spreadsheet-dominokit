@@ -33,9 +33,12 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterAlias;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -43,7 +46,12 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import java.util.Arrays;
 import java.util.function.Consumer;
 
-public final class PluginInfoSetDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginInfoSetDialogComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet>>,
+public final class PluginInfoSetDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginInfoSetDialogComponent<SpreadsheetFormatterName,
+        SpreadsheetFormatterInfo,
+        SpreadsheetFormatterInfoSet,
+        SpreadsheetFormatterSelector,
+        SpreadsheetFormatterAlias,
+        SpreadsheetFormatterAliasSet>>,
         HistoryTokenTesting,
         SpreadsheetMetadataTesting {
 
@@ -163,7 +171,7 @@ public final class PluginInfoSetDialogComponentTest implements SpreadsheetDialog
         );
     }
 
-    private void onHistoryTokenChangeAndSetTextAndCheck(final PluginInfoSetDialogComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet> dialog,
+    private void onHistoryTokenChangeAndSetTextAndCheck(final PluginInfoSetDialogComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> dialog,
                                                         final String text,
                                                         final AppContext context,
                                                         final String expected) {
@@ -186,7 +194,7 @@ public final class PluginInfoSetDialogComponentTest implements SpreadsheetDialog
         );
     }
 
-    private PluginInfoSetDialogComponentContext<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet> dialogContext(final AppContext context) {
+    private PluginInfoSetDialogComponentContext<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> dialogContext(final AppContext context) {
         return new FakePluginInfoSetDialogComponentContext<>() {
 
             @Override
@@ -320,7 +328,7 @@ public final class PluginInfoSetDialogComponentTest implements SpreadsheetDialog
     // class............................................................................................................
 
     @Override
-    public Class<PluginInfoSetDialogComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet>> type() {
+    public Class<PluginInfoSetDialogComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet>> type() {
         return Cast.to(PluginInfoSetDialogComponent.class);
     }
 
