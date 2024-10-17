@@ -66,7 +66,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFun
     }
 
     @Override
-    public ExpressionFunctionInfoSet emptyInfoSet() {
+    public ExpressionFunctionInfoSet emptyInfoSetLike() {
         return ExpressionFunctionInfoSet.EMPTY;
     }
 

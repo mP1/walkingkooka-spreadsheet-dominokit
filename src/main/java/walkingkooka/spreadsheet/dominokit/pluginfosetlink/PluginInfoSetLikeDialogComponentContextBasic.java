@@ -128,7 +128,7 @@ abstract class PluginInfoSetLikeDialogComponentContextBasic<N extends Name & Com
     }
 
     @Override
-    public final void loadProviderInfoSet() {
+    public final void loadProviderInfoSetLike() {
         this.loadPluginInfoSet0(
                 this.historyToken()
                         .cast(SpreadsheetNameHistoryToken.class)
@@ -145,16 +145,16 @@ abstract class PluginInfoSetLikeDialogComponentContextBasic<N extends Name & Com
     }
 
     @Override
-    public final IS metadataInfoSet() {
+    public final IS metadataInfoSetLike() {
         return this.context.spreadsheetMetadata()
                 .getIgnoringDefaults(this.metadataPropertyName())
-                .orElse(this.emptyInfoSet());
+                .orElse(this.emptyInfoSetLike());
     }
 
     abstract SpreadsheetMetadataPropertyName<IS> metadataPropertyName();
 
     @Override
-    public final IS providerInfoSet() {
+    public final IS providerInfoSetLike() {
         return this.providerInfoSet0(
                 this.context.systemSpreadsheetProvider()
         );

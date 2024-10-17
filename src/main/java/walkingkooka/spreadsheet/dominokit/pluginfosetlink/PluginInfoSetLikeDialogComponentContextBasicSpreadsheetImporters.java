@@ -66,7 +66,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetImporters ext
     }
 
     @Override
-    public SpreadsheetImporterInfoSet emptyInfoSet() {
+    public SpreadsheetImporterInfoSet emptyInfoSetLike() {
         return SpreadsheetImporterInfoSet.EMPTY;
     }
 

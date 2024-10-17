@@ -67,7 +67,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetParsers exten
     }
 
     @Override
-    public SpreadsheetParserInfoSet emptyInfoSet() {
+    public SpreadsheetParserInfoSet emptyInfoSetLike() {
         return SpreadsheetParserInfoSet.EMPTY;
     }
 

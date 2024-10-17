@@ -243,7 +243,7 @@ public final class PluginInfoSetLikeDialogComponent<N extends Name & Comparable<
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
         this.setText(
-                this.context.metadataInfoSet()
+                this.context.metadataInfoSetLike()
                         .text()
         );
     }
@@ -273,10 +273,10 @@ public final class PluginInfoSetLikeDialogComponent<N extends Name & Comparable<
                 this.textBox::focus
         );
 
-        this.refreshReset(this.context.providerInfoSet());
+        this.refreshReset(this.context.providerInfoSetLike());
 
         // load the latest ProviderInfoSetLike
-        this.context.loadProviderInfoSet();
+        this.context.loadProviderInfoSetLike();
     }
 
     private void refreshReset(final IS infos) {
@@ -299,7 +299,7 @@ public final class PluginInfoSetLikeDialogComponent<N extends Name & Comparable<
     private void refreshNonResetLinks() {
         final Optional<IS> metadataInfos = this.textBox.value();
         this.refreshNonResetLinks(
-                metadataInfos.orElse(this.context.emptyInfoSet())
+                metadataInfos.orElse(this.context.emptyInfoSetLike())
         );
     }
 
@@ -308,7 +308,7 @@ public final class PluginInfoSetLikeDialogComponent<N extends Name & Comparable<
 
         final HistoryToken historyToken = context.historyToken();
 
-        final IS providerInfos = context.providerInfoSet();
+        final IS providerInfos = context.providerInfoSetLike();
 
         this.enable.refresh(
                 metadataInfos,

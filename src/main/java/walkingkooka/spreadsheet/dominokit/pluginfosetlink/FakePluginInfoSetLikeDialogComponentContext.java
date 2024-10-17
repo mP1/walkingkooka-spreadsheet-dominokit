@@ -59,7 +59,7 @@ public class FakePluginInfoSetLikeDialogComponentContext<N extends Name & Compar
     }
 
     @Override
-    public void loadProviderInfoSet() {
+    public void loadProviderInfoSetLike() {
         throw new UnsupportedOperationException();
     }
 
@@ -74,17 +74,17 @@ public class FakePluginInfoSetLikeDialogComponentContext<N extends Name & Compar
     }
 
     @Override
-    public IS emptyInfoSet() {
+    public IS emptyInfoSetLike() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public IS metadataInfoSet() {
+    public IS metadataInfoSetLike() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public IS providerInfoSet() {
+    public IS providerInfoSetLike() {
         throw new UnsupportedOperationException();
     }
 
