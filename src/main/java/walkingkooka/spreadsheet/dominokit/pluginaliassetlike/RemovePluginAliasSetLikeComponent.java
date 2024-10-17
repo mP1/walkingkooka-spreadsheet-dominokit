@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginaliasset;
+package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
