@@ -61,7 +61,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
                 CONTEXT
         );
 
-        // all disabled no need to create any add links
+        // all aliases(name1, name2, name3) already present no links will be added
         this.treePrintAndCheck(
                 component,
                 "AddPluginAliasSetLikeComponent\n"
@@ -77,7 +77,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
                 CONTEXT
         );
 
-        // all disabled no need to create any add links
+        // all aliases(alias1) already present no links will be added
         this.treePrintAndCheck(
                 component,
                 "AddPluginAliasSetLikeComponent\n"
@@ -93,7 +93,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
                 CONTEXT
         );
 
-        // all disabled no need to create any add links
+        // all aliases(name1, name2, name3) no need to create any add links
         this.treePrintAndCheck(
                 component,
                 "AddPluginAliasSetLikeComponent\n"
@@ -109,6 +109,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
                 this.context()
         );
 
+        // links to add name3 and name4 are needed
         this.treePrintAndCheck(
                 component,
                 "AddPluginAliasSetLikeComponent\n" +
@@ -131,7 +132,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
                 CONTEXT
         );
 
-        // all disabled no need to create any enable links
+        // name1 add link needed
         this.treePrintAndCheck(
                 component,
                 "AddPluginAliasSetLikeComponent\n" +
@@ -153,7 +154,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
                 CONTEXT
         );
 
-        // all disabled no need to create any enable links
+        // need to create links for all aliases: name1, name2, name3
         this.treePrintAndCheck(
                 component,
                 "AddPluginAliasSetLikeComponent\n" +
@@ -177,7 +178,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
                 CONTEXT
         );
 
-        // all disabled no need to create any enable links
+        // add links needed for name2
         this.treePrintAndCheck(
                 component,
                 "AddPluginAliasSetLikeComponent\n" +
@@ -199,7 +200,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
                 CONTEXT
         );
 
-        // all disabled no need to create any enable links
+        // need to add link for name4
         this.treePrintAndCheck(
                 component,
                 "AddPluginAliasSetLikeComponent\n" +
