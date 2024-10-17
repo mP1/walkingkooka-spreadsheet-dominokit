@@ -245,7 +245,7 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
             }
 
             @Override
-            public SpreadsheetFormatterInfoSet parse(final String text) {
+            public SpreadsheetFormatterInfoSet parseInfoSetLike(final String text) {
                 return SpreadsheetFormatterInfoSet.parse(text);
             }
 
