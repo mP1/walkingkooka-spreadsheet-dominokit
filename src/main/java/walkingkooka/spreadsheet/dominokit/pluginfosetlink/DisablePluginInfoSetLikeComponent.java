@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
@@ -40,19 +40,19 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * A component that contains a horizontal panel holding links of disabled {@link PluginInfoLike} which will enable.
+ * A component that contains a horizontal panel holding links of enabled {@link PluginInfoLike}.
  */
-public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>,
+public final class DisablePluginInfoSetLikeComponent<N extends Name & Comparable<N>,
         I extends PluginInfoLike<I, N>,
         IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
         S extends PluginSelectorLike<N>,
         A extends PluginAliasLike<N, S, A>,
         AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
-        implements HtmlElementComponent<HTMLDivElement, EnablePluginInfoSetComponent<N, I, IS, S, A, AS>>,
+        implements HtmlElementComponent<HTMLDivElement, DisablePluginInfoSetLikeComponent<N, I, IS, S, A, AS>>,
         TreePrintable {
 
     /**
-     * Creates an empty {@link EnablePluginInfoSetComponent}.
+     * Creates an empty {@link DisablePluginInfoSetLikeComponent}.
      */
     public static <N extends Name & Comparable<N>,
             I extends PluginInfoLike<I, N>,
@@ -60,24 +60,24 @@ public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>,
             S extends PluginSelectorLike<N>,
             A extends PluginAliasLike<N, S, A>,
             AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
-    EnablePluginInfoSetComponent<N, I, IS, S, A, AS> empty(final String id) {
-        return new EnablePluginInfoSetComponent<>(
+    DisablePluginInfoSetLikeComponent<N, I, IS, S, A, AS> empty(final String id) {
+        return new DisablePluginInfoSetLikeComponent<>(
                 CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
 
-    private EnablePluginInfoSetComponent(final String id) {
+    private DisablePluginInfoSetLikeComponent(final String id) {
         this.id = id;
 
         this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle("Enable")
+                .setTitle("Disable")
                 .appendChild(this.flex);
     }
 
-    public void refresh(final IS enabledInfos, // value from SpreadsheetMetadata with currently enabled infos
+    public void refresh(final IS enabledInfos, // value from SpreadsheetMetadata
                         final IS providerInfos, // from provider
-                        final EnablePluginInfoSetComponentContext context) {
+                        final DisablePluginInfoSetLikeComponentContext context) {
         this.root.hide();
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
 
@@ -88,11 +88,11 @@ public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>,
         int i = 0;
         for (final I providerInfo : providerInfos) {
             // if providerInfo.url is absent from enabledInfos.url create link
-            if (false == enabledUrls.contains(providerInfo.url())) {
+            if (enabledUrls.contains(providerInfo.url())) {
                 flex.appendChild(
                         this.anchor(
                                 providerInfo,
-                                enabledInfos.concat(providerInfo),
+                                enabledInfos.delete(providerInfo),
                                 i,
                                 context
                         )
@@ -113,10 +113,10 @@ public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>,
     private HistoryTokenAnchorComponent anchor(final I info,
                                                final IS infos,
                                                final int index,
-                                               final EnablePluginInfoSetComponentContext context) {
+                                               final DisablePluginInfoSetLikeComponentContext context) {
         return context.historyToken()
                 .saveLink(
-                        this.id + "enable-" + index,
+                        this.id + "disable-" + index,
                         CaseKind.kebabToTitle(
                                 info.name()
                                         .value()
@@ -140,7 +140,7 @@ public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>,
     // setCssText.......................................................................................................
 
     @Override
-    public EnablePluginInfoSetComponent<N, I, IS, S, A, AS> setCssText(final String css) {
+    public DisablePluginInfoSetLikeComponent<N, I, IS, S, A, AS> setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.root.setCssText(css);

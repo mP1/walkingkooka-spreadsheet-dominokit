@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import elemental2.dom.Headers;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -40,22 +40,22 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMen
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters extends PluginInfoSetDialogComponentContextBasic<SpreadsheetFormatterName,
+final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters extends PluginInfoSetLikeDialogComponentContextBasic<SpreadsheetFormatterName,
         SpreadsheetFormatterInfo,
         SpreadsheetFormatterInfoSet,
         SpreadsheetFormatterSelector,
         SpreadsheetFormatterAlias,
         SpreadsheetFormatterAliasSet> {
 
-    static PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters with(final AppContext context) {
-        return new PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters(context);
+    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters with(final AppContext context) {
+        return new PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters(context);
     }
 
-    private PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters(final AppContext context) {
+    private PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters(final AppContext context) {
         super(context);
     }
 
-    // PluginInfoSetDialogComponentContext..............................................................................
+    // PluginInfoSetLikeDialogComponentContext..............................................................................
 
     @Override
     public SpreadsheetFormatterInfoSetComponent textBox() {

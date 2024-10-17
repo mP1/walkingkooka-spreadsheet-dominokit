@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import walkingkooka.naming.Name;
 import walkingkooka.plugin.PluginAliasLike;
@@ -30,14 +30,14 @@ import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 
 import java.util.function.Consumer;
 
-public class FakePluginInfoSetDialogComponentContext<N extends Name & Comparable<N>,
+public class FakePluginInfoSetLikeDialogComponentContext<N extends Name & Comparable<N>,
         I extends PluginInfoLike<I, N>,
         IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
         S extends PluginSelectorLike<N>,
         A extends PluginAliasLike<N, S, A>,
         AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
         extends FakeHistoryTokenContext
-        implements PluginInfoSetDialogComponentContext<N, I, IS, S, A, AS> {
+        implements PluginInfoSetLikeDialogComponentContext<N, I, IS, S, A, AS> {
     @Override
     public String dialogTitle() {
         throw new UnsupportedOperationException();

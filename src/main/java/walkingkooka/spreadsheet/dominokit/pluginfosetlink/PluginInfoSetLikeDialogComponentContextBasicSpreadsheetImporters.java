@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import elemental2.dom.Headers;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -38,22 +38,22 @@ import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetDialogComponentContextBasicSpreadsheetImporters extends PluginInfoSetDialogComponentContextBasic<SpreadsheetImporterName,
+final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetImporters extends PluginInfoSetLikeDialogComponentContextBasic<SpreadsheetImporterName,
         SpreadsheetImporterInfo,
         SpreadsheetImporterInfoSet,
         SpreadsheetImporterSelector,
         SpreadsheetImporterAlias,
         SpreadsheetImporterAliasSet> {
 
-    static PluginInfoSetDialogComponentContextBasicSpreadsheetImporters with(final AppContext context) {
-        return new PluginInfoSetDialogComponentContextBasicSpreadsheetImporters(context);
+    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetImporters with(final AppContext context) {
+        return new PluginInfoSetLikeDialogComponentContextBasicSpreadsheetImporters(context);
     }
 
-    private PluginInfoSetDialogComponentContextBasicSpreadsheetImporters(final AppContext context) {
+    private PluginInfoSetLikeDialogComponentContextBasicSpreadsheetImporters(final AppContext context) {
         super(context);
     }
 
-    // PluginInfoSetDialogComponentContext..............................................................................
+    // PluginInfoSetLikeDialogComponentContext..............................................................................
 
     @Override
     public SpreadsheetImporterInfoSetComponent textBox() {

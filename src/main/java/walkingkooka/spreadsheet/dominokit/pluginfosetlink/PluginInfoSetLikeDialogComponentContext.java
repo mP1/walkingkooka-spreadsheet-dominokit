@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import walkingkooka.naming.Name;
 import walkingkooka.plugin.PluginAliasLike;
@@ -34,9 +34,9 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import java.util.function.Consumer;
 
 /**
- * A {@link walkingkooka.Context} tht accompanies a {@link PluginInfoSetDialogComponent} provided various inputs.
+ * A {@link walkingkooka.Context} tht accompanies a {@link PluginInfoSetLikeDialogComponent} provided various inputs.
  */
-public interface PluginInfoSetDialogComponentContext<N extends Name & Comparable<N>,
+public interface PluginInfoSetLikeDialogComponentContext<N extends Name & Comparable<N>,
         I extends PluginInfoLike<I, N>,
         IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
         S extends PluginSelectorLike<N>,
@@ -44,8 +44,8 @@ public interface PluginInfoSetDialogComponentContext<N extends Name & Comparable
         AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
         extends CanGiveFocus,
         SpreadsheetDialogComponentContext,
-        EnablePluginInfoSetComponentContext,
-        DisablePluginInfoSetComponentContext {
+        EnablePluginInfoSetLikeComponentContext,
+        DisablePluginInfoSetLikeComponentContext {
 
     /**
      * Logic to provide the dialog title. In some cases the title might not be currently enabled as it is extracted from

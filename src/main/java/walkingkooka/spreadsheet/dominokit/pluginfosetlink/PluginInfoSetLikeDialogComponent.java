@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import walkingkooka.naming.Name;
 import walkingkooka.plugin.PluginAliasLike;
@@ -58,7 +58,7 @@ import java.util.Set;
  * CLOSE
  * </pre>
  */
-public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>,
+public final class PluginInfoSetLikeDialogComponent<N extends Name & Comparable<N>,
         I extends PluginInfoLike<I, N>,
         IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
         S extends PluginSelectorLike<N>,
@@ -70,7 +70,7 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>,
         SpreadsheetMetadataFetcherWatcher {
 
     /**
-     * Creates a new {@link PluginInfoSetDialogComponent}.
+     * Creates a new {@link PluginInfoSetLikeDialogComponent}.
      */
     public static <N extends Name & Comparable<N>,
             I extends PluginInfoLike<I, N>,
@@ -78,22 +78,22 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>,
             S extends PluginSelectorLike<N>,
             A extends PluginAliasLike<N, S, A>,
             AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
-    PluginInfoSetDialogComponent<N, I, IS, S, A, AS> with(final PluginInfoSetDialogComponentContext<N, I, IS, S, A, AS> context) {
-        return new PluginInfoSetDialogComponent<>(
+    PluginInfoSetLikeDialogComponent<N, I, IS, S, A, AS> with(final PluginInfoSetLikeDialogComponentContext<N, I, IS, S, A, AS> context) {
+        return new PluginInfoSetLikeDialogComponent<>(
                 Objects.requireNonNull(context, "context")
         );
     }
 
-    private PluginInfoSetDialogComponent(final PluginInfoSetDialogComponentContext<N, I, IS, S, A, AS> context) {
+    private PluginInfoSetLikeDialogComponent(final PluginInfoSetLikeDialogComponentContext<N, I, IS, S, A, AS> context) {
         this.context = context;
         context.addHistoryTokenWatcher(this);
 
         context.addSpreadsheetMetadataFetcherWatcher(this);
         context.addProviderFetcherWatcher(this::onProviderInfoSet);
 
-        this.enable = EnablePluginInfoSetComponent.empty(ID + "-enable-");
+        this.enable = EnablePluginInfoSetLikeComponent.empty(ID + "-enable-");
 
-        this.disable = DisablePluginInfoSetComponent.empty(ID + "-disable-");
+        this.disable = DisablePluginInfoSetLikeComponent.empty(ID + "-disable-");
 
         this.textBox = context.textBox()
                 .setId(ID + SpreadsheetElementIds.TEXT_BOX)
@@ -130,7 +130,7 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>,
         return ID + "-";
     }
 
-    private final static String ID = PluginInfoSetDialogComponent.class.getSimpleName();
+    private final static String ID = PluginInfoSetLikeDialogComponent.class.getSimpleName();
 
     // dialog...........................................................................................................
 
@@ -138,7 +138,7 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>,
      * Creates the modal dialog, loaded with the {@link PluginInfoSetLike} textbox and some links.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final PluginInfoSetDialogComponentContext<N, I, IS, S, A, AS> context = this.context;
+        final PluginInfoSetLikeDialogComponentContext<N, I, IS, S, A, AS> context = this.context;
 
         return SpreadsheetDialogComponent.with(
                         ID,
@@ -169,11 +169,11 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>,
 
     // enable...........................................................................................................
 
-    private final EnablePluginInfoSetComponent<N, I, IS, S, A, AS> enable;
+    private final EnablePluginInfoSetLikeComponent<N, I, IS, S, A, AS> enable;
 
     // disable..........................................................................................................
 
-    private final DisablePluginInfoSetComponent<N, I, IS, S, A, AS> disable;
+    private final DisablePluginInfoSetLikeComponent<N, I, IS, S, A, AS> disable;
 
     // textBox..........................................................................................................
 
@@ -304,7 +304,7 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>,
     }
 
     private void refreshNonResetLinks(final IS metadataInfos) {
-        final PluginInfoSetDialogComponentContext<N, I, IS, S, A, AS> context = this.context;
+        final PluginInfoSetLikeDialogComponentContext<N, I, IS, S, A, AS> context = this.context;
 
         final HistoryToken historyToken = context.historyToken();
 
@@ -351,5 +351,5 @@ public final class PluginInfoSetDialogComponent<N extends Name & Comparable<N>,
         );
     }
 
-    private final PluginInfoSetDialogComponentContext<N, I, IS, S, A, AS> context;
+    private final PluginInfoSetLikeDialogComponentContext<N, I, IS, S, A, AS> context;
 }

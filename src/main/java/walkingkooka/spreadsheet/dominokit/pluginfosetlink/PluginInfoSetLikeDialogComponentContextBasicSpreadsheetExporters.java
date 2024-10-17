@@ -15,74 +15,75 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import elemental2.dom.Headers;
-import walkingkooka.convert.provider.ConverterAlias;
-import walkingkooka.convert.provider.ConverterAliasSet;
-import walkingkooka.convert.provider.ConverterInfo;
-import walkingkooka.convert.provider.ConverterInfoSet;
-import walkingkooka.convert.provider.ConverterName;
-import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.convert.ConverterInfoSetComponent;
-import walkingkooka.spreadsheet.dominokit.net.ConverterFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.export.SpreadsheetExporterInfoSetComponent;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetExporterFetcherWatcher;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterAlias;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterAliasSet;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterInfo;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetDialogComponentContextBasicConverters extends PluginInfoSetDialogComponentContextBasic<ConverterName,
-        ConverterInfo,
-        ConverterInfoSet,
-        ConverterSelector,
-        ConverterAlias,
-        ConverterAliasSet> {
+final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters extends PluginInfoSetLikeDialogComponentContextBasic<SpreadsheetExporterName,
+        SpreadsheetExporterInfo,
+        SpreadsheetExporterInfoSet,
+        SpreadsheetExporterSelector,
+        SpreadsheetExporterAlias,
+        SpreadsheetExporterAliasSet> {
 
-    static PluginInfoSetDialogComponentContextBasicConverters with(final AppContext context) {
-        return new PluginInfoSetDialogComponentContextBasicConverters(context);
+    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters with(final AppContext context) {
+        return new PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters(context);
     }
 
-    private PluginInfoSetDialogComponentContextBasicConverters(final AppContext context) {
+    private PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters(final AppContext context) {
         super(context);
     }
 
-    // PluginInfoSetDialogComponentContext..............................................................................
+    // PluginInfoSetLikeDialogComponentContext..............................................................................
 
     @Override
-    public ConverterInfoSetComponent textBox() {
-        return ConverterInfoSetComponent.empty();
+    public SpreadsheetExporterInfoSetComponent textBox() {
+        return SpreadsheetExporterInfoSetComponent.empty();
     }
 
     @Override
-    SpreadsheetMetadataPropertyName<ConverterInfoSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.CONVERTERS;
+    SpreadsheetMetadataPropertyName<SpreadsheetExporterInfoSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.EXPORTERS;
     }
 
-    @Override public ConverterInfoSet emptyInfoSet() {
-        return ConverterInfoSet.EMPTY;
+    @Override
+    public SpreadsheetExporterInfoSet emptyInfoSet() {
+        return SpreadsheetExporterInfoSet.EMPTY;
     }
 
     @Override
     void loadPluginInfoSet0(final SpreadsheetId id) {
-        this.context.spreadsheetFormatterFetcher()
+        this.context.spreadsheetExporterFetcher()
                 .infoSet(id);
     }
 
     @Override
-    public Runnable addProviderFetcherWatcher(final Consumer<ConverterInfoSet> set) {
-        return this.context.addConverterFetcherWatcher(
-                new ConverterFetcherWatcher() {
+    public Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetExporterInfoSet> set) {
+        return this.context.addSpreadsheetExporterFetcherWatcher(
+                new SpreadsheetExporterFetcherWatcher() {
                     @Override
-                    public void onConverterInfoSet(final SpreadsheetId id,
-                                                   final ConverterInfoSet infos,
-                                                   final AppContext context) {
+                    public void onSpreadsheetExporterInfoSet(final SpreadsheetId id,
+                                                             final SpreadsheetExporterInfoSet infos,
+                                                             final AppContext context) {
                         set.accept(infos);
                     }
 
@@ -119,7 +120,7 @@ final class PluginInfoSetDialogComponentContextBasicConverters extends PluginInf
     }
 
     @Override
-    ConverterInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
-        return spreadsheetProvider.converterInfos();
+    SpreadsheetExporterInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+        return spreadsheetProvider.spreadsheetExporterInfos();
     }
 }

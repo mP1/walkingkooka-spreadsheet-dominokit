@@ -15,10 +15,10 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 
-public class FakeEnablePluginInfoSetComponentContext extends FakeHistoryTokenContext
-        implements EnablePluginInfoSetComponentContext {
+public class FakeDisablePluginInfoSetLikeComponentContext extends FakeHistoryTokenContext
+        implements DisablePluginInfoSetLikeComponentContext {
 }

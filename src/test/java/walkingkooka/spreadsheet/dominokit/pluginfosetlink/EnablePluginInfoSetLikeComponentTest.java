@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.printer.TreePrintableTesting;
 
-public final class EnablePluginInfoSetComponentTest implements ClassTesting<EnablePluginInfoSetComponent<SpreadsheetFormatterName,
+public final class EnablePluginInfoSetLikeComponentTest implements ClassTesting<EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName,
         SpreadsheetFormatterInfo,
         SpreadsheetFormatterInfoSet,
         SpreadsheetFormatterSelector,
@@ -56,7 +56,7 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
         );
 
 
-        final EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetComponent.empty("base-id-123-");
+        final EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-");
         component.refresh(
                 SpreadsheetFormatterInfoSet.EMPTY, // enabled
                 SpreadsheetFormatterInfoSet.with(
@@ -71,7 +71,7 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
         // all infos should appear in the link list
         this.treePrintAndCheck(
                 component,
-                "EnablePluginInfoSetComponent\n" +
+                "EnablePluginInfoSetLikeComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Enable\n" +
@@ -95,7 +95,7 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
         );
 
 
-        final EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetComponent.empty("base-id-123-");
+        final EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-");
         component.refresh(
                 SpreadsheetFormatterInfoSet.with(
                         Sets.of(
@@ -109,13 +109,13 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
                                 info2
                         )
                 ), // provider
-                new FakeEnablePluginInfoSetComponentContext()
+                new FakeEnablePluginInfoSetLikeComponentContext()
         );
 
         // all infos are already enabled links list should be empty
         this.treePrintAndCheck(
                 component,
-                "EnablePluginInfoSetComponent\n"
+                "EnablePluginInfoSetLikeComponent\n"
         );
     }
 
@@ -141,7 +141,7 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
                 SpreadsheetFormatterName.with("formatter4")
         );
 
-        final EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetComponent.empty("base-id-123-");
+        final EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-");
         component.refresh(
                 SpreadsheetFormatterInfoSet.with(
                         Sets.of(
@@ -162,7 +162,7 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
 
         this.treePrintAndCheck(
                 component,
-                "EnablePluginInfoSetComponent\n" +
+                "EnablePluginInfoSetLikeComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Enable\n" +
@@ -173,8 +173,8 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
         );
     }
 
-    private EnablePluginInfoSetComponentContext context() {
-        return new FakeEnablePluginInfoSetComponentContext() {
+    private EnablePluginInfoSetLikeComponentContext context() {
+        return new FakeEnablePluginInfoSetLikeComponentContext() {
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.metadataPropertySelect(
@@ -189,8 +189,8 @@ public final class EnablePluginInfoSetComponentTest implements ClassTesting<Enab
     // class............................................................................................................
 
     @Override
-    public Class<EnablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet>> type() {
-        return Cast.to(EnablePluginInfoSetComponent.class);
+    public Class<EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet>> type() {
+        return Cast.to(EnablePluginInfoSetLikeComponent.class);
     }
 
     @Override

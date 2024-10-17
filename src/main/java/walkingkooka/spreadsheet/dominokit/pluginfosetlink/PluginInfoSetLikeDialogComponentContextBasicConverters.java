@@ -15,75 +15,74 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import elemental2.dom.Headers;
+import walkingkooka.convert.provider.ConverterAlias;
+import walkingkooka.convert.provider.ConverterAliasSet;
+import walkingkooka.convert.provider.ConverterInfo;
+import walkingkooka.convert.provider.ConverterInfoSet;
+import walkingkooka.convert.provider.ConverterName;
+import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAlias;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorInfoSetComponent;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.convert.ConverterInfoSetComponent;
+import walkingkooka.spreadsheet.dominokit.net.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetDialogComponentContextBasicSpreadsheetComparators extends PluginInfoSetDialogComponentContextBasic<SpreadsheetComparatorName,
-        SpreadsheetComparatorInfo,
-        SpreadsheetComparatorInfoSet,
-        SpreadsheetComparatorSelector,
-        SpreadsheetComparatorAlias,
-        SpreadsheetComparatorAliasSet> {
+final class PluginInfoSetLikeDialogComponentContextBasicConverters extends PluginInfoSetLikeDialogComponentContextBasic<ConverterName,
+        ConverterInfo,
+        ConverterInfoSet,
+        ConverterSelector,
+        ConverterAlias,
+        ConverterAliasSet> {
 
-    static PluginInfoSetDialogComponentContextBasicSpreadsheetComparators with(final AppContext context) {
-        return new PluginInfoSetDialogComponentContextBasicSpreadsheetComparators(context);
+    static PluginInfoSetLikeDialogComponentContextBasicConverters with(final AppContext context) {
+        return new PluginInfoSetLikeDialogComponentContextBasicConverters(context);
     }
 
-    private PluginInfoSetDialogComponentContextBasicSpreadsheetComparators(final AppContext context) {
+    private PluginInfoSetLikeDialogComponentContextBasicConverters(final AppContext context) {
         super(context);
     }
 
-    // PluginInfoSetDialogComponentContext..............................................................................
+    // PluginInfoSetLikeDialogComponentContext..............................................................................
 
     @Override
-    public SpreadsheetComparatorInfoSetComponent textBox() {
-        return SpreadsheetComparatorInfoSetComponent.empty();
+    public ConverterInfoSetComponent textBox() {
+        return ConverterInfoSetComponent.empty();
     }
 
     @Override
-    SpreadsheetMetadataPropertyName<SpreadsheetComparatorInfoSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.COMPARATORS;
+    SpreadsheetMetadataPropertyName<ConverterInfoSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.CONVERTERS;
     }
 
-    @Override
-    public SpreadsheetComparatorInfoSet emptyInfoSet() {
-        return SpreadsheetComparatorInfoSet.EMPTY;
+    @Override public ConverterInfoSet emptyInfoSet() {
+        return ConverterInfoSet.EMPTY;
     }
 
     @Override
     void loadPluginInfoSet0(final SpreadsheetId id) {
-        this.context.spreadsheetComparatorFetcher()
+        this.context.spreadsheetFormatterFetcher()
                 .infoSet(id);
     }
 
     @Override
-    public Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetComparatorInfoSet> set) {
-        return this.context.addSpreadsheetComparatorFetcherWatcher(
-                new SpreadsheetComparatorFetcherWatcher() {
+    public Runnable addProviderFetcherWatcher(final Consumer<ConverterInfoSet> set) {
+        return this.context.addConverterFetcherWatcher(
+                new ConverterFetcherWatcher() {
                     @Override
-                    public void onSpreadsheetComparatorInfoSet(final SpreadsheetId id,
-                                                               final SpreadsheetComparatorInfoSet infos,
-                                                               final AppContext context) {
+                    public void onConverterInfoSet(final SpreadsheetId id,
+                                                   final ConverterInfoSet infos,
+                                                   final AppContext context) {
                         set.accept(infos);
                     }
 
@@ -120,7 +119,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetComparators exten
     }
 
     @Override
-    SpreadsheetComparatorInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
-        return spreadsheetProvider.spreadsheetComparatorInfos();
+    ConverterInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+        return spreadsheetProvider.converterInfos();
     }
 }
