@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import walkingkooka.naming.Name;
 import walkingkooka.plugin.PluginAliasLike;
@@ -40,71 +40,71 @@ import walkingkooka.text.CaseKind;
 import java.util.Objects;
 
 /**
- * Base class that captures a lot of common functionality for a {@link PluginInfoSetDialogComponentContext}.
+ * Base class that captures a lot of common functionality for a {@link PluginInfoSetLikeDialogComponentContext}.
  */
-abstract class PluginInfoSetDialogComponentContextBasic<N extends Name & Comparable<N>,
+abstract class PluginInfoSetLikeDialogComponentContextBasic<N extends Name & Comparable<N>,
         I extends PluginInfoLike<I, N>,
         IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
         S extends PluginSelectorLike<N>,
         A extends PluginAliasLike<N, S, A>,
-        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> implements PluginInfoSetDialogComponentContext<N, I, IS, S, A, AS>,
+        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> implements PluginInfoSetLikeDialogComponentContext<N, I, IS, S, A, AS>,
         HistoryTokenContextDelegator,
         LoggingContextDelegator {
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicConverters}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicConverters}
      */
-    static PluginInfoSetDialogComponentContextBasicConverters converters(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasicConverters.with(context);
+    static PluginInfoSetLikeDialogComponentContextBasicConverters converters(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasicConverters.with(context);
     }
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicSpreadsheetComparators}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators}
      */
-    static PluginInfoSetDialogComponentContextBasicSpreadsheetComparators comparators(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasicSpreadsheetComparators.with(context);
+    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators comparators(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators.with(context);
     }
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicSpreadsheetExporters}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters}
      */
-    static PluginInfoSetDialogComponentContextBasicSpreadsheetExporters exporters(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasicSpreadsheetExporters.with(context);
+    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters exporters(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters.with(context);
     }
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctions}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions}
      */
-    static PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctions expressionFunctions(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctions.with(context);
+    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions expressionFunctions(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions.with(context);
     }
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters}
      */
-    static PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters formatters(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters.with(context);
+    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters formatters(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters.with(context);
     }
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicSpreadsheetImporters}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetImporters}
      */
-    static PluginInfoSetDialogComponentContextBasicSpreadsheetImporters importers(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasicSpreadsheetImporters.with(context);
+    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetImporters importers(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasicSpreadsheetImporters.with(context);
     }
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicSpreadsheetParsers}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetParsers}
      */
-    static PluginInfoSetDialogComponentContextBasicSpreadsheetParsers parsers(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasicSpreadsheetParsers.with(context);
+    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetParsers parsers(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasicSpreadsheetParsers.with(context);
     }
 
-    PluginInfoSetDialogComponentContextBasic(final AppContext context) {
+    PluginInfoSetLikeDialogComponentContextBasic(final AppContext context) {
         this.context = Objects.requireNonNull(context, "context");
     }
 
-    // PluginInfoSetDialogComponentContext..............................................................................
+    // PluginInfoSetLikeDialogComponentContext..............................................................................
 
     @Override
     public final String dialogTitle() {

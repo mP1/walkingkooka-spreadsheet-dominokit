@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import walkingkooka.convert.provider.ConverterAlias;
 import walkingkooka.convert.provider.ConverterAliasSet;
@@ -69,39 +69,39 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
 /**
- * A collection of factory methods to create {@link PluginInfoSetDialogComponentContext}.
+ * A collection of factory methods to create {@link PluginInfoSetLikeDialogComponentContext}.
  */
-public final class PluginInfoSetDialogComponentContexts implements PublicStaticHelper {
+public final class PluginInfoSetLikeDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicSpreadsheetComparators}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators}
      */
-    public static PluginInfoSetDialogComponentContext<SpreadsheetComparatorName, SpreadsheetComparatorInfo, SpreadsheetComparatorInfoSet, SpreadsheetComparatorSelector, SpreadsheetComparatorAlias, SpreadsheetComparatorAliasSet> comparators(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasic.comparators(
+    public static PluginInfoSetLikeDialogComponentContext<SpreadsheetComparatorName, SpreadsheetComparatorInfo, SpreadsheetComparatorInfoSet, SpreadsheetComparatorSelector, SpreadsheetComparatorAlias, SpreadsheetComparatorAliasSet> comparators(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasic.comparators(
                 context
         );
     }
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicConverters}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicConverters}
      */
-    public static PluginInfoSetDialogComponentContext<ConverterName, ConverterInfo, ConverterInfoSet, ConverterSelector, ConverterAlias, ConverterAliasSet> converters(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasic.converters(
+    public static PluginInfoSetLikeDialogComponentContext<ConverterName, ConverterInfo, ConverterInfoSet, ConverterSelector, ConverterAlias, ConverterAliasSet> converters(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasic.converters(
                 context
         );
     }
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicSpreadsheetExporters}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters}
      */
-    public static PluginInfoSetDialogComponentContext<SpreadsheetExporterName, SpreadsheetExporterInfo, SpreadsheetExporterInfoSet, SpreadsheetExporterSelector, SpreadsheetExporterAlias, SpreadsheetExporterAliasSet> exporters(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasic.exporters(
+    public static PluginInfoSetLikeDialogComponentContext<SpreadsheetExporterName, SpreadsheetExporterInfo, SpreadsheetExporterInfoSet, SpreadsheetExporterSelector, SpreadsheetExporterAlias, SpreadsheetExporterAliasSet> exporters(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasic.exporters(
                 context
         );
     }
 
     /**
-     * {@see FakePluginInfoSetDialogComponentContext}
+     * {@see FakePluginInfoSetLikeDialogComponentContext}
      */
     public static <N extends Name & Comparable<N>,
             I extends PluginInfoLike<I, N>,
@@ -109,42 +109,42 @@ public final class PluginInfoSetDialogComponentContexts implements PublicStaticH
             S extends PluginSelectorLike<N>,
             A extends PluginAliasLike<N, S, A>,
             AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
-    PluginInfoSetDialogComponentContext<N, I, IS, S, A, AS> fake() {
-        return new FakePluginInfoSetDialogComponentContext<>();
+    PluginInfoSetLikeDialogComponentContext<N, I, IS, S, A, AS> fake() {
+        return new FakePluginInfoSetLikeDialogComponentContext<>();
     }
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctions}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions}
      */
-    public static PluginInfoSetDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> expressionFunctions(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasic.expressionFunctions(
+    public static PluginInfoSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> expressionFunctions(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasic.expressionFunctions(
                 context
         );
     }
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters}
      */
-    public static PluginInfoSetDialogComponentContext<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> formatters(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasic.formatters(
+    public static PluginInfoSetLikeDialogComponentContext<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> formatters(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasic.formatters(
                 context
         );
     }
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicSpreadsheetImporters}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetImporters}
      */
-    public static PluginInfoSetDialogComponentContext<SpreadsheetImporterName, SpreadsheetImporterInfo, SpreadsheetImporterInfoSet, SpreadsheetImporterSelector, SpreadsheetImporterAlias, SpreadsheetImporterAliasSet> importers(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasic.importers(
+    public static PluginInfoSetLikeDialogComponentContext<SpreadsheetImporterName, SpreadsheetImporterInfo, SpreadsheetImporterInfoSet, SpreadsheetImporterSelector, SpreadsheetImporterAlias, SpreadsheetImporterAliasSet> importers(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasic.importers(
                 context
         );
     }
 
     /**
-     * {@see PluginInfoSetDialogComponentContextBasicSpreadsheetParsers}
+     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetParsers}
      */
-    public static PluginInfoSetDialogComponentContext<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet> parsers(final AppContext context) {
-        return PluginInfoSetDialogComponentContextBasic.parsers(
+    public static PluginInfoSetLikeDialogComponentContext<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet> parsers(final AppContext context) {
+        return PluginInfoSetLikeDialogComponentContextBasic.parsers(
                 context
         );
     }
@@ -152,7 +152,7 @@ public final class PluginInfoSetDialogComponentContexts implements PublicStaticH
     /**
      * Stop creation
      */
-    private PluginInfoSetDialogComponentContexts() {
+    private PluginInfoSetLikeDialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

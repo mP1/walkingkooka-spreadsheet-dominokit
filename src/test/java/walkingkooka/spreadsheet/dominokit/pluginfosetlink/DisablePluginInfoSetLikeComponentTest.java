@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.printer.TreePrintableTesting;
 
-public final class DisablePluginInfoSetComponentTest implements ClassTesting<DisablePluginInfoSetComponent<SpreadsheetFormatterName,
+public final class DisablePluginInfoSetLikeComponentTest implements ClassTesting<DisablePluginInfoSetLikeComponent<SpreadsheetFormatterName,
         SpreadsheetFormatterInfo,
         SpreadsheetFormatterInfoSet,
         SpreadsheetFormatterSelector,
@@ -56,7 +56,7 @@ public final class DisablePluginInfoSetComponentTest implements ClassTesting<Dis
         );
 
 
-        final DisablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = DisablePluginInfoSetComponent.empty("base-id-123-");
+        final DisablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = DisablePluginInfoSetLikeComponent.empty("base-id-123-");
         component.refresh(
                 SpreadsheetFormatterInfoSet.EMPTY, // enabled
                 SpreadsheetFormatterInfoSet.with(
@@ -65,13 +65,13 @@ public final class DisablePluginInfoSetComponentTest implements ClassTesting<Dis
                                 info2
                         )
                 ), // provider
-                new FakeDisablePluginInfoSetComponentContext()
+                new FakeDisablePluginInfoSetLikeComponentContext()
         );
 
         // all disabled no need to create any enable links
         this.treePrintAndCheck(
                 component,
-                "DisablePluginInfoSetComponent\n"
+                "DisablePluginInfoSetLikeComponent\n"
         );
     }
 
@@ -97,7 +97,7 @@ public final class DisablePluginInfoSetComponentTest implements ClassTesting<Dis
                 SpreadsheetFormatterName.with("formatter4")
         );
 
-        final DisablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = DisablePluginInfoSetComponent.empty("base-id-123-");
+        final DisablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = DisablePluginInfoSetLikeComponent.empty("base-id-123-");
         component.refresh(
                 SpreadsheetFormatterInfoSet.with(
                         Sets.of(
@@ -118,7 +118,7 @@ public final class DisablePluginInfoSetComponentTest implements ClassTesting<Dis
 
         this.treePrintAndCheck(
                 component,
-                "DisablePluginInfoSetComponent\n" +
+                "DisablePluginInfoSetLikeComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      Disable\n" +
@@ -129,8 +129,8 @@ public final class DisablePluginInfoSetComponentTest implements ClassTesting<Dis
         );
     }
 
-    private DisablePluginInfoSetComponentContext context() {
-        return new FakeDisablePluginInfoSetComponentContext() {
+    private DisablePluginInfoSetLikeComponentContext context() {
+        return new FakeDisablePluginInfoSetLikeComponentContext() {
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.metadataPropertySelect(
@@ -145,8 +145,8 @@ public final class DisablePluginInfoSetComponentTest implements ClassTesting<Dis
     // class............................................................................................................
 
     @Override
-    public Class<DisablePluginInfoSetComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet>> type() {
-        return Cast.to(DisablePluginInfoSetComponent.class);
+    public Class<DisablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet>> type() {
+        return Cast.to(DisablePluginInfoSetLikeComponent.class);
     }
 
     @Override

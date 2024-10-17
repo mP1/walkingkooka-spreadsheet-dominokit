@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import elemental2.dom.Headers;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -24,66 +24,66 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.export.SpreadsheetExporterInfoSetComponent;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetExporterFetcherWatcher;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterAlias;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterAliasSet;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterInfo;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterSelector;
+import walkingkooka.spreadsheet.dominokit.function.ExpressionFunctionInfoSetComponent;
+import walkingkooka.spreadsheet.dominokit.net.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
+import walkingkooka.tree.expression.ExpressionFunctionName;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfo;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetDialogComponentContextBasicSpreadsheetExporters extends PluginInfoSetDialogComponentContextBasic<SpreadsheetExporterName,
-        SpreadsheetExporterInfo,
-        SpreadsheetExporterInfoSet,
-        SpreadsheetExporterSelector,
-        SpreadsheetExporterAlias,
-        SpreadsheetExporterAliasSet> {
+final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions extends PluginInfoSetLikeDialogComponentContextBasic<ExpressionFunctionName,
+        ExpressionFunctionInfo,
+        ExpressionFunctionInfoSet,
+        ExpressionFunctionSelector,
+        ExpressionFunctionAlias,
+        ExpressionFunctionAliasSet> {
 
-    static PluginInfoSetDialogComponentContextBasicSpreadsheetExporters with(final AppContext context) {
-        return new PluginInfoSetDialogComponentContextBasicSpreadsheetExporters(context);
+    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions with(final AppContext context) {
+        return new PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions(context);
     }
 
-    private PluginInfoSetDialogComponentContextBasicSpreadsheetExporters(final AppContext context) {
+    private PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions(final AppContext context) {
         super(context);
     }
 
-    // PluginInfoSetDialogComponentContext..............................................................................
+    // PluginInfoSetLikeDialogComponentContext..............................................................................
 
     @Override
-    public SpreadsheetExporterInfoSetComponent textBox() {
-        return SpreadsheetExporterInfoSetComponent.empty();
+    public ExpressionFunctionInfoSetComponent textBox() {
+        return ExpressionFunctionInfoSetComponent.empty();
     }
 
     @Override
-    SpreadsheetMetadataPropertyName<SpreadsheetExporterInfoSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.EXPORTERS;
+    SpreadsheetMetadataPropertyName<ExpressionFunctionInfoSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.FUNCTIONS;
     }
 
     @Override
-    public SpreadsheetExporterInfoSet emptyInfoSet() {
-        return SpreadsheetExporterInfoSet.EMPTY;
+    public ExpressionFunctionInfoSet emptyInfoSet() {
+        return ExpressionFunctionInfoSet.EMPTY;
     }
 
     @Override
     void loadPluginInfoSet0(final SpreadsheetId id) {
-        this.context.spreadsheetExporterFetcher()
+        this.context.expressionFunctionFetcher()
                 .infoSet(id);
     }
 
     @Override
-    public Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetExporterInfoSet> set) {
-        return this.context.addSpreadsheetExporterFetcherWatcher(
-                new SpreadsheetExporterFetcherWatcher() {
+    public Runnable addProviderFetcherWatcher(final Consumer<ExpressionFunctionInfoSet> set) {
+        return this.context.addExpressionFunctionFetcherWatcher(
+                new ExpressionFunctionFetcherWatcher() {
                     @Override
-                    public void onSpreadsheetExporterInfoSet(final SpreadsheetId id,
-                                                             final SpreadsheetExporterInfoSet infos,
-                                                             final AppContext context) {
+                    public void onExpressionFunctionInfoSet(final SpreadsheetId id,
+                                                            final ExpressionFunctionInfoSet infos,
+                                                            final AppContext context) {
                         set.accept(infos);
                     }
 
@@ -120,7 +120,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetExporters extends
     }
 
     @Override
-    SpreadsheetExporterInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
-        return spreadsheetProvider.spreadsheetExporterInfos();
+    ExpressionFunctionInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+        return spreadsheetProvider.expressionFunctionInfos();
     }
 }

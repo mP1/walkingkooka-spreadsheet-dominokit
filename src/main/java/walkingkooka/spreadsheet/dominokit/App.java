@@ -112,8 +112,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.pluginfoset.PluginInfoSetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.pluginfoset.PluginInfoSetDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.pluginfosetlink.PluginInfoSetLikeDialogComponent;
+import walkingkooka.spreadsheet.dominokit.pluginfosetlink.PluginInfoSetLikeDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialogComponent;
@@ -324,26 +324,26 @@ public class App implements EntryPoint,
                 )
         );
 
-        PluginInfoSetDialogComponent.with(
-                PluginInfoSetDialogComponentContexts.converters(this)
+        PluginInfoSetLikeDialogComponent.with(
+                PluginInfoSetLikeDialogComponentContexts.converters(this)
         );
-        PluginInfoSetDialogComponent.with(
-                PluginInfoSetDialogComponentContexts.comparators(this)
+        PluginInfoSetLikeDialogComponent.with(
+                PluginInfoSetLikeDialogComponentContexts.comparators(this)
         );
-        PluginInfoSetDialogComponent.with(
-                PluginInfoSetDialogComponentContexts.exporters(this)
+        PluginInfoSetLikeDialogComponent.with(
+                PluginInfoSetLikeDialogComponentContexts.exporters(this)
         );
-        PluginInfoSetDialogComponent.with(
-                PluginInfoSetDialogComponentContexts.expressionFunctions(this)
+        PluginInfoSetLikeDialogComponent.with(
+                PluginInfoSetLikeDialogComponentContexts.expressionFunctions(this)
         );
-        PluginInfoSetDialogComponent.with(
-                PluginInfoSetDialogComponentContexts.formatters(this)
+        PluginInfoSetLikeDialogComponent.with(
+                PluginInfoSetLikeDialogComponentContexts.formatters(this)
         );
-        PluginInfoSetDialogComponent.with(
-                PluginInfoSetDialogComponentContexts.importers(this)
+        PluginInfoSetLikeDialogComponent.with(
+                PluginInfoSetLikeDialogComponentContexts.importers(this)
         );
-        PluginInfoSetDialogComponent.with(
-                PluginInfoSetDialogComponentContexts.parsers(this)
+        PluginInfoSetLikeDialogComponent.with(
+                PluginInfoSetLikeDialogComponentContexts.parsers(this)
         );
 
         SpreadsheetComparatorNameListDialogComponent.with(

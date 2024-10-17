@@ -15,27 +15,20 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
+import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.PublicStaticHelperTesting;
 
-import java.lang.reflect.Method;
-
-public final class PluginInfoSetDialogComponentContextsTest implements PublicStaticHelperTesting<PluginInfoSetDialogComponentContexts> {
+public final class PluginInfoSetLikeDialogComponentContextBasicTest implements ClassTesting<PluginInfoSetLikeDialogComponentContextBasic> {
 
     @Override
-    public Class<PluginInfoSetDialogComponentContexts> type() {
-        return PluginInfoSetDialogComponentContexts.class;
+    public Class<PluginInfoSetLikeDialogComponentContextBasic> type() {
+        return PluginInfoSetLikeDialogComponentContextBasic.class;
     }
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
-
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import elemental2.dom.Headers;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -23,67 +23,67 @@ import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAlias;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.function.ExpressionFunctionInfoSetComponent;
-import walkingkooka.spreadsheet.dominokit.net.ExpressionFunctionFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorInfoSetComponent;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
-import walkingkooka.tree.expression.ExpressionFunctionName;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfo;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctions extends PluginInfoSetDialogComponentContextBasic<ExpressionFunctionName,
-        ExpressionFunctionInfo,
-        ExpressionFunctionInfoSet,
-        ExpressionFunctionSelector,
-        ExpressionFunctionAlias,
-        ExpressionFunctionAliasSet> {
+final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators extends PluginInfoSetLikeDialogComponentContextBasic<SpreadsheetComparatorName,
+        SpreadsheetComparatorInfo,
+        SpreadsheetComparatorInfoSet,
+        SpreadsheetComparatorSelector,
+        SpreadsheetComparatorAlias,
+        SpreadsheetComparatorAliasSet> {
 
-    static PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctions with(final AppContext context) {
-        return new PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctions(context);
+    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators with(final AppContext context) {
+        return new PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators(context);
     }
 
-    private PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctions(final AppContext context) {
+    private PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators(final AppContext context) {
         super(context);
     }
 
-    // PluginInfoSetDialogComponentContext..............................................................................
+    // PluginInfoSetLikeDialogComponentContext..............................................................................
 
     @Override
-    public ExpressionFunctionInfoSetComponent textBox() {
-        return ExpressionFunctionInfoSetComponent.empty();
+    public SpreadsheetComparatorInfoSetComponent textBox() {
+        return SpreadsheetComparatorInfoSetComponent.empty();
     }
 
     @Override
-    SpreadsheetMetadataPropertyName<ExpressionFunctionInfoSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.FUNCTIONS;
+    SpreadsheetMetadataPropertyName<SpreadsheetComparatorInfoSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.COMPARATORS;
     }
 
     @Override
-    public ExpressionFunctionInfoSet emptyInfoSet() {
-        return ExpressionFunctionInfoSet.EMPTY;
+    public SpreadsheetComparatorInfoSet emptyInfoSet() {
+        return SpreadsheetComparatorInfoSet.EMPTY;
     }
 
     @Override
     void loadPluginInfoSet0(final SpreadsheetId id) {
-        this.context.expressionFunctionFetcher()
+        this.context.spreadsheetComparatorFetcher()
                 .infoSet(id);
     }
 
     @Override
-    public Runnable addProviderFetcherWatcher(final Consumer<ExpressionFunctionInfoSet> set) {
-        return this.context.addExpressionFunctionFetcherWatcher(
-                new ExpressionFunctionFetcherWatcher() {
+    public Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetComparatorInfoSet> set) {
+        return this.context.addSpreadsheetComparatorFetcherWatcher(
+                new SpreadsheetComparatorFetcherWatcher() {
                     @Override
-                    public void onExpressionFunctionInfoSet(final SpreadsheetId id,
-                                                            final ExpressionFunctionInfoSet infos,
-                                                            final AppContext context) {
+                    public void onSpreadsheetComparatorInfoSet(final SpreadsheetId id,
+                                                               final SpreadsheetComparatorInfoSet infos,
+                                                               final AppContext context) {
                         set.accept(infos);
                     }
 
@@ -120,7 +120,7 @@ final class PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctio
     }
 
     @Override
-    ExpressionFunctionInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
-        return spreadsheetProvider.expressionFunctionInfos();
+    SpreadsheetComparatorInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+        return spreadsheetProvider.spreadsheetComparatorInfos();
     }
 }

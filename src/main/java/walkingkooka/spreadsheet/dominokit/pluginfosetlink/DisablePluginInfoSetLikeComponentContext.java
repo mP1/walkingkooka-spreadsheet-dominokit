@@ -15,9 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfoset;
+package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
-public interface DisablePluginInfoSetComponentContext extends HistoryTokenContext {
+public interface DisablePluginInfoSetLikeComponentContext extends HistoryTokenContext {
 }
