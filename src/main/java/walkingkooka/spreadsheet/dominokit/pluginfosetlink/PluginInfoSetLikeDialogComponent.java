@@ -183,7 +183,7 @@ public final class PluginInfoSetLikeDialogComponent<N extends Name & Comparable<
     private void onTextBox(final String text) {
         try {
             this.refreshNonResetLinks(
-                    this.context.parse(text)
+                    this.context.parseInfoSetLike(text)
             );
         } catch (final RuntimeException parseFailed) {
             // ignore
