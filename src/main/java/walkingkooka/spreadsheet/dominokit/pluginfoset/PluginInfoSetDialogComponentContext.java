@@ -18,8 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.pluginfoset;
 
 import walkingkooka.naming.Name;
+import walkingkooka.plugin.PluginAliasLike;
+import walkingkooka.plugin.PluginAliasSetLike;
 import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
+import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
@@ -33,7 +36,13 @@ import java.util.function.Consumer;
 /**
  * A {@link walkingkooka.Context} tht accompanies a {@link PluginInfoSetDialogComponent} provided various inputs.
  */
-public interface PluginInfoSetDialogComponentContext<N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, IS extends PluginInfoSetLike<N, I, IS>> extends CanGiveFocus,
+public interface PluginInfoSetDialogComponentContext<N extends Name & Comparable<N>,
+        I extends PluginInfoLike<I, N>,
+        IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
+        S extends PluginSelectorLike<N>,
+        A extends PluginAliasLike<N, S, A>,
+        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
+        extends CanGiveFocus,
         SpreadsheetDialogComponentContext,
         EnablePluginInfoSetComponentContext,
         DisablePluginInfoSetComponentContext {

@@ -18,9 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.pluginfoset;
 
 import elemental2.dom.Headers;
+import walkingkooka.convert.provider.ConverterAlias;
+import walkingkooka.convert.provider.ConverterAliasSet;
 import walkingkooka.convert.provider.ConverterInfo;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterName;
+import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
@@ -35,7 +38,12 @@ import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetDialogComponentContextBasicConverters extends PluginInfoSetDialogComponentContextBasic<ConverterName, ConverterInfo, ConverterInfoSet> {
+final class PluginInfoSetDialogComponentContextBasicConverters extends PluginInfoSetDialogComponentContextBasic<ConverterName,
+        ConverterInfo,
+        ConverterInfoSet,
+        ConverterSelector,
+        ConverterAlias,
+        ConverterAliasSet> {
 
     static PluginInfoSetDialogComponentContextBasicConverters with(final AppContext context) {
         return new PluginInfoSetDialogComponentContextBasicConverters(context);

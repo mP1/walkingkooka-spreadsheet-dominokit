@@ -26,9 +26,12 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterInfoSetComponent;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetFormatterFetcherWatcher;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterAlias;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
@@ -37,7 +40,12 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMen
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters extends PluginInfoSetDialogComponentContextBasic<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet> {
+final class PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters extends PluginInfoSetDialogComponentContextBasic<SpreadsheetFormatterName,
+        SpreadsheetFormatterInfo,
+        SpreadsheetFormatterInfoSet,
+        SpreadsheetFormatterSelector,
+        SpreadsheetFormatterAlias,
+        SpreadsheetFormatterAliasSet> {
 
     static PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters with(final AppContext context) {
         return new PluginInfoSetDialogComponentContextBasicSpreadsheetFormatters(context);

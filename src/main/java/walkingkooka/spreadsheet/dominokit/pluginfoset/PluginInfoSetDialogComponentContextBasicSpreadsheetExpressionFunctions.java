@@ -29,13 +29,21 @@ import walkingkooka.spreadsheet.dominokit.net.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.tree.expression.ExpressionFunctionName;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfo;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctions extends PluginInfoSetDialogComponentContextBasic<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet> {
+final class PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctions extends PluginInfoSetDialogComponentContextBasic<ExpressionFunctionName,
+        ExpressionFunctionInfo,
+        ExpressionFunctionInfoSet,
+        ExpressionFunctionSelector,
+        ExpressionFunctionAlias,
+        ExpressionFunctionAliasSet> {
 
     static PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctions with(final AppContext context) {
         return new PluginInfoSetDialogComponentContextBasicSpreadsheetExpressionFunctions(context);

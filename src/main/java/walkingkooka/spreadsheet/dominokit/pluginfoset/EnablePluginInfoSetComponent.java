@@ -21,8 +21,11 @@ import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import walkingkooka.naming.Name;
 import walkingkooka.net.AbsoluteUrl;
+import walkingkooka.plugin.PluginAliasLike;
+import walkingkooka.plugin.PluginAliasSetLike;
 import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
+import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
@@ -39,13 +42,25 @@ import java.util.stream.Collectors;
 /**
  * A component that contains a horizontal panel holding links of disabled {@link PluginInfoLike} which will enable.
  */
-public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, IS extends PluginInfoSetLike<N, I, IS>> implements HtmlElementComponent<HTMLDivElement, EnablePluginInfoSetComponent<N, I, IS>>,
+public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>,
+        I extends PluginInfoLike<I, N>,
+        IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
+        S extends PluginSelectorLike<N>,
+        A extends PluginAliasLike<N, S, A>,
+        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
+        implements HtmlElementComponent<HTMLDivElement, EnablePluginInfoSetComponent<N, I, IS, S, A, AS>>,
         TreePrintable {
 
     /**
      * Creates an empty {@link EnablePluginInfoSetComponent}.
      */
-    public static <N extends Name & Comparable<N>, I extends PluginInfoLike<I, N>, IS extends PluginInfoSetLike<N, I, IS>> EnablePluginInfoSetComponent<N, I, IS> empty(final String id) {
+    public static <N extends Name & Comparable<N>,
+            I extends PluginInfoLike<I, N>,
+            IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
+            S extends PluginSelectorLike<N>,
+            A extends PluginAliasLike<N, S, A>,
+            AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
+    EnablePluginInfoSetComponent<N, I, IS, S, A, AS> empty(final String id) {
         return new EnablePluginInfoSetComponent<>(
                 CharSequences.failIfNullOrEmpty(id, "id")
         );
@@ -125,7 +140,7 @@ public final class EnablePluginInfoSetComponent<N extends Name & Comparable<N>, 
     // setCssText.......................................................................................................
 
     @Override
-    public EnablePluginInfoSetComponent<N, I, IS> setCssText(final String css) {
+    public EnablePluginInfoSetComponent<N, I, IS, S, A, AS> setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.root.setCssText(css);

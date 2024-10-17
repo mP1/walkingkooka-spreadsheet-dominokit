@@ -23,9 +23,12 @@ import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAlias;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorInfoSetComponent;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcherWatcher;
@@ -35,7 +38,12 @@ import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetDialogComponentContextBasicSpreadsheetComparators extends PluginInfoSetDialogComponentContextBasic<SpreadsheetComparatorName, SpreadsheetComparatorInfo, SpreadsheetComparatorInfoSet> {
+final class PluginInfoSetDialogComponentContextBasicSpreadsheetComparators extends PluginInfoSetDialogComponentContextBasic<SpreadsheetComparatorName,
+        SpreadsheetComparatorInfo,
+        SpreadsheetComparatorInfoSet,
+        SpreadsheetComparatorSelector,
+        SpreadsheetComparatorAlias,
+        SpreadsheetComparatorAliasSet> {
 
     static PluginInfoSetDialogComponentContextBasicSpreadsheetComparators with(final AppContext context) {
         return new PluginInfoSetDialogComponentContextBasicSpreadsheetComparators(context);

@@ -26,16 +26,24 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.export.SpreadsheetExporterInfoSetComponent;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetExporterFetcherWatcher;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterAlias;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterAliasSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterInfo;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetDialogComponentContextBasicSpreadsheetExporters extends PluginInfoSetDialogComponentContextBasic<SpreadsheetExporterName, SpreadsheetExporterInfo, SpreadsheetExporterInfoSet> {
+final class PluginInfoSetDialogComponentContextBasicSpreadsheetExporters extends PluginInfoSetDialogComponentContextBasic<SpreadsheetExporterName,
+        SpreadsheetExporterInfo,
+        SpreadsheetExporterInfoSet,
+        SpreadsheetExporterSelector,
+        SpreadsheetExporterAlias,
+        SpreadsheetExporterAliasSet> {
 
     static PluginInfoSetDialogComponentContextBasicSpreadsheetExporters with(final AppContext context) {
         return new PluginInfoSetDialogComponentContextBasicSpreadsheetExporters(context);
