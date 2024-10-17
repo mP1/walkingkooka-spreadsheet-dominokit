@@ -69,7 +69,7 @@ public class FakePluginInfoSetLikeDialogComponentContext<N extends Name & Compar
     }
 
     @Override
-    public IS parse(final String text) {
+    public IS parseInfoSetLike(final String text) {
         throw new UnsupportedOperationException();
     }
 

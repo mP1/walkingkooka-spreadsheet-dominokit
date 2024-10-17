@@ -81,7 +81,7 @@ public interface PluginInfoSetLikeDialogComponentContext<N extends Name & Compar
     /**
      * Parses the text into a {@link PluginInfoSetLike}.
      */
-    IS parse(final String text);
+    IS parseInfoSetLike(final String text);
 
     /**
      * Returns an empty {@link PluginInfoSetLike}.

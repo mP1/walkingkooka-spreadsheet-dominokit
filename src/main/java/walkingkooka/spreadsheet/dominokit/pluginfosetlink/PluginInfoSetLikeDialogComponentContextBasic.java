@@ -139,7 +139,7 @@ abstract class PluginInfoSetLikeDialogComponentContextBasic<N extends Name & Com
     abstract void loadPluginInfoSet0(final SpreadsheetId id);
 
     @Override
-    public final IS parse(final String text) {
+    public final IS parseInfoSetLike(final String text) {
         return this.metadataPropertyName()
                 .parseUrlFragmentSaveValue(text);
     }
