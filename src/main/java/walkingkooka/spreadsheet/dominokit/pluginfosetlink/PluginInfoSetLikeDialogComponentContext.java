@@ -34,7 +34,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import java.util.function.Consumer;
 
 /**
- * A {@link walkingkooka.Context} tht accompanies a {@link PluginInfoSetLikeDialogComponent} provided various inputs.
+ * A {@link walkingkooka.Context} tht accompanies a {@link PluginInfoSetLikeDialogComponent} providing custom values and functionality.
  */
 public interface PluginInfoSetLikeDialogComponentContext<N extends Name & Comparable<N>,
         I extends PluginInfoLike<I, N>,
@@ -48,13 +48,12 @@ public interface PluginInfoSetLikeDialogComponentContext<N extends Name & Compar
         DisablePluginInfoSetLikeComponentContext {
 
     /**
-     * Logic to provide the dialog title. In some cases the title might not be currently enabled as it is extracted from
-     * the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} which will change after the dialog is actually created.
+     * Returns the dialog title.
      */
     String dialogTitle();
 
     /**
-     * Returns true if the right metadata property is selected.
+     * Returns true if this metadata property is selected by the {@link HistoryToken}.
      */
     boolean isMatch(final HistoryToken token);
 
@@ -90,12 +89,12 @@ public interface PluginInfoSetLikeDialogComponentContext<N extends Name & Compar
     IS emptyInfoSet();
 
     /**
-     * The metadata property name which will be used to retrieve the current value of the {@link PluginInfoSetLike}.
+     * Getter that fetches the {@link PluginInfoSetLike} from the {@link SpreadsheetMetadata}.
      */
     IS metadataInfoSet();
 
     /**
-     * Returns a {@link PluginInfoSetLike} sourced from the provider.
+     * Getter that fetches the {@link PluginInfoSetLike} sourced from the provider.
      */
     IS providerInfoSet();
 }
