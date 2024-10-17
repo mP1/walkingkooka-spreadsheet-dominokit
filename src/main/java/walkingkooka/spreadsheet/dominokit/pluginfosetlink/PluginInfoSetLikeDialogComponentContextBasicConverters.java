@@ -65,7 +65,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicConverters extends Plugi
         return SpreadsheetMetadataPropertyName.CONVERTERS;
     }
 
-    @Override public ConverterInfoSet emptyInfoSet() {
+    @Override public ConverterInfoSet emptyInfoSetLike() {
         return ConverterInfoSet.EMPTY;
     }
 

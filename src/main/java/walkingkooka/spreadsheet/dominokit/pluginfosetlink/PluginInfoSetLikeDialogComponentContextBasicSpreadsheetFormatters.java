@@ -68,7 +68,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters ex
     }
 
     @Override
-    public SpreadsheetFormatterInfoSet emptyInfoSet() {
+    public SpreadsheetFormatterInfoSet emptyInfoSetLike() {
         return SpreadsheetFormatterInfoSet.EMPTY;
     }
 

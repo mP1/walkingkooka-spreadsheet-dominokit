@@ -69,14 +69,14 @@ public interface PluginInfoSetLikeDialogComponentContext<N extends Name & Compar
     Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 
     /**
-     * Watcher method called whenever {@link #loadProviderInfoSet()} completes.
+     * Watcher method called whenever {@link #loadProviderInfoSetLike()} completes.
      */
     Runnable addProviderFetcherWatcher(final Consumer<IS> set);
 
     /**
      * Loads the {@link PluginInfoSetLike} for the given {@link SpreadsheetId}.
      */
-    void loadProviderInfoSet();
+    void loadProviderInfoSetLike();
 
     /**
      * Parses the text into a {@link PluginInfoSetLike}.
@@ -86,15 +86,15 @@ public interface PluginInfoSetLikeDialogComponentContext<N extends Name & Compar
     /**
      * Returns an empty {@link PluginInfoSetLike}.
      */
-    IS emptyInfoSet();
+    IS emptyInfoSetLike();
 
     /**
      * Getter that fetches the {@link PluginInfoSetLike} from the {@link SpreadsheetMetadata}.
      */
-    IS metadataInfoSet();
+    IS metadataInfoSetLike();
 
     /**
      * Getter that fetches the {@link PluginInfoSetLike} sourced from the provider.
      */
-    IS providerInfoSet();
+    IS providerInfoSetLike();
 }

@@ -66,7 +66,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters ext
     }
 
     @Override
-    public SpreadsheetExporterInfoSet emptyInfoSet() {
+    public SpreadsheetExporterInfoSet emptyInfoSetLike() {
         return SpreadsheetExporterInfoSet.EMPTY;
     }
 

@@ -66,7 +66,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators e
     }
 
     @Override
-    public SpreadsheetComparatorInfoSet emptyInfoSet() {
+    public SpreadsheetComparatorInfoSet emptyInfoSetLike() {
         return SpreadsheetComparatorInfoSet.EMPTY;
     }
 

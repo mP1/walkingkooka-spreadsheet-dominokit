@@ -240,7 +240,7 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
             }
 
             @Override
-            public void loadProviderInfoSet() {
+            public void loadProviderInfoSetLike() {
                 // dummy server call
             }
 
@@ -250,18 +250,18 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
             }
 
             @Override
-            public SpreadsheetFormatterInfoSet emptyInfoSet() {
+            public SpreadsheetFormatterInfoSet emptyInfoSetLike() {
                 return SpreadsheetFormatterInfoSet.EMPTY;
             }
 
             @Override
-            public SpreadsheetFormatterInfoSet metadataInfoSet() {
+            public SpreadsheetFormatterInfoSet metadataInfoSetLike() {
                 return context.spreadsheetMetadata()
                         .getOrFail(SpreadsheetMetadataPropertyName.FORMATTERS);
             }
 
             @Override
-            public SpreadsheetFormatterInfoSet providerInfoSet() {
+            public SpreadsheetFormatterInfoSet providerInfoSetLike() {
                 return SpreadsheetFormatterInfoSet.with(
                         Sets.of(
                                 INFO1,
