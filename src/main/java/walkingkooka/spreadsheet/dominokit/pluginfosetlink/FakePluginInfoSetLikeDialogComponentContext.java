@@ -44,7 +44,7 @@ public class FakePluginInfoSetLikeDialogComponentContext<N extends Name & Compar
     }
 
     @Override
-    public ValueSpreadsheetTextBoxWrapper textBox() {
+    public ValueSpreadsheetTextBoxWrapper<?, IS> textBox() {
         throw new UnsupportedOperationException();
     }
 
