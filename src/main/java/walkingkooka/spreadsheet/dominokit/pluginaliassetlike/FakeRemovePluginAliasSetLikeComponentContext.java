@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginaliasset;
+package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 
