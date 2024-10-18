@@ -156,7 +156,7 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
                         "            Disable\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"Text111\" [#/1/Spreadsheet123/metadata/formatters/save/] id=PluginInfoSetLikeDialogComponent-disable-disable-0-Link\n" +
+                        "                  \"Text111\" [#/1/Spreadsheet123/metadata/formatters/save/] id=PluginInfoSetLikeDialogComponent-disable-0-Link\n" +
                         "      SpreadsheetFormatterInfoSetComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
