@@ -71,7 +71,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFun
     }
 
     @Override
-    void loadPluginInfoSet0(final SpreadsheetId id) {
+    void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.expressionFunctionFetcher()
                 .infoSet(id);
     }
@@ -120,7 +120,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFun
     }
 
     @Override
-    ExpressionFunctionInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+    ExpressionFunctionInfoSet providerInfoSetLike0(final SpreadsheetProvider spreadsheetProvider) {
         return spreadsheetProvider.expressionFunctionInfos();
     }
 }

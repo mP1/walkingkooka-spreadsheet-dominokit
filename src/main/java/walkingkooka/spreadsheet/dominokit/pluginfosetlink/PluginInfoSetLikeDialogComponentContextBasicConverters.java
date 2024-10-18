@@ -70,7 +70,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicConverters extends Plugi
     }
 
     @Override
-    void loadPluginInfoSet0(final SpreadsheetId id) {
+    void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetFormatterFetcher()
                 .infoSet(id);
     }
@@ -119,7 +119,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicConverters extends Plugi
     }
 
     @Override
-    ConverterInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+    ConverterInfoSet providerInfoSetLike0(final SpreadsheetProvider spreadsheetProvider) {
         return spreadsheetProvider.converterInfos();
     }
 }

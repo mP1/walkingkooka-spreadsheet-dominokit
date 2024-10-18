@@ -71,7 +71,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetImporters ext
     }
 
     @Override
-    void loadPluginInfoSet0(final SpreadsheetId id) {
+    void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetImporterFetcher()
                 .infoSet(id);
     }
@@ -120,7 +120,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetImporters ext
     }
 
     @Override
-    SpreadsheetImporterInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+    SpreadsheetImporterInfoSet providerInfoSetLike0(final SpreadsheetProvider spreadsheetProvider) {
         return spreadsheetProvider.spreadsheetImporterInfos();
     }
 }

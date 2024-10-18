@@ -71,7 +71,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators e
     }
 
     @Override
-    void loadPluginInfoSet0(final SpreadsheetId id) {
+    void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetComparatorFetcher()
                 .infoSet(id);
     }
@@ -120,7 +120,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators e
     }
 
     @Override
-    SpreadsheetComparatorInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+    SpreadsheetComparatorInfoSet providerInfoSetLike0(final SpreadsheetProvider spreadsheetProvider) {
         return spreadsheetProvider.spreadsheetComparatorInfos();
     }
 }
