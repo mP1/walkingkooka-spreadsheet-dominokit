@@ -112,7 +112,7 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
                                                final AddPluginAliasSetLikeComponentContext context) {
         return context.historyToken()
                 .saveLink(
-                        this.id + "add-" + index,
+                        this.id + index,
                         CaseKind.kebabToTitle(
                                 add.name()
                                         .value()
