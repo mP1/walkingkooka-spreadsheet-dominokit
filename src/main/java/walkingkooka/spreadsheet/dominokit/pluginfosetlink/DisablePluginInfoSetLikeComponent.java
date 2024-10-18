@@ -116,7 +116,7 @@ public final class DisablePluginInfoSetLikeComponent<N extends Name & Comparable
                                                final DisablePluginInfoSetLikeComponentContext context) {
         return context.historyToken()
                 .saveLink(
-                        this.id + "disable-" + index,
+                        this.id + index,
                         CaseKind.kebabToTitle(
                                 info.name()
                                         .value()
