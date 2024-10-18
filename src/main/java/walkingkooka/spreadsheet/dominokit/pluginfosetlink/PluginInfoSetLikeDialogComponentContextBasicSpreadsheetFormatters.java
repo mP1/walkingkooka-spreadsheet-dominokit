@@ -73,7 +73,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters ex
     }
 
     @Override
-    void loadPluginInfoSet0(final SpreadsheetId id) {
+    void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetFormatterFetcher()
                 .infoSet(id);
     }
@@ -136,7 +136,7 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters ex
     }
 
     @Override
-    SpreadsheetFormatterInfoSet providerInfoSet0(final SpreadsheetProvider spreadsheetProvider) {
+    SpreadsheetFormatterInfoSet providerInfoSetLike0(final SpreadsheetProvider spreadsheetProvider) {
         return spreadsheetProvider.spreadsheetFormatterInfos();
     }
 }

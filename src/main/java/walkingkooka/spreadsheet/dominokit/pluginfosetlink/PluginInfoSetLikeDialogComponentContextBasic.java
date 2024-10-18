@@ -129,14 +129,14 @@ abstract class PluginInfoSetLikeDialogComponentContextBasic<N extends Name & Com
 
     @Override
     public final void loadProviderInfoSetLike() {
-        this.loadPluginInfoSet0(
+        this.loadPluginInfoSetLike0(
                 this.historyToken()
                         .cast(SpreadsheetNameHistoryToken.class)
                         .id()
         );
     }
 
-    abstract void loadPluginInfoSet0(final SpreadsheetId id);
+    abstract void loadPluginInfoSetLike0(final SpreadsheetId id);
 
     @Override
     public final IS parseInfoSetLike(final String text) {
@@ -155,12 +155,12 @@ abstract class PluginInfoSetLikeDialogComponentContextBasic<N extends Name & Com
 
     @Override
     public final IS providerInfoSetLike() {
-        return this.providerInfoSet0(
+        return this.providerInfoSetLike0(
                 this.context.systemSpreadsheetProvider()
         );
     }
 
-    abstract IS providerInfoSet0(final SpreadsheetProvider spreadsheetProvider);
+    abstract IS providerInfoSetLike0(final SpreadsheetProvider spreadsheetProvider);
 
     // focus............................................................................................................
 
