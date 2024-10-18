@@ -98,9 +98,9 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
                         "            Enable\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"Text111\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111] id=PluginInfoSetLikeDialogComponent-enable-enable-0-Link\n" +
-                        "                  \"Text222\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text222%20Text222] id=PluginInfoSetLikeDialogComponent-enable-enable-1-Link\n" +
-                        "                  \"Text333\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-enable-enable-2-Link\n" +
+                        "                  \"Text111\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111] id=PluginInfoSetLikeDialogComponent-enable-0-Link\n" +
+                        "                  \"Text222\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text222%20Text222] id=PluginInfoSetLikeDialogComponent-enable-1-Link\n" +
+                        "                  \"Text333\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-enable-2-Link\n" +
                         "      DisablePluginInfoSetLikeComponent\n" +
                         "      SpreadsheetFormatterInfoSetComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
@@ -148,8 +148,8 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
                         "            Enable\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"Text222\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222] id=PluginInfoSetLikeDialogComponent-enable-enable-0-Link\n" +
-                        "                  \"Text333\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-enable-enable-1-Link\n" +
+                        "                  \"Text222\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222] id=PluginInfoSetLikeDialogComponent-enable-0-Link\n" +
+                        "                  \"Text333\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-enable-1-Link\n" +
                         "      DisablePluginInfoSetLikeComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +

@@ -56,7 +56,7 @@ public final class EnablePluginInfoSetLikeComponentTest implements ClassTesting<
         );
 
 
-        final EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-");
+        final EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-enable-");
         component.refresh(
                 SpreadsheetFormatterInfoSet.EMPTY, // enabled
                 SpreadsheetFormatterInfoSet.with(
@@ -95,7 +95,7 @@ public final class EnablePluginInfoSetLikeComponentTest implements ClassTesting<
         );
 
 
-        final EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-");
+        final EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-enable-");
         component.refresh(
                 SpreadsheetFormatterInfoSet.with(
                         Sets.of(
@@ -141,7 +141,7 @@ public final class EnablePluginInfoSetLikeComponentTest implements ClassTesting<
                 SpreadsheetFormatterName.with("formatter4")
         );
 
-        final EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-");
+        final EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-enable-");
         component.refresh(
                 SpreadsheetFormatterInfoSet.with(
                         Sets.of(
