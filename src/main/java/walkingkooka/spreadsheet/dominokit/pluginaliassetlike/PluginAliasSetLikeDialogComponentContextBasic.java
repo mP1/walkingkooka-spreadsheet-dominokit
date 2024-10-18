@@ -51,13 +51,6 @@ abstract class PluginAliasSetLikeDialogComponentContextBasic<N extends Name & Co
         HistoryTokenContextDelegator,
         LoggingContextDelegator {
 
-    /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions}
-     */
-    static PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions expressionFunctions(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions.with(context);
-    }
-
     PluginAliasSetLikeDialogComponentContextBasic(final AppContext context) {
         this.context = Objects.requireNonNull(context, "context");
     }

@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.function.ExpressionFunctionAliasSetComponent;
 import walkingkooka.spreadsheet.dominokit.net.ExpressionFunctionFetcherWatcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
@@ -38,46 +37,36 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions extends PluginAliasSetLikeDialogComponentContextBasic<ExpressionFunctionName,
+abstract class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliases extends PluginAliasSetLikeDialogComponentContextBasic<ExpressionFunctionName,
         ExpressionFunctionInfo,
         ExpressionFunctionInfoSet,
         ExpressionFunctionSelector,
         ExpressionFunctionAlias,
         ExpressionFunctionAliasSet> {
 
-    static PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions with(final AppContext context) {
-        return new PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions(context);
-    }
-
-    private PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions(final AppContext context) {
+    PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliases(final AppContext context) {
         super(context);
     }
 
     // PluginAliasSetLikeDialogComponentContext..............................................................................
 
     @Override
-    public ExpressionFunctionAliasSetComponent textBox() {
+    public final ExpressionFunctionAliasSetComponent textBox() {
         return ExpressionFunctionAliasSetComponent.empty();
     }
 
     @Override
-    SpreadsheetMetadataPropertyName<ExpressionFunctionAliasSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS;
-    }
-
-    @Override
-    public ExpressionFunctionAliasSet emptyAliasSetLike() {
+    public final ExpressionFunctionAliasSet emptyAliasSetLike() {
         return ExpressionFunctionAliasSet.EMPTY;
     }
 
-    @Override
-    void loadPluginAliasSetLike0(final SpreadsheetId id) {
+    @Override final void loadPluginAliasSetLike0(final SpreadsheetId id) {
         this.context.expressionFunctionFetcher()
                 .infoSet(id);
     }
 
     @Override
-    public Runnable addProviderFetcherWatcher(final Consumer<ExpressionFunctionAliasSet> set) {
+    public final Runnable addProviderFetcherWatcher(final Consumer<ExpressionFunctionAliasSet> set) {
         return this.context.addExpressionFunctionFetcherWatcher(
                 new ExpressionFunctionFetcherWatcher() {
                     @Override
@@ -119,8 +108,8 @@ final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExpressionFu
         );
     }
 
-    @Override
-    ExpressionFunctionAliasSet providerAliasSetLike0(final SpreadsheetProvider spreadsheetProvider) {
-        return null;
+    @Override final ExpressionFunctionAliasSet providerAliasSetLike0(final SpreadsheetProvider spreadsheetProvider) {
+        return spreadsheetProvider.expressionFunctionInfos()
+                .aliasSet();
     }
 }
