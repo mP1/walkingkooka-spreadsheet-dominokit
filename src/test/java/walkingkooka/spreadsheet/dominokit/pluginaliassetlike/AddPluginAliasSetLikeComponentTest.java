@@ -54,7 +54,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
 
     @Test
     public void testRefreshNoneAdded() {
-        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-");
+        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
                 ExpressionFunctionAliasSet.parse("name1, name2, name3"), // present
                 ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
@@ -70,7 +70,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
 
     @Test
     public void testRefreshNoneAddedWithAliases() {
-        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-");
+        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
                 ExpressionFunctionAliasSet.parse("alias1 name1"), // present
                 ExpressionFunctionAliasSet.parse("name1"), // provider
@@ -86,7 +86,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
 
     @Test
     public void testRefreshNoneAddedWithAliases2() {
-        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-");
+        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
                 ExpressionFunctionAliasSet.parse("alias1 name1, name2, name3"), // present
                 ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
@@ -102,7 +102,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
 
     @Test
     public void testRefreshSomeAdded() {
-        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-");
+        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
                 ExpressionFunctionAliasSet.parse("name1, name2"), // present
                 ExpressionFunctionAliasSet.parse("name1, name2, name3, name4"), // provider
@@ -125,7 +125,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
 
     @Test
     public void testRefreshAllAdded() {
-        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-");
+        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
                 ExpressionFunctionAliasSet.parse(""), // present
                 ExpressionFunctionAliasSet.parse("name1"), // provider
@@ -147,7 +147,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
 
     @Test
     public void testRefreshAllAdded2() {
-        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-");
+        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
                 ExpressionFunctionAliasSet.parse(""), // present
                 ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
@@ -171,7 +171,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
 
     @Test
     public void testRefreshSomeAddedIncludesAliases1() {
-        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-");
+        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
                 ExpressionFunctionAliasSet.parse("alias1 name1"), // present
                 ExpressionFunctionAliasSet.parse("name1, name2"), // provider
@@ -193,7 +193,7 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
 
     @Test
     public void testRefreshSomeAddedIncludesAliases2() {
-        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-");
+        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
                 ExpressionFunctionAliasSet.parse("name1, alias2 name2, alias3 name3 https://example.com/name3"), // present
                 ExpressionFunctionAliasSet.parse("name1, name2, name3, name4"), // provider
