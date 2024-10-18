@@ -116,7 +116,7 @@ public final class EnablePluginInfoSetLikeComponent<N extends Name & Comparable<
                                                final EnablePluginInfoSetLikeComponentContext context) {
         return context.historyToken()
                 .saveLink(
-                        this.id + "enable-" + index,
+                        this.id + index,
                         CaseKind.kebabToTitle(
                                 info.name()
                                         .value()
