@@ -112,6 +112,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponent;
+import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.pluginfosetlink.PluginInfoSetLikeDialogComponent;
 import walkingkooka.spreadsheet.dominokit.pluginfosetlink.PluginInfoSetLikeDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponent;
@@ -322,6 +324,13 @@ public class App implements EntryPoint,
                         this.metadataFetcherWatchers,
                         this
                 )
+        );
+
+        PluginAliasSetLikeDialogComponent.with(
+                PluginAliasSetLikeDialogComponentContexts.findFunctions(this)
+        );
+        PluginAliasSetLikeDialogComponent.with(
+                PluginAliasSetLikeDialogComponentContexts.formulaFunctions(this)
         );
 
         PluginInfoSetLikeDialogComponent.with(
