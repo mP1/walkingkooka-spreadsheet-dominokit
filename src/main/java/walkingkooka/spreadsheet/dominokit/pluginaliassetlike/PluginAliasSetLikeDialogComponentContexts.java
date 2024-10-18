@@ -51,12 +51,17 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     }
 
     /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions}
+     * {@see PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliases}
      */
-    public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> expressionFunctions(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasic.expressionFunctions(
-                context
-        );
+    public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> findFunctions(final AppContext context) {
+        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFindFunctions.with(context);
+    }
+
+    /**
+     * {@see PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFormulaFunctions}
+     */
+    public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> formulaFunctions(final AppContext context) {
+        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFormulaFunctions.with(context);
     }
 
     /**
