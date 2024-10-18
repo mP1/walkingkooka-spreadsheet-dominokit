@@ -112,7 +112,7 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
                                                final RemovePluginAliasSetLikeComponentContext context) {
         return context.historyToken()
                 .saveLink(
-                        this.id + "remove-" + index,
+                        this.id + index,
                         CaseKind.kebabToTitle(
                                 remove.name()
                                         .value()

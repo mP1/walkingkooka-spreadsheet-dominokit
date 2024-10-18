@@ -54,7 +54,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements ClassTesting
 
     @Test
     public void testRefreshNoneRemovable() {
-        final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-");
+        final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
                 ExpressionFunctionAliasSet.EMPTY, // present
                 ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
@@ -70,7 +70,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements ClassTesting
 
     @Test
     public void testRefreshSomeRemovable() {
-        final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-");
+        final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
                 ExpressionFunctionAliasSet.parse("name1, name2"), // present
                 ExpressionFunctionAliasSet.parse("name1, name2, name3, name4"), // provider
@@ -92,7 +92,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements ClassTesting
 
     @Test
     public void testRefreshAllRemovable() {
-        final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-");
+        final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
                 ExpressionFunctionAliasSet.parse("name1, name2, name3"), // present
                 ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
@@ -116,7 +116,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements ClassTesting
 
     @Test
     public void testRefreshAllRemovableIncludesAliases() {
-        final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-");
+        final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
                 ExpressionFunctionAliasSet.parse("alias1 name1"), // present
                 ExpressionFunctionAliasSet.parse("name1"), // provider
@@ -138,7 +138,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements ClassTesting
 
     @Test
     public void testRefreshAllRemovableIncludesAliases2() {
-        final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-");
+        final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
                 ExpressionFunctionAliasSet.parse("alias1 name1"), // present
                 ExpressionFunctionAliasSet.parse("name1, name2"), // provider
@@ -160,7 +160,7 @@ public final class RemovePluginAliasSetLikeComponentTest implements ClassTesting
 
     @Test
     public void testRefreshAllRemovableIncludesAliases3() {
-        final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-");
+        final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
                 ExpressionFunctionAliasSet.parse("name1, alias2 name2, alias3 name3 https://example.com/name3"), // present
                 ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
