@@ -84,7 +84,7 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
         for (final A providerAlias : providerAliases) {
             final N name = providerAlias.name();
 
-            if (false == aliases.containsNameOrAlias(name)) {
+            if (false == aliases.containsAliasOrName(name)) {
                 flex.appendChild(
                         this.anchor(
                                 providerAlias,

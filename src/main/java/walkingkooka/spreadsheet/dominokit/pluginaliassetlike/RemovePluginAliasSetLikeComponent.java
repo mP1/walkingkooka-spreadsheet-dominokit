@@ -84,11 +84,11 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
         for (final A providerAlias : providerAliases) {
             final N name = providerAlias.name();
 
-            if (aliases.containsNameOrAlias(name)) {
+            if (aliases.containsAliasOrName(name)) {
                 flex.appendChild(
                         this.anchor(
                                 providerAlias,
-                                aliases.deleteNameOrAlias(name),
+                                aliases.deleteAliasOrName(name),
                                 i,
                                 context
                         )
