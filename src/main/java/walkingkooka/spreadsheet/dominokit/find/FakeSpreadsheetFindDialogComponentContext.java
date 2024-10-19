@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.plugin.ProviderContext;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -34,7 +34,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-public class FakeSpreadsheetFindDialogComponentContext extends FakeHistoryTokenContext implements SpreadsheetFindDialogComponentContext {
+public class FakeSpreadsheetFindDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements SpreadsheetFindDialogComponentContext {
     @Override
     public LocalDateTime now() {
         throw new UnsupportedOperationException();
@@ -92,28 +92,6 @@ public class FakeSpreadsheetFindDialogComponentContext extends FakeHistoryTokenC
 
     @Override
     public <T> Optional<T> environmentValue(final EnvironmentValueName<T> name) {
-        throw new UnsupportedOperationException();
-    }
-
-    // LoggingContext...................................................................................................
-
-    @Override
-    public void debug(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void info(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void warn(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void error(final Object... values) {
         throw new UnsupportedOperationException();
     }
 }
