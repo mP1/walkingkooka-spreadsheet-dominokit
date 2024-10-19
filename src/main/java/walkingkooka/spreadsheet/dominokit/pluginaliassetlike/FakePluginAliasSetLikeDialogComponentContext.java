@@ -23,7 +23,7 @@ import walkingkooka.plugin.PluginAliasSetLike;
 import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
@@ -36,7 +36,7 @@ public class FakePluginAliasSetLikeDialogComponentContext<N extends Name & Compa
         S extends PluginSelectorLike<N>,
         A extends PluginAliasLike<N, S, A>,
         AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
-        extends FakeHistoryTokenContext
+        extends FakeSpreadsheetDialogComponentContext
         implements PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> {
     @Override
     public String dialogTitle() {
@@ -90,26 +90,6 @@ public class FakePluginAliasSetLikeDialogComponentContext<N extends Name & Compa
 
     @Override
     public void giveFocus(final Runnable focus) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void debug(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void info(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void warn(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void error(final Object... values) {
         throw new UnsupportedOperationException();
     }
 }
