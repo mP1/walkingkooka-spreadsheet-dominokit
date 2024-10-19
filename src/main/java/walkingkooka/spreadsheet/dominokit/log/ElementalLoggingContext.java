@@ -50,6 +50,26 @@ final class ElementalLoggingContext implements LoggingContext {
     }
 
     /**
+     * Logs an INFO level message.
+     */
+    @Override
+    public void info(final Object... values) {
+        // see App.debug
+        final elemental2.dom.Console console = DomGlobal.console;
+        console.info(values);
+    }
+
+
+    /**
+     * Logs a WARN level message.
+     */
+    @Override
+    public void warn(final Object... values) {
+        final elemental2.dom.Console console = DomGlobal.console;
+        console.warn(values);
+    }
+
+    /**
      * Logs an error to the console and shows a DANGER notification.
      */
     @Override

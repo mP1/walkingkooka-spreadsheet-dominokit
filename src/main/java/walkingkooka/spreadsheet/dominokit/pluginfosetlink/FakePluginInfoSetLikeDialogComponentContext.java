@@ -99,6 +99,16 @@ public class FakePluginInfoSetLikeDialogComponentContext<N extends Name & Compar
     }
 
     @Override
+    public void info(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void warn(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void error(final Object... values) {
         throw new UnsupportedOperationException();
     }

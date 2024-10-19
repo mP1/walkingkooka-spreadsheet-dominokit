@@ -28,6 +28,18 @@ public interface LoggingContextDelegator extends LoggingContext {
     }
 
     @Override
+    default void info(final Object... values) {
+        this.loggingContext()
+                .info(values);
+    }
+
+    @Override
+    default void warn(final Object... values) {
+        this.loggingContext()
+                .warn(values);
+    }
+
+    @Override
     default void error(final Object... values) {
         this.loggingContext()
                 .error(values);
