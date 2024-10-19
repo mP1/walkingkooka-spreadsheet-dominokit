@@ -1571,6 +1571,16 @@ public class App implements EntryPoint,
         this.loggingContext.debug(values);
     }
 
+    @Override
+    public void info(final Object... values) {
+        this.loggingContext.info(values);
+    }
+
+    @Override
+    public void warn(final Object... values) {
+        this.loggingContext.warn(values);
+    }
+
     /**
      * Logs an error to the console and shows a DANGER notification.
      */

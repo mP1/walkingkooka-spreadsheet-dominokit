@@ -26,5 +26,9 @@ public interface LoggingContext extends Context {
 
     void debug(final Object... values);
 
+    void info(final Object... values);
+
+    void warn(final Object... values);
+
     void error(final Object... values);
 }
