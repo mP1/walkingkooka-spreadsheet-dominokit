@@ -1194,7 +1194,7 @@ public class App implements EntryPoint,
                     this.providerContext // ProviderContext
             );
         } catch (final RuntimeException cause) {
-            this.debug(".refreshSpreadsheetProvider Failed to create SpreadsheetFormatterContext=" + cause.getMessage(), cause.getCause());
+            this.debug("App.refreshSpreadsheetProvider Failed to create SpreadsheetFormatterContext=" + cause.getMessage(), cause.getCause());
             this.formatterContext = SpreadsheetFormatterContexts.fake();
         }
 
@@ -1203,7 +1203,7 @@ public class App implements EntryPoint,
                     () -> this.now() // not sure why but method ref fails.
             );
         } catch (final RuntimeException cause) {
-            this.debug(".refreshSpreadsheetProvider Failed to create SpreadsheetParserContext=" + cause.getMessage(), cause.getCause());
+            this.debug("App.refreshSpreadsheetProvider Failed to create SpreadsheetParserContext=" + cause.getMessage(), cause.getCause());
             this.parserContext = SpreadsheetParserContexts.fake();
         }
     }
