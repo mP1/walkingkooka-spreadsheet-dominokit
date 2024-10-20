@@ -65,6 +65,13 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     }
 
     /**
+     * {@see PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFunctions}
+     */
+    public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> functions(final AppContext context) {
+        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFunctions.with(context);
+    }
+
+    /**
      * Stop creation
      */
     private PluginAliasSetLikeDialogComponentContexts() {

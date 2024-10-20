@@ -342,8 +342,8 @@ public class App implements EntryPoint,
         PluginInfoSetLikeDialogComponent.with(
                 PluginInfoSetLikeDialogComponentContexts.exporters(this)
         );
-        PluginInfoSetLikeDialogComponent.with(
-                PluginInfoSetLikeDialogComponentContexts.expressionFunctions(this)
+        PluginAliasSetLikeDialogComponent.with(
+                PluginAliasSetLikeDialogComponentContexts.functions(this)
         );
         PluginInfoSetLikeDialogComponent.with(
                 PluginInfoSetLikeDialogComponentContexts.formatters(this)
@@ -1123,8 +1123,7 @@ public class App implements EntryPoint,
 
         final ExpressionFunctionProvider expressionFunctionProvider = ExpressionFunctionProviders.mergedMapped(
                 this.expressionFunctionInfoSet.renameIfPresent(
-                        metadata.get(SpreadsheetMetadataPropertyName.FUNCTIONS)
-                                .orElse(ExpressionFunctionInfoSet.EMPTY)
+                        ExpressionFunctionInfoSet.EMPTY
                 ),
                 ExpressionFunctionProviders.empty() // TODO should have a non empty EFP
         );

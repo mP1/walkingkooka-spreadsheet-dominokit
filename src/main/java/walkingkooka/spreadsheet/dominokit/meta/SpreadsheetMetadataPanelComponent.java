@@ -52,7 +52,6 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 
 import java.math.RoundingMode;
 import java.util.List;
@@ -398,7 +397,7 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionInfoSet> expressionFunctions() {
+    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet> expressionFunctions() {
         return link(
                 SpreadsheetMetadataPropertyName.FUNCTIONS
         );

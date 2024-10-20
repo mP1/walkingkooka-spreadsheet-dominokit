@@ -61,12 +61,6 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
-import walkingkooka.tree.expression.ExpressionFunctionName;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfo;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
 /**
  * A collection of factory methods to create {@link PluginInfoSetLikeDialogComponentContext}.
@@ -111,15 +105,6 @@ public final class PluginInfoSetLikeDialogComponentContexts implements PublicSta
             AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
     PluginInfoSetLikeDialogComponentContext<N, I, IS, S, A, AS> fake() {
         return new FakePluginInfoSetLikeDialogComponentContext<>();
-    }
-
-    /**
-     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions}
-     */
-    public static PluginInfoSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> expressionFunctions(final AppContext context) {
-        return PluginInfoSetLikeDialogComponentContextBasic.expressionFunctions(
-                context
-        );
     }
 
     /**
