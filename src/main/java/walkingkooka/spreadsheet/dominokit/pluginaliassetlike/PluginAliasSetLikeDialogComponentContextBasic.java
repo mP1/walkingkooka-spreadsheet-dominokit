@@ -79,15 +79,15 @@ abstract class PluginAliasSetLikeDialogComponentContextBasic<N extends Name & Co
     }
 
     @Override
-    public final void loadProviderAliasSetLike() {
-        this.loadPluginAliasSetLike0(
+    public final void loadProviderInfoSetLike() {
+        this.loadPluginInfoSetLike0(
                 this.historyToken()
                         .cast(SpreadsheetNameHistoryToken.class)
                         .id()
         );
     }
 
-    abstract void loadPluginAliasSetLike0(final SpreadsheetId id);
+    abstract void loadPluginInfoSetLike0(final SpreadsheetId id);
 
     @Override
     public final AS parseAliasSetLike(final String text) {

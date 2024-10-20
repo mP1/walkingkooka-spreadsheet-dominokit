@@ -60,7 +60,7 @@ abstract class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAl
         return ExpressionFunctionAliasSet.EMPTY;
     }
 
-    @Override final void loadPluginAliasSetLike0(final SpreadsheetId id) {
+    @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.expressionFunctionFetcher()
                 .infoSet(id);
     }

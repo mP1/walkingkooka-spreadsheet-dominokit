@@ -276,7 +276,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         this.refreshReset(this.context.providerAliasSetLike());
 
         // load the latest ProviderAliasSetLike
-        this.context.loadProviderAliasSetLike();
+        this.context.loadProviderInfoSetLike();
     }
 
     private void refreshReset(final AS aliases) {
