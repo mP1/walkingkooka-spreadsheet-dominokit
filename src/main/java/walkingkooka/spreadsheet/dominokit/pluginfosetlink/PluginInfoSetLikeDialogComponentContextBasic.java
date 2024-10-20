@@ -73,13 +73,6 @@ abstract class PluginInfoSetLikeDialogComponentContextBasic<N extends Name & Com
     }
 
     /**
-     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions}
-     */
-    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions expressionFunctions(final AppContext context) {
-        return PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExpressionFunctions.with(context);
-    }
-
-    /**
      * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters}
      */
     static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters formatters(final AppContext context) {
