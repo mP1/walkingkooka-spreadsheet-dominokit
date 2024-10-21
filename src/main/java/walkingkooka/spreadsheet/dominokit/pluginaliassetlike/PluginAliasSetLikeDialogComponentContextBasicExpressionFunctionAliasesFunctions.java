@@ -37,4 +37,11 @@ final class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAlias
     SpreadsheetMetadataPropertyName<ExpressionFunctionAliasSet> metadataPropertyName() {
         return SpreadsheetMetadataPropertyName.FUNCTIONS;
     }
+
+    @Override
+    public ExpressionFunctionAliasSet providerAliasSetLike() {
+        return this.context.systemSpreadsheetProvider()
+                .expressionFunctionInfos()
+                .aliasSet();
+    }
 }

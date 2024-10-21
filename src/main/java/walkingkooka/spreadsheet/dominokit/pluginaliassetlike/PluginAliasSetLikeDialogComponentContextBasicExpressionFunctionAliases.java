@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.function.ExpressionFunctionAliasSetComponent;
 import walkingkooka.spreadsheet.dominokit.net.ExpressionFunctionFetcherWatcher;
-import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
@@ -108,8 +108,20 @@ abstract class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAl
         );
     }
 
-    @Override final ExpressionFunctionAliasSet providerAliasSetLike0(final SpreadsheetProvider spreadsheetProvider) {
-        return spreadsheetProvider.expressionFunctionInfos()
-                .aliasSet();
+    /**
+     * This takes the {@link ExpressionFunctionInfoSet} filtered by {@link SpreadsheetMetadataPropertyName#FUNCTIONS},
+     * providing a view of the effective {@link ExpressionFunctionAliasSet aliase}.
+     */
+    final ExpressionFunctionAliasSet providerAliasSetLikeAndFunctions() {
+        final AppContext context = this.context;
+
+        return context.spreadsheetMetadata()
+                .get(SpreadsheetMetadataPropertyName.FUNCTIONS)
+                .orElse(ExpressionFunctionAliasSet.EMPTY)
+                .keepAliasOrNameAll(
+                        context.systemSpreadsheetProvider()
+                                .expressionFunctionInfos()
+                                .names()
+                );
     }
 }
