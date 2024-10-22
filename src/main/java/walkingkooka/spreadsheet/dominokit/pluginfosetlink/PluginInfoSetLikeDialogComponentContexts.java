@@ -43,12 +43,6 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.importer.SpreadsheetImporterAlias;
-import walkingkooka.spreadsheet.importer.SpreadsheetImporterAliasSet;
-import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfo;
-import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
-import walkingkooka.spreadsheet.importer.SpreadsheetImporterName;
-import walkingkooka.spreadsheet.importer.SpreadsheetImporterSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserAlias;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
@@ -97,15 +91,6 @@ public final class PluginInfoSetLikeDialogComponentContexts implements PublicSta
      */
     public static PluginInfoSetLikeDialogComponentContext<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> formatters(final AppContext context) {
         return PluginInfoSetLikeDialogComponentContextBasic.formatters(
-                context
-        );
-    }
-
-    /**
-     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetImporters}
-     */
-    public static PluginInfoSetLikeDialogComponentContext<SpreadsheetImporterName, SpreadsheetImporterInfo, SpreadsheetImporterInfoSet, SpreadsheetImporterSelector, SpreadsheetImporterAlias, SpreadsheetImporterAliasSet> importers(final AppContext context) {
-        return PluginInfoSetLikeDialogComponentContextBasic.importers(
                 context
         );
     }

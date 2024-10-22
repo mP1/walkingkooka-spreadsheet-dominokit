@@ -44,7 +44,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterAliasSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterAliasSet;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
@@ -421,7 +421,7 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetImporterInfoSet> importers() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetImporterAliasSet> importers() {
         return link(
                 SpreadsheetMetadataPropertyName.IMPORTERS
         );

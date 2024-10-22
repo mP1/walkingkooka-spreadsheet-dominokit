@@ -31,6 +31,12 @@ import walkingkooka.spreadsheet.export.SpreadsheetExporterInfo;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterSelector;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterAlias;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterAliasSet;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfo;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterName;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterSelector;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
@@ -82,6 +88,13 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
      */
     public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> functions(final AppContext context) {
         return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFunctions.with(context);
+    }
+
+    /**
+     * {@see PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImporterAliasSetImporters}
+     */
+    public static PluginAliasSetLikeDialogComponentContext<SpreadsheetImporterName, SpreadsheetImporterInfo, SpreadsheetImporterInfoSet, SpreadsheetImporterSelector, SpreadsheetImporterAlias, SpreadsheetImporterAliasSet> importers(final AppContext context) {
+        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImporterAliasSetImporters.with(context);
     }
 
     /**

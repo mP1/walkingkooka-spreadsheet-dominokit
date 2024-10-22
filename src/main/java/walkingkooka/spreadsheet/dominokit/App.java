@@ -348,8 +348,8 @@ public class App implements EntryPoint,
         PluginInfoSetLikeDialogComponent.with(
                 PluginInfoSetLikeDialogComponentContexts.formatters(this)
         );
-        PluginInfoSetLikeDialogComponent.with(
-                PluginInfoSetLikeDialogComponentContexts.importers(this)
+        PluginAliasSetLikeDialogComponent.with(
+                PluginAliasSetLikeDialogComponentContexts.importers(this)
         );
         PluginInfoSetLikeDialogComponent.with(
                 PluginInfoSetLikeDialogComponentContexts.parsers(this)
@@ -1137,10 +1137,9 @@ public class App implements EntryPoint,
 
         final SpreadsheetImporterProvider spreadsheetImporterProvider = SpreadsheetImporterProviders.mergedMapped(
                 this.spreadsheetImporterInfoSet.renameIfPresent(
-                        metadata.get(SpreadsheetMetadataPropertyName.IMPORTERS)
-                                .orElse(SpreadsheetImporterInfoSet.EMPTY)
+                        SpreadsheetImporterInfoSet.EMPTY
                 ),
-                SpreadsheetImporterProviders.spreadsheetImport()
+                SpreadsheetImporterProviders.empty()
         );
 
         final SpreadsheetParserProvider spreadsheetParserProvider = SpreadsheetParserProviders.mergedMapped(
