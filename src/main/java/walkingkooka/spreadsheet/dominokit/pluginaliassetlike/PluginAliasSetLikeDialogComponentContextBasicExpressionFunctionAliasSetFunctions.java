@@ -21,13 +21,13 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
 
-final class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFormulaFunctions extends PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliases {
+final class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFunctions extends PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSet {
 
-    static PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFormulaFunctions with(final AppContext context) {
-        return new PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFormulaFunctions(context);
+    static PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFunctions with(final AppContext context) {
+        return new PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFunctions(context);
     }
 
-    private PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFormulaFunctions(final AppContext context) {
+    private PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFunctions(final AppContext context) {
         super(context);
     }
 
@@ -35,11 +35,13 @@ final class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAlias
 
     @Override
     SpreadsheetMetadataPropertyName<ExpressionFunctionAliasSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS;
+        return SpreadsheetMetadataPropertyName.FUNCTIONS;
     }
 
     @Override
     public ExpressionFunctionAliasSet providerAliasSetLike() {
-        return this.providerAliasSetLikeAndFunctions();
+        return this.context.systemSpreadsheetProvider()
+                .expressionFunctionInfos()
+                .aliasSet();
     }
 }
