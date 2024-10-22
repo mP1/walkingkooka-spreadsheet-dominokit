@@ -21,13 +21,13 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
 
-final class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFindFunctions extends PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliases {
+final class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctions extends PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSet {
 
-    static PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFindFunctions with(final AppContext context) {
-        return new PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFindFunctions(context);
+    static PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctions with(final AppContext context) {
+        return new PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctions(context);
     }
 
-    private PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFindFunctions(final AppContext context) {
+    private PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctions(final AppContext context) {
         super(context);
     }
 
@@ -35,7 +35,7 @@ final class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAlias
 
     @Override
     SpreadsheetMetadataPropertyName<ExpressionFunctionAliasSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.FIND_FUNCTIONS;
+        return SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS;
     }
 
     @Override

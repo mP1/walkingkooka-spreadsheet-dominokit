@@ -37,14 +37,14 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector
 import java.util.Optional;
 import java.util.function.Consumer;
 
-abstract class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliases extends PluginAliasSetLikeDialogComponentContextBasic<ExpressionFunctionName,
+abstract class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSet extends PluginAliasSetLikeDialogComponentContextBasic<ExpressionFunctionName,
         ExpressionFunctionInfo,
         ExpressionFunctionInfoSet,
         ExpressionFunctionSelector,
         ExpressionFunctionAlias,
         ExpressionFunctionAliasSet> {
 
-    PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliases(final AppContext context) {
+    PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSet(final AppContext context) {
         super(context);
     }
 

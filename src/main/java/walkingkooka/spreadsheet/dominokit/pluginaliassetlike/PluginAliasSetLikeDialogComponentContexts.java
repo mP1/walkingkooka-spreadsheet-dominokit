@@ -64,24 +64,24 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     }
     
     /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliases}
+     * {@see PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSet}
      */
     public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> findFunctions(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFindFunctions.with(context);
+        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFindFunctions.with(context);
     }
 
     /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFormulaFunctions}
+     * {@see PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctions}
      */
     public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> formulaFunctions(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFormulaFunctions.with(context);
+        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctions.with(context);
     }
 
     /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFunctions}
+     * {@see PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFunctions}
      */
     public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> functions(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasesFunctions.with(context);
+        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFunctions.with(context);
     }
 
     /**
