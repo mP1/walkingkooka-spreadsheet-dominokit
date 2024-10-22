@@ -37,12 +37,6 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAlias;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserAlias;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
@@ -84,15 +78,6 @@ public final class PluginInfoSetLikeDialogComponentContexts implements PublicSta
             AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
     PluginInfoSetLikeDialogComponentContext<N, I, IS, S, A, AS> fake() {
         return new FakePluginInfoSetLikeDialogComponentContext<>();
-    }
-
-    /**
-     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetFormatters}
-     */
-    public static PluginInfoSetLikeDialogComponentContext<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> formatters(final AppContext context) {
-        return PluginInfoSetLikeDialogComponentContextBasic.formatters(
-                context
-        );
     }
 
     /**

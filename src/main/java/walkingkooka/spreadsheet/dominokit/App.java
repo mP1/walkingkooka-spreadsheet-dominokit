@@ -345,8 +345,8 @@ public class App implements EntryPoint,
         PluginAliasSetLikeDialogComponent.with(
                 PluginAliasSetLikeDialogComponentContexts.functions(this)
         );
-        PluginInfoSetLikeDialogComponent.with(
-                PluginInfoSetLikeDialogComponentContexts.formatters(this)
+        PluginAliasSetLikeDialogComponent.with(
+                PluginAliasSetLikeDialogComponentContexts.formatters(this)
         );
         PluginAliasSetLikeDialogComponent.with(
                 PluginAliasSetLikeDialogComponentContexts.importers(this)
@@ -1129,8 +1129,7 @@ public class App implements EntryPoint,
 
         final SpreadsheetFormatterProvider spreadsheetFormatterProvider = SpreadsheetFormatterProviders.mergedMapped(
                 this.spreadsheetFormatterInfoSet.renameIfPresent(
-                        metadata.get(SpreadsheetMetadataPropertyName.FORMATTERS)
-                                .orElse(SpreadsheetFormatterInfoSet.EMPTY)
+                        SpreadsheetFormatterInfoSet.EMPTY
                 ),
                 SpreadsheetFormatterProviders.spreadsheetFormatPattern()
         );
