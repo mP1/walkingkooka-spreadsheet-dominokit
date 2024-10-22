@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
+package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import elemental2.dom.Headers;
 import walkingkooka.convert.provider.ConverterAlias;
@@ -30,60 +30,49 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.convert.ConverterInfoSetComponent;
+import walkingkooka.spreadsheet.dominokit.convert.ConverterAliasSetComponent;
 import walkingkooka.spreadsheet.dominokit.net.ConverterFetcherWatcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetLikeDialogComponentContextBasicConverters extends PluginInfoSetLikeDialogComponentContextBasic<ConverterName,
+abstract class PluginAliasSetLikeDialogComponentContextBasicConverterAliasSet extends PluginAliasSetLikeDialogComponentContextBasic<ConverterName,
         ConverterInfo,
         ConverterInfoSet,
         ConverterSelector,
         ConverterAlias,
         ConverterAliasSet> {
 
-    static PluginInfoSetLikeDialogComponentContextBasicConverters with(final AppContext context) {
-        return new PluginInfoSetLikeDialogComponentContextBasicConverters(context);
-    }
-
-    private PluginInfoSetLikeDialogComponentContextBasicConverters(final AppContext context) {
+    PluginAliasSetLikeDialogComponentContextBasicConverterAliasSet(final AppContext context) {
         super(context);
     }
 
-    // PluginInfoSetLikeDialogComponentContext..............................................................................
+    // PluginAliasSetLikeDialogComponentContext..............................................................................
 
     @Override
-    public ConverterInfoSetComponent textBox() {
-        return ConverterInfoSetComponent.empty();
+    public final ConverterAliasSetComponent textBox() {
+        return ConverterAliasSetComponent.empty();
     }
 
     @Override
-    SpreadsheetMetadataPropertyName<ConverterInfoSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.CONVERTERS;
+    public final ConverterAliasSet emptyAliasSetLike() {
+        return ConverterAliasSet.EMPTY;
     }
 
-    @Override public ConverterInfoSet emptyInfoSetLike() {
-        return ConverterInfoSet.EMPTY;
-    }
-
-    @Override
-    void loadPluginInfoSetLike0(final SpreadsheetId id) {
-        this.context.spreadsheetFormatterFetcher()
+    @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
+        this.context.converterFetcher()
                 .infoSet(id);
     }
 
     @Override
-    public Runnable addProviderFetcherWatcher(final Consumer<ConverterInfoSet> set) {
+    public final Runnable addProviderFetcherWatcher(final Consumer<ConverterAliasSet> set) {
         return this.context.addConverterFetcherWatcher(
                 new ConverterFetcherWatcher() {
                     @Override
                     public void onConverterInfoSet(final SpreadsheetId id,
                                                    final ConverterInfoSet infos,
                                                    final AppContext context) {
-                        set.accept(infos);
+                        set.accept(infos.aliasSet());
                     }
 
                     @Override
@@ -116,10 +105,5 @@ final class PluginInfoSetLikeDialogComponentContextBasicConverters extends Plugi
                     }
                 }
         );
-    }
-
-    @Override
-    ConverterInfoSet providerInfoSetLike0(final SpreadsheetProvider spreadsheetProvider) {
-        return spreadsheetProvider.converterInfos();
     }
 }

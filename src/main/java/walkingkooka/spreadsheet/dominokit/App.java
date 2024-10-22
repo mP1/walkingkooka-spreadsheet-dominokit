@@ -54,7 +54,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
-import walkingkooka.spreadsheet.convert.SpreadsheetConvertersConverterProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
@@ -333,8 +332,8 @@ public class App implements EntryPoint,
                 PluginAliasSetLikeDialogComponentContexts.formulaFunctions(this)
         );
 
-        PluginInfoSetLikeDialogComponent.with(
-                PluginInfoSetLikeDialogComponentContexts.converters(this)
+        PluginAliasSetLikeDialogComponent.with(
+                PluginAliasSetLikeDialogComponentContexts.converters(this)
         );
         PluginInfoSetLikeDialogComponent.with(
                 PluginInfoSetLikeDialogComponentContexts.comparators(this)
@@ -1151,14 +1150,9 @@ public class App implements EntryPoint,
 
         final ConverterProvider converterProvider = ConverterProviders.mergedMapped(
                 this.converterInfoSet.renameIfPresent(
-                        metadata.get(SpreadsheetMetadataPropertyName.CONVERTERS)
-                                .orElse(ConverterInfoSet.EMPTY)
+                        ConverterInfoSet.EMPTY
                 ),
-                SpreadsheetConvertersConverterProviders.spreadsheetConverters(
-                        metadata,
-                        spreadsheetFormatterProvider,
-                        spreadsheetParserProvider
-                )
+                ConverterProviders.empty()
         );
 
         this.spreadsheetProvider = metadata.spreadsheetProvider(
