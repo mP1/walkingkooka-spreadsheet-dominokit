@@ -339,8 +339,8 @@ public class App implements EntryPoint,
         PluginInfoSetLikeDialogComponent.with(
                 PluginInfoSetLikeDialogComponentContexts.comparators(this)
         );
-        PluginInfoSetLikeDialogComponent.with(
-                PluginInfoSetLikeDialogComponentContexts.exporters(this)
+        PluginAliasSetLikeDialogComponent.with(
+                PluginAliasSetLikeDialogComponentContexts.exporters(this)
         );
         PluginAliasSetLikeDialogComponent.with(
                 PluginAliasSetLikeDialogComponentContexts.functions(this)
@@ -1115,10 +1115,9 @@ public class App implements EntryPoint,
 
         final SpreadsheetExporterProvider spreadsheetExporterProvider = SpreadsheetExporterProviders.mergedMapped(
                 this.spreadsheetExporterInfoSet.renameIfPresent(
-                        metadata.get(SpreadsheetMetadataPropertyName.EXPORTERS)
-                                .orElse(SpreadsheetExporterInfoSet.EMPTY)
+                        SpreadsheetExporterInfoSet.EMPTY
                 ),
-                SpreadsheetExporterProviders.spreadsheetExport()
+                SpreadsheetExporterProviders.empty()
         );
 
         final ExpressionFunctionProvider expressionFunctionProvider = ExpressionFunctionProviders.mergedMapped(

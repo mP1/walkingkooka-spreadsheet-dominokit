@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
+package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import elemental2.dom.Headers;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -24,7 +24,7 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.export.SpreadsheetExporterInfoSetComponent;
+import walkingkooka.spreadsheet.dominokit.export.SpreadsheetExporterAliasSetComponent;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetExporterFetcherWatcher;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterAlias;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterAliasSet;
@@ -32,59 +32,47 @@ import walkingkooka.spreadsheet.export.SpreadsheetExporterInfo;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterSelector;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters extends PluginInfoSetLikeDialogComponentContextBasic<SpreadsheetExporterName,
+abstract class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSet extends PluginAliasSetLikeDialogComponentContextBasic<SpreadsheetExporterName,
         SpreadsheetExporterInfo,
         SpreadsheetExporterInfoSet,
         SpreadsheetExporterSelector,
         SpreadsheetExporterAlias,
         SpreadsheetExporterAliasSet> {
 
-    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters with(final AppContext context) {
-        return new PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters(context);
-    }
-
-    private PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters(final AppContext context) {
+    PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSet(final AppContext context) {
         super(context);
     }
 
-    // PluginInfoSetLikeDialogComponentContext..............................................................................
+    // PluginAliasSetLikeDialogComponentContext..............................................................................
 
     @Override
-    public SpreadsheetExporterInfoSetComponent textBox() {
-        return SpreadsheetExporterInfoSetComponent.empty();
+    public final SpreadsheetExporterAliasSetComponent textBox() {
+        return SpreadsheetExporterAliasSetComponent.empty();
     }
 
     @Override
-    SpreadsheetMetadataPropertyName<SpreadsheetExporterInfoSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.EXPORTERS;
+    public final SpreadsheetExporterAliasSet emptyAliasSetLike() {
+        return SpreadsheetExporterAliasSet.EMPTY;
     }
 
-    @Override
-    public SpreadsheetExporterInfoSet emptyInfoSetLike() {
-        return SpreadsheetExporterInfoSet.EMPTY;
-    }
-
-    @Override
-    void loadPluginInfoSetLike0(final SpreadsheetId id) {
+    @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetExporterFetcher()
                 .infoSet(id);
     }
 
     @Override
-    public Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetExporterInfoSet> set) {
+    public final Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetExporterAliasSet> set) {
         return this.context.addSpreadsheetExporterFetcherWatcher(
                 new SpreadsheetExporterFetcherWatcher() {
                     @Override
                     public void onSpreadsheetExporterInfoSet(final SpreadsheetId id,
                                                              final SpreadsheetExporterInfoSet infos,
                                                              final AppContext context) {
-                        set.accept(infos);
+                        set.accept(infos.aliasSet());
                     }
 
                     @Override
@@ -117,10 +105,5 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetExporters ext
                     }
                 }
         );
-    }
-
-    @Override
-    SpreadsheetExporterInfoSet providerInfoSetLike0(final SpreadsheetProvider spreadsheetProvider) {
-        return spreadsheetProvider.spreadsheetExporterInfos();
     }
 }
