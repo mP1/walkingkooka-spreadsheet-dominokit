@@ -25,6 +25,12 @@ import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterAlias;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterAliasSet;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterInfo;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterSelector;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
@@ -50,6 +56,13 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
         return new FakePluginAliasSetLikeDialogComponentContext<>();
     }
 
+    /**
+     * {@see PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSetExporters}
+     */
+    public static PluginAliasSetLikeDialogComponentContext<SpreadsheetExporterName, SpreadsheetExporterInfo, SpreadsheetExporterInfoSet, SpreadsheetExporterSelector, SpreadsheetExporterAlias, SpreadsheetExporterAliasSet> exporters(final AppContext context) {
+        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSetExporters.with(context);
+    }
+    
     /**
      * {@see PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliases}
      */
