@@ -23,7 +23,7 @@ import org.dominokit.domino.ui.elements.TBodyElement;
 import org.dominokit.domino.ui.elements.TableElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.convert.provider.ConverterInfoSet;
+import walkingkooka.convert.provider.ConverterAliasSet;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
@@ -385,7 +385,7 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ConverterInfoSet> converters() {
+    private SpreadsheetMetadataPanelComponentItem<ConverterAliasSet> converters() {
         return link(
                 SpreadsheetMetadataPropertyName.CONVERTERS
         );

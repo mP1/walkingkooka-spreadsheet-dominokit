@@ -17,12 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
 
-import walkingkooka.convert.provider.ConverterAlias;
-import walkingkooka.convert.provider.ConverterAliasSet;
-import walkingkooka.convert.provider.ConverterInfo;
-import walkingkooka.convert.provider.ConverterInfoSet;
-import walkingkooka.convert.provider.ConverterName;
-import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.naming.Name;
 import walkingkooka.plugin.PluginAliasLike;
 import walkingkooka.plugin.PluginAliasSetLike;
@@ -54,15 +48,6 @@ public final class PluginInfoSetLikeDialogComponentContexts implements PublicSta
      */
     public static PluginInfoSetLikeDialogComponentContext<SpreadsheetComparatorName, SpreadsheetComparatorInfo, SpreadsheetComparatorInfoSet, SpreadsheetComparatorSelector, SpreadsheetComparatorAlias, SpreadsheetComparatorAliasSet> comparators(final AppContext context) {
         return PluginInfoSetLikeDialogComponentContextBasic.comparators(
-                context
-        );
-    }
-
-    /**
-     * {@see PluginInfoSetLikeDialogComponentContextBasicConverters}
-     */
-    public static PluginInfoSetLikeDialogComponentContext<ConverterName, ConverterInfo, ConverterInfoSet, ConverterSelector, ConverterAlias, ConverterAliasSet> converters(final AppContext context) {
-        return PluginInfoSetLikeDialogComponentContextBasic.converters(
                 context
         );
     }
