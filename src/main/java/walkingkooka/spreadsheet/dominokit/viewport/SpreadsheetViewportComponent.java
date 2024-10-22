@@ -77,7 +77,7 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuTargets;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -1308,8 +1308,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 fetchSpreadsheetFormatterSelectorsMenu = true; // cant hurt to "reload"
             } else {
                 // if formatters changed better reload formatter menu
-                final Optional<SpreadsheetFormatterInfoSet> oldSpreadsheetFormatterSelectors = metadata.get(SpreadsheetMetadataPropertyName.FORMATTERS);
-                final Optional<SpreadsheetFormatterInfoSet> newSpreadsheetFormatterSelectors = this.metadata.get(SpreadsheetMetadataPropertyName.FORMATTERS);
+                final Optional<SpreadsheetFormatterAliasSet> oldSpreadsheetFormatterSelectors = metadata.get(SpreadsheetMetadataPropertyName.FORMATTERS);
+                final Optional<SpreadsheetFormatterAliasSet> newSpreadsheetFormatterSelectors = this.metadata.get(SpreadsheetMetadataPropertyName.FORMATTERS);
                 fetchSpreadsheetFormatterSelectorsMenu = false == oldSpreadsheetFormatterSelectors.equals(newSpreadsheetFormatterSelectors);
             }
         }

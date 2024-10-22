@@ -26,40 +26,40 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAlias;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAlias;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.text.printer.TreePrintableTesting;
 
-public final class DisablePluginInfoSetLikeComponentTest implements ClassTesting<DisablePluginInfoSetLikeComponent<SpreadsheetFormatterName,
-        SpreadsheetFormatterInfo,
-        SpreadsheetFormatterInfoSet,
-        SpreadsheetFormatterSelector,
-        SpreadsheetFormatterAlias,
-        SpreadsheetFormatterAliasSet>>,
+public final class DisablePluginInfoSetLikeComponentTest implements ClassTesting<DisablePluginInfoSetLikeComponent<SpreadsheetParserName,
+        SpreadsheetParserInfo,
+        SpreadsheetParserInfoSet,
+        SpreadsheetParserSelector,
+        SpreadsheetParserAlias,
+        SpreadsheetParserAliasSet>>,
         TreePrintableTesting {
 
     @Test
     public void testRefreshNoneEnabled() {
-        final SpreadsheetFormatterInfo info1 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info1 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info1"),
-                SpreadsheetFormatterName.with("formatter1")
+                SpreadsheetParserName.with("parser1")
         );
 
-        final SpreadsheetFormatterInfo info2 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info2 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info2"),
-                SpreadsheetFormatterName.with("formatter2")
+                SpreadsheetParserName.with("parser2")
         );
 
 
-        final DisablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = DisablePluginInfoSetLikeComponent.empty("base-id-123-disable-");
+        final DisablePluginInfoSetLikeComponent<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet> component = DisablePluginInfoSetLikeComponent.empty("base-id-123-disable-");
         component.refresh(
-                SpreadsheetFormatterInfoSet.EMPTY, // enabled
-                SpreadsheetFormatterInfoSet.with(
+                SpreadsheetParserInfoSet.EMPTY, // enabled
+                SpreadsheetParserInfoSet.with(
                         Sets.of(
                                 info1,
                                 info2
@@ -77,35 +77,35 @@ public final class DisablePluginInfoSetLikeComponentTest implements ClassTesting
 
     @Test
     public void testRefreshSomeEnabled() {
-        final SpreadsheetFormatterInfo info1 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info1 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info1"),
-                SpreadsheetFormatterName.with("formatter1")
+                SpreadsheetParserName.with("parser1")
         );
 
-        final SpreadsheetFormatterInfo info2 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info2 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info2"),
-                SpreadsheetFormatterName.with("formatter2")
+                SpreadsheetParserName.with("parser2")
         );
 
-        final SpreadsheetFormatterInfo info3 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info3 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info3"),
-                SpreadsheetFormatterName.with("formatter3")
+                SpreadsheetParserName.with("parser3")
         );
 
-        final SpreadsheetFormatterInfo info4 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info4 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info4"),
-                SpreadsheetFormatterName.with("formatter4")
+                SpreadsheetParserName.with("parser4")
         );
 
-        final DisablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = DisablePluginInfoSetLikeComponent.empty("base-id-123-disable-");
+        final DisablePluginInfoSetLikeComponent<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet> component = DisablePluginInfoSetLikeComponent.empty("base-id-123-disable-");
         component.refresh(
-                SpreadsheetFormatterInfoSet.with(
+                SpreadsheetParserInfoSet.with(
                         Sets.of(
                                 info3,
                                 info4
                         )
                 ), // enabled
-                SpreadsheetFormatterInfoSet.with(
+                SpreadsheetParserInfoSet.with(
                         Sets.of(
                                 info1,
                                 info2,
@@ -124,8 +124,8 @@ public final class DisablePluginInfoSetLikeComponentTest implements ClassTesting
                         "      Disable\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Formatter3\" [#/1/SpreadsheetName123/metadata/formatters/save/https://example.com/info4%20formatter4] id=base-id-123-disable-0-Link\n" +
-                        "            \"Formatter4\" [#/1/SpreadsheetName123/metadata/formatters/save/https://example.com/info3%20formatter3] id=base-id-123-disable-1-Link\n"
+                        "            \"Parser3\" [#/1/SpreadsheetName123/metadata/parsers/save/https://example.com/info4%20parser4] id=base-id-123-disable-0-Link\n" +
+                        "            \"Parser4\" [#/1/SpreadsheetName123/metadata/parsers/save/https://example.com/info3%20parser3] id=base-id-123-disable-1-Link\n"
         );
     }
 
@@ -136,7 +136,7 @@ public final class DisablePluginInfoSetLikeComponentTest implements ClassTesting
                 return HistoryToken.metadataPropertySelect(
                         SpreadsheetId.with(1),
                         SpreadsheetName.with("SpreadsheetName123"),
-                        SpreadsheetMetadataPropertyName.FORMATTERS
+                        SpreadsheetMetadataPropertyName.PARSERS
                 );
             }
         };
@@ -145,7 +145,7 @@ public final class DisablePluginInfoSetLikeComponentTest implements ClassTesting
     // class............................................................................................................
 
     @Override
-    public Class<DisablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet>> type() {
+    public Class<DisablePluginInfoSetLikeComponent<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet>> type() {
         return Cast.to(DisablePluginInfoSetLikeComponent.class);
     }
 

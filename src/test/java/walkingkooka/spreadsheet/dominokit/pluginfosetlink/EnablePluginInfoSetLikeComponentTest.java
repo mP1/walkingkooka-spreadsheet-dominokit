@@ -26,40 +26,40 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAlias;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAlias;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.text.printer.TreePrintableTesting;
 
-public final class EnablePluginInfoSetLikeComponentTest implements ClassTesting<EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName,
-        SpreadsheetFormatterInfo,
-        SpreadsheetFormatterInfoSet,
-        SpreadsheetFormatterSelector,
-        SpreadsheetFormatterAlias,
-        SpreadsheetFormatterAliasSet>>,
+public final class EnablePluginInfoSetLikeComponentTest implements ClassTesting<EnablePluginInfoSetLikeComponent<SpreadsheetParserName,
+        SpreadsheetParserInfo,
+        SpreadsheetParserInfoSet,
+        SpreadsheetParserSelector,
+        SpreadsheetParserAlias,
+        SpreadsheetParserAliasSet>>,
         TreePrintableTesting {
 
     @Test
     public void testRefreshAllDisabled() {
-        final SpreadsheetFormatterInfo info1 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info1 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info1"),
-                SpreadsheetFormatterName.with("formatter1")
+                SpreadsheetParserName.with("parser1")
         );
 
-        final SpreadsheetFormatterInfo info2 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info2 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info2"),
-                SpreadsheetFormatterName.with("formatter2")
+                SpreadsheetParserName.with("parser2")
         );
 
 
-        final EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-enable-");
+        final EnablePluginInfoSetLikeComponent<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-enable-");
         component.refresh(
-                SpreadsheetFormatterInfoSet.EMPTY, // enabled
-                SpreadsheetFormatterInfoSet.with(
+                SpreadsheetParserInfoSet.EMPTY, // enabled
+                SpreadsheetParserInfoSet.with(
                         Sets.of(
                                 info1,
                                 info2
@@ -77,33 +77,33 @@ public final class EnablePluginInfoSetLikeComponentTest implements ClassTesting<
                         "      Enable\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Formatter1\" [#/1/SpreadsheetName123/metadata/formatters/save/https://example.com/info1%20formatter1] id=base-id-123-enable-0-Link\n" +
-                        "            \"Formatter2\" [#/1/SpreadsheetName123/metadata/formatters/save/https://example.com/info2%20formatter2] id=base-id-123-enable-1-Link\n"
+                        "            \"Parser1\" [#/1/SpreadsheetName123/metadata/parsers/save/https://example.com/info1%20parser1] id=base-id-123-enable-0-Link\n" +
+                        "            \"Parser2\" [#/1/SpreadsheetName123/metadata/parsers/save/https://example.com/info2%20parser2] id=base-id-123-enable-1-Link\n"
         );
     }
 
     @Test
     public void testRefreshAllEnabled() {
-        final SpreadsheetFormatterInfo info1 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info1 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info1"),
-                SpreadsheetFormatterName.with("formatter1")
+                SpreadsheetParserName.with("parser1")
         );
 
-        final SpreadsheetFormatterInfo info2 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info2 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info2"),
-                SpreadsheetFormatterName.with("formatter2")
+                SpreadsheetParserName.with("parser2")
         );
 
 
-        final EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-enable-");
+        final EnablePluginInfoSetLikeComponent<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-enable-");
         component.refresh(
-                SpreadsheetFormatterInfoSet.with(
+                SpreadsheetParserInfoSet.with(
                         Sets.of(
                                 info1,
                                 info2
                         )
                 ), // enabled
-                SpreadsheetFormatterInfoSet.with(
+                SpreadsheetParserInfoSet.with(
                         Sets.of(
                                 info1,
                                 info2
@@ -121,35 +121,35 @@ public final class EnablePluginInfoSetLikeComponentTest implements ClassTesting<
 
     @Test
     public void testRefreshSomeEnabled() {
-        final SpreadsheetFormatterInfo info1 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info1 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info1"),
-                SpreadsheetFormatterName.with("formatter1")
+                SpreadsheetParserName.with("parser1")
         );
 
-        final SpreadsheetFormatterInfo info2 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info2 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info2"),
-                SpreadsheetFormatterName.with("formatter2")
+                SpreadsheetParserName.with("parser2")
         );
 
-        final SpreadsheetFormatterInfo info3 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info3 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info3"),
-                SpreadsheetFormatterName.with("formatter3")
+                SpreadsheetParserName.with("parser3")
         );
 
-        final SpreadsheetFormatterInfo info4 = SpreadsheetFormatterInfo.with(
+        final SpreadsheetParserInfo info4 = SpreadsheetParserInfo.with(
                 Url.parseAbsolute("https://example.com/info4"),
-                SpreadsheetFormatterName.with("formatter4")
+                SpreadsheetParserName.with("parser4")
         );
 
-        final EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-enable-");
+        final EnablePluginInfoSetLikeComponent<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet> component = EnablePluginInfoSetLikeComponent.empty("base-id-123-enable-");
         component.refresh(
-                SpreadsheetFormatterInfoSet.with(
+                SpreadsheetParserInfoSet.with(
                         Sets.of(
                                 info3,
                                 info4
                         )
                 ), // enabled
-                SpreadsheetFormatterInfoSet.with(
+                SpreadsheetParserInfoSet.with(
                         Sets.of(
                                 info1,
                                 info2,
@@ -168,8 +168,8 @@ public final class EnablePluginInfoSetLikeComponentTest implements ClassTesting<
                         "      Enable\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Formatter1\" [#/1/SpreadsheetName123/metadata/formatters/save/https://example.com/info1%20formatter1,https://example.com/info3%20formatter3,https://example.com/info4%20formatter4] id=base-id-123-enable-0-Link\n" +
-                        "            \"Formatter2\" [#/1/SpreadsheetName123/metadata/formatters/save/https://example.com/info2%20formatter2,https://example.com/info3%20formatter3,https://example.com/info4%20formatter4] id=base-id-123-enable-1-Link\n"
+                        "            \"Parser1\" [#/1/SpreadsheetName123/metadata/parsers/save/https://example.com/info1%20parser1,https://example.com/info3%20parser3,https://example.com/info4%20parser4] id=base-id-123-enable-0-Link\n" +
+                        "            \"Parser2\" [#/1/SpreadsheetName123/metadata/parsers/save/https://example.com/info2%20parser2,https://example.com/info3%20parser3,https://example.com/info4%20parser4] id=base-id-123-enable-1-Link\n"
         );
     }
 
@@ -180,7 +180,7 @@ public final class EnablePluginInfoSetLikeComponentTest implements ClassTesting<
                 return HistoryToken.metadataPropertySelect(
                         SpreadsheetId.with(1),
                         SpreadsheetName.with("SpreadsheetName123"),
-                        SpreadsheetMetadataPropertyName.FORMATTERS
+                        SpreadsheetMetadataPropertyName.PARSERS
                 );
             }
         };
@@ -189,7 +189,7 @@ public final class EnablePluginInfoSetLikeComponentTest implements ClassTesting<
     // class............................................................................................................
 
     @Override
-    public Class<EnablePluginInfoSetLikeComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet>> type() {
+    public Class<EnablePluginInfoSetLikeComponent<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet>> type() {
         return Cast.to(EnablePluginInfoSetLikeComponent.class);
     }
 

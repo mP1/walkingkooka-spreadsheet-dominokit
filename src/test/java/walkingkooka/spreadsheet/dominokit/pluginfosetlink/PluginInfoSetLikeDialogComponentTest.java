@@ -26,55 +26,55 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
-import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterInfoSetComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserInfoSetComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAlias;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAlias;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
 
-public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginInfoSetLikeDialogComponent<SpreadsheetFormatterName,
-        SpreadsheetFormatterInfo,
-        SpreadsheetFormatterInfoSet,
-        SpreadsheetFormatterSelector,
-        SpreadsheetFormatterAlias,
-        SpreadsheetFormatterAliasSet>>,
+public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginInfoSetLikeDialogComponent<SpreadsheetParserName,
+        SpreadsheetParserInfo,
+        SpreadsheetParserInfoSet,
+        SpreadsheetParserSelector,
+        SpreadsheetParserAlias,
+        SpreadsheetParserAliasSet>>,
         HistoryTokenTesting,
         SpreadsheetMetadataTesting {
 
-    private final static SpreadsheetFormatterInfo INFO1 = SpreadsheetFormatterInfo.with(
+    private final static SpreadsheetParserInfo INFO1 = SpreadsheetParserInfo.with(
             Url.parseAbsolute("https://example.com/Text111"),
-            SpreadsheetFormatterName.with("Text111")
+            SpreadsheetParserName.with("Text111")
     );
 
-    private final static SpreadsheetFormatterInfo INFO2 = SpreadsheetFormatterInfo.with(
+    private final static SpreadsheetParserInfo INFO2 = SpreadsheetParserInfo.with(
             Url.parseAbsolute("https://example.com/Text222"),
-            SpreadsheetFormatterName.with("Text222")
+            SpreadsheetParserName.with("Text222")
     );
 
-    private final static SpreadsheetFormatterInfo INFO3 = SpreadsheetFormatterInfo.with(
+    private final static SpreadsheetParserInfo INFO3 = SpreadsheetParserInfo.with(
             Url.parseAbsolute("https://example.com/Text333"),
-            SpreadsheetFormatterName.with("Text333")
+            SpreadsheetParserName.with("Text333")
     );
 
     @Test
     public void testEmptyTextRefreshAndTreePrint() {
         final AppContext context = this.appContext(
-                HistoryToken.parseString("/1/Spreadsheet123/metadata/formatters"),
-                SpreadsheetFormatterInfoSet.with(
+                HistoryToken.parseString("/1/Spreadsheet123/metadata/parsers"),
+                SpreadsheetParserInfoSet.with(
                         Sets.of(
                                 INFO1,
                                 INFO2
@@ -90,7 +90,7 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
                 context,
                 "PluginInfoSetLikeDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    SpreadsheetFormatters123\n" +
+                        "    SpreadsheetParsers123\n" +
                         "    id=PluginInfoSetLikeDialogComponent includeClose=true\n" +
                         "      EnablePluginInfoSetLikeComponent\n" +
                         "        SpreadsheetCard\n" +
@@ -98,20 +98,20 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
                         "            Enable\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"Text111\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111] id=PluginInfoSetLikeDialogComponent-enable-0-Link\n" +
-                        "                  \"Text222\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text222%20Text222] id=PluginInfoSetLikeDialogComponent-enable-1-Link\n" +
-                        "                  \"Text333\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-enable-2-Link\n" +
+                        "                  \"Text111\" [#/1/Spreadsheet123/metadata/parsers/save/https://example.com/Text111%20Text111] id=PluginInfoSetLikeDialogComponent-enable-0-Link\n" +
+                        "                  \"Text222\" [#/1/Spreadsheet123/metadata/parsers/save/https://example.com/Text222%20Text222] id=PluginInfoSetLikeDialogComponent-enable-1-Link\n" +
+                        "                  \"Text333\" [#/1/Spreadsheet123/metadata/parsers/save/https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-enable-2-Link\n" +
                         "      DisablePluginInfoSetLikeComponent\n" +
-                        "      SpreadsheetFormatterInfoSetComponent\n" +
+                        "      SpreadsheetParserInfoSetComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [] id=PluginInfoSetLikeDialogComponent-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/metadata/formatters/save/] id=PluginInfoSetLikeDialogComponent-save-Link\n" +
-                        "          \"Reset\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-reset-Link\n" +
-                        "          \"Disable All\" [#/1/Spreadsheet123/metadata/formatters/save/] id=PluginInfoSetLikeDialogComponent-disable all-Link\n" +
-                        "          \"Enable All\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-enable all-Link\n" +
+                        "          \"Save\" [#/1/Spreadsheet123/metadata/parsers/save/] id=PluginInfoSetLikeDialogComponent-save-Link\n" +
+                        "          \"Reset\" [#/1/Spreadsheet123/metadata/parsers/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-reset-Link\n" +
+                        "          \"Disable All\" [#/1/Spreadsheet123/metadata/parsers/save/] id=PluginInfoSetLikeDialogComponent-disable all-Link\n" +
+                        "          \"Enable All\" [#/1/Spreadsheet123/metadata/parsers/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-enable all-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=PluginInfoSetLikeDialogComponent-close-Link\n"
         );
     }
@@ -119,8 +119,8 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
     @Test
     public void testRefreshAndTreePrint() {
         final AppContext context = this.appContext(
-                HistoryToken.parseString("/1/Spreadsheet123/metadata/formatters"),
-                SpreadsheetFormatterInfoSet.with(
+                HistoryToken.parseString("/1/Spreadsheet123/metadata/parsers"),
+                SpreadsheetParserInfoSet.with(
                         Sets.of(
                                 INFO1,
                                 INFO2
@@ -132,7 +132,7 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
                 PluginInfoSetLikeDialogComponent.with(
                         this.dialogContext(context)
                 ),
-                SpreadsheetFormatterInfoSet.with(
+                SpreadsheetParserInfoSet.with(
                         Sets.of(
                                 INFO1
                         )
@@ -140,7 +140,7 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
                 context,
                 "PluginInfoSetLikeDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    SpreadsheetFormatters123\n" +
+                        "    SpreadsheetParsers123\n" +
                         "    id=PluginInfoSetLikeDialogComponent includeClose=true\n" +
                         "      EnablePluginInfoSetLikeComponent\n" +
                         "        SpreadsheetCard\n" +
@@ -148,30 +148,30 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
                         "            Enable\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"Text222\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222] id=PluginInfoSetLikeDialogComponent-enable-0-Link\n" +
-                        "                  \"Text333\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-enable-1-Link\n" +
+                        "                  \"Text222\" [#/1/Spreadsheet123/metadata/parsers/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222] id=PluginInfoSetLikeDialogComponent-enable-0-Link\n" +
+                        "                  \"Text333\" [#/1/Spreadsheet123/metadata/parsers/save/https://example.com/Text111%20Text111,https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-enable-1-Link\n" +
                         "      DisablePluginInfoSetLikeComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Disable\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"Text111\" [#/1/Spreadsheet123/metadata/formatters/save/] id=PluginInfoSetLikeDialogComponent-disable-0-Link\n" +
-                        "      SpreadsheetFormatterInfoSetComponent\n" +
+                        "                  \"Text111\" [#/1/Spreadsheet123/metadata/parsers/save/] id=PluginInfoSetLikeDialogComponent-disable-0-Link\n" +
+                        "      SpreadsheetParserInfoSetComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            [https://example.com/Text111 Text111] id=PluginInfoSetLikeDialogComponent-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111] id=PluginInfoSetLikeDialogComponent-save-Link\n" +
-                        "          \"Reset\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-reset-Link\n" +
-                        "          \"Disable All\" [#/1/Spreadsheet123/metadata/formatters/save/] id=PluginInfoSetLikeDialogComponent-disable all-Link\n" +
-                        "          \"Enable All\" [#/1/Spreadsheet123/metadata/formatters/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-enable all-Link\n" +
+                        "          \"Save\" [#/1/Spreadsheet123/metadata/parsers/save/https://example.com/Text111%20Text111] id=PluginInfoSetLikeDialogComponent-save-Link\n" +
+                        "          \"Reset\" [#/1/Spreadsheet123/metadata/parsers/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-reset-Link\n" +
+                        "          \"Disable All\" [#/1/Spreadsheet123/metadata/parsers/save/] id=PluginInfoSetLikeDialogComponent-disable all-Link\n" +
+                        "          \"Enable All\" [#/1/Spreadsheet123/metadata/parsers/save/https://example.com/Text111%20Text111,https://example.com/Text222%20Text222,https://example.com/Text333%20Text333] id=PluginInfoSetLikeDialogComponent-enable all-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=PluginInfoSetLikeDialogComponent-close-Link\n"
         );
     }
 
-    private void onHistoryTokenChangeAndSetTextAndCheck(final PluginInfoSetLikeDialogComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> dialog,
+    private void onHistoryTokenChangeAndSetTextAndCheck(final PluginInfoSetLikeDialogComponent<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet> dialog,
                                                         final String text,
                                                         final AppContext context,
                                                         final String expected) {
@@ -194,7 +194,7 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
         );
     }
 
-    private PluginInfoSetLikeDialogComponentContext<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> dialogContext(final AppContext context) {
+    private PluginInfoSetLikeDialogComponentContext<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet> dialogContext(final AppContext context) {
         return new FakePluginInfoSetLikeDialogComponentContext<>() {
 
             @Override
@@ -211,12 +211,12 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
 
             @Override
             public String dialogTitle() {
-                return "SpreadsheetFormatters123";
+                return "SpreadsheetParsers123";
             }
 
             @Override
             public ValueSpreadsheetTextBoxWrapper textBox() {
-                return SpreadsheetFormatterInfoSetComponent.empty();
+                return SpreadsheetParserInfoSetComponent.empty();
             }
 
             @Override
@@ -224,7 +224,7 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
                 return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
                         token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
                                 .propertyName()
-                                .equals(SpreadsheetMetadataPropertyName.FORMATTERS);
+                                .equals(SpreadsheetMetadataPropertyName.PARSERS);
             }
 
             @Override
@@ -234,7 +234,7 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
             }
 
             @Override
-            public Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetFormatterInfoSet> infos) {
+            public Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetParserInfoSet> infos) {
                 return () -> {
                 };
             }
@@ -245,24 +245,24 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
             }
 
             @Override
-            public SpreadsheetFormatterInfoSet parseInfoSetLike(final String text) {
-                return SpreadsheetFormatterInfoSet.parse(text);
+            public SpreadsheetParserInfoSet parseInfoSetLike(final String text) {
+                return SpreadsheetParserInfoSet.parse(text);
             }
 
             @Override
-            public SpreadsheetFormatterInfoSet emptyInfoSetLike() {
-                return SpreadsheetFormatterInfoSet.EMPTY;
+            public SpreadsheetParserInfoSet emptyInfoSetLike() {
+                return SpreadsheetParserInfoSet.EMPTY;
             }
 
             @Override
-            public SpreadsheetFormatterInfoSet metadataInfoSetLike() {
+            public SpreadsheetParserInfoSet metadataInfoSetLike() {
                 return context.spreadsheetMetadata()
-                        .getOrFail(SpreadsheetMetadataPropertyName.FORMATTERS);
+                        .getOrFail(SpreadsheetMetadataPropertyName.PARSERS);
             }
 
             @Override
-            public SpreadsheetFormatterInfoSet providerInfoSetLike() {
-                return SpreadsheetFormatterInfoSet.with(
+            public SpreadsheetParserInfoSet providerInfoSetLike() {
+                return SpreadsheetParserInfoSet.with(
                         Sets.of(
                                 INFO1,
                                 INFO2,
@@ -284,7 +284,7 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
     }
 
     private AppContext appContext(final HistoryToken historyToken,
-                                  final SpreadsheetFormatterInfoSet infos) {
+                                  final SpreadsheetParserInfoSet infos) {
         return new FakeAppContext() {
 
             @Override
@@ -303,7 +303,7 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
                         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                         SpreadsheetId.with(1)
                 ).setOrRemove(
-                        SpreadsheetMetadataPropertyName.FORMATTERS,
+                        SpreadsheetMetadataPropertyName.PARSERS,
                         infos
                 );
             }
@@ -328,7 +328,7 @@ public final class PluginInfoSetLikeDialogComponentTest implements SpreadsheetDi
     // class............................................................................................................
 
     @Override
-    public Class<PluginInfoSetLikeDialogComponent<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet>> type() {
+    public Class<PluginInfoSetLikeDialogComponent<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet>> type() {
         return Cast.to(PluginInfoSetLikeDialogComponent.class);
     }
 
