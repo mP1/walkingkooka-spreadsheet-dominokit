@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
@@ -35,6 +36,8 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import java.util.List;
 
 public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetSortDialogComponent>,
         SpreadsheetMetadataTesting {
@@ -1503,10 +1506,21 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
             }
 
             @Override
+            public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorSelector selector,
+                                                                  final ProviderContext context) {
+                return SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparator(
+                        selector,
+                        context
+                );
+            }
+
+            @Override
             public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName name,
+                                                                  final List<?> values,
                                                                   final ProviderContext context) {
                 return SPREADSHEET_COMPARATOR_PROVIDER.spreadsheetComparator(
                         name,
+                        values,
                         context
                 );
             }
@@ -1533,10 +1547,21 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                     }
 
                     @Override
+                    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorSelector selector,
+                                                                          final ProviderContext c) {
+                        return context.spreadsheetComparator(
+                                selector,
+                                context
+                        );
+                    }
+
+                    @Override
                     public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName name,
+                                                                          final List<?> values,
                                                                           final ProviderContext c) {
                         return context.spreadsheetComparator(
                                 name,
+                                values,
                                 context
                         );
                     }
