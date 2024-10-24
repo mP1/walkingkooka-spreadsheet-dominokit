@@ -111,7 +111,7 @@ final class SpreadsheetContextMenuNative {
                 item.historyToken
         );
         if (item.icon.isPresent()) {
-            menuItem = menuItem.appendChild(
+            menuItem.appendChild(
                     PrefixAddOn.of(
                             item.icon.get()
                                     .addCss(dui_font_size_5)
