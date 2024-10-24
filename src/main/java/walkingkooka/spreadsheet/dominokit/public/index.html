@@ -24,11 +24,6 @@
     <style>
         :root {
             --dui-hyperlink-color: blue;
-
-            /** was 5px **/
-            --dui-form-field-wrapper-padding: 2px;
-            --dui-form-field-wrapper-radius: 2px;
-            --dui-form-field-wrapper-gap: 2px;
         }
 
         TABLE#viewport {
@@ -72,6 +67,15 @@
 
         .dui-field-helper {
             color: red !important
+        }
+
+        .dui-field-input-wrapper {
+            --dui-form-field-wrapper-padding: 3px;
+            --dui-form-field-wrapper-gap: 3px;
+
+            padding: var(--dui-form-field-wrapper-padding);
+            border-radius: var(--dui-form-field-wrapper-radius);
+            gap: var(--dui-form-field-wrapper-gap);
         }
 
         .dui-field-input {
