@@ -204,18 +204,6 @@
             </exclusions>
         </dependency>
 
-        <dependency>
-            <groupId>org.gwtproject.editor</groupId>
-            <artifactId>gwt-editor</artifactId>
-            <version>1.0.0-RC1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.gwtproject.editor</groupId>
-            <artifactId>gwt-editor-processor</artifactId>
-            <version>1.0.0-RC1</version>
-        </dependency>
-
         <!-- test scope is important to avoid clash with gwt-compiler -->
         <dependency>
             <groupId>walkingkooka</groupId>
