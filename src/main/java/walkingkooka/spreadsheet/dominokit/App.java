@@ -113,8 +113,6 @@ import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialog
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponent;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.pluginfosetlink.PluginInfoSetLikeDialogComponent;
-import walkingkooka.spreadsheet.dominokit.pluginfosetlink.PluginInfoSetLikeDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialogComponent;
@@ -350,8 +348,8 @@ public class App implements EntryPoint,
         PluginAliasSetLikeDialogComponent.with(
                 PluginAliasSetLikeDialogComponentContexts.importers(this)
         );
-        PluginInfoSetLikeDialogComponent.with(
-                PluginInfoSetLikeDialogComponentContexts.parsers(this)
+        PluginAliasSetLikeDialogComponent.with(
+                PluginAliasSetLikeDialogComponentContexts.parsers(this)
         );
 
         SpreadsheetComparatorNameListDialogComponent.with(
@@ -545,8 +543,7 @@ public class App implements EntryPoint,
 
         // HACK only hide metadata panel if NOT displaying a metadata editor dialog
         if (false == token.isMetadataFormatter() &&
-                false == token.isMetadataParser() &&
-                false == token.isMetadataPlugin()) {
+                false == token.isMetadataParser()) {
             this.pushHistoryToken(
                     token.metadataHide()
             );
@@ -1141,8 +1138,7 @@ public class App implements EntryPoint,
 
         final SpreadsheetParserProvider spreadsheetParserProvider = SpreadsheetParserProviders.mergedMapped(
                 this.spreadsheetParserInfoSet.renameIfPresent(
-                        metadata.get(SpreadsheetMetadataPropertyName.PARSERS)
-                                .orElse(SpreadsheetParserInfoSet.EMPTY)
+                        SpreadsheetParserInfoSet.EMPTY
                 ),
                 SpreadsheetParserProviders.spreadsheetParsePattern(spreadsheetFormatterProvider)
         );

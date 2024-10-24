@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
+package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import elemental2.dom.Headers;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -25,67 +25,55 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserInfoSetComponent;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserAliasSetComponent;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserAlias;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
-import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetParsers extends PluginInfoSetLikeDialogComponentContextBasic<SpreadsheetParserName,
+abstract class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSet extends PluginAliasSetLikeDialogComponentContextBasic<SpreadsheetParserName,
         SpreadsheetParserInfo,
         SpreadsheetParserInfoSet,
         SpreadsheetParserSelector,
         SpreadsheetParserAlias,
         SpreadsheetParserAliasSet> {
 
-    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetParsers with(final AppContext context) {
-        return new PluginInfoSetLikeDialogComponentContextBasicSpreadsheetParsers(context);
-    }
-
-    private PluginInfoSetLikeDialogComponentContextBasicSpreadsheetParsers(final AppContext context) {
+    PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSet(final AppContext context) {
         super(context);
     }
 
-    // PluginInfoSetLikeDialogComponentContext..............................................................................
+    // PluginAliasSetLikeDialogComponentContext..............................................................................
 
     @Override
-    public SpreadsheetParserInfoSetComponent textBox() {
-        return SpreadsheetParserInfoSetComponent.empty();
+    public final SpreadsheetParserAliasSetComponent textBox() {
+        return SpreadsheetParserAliasSetComponent.empty();
     }
 
     @Override
-    SpreadsheetMetadataPropertyName<SpreadsheetParserInfoSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.PARSERS;
+    public final SpreadsheetParserAliasSet emptyAliasSetLike() {
+        return SpreadsheetParserAliasSet.EMPTY;
     }
 
-    @Override
-    public SpreadsheetParserInfoSet emptyInfoSetLike() {
-        return SpreadsheetParserInfoSet.EMPTY;
-    }
-
-    @Override
-    void loadPluginInfoSetLike0(final SpreadsheetId id) {
+    @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetParserFetcher()
                 .infoSet(id);
     }
 
     @Override
-    public Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetParserInfoSet> set) {
+    public final Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetParserAliasSet> set) {
         return this.context.addSpreadsheetParserFetcherWatcher(
                 new SpreadsheetParserFetcherWatcher() {
                     @Override
                     public void onSpreadsheetParserInfoSet(final SpreadsheetId id,
                                                            final SpreadsheetParserInfoSet infos,
                                                            final AppContext context) {
-                        set.accept(infos);
+                        set.accept(infos.aliasSet());
                     }
 
                     @Override
@@ -125,10 +113,5 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetParsers exten
                     }
                 }
         );
-    }
-
-    @Override
-    SpreadsheetParserInfoSet providerInfoSetLike0(final SpreadsheetProvider spreadsheetProvider) {
-        return spreadsheetProvider.spreadsheetParserInfos();
     }
 }
