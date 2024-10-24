@@ -24,7 +24,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.PluginSelectorTokenAlternativeLike;
 import walkingkooka.plugin.PluginSelectorTokenLike;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetCard;
+import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
