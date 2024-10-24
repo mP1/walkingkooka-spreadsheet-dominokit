@@ -170,6 +170,30 @@ public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<Ad
     }
 
     @Test
+    public void testRefreshAllAddedWithFilter() {
+        final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
+        component.setFilter((t) -> t.toString().contains("name"));
+        component.refresh(
+                ExpressionFunctionAliasSet.parse(""), // present
+                ExpressionFunctionAliasSet.parse("name1, name2, hidden3"), // provider
+                CONTEXT
+        );
+
+        // name1 add link needed
+        this.treePrintAndCheck(
+                component,
+                "AddPluginAliasSetLikeComponent\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      Add\n" +
+                        "        SpreadsheetFlexLayout\n" +
+                        "          ROW\n" +
+                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name1] id=base-id-123-add-0-Link\n" +
+                        "            \"Name2\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name2] id=base-id-123-add-1-Link\n"
+        );
+    }
+
+    @Test
     public void testRefreshSomeAddedIncludesAliases1() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(

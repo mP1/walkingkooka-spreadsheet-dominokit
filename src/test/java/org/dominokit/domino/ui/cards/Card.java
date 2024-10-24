@@ -20,6 +20,7 @@ package org.dominokit.domino.ui.cards;
 import com.google.gwt.thirdparty.guava.common.base.Strings;
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.utils.ChildHandler;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -55,6 +56,12 @@ public class Card implements IsElement<Element>,
 
     public IsElement<?> appendChild(final IsElement<?> component) {
         this.components.add(component);
+        return this;
+    }
+
+    public Card withHeader(final ChildHandler<Card, CardHeader> handler) {
+        // nop
+
         return this;
     }
 

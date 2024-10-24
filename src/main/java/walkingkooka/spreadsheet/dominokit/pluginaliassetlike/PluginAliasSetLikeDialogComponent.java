@@ -35,12 +35,19 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySav
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.predicate.SpreadsheetDominoKitPredicates;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.text.CaseSensitivity;
+import walkingkooka.text.CharSequences;
+import walkingkooka.text.GlobPattern;
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * A modal dialog that supports editing a {@link PluginInfoSetLike}.
@@ -147,8 +154,8 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                         context
                 ).setTitle(
                         context.dialogTitle()
-                ).appendChild(this.add)
-                .appendChild(this.remove)
+                ).appendChild(this.add.setFilterValueChangeListener(this::addFilterOnValueChange))
+                .appendChild(this.remove.setFilterValueChangeListener(this::removeFilterOnValueChange))
                 .appendChild(this.textBox)
                 .appendChild(
                         SpreadsheetFlexLayout.row()
@@ -169,11 +176,57 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
     // add..............................................................................................................
 
+    private void addFilterOnValueChange(final Optional<String> oldValue,
+                                        final Optional<String> newValue) {
+        this.add.setFilter(
+                this.predicate(
+                        newValue.orElse(null)
+                )
+        );
+        this.refreshNonResetLinks();
+    }
+
     private final AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS> add;
 
     // remove...........................................................................................................
 
+    private void removeFilterOnValueChange(final Optional<String> oldValue,
+                                           final Optional<String> newValue) {
+        this.remove.setFilter(
+                this.predicate(
+                        newValue.orElse(null)
+                )
+        );
+        this.refreshNonResetLinks();
+    }
+    
     private final RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS> remove;
+
+    private Predicate<CharSequence> predicate(final String filterText) {
+        return CharSequences.isNullOrEmpty(filterText) ?
+                null :
+                predicateNotEmptyFilterText(filterText);
+    }
+
+    private Predicate<CharSequence> predicateNotEmptyFilterText(final String text) {
+        return SpreadsheetDominoKitPredicates.multiGlobPattern(
+                Arrays.stream(text.split(" "))
+                        .map(PluginAliasSetLikeDialogComponent::globPattern)
+                        .collect(Collectors.toList())
+        );
+    }
+
+    private static GlobPattern globPattern(final String text) {
+        String globPattern = text;
+        if (false == text.startsWith("*") && false == text.endsWith("*")) {
+            globPattern = "*" + globPattern + "*";
+        }
+
+        return CaseSensitivity.INSENSITIVE.globPattern(
+                globPattern,
+                '\\'
+        );
+    }
 
     // textBox..........................................................................................................
 
