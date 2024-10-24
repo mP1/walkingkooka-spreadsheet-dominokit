@@ -24,12 +24,6 @@ import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAlias;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserAlias;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
@@ -42,15 +36,6 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
  * A collection of factory methods to create {@link PluginInfoSetLikeDialogComponentContext}.
  */
 public final class PluginInfoSetLikeDialogComponentContexts implements PublicStaticHelper {
-
-    /**
-     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators}
-     */
-    public static PluginInfoSetLikeDialogComponentContext<SpreadsheetComparatorName, SpreadsheetComparatorInfo, SpreadsheetComparatorInfoSet, SpreadsheetComparatorSelector, SpreadsheetComparatorAlias, SpreadsheetComparatorAliasSet> comparators(final AppContext context) {
-        return PluginInfoSetLikeDialogComponentContextBasic.comparators(
-                context
-        );
-    }
 
     /**
      * {@see FakePluginInfoSetLikeDialogComponentContext}

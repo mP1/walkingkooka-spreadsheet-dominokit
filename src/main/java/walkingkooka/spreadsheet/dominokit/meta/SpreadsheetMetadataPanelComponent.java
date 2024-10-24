@@ -26,7 +26,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.convert.provider.ConverterAliasSet;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
@@ -379,7 +379,7 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetComparatorInfoSet> comparators() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetComparatorAliasSet> comparators() {
         return link(
                 SpreadsheetMetadataPropertyName.COMPARATORS
         );

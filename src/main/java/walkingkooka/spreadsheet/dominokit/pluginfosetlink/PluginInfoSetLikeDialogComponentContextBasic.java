@@ -52,13 +52,6 @@ abstract class PluginInfoSetLikeDialogComponentContextBasic<N extends Name & Com
         LoggingContextDelegator {
 
     /**
-     * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators}
-     */
-    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators comparators(final AppContext context) {
-        return PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators.with(context);
-    }
-
-    /**
      * {@see PluginInfoSetLikeDialogComponentContextBasicSpreadsheetParsers}
      */
     static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetParsers parsers(final AppContext context) {
