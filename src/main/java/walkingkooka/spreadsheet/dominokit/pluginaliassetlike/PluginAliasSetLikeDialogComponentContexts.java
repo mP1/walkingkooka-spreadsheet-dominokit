@@ -55,6 +55,12 @@ import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfo;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterName;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterSelector;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAlias;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
@@ -136,6 +142,13 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
         return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImporterAliasSetImporters.with(context);
     }
 
+    /**
+     * {@see PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsers}
+     */
+    public static PluginAliasSetLikeDialogComponentContext<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet> parsers(final AppContext context) {
+        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsers.with(context);
+    }
+    
     /**
      * Stop creation
      */

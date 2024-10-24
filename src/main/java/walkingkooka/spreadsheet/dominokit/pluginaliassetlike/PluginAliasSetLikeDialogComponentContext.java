@@ -28,14 +28,13 @@ import walkingkooka.spreadsheet.dominokit.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.pluginfosetlink.PluginInfoSetLikeDialogComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.function.Consumer;
 
 /**
- * A {@link walkingkooka.Context} tht accompanies a {@link PluginInfoSetLikeDialogComponent} providing custom values and functionality.
+ * A {@link walkingkooka.Context} tht accompanies a {@link PluginAliasSetLikeDialogComponent} providing custom values and functionality.
  */
 public interface PluginAliasSetLikeDialogComponentContext<N extends Name & Comparable<N>,
         I extends PluginInfoLike<I, N>,

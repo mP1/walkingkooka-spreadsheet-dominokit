@@ -47,7 +47,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterAliasSet;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -427,7 +427,7 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserInfoSet> parsers() {
+    private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserAliasSet> parsers() {
         return link(
                 SpreadsheetMetadataPropertyName.PARSERS
         );
@@ -555,8 +555,7 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetMetadataHistoryToken &&
                 false == token.isMetadataFormatter() &&
-                false == token.isMetadataParser() && // if editing formatter-selector or parser-selector
-                false == token.isMetadataPlugin();
+                false == token.isMetadataParser();
     }
 
     @Override
