@@ -54,6 +54,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
+import walkingkooka.spreadsheet.convert.SpreadsheetConvertersConverterProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
@@ -1147,7 +1148,11 @@ public class App implements EntryPoint,
                 this.converterInfoSet.renameIfPresent(
                         ConverterInfoSet.EMPTY
                 ),
-                ConverterProviders.empty()
+                SpreadsheetConvertersConverterProviders.spreadsheetConverters(
+                        metadata,
+                        spreadsheetFormatterProvider,
+                        spreadsheetParserProvider
+                )
         );
 
         this.spreadsheetProvider = metadata.spreadsheetProvider(
