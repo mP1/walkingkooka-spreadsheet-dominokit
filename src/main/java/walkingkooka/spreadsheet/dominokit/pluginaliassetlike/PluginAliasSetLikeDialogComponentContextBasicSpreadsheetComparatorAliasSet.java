@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginfosetlink;
+package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import elemental2.dom.Headers;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -30,61 +30,49 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorInfoSetComponent;
+import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorAliasSetComponent;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcherWatcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators extends PluginInfoSetLikeDialogComponentContextBasic<SpreadsheetComparatorName,
+abstract class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSet extends PluginAliasSetLikeDialogComponentContextBasic<SpreadsheetComparatorName,
         SpreadsheetComparatorInfo,
         SpreadsheetComparatorInfoSet,
         SpreadsheetComparatorSelector,
         SpreadsheetComparatorAlias,
         SpreadsheetComparatorAliasSet> {
 
-    static PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators with(final AppContext context) {
-        return new PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators(context);
-    }
-
-    private PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators(final AppContext context) {
+    PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSet(final AppContext context) {
         super(context);
     }
 
-    // PluginInfoSetLikeDialogComponentContext..............................................................................
+    // PluginAliasSetLikeDialogComponentContext..............................................................................
 
     @Override
-    public SpreadsheetComparatorInfoSetComponent textBox() {
-        return SpreadsheetComparatorInfoSetComponent.empty();
+    public final SpreadsheetComparatorAliasSetComponent textBox() {
+        return SpreadsheetComparatorAliasSetComponent.empty();
     }
 
     @Override
-    SpreadsheetMetadataPropertyName<SpreadsheetComparatorInfoSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.COMPARATORS;
+    public final SpreadsheetComparatorAliasSet emptyAliasSetLike() {
+        return SpreadsheetComparatorAliasSet.EMPTY;
     }
 
-    @Override
-    public SpreadsheetComparatorInfoSet emptyInfoSetLike() {
-        return SpreadsheetComparatorInfoSet.EMPTY;
-    }
-
-    @Override
-    void loadPluginInfoSetLike0(final SpreadsheetId id) {
+    @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetComparatorFetcher()
                 .infoSet(id);
     }
 
     @Override
-    public Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetComparatorInfoSet> set) {
+    public final Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetComparatorAliasSet> set) {
         return this.context.addSpreadsheetComparatorFetcherWatcher(
                 new SpreadsheetComparatorFetcherWatcher() {
                     @Override
                     public void onSpreadsheetComparatorInfoSet(final SpreadsheetId id,
                                                                final SpreadsheetComparatorInfoSet infos,
                                                                final AppContext context) {
-                        set.accept(infos);
+                        set.accept(infos.aliasSet());
                     }
 
                     @Override
@@ -117,10 +105,5 @@ final class PluginInfoSetLikeDialogComponentContextBasicSpreadsheetComparators e
                     }
                 }
         );
-    }
-
-    @Override
-    SpreadsheetComparatorInfoSet providerInfoSetLike0(final SpreadsheetProvider spreadsheetProvider) {
-        return spreadsheetProvider.spreadsheetComparatorInfos();
     }
 }

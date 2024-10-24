@@ -335,8 +335,8 @@ public class App implements EntryPoint,
         PluginAliasSetLikeDialogComponent.with(
                 PluginAliasSetLikeDialogComponentContexts.converters(this)
         );
-        PluginInfoSetLikeDialogComponent.with(
-                PluginInfoSetLikeDialogComponentContexts.comparators(this)
+        PluginAliasSetLikeDialogComponent.with(
+                PluginAliasSetLikeDialogComponentContexts.comparators(this)
         );
         PluginAliasSetLikeDialogComponent.with(
                 PluginAliasSetLikeDialogComponentContexts.exporters(this)
@@ -1106,8 +1106,7 @@ public class App implements EntryPoint,
 
         final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.mergedMapped(
                 this.spreadsheetComparatorInfoSet.renameIfPresent(
-                        metadata.get(SpreadsheetMetadataPropertyName.COMPARATORS)
-                                .orElse(SpreadsheetComparatorInfoSet.EMPTY)
+                        SpreadsheetComparatorInfoSet.EMPTY
                 ),
                 SpreadsheetComparatorProviders.spreadsheetComparators()
         );

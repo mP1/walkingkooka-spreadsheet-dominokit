@@ -30,6 +30,12 @@ import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAlias;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterAlias;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterAliasSet;
@@ -61,6 +67,13 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector
  */
 public final class PluginAliasSetLikeDialogComponentContexts implements PublicStaticHelper {
 
+    /**
+     * {@see PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparators}
+     */
+    public static PluginAliasSetLikeDialogComponentContext<SpreadsheetComparatorName, SpreadsheetComparatorInfo, SpreadsheetComparatorInfoSet, SpreadsheetComparatorSelector, SpreadsheetComparatorAlias, SpreadsheetComparatorAliasSet> comparators(final AppContext context) {
+        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparators.with(context);
+    }
+    
     /**
      * {@see PluginAliasSetLikeDialogComponentContextBasicConverterAliasSetConverters}
      */
