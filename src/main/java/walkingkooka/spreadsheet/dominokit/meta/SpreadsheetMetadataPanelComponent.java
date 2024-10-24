@@ -157,15 +157,15 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
                             .appendChild(
                                     ElementsFactory.elements.td()
                                             .setCssProperty("text-wrap", "nowrap")
-                                            .setPaddingTop("5px")
-                                            .setPaddingBottom("5px")
+                                            .setPaddingTop(PADDING_TOP_BOTTOM)
+                                            .setPaddingBottom(PADDING_TOP_BOTTOM)
                                             .setTextContent(
                                                     label(item.propertyName)
                                             )
                             ).appendChild(
                                     ElementsFactory.elements.td()
-                                            .setPaddingTop("5px")
-                                            .setPaddingBottom("5px")
+                                            .setPaddingTop(PADDING_TOP_BOTTOM)
+                                            .setPaddingBottom(PADDING_TOP_BOTTOM)
                                             .appendChild(item)
                             )
             );
@@ -173,6 +173,8 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
 
         this.items = items;
     }
+
+    private final static String PADDING_TOP_BOTTOM = "3px";
 
     // factory methods to create the individual SpreadsheetMetadataPanelComponentItem for a given property.
 
