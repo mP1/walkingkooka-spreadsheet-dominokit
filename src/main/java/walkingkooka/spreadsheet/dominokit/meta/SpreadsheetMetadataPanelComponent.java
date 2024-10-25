@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.OpenableComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataHistoryToken;
@@ -555,9 +556,9 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
 
     @Override
     public boolean isMatch(final HistoryToken token) {
+        // isAnyOpen test because a dialog belonging to the viewing/editing of a SpreadsheetMetadata property.
         return token instanceof SpreadsheetMetadataHistoryToken &&
-                false == token.isMetadataFormatter() &&
-                false == token.isMetadataParser();
+                false == SpreadsheetDialogComponent.isAnyOpen();
     }
 
     @Override
