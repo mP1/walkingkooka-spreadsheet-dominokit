@@ -106,7 +106,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     public void clear() {
         this.cells.clear();
 
-        this.labelMappings = Sets.empty();
+        this.labelMappings.clear();
         this.cellToLabels.clear();
         this.matchedCells.clear();
         this.labelToNonLabel.clear();
@@ -163,7 +163,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         return this.labelMappings;
     }
 
-    private Set<SpreadsheetLabelMapping> labelMappings = Sets.empty();
+    private Set<SpreadsheetLabelMapping> labelMappings = SortedSets.tree();
 
     Set<SpreadsheetLabelName> labels(final SpreadsheetCellReference cell) {
         return this.cellToLabels.getOrDefault(
@@ -596,7 +596,10 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
                 matchedCells.addAll(delta.matchedCells());
 
-                this.labelMappings = delta.labels();
+                this.labelMappings.clear();
+                this.labelMappings.addAll(
+                        delta.labels()
+                );
 
                 // expands a Map holding cells to labels, the visitor is mostly used to add cell -> labels for all cells in a range,
                 // as well as handling multiple label to label mappings eventually to cells.
