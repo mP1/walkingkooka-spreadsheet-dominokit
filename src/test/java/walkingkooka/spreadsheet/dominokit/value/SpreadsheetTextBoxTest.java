@@ -129,6 +129,16 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
         );
     }
 
+    @Test
+    public void testMagnifyingGlass() {
+        this.treePrintAndCheck(
+                SpreadsheetTextBox.empty()
+                        .magnifyingGlassIcon(),
+                "SpreadsheetTextBox\n" +
+                        "  []\n"
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override
