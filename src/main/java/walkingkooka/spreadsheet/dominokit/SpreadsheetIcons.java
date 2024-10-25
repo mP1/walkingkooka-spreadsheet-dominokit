@@ -97,14 +97,6 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_clear();
     }
 
-    /**
-     * A magnifying glass icon that will text too {@link walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard} filter
-     * text boxes.
-     */
-    public static MdiIcon cardMagnify() {
-        return Icons.magnify();
-    }
-
     public static MdiIcon cellClear() {
         return Icons.close();
     }
@@ -312,6 +304,14 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
 
     public static MdiIcon textBoxClear() {
         return Icons.close_circle();
+    }
+
+    /**
+     * A magnifying glass icon that will text too {@link walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard} filter
+     * text boxes.
+     */
+    public static MdiIcon textBoxMagnifyGlass() {
+        return Icons.magnify();
     }
 
     public static MdiIcon textCaseCapitalize() {
