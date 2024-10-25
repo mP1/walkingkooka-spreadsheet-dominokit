@@ -149,6 +149,21 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this;
     }
 
+    public SpreadsheetTextBox magnifyingGlassIcon() {
+        this.textBox.apply(
+                self -> self.appendChild(
+                        PostfixAddOn.of(
+                                SpreadsheetIcons.textBoxMagnifyGlass()
+                                        .clickable()
+                                        .addClickListener(
+                                                event -> this.textBox.focus()
+                                        )
+                        )
+                )
+        );
+        return this;
+    }
+
     @Override
     public SpreadsheetTextBox alwaysShowHelperText() {
         final DominoElement<Element> element = elements.elementOf(
