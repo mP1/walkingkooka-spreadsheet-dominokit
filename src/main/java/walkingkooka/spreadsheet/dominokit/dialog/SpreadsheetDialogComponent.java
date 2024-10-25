@@ -38,6 +38,16 @@ import java.util.Optional;
 public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLike {
 
     /**
+     * Helper that returns true if a {@link SpreadsheetDialogComponent} is currently open.
+     * This assumes that only a single instance is ever open and all others are closed.
+     */
+    public static boolean isAnyOpen() {
+        return null != openSpreadsheetDialogComponent;
+    }
+
+    private static SpreadsheetDialogComponent openSpreadsheetDialogComponent;
+
+    /**
      * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
      */
     public static SpreadsheetDialogComponent with(final String id,
@@ -195,6 +205,8 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
                     )
             );
         }
+
+        SpreadsheetDialogComponent.openSpreadsheetDialogComponent = this;
     }
 
     /**
@@ -202,6 +214,11 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
      */
     @Override
     public void close() {
+        // instance check is better than a boolean to avoid a close clearing a just opened SpreadsheetDialogComponent.
+        if (this.equals(SpreadsheetDialogComponent.openSpreadsheetDialogComponent)) {
+            SpreadsheetDialogComponent.openSpreadsheetDialogComponent = null;
+        }
+
         this.open = false;
         this.dialog.close();
     }
