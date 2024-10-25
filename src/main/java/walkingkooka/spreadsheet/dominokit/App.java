@@ -62,6 +62,7 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContexts;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponentContexts;
@@ -548,8 +549,7 @@ public class App implements EntryPoint,
         final HistoryToken token = this.historyToken();
 
         // HACK only hide metadata panel if NOT displaying a metadata editor dialog
-        if (false == token.isMetadataFormatter() &&
-                false == token.isMetadataParser()) {
+        if (false == SpreadsheetDialogComponent.isAnyOpen()) {
             this.pushHistoryToken(
                     token.metadataHide()
             );
