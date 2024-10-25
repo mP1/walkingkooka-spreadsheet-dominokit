@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.spreadsheet.dominokit.App;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.function.Consumer;
@@ -37,6 +38,8 @@ final class HistoryTokenWatchersEvent implements Consumer<HistoryTokenWatcher> {
 
     @Override
     public void accept(final HistoryTokenWatcher watcher) {
+        final long before = System.currentTimeMillis();
+
         try {
             watcher.onHistoryTokenChange(
                     this.previous,
@@ -47,6 +50,12 @@ final class HistoryTokenWatchersEvent implements Consumer<HistoryTokenWatcher> {
                     "HistoryTokenWatchersEvent.accept exception: " + cause.getMessage(),
                     cause
             );
+        } finally {
+            final long after = System.currentTimeMillis();
+            final long millsTaken = after - before;
+            if (millsTaken > App.SLOW_HISTORY_TOKEN_CHANGE) {
+                this.context.warn(watcher.getClass().getSimpleName() + ".onHistoryTokenChange is too slow, took " + millsTaken + " ms");
+            }
         }
     }
 

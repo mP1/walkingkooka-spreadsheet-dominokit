@@ -195,6 +195,11 @@ public class App implements EntryPoint,
         SpreadsheetProviderDelegator,
         SpreadsheetFormatterContextDelegator {
 
+    /**
+     * When a {@link HistoryTokenWatcher#onHistoryTokenChange(HistoryToken, AppContext)} exceeds this value, it should be considered too slow and a WARN message logged.
+     */
+    public final static long SLOW_HISTORY_TOKEN_CHANGE = 150;
+
     public App() {
         GWT.setUncaughtExceptionHandler(this);
         SpreadsheetDelta.EMPTY.toString(); // force json register.
