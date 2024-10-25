@@ -114,7 +114,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
                         this.id + "remove-" + index,
                         token.label(),
                         context.saveText(
-                                tokens.removeAtIndex(index)
+                                tokens.deleteAtIndex(index)
                                         .stream()
                                         .collect(Collectors.joining(""))
                         )
