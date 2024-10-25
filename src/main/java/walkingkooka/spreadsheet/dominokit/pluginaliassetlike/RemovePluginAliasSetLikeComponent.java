@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.naming.Name;
 import walkingkooka.plugin.PluginAliasLike;
 import walkingkooka.plugin.PluginAliasSetLike;
@@ -35,6 +36,8 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * A component that contains a panel holding links of for each present {@link PluginAliasLike}, removing each from a {@link PluginAliasSetLike}.
@@ -72,11 +75,28 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
                 .appendChild(this.flex);
     }
 
+    RemovePluginAliasSetLikeComponent setFilterValueChangeListener(final ChangeListener<Optional<String>> listener) {
+        this.root.setFilterValueChangeListener(listener);
+        return this;
+    }
+
+    RemovePluginAliasSetLikeComponent setFilter(final Predicate<CharSequence> filter) {
+        this.filter = filter;
+        return this;
+    }
+
+    /**
+     * A {@link Predicate} which is used to filter links by testing the text against the given {@link Predicate}.
+     */
+    private Predicate<CharSequence> filter;
+    
     public void refresh(final AS aliases, // value from SpreadsheetMetadata
                         final AS providerAliases, // list of available aliases from provider
                         final RemovePluginAliasSetLikeComponentContext context) {
         this.root.hide();
+
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
+        final Predicate<CharSequence> filter = this.filter;
 
         int i = 0;
 
@@ -84,7 +104,7 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
         for (final A providerAlias : providerAliases) {
             final N name = providerAlias.name();
 
-            if (aliases.containsAliasOrName(name)) {
+            if (aliases.containsAliasOrName(name) && (null == filter || filter.test(providerAlias.name().text()))) {
                 flex.appendChild(
                         this.anchor(
                                 providerAlias,

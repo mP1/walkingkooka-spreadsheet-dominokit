@@ -21,15 +21,19 @@ import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.cards.Card;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A {@link Card} that auto hides when empty.
@@ -77,6 +81,35 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
                 .cssText(css);
         return this;
     }
+
+    // filter...........................................................................................................
+
+    /**
+     * Adds a {@link ChangeListener}, automatically adding a filter text box lazily. The textbox will occupy the
+     * right third of the card header.
+     */
+    public SpreadsheetCard setFilterValueChangeListener(final ChangeListener<Optional<String>> changeListener) {
+        Objects.requireNonNull(changeListener, "changeListener");
+
+        SpreadsheetTextBox filter = this.filter;
+        if (null == filter) {
+            filter = SpreadsheetTextBox.empty()
+                    .magnifyingGlassIcon();
+            final SpreadsheetTextBox filter2 = filter;
+
+            this.card.withHeader(
+                    (card, header) -> header.appendChild(
+                            PostfixAddOn.of(
+                                    filter2.setCssText("display: inline-block; width: 33%;"))
+                    )
+            );
+        }
+        filter.addChangeListener(changeListener);
+
+        return this;
+    }
+
+    private SpreadsheetTextBox filter;
 
     // ComponentWithChildren............................................................................................
 

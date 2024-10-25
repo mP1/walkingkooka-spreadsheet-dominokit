@@ -115,6 +115,30 @@ public final class RemovePluginAliasSetLikeComponentTest implements ClassTesting
     }
 
     @Test
+    public void testRefreshAllRemovableWithFilter() {
+        final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
+        component.setFilter((t) -> t.toString().contains("name"));
+        component.refresh(
+                ExpressionFunctionAliasSet.parse("name1, name2, missing3"), // present
+                ExpressionFunctionAliasSet.parse("name1, name2, missing3"), // provider
+                CONTEXT
+        );
+
+        // all disabled no need to create any enable links
+        this.treePrintAndCheck(
+                component,
+                "RemovePluginAliasSetLikeComponent\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      Remove\n" +
+                        "        SpreadsheetFlexLayout\n" +
+                        "          ROW\n" +
+                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/missing3,%20name2] id=base-id-123-remove-0-Link\n" +
+                        "            \"Name2\" [#/1/SpreadsheetName123/metadata/formula-functions/save/missing3,%20name1] id=base-id-123-remove-1-Link\n"
+        );
+    }
+
+    @Test
     public void testRefreshAllRemovableIncludesAliases() {
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
