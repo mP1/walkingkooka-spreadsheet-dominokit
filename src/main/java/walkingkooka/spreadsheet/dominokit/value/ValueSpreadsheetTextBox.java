@@ -49,6 +49,7 @@ public final class ValueSpreadsheetTextBox<T> implements ValueComponent<HTMLFiel
     private ValueSpreadsheetTextBox(final Function<String, T> parser,
                                     final Function<T, String> formatter) {
         this.textBox = SpreadsheetTextBox.empty()
+                .autocompleteOff()
                 .clearIcon()
                 .disableSpellcheck()
                 .enterFiresValueChange();
