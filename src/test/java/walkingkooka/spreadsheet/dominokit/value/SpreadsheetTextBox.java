@@ -203,6 +203,10 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this;
     }
 
+    public SpreadsheetTextBox autocompleteOff() {
+        return this;
+    }
+
     public SpreadsheetTextBox clearIcon() {
         return this;
     }

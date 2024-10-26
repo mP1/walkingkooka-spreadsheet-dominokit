@@ -97,6 +97,13 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         return this;
     }
 
+    public SpreadsheetTextBox autocompleteOff() {
+        this.textBox.getInputElement()
+                .element()
+                .autocomplete = "off";
+        return this;
+    }
+
     public SpreadsheetTextBox clearIcon() {
         this.textBox.apply(
                 self -> self.appendChild(
