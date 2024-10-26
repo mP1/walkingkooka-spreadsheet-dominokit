@@ -595,7 +595,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private final HistoryTokenRecorder<SpreadsheetFormatterSelector> recentFormatter;
 
     /**
-     * This should be updated each time the {@link SpreadsheetMetadataPropertyName#SPREADSHEET_FORMATTERS} property changes.
+     * This should be updated each time the {@link SpreadsheetMetadataPropertyName#FORMATTERS} property changes.
      */
     private List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus;
 
