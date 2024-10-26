@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAlias;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
@@ -36,6 +38,7 @@ import walkingkooka.tree.text.TextStyleProperty;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * A {@link SpreadsheetSelectionMenuContext} used by a {@link SpreadsheetViewportComponent}.
@@ -75,9 +78,19 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
 
     @Override
     public List<SpreadsheetComparatorName> sortComparatorNames() {
-        return this.context.spreadsheetMetadata()
-                .get(SpreadsheetMetadataPropertyName.SORT_COMPARATORS)
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+
+        final SpreadsheetComparatorNameList sortComparators = metadata.get(SpreadsheetMetadataPropertyName.SORT_COMPARATORS)
                 .orElse(SpreadsheetComparatorNameList.EMPTY);
+
+        return SpreadsheetComparatorNameList.with(
+                metadata.get(SpreadsheetMetadataPropertyName.COMPARATORS)
+                        .orElse(SpreadsheetComparatorAliasSet.EMPTY)
+                        .stream()
+                        .map(SpreadsheetComparatorAlias::name)
+                        .filter(sortComparators::contains)
+                        .collect(Collectors.toList())
+        );
     }
 
     @Override
