@@ -93,7 +93,7 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
 
         this.setSaveAndCheck(
                 this.createHistoryToken(),
-                selector.toString(),
+                selector.text(),
                 HistoryToken.cellParserSave(
                         ID,
                         NAME,

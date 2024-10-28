@@ -55,7 +55,7 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
 
     @Override
     public final String formatterTableHistoryTokenSave(final SpreadsheetFormatterSelector selector) {
-        return selector.toString();
+        return selector.text();
     }
 
     // SpreadsheetFormatterContext......................................................................................

@@ -47,7 +47,7 @@ final class SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRe
 
         return null == name ?
                 text :
-                name.setText(text)
+                name.setValueText(text)
                         .toString();
     }
 

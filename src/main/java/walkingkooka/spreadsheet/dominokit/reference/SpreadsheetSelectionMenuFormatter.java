@@ -169,7 +169,7 @@ final class SpreadsheetSelectionMenuFormatter {
                             .value()
             );
 
-            final String text = selector.text();
+            final String text = selector.valueText();
 
             menu.item(
                     SpreadsheetContextMenuItem.with(
@@ -180,7 +180,7 @@ final class SpreadsheetSelectionMenuFormatter {
                     ).historyToken(
                             Optional.of(
                                     historyToken.setSave(
-                                            selector.toString()
+                                            selector.text()
                                     )
                             )
                     )

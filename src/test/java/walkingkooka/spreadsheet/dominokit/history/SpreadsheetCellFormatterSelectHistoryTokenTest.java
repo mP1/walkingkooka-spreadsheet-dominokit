@@ -91,7 +91,7 @@ public final class SpreadsheetCellFormatterSelectHistoryTokenTest extends Spread
 
         this.setSaveAndCheck(
                 this.createHistoryToken(),
-                selector.toString(),
+                selector.text(),
                 HistoryToken.cellFormatterSave(
                         ID,
                         NAME,

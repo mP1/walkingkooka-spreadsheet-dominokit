@@ -78,7 +78,7 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
 
         return historyToken.saveLink(
                 id,
-                selector.text(),
+                selector.valueText(),
                 this.context.formatterTableHistoryTokenSave(selector)
         );
     }
