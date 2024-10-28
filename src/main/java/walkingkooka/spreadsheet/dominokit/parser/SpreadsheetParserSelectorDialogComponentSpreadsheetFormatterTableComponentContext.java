@@ -42,7 +42,7 @@ final class SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableCom
 
     @Override
     public String formatterTableHistoryTokenSave(final SpreadsheetFormatterSelector selector) {
-        return this.selector.setText(selector.text())
+        return this.selector.setValueText(selector.valueText())
                 .toString();
     }
 

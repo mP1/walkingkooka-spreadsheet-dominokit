@@ -110,7 +110,7 @@ public final class SpreadsheetFormatterTableComponentTest implements ClassTestin
 
                     @Override
                     public String formatterTableHistoryTokenSave(final SpreadsheetFormatterSelector selector) {
-                        return selector.toString() + "@";
+                        return selector.text() + "@";
                     }
                 }
         );

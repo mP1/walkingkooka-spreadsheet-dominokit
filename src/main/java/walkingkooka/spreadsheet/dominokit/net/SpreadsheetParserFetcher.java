@@ -40,7 +40,7 @@ import java.util.Objects;
 public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFetcherWatcher> {
 
     static {
-        SpreadsheetParserName.DATE_PARSER_PATTERN.setText("yyyy"); // force json unmarshaller to register
+        SpreadsheetParserName.DATE_PARSER_PATTERN.setValueText("yyyy"); // force json unmarshaller to register
 
         try {
             SpreadsheetParserSelectorEdit.parse(
