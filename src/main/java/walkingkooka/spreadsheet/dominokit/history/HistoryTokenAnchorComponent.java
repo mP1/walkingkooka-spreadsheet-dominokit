@@ -63,26 +63,21 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
         super();
         element.setMargin("5px");
 
-        // CSS-STYLE
-        final CSSStyleDeclaration style = element.element()
-                .style;
-        style.set("font-family", "Inter");
-        style.set("font-size", "15px");
-        style.set("font-weight", "400");
-        style.set("text-wrap", "nowrap");
-
         this.element = element;
+        this.setCssText("");
 
         this.tooltip = Optional.empty();
     }
 
     // setCssText.......................................................................................................
 
+    private final static String DEFAULT_STYLING = "font-family: \"Inter\"; font-size: 15px; font-weight: 400; text-wrap: nowrap;";
+
     @Override
     public HistoryTokenAnchorComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
-        this.element.style().cssText(css);
+        this.element.style().cssText(DEFAULT_STYLING + css);
         return this;
     }
 
