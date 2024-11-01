@@ -25,6 +25,15 @@ import walkingkooka.text.CaseSensitivity;
 
 import java.util.function.Predicate;
 
+/**
+ * A text box that allows the entry of a glob pattern which may be used to match the text form of a {@link walkingkooka.spreadsheet.SpreadsheetCell}
+ * component within a FIND component.
+ * <pre>
+ * text contains [_] <-- TextMatchComponent
+ *
+ * _search_
+ * </pre>
+ */
 public final class TextMatchComponent implements ValueSpreadsheetTextBoxWrapper<TextMatchComponent, Predicate<CharSequence>> {
 
     public static TextMatchComponent empty() {
