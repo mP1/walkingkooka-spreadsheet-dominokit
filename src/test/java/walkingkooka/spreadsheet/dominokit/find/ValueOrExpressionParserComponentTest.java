@@ -39,7 +39,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class ValueExpressionParserComponentTest implements ValueComponentTesting<HTMLFieldSetElement, Expression, ValueExpressionParserComponent>,
+public final class ValueOrExpressionParserComponentTest implements ValueComponentTesting<HTMLFieldSetElement, Expression, ValueOrExpressionParserComponent>,
         SpreadsheetMetadataTesting {
 
     private final static SpreadsheetParser SPREADSHEET_PARSER = SpreadsheetParsers.valueOrExpression(
@@ -68,7 +68,7 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
     public void testEmptyNullParserFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> ValueExpressionParserComponent.empty(
+                () -> ValueOrExpressionParserComponent.empty(
                         null,
                         SPREADSHEET_PARSER_CONTEXT,
                         EVALUATION_CONTEXT
@@ -80,7 +80,7 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
     public void testEmptyNullSpreadsheetParserContextFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> ValueExpressionParserComponent.empty(
+                () -> ValueOrExpressionParserComponent.empty(
                         SPREADSHEET_PARSER,
                         null,
                         EVALUATION_CONTEXT
@@ -93,7 +93,7 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
     public void testEmptyNullSpreadsheetExpressionEvaluationContextFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> ValueExpressionParserComponent.empty(
+                () -> ValueOrExpressionParserComponent.empty(
                         SPREADSHEET_PARSER,
                         SPREADSHEET_PARSER_CONTEXT,
                         null
@@ -197,7 +197,7 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
 
     private void valueAndCheck(final String text,
                                final Optional<Expression> expected) {
-        final ValueExpressionParserComponent component = valueExpressionParserComponent()
+        final ValueOrExpressionParserComponent component = valueExpressionParserComponent()
                 .setStringValue(
                         Optional.of(text)
                 );
@@ -218,7 +218,7 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
     public void testTreePrintWithEmptyText() {
         this.treePrintAndCheck(
                 this.valueExpressionParserComponent(),
-                "ValueExpressionParserComponent\n" +
+                "ValueOrExpressionParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      []\n" +
@@ -236,7 +236,7 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
                                         "=1+2"
                                 )
                         ),
-                "ValueExpressionParserComponent\n" +
+                "ValueOrExpressionParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [=1+2]\n"
@@ -252,7 +252,7 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
                                         ">3"
                                 )
                         ),
-                "ValueExpressionParserComponent\n" +
+                "ValueOrExpressionParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [>3]\n" +
@@ -270,7 +270,7 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
                                         "'Hello"
                                 )
                         ),
-                "ValueExpressionParserComponent\n" +
+                "ValueOrExpressionParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      ['Hello]\n"
@@ -286,7 +286,7 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
                                         "123.0"
                                 )
                         ),
-                "ValueExpressionParserComponent\n" +
+                "ValueOrExpressionParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [123.0]\n"
@@ -302,7 +302,7 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
                                         "1999/12/31"
                                 )
                         ),
-                "ValueExpressionParserComponent\n" +
+                "ValueOrExpressionParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [1999/12/31]\n"
@@ -318,7 +318,7 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
                                         "1999/12/31 12:58"
                                 )
                         ),
-                "ValueExpressionParserComponent\n" +
+                "ValueOrExpressionParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [1999/12/31 12:58]\n"
@@ -334,7 +334,7 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
                                         "12:58:59"
                                 )
                         ),
-                "ValueExpressionParserComponent\n" +
+                "ValueOrExpressionParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [12:58:59]\n"
@@ -350,7 +350,7 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
                                         "=1.25+"
                                 )
                         ),
-                "ValueExpressionParserComponent\n" +
+                "ValueOrExpressionParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [=1.25+]\n" +
@@ -359,8 +359,8 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
         );
     }
 
-    private ValueExpressionParserComponent valueExpressionParserComponent() {
-        return ValueExpressionParserComponent.empty(
+    private ValueOrExpressionParserComponent valueExpressionParserComponent() {
+        return ValueOrExpressionParserComponent.empty(
                 SPREADSHEET_PARSER,
                 SPREADSHEET_PARSER_CONTEXT,
                 EVALUATION_CONTEXT
@@ -370,8 +370,8 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
     // class............................................................................................................
 
     @Override
-    public Class<ValueExpressionParserComponent> type() {
-        return ValueExpressionParserComponent.class;
+    public Class<ValueOrExpressionParserComponent> type() {
+        return ValueOrExpressionParserComponent.class;
     }
 
     @Override
