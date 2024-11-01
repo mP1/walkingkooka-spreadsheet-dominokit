@@ -244,6 +244,24 @@ public final class ValueExpressionParserComponentTest implements ValueComponentT
     }
 
     @Test
+    public void testTreePrintWithConditionTest() {
+        this.treePrintAndCheck(
+                this.valueExpressionParserComponent()
+                        .setStringValue(
+                                Optional.of(
+                                        ">3"
+                                )
+                        ),
+                "ValueExpressionParserComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [>3]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '>' at 0\n"
+        );
+    }
+
+    @Test
     public void testTreePrintWithString() {
         this.treePrintAndCheck(
                 this.valueExpressionParserComponent()
