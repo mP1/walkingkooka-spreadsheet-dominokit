@@ -23,6 +23,7 @@ import walkingkooka.plugin.PluginAliasSetLike;
 import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
+import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
@@ -35,19 +36,16 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySav
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.predicate.SpreadsheetDominoKitPredicates;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CaseSensitivity;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.GlobPattern;
 
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 /**
  * A modal dialog that supports editing a {@link PluginInfoSetLike}.
@@ -209,10 +207,10 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     }
 
     private Predicate<CharSequence> predicateNotEmptyFilterText(final String text) {
-        return SpreadsheetDominoKitPredicates.multiGlobPattern(
-                Arrays.stream(text.split(" "))
-                        .map(PluginAliasSetLikeDialogComponent::globPattern)
-                        .collect(Collectors.toList())
+        return Predicates.globPatterns(
+                text,
+                CaseSensitivity.INSENSITIVE,
+                '\\'
         );
     }
 
