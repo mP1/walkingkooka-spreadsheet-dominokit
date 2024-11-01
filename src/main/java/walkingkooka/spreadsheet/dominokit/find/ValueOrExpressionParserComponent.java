@@ -31,21 +31,21 @@ import java.util.Objects;
 /**
  * A text box that allows entries of a value expression.
  */
-public final class ValueExpressionParserComponent implements ValueSpreadsheetTextBoxWrapper<ValueExpressionParserComponent, Expression> {
+public final class ValueOrExpressionParserComponent implements ValueSpreadsheetTextBoxWrapper<ValueOrExpressionParserComponent, Expression> {
 
-    public static ValueExpressionParserComponent empty(final SpreadsheetParser parser,
-                                                       final SpreadsheetParserContext parseContext,
-                                                       final SpreadsheetExpressionEvaluationContext evaluationContext) {
-        return new ValueExpressionParserComponent(
+    public static ValueOrExpressionParserComponent empty(final SpreadsheetParser parser,
+                                                         final SpreadsheetParserContext parseContext,
+                                                         final SpreadsheetExpressionEvaluationContext evaluationContext) {
+        return new ValueOrExpressionParserComponent(
                 Objects.requireNonNull(parser, "parser"),
                 Objects.requireNonNull(parseContext, "parseContext"),
                 Objects.requireNonNull(evaluationContext, "evaluationContext")
         );
     }
 
-    private ValueExpressionParserComponent(final SpreadsheetParser parser,
-                                           final SpreadsheetParserContext parseContext,
-                                           final SpreadsheetExpressionEvaluationContext evaluationContext) {
+    private ValueOrExpressionParserComponent(final SpreadsheetParser parser,
+                                             final SpreadsheetParserContext parseContext,
+                                             final SpreadsheetExpressionEvaluationContext evaluationContext) {
         this.textBox = ValueSpreadsheetTextBox.with(
                 (text) -> parser.parseText(
                                 text,
