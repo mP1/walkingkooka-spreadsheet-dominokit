@@ -20,39 +20,32 @@ package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
-import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserToken;
-import walkingkooka.tree.expression.Expression;
+import walkingkooka.text.cursor.parser.ParserToken;
 
 import java.util.Objects;
 
 /**
- * A text box that allows entries of a value expression.
+ * A text box that supports entry of a condition with a value or expression. It returns a {@link ParserToken}.
  */
-public final class ValueOrExpressionParserComponent implements ValueSpreadsheetTextBoxWrapper<ValueOrExpressionParserComponent, Expression> {
+public final class SpreadsheetParserComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetParserComponent, ParserToken> {
 
-    public static ValueOrExpressionParserComponent empty(final SpreadsheetParser parser,
-                                                         final SpreadsheetParserContext parseContext,
-                                                         final SpreadsheetExpressionEvaluationContext evaluationContext) {
-        return new ValueOrExpressionParserComponent(
+    public static SpreadsheetParserComponent empty(final SpreadsheetParser parser,
+                                                   final SpreadsheetParserContext context) {
+        return new SpreadsheetParserComponent(
                 Objects.requireNonNull(parser, "parser"),
-                Objects.requireNonNull(parseContext, "parseContext"),
-                Objects.requireNonNull(evaluationContext, "evaluationContext")
+                Objects.requireNonNull(context, "context")
         );
     }
 
-    private ValueOrExpressionParserComponent(final SpreadsheetParser parser,
-                                             final SpreadsheetParserContext parseContext,
-                                             final SpreadsheetExpressionEvaluationContext evaluationContext) {
+    private SpreadsheetParserComponent(final SpreadsheetParser parser,
+                                       final SpreadsheetParserContext context) {
         this.textBox = ValueSpreadsheetTextBox.with(
                 (text) -> parser.parseText(
                                 text,
-                                parseContext
-                        ).cast(SpreadsheetParserToken.class)
-                        .toExpression(evaluationContext)
-                        .orElseThrow(() -> new IllegalArgumentException("Unable to parse expression")),
+                        context
+                ),
                 Object::toString
         );
     }
@@ -60,11 +53,11 @@ public final class ValueOrExpressionParserComponent implements ValueSpreadsheetT
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<Expression> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<ParserToken> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<Expression> textBox;
+    private final ValueSpreadsheetTextBox<ParserToken> textBox;
 
     // Object...........................................................................................................
 
