@@ -48,8 +48,7 @@ public final class TextMatchComponentTest implements ValueComponentTesting<HTMLF
                                 Optional.of(
                                         Predicates.globPatterns(
                                                 "starts* ends* *contains*",
-                                                CaseSensitivity.INSENSITIVE,
-                                                '\\'
+                                                CaseSensitivity.INSENSITIVE
                                         )
                                 )
                         ),
