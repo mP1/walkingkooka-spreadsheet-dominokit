@@ -19,47 +19,31 @@ package walkingkooka.spreadsheet.dominokit.find;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.net.Url;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
-import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContext;
-import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContexts;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.parser.SpreadsheetConditionParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
-import walkingkooka.spreadsheet.store.SpreadsheetCellStores;
 import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
-import walkingkooka.tree.expression.Expression;
+import walkingkooka.text.cursor.parser.ParserToken;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class ValueOrExpressionParserComponentTest implements ValueComponentTesting<HTMLFieldSetElement, Expression, ValueOrExpressionParserComponent>,
+public final class SpreadsheetParserComponentTest implements ValueComponentTesting<HTMLFieldSetElement, ParserToken, SpreadsheetParserComponent>,
         SpreadsheetMetadataTesting {
 
-    private final static SpreadsheetParser SPREADSHEET_PARSER = SpreadsheetParsers.valueOrExpression(
+    private final static SpreadsheetParser SPREADSHEET_PARSER = SpreadsheetParsers.condition(
             METADATA_EN_AU.spreadsheetParser(
                     SPREADSHEET_PARSER_PROVIDER,
                     PROVIDER_CONTEXT
             )
-    );
-
-    private final static SpreadsheetExpressionEvaluationContext EVALUATION_CONTEXT = SpreadsheetExpressionEvaluationContexts.basic(
-            Optional.empty(), // cell
-            SpreadsheetCellStores.fake(),
-            Url.parseAbsolute("https://example.com"),
-            (e) -> {
-                throw new UnsupportedOperationException(e.toString());
-            },
-            METADATA_EN_AU,
-            SPREADSHEET_FORMULA_CONVERTER_CONTEXT,
-            EXPRESSION_FUNCTION_PROVIDER,
-            PROVIDER_CONTEXT
     );
 
     // empty............................................................................................................
@@ -68,10 +52,9 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
     public void testEmptyNullParserFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> ValueOrExpressionParserComponent.empty(
+                () -> SpreadsheetParserComponent.empty(
                         null,
-                        SPREADSHEET_PARSER_CONTEXT,
-                        EVALUATION_CONTEXT
+                        SPREADSHEET_PARSER_CONTEXT
                 )
         );
     }
@@ -80,22 +63,8 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
     public void testEmptyNullSpreadsheetParserContextFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> ValueOrExpressionParserComponent.empty(
+                () -> SpreadsheetParserComponent.empty(
                         SPREADSHEET_PARSER,
-                        null,
-                        EVALUATION_CONTEXT
-                )
-        );
-    }
-
-
-    @Test
-    public void testEmptyNullSpreadsheetExpressionEvaluationContextFails() {
-        assertThrows(
-                NullPointerException.class,
-                () -> ValueOrExpressionParserComponent.empty(
-                        SPREADSHEET_PARSER,
-                        SPREADSHEET_PARSER_CONTEXT,
                         null
                 )
         );
@@ -120,17 +89,29 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
     @Test
     public void testValueWithString() {
         this.valueAndCheck(
-                "'Hello",
-                Expression.value("Hello")
+                "=\"Hello\"",
+                SpreadsheetParserToken.text(
+                        Lists.of(
+                                SpreadsheetParserToken.doubleQuoteSymbol("\"", "\""),
+                                SpreadsheetParserToken.textLiteral("Hello", "Hello"),
+                                SpreadsheetParserToken.doubleQuoteSymbol("\"", "\"")
+                        ),
+                        "\"Hello\""
+                )
         );
     }
 
     @Test
     public void testValueWithNumber() {
         this.valueAndCheck(
-                "123.5",
-                Expression.value(
-                        EXPRESSION_NUMBER_KIND.create(123.5)
+                "=123.5",
+                SpreadsheetParserToken.number(
+                        Lists.of(
+                                SpreadsheetParserToken.digits("123", "123"),
+                                SpreadsheetParserToken.decimalSeparatorSymbol(".", "."),
+                                SpreadsheetParserToken.digits("5", "5")
+                        ),
+                        "123.5"
                 )
         );
     }
@@ -138,9 +119,16 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
     @Test
     public void testValueWithDate() {
         this.valueAndCheck(
-                "1999/12/31",
-                Expression.value(
-                        LocalDate.of(1999, 12, 31)
+                "=1999/12/31",
+                SpreadsheetParserToken.date(
+                        Lists.of(
+                                SpreadsheetParserToken.year(1999, "1999"),
+                                SpreadsheetParserToken.textLiteral("/", "/"),
+                                SpreadsheetParserToken.monthNumber(12, "12"),
+                                SpreadsheetParserToken.textLiteral("/", "/"),
+                                SpreadsheetParserToken.dayNumber(31, "31")
+                        ),
+                        "1999/12/31"
                 )
         );
     }
@@ -148,9 +136,20 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
     @Test
     public void testValueWithDateTime() {
         this.valueAndCheck(
-                "1999/12/31 12:58",
-                Expression.value(
-                        LocalDateTime.of(1999, 12, 31, 12, 58)
+                "=1999/12/31 12:58",
+                SpreadsheetParserToken.dateTime(
+                        Lists.of(
+                                SpreadsheetParserToken.year(1999, "1999"),
+                                SpreadsheetParserToken.textLiteral("/", "/"),
+                                SpreadsheetParserToken.monthNumber(12, "12"),
+                                SpreadsheetParserToken.textLiteral("/", "/"),
+                                SpreadsheetParserToken.dayNumber(31, "31"),
+                                SpreadsheetParserToken.whitespace(" ", " "),
+                                SpreadsheetParserToken.hour(12, "12"),
+                                SpreadsheetParserToken.textLiteral(":", ":"),
+                                SpreadsheetParserToken.minute(58, "58")
+                        ),
+                        "1999/12/31 12:58"
                 )
         );
     }
@@ -158,24 +157,16 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
     @Test
     public void testValueWithTime() {
         this.valueAndCheck(
-                "12:58:59",
-                Expression.value(
-                        LocalTime.of(12, 58, 59)
-                )
-        );
-    }
-
-    @Test
-    public void testValueWithAdditionExpression() {
-        this.valueAndCheck(
-                "=12.0 + 34.0",
-                Expression.add(
-                        Expression.value(
-                                EXPRESSION_NUMBER_KIND.create(12.0)
+                "=12:58:59",
+                SpreadsheetParserToken.time(
+                        Lists.of(
+                                SpreadsheetParserToken.hour(12, "12"),
+                                SpreadsheetParserToken.textLiteral(":", ":"),
+                                SpreadsheetParserToken.minute(58, "58"),
+                                SpreadsheetParserToken.textLiteral(":", ":"),
+                                SpreadsheetParserToken.seconds(59, "59")
                         ),
-                        Expression.value(
-                                EXPRESSION_NUMBER_KIND.create(34.0)
-                        )
+                        "12:58:59"
                 )
         );
     }
@@ -188,7 +179,26 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
     }
 
     private void valueAndCheck(final String text,
-                               final Expression expected) {
+                               final ParserToken... expected) {
+        final List<ParserToken> tokens = Lists.array();
+        tokens.add(
+                SpreadsheetParserToken.equalsSymbol("=", "=")
+        );
+        tokens.addAll(
+                Lists.of(expected)
+        );
+
+        this.valueAndCheck(
+                text,
+                SpreadsheetParserToken.condition(
+                        tokens,
+                        text
+                )
+        );
+    }
+
+    private void valueAndCheck(final String text,
+                               final SpreadsheetConditionParserToken expected) {
         this.valueAndCheck(
                 text,
                 Optional.of(expected)
@@ -196,12 +206,11 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
     }
 
     private void valueAndCheck(final String text,
-                               final Optional<Expression> expected) {
-        final ValueOrExpressionParserComponent component = valueExpressionParserComponent()
+                               final Optional<SpreadsheetConditionParserToken> expected) {
+        final SpreadsheetParserComponent component = valueExpressionParserComponent()
                 .setStringValue(
                         Optional.of(text)
                 );
-
         this.checkEquals(
                 expected,
                 component.value(),
@@ -218,7 +227,7 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
     public void testTreePrintWithEmptyText() {
         this.treePrintAndCheck(
                 this.valueExpressionParserComponent(),
-                "ValueOrExpressionParserComponent\n" +
+                "SpreadsheetParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      []\n" +
@@ -236,7 +245,7 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
                                         "=1+2"
                                 )
                         ),
-                "ValueOrExpressionParserComponent\n" +
+                "SpreadsheetParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [=1+2]\n"
@@ -252,12 +261,10 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
                                         ">3"
                                 )
                         ),
-                "ValueOrExpressionParserComponent\n" +
+                "SpreadsheetParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
-                        "      [>3]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '>' at 0\n"
+                        "      [>3]\n"
         );
     }
 
@@ -267,13 +274,13 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
                 this.valueExpressionParserComponent()
                         .setStringValue(
                                 Optional.of(
-                                        "'Hello"
+                                        "=\"Hello\""
                                 )
                         ),
-                "ValueOrExpressionParserComponent\n" +
+                "SpreadsheetParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
-                        "      ['Hello]\n"
+                        "      [=\"Hello\"]\n"
         );
     }
 
@@ -283,13 +290,13 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
                 this.valueExpressionParserComponent()
                         .setStringValue(
                                 Optional.of(
-                                        "123.0"
+                                        "=123.0"
                                 )
                         ),
-                "ValueOrExpressionParserComponent\n" +
+                "SpreadsheetParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
-                        "      [123.0]\n"
+                        "      [=123.0]\n"
         );
     }
 
@@ -299,13 +306,13 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
                 this.valueExpressionParserComponent()
                         .setStringValue(
                                 Optional.of(
-                                        "1999/12/31"
+                                        "=1999/12/31"
                                 )
                         ),
-                "ValueOrExpressionParserComponent\n" +
+                "SpreadsheetParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
-                        "      [1999/12/31]\n"
+                        "      [=1999/12/31]\n"
         );
     }
 
@@ -315,13 +322,13 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
                 this.valueExpressionParserComponent()
                         .setStringValue(
                                 Optional.of(
-                                        "1999/12/31 12:58"
+                                        "=1999/12/31 12:58"
                                 )
                         ),
-                "ValueOrExpressionParserComponent\n" +
+                "SpreadsheetParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
-                        "      [1999/12/31 12:58]\n"
+                        "      [=1999/12/31 12:58]\n"
         );
     }
 
@@ -331,13 +338,13 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
                 this.valueExpressionParserComponent()
                         .setStringValue(
                                 Optional.of(
-                                        "12:58:59"
+                                        "=12:58:59"
                                 )
                         ),
-                "ValueOrExpressionParserComponent\n" +
+                "SpreadsheetParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
-                        "      [12:58:59]\n"
+                        "      [=12:58:59]\n"
         );
     }
 
@@ -350,7 +357,7 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
                                         "=1.25+"
                                 )
                         ),
-                "ValueOrExpressionParserComponent\n" +
+                "SpreadsheetParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [=1.25+]\n" +
@@ -359,19 +366,18 @@ public final class ValueOrExpressionParserComponentTest implements ValueComponen
         );
     }
 
-    private ValueOrExpressionParserComponent valueExpressionParserComponent() {
-        return ValueOrExpressionParserComponent.empty(
+    private SpreadsheetParserComponent valueExpressionParserComponent() {
+        return SpreadsheetParserComponent.empty(
                 SPREADSHEET_PARSER,
-                SPREADSHEET_PARSER_CONTEXT,
-                EVALUATION_CONTEXT
+                SPREADSHEET_PARSER_CONTEXT
         );
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<ValueOrExpressionParserComponent> type() {
-        return ValueOrExpressionParserComponent.class;
+    public Class<SpreadsheetParserComponent> type() {
+        return SpreadsheetParserComponent.class;
     }
 
     @Override
