@@ -56,7 +56,7 @@ public final class TextMatchComponentTest implements ValueComponentTesting<HTMLF
                 "TextMatchComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
-                        "      [\"starts*\" INSENSITIVE | \"ends*\" INSENSITIVE | \"*contains*\" INSENSITIVE]\n"
+                        "      [starts* ends* *contains*]\n"
         );
     }
 
