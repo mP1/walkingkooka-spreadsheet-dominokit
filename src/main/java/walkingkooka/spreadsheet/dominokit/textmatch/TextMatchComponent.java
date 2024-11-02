@@ -50,8 +50,7 @@ public final class TextMatchComponent implements ValueSpreadsheetTextBoxWrapper<
     private static Predicate<CharSequence> parse(final String text) {
         return Predicates.globPatterns(
                 text,
-                CaseSensitivity.INSENSITIVE,
-                '\\'
+                CaseSensitivity.INSENSITIVE
         );
     }
 
