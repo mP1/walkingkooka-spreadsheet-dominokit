@@ -71,7 +71,7 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
 
     // setCssText.......................................................................................................
 
-    private final static String DEFAULT_STYLING = "font-family: \"Inter\"; font-size: 15px; font-weight: 400; text-wrap: nowrap;";
+    private final static String DEFAULT_STYLING = "margin: 5px; font-family: \"Inter\"; font-size: 15px; font-weight: 400; text-wrap: nowrap;";
 
     @Override
     public HistoryTokenAnchorComponent setCssText(final String css) {
