@@ -209,8 +209,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     private Predicate<CharSequence> predicateNotEmptyFilterText(final String text) {
         return Predicates.globPatterns(
                 text,
-                CaseSensitivity.INSENSITIVE,
-                '\\'
+                CaseSensitivity.INSENSITIVE
         );
     }
 
@@ -220,10 +219,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
             globPattern = "*" + globPattern + "*";
         }
 
-        return CaseSensitivity.INSENSITIVE.globPattern(
-                globPattern,
-                '\\'
-        );
+        return CaseSensitivity.INSENSITIVE.globPattern(globPattern);
     }
 
     // textBox..........................................................................................................
