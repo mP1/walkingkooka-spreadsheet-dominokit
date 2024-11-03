@@ -18,8 +18,6 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
@@ -184,7 +182,6 @@ public class App implements EntryPoint,
         SpreadsheetFormatterFetcherWatcher,
         SpreadsheetImporterFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
-        UncaughtExceptionHandler,
         SpreadsheetParserFetcherWatcher,
         SpreadsheetProviderDelegator,
         SpreadsheetFormatterContextDelegator {
@@ -195,7 +192,6 @@ public class App implements EntryPoint,
     public final static long SLOW_HISTORY_TOKEN_CHANGE = 150;
 
     public App() {
-        GWT.setUncaughtExceptionHandler(this);
         SpreadsheetDelta.EMPTY.toString(); // force json register.
 
         this.addWindowResizeListener(this::onWindowResize);
@@ -204,6 +200,8 @@ public class App implements EntryPoint,
         this.loggingContext = AppLoggingContext.with(
                 LoggingContexts.elemental()
         );
+
+        AppUncaughtExceptionHandler.with(this.loggingContext);
 
         this.spreadsheetProvider = SpreadsheetProviders.basic(
                 ConverterProviders.empty(),
@@ -1374,13 +1372,6 @@ public class App implements EntryPoint,
      * Used to track when resizing stops, after resizing stops a reload will happen if SpreadsheetListDialogComponent is displayed.
      */
     private long lastResize;
-
-    // UncaughtExceptionHandler.........................................................................................
-
-    @Override
-    public void onUncaughtException(final Throwable caught) {
-        this.error(caught);
-    }
 
     // HistoryTokenContextDelegator.....................................................................................
 
