@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.color.Color;
 import walkingkooka.color.WebColorName;
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFind;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 /**
