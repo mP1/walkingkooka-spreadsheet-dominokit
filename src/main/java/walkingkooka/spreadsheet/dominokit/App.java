@@ -26,7 +26,6 @@ import elemental2.dom.Event;
 import elemental2.dom.Headers;
 import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.elements.SectionElement;
-import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.layout.AppLayout;
 import org.dominokit.domino.ui.layout.RightDrawerSize;
@@ -38,7 +37,6 @@ import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
-import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -64,17 +62,14 @@ import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.history.History;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
-import walkingkooka.spreadsheet.dominokit.history.Historys;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
@@ -176,7 +171,7 @@ import java.util.function.Predicate;
 public class App implements EntryPoint,
         AppContext,
         WindowResizeWatcher,
-        HistoryTokenWatcher,
+        HistoryTokenContextDelegator,
         JsonNodeMarshallUnmarshallContextDelegator,
         LoggingContextDelegator,
         NopEmptyResponseFetcherWatcher,
@@ -311,10 +306,7 @@ public class App implements EntryPoint,
         this.providerContext = ProviderContexts.fake();
 
         // history
-        this.history = Historys.elemental(loggingContext);
-        this.previousToken = HistoryToken.unknown(UrlFragment.EMPTY);
-        this.historyWatchers = HistoryTokenWatchers.empty();
-        this.setupHistoryListener();
+        this.appHistoryTokenContextHistoryTokenWatcher = AppHistoryTokenContextHistoryTokenWatcher.with(this);
 
         this.viewportCache = SpreadsheetViewportCache.empty(this);
 
@@ -412,9 +404,14 @@ public class App implements EntryPoint,
 
     @Override
     public void onModuleLoad() {
-        this.fireInitialHistoryToken();
+        this.appHistoryTokenContextHistoryTokenWatcher.onHistoryTokenChange(
+                this.historyToken()
+        );
+
         this.fireWindowSizeLater(this::onWindowResize);
     }
+
+    // Files............................................................................................................
 
     /**
      * A link that shows the File browser.
@@ -1219,180 +1216,6 @@ public class App implements EntryPoint,
 
     private SpreadsheetProvider systemSpreadsheetProvider;
 
-    // reload...........................................................................................................
-
-    private void fireInitialHistoryToken() {
-        final HistoryToken token = this.historyToken();
-        this.debug("App.fireInitialHistoryToken " + token);
-        this.onHistoryTokenChange(token);
-    }
-
-    // Viewport.........................................................................................................
-
-    private void setupHistoryListener() {
-        this.addHistoryTokenWatcher(this);
-
-        DomGlobal.self.addEventListener(
-                EventType.hashchange.getName(),
-                event -> this.onHistoryTokenChange(
-                        this.historyToken()
-                )
-        );
-    }
-
-    private void onHistoryTokenChange(final HistoryToken token) {
-        final HistoryToken previousToken = this.previousToken;
-        this.debug("App.onHistoryTokenChange BEGIN from " + previousToken + " to " + token);
-
-        this.previousToken = token;
-
-        if (false == token.equals(previousToken)) {
-            if (token instanceof UnknownHistoryToken) {
-                this.debug("App.onHistoryTokenChange updated with invalid token " + token + ", will restore previous " + previousToken);
-                this.pushHistoryToken(previousToken);
-
-            } else {
-                this.historyWatchers.onHistoryTokenChange(
-                        previousToken,
-                        this
-                );
-            }
-        }
-
-        this.debug("App.onHistoryTokenChange END from " + previousToken + " to " + token);
-    }
-
-    /**
-     * Used to track if the history token actually changed. Changes will fire the HistoryToken#onChange method.
-     */
-    private HistoryToken previousToken;
-
-    /**
-     * Pushes the given {@link HistoryToken} to the browser location#hash.
-     */
-    @Override
-    public void pushHistoryToken(final HistoryToken token) {
-        Objects.requireNonNull(token, "token");
-
-        HistoryToken push = token;
-
-        // this check is necessary so when historyToken = something save and that gets pushed again we dont want to reply that again.
-        final HistoryToken previous = this.firePrevious;
-        if (push.shouldIgnore() && push.equals(previous)) {
-            push = push.clearAction();
-        }
-        this.history.pushHistoryToken(push);
-    }
-
-    @Override
-    public HistoryToken historyToken() {
-        return this.history.historyToken();
-    }
-
-    private final History history;
-
-    @Override
-    public void fireCurrentHistoryToken() {
-        final HistoryToken previous = this.historyToken();
-        this.firePrevious = previous;
-
-        try {
-            this.historyWatchers.onHistoryTokenChange(
-                    previous,
-                    this
-            );
-        } finally {
-            this.firePrevious = null;
-        }
-    }
-
-    private HistoryToken firePrevious;
-
-    @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-        return this.historyWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
-        return this.historyWatchers.addOnce(watcher);
-    }
-
-    private final HistoryTokenWatchers historyWatchers;
-
-    @Override
-    public void onHistoryTokenChange(final HistoryToken previous,
-                                     final AppContext context) {
-        // if the selection changed update metadata
-        final HistoryToken historyToken = context.historyToken();
-        if (false == historyToken.shouldIgnore()) {
-            patchMetadataIfSelectionChanged(
-                    historyToken,
-                    context
-            );
-        }
-
-        this.firePrevious = previous;
-        try {
-            historyToken.onHistoryTokenChange(
-                    previous,
-                    context
-            );
-        } finally {
-            this.firePrevious = null;
-        }
-    }
-
-    /**
-     * Only PATCH the spreadsheet metadata on the server if the local {@link SpreadsheetMetadata} has a different
-     * {@link AnchoredSpreadsheetSelection}. Note we ignore the previous {@link HistoryToken} because that might cause
-     * synching issues where
-     * <pre>
-     * click A1
-     *   load viewport selection=A1
-     * click B2
-     *   load viewport selection=A2
-     * load viewport response
-     *   update local metadata selection=A1
-     *   push history selection=A1
-     *   DONT want to PATCH metadata selection=A1 as this will cause load viewport selection=A2 to be ovewritten.
-     * </pre>
-     */
-    private static void patchMetadataIfSelectionChanged(final HistoryToken historyToken,
-                                                        final AppContext context) {
-        if (historyToken instanceof SpreadsheetIdHistoryToken) {
-            // check against local metadata NOT previous history selection, otherwise PATCH will be made
-            // when a loadViewport has not yet updated history token with response selection.
-            final Optional<AnchoredSpreadsheetSelection> selection = historyToken.anchoredSelectionOrEmpty();
-
-            final Optional<AnchoredSpreadsheetSelection> previousSelection = context.spreadsheetMetadata()
-                    .get(SpreadsheetMetadataPropertyName.VIEWPORT)
-                    .flatMap(SpreadsheetViewport::anchoredSelection);
-            if (false == selection.equals(previousSelection)) {
-
-                context.debug("App.patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
-
-                // initially metadata will be empty because it has not yet loaded, context.viewport below will fail.
-                if (context.spreadsheetMetadata()
-                        .get(SpreadsheetMetadataPropertyName.VIEWPORT)
-                        .isPresent()) {
-                    final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) historyToken;
-                    context.spreadsheetMetadataFetcher()
-                            .patchMetadata(
-                                    spreadsheetIdHistoryToken.id(),
-                                    SpreadsheetMetadataPropertyName.VIEWPORT.patch(
-                                            selection.map(
-                                                    s -> context.viewport(
-                                                            Optional.of(s)
-                                                    )
-                                            ).orElse(null)
-                                    )
-                            );
-                }
-            }
-        }
-    }
-
     // SpreadsheetViewport..............................................................................................
 
     @Override
@@ -1558,6 +1381,14 @@ public class App implements EntryPoint,
     public void onUncaughtException(final Throwable caught) {
         this.error(caught);
     }
+
+    // HistoryTokenContextDelegator.....................................................................................
+
+    public HistoryTokenContext historyTokenContext() {
+        return this.appHistoryTokenContextHistoryTokenWatcher;
+    }
+
+    private final AppHistoryTokenContextHistoryTokenWatcher appHistoryTokenContextHistoryTokenWatcher;
 
     // LoggingContext...................................................................................................
 
