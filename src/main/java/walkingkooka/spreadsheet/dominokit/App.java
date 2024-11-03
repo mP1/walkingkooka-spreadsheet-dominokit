@@ -30,8 +30,6 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.layout.AppLayout;
 import org.dominokit.domino.ui.layout.RightDrawerSize;
-import org.dominokit.domino.ui.notifications.Notification;
-import org.dominokit.domino.ui.notifications.Notification.Position;
 import org.gwtproject.core.client.Scheduler;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
@@ -78,6 +76,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListSelectHistoryTo
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponentContexts;
@@ -179,6 +178,7 @@ public class App implements EntryPoint,
         WindowResizeWatcher,
         HistoryTokenWatcher,
         JsonNodeMarshallUnmarshallContextDelegator,
+        LoggingContextDelegator,
         NopEmptyResponseFetcherWatcher,
         ProviderContextDelegator,
         SpreadsheetComparatorFetcherWatcher,
@@ -206,8 +206,9 @@ public class App implements EntryPoint,
         this.addWindowResizeListener(this::onWindowResize);
 
         // logging
-        final LoggingContext loggingContext = LoggingContexts.elemental();
-        this.loggingContext = loggingContext;
+        this.loggingContext = AppLoggingContext.with(
+                LoggingContexts.elemental()
+        );
 
         this.spreadsheetProvider = SpreadsheetProviders.basic(
                 ConverterProviders.empty(),
@@ -1561,31 +1562,8 @@ public class App implements EntryPoint,
     // LoggingContext...................................................................................................
 
     @Override
-    public void debug(final Object... values) {
-        this.loggingContext.debug(values);
-    }
-
-    @Override
-    public void info(final Object... values) {
-        this.loggingContext.info(values);
-    }
-
-    @Override
-    public void warn(final Object... values) {
-        this.loggingContext.warn(values);
-    }
-
-    /**
-     * Logs an error to the console and shows a DANGER notification.
-     */
-    @Override
-    public void error(final Object... values) {
-        this.loggingContext.error(values);
-
-        Notification.create(
-                        String.valueOf(values[0])
-                ).setPosition(Position.TOP_MIDDLE)
-                .show();
+    public LoggingContext loggingContext() {
+        return this.loggingContext;
     }
 
     private final LoggingContext loggingContext;
