@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit;
 
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
-import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.Headers;
 import org.dominokit.domino.ui.cards.Card;
@@ -27,7 +26,6 @@ import org.dominokit.domino.ui.elements.SectionElement;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.layout.AppLayout;
 import org.dominokit.domino.ui.layout.RightDrawerSize;
-import org.gwtproject.core.client.Scheduler;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
@@ -58,6 +56,8 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponent;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
+import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocuses;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -201,6 +201,7 @@ public class App implements EntryPoint,
                 LoggingContexts.elemental()
         );
 
+        this.canGiveFocus = CanGiveFocuses.scheduler(this.loggingContext);
         AppUncaughtExceptionHandler.with(this.loggingContext);
 
         this.spreadsheetProvider = SpreadsheetProviders.basic(
@@ -1263,43 +1264,14 @@ public class App implements EntryPoint,
 
     private boolean viewportHighlightEnabled = false;
 
-    // HasLocale........................................................................................................
+    // CanGiveFocus.....................................................................................................
 
-    /**
-     * Schedules giving focus to the {@link Element} if it exists. If multiple attempts are made to give focus in a short
-     * period of time an {@link IllegalStateException} will be thrown.
-     */
     @Override
     public void giveFocus(final Runnable giveFocus) {
-        this.debug("App.giveFocus " + giveFocus);
-
-        final Runnable existingGiveFocus = this.giveFocus;
-        if (null != existingGiveFocus && false == giveFocus.equals(existingGiveFocus)) {
-            this.giveFocus = null;
-            throw new IllegalStateException("Second attempt to give focus " + existingGiveFocus + " AND " + giveFocus);
-        }
-        this.giveFocus = giveFocus;
-
-        Scheduler.get()
-                .scheduleDeferred(this::giveFocus0);
+        this.canGiveFocus.giveFocus(giveFocus);
     }
 
-    /**
-     * If {@link Runnable #giveFocus} is available run it.
-     */
-    private void giveFocus0() {
-        final Runnable giveFocus = this.giveFocus;
-        this.giveFocus = null;
-
-        if (null != giveFocus) {
-            giveFocus.run();
-        }
-    }
-
-    /**
-     * A {@link Runnable} which will give focus to some element. This is used to track and prevent multiple give focus attempts
-     */
-    private Runnable giveFocus;
+    private final CanGiveFocus canGiveFocus;
 
     // lastCellFind......................................................................................................
 
