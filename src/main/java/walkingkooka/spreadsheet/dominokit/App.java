@@ -27,10 +27,8 @@ import elemental2.dom.Headers;
 import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.elements.SectionElement;
 import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.layout.AppLayout;
-import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.layout.RightDrawerSize;
 import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.notifications.Notification.Position;
@@ -446,19 +444,17 @@ public class App implements EntryPoint,
                 .setOverFlowY("hidden") // stop scrollbars on the cell viewport
                 .appendChild(this.viewportComponent);
 
-        final NavBar navBar = layout.getNavBar();
-        navBar.withTitle(
-                (n, header) -> {
-                    header.appendChild(
-                            this.files.element()
-                    );
-                    header.appendChild(
-                            this.spreadsheetNameAnchorComponent().element()
-                    );
-                }
-        );
-
-        navBar.getBody()
+        layout.getNavBar()
+                .withTitle(
+                        (n, header) -> {
+                            header.appendChild(
+                                    this.files.element()
+                            );
+                            header.appendChild(
+                                    this.spreadsheetNameAnchorComponent().element()
+                            );
+                        }
+                ).getBody()
                 .appendChild(
                         SpreadsheetToolbarComponent.with(this)
                 );
@@ -478,11 +474,12 @@ public class App implements EntryPoint,
                 this::appLayoutRightPanelClosed
         );
 
-        final Icon<?> rightToggleIcon = Icons.menu_open();
-        rightToggleIcon.addClickListener(
-                this::appLayoutRightToggleIconOnClick
+        layout.setRightDrawerToggleIcon(
+                Icons.menu_open()
+                        .addClickListener(
+                                this::appLayoutRightToggleIconOnClick
+                        )
         );
-        layout.setRightDrawerToggleIcon(rightToggleIcon);
 
         DomGlobal.document.body.append(
                 layout.element()
