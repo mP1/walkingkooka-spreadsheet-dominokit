@@ -410,20 +410,7 @@ public class App implements EntryPoint,
         this.fireWindowSizeLater(this::onWindowResize);
     }
 
-    // Files............................................................................................................
-
-    /**
-     * A link that shows the File browser.
-     */
-    private HistoryTokenAnchorComponent files() {
-        // TODO need to *READ* from and count
-        return HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // from
-                        OptionalInt.empty() // count
-                )
-                .link("files")
-                .setTextContent("Files");
-    }
+    // SpreadsheetAppLayout.............................................................................................
 
     // header = metadata toggle | clickable(editable) spreadsheet name
     // right = editable metadata properties
@@ -485,7 +472,55 @@ public class App implements EntryPoint,
         return layout;
     }
 
+    /**
+     * Handler that reacts to the right panel toggle icon being clicked, updating the history. The {@link SpreadsheetMetadataPanelComponent}
+     * will see the history token change and then open or hide itself.
+     */
+    private void appLayoutRightToggleIconOnClick(final Event event) {
+        HistoryToken token = this.historyToken();
+
+        this.pushHistoryToken(
+                this.layout.isRightDrawerOpen() ?
+                        token.metadataHide() :
+                        token.metadataShow()
+        );
+    }
+
+    private final SpreadsheetAppLayout layout;
+
+    /**
+     * This event is fired when the right panel closes, such as when the user clicks away from it and the history token needs to be updated.
+     */
+    private void appLayoutRightPanelClosed(final AppLayout layout,
+                                           final SectionElement section) {
+        final HistoryToken token = this.historyToken();
+
+        // HACK only hide metadata panel if NOT displaying a metadata editor dialog
+        if (false == SpreadsheetDialogComponent.isAnyOpen()) {
+            this.pushHistoryToken(
+                    token.metadataHide()
+            );
+        }
+    }
+
+    // Files............................................................................................................
+
+    /**
+     * A link that shows the File browser.
+     */
+    private HistoryTokenAnchorComponent files() {
+        // TODO need to *READ* from and count
+        return HistoryToken.spreadsheetListSelect(
+                        OptionalInt.empty(), // from
+                        OptionalInt.empty() // count
+                )
+                .link("files")
+                .setTextContent("Files");
+    }
+
     private final HistoryTokenAnchorComponent files;
+
+    // name.............................................................................................................
 
     /**
      * A {@link HistoryTokenAnchorComponent} which is updated to something like #/1/SpreadsheetName/rename, which
@@ -521,36 +556,7 @@ public class App implements EntryPoint,
         return anchor;
     }
 
-    /**
-     * Handler that reacts to the right panel toggle icon being clicked, updating the history. The {@link SpreadsheetMetadataPanelComponent}
-     * will see the history token change and then open or hide itself.
-     */
-    private void appLayoutRightToggleIconOnClick(final Event event) {
-        HistoryToken token = this.historyToken();
-
-        this.pushHistoryToken(
-                this.layout.isRightDrawerOpen() ?
-                        token.metadataHide() :
-                        token.metadataShow()
-        );
-    }
-
-    private final SpreadsheetAppLayout layout;
-
-    /**
-     * This event is fired when the right panel closes, such as when the user clicks away from it and the history token needs to be updated.
-     */
-    private void appLayoutRightPanelClosed(final AppLayout layout,
-                                           final SectionElement section) {
-        final HistoryToken token = this.historyToken();
-
-        // HACK only hide metadata panel if NOT displaying a metadata editor dialog
-        if (false == SpreadsheetDialogComponent.isAnyOpen()) {
-            this.pushHistoryToken(
-                    token.metadataHide()
-            );
-        }
-    }
+    // WindowResize.....................................................................................................
 
     private void onWindowResize(final Integer width,
                                 final Integer height) {
@@ -569,6 +575,48 @@ public class App implements EntryPoint,
 
         this.computeAndSaveSpreadsheetListDialogComponentDefaultCount(newHeight);
     }
+
+    // defaultCount.....................................................................................................
+
+    @Override
+    public OptionalInt spreadsheetListDialogComponentDefaultCount() {
+        return this.defaultCount;
+    }
+
+    private OptionalInt defaultCount = OptionalInt.of(10);
+
+    private void computeAndSaveSpreadsheetListDialogComponentDefaultCount(final int windowHeight) {
+        // height - 350 reserved for dialog title, links along bottom etc divided by 32 for each row
+        final OptionalInt defaultCount = OptionalInt.of(
+                (windowHeight - 350) / 32
+        );
+        this.defaultCount = defaultCount;
+
+        this.lastResize = System.currentTimeMillis();
+
+        // only reload SpreadsheetListDialogComponent after resizing stops.
+        DomGlobal.setTimeout(
+                (values) -> {
+                    if (System.currentTimeMillis() - this.lastResize > 1000) {
+                        final HistoryToken historyToken = this.historyToken();
+                        if (historyToken instanceof SpreadsheetListSelectHistoryToken) {
+                            final OptionalInt count = historyToken.count();
+                            if (false == count.isPresent()) {
+                                this.pushHistoryToken(
+                                        historyToken.setReload()
+                                );
+                            }
+                        }
+                    }
+                },
+                1000
+        );
+    }
+
+    /**
+     * Used to track when resizing stops, after resizing stops a reload will happen if SpreadsheetListDialogComponent is displayed.
+     */
+    private long lastResize;
 
     // ClipboardContext.................................................................................................
 
@@ -1303,48 +1351,6 @@ public class App implements EntryPoint,
     public LocalDateTime now() {
         return LocalDateTime.now();
     }
-
-    // defaultCount.....................................................................................................
-
-    @Override
-    public OptionalInt spreadsheetListDialogComponentDefaultCount() {
-        return this.defaultCount;
-    }
-
-    private OptionalInt defaultCount = OptionalInt.of(10);
-
-    private void computeAndSaveSpreadsheetListDialogComponentDefaultCount(final int windowHeight) {
-        // height - 350 reserved for dialog title, links along bottom etc divided by 32 for each row
-        final OptionalInt defaultCount = OptionalInt.of(
-                (windowHeight - 350) / 32
-        );
-        this.defaultCount = defaultCount;
-
-        this.lastResize = System.currentTimeMillis();
-
-        // only reload SpreadsheetListDialogComponent after resizing stops.
-        DomGlobal.setTimeout(
-                (values) -> {
-                    if (System.currentTimeMillis() - this.lastResize > 1000) {
-                        final HistoryToken historyToken = this.historyToken();
-                        if (historyToken instanceof SpreadsheetListSelectHistoryToken) {
-                            final OptionalInt count = historyToken.count();
-                            if (false == count.isPresent()) {
-                                this.pushHistoryToken(
-                                        historyToken.setReload()
-                                );
-                            }
-                        }
-                    }
-                },
-                1000
-        );
-    }
-
-    /**
-     * Used to track when resizing stops, after resizing stops a reload will happen if SpreadsheetListDialogComponent is displayed.
-     */
-    private long lastResize;
 
     // HistoryTokenContextDelegator.....................................................................................
 
