@@ -474,7 +474,7 @@ public class App implements EntryPoint,
                                         ))
                 );
         layout.onRightDrawerClosed(
-                (AppLayout a, final SectionElement s) -> this.appLayoutRightPanelClosed()
+                this::appLayoutRightPanelClosed
         );
 
         final Icon<?> rightToggleIcon = Icons.menu_open();
@@ -545,7 +545,8 @@ public class App implements EntryPoint,
     /**
      * This event is fired when the right panel closes, such as when the user clicks away from it and the history token needs to be updated.
      */
-    private void appLayoutRightPanelClosed() {
+    private void appLayoutRightPanelClosed(final AppLayout layout,
+                                           final SectionElement section) {
         final HistoryToken token = this.historyToken();
 
         // HACK only hide metadata panel if NOT displaying a metadata editor dialog
