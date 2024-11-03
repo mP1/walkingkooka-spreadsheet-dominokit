@@ -471,7 +471,8 @@ public class App implements EntryPoint,
                                         SpreadsheetMetadataPanelComponent.with(
                                                 SpreadsheetAppLayoutRightDrawerComponent.with(layout),
                                                 SpreadsheetMetadataPanelComponentContexts.appContext(this)
-                                        ))
+                                        )
+                                )
                 );
         layout.onRightDrawerClosed(
                 this::appLayoutRightPanelClosed
