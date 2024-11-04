@@ -216,9 +216,7 @@ public interface AppContext extends CanGiveFocus,
      */
     default UrlQueryString lastCellFindQueryString() {
         return this.isViewportHighlightEnabled() ?
-                SpreadsheetDeltaFetcher.cellFindQueryString(
-                        this.lastCellFind()
-                ) :
+                this.lastCellFind().toUrlQueryString() :
                 UrlQueryString.EMPTY;
     }
 

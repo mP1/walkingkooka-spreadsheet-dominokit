@@ -43,7 +43,6 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -65,7 +64,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.OptionalInt;
 import java.util.Set;
 import java.util.function.BiFunction;
 
@@ -212,60 +210,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         }
 
         return match;
-    }
-
-    /**
-     * Appends any {@link SpreadsheetCellFind} values to the given {@link UrlQueryString}.
-     */
-    public static UrlQueryString cellFindQueryString(final SpreadsheetCellFind find) {
-        Objects.requireNonNull(find, "find");
-
-        UrlQueryString result = UrlQueryString.EMPTY;
-
-        final Optional<SpreadsheetCellRangeReferencePath> path = find.path();
-        final OptionalInt offset = find.offset();
-        final OptionalInt max = find.max();
-        final Optional<String> valueType = find.valueType();
-        final Optional<String> query = find.query();
-
-        if (path.isPresent()) {
-            result = result.addParameter(
-                    SpreadsheetDeltaUrlQueryParameters.CELL_RANGE_PATH,
-                    CaseKind.kebabEnumName(
-                            path.get()
-                    )
-            );
-        }
-        if (max.isPresent()) {
-            result = result.addParameter(
-                    SpreadsheetDeltaUrlQueryParameters.MAX,
-                    String.valueOf(
-                            max.getAsInt()
-                    )
-            );
-        }
-        if (offset.isPresent()) {
-            result = result.addParameter(
-                    SpreadsheetDeltaUrlQueryParameters.OFFSET,
-                    String.valueOf(
-                            offset.getAsInt()
-                    )
-            );
-        }
-        if (query.isPresent()) {
-            result = result.addParameter(
-                    SpreadsheetDeltaUrlQueryParameters.QUERY,
-                    query.get()
-            );
-        }
-        if (valueType.isPresent()) {
-            result = result.addParameter(
-                    SpreadsheetDeltaUrlQueryParameters.VALUE_TYPE,
-                    valueType.get()
-            );
-        }
-
-        return result;
     }
 
     public static UrlQueryString viewportAndWindowQueryString(final SpreadsheetViewport viewport,
@@ -423,9 +367,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 ).appendPathName(
                         SpreadsheetDeltaHateosResourceMappings.FIND.toUrlPathName()
                 ).setQuery(
-                        cellFindQueryString(
-                                find
-                        )
+                        find.toUrlQueryString()
                 );
     }
 
