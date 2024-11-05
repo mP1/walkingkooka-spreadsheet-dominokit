@@ -44,7 +44,7 @@ public final class SpreadsheetLabelComponentTest implements ValueComponentTestin
                         "  SpreadsheetSuggestBoxComponent\n" +
                         "    Label123 [] REQUIRED\n" +
                         "    Errors\n" +
-                        "      Label is empty\n"
+                        "      Empty \"Label\"\n"
         );
     }
 

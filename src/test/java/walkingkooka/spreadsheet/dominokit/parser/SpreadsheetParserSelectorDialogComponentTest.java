@@ -138,7 +138,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "          SpreadsheetTextBox\n" +
                         "            [date-parse-pattern] id=SpreadsheetParserSelectorDialogComponent-TextBox\n" +
                         "            Errors\n" +
-                        "              text is empty\n" +
+                        "              Empty \"text\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" DISABLED id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +

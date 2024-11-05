@@ -232,7 +232,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
                         "    SpreadsheetTextBox\n" +
                         "      []\n" +
                         "      Errors\n" +
-                        "        text is empty\n"
+                        "        Empty \"text\"\n"
         );
     }
 

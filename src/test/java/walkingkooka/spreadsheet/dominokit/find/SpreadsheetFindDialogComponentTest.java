@@ -61,7 +61,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetTextBox\n" +
                         "            Cell Range [] id=find--cell-range\n" +
                         "            Errors\n" +
-                        "              text is empty\n" +
+                        "              Empty \"text\"\n" +
                         "      SpreadsheetCellRangeReferencePathComponent\n" +
                         "        SpreadsheetSelectComponent\n" +
                         "          Cell Range Path [] id=find--cell-range-path-Select\n" +
@@ -127,7 +127,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetTextBox\n" +
                         "            Cell Range [] id=find--cell-range\n" +
                         "            Errors\n" +
-                        "              text is empty\n" +
+                        "              Empty \"text\"\n" +
                         "      SpreadsheetCellRangeReferencePathComponent\n" +
                         "        SpreadsheetSelectComponent\n" +
                         "          Cell Range Path [] id=find--cell-range-path-Select\n" +
@@ -198,7 +198,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetTextBox\n" +
                         "            Cell Range [] id=find--cell-range\n" +
                         "            Errors\n" +
-                        "              text is empty\n" +
+                        "              Empty \"text\"\n" +
                         "      SpreadsheetCellRangeReferencePathComponent\n" +
                         "        SpreadsheetSelectComponent\n" +
                         "          Cell Range Path [] id=find--cell-range-path-Select\n" +
