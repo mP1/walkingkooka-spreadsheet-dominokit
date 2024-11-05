@@ -41,8 +41,8 @@ public final class FindHighlighting implements PublicStaticHelper {
      */
     public static String label(final boolean enabled) {
         return enabled ?
-                "Disable cell highlighting" :
-                "Enable cell highlighting";
+                "Enable cell highlighting" :
+                "Disable cell highlighting";
     }
 
     /**

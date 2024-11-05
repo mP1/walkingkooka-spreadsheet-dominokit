@@ -65,7 +65,16 @@ public final class SpreadsheetTooltipComponent implements SpreadsheetTooltipComp
     public SpreadsheetTooltipComponent setTextContent(final String text) {
         CharSequences.failIfNullOrEmpty(text, "text");
 
-        this.tooltip.setTooltip(text, this.direction);
+        // unable to update text by simply doing a tooltip#setContent
+        // recreating tooltip seems best bet.
+
+        this.tooltip.detach();
+
+        this.tooltip = Tooltip.create(
+                this.component.element(),
+                text
+        ).setPosition(this.direction);
+
         return this;
     }
 
@@ -84,7 +93,7 @@ public final class SpreadsheetTooltipComponent implements SpreadsheetTooltipComp
         this.component.tooltipDetached();
     }
 
-    private final Tooltip tooltip;
+    private Tooltip tooltip;
 
     private final SpreadsheetTooltipComponentTarget component;
 }
