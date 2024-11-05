@@ -48,7 +48,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extend
                         SpreadsheetIcons.highlight()
                 ),
                 "Highlight",
-                "Enable highlighting cells matched by query",
+                "Highlight", // let refresh load tooltip
                 context
         );
         this.refresh(context);
@@ -68,7 +68,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extend
         final boolean enabled = FindHighlighting.isEnabled(context);
 
         this.setTooltipText(
-                FindHighlighting.label(enabled)
+                FindHighlighting.label(false == enabled)
         );
 
         this.anchor.setChecked(
@@ -78,9 +78,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extend
                         context.historyToken()
                                 .setMetadataPropertyName(SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING)
                                 .setSave(
-                                        Optional.of(
-                                                false == enabled // if enable=true then click makes disable=false
-                                        )
+                                        Optional.of(false == enabled)
                                 )
                 )
         );

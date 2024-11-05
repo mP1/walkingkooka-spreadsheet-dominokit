@@ -48,7 +48,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends 
                         SpreadsheetIcons.hideZeroValues()
                 ),
                 "Hide Zeros",
-                "Hide cells with formatted zero values",
+                "Hide Zeros", // let refresh load tooltip
                 context
         );
         this.refresh(context);
@@ -68,7 +68,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends 
         final boolean hide = HideZeroValues.isHideZeroValues(context);
 
         this.setTooltipText(
-                HideZeroValues.label(hide)
+                HideZeroValues.label(false == hide)
         );
 
         this.anchor.setChecked(
