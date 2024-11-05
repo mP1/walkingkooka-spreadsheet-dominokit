@@ -46,7 +46,6 @@ import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetParserFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -191,46 +190,17 @@ public interface AppContext extends CanGiveFocus,
      */
     SpreadsheetViewportCache spreadsheetViewportCache();
 
-    /**
-     * Returns true if viewport {@link SpreadsheetCellFind} highlighting is enabled.
-     */
-    boolean isViewportHighlightEnabled();
-
-    /**
-     * Setter that updates the viewportHighlightEnabled flag.
-     */
-    void setViewportHighlightEnabled(boolean viewportHighlightEnabled);
-
     // cellFind.........................................................................................................
 
     /**
-     * Returns the last {@link SpreadsheetCellFind} which will initially be {@link SpreadsheetCellFind#empty()}.
-     */
-    SpreadsheetCellFind lastCellFind();
-
-    void setLastCellFind(final SpreadsheetCellFind lastCellFind);
-
-    /**
-     * Returns a {@link UrlQueryString} which will not be empty if {@link #isViewportHighlightEnabled()} is true
-     * and {@link SpreadsheetCellFind} is not empty.
-     */
-    default UrlQueryString lastCellFindQueryString() {
-        return this.isViewportHighlightEnabled() ?
-                this.lastCellFind().toUrlQueryString() :
-                UrlQueryString.EMPTY;
-    }
-
-    /**
-     * Returns a {@link UrlQueryString} that includes the viewport/window and lastCellFind.
+     * Returns a {@link UrlQueryString} that includes the viewport/window
      * This is particularly useful for {@link SpreadsheetDeltaFetcher}
      */
-    default UrlQueryString lastCellFindAndViewportAndWindowQueryString() {
+    default UrlQueryString viewportAndWindowQueryString() {
         return SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
                 this.viewport(SpreadsheetViewport.NO_ANCHORED_SELECTION),
                 this.spreadsheetViewportCache()
                         .windows()
-        ).addParameters(
-                this.lastCellFindQueryString()
         );
     }
 

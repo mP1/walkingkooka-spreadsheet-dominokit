@@ -47,7 +47,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.provider.FakeSpreadsheetProvider;
@@ -306,28 +305,6 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public SpreadsheetViewportCache spreadsheetViewportCache() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean isViewportHighlightEnabled() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setViewportHighlightEnabled(final boolean viewportHighlightEnabled) {
-        throw new UnsupportedOperationException();
-    }
-
-    // cellFind.........................................................................................................
-
-    @Override
-    public SpreadsheetCellFind lastCellFind() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setLastCellFind(final SpreadsheetCellFind lastCellFind) {
         throw new UnsupportedOperationException();
     }
 

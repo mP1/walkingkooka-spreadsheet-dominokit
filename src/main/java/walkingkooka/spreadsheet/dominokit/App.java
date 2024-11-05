@@ -117,7 +117,6 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogCompo
 import walkingkooka.spreadsheet.dominokit.toolbar.SpreadsheetToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterProvider;
@@ -159,7 +158,6 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import java.math.MathContext;
 import java.time.LocalDateTime;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
@@ -1295,23 +1293,6 @@ public class App implements EntryPoint,
 
     private final SpreadsheetViewportCache viewportCache;
 
-    // viewportHighlightEnabled.........................................................................................
-
-    /**
-     * Returns true if viewport {@link SpreadsheetCellFind} highlighting is enabled.
-     */
-    @Override
-    public boolean isViewportHighlightEnabled() {
-        return this.viewportHighlightEnabled;
-    }
-
-    @Override
-    public void setViewportHighlightEnabled(final boolean viewportHighlightEnabled) {
-        this.viewportHighlightEnabled = viewportHighlightEnabled;
-    }
-
-    private boolean viewportHighlightEnabled = false;
-
     // CanGiveFocus.....................................................................................................
 
     @Override
@@ -1320,21 +1301,6 @@ public class App implements EntryPoint,
     }
 
     private final CanGiveFocus canGiveFocus;
-
-    // lastCellFind......................................................................................................
-
-    @Override
-    public SpreadsheetCellFind lastCellFind() {
-        return this.lastCellFind;
-    }
-
-    @Override
-    public void setLastCellFind(final SpreadsheetCellFind lastCellFind) {
-        Objects.requireNonNull(lastCellFind, "lastCellFind");
-        this.lastCellFind = lastCellFind;
-    }
-
-    private SpreadsheetCellFind lastCellFind = SpreadsheetCellFind.empty();
 
     // HasLocale........................................................................................................
 

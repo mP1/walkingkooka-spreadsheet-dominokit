@@ -319,7 +319,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 ).appendPathName(
                         SpreadsheetDeltaHateosResourceMappings.CLEAR.toUrlPathName()
                 ).setQuery(
-                        context.lastCellFindAndViewportAndWindowQueryString()
+                        context.viewportAndWindowQueryString()
                 ),
                 SpreadsheetDelta.EMPTY
         );
@@ -336,7 +336,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         id,
                         selection
                 ).setQuery(
-                        context.lastCellFindAndViewportAndWindowQueryString()
+                        context.viewportAndWindowQueryString()
                 )
         );
     }
@@ -427,7 +427,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
 
         final UrlQueryString queryString = UrlQueryString.parse("count=" + count)
                 .addParameters(
-                        context.lastCellFindAndViewportAndWindowQueryString()
+                        context.viewportAndWindowQueryString()
                 );
 
         // /api/spreadsheet/SpreadsheetId/column/A:B/insertBefore?count=1
@@ -462,8 +462,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 ).setQuery(
                         viewportQueryString(
                                 viewport
-                        ).addParameters(
-                                this.context.lastCellFindQueryString()
                         )
                 )
         );
@@ -484,8 +482,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 ).setQuery(
                         viewportQueryString(
                                 viewport
-                        ).addParameters(
-                                this.context.lastCellFindQueryString()
                         )
                 )
         );
@@ -603,7 +599,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         id,
                         selection
                 ).setQuery(
-                        context.lastCellFindAndViewportAndWindowQueryString()
+                        context.viewportAndWindowQueryString()
                 ),
                 patcher.apply(
                         cellToStyles,
@@ -681,7 +677,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         id,
                         selection
                 ).setQuery(
-                        context.lastCellFindAndViewportAndWindowQueryString()
+                        context.viewportAndWindowQueryString()
                 ),
                 SpreadsheetDelta.EMPTY.setCells(cells)
         );
@@ -698,7 +694,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         id,
                         selection
                 ).setQuery(
-                        context.lastCellFindAndViewportAndWindowQueryString()
+                        context.viewportAndWindowQueryString()
                 ),
                 SpreadsheetDelta.EMPTY.setCells(
                         Sets.of(
@@ -723,7 +719,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         id,
                         selection
                 ).setQuery(
-                        context.lastCellFindAndViewportAndWindowQueryString()
+                        context.viewportAndWindowQueryString()
                 ),
                 SpreadsheetDelta.formatterPatch(
                         formatter,
@@ -742,7 +738,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         id,
                         selection
                 ).setQuery(
-                        context.lastCellFindAndViewportAndWindowQueryString()
+                        context.viewportAndWindowQueryString()
                 ),
                 SpreadsheetDelta.parserPatch(
                         parser,
@@ -762,7 +758,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         id,
                         selection
                 ).setQuery(
-                        context.lastCellFindAndViewportAndWindowQueryString()
+                        context.viewportAndWindowQueryString()
                 ),
                 SpreadsheetDelta.stylePatch(
                         name.stylePatch(
@@ -783,7 +779,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 ).appendPathName(
                         SpreadsheetDeltaHateosResourceMappings.SORT.toUrlPathName()
                 ).setQuery(
-                        this.context.lastCellFindAndViewportAndWindowQueryString()
+                        this.context.viewportAndWindowQueryString()
                                 .addParameter(
                                         SpreadsheetDeltaUrlQueryParameters.COMPARATORS,
                                         comparators.text()
