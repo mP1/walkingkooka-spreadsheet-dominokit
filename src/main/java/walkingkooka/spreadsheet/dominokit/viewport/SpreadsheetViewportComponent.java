@@ -56,7 +56,6 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHighlightSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
@@ -1039,13 +1038,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                     historyToken.cast(SpreadsheetCellFindHistoryToken.class),
                     context
             );
-        }
-
-        if (historyToken instanceof SpreadsheetCellHighlightSaveHistoryToken) {
-            context.debug("SpreadsheetViewportComponent.refresh cell highlight save need to loadViewportCells");
-
-            this.reload = true;
-            this.loadViewportCells(context);
         }
 
         this.scrollbarsRefresh();

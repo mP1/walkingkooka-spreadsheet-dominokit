@@ -170,11 +170,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     final static String INSERT_BEFORE_STRING = "insertBefore";
 
     final static UrlFragment INSERT_BEFORE = UrlFragment.parse(INSERT_BEFORE_STRING);
-
-    final static String HIGHLIGHT_STRING = "highlight";
-
-    final static UrlFragment HIGHLIGHT = UrlFragment.parse(HIGHLIGHT_STRING);
-
+    
     final static String LABEL_STRING = "label";
 
     final static UrlFragment LABEL = UrlFragment.parse(LABEL_STRING);
@@ -393,34 +389,6 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                                final SpreadsheetName name,
                                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellFreezeHistoryToken.with(
-                id,
-                name,
-                anchoredSelection
-        );
-    }
-
-    /**
-     * {@see SpreadsheetCellHighlightSaveHistoryToken}
-     */
-    public static SpreadsheetCellHighlightSaveHistoryToken cellHighlightSave(final SpreadsheetId id,
-                                                                             final SpreadsheetName name,
-                                                                             final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                             final boolean value) {
-        return SpreadsheetCellHighlightSaveHistoryToken.with(
-                id,
-                name,
-                anchoredSelection,
-                value
-        );
-    }
-
-    /**
-     * {@see SpreadsheetCellHighlightSelectHistoryToken}
-     */
-    public static SpreadsheetCellHighlightSelectHistoryToken cellHighlightSelect(final SpreadsheetId id,
-                                                                                 final SpreadsheetName name,
-                                                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
-        return SpreadsheetCellHighlightSelectHistoryToken.with(
                 id,
                 name,
                 anchoredSelection
@@ -1767,26 +1735,6 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         return Optional.ofNullable(token);
-    }
-
-    /**
-     * Creates a {@link SpreadsheetCellHighlightHistoryToken}.
-     */
-    public final HistoryToken setHighlight() {
-        HistoryToken historyToken = this;
-
-        if (this instanceof SpreadsheetCellHistoryToken) {
-            if (false == this instanceof SpreadsheetCellHighlightHistoryToken) {
-                final SpreadsheetCellHistoryToken cellHistoryToken = (SpreadsheetCellHistoryToken) this;
-                historyToken = cellHighlightSelect(
-                        cellHistoryToken.id(),
-                        cellHistoryToken.name(),
-                        cellHistoryToken.anchoredSelection()
-                );
-            }
-        }
-
-        return historyToken;
     }
 
     /**
