@@ -53,13 +53,13 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                         "        SpreadsheetSuggestBoxComponent\n" +
                         "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                         "          Errors\n" +
-                        "            Label is empty\n" +
+                        "            Empty \"Label\"\n" +
                         "      SpreadsheetExpressionReferenceComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
                         "            Errors\n" +
-                        "              text is empty\n" +
+                        "              Empty \"text\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
@@ -89,13 +89,13 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                         "        SpreadsheetSuggestBoxComponent\n" +
                         "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                         "          Errors\n" +
-                        "            Label is empty\n" +
+                        "            Empty \"Label\"\n" +
                         "      SpreadsheetExpressionReferenceComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
                         "            Errors\n" +
-                        "              text is empty\n" +
+                        "              Empty \"text\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
@@ -116,13 +116,13 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                         "        SpreadsheetSuggestBoxComponent\n" +
                         "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
                         "          Errors\n" +
-                        "            Label is empty\n" +
+                        "            Empty \"Label\"\n" +
                         "      SpreadsheetExpressionReferenceComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
                         "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
                         "            Errors\n" +
-                        "              text is empty\n" +
+                        "              Empty \"text\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
@@ -156,7 +156,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                         "          SpreadsheetTextBox\n" +
                         "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
                         "            Errors\n" +
-                        "              text is empty\n" +
+                        "              Empty \"text\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" DISABLED id=labelMapping-save-Link\n" +

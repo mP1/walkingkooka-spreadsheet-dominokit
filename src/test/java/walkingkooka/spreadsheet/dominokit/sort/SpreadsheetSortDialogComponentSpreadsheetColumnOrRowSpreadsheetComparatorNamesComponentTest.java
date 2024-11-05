@@ -138,7 +138,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                         "              SpreadsheetTextBox\n" +
                         "                [] id=sort-comparator-1-TextBox\n" +
                         "                Errors\n" +
-                        "                  text is empty\n" +
+                        "                  Empty \"text\"\n" +
                         "          \"Move Up\" DISABLED id=sort-comparator-1-moveUp-Link\n" +
                         "          \"Move Down\" DISABLED id=sort-comparator-1-moveDown-Link\n"
         );

@@ -142,7 +142,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "          SpreadsheetTextBox\n" +
                         "            [date-format-pattern] id=SpreadsheetFormatterSelectorDialogComponent-TextBox\n" +
                         "            Errors\n" +
-                        "              text is empty\n" +
+                        "              Empty \"text\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" + // save is disabled !!!
