@@ -91,10 +91,10 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     }
 
     /**
-     * {@see SpreadsheetToolbarComponentItemLinkViewportHighlight}
+     * {@see SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting}
      */
     static SpreadsheetToolbarComponentItem<?> highlightCells(final AppContext context) {
-        return SpreadsheetToolbarComponentItemAnchorViewportHighlight.with(
+        return SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting.with(
                 context
         );
     }
