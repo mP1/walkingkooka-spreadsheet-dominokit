@@ -142,7 +142,7 @@ public final class SpreadsheetToolbarComponentTest implements ComponentLifecycle
                         "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/metadata/hide-zero-values/save/true] id=toolbar-hide-zero-values-Link\n" +
                         "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/find] id=toolbar-find-cells-Link\n" +
                         "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/metadata/find-highlighting/save/true] id=toolbar-find-highlight-Link\n" +
-                        "      mdi-magnify \"Sort\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/sort/edit] id=toolbar-find-cells-Link\n" +
+                        "      mdi-sort \"Sort\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/sort/edit] id=toolbar-sort-Link\n" +
                         "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/label] id=toolbar-label-create-Link\n" +
                         "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
                         "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n"
@@ -168,7 +168,7 @@ public final class SpreadsheetToolbarComponentTest implements ComponentLifecycle
                         "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/metadata/hide-zero-values/save/true] id=toolbar-hide-zero-values-Link\n" +
                         "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
                         "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/metadata/find-highlighting/save/true] id=toolbar-find-highlight-Link\n" +
-                        "      mdi-magnify \"Sort\" [#/1/Spreadsheet123/column/B:C/right/sort/edit] id=toolbar-find-cells-Link\n" +
+                        "      mdi-sort \"Sort\" [#/1/Spreadsheet123/column/B:C/right/sort/edit] id=toolbar-sort-Link\n" +
                         "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/label] id=toolbar-label-create-Link\n" +
                         "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
                         "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n"
@@ -194,7 +194,7 @@ public final class SpreadsheetToolbarComponentTest implements ComponentLifecycle
                         "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/metadata/hide-zero-values/save/true] id=toolbar-hide-zero-values-Link\n" +
                         "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
                         "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/metadata/find-highlighting/save/true] id=toolbar-find-highlight-Link\n" +
-                        "      mdi-magnify \"Sort\" [#/1/Spreadsheet123/row/3:4/bottom/sort/edit] id=toolbar-find-cells-Link\n" +
+                        "      mdi-sort \"Sort\" [#/1/Spreadsheet123/row/3:4/bottom/sort/edit] id=toolbar-sort-Link\n" +
                         "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/label] id=toolbar-label-create-Link\n" +
                         "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
                         "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n"

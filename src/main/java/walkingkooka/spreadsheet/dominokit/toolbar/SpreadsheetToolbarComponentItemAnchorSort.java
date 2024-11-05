@@ -47,9 +47,9 @@ final class SpreadsheetToolbarComponentItemAnchorSort extends SpreadsheetToolbar
 
     private SpreadsheetToolbarComponentItemAnchorSort(final HistoryTokenContext context) {
         super(
-                SpreadsheetToolbarComponent.findCellsId(),
+                SpreadsheetToolbarComponent.sortId(),
                 Optional.of(
-                        SpreadsheetIcons.cellsFind()
+                        SpreadsheetIcons.sort()
                 ),
                 "Sort",
                 "Sort cell(s), column(s), row(s)...",

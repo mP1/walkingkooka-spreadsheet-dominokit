@@ -250,6 +250,10 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         return TOOLBAR_ID_PREFIX + "reload";
     }
 
+    public static String sortId() {
+        return TOOLBAR_ID_PREFIX + "sort";
+    }
+
     public static String swaggerId() {
         return TOOLBAR_ID_PREFIX + "swagger";
     }
