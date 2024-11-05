@@ -113,13 +113,6 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        final SpreadsheetCellFind previousFind = context.lastCellFind();
-        final SpreadsheetCellFind nextFind = this.find();
-        if (previous.equals(nextFind)) {
-            context.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange0 saved same find=" + nextFind);
-        } else {
-            context.setLastCellFind(nextFind);
-            context.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange0 saved " + nextFind + " was " + previousFind);
-        }
+        // NOP
     }
 }

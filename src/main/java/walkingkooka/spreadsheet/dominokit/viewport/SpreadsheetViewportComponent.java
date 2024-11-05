@@ -54,7 +54,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
@@ -74,7 +73,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuTargets;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenu;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFind;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -1033,13 +1031,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             );
         }
 
-        if (historyToken instanceof SpreadsheetCellFindHistoryToken) {
-            this.onSpreadsheetCellFindHistoryToken(
-                    historyToken.cast(SpreadsheetCellFindHistoryToken.class),
-                    context
-            );
-        }
-
         this.scrollbarsRefresh();
     }
 
@@ -1107,61 +1098,6 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     public boolean shouldLogLifecycleChanges() {
         return true;
     }
-
-    /**
-     * Tries to skip reloading the viewport cells if the {@link AppContext#lastCellFind()} is the same or should include
-     * all highlights for the current {@link SpreadsheetViewportCache#windows()}.
-     */
-    private void onSpreadsheetCellFindHistoryToken(final SpreadsheetCellFindHistoryToken historyToken,
-                                                   final AppContext context) {
-        final SpreadsheetCellFind spreadsheetCellFind = historyToken.find();
-
-        String notRequired = null;
-
-        final SpreadsheetCellFind last = context.lastCellFind();
-        if (last.equals(spreadsheetCellFind)) {
-            notRequired = " find unchanged " + last;
-        } else {
-            final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
-            final SpreadsheetSelection selectionNotLabel = cache.resolveIfLabel(
-                    historyToken.anchoredSelection()
-                            .selection()
-            );
-
-            final SpreadsheetViewportWindows windows = cache.windows();
-
-            String reload = "window " + windows + " not within " + selectionNotLabel.toStringMaybeStar();
-
-            if (selectionNotLabel.containsAll(windows)) {
-                reload = "offset not empty or 0";
-
-                final OptionalInt offset = spreadsheetCellFind.offset();
-                if (false == offset.isPresent() || offset.getAsInt() == 0) {
-
-                    reload = "max not empty or less than window cell count";
-
-                    final long windowsCellCount = windows.count();
-                    final OptionalInt max = spreadsheetCellFind.max();
-
-                    if (false == max.isPresent() || max.getAsInt() < windowsCellCount) {
-                        reload = null;
-                        notRequired = "";
-                    }
-                }
-            }
-
-            if (null != reload) {
-                context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellFindHistoryToken load viewport required because " + reload);
-                this.reload = true;
-                this.loadViewportCells(context);
-            }
-        }
-
-        if (null != notRequired) {
-            context.debug("SpreadsheetViewportComponent.onHistoryTokenChangeSpreadsheetCellFindHistoryToken " + notRequired + " viewport load not required");
-        }
-    }
-
 
     // SpreadsheetViewportComponentLifecycle............................................................................
 

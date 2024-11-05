@@ -225,11 +225,6 @@ public final class SpreadsheetToolbarComponentTest implements ComponentLifecycle
             }
 
             @Override
-            public boolean isViewportHighlightEnabled() {
-                return false;
-            }
-
-            @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
