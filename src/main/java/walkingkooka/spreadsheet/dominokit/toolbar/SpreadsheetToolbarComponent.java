@@ -226,16 +226,16 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         return TOOLBAR_ID_PREFIX + "find-cells";
     }
 
+    public static String findHighlightId() {
+        return TOOLBAR_ID_PREFIX + "find-highlight";
+    }
+
     public static String formatterId() {
         return TOOLBAR_ID_PREFIX + "formatter";
     }
 
     public static String hideZeroValues() {
         return TOOLBAR_ID_PREFIX + "hide-zero-values";
-    }
-
-    public static String highlightId() {
-        return TOOLBAR_ID_PREFIX + "highlight";
     }
 
     public static String labelCreateId() {
