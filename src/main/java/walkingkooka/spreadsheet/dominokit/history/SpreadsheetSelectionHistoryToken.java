@@ -83,9 +83,6 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             case FREEZE_STRING:
                 result = this.setFreeze();
                 break;
-            case HIGHLIGHT_STRING:
-                result = this.parseHighlight(cursor);
-                break;
             case INSERT_AFTER_STRING:
                 result = this.setInsertAfter(
                         parseCount(cursor)
@@ -243,11 +240,6 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
         }
 
         return this.setFind(find);
-    }
-
-    private HistoryToken parseHighlight(final TextCursor cursor) {
-        final HistoryToken token = this.setHighlight();
-        return token.parse(cursor);
     }
 
     private HistoryToken parseSort(final TextCursor cursor) {
