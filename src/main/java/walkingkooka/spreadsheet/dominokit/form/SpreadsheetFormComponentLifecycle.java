@@ -17,14 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.form;
 
+import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.text.printer.TreePrintable;
 
 /**
  * A form holds form components such as text boxes, links etc. Note it does not receive {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher}
  * events, it instead receives events to prepare or {@link #giveFocus(AppContext)} and {@link #refresh(AppContext)}.
  */
-public interface SpreadsheetFormComponentLifecycle extends TreePrintable {
+public interface SpreadsheetFormComponentLifecycle<E extends HTMLElement, C extends SpreadsheetFormComponentLifecycle<E, C>> extends HtmlElementComponent<E, C>, TreePrintable {
 
     void giveFocus(final AppContext context);
 
