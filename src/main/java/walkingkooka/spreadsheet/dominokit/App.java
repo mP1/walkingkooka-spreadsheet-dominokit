@@ -54,13 +54,11 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocuses;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
@@ -94,7 +92,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.toolbar.SpreadsheetToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
@@ -334,7 +331,7 @@ public class App implements EntryPoint,
                                     AppHistoryTokenAnchorComponents.files()
                             );
                             header.appendChild(
-                                    this.spreadsheetNameAnchorComponent().element()
+                                    AppHistoryTokenAnchorComponents.spreadsheetName(this)
                             );
                         }
                 ).getBody()
@@ -400,42 +397,6 @@ public class App implements EntryPoint,
                     token.metadataHide()
             );
         }
-    }
-
-    // name.............................................................................................................
-
-    /**
-     * A {@link HistoryTokenAnchorComponent} which is updated to something like #/1/SpreadsheetName/rename, which
-     * when clicked will open the {@link SpreadsheetNameDialogComponent}.
-     */
-    private HistoryTokenAnchorComponent spreadsheetNameAnchorComponent() {
-        final HistoryTokenAnchorComponent anchor = this.historyToken()
-                .link("spreadsheetNameRename");
-
-        this.addHistoryTokenWatcher(
-                (previous, context) -> {
-                    final HistoryToken historyToken = context.historyToken();
-
-                    SpreadsheetNameHistoryToken nameHistoryToken = null;
-                    String nameText = "";
-
-                    if (historyToken instanceof SpreadsheetNameHistoryToken) {
-                        nameHistoryToken = historyToken.cast(SpreadsheetNameHistoryToken.class);
-                        final SpreadsheetName name = nameHistoryToken.name();
-
-                        nameHistoryToken = HistoryToken.spreadsheetRenameSelect(
-                                nameHistoryToken.id(),
-                                name
-                        );
-                        nameText = name.text();
-                    }
-                    anchor.setHistoryToken(
-                            Optional.ofNullable(nameHistoryToken)
-                    );
-                    anchor.setTextContent(nameText);
-                }
-        );
-        return anchor;
     }
 
     // WindowResize.....................................................................................................

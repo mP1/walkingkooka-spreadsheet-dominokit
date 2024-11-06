@@ -18,9 +18,13 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
+import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 
+import java.util.Optional;
 import java.util.OptionalInt;
 
 /**
@@ -39,6 +43,42 @@ final class AppHistoryTokenAnchorComponents implements PublicStaticHelper {
                 )
                 .link("files")
                 .setTextContent("Files");
+    }
+
+    // name.............................................................................................................
+
+    /**
+     * A {@link HistoryTokenAnchorComponent} which is updated to something like #/1/SpreadsheetName/rename, which
+     * when clicked will open the {@link SpreadsheetNameDialogComponent}.
+     */
+    static HistoryTokenAnchorComponent spreadsheetName(final AppContext context) {
+        final HistoryTokenAnchorComponent anchor = context.historyToken()
+                .link("spreadsheetNameRename");
+
+        context.addHistoryTokenWatcher(
+                (previous, c) -> {
+                    final HistoryToken historyToken = c.historyToken();
+
+                    SpreadsheetNameHistoryToken nameHistoryToken = null;
+                    String nameText = "";
+
+                    if (historyToken instanceof SpreadsheetNameHistoryToken) {
+                        nameHistoryToken = historyToken.cast(SpreadsheetNameHistoryToken.class);
+                        final SpreadsheetName name = nameHistoryToken.name();
+
+                        nameHistoryToken = HistoryToken.spreadsheetRenameSelect(
+                                nameHistoryToken.id(),
+                                name
+                        );
+                        nameText = name.text();
+                    }
+                    anchor.setHistoryToken(
+                            Optional.ofNullable(nameHistoryToken)
+                    );
+                    anchor.setTextContent(nameText);
+                }
+        );
+        return anchor;
     }
 
     /**
