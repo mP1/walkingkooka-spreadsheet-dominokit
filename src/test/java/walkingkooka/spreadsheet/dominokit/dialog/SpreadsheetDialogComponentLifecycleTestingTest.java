@@ -80,7 +80,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         );
     }
 
-    final class TestSpreadsheetDialogComponentLifecycle implements SpreadsheetDialogComponentLifecycle,
+    final static class TestSpreadsheetDialogComponentLifecycle implements SpreadsheetDialogComponentLifecycle,
             TreePrintable {
 
         TestSpreadsheetDialogComponentLifecycle() {
