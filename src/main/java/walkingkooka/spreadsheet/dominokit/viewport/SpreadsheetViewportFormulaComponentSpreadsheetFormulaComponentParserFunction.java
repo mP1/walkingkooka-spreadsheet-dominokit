@@ -17,12 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursors;
@@ -34,7 +36,7 @@ import java.util.function.Function;
 
 /**
  * A {@link Function} that parsers any given text into a {@link SpreadsheetFormula}. The parser will be taken from an existing
- * {@link SpreadsheetCell#parser()} or falling back to {@link SpreadsheetMetadata#parser()} for the current {@link SpreadsheetCellReference}.
+ * {@link SpreadsheetCell#parser()} or falling back to {@link SpreadsheetMetadata#spreadsheetParser(SpreadsheetParserProvider, ProviderContext)} for the current {@link SpreadsheetCellReference}.
  */
 final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction implements Function<String, SpreadsheetFormula> {
 

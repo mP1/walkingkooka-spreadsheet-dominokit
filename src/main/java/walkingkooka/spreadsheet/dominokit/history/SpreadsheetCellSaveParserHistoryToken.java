@@ -40,7 +40,7 @@ import java.util.Optional;
  *
  * /123/SpreadsheetName456/cell/A1/save/parser/%7B%22A1%22%3A%20%22number-parse-pattern%200.00%22%7D}
  *
- * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/parser/{@link walkingkooka.spreadsheet.format.SpreadsheetParserSelector} patch as json.
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/parser/{@link SpreadsheetParserSelector} patch as json.
  * </pre>
  */
 public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<SpreadsheetParserSelector>> {
