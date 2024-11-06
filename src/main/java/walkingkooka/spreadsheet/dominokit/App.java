@@ -534,10 +534,10 @@ public class App implements EntryPoint,
     public void onSpreadsheetComparatorInfoSet(final SpreadsheetId id,
                                                final SpreadsheetComparatorInfoSet infos,
                                                final AppContext context) {
-        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
-            this.spreadsheetComparatorInfoSet = infos;
-            this.refreshSpreadsheetProvider();
-        }
+        this.maybeRefreshSpreadsheetProvider(
+                id,
+                () -> this.spreadsheetComparatorInfoSet = infos
+        );
     }
 
     private SpreadsheetComparatorInfoSet spreadsheetComparatorInfoSet;
@@ -567,10 +567,10 @@ public class App implements EntryPoint,
     public void onConverterInfoSet(final SpreadsheetId id,
                                    final ConverterInfoSet infos,
                                    final AppContext context) {
-        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
-            this.converterInfoSet = infos;
-            this.refreshSpreadsheetProvider();
-        }
+        this.maybeRefreshSpreadsheetProvider(
+                id,
+                () -> this.converterInfoSet = infos
+        );
     }
 
     private ConverterInfoSet converterInfoSet;
@@ -651,10 +651,10 @@ public class App implements EntryPoint,
     public void onSpreadsheetExporterInfoSet(final SpreadsheetId id,
                                              final SpreadsheetExporterInfoSet infos,
                                              final AppContext context) {
-        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
-            this.spreadsheetExporterInfoSet = infos;
-            this.refreshSpreadsheetProvider();
-        }
+        this.maybeRefreshSpreadsheetProvider(
+                id,
+                () -> this.spreadsheetExporterInfoSet = infos
+        );
     }
 
     private SpreadsheetExporterInfoSet spreadsheetExporterInfoSet;
@@ -684,10 +684,10 @@ public class App implements EntryPoint,
     public void onExpressionFunctionInfoSet(final SpreadsheetId id,
                                             final ExpressionFunctionInfoSet infos,
                                             final AppContext context) {
-        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
-            this.expressionFunctionInfoSet = infos;
-            this.refreshSpreadsheetProvider();
-        }
+        this.maybeRefreshSpreadsheetProvider(
+                id,
+                () -> this.expressionFunctionInfoSet = infos
+        );
     }
 
     private ExpressionFunctionInfoSet expressionFunctionInfoSet;
@@ -717,10 +717,10 @@ public class App implements EntryPoint,
     public void onSpreadsheetFormatterInfoSet(final SpreadsheetId id,
                                               final SpreadsheetFormatterInfoSet infos,
                                               final AppContext context) {
-        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
-            this.spreadsheetFormatterInfoSet = infos;
-            this.refreshSpreadsheetProvider();
-        }
+        this.maybeRefreshSpreadsheetProvider(
+                id,
+                () -> this.spreadsheetFormatterInfoSet = infos
+        );
     }
 
     private SpreadsheetFormatterInfoSet spreadsheetFormatterInfoSet;
@@ -764,10 +764,10 @@ public class App implements EntryPoint,
     public void onSpreadsheetImporterInfoSet(final SpreadsheetId id,
                                              final SpreadsheetImporterInfoSet infos,
                                              final AppContext context) {
-        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
-            this.spreadsheetImporterInfoSet = infos;
-            this.refreshSpreadsheetProvider();
-        }
+        this.maybeRefreshSpreadsheetProvider(
+                id,
+                () -> this.spreadsheetImporterInfoSet = infos
+        );
     }
 
     private SpreadsheetImporterInfoSet spreadsheetImporterInfoSet;
@@ -920,10 +920,10 @@ public class App implements EntryPoint,
     public void onSpreadsheetParserInfoSet(final SpreadsheetId id,
                                            final SpreadsheetParserInfoSet infos,
                                            final AppContext context) {
-        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
-            this.spreadsheetParserInfoSet = infos;
-            this.refreshSpreadsheetProvider();
-        }
+        this.maybeRefreshSpreadsheetProvider(
+                id,
+                () -> this.spreadsheetParserInfoSet = infos
+        );
     }
 
     private SpreadsheetParserInfoSet spreadsheetParserInfoSet;
@@ -989,6 +989,14 @@ public class App implements EntryPoint,
     @Override
     public SpreadsheetProvider spreadsheetProvider() {
         return this.spreadsheetProvider;
+    }
+
+    private void maybeRefreshSpreadsheetProvider(final SpreadsheetId id,
+                                                 final Runnable newInfoSet) {
+        if (id.equals(this.spreadsheetMetadata.id().orElse(null))) {
+            newInfoSet.run();
+            this.refreshSpreadsheetProvider();
+        }
     }
 
     private void refreshSpreadsheetProvider() {
