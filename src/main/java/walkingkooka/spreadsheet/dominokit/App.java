@@ -50,15 +50,9 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContexts;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
-import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponent;
-import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponent;
-import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocuses;
-import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
-import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -100,20 +94,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatchers
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetParserFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponent;
-import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponent;
-import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponent;
-import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialogComponent;
-import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponent;
-import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListComponentContexts;
-import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
-import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.toolbar.SpreadsheetToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
@@ -309,88 +290,9 @@ public class App implements EntryPoint,
 
         this.viewportComponent = SpreadsheetViewportComponent.empty(this);
 
-        SpreadsheetListDialogComponent.with(
-                SpreadsheetListComponentContexts.basic(
-                        this,
-                        this.spreadsheetMetadataFetcher,
-                        this.metadataFetcherWatchers,
-                        this
-                )
-        );
-
-        PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.findFunctions(this)
-        );
-        PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.formulaFunctions(this)
-        );
-
-        PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.converters(this)
-        );
-        PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.comparators(this)
-        );
-        PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.exporters(this)
-        );
-        PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.functions(this)
-        );
-        PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.formatters(this)
-        );
-        PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.importers(this)
-        );
-        PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.parsers(this)
-        );
-
-        SpreadsheetComparatorNameListDialogComponent.with(
-                SpreadsheetComparatorNameListDialogComponentContexts.sortComparators(this)
-        );
-
-        SpreadsheetNameDialogComponent.with(
-                SpreadsheetNameDialogComponentContexts.spreadsheetListRename(this)
-        );
-
-        SpreadsheetNameDialogComponent.with(
-                SpreadsheetNameDialogComponentContexts.spreadsheetRename(this)
-        );
-
-        SpreadsheetColumnRowInsertCountDialogComponent.with(
-                SpreadsheetColumnRowInsertCountDialogComponentContexts.appContext(this)
-        );
-
-        SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(this)
-        );
-
-        SpreadsheetLabelMappingDialogComponent.with(
-                SpreadsheetLabelMappingDialogComponentContexts.appContext(this)
-        );
-
-        SpreadsheetFormatterSelectorDialogComponent.with(
-                SpreadsheetFormatterSelectorDialogComponentContexts.cell(this)
-        );
-
-        SpreadsheetParserSelectorDialogComponent.with(
-                SpreadsheetParserSelectorDialogComponentContexts.cell(this)
-        );
-
-        SpreadsheetFormatterSelectorDialogComponent.with(
-                SpreadsheetFormatterSelectorDialogComponentContexts.metadata(this)
-        );
-        SpreadsheetParserSelectorDialogComponent.with(
-                SpreadsheetParserSelectorDialogComponentContexts.metadata(this)
-        );
-
-        SpreadsheetSortDialogComponent.with(
-                SpreadsheetSortDialogComponentContexts.basic(
-                        this, // SpreadsheetComparatorProvider
-                        this // HistoryTokenContext
-                )
+        AppSpreadsheetDialogComponents.register(
+                this.metadataFetcherWatchers,
+                this
         );
 
         this.layout = this.prepareLayout();
