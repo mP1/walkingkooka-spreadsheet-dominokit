@@ -40,7 +40,6 @@ import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CaseSensitivity;
 import walkingkooka.text.CharSequences;
-import walkingkooka.text.GlobPattern;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -211,15 +210,6 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                 text,
                 CaseSensitivity.INSENSITIVE
         );
-    }
-
-    private static GlobPattern globPattern(final String text) {
-        String globPattern = text;
-        if (false == text.startsWith("*") && false == text.endsWith("*")) {
-            globPattern = "*" + globPattern + "*";
-        }
-
-        return CaseSensitivity.INSENSITIVE.globPattern(globPattern);
     }
 
     // textBox..........................................................................................................
