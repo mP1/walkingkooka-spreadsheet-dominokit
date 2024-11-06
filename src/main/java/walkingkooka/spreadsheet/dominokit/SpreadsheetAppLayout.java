@@ -27,11 +27,11 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 
 import java.util.Objects;
 
-public final class SpreadsheetAppLayout extends AppLayout implements
+final class SpreadsheetAppLayout extends AppLayout implements
         ComponentLifecycle,
         HtmlElementComponent<HTMLDivElement, SpreadsheetAppLayout> {
 
-    public static SpreadsheetAppLayout empty(final HistoryTokenContext context) {
+    static SpreadsheetAppLayout empty(final HistoryTokenContext context) {
         Objects.requireNonNull(context, "context");
         return new SpreadsheetAppLayout(context);
     }
