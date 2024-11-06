@@ -184,8 +184,7 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
      */
     @Override
     default boolean isEmpty() {
-        final Optional<List<T>> value = this.value();
-        return false == value.isPresent() || false == value.isPresent();
+        return false == this.value().isPresent();
     }
 
     // TreePrintable....................................................................................................
