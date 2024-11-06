@@ -292,17 +292,6 @@ public class App implements EntryPoint,
         );
     }
 
-    // EntryPoint.......................................................................................................
-
-    @Override
-    public void onModuleLoad() {
-        this.appHistoryTokenContextHistoryTokenWatcher.onHistoryTokenChange(
-                this.historyToken()
-        );
-
-        this.fireWindowSizeLater(this::onWindowResize);
-    }
-
     // WindowResize.....................................................................................................
 
     private void onWindowResize(final Integer width,
@@ -366,6 +355,17 @@ public class App implements EntryPoint,
      * Used to track when resizing stops, after resizing stops a reload will happen if SpreadsheetListDialogComponent is displayed.
      */
     private long lastResize;
+
+    // EntryPoint.......................................................................................................
+
+    @Override
+    public void onModuleLoad() {
+        this.appHistoryTokenContextHistoryTokenWatcher.onHistoryTokenChange(
+                this.historyToken()
+        );
+
+        this.fireWindowSizeLater(this::onWindowResize);
+    }
 
     // ClipboardContext.................................................................................................
 
