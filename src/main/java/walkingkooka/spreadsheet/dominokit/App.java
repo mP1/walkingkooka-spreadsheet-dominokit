@@ -367,6 +367,180 @@ public class App implements EntryPoint,
         this.fireWindowSizeLater(this::onWindowResize);
     }
 
+    // SpreadsheetMetadataFetcher.......................................................................................
+
+    @Override
+    public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
+        return this.spreadsheetMetadataFetcher;
+    }
+
+    private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher;
+
+    @Override
+    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+        return this.metadataFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
+        return this.metadataFetcherWatchers.addOnce(watcher);
+    }
+
+    private final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers;
+
+    /**
+     * Update the spreadsheet-id, spreadsheet-name and viewport selection from the given {@link SpreadsheetMetadata}.
+     */
+    @Override
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                      final AppContext context) {
+        // SKIP spreadsheet id change if SpreadsheetListRenameHistoryToken
+        if (false == context.historyToken() instanceof SpreadsheetListRenameHistoryToken) {
+            final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
+            this.spreadsheetMetadata = metadata;
+
+            this.refreshSpreadsheetProvider();
+
+            // update the global JsonNodeUnmarshallContext.
+            this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
+                    metadata.expressionNumberKind(),
+                    metadata.mathContext()
+            );
+
+            final EnvironmentContext environmentContext = metadata.environmentContext();
+            this.providerContext = ProviderContexts.basic(environmentContext);
+
+            final Optional<SpreadsheetId> maybeId = metadata.id();
+            final Optional<SpreadsheetName> maybeName = metadata.name();
+
+            if (maybeId.isPresent() && maybeName.isPresent()) {
+                final SpreadsheetId id = maybeId.get();
+                final SpreadsheetName name = maybeName.get();
+
+                final HistoryToken historyToken = context.historyToken();
+                final Optional<SpreadsheetViewport> viewport = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT);
+
+                final HistoryToken idNameSelectionHistoryToken = historyToken
+                        .setIdAndName(
+                                id,
+                                name
+                        ).setAnchoredSelection(
+                                viewport.flatMap(SpreadsheetViewport::anchoredSelection)
+                        );
+
+                if (false == historyToken.equals(idNameSelectionHistoryToken)) {
+                    context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/anchoredSelection " + idNameSelectionHistoryToken, metadata);
+                    context.pushHistoryToken(idNameSelectionHistoryToken);
+                } else {
+                    // must have loaded a new spreadsheet, need to fire history token
+                    //
+                    // eg so a focused cell is given focus etc.
+                    if (false == id.equals(
+                            previousMetadata.id()
+                                    .orElse(null)
+                    )) {
+                        context.debug("App.onSpreadsheetMetadata new spreadsheet " + id + " loaded, firing history token again");
+
+                        context.fireCurrentHistoryToken();
+
+                        // need to also load all PluginInfoSetLikes...as they are also used to build menus etc.
+                        context.converterFetcher()
+                                .infoSet(id);
+                        context.spreadsheetComparatorFetcher()
+                                .infoSet(id);
+                        context.spreadsheetExporterFetcher()
+                                .infoSet(id);
+                        context.expressionFunctionFetcher()
+                                .infoSet(id);
+                        context.spreadsheetFormatterFetcher()
+                                .infoSet(id);
+                        context.spreadsheetImporterFetcher()
+                                .infoSet(id);
+                        context.spreadsheetParserFetcher()
+                                .infoSet(id);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                         final AppContext context) {
+        // IGNORE
+    }
+
+    /**
+     * Returns the current or last loaded {@link SpreadsheetMetadata}
+     */
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
+        return this.spreadsheetMetadata;
+    }
+
+    private SpreadsheetMetadata spreadsheetMetadata;
+
+    @Override
+    public ExpressionNumberKind expressionNumberKind() {
+        return this.spreadsheetMetadata.expressionNumberKind();
+    }
+
+    @Override
+    public MathContext mathContext() {
+        return this.spreadsheetMetadata.mathContext();
+    }
+
+    // SpreadsheetDeltaFetcher..........................................................................................
+
+    @Override
+    public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
+        return this.spreadsheetDeltaFetcher;
+    }
+
+    private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher;
+
+    @Override
+    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+        return this.spreadsheetDeltaFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
+        return this.spreadsheetDeltaFetcherWatchers.addOnce(watcher);
+    }
+
+    private final SpreadsheetDeltaFetcherWatchers spreadsheetDeltaFetcherWatchers;
+
+    @Override
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
+                                   final SpreadsheetDelta delta,
+                                   final AppContext context) {
+        // Updates the anchoredSpreadsheetSelection of the local Metadata.
+        // This will prevent a PATCH of the server metadata when the history token anchoredSpreadsheetSelection changes, which
+        // is fine because it was already updated when the delta above was returned.
+        //
+        // this will prevent looping where multiple metadata/deltas happen and each overwrites the previous.
+        //
+        // we only update the anchoredSpreadsheetMetadata because some metadata GETS such as load metadata will not
+        // have the window property (unnecessary to calculate and return).
+        delta.viewport()
+                .ifPresent(
+                        newV -> {
+                            final SpreadsheetMetadata metadata = this.spreadsheetMetadata;
+                            this.spreadsheetMetadata = metadata.setOrRemove(
+                                    SpreadsheetMetadataPropertyName.VIEWPORT,
+                                    metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT)
+                                            .map(
+                                                    oldV -> oldV.setAnchoredSelection(
+                                                            newV.anchoredSelection()
+                                                    )
+                                            ).orElse(null)
+                            );
+                        }
+                );
+    }
+
     // ClipboardContext.................................................................................................
 
     @Override
@@ -480,57 +654,6 @@ public class App implements EntryPoint,
     }
 
     private ConverterInfoSet converterInfoSet;
-
-    // SpreadsheetDeltaFetcher..........................................................................................
-
-    @Override
-    public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
-        return this.spreadsheetDeltaFetcher;
-    }
-
-    private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher;
-
-    @Override
-    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.spreadsheetDeltaFetcherWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.spreadsheetDeltaFetcherWatchers.addOnce(watcher);
-    }
-
-    private final SpreadsheetDeltaFetcherWatchers spreadsheetDeltaFetcherWatchers;
-
-    @Override
-    public void onSpreadsheetDelta(final HttpMethod method,
-                                   final AbsoluteOrRelativeUrl url,
-                                   final SpreadsheetDelta delta,
-                                   final AppContext context) {
-        // Updates the anchoredSpreadsheetSelection of the local Metadata.
-        // This will prevent a PATCH of the server metadata when the history token anchoredSpreadsheetSelection changes, which
-        // is fine because it was already updated when the delta above was returned.
-        //
-        // this will prevent looping where multiple metadata/deltas happen and each overwrites the previous.
-        //
-        // we only update the anchoredSpreadsheetMetadata because some metadata GETS such as load metadata will not
-        // have the window property (unnecessary to calculate and return).
-        delta.viewport()
-                .ifPresent(
-                        newV -> {
-                            final SpreadsheetMetadata metadata = this.spreadsheetMetadata;
-                            this.spreadsheetMetadata = metadata.setOrRemove(
-                                    SpreadsheetMetadataPropertyName.VIEWPORT,
-                                    metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT)
-                                            .map(
-                                                    oldV -> oldV.setAnchoredSelection(
-                                                            newV.anchoredSelection()
-                                                    )
-                                            ).orElse(null)
-                            );
-                        }
-                );
-    }
 
     // SpreadsheetExporterFetcher.......................................................................................
 
@@ -677,129 +800,6 @@ public class App implements EntryPoint,
     }
 
     private SpreadsheetImporterInfoSet spreadsheetImporterInfoSet;
-
-    // SpreadsheetMetadataFetcher.......................................................................................
-
-    @Override
-    public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
-        return this.spreadsheetMetadataFetcher;
-    }
-
-    private final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher;
-
-    @Override
-    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.metadataFetcherWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.metadataFetcherWatchers.addOnce(watcher);
-    }
-
-    private final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers;
-
-    /**
-     * Update the spreadsheet-id, spreadsheet-name and viewport selection from the given {@link SpreadsheetMetadata}.
-     */
-    @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
-        // SKIP spreadsheet id change if SpreadsheetListRenameHistoryToken
-        if (false == context.historyToken() instanceof SpreadsheetListRenameHistoryToken) {
-            final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
-            this.spreadsheetMetadata = metadata;
-
-            this.refreshSpreadsheetProvider();
-
-            // update the global JsonNodeUnmarshallContext.
-            this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
-                    metadata.expressionNumberKind(),
-                    metadata.mathContext()
-            );
-
-            final EnvironmentContext environmentContext = metadata.environmentContext();
-            this.providerContext = ProviderContexts.basic(environmentContext);
-
-            final Optional<SpreadsheetId> maybeId = metadata.id();
-            final Optional<SpreadsheetName> maybeName = metadata.name();
-
-            if (maybeId.isPresent() && maybeName.isPresent()) {
-                final SpreadsheetId id = maybeId.get();
-                final SpreadsheetName name = maybeName.get();
-
-                final HistoryToken historyToken = context.historyToken();
-                final Optional<SpreadsheetViewport> viewport = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT);
-
-                final HistoryToken idNameSelectionHistoryToken = historyToken
-                        .setIdAndName(
-                                id,
-                                name
-                        ).setAnchoredSelection(
-                                viewport.flatMap(SpreadsheetViewport::anchoredSelection)
-                        );
-
-                if (false == historyToken.equals(idNameSelectionHistoryToken)) {
-                    context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/anchoredSelection " + idNameSelectionHistoryToken, metadata);
-                    context.pushHistoryToken(idNameSelectionHistoryToken);
-                } else {
-                    // must have loaded a new spreadsheet, need to fire history token
-                    //
-                    // eg so a focused cell is given focus etc.
-                    if (false == id.equals(
-                            previousMetadata.id()
-                                    .orElse(null)
-                    )) {
-                        context.debug("App.onSpreadsheetMetadata new spreadsheet " + id + " loaded, firing history token again");
-
-                        context.fireCurrentHistoryToken();
-
-                        // need to also load all PluginInfoSetLikes...as they are also used to build menus etc.
-                        context.converterFetcher()
-                                .infoSet(id);
-                        context.spreadsheetComparatorFetcher()
-                                .infoSet(id);
-                        context.spreadsheetExporterFetcher()
-                                .infoSet(id);
-                        context.expressionFunctionFetcher()
-                                .infoSet(id);
-                        context.spreadsheetFormatterFetcher()
-                                .infoSet(id);
-                        context.spreadsheetImporterFetcher()
-                                .infoSet(id);
-                        context.spreadsheetParserFetcher()
-                                .infoSet(id);
-                    }
-                }
-            }
-        }
-    }
-
-    @Override
-    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                         final AppContext context) {
-        // IGNORE
-    }
-
-    /**
-     * Returns the current or last loaded {@link SpreadsheetMetadata}
-     */
-    @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
-        return this.spreadsheetMetadata;
-    }
-
-    private SpreadsheetMetadata spreadsheetMetadata;
-
-    @Override
-    public ExpressionNumberKind expressionNumberKind() {
-        return this.spreadsheetMetadata.expressionNumberKind();
-    }
-
-    @Override
-    public MathContext mathContext() {
-        return this.spreadsheetMetadata.mathContext();
-    }
 
     // SpreadsheetParserFetcher..........................................................................................
 
