@@ -163,7 +163,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         return this.labelMappings;
     }
 
-    private Set<SpreadsheetLabelMapping> labelMappings = SortedSets.tree();
+    private final Set<SpreadsheetLabelMapping> labelMappings = SortedSets.tree();
 
     Set<SpreadsheetLabelName> labels(final SpreadsheetCellReference cell) {
         return this.cellToLabels.getOrDefault(
