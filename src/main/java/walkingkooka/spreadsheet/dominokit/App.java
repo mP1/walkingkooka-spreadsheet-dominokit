@@ -393,7 +393,6 @@ public class App implements EntryPoint,
                 )
         );
 
-        this.files = this.files();
         this.layout = this.prepareLayout();
     }
 
@@ -430,7 +429,7 @@ public class App implements EntryPoint,
                 .withTitle(
                         (n, header) -> {
                             header.appendChild(
-                                    this.files.element()
+                                    AppHistoryTokenAnchorComponents.files()
                             );
                             header.appendChild(
                                     this.spreadsheetNameAnchorComponent().element()
@@ -500,23 +499,6 @@ public class App implements EntryPoint,
             );
         }
     }
-
-    // Files............................................................................................................
-
-    /**
-     * A link that shows the File browser.
-     */
-    private HistoryTokenAnchorComponent files() {
-        // TODO need to *READ* from and count
-        return HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // from
-                        OptionalInt.empty() // count
-                )
-                .link("files")
-                .setTextContent("Files");
-    }
-
-    private final HistoryTokenAnchorComponent files;
 
     // name.............................................................................................................
 
