@@ -24,6 +24,7 @@ import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -89,7 +90,7 @@ import java.util.stream.Collectors;
  *   }
  * }
  * </pre>
- * JSON holding {@link walkingkooka.spreadsheet.format.SpreadsheetParserSelector}
+ * JSON holding {@link SpreadsheetParserSelector}
  * <pre>
  * {
  *   "mediaType": "application/json+walkingkooka.spreadsheet.format.SpreadsheetParserSelector",

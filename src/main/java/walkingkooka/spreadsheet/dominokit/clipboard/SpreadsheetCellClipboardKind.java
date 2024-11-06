@@ -235,7 +235,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     },
 
     /**
-     * The clipboard value is a cells to {@link walkingkooka.spreadsheet.format.SpreadsheetParserSelector}.
+     * The clipboard value is a cells to {@link SpreadsheetParserSelector}.
      */
     PARSER(
             SpreadsheetParserSelector.class,
