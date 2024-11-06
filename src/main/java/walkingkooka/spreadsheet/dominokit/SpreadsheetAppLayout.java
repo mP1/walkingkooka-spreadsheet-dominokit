@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
-import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.elements.SectionElement;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.layout.AppLayout;
@@ -78,13 +77,11 @@ final class SpreadsheetAppLayout extends AppLayout implements
         layout.setRightDrawerSize(RightDrawerSize.XLARGE)
                 .getRightDrawerContent()
                 .appendChild(
-                        Card.create()
-                                .appendChild(
-                                        SpreadsheetMetadataPanelComponent.with(
-                                                SpreadsheetAppLayoutRightDrawerComponent.with(layout),
-                                                SpreadsheetMetadataPanelComponentContexts.appContext(context)
-                                        )
-                                )
+                        SpreadsheetMetadataPanelComponent.with(
+                                SpreadsheetAppLayoutRightDrawerComponent.with(layout),
+                                SpreadsheetMetadataPanelComponentContexts.appContext(context)
+                        ).setCssText("padding-left: 5px; padding-bottom: var(--dui-right-drawer-padding-top);") // without this fix the bottom 64px are chopped and out of view
+
                 );
         layout.onRightDrawerClosed(
                 layout::appLayoutRightPanelClosed
