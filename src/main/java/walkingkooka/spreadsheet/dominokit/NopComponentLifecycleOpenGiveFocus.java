@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-public interface NopComponentLifecycleOpenGiveFocus extends HistoryTokenAwareComponentLifecycle {
+public interface NopComponentLifecycleOpenGiveFocus extends ComponentLifecycle {
 
     @Override
     default void openGiveFocus(final AppContext context) {
