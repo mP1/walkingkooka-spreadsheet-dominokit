@@ -125,7 +125,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
      */
     private void appLayoutRightToggleIconOnClick(final Event event) {
         final AppContext context = this.context;
-        HistoryToken token = context.historyToken();
+        final HistoryToken token = context.historyToken();
 
         context.pushHistoryToken(
                 this.isRightDrawerOpen() ?
