@@ -24,8 +24,8 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
@@ -40,7 +40,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class SpreadsheetToolbarComponentTest implements ComponentLifecycleTesting<SpreadsheetToolbarComponent>,
+public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareComponentLifecycleTesting<SpreadsheetToolbarComponent>,
         SpreadsheetMetadataTesting {
 
     // id...............................................................................................................

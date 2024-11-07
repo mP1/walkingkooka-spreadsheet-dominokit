@@ -44,7 +44,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.VisibleHtmlElementComponent;
@@ -111,7 +111,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         SpreadsheetFormatterFetcherWatcher,
         NopSpreadsheetFormatterInfoSetFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
-        ComponentLifecycle,
+        HistoryTokenAwareComponentLifecycle,
         SpreadsheetViewportComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopEmptyResponseFetcherWatcher,
@@ -990,7 +990,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
     }
 
-    // ComponentLifecycle..............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................................
 
     @Override
     public boolean isOpen() {

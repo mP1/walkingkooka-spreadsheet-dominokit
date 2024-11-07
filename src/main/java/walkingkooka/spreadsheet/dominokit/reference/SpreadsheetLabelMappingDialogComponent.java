@@ -217,7 +217,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private final HistoryTokenAnchorComponent delete;
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     // save should not open or close the dialog.
     @Override

@@ -372,7 +372,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         // Ignore many
     }
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     // save should not open or close the dialog.
     @Override

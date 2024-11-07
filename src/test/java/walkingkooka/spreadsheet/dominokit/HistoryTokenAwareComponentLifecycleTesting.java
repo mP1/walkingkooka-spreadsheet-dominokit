@@ -27,7 +27,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
  * Note the overloads that take a {@link HistoryTokenWatcher} are intended for tests to provide the {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers},
  * also given to the provided {@link AppContext}. This will be necessary for components that have children that also register themselves as {@link HistoryTokenWatcher}.
  */
-public interface ComponentLifecycleTesting<T extends ComponentLifecycle & TreePrintable> extends ClassTesting<T>,
+public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTokenAwareComponentLifecycle & TreePrintable> extends ClassTesting<T>,
         TreePrintableTesting {
 
     HistoryToken NOT_MATCHED = HistoryToken.parseString("/not-matched-123");

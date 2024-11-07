@@ -291,7 +291,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         // Ignore many
     }
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     // save should not open or close the dialog.
     @Override

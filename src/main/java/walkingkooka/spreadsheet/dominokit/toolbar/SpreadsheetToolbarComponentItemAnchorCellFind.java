@@ -63,7 +63,7 @@ final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToo
         // do nothing, do not update history token.
     }
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
     public void refresh(final AppContext context) {

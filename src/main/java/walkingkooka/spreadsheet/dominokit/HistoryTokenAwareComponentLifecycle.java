@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
  * Interface that provides simple operations to update the visual state of the ui.
  * Dont forget to register this {@link HistoryTokenWatcher}.
  */
-public interface ComponentLifecycle extends HistoryTokenWatcher,
+public interface HistoryTokenAwareComponentLifecycle extends HistoryTokenWatcher,
         ComponentLifecycleMatcher,
         ComponentRefreshable,
         OpenableComponent {

@@ -21,7 +21,7 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import walkingkooka.CanBeEmpty;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.VisibleHtmlElementComponent;
@@ -41,7 +41,7 @@ import java.util.Optional;
  * A ui such as an icon within a {@link SpreadsheetToolbarComponent}.
  */
 abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarComponentItem<C>> implements HtmlElementComponent<HTMLElement, C>,
-        ComponentLifecycle,
+        HistoryTokenAwareComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         VisibleHtmlElementComponent<HTMLElement, C>,
         CanBeEmpty {
@@ -331,7 +331,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
      */
     public abstract HTMLElement element();
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
     @Override
     public final boolean isOpen() {
         return this.open;

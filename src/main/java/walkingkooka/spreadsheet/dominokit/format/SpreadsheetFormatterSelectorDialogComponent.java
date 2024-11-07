@@ -377,7 +377,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         // Ignore many
     }
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     // save should not open or close the dialog.
     @Override

@@ -164,7 +164,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
 
     private final AppContext context;
 
-    // ComponentLifecycle..............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................................
 
     @Override
     public boolean isOpen() {

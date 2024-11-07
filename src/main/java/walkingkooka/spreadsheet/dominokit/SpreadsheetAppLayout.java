@@ -36,7 +36,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import java.util.Objects;
 
 final class SpreadsheetAppLayout extends AppLayout implements
-        ComponentLifecycle,
+        HistoryTokenAwareComponentLifecycle,
         HtmlElementComponent<HTMLDivElement, SpreadsheetAppLayout> {
 
 
@@ -141,7 +141,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
 
     private final AppContext context;
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
     public boolean isOpen() {

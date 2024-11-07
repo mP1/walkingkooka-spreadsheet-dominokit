@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 
-public interface SpreadsheetCellComponentLifecycle extends ComponentLifecycle {
+public interface SpreadsheetCellComponentLifecycle extends HistoryTokenAwareComponentLifecycle {
 
     @Override
     default boolean shouldIgnore(final HistoryToken token) {
