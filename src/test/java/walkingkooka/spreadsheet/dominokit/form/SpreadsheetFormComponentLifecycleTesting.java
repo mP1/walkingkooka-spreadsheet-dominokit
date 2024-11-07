@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.form;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.text.printer.TreePrintableTesting;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleTesting;
 
-public interface SpreadsheetFormComponentLifecycleTesting<T extends SpreadsheetFormComponentLifecycle> extends ClassTesting<T>,
-        TreePrintableTesting {
+public interface SpreadsheetFormComponentLifecycleTesting<T extends SpreadsheetFormComponentLifecycle> extends ComponentLifecycleTesting<T> {
 }
