@@ -139,13 +139,13 @@ final class SpreadsheetAppLayout extends AppLayout implements
      */
     private void appLayoutRightPanelClosed(final AppLayout layout,
                                            final SectionElement section) {
-        final AppContext context = this.context;
-        final HistoryToken token = context.historyToken();
-
         // HACK only hide metadata panel if NOT displaying a metadata editor dialog
         if (false == SpreadsheetDialogComponent.isAnyOpen()) {
+            final AppContext context = this.context;
+
             context.pushHistoryToken(
-                    token.metadataHide()
+                    context.historyToken()
+                            .metadataHide()
             );
         }
     }
