@@ -76,30 +76,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
                 );
 
         // right drawer.................................................................................................
-        layout.setRightDrawerSize(RightDrawerSize.XLARGE)
-                .getRightDrawerContent()
-                .appendChild(
-                        SpreadsheetMetadataHistoryTokenAwareComponentLifecycle.with(
-                                SpreadsheetAppLayoutDrawerComponentRight.with(
-                                        layout,
-                                        SpreadsheetMetadataPanelComponent.with(
-                                                SpreadsheetMetadataPanelComponentContexts.appContext(context)
-                                        ).setCssText("padding-left: 5px; padding-bottom: var(--dui-right-drawer-padding-top);") // without this fix the bottom 64px are chopped and out of view
-                                ),
-                                context // HistoryTokenContext
-                        )
-                );
-
-        layout.onRightDrawerClosed(
-                layout::appLayoutRightPanelClosed
-        );
-
-        layout.setRightDrawerToggleIcon(
-                Icons.menu_open()
-                        .addClickListener(
-                                layout::appLayoutRightToggleIconOnClick
-                        )
-        );
+        layout.appendRightDrawer();
 
         return layout;
     }
@@ -113,6 +90,33 @@ final class SpreadsheetAppLayout extends AppLayout implements
         );
 
         this.context = context;
+    }
+
+    private void appendRightDrawer() {
+        this.setRightDrawerSize(RightDrawerSize.XLARGE)
+                .getRightDrawerContent()
+                .appendChild(
+                        SpreadsheetMetadataHistoryTokenAwareComponentLifecycle.with(
+                                SpreadsheetAppLayoutDrawerComponentRight.with(
+                                        this,
+                                        SpreadsheetMetadataPanelComponent.with(
+                                                SpreadsheetMetadataPanelComponentContexts.appContext(context)
+                                        ).setCssText("padding-left: 5px; padding-bottom: var(--dui-right-drawer-padding-top);") // without this fix the bottom 64px are chopped and out of view
+                                ),
+                                this.context // HistoryTokenContext
+                        )
+                );
+
+        this.onRightDrawerClosed(
+                this::appLayoutRightPanelClosed
+        );
+
+        this.setRightDrawerToggleIcon(
+                Icons.menu_open()
+                        .addClickListener(
+                                this::appLayoutRightToggleIconOnClick
+                        )
+        );
     }
 
     /**
