@@ -80,7 +80,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
                 .getRightDrawerContent()
                 .appendChild(
                         SpreadsheetMetadataHistoryTokenAwareComponentLifecycle.with(
-                                SpreadsheetAppLayoutRightDrawerComponent.with(
+                                SpreadsheetAppLayoutDrawerComponentRight.with(
                                         layout,
                                         SpreadsheetMetadataPanelComponent.with(
                                                 SpreadsheetMetadataPanelComponentContexts.appContext(context)
