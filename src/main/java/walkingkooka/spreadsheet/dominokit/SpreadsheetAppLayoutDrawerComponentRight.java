@@ -28,24 +28,24 @@ import java.util.Objects;
 /**
  * A {@link OpenableComponent} for a {@link AppLayout} right drawer.
  */
-final class SpreadsheetAppLayoutRightDrawerComponent<E extends HTMLElement> implements SpreadsheetFormComponentLifecycle<E, SpreadsheetAppLayoutRightDrawerComponent<E>> {
+final class SpreadsheetAppLayoutDrawerComponentRight<E extends HTMLElement> implements SpreadsheetFormComponentLifecycle<E, SpreadsheetAppLayoutDrawerComponentRight<E>> {
 
-    static <E extends HTMLElement> SpreadsheetAppLayoutRightDrawerComponent<E> with(final AppLayout appLayout,
+    static <E extends HTMLElement> SpreadsheetAppLayoutDrawerComponentRight<E> with(final AppLayout appLayout,
                                                                                     final SpreadsheetFormComponentLifecycle<E, ?> form) {
-        return new SpreadsheetAppLayoutRightDrawerComponent(
+        return new SpreadsheetAppLayoutDrawerComponentRight(
                 Objects.requireNonNull(appLayout, "appLayout"),
                 Objects.requireNonNull(form, "form")
         );
     }
 
-    private SpreadsheetAppLayoutRightDrawerComponent(final AppLayout appLayout,
+    private SpreadsheetAppLayoutDrawerComponentRight(final AppLayout appLayout,
                                                      final SpreadsheetFormComponentLifecycle<E, ?> form) {
         this.appLayout = appLayout;
         this.form = form;
     }
 
     @Override
-    public SpreadsheetAppLayoutRightDrawerComponent<E> setCssText(final String css) {
+    public SpreadsheetAppLayoutDrawerComponentRight<E> setCssText(final String css) {
         this.form.setCssText(css);
         return this;
     }
