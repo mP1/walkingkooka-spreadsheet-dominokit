@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
+import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataHistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.toolbar.SpreadsheetToolbarComponent;
@@ -74,15 +75,21 @@ final class SpreadsheetAppLayout extends AppLayout implements
                         SpreadsheetToolbarComponent.with(context)
                 );
 
+        // right drawer.................................................................................................
         layout.setRightDrawerSize(RightDrawerSize.XLARGE)
                 .getRightDrawerContent()
                 .appendChild(
-                        SpreadsheetMetadataPanelComponent.with(
-                                SpreadsheetAppLayoutRightDrawerComponent.with(layout),
-                                SpreadsheetMetadataPanelComponentContexts.appContext(context)
-                        ).setCssText("padding-left: 5px; padding-bottom: var(--dui-right-drawer-padding-top);") // without this fix the bottom 64px are chopped and out of view
-
+                        SpreadsheetMetadataHistoryTokenAwareComponentLifecycle.with(
+                                SpreadsheetAppLayoutRightDrawerComponent.with(
+                                        layout,
+                                        SpreadsheetMetadataPanelComponent.with(
+                                                SpreadsheetMetadataPanelComponentContexts.appContext(context)
+                                        ).setCssText("padding-left: 5px; padding-bottom: var(--dui-right-drawer-padding-top);") // without this fix the bottom 64px are chopped and out of view
+                                ),
+                                context // HistoryTokenContext
+                        )
                 );
+
         layout.onRightDrawerClosed(
                 layout::appLayoutRightPanelClosed
         );
