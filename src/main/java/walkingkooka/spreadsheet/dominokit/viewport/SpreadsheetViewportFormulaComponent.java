@@ -27,7 +27,7 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponent;
@@ -50,7 +50,7 @@ import java.util.Optional;
  * Provides a text box which supports editing of a formula belonging to a cell.
  */
 public final class SpreadsheetViewportFormulaComponent implements HtmlElementComponent<HTMLFieldSetElement, SpreadsheetViewportFormulaComponent>,
-        ComponentLifecycle,
+        HistoryTokenAwareComponentLifecycle,
         NopFetcherWatcher,
         NopEmptyResponseFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
@@ -149,7 +149,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
         return this.element();
     }
 
-    // ComponentLifecycle..............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................................
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {

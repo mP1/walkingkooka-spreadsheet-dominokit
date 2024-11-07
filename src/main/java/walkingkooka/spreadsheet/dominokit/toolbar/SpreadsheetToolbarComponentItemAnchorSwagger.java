@@ -69,7 +69,7 @@ final class SpreadsheetToolbarComponentItemAnchorSwagger extends SpreadsheetTool
         // do nothing, do not update history token.
     }
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
     public void refresh(final AppContext context) {

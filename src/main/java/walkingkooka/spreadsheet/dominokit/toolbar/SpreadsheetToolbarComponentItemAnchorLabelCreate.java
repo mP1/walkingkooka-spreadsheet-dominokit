@@ -63,7 +63,7 @@ final class SpreadsheetToolbarComponentItemAnchorLabelCreate extends Spreadsheet
         // do nothing, do not update history token.
     }
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
     public void refresh(final AppContext context) {

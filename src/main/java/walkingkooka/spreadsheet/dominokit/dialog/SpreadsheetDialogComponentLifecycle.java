@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 
 import org.dominokit.domino.ui.dialogs.Dialog;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -29,9 +29,9 @@ import walkingkooka.text.printer.TreePrintable;
 import java.util.Optional;
 
 /**
- * A specialized {@link ComponentLifecycle} that adds some basic support for {@link SpreadsheetDialogComponent}.
+ * A specialized {@link HistoryTokenAwareComponentLifecycle} that adds some basic support for {@link SpreadsheetDialogComponent}.
  */
-public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle,
+public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareComponentLifecycle,
         TreePrintable {
 
     /**
@@ -65,7 +65,7 @@ public interface SpreadsheetDialogComponentLifecycle extends ComponentLifecycle,
                 );
     }
 
-    // ComponentLifecycle..............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................................
 
     /**
      * Returns true if the dialog is open.

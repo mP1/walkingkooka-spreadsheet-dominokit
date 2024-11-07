@@ -60,7 +60,7 @@ final class SpreadsheetToolbarComponentItemAnchorReload extends SpreadsheetToolb
         // do nothing, do not update history token.
     }
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
     public void refresh(final AppContext context) {

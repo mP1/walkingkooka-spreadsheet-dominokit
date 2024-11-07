@@ -61,7 +61,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extend
         // nop
     }
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
     public void refresh(final AppContext context) {

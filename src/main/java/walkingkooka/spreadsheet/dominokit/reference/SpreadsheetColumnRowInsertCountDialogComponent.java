@@ -134,7 +134,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
 
     private final HistoryTokenAnchorComponent go;
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     // save should not open or close the dialog.
     @Override

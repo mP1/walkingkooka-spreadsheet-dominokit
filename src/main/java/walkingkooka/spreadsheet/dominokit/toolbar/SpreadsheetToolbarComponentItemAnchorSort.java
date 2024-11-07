@@ -64,7 +64,7 @@ final class SpreadsheetToolbarComponentItemAnchorSort extends SpreadsheetToolbar
         // do nothing, do not update history token.
     }
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     // only match selections of more than one cell/column/row
     @Override

@@ -61,7 +61,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends 
         // nop
     }
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
     public void refresh(final AppContext context) {

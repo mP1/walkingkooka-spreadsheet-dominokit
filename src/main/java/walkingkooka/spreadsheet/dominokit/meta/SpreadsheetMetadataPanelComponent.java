@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.OpenableComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
@@ -66,7 +66,7 @@ import java.util.function.Function;
  * A ui that displays numerous {@link SpreadsheetMetadata} properties with support for editing the individual values.
  */
 public final class SpreadsheetMetadataPanelComponent implements HtmlElementComponent<HTMLTableElement, SpreadsheetMetadataPanelComponent>,
-        ComponentLifecycle,
+        HistoryTokenAwareComponentLifecycle,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopEmptyResponseFetcherWatcher,
@@ -546,7 +546,7 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
 
     private final TableElement table;
 
-    // ComponentLifecycle...............................................................................................
+    // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
