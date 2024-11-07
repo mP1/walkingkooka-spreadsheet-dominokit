@@ -30,4 +30,11 @@ import walkingkooka.text.printer.TreePrintable;
 public interface SpreadsheetFormComponentLifecycle<E extends HTMLElement, C extends SpreadsheetFormComponentLifecycle<E, C>> extends HtmlElementComponent<E, C>,
         ComponentLifecycle,
         TreePrintable {
+
+    @Override
+    default void refreshIfOpen(final AppContext context) {
+        if (this.isOpen()) {
+            this.refresh(context);
+        }
+    }
 }
