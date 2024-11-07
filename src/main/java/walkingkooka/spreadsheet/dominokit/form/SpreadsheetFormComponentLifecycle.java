@@ -24,11 +24,11 @@ import walkingkooka.text.printer.TreePrintable;
 
 /**
  * A form holds form components such as text boxes, links etc. Note it does not receive {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher}
- * events, it instead receives events to prepare or {@link #giveFocus(AppContext)} and {@link #refresh(AppContext)}.
+ * events, it instead receives events to prepare or {@link #openGiveFocus(AppContext)} and {@link #refresh(AppContext)}.
  */
 public interface SpreadsheetFormComponentLifecycle<E extends HTMLElement, C extends SpreadsheetFormComponentLifecycle<E, C>> extends HtmlElementComponent<E, C>, TreePrintable {
 
-    void giveFocus(final AppContext context);
+    void openGiveFocus(final AppContext context);
 
     void refresh(final AppContext context);
 }
