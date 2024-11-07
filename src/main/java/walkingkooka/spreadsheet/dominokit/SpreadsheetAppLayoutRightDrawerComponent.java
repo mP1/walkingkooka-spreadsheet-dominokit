@@ -17,24 +17,50 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import elemental2.dom.HTMLElement;
+import elemental2.dom.Node;
 import org.dominokit.domino.ui.layout.AppLayout;
+import walkingkooka.spreadsheet.dominokit.form.SpreadsheetFormComponentLifecycle;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 
 /**
  * A {@link OpenableComponent} for a {@link AppLayout} right drawer.
  */
-final class SpreadsheetAppLayoutRightDrawerComponent implements OpenableComponent {
+final class SpreadsheetAppLayoutRightDrawerComponent<E extends HTMLElement> implements SpreadsheetFormComponentLifecycle<E, SpreadsheetAppLayoutRightDrawerComponent<E>> {
 
-    static SpreadsheetAppLayoutRightDrawerComponent with(final AppLayout appLayout) {
-        Objects.requireNonNull(appLayout, "appLayout");
-
-        return new SpreadsheetAppLayoutRightDrawerComponent(appLayout);
+    static <E extends HTMLElement> SpreadsheetAppLayoutRightDrawerComponent<E> with(final AppLayout appLayout,
+                                                                                    final SpreadsheetFormComponentLifecycle<E, ?> form) {
+        return new SpreadsheetAppLayoutRightDrawerComponent(
+                Objects.requireNonNull(appLayout, "appLayout"),
+                Objects.requireNonNull(form, "form")
+        );
     }
 
-    private SpreadsheetAppLayoutRightDrawerComponent(final AppLayout appLayout) {
+    private SpreadsheetAppLayoutRightDrawerComponent(final AppLayout appLayout,
+                                                     final SpreadsheetFormComponentLifecycle<E, ?> form) {
         this.appLayout = appLayout;
+        this.form = form;
     }
+
+    @Override
+    public SpreadsheetAppLayoutRightDrawerComponent<E> setCssText(final String css) {
+        this.form.setCssText(css);
+        return this;
+    }
+
+    @Override
+    public Node node() {
+        return this.form.node();
+    }
+
+    @Override
+    public E element() {
+        return this.form.element();
+    }
+
+    // SpreadsheetFormComponentLifecycle...............................................................................
 
     @Override
     public boolean isOpen() {
@@ -42,16 +68,42 @@ final class SpreadsheetAppLayoutRightDrawerComponent implements OpenableComponen
     }
 
     @Override
-    public void open(AppContext context) {
+    public void open(final AppContext context) {
         this.appLayout.showRightDrawer();
+        this.form.open(context);
+    }
+
+    @Override
+    public void openGiveFocus(final AppContext context) {
+        this.form.openGiveFocus(context);
+    }
+
+    @Override
+    public void refresh(final AppContext context) {
+        this.form.refresh(context);
     }
 
     @Override
     public void close(final AppContext context) {
         this.appLayout.hideRightDrawer();
+        this.form.close(context);
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.form.printTree(printer);
+        }
+        printer.outdent();
     }
 
     private final AppLayout appLayout;
+
+    private final SpreadsheetFormComponentLifecycle<E, ?> form;
 
     @Override
     public String toString() {

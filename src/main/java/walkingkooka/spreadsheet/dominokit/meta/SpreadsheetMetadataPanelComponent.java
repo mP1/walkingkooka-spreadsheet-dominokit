@@ -29,16 +29,10 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.OpenableComponent;
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
+import walkingkooka.spreadsheet.dominokit.form.SpreadsheetFormComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
@@ -51,6 +45,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.text.CaseKind;
+import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
 
@@ -64,29 +59,21 @@ import java.util.function.Function;
 
 /**
  * A ui that displays numerous {@link SpreadsheetMetadata} properties with support for editing the individual values.
+ * Note it does not contain any HistoryToken watching logic.
  */
-public final class SpreadsheetMetadataPanelComponent implements HtmlElementComponent<HTMLTableElement, SpreadsheetMetadataPanelComponent>,
-        HistoryTokenAwareComponentLifecycle,
+public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormComponentLifecycle<HTMLTableElement, SpreadsheetMetadataPanelComponent>,
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopEmptyResponseFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher {
 
-    public static SpreadsheetMetadataPanelComponent with(final OpenableComponent drawer,
-                                                         final SpreadsheetMetadataPanelComponentContext context) {
-        Objects.requireNonNull(drawer, "drawer");
-        Objects.requireNonNull(context, "context");
-
+    public static SpreadsheetMetadataPanelComponent with(final SpreadsheetMetadataPanelComponentContext context) {
         return new SpreadsheetMetadataPanelComponent(
-                drawer,
-                context
+                Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetMetadataPanelComponent(final OpenableComponent drawer,
-                                              final SpreadsheetMetadataPanelComponentContext context) {
-        this.drawer = drawer;
-        context.addHistoryTokenWatcher(this);
+    private SpreadsheetMetadataPanelComponent(final SpreadsheetMetadataPanelComponentContext context) {
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.context = context;
@@ -148,6 +135,7 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
         items.add(this.importers());
         items.add(this.parsers());
 
+        // TODO extract TABLE
         final TBodyElement tBody = ElementsFactory.elements.tbody();
         this.table = ElementsFactory.elements.table()
                 .appendChild(tBody);
@@ -546,45 +534,24 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
 
     private final TableElement table;
 
-    // HistoryTokenAwareComponentLifecycle..............................................................................
-
-    @Override
-    public boolean shouldIgnore(final HistoryToken token) {
-        return token instanceof SpreadsheetMetadataPropertySaveHistoryToken ||
-                token instanceof SpreadsheetMetadataPropertyStyleSaveHistoryToken;
-    }
-
-    @Override
-    public boolean isMatch(final HistoryToken token) {
-        // isAnyOpen test because a dialog belonging to the viewing/editing of a SpreadsheetMetadata property.
-        return token instanceof SpreadsheetMetadataHistoryToken &&
-                false == SpreadsheetDialogComponent.isAnyOpen();
-    }
+    // SpreadsheetFormComponentLifecycle................................................................................
 
     @Override
     public boolean isOpen() {
-        return this.drawer.isOpen();
+        return this.open;
     }
 
     @Override
     public void open(final AppContext context) {
-        this.drawer.open(context);
+        this.open = true;
     }
 
     @Override
-    public void refresh(final AppContext context) {
-        // Before refreshing verify a loaded Metadata with LOCALE and other properties are present otherwise
-        // rendering the panel will fail complaining LOCALE Is absent.
-        //
-        // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/1018
-        if (context.spreadsheetMetadata()
-                .get(SpreadsheetMetadataPropertyName.LOCALE)
-                .isPresent()) {
-            this.items.forEach(i -> i.refresh(context));
-        } else {
-            context.debug(this.getClass().getSimpleName() + ".refresh metadata missing " + SpreadsheetMetadataPropertyName.LOCALE + " skip until loaded.");
-        }
+    public void close(final AppContext context) {
+        this.open = false;
     }
+
+    private boolean open;
 
     @Override
     public void openGiveFocus(final AppContext context) {
@@ -605,22 +572,22 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
         }
     }
 
+    @Override
+    public void refresh(final AppContext context) {
+        // Before refreshing verify a loaded Metadata with LOCALE and other properties are present otherwise
+        // rendering the panel will fail complaining LOCALE Is absent.
+        //
+        // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/1018
+        if (context.spreadsheetMetadata()
+                .get(SpreadsheetMetadataPropertyName.LOCALE)
+                .isPresent()) {
+            this.items.forEach(i -> i.refresh(context));
+        } else {
+            context.debug(this.getClass().getSimpleName() + ".refresh metadata missing " + SpreadsheetMetadataPropertyName.LOCALE + " skip until loaded.");
+        }
+    }
+
     private final List<SpreadsheetMetadataPanelComponentItem<?>> items;
-
-    @Override
-    public void close(final AppContext context) {
-        this.drawer.close(context);
-    }
-
-    /**
-     * Typically the right drawer of an {@link org.dominokit.domino.ui.layout.AppLayout}.
-     */
-    private final OpenableComponent drawer;
-
-    @Override
-    public boolean shouldLogLifecycleChanges() {
-        return true;
-    }
 
     // SpreadsheetMetadataFetcherWatcher.............................................,.........................................
 
@@ -640,12 +607,26 @@ public final class SpreadsheetMetadataPanelComponent implements HtmlElementCompo
 
     @Override
     public String toString() {
-        return this.drawer.toString();
+        return this.element().toString();
     }
 
     // id...............................................................................................................
 
     static String id(final SpreadsheetMetadataPropertyName<?> propertyName) {
         return "metadata-" + propertyName.value();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            for (final SpreadsheetMetadataPanelComponentItem<?> item : this.items) {
+                printer.println(item.toString()); // TODO SpreadsheetMetadataPanelComponentItem implements TreePrintable
+            }
+        }
+        printer.outdent();
     }
 }
