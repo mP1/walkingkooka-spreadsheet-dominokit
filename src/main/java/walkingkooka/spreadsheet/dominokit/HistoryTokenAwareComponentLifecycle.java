@@ -26,18 +26,12 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
  * Dont forget to register this {@link HistoryTokenWatcher}.
  */
 public interface HistoryTokenAwareComponentLifecycle extends HistoryTokenWatcher,
-        ComponentLifecycleMatcher,
-        ComponentRefreshable,
-        OpenableComponent {
-
-    /**
-     * This is called after {@link #open(AppContext)} and {@link #refresh(AppContext)}
-     */
-    void openGiveFocus(final AppContext context);
+        ComponentLifecycle {
 
     /**
      * Conditionally calls {@link #refresh(AppContext)} if this ui is {@link #isOpen()}.
      */
+    @Override
     default void refreshIfOpen(final AppContext context) {
         // extra isMatch, which should avoid ClassCastExceptions for Components that have delayed closes.
         // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/1468
