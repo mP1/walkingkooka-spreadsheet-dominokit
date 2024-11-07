@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
  * Dont forget to register this {@link HistoryTokenWatcher}.
  */
 public interface HistoryTokenAwareComponentLifecycle extends HistoryTokenWatcher,
+        ComponentLifecycleMatcher,
         ComponentLifecycle {
 
     /**

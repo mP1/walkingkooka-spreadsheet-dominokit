@@ -20,8 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 /**
  * A component with various lifecycle events that react to an open/close state.
  */
-public interface ComponentLifecycle extends ComponentLifecycleMatcher,
-        ComponentRefreshable,
+public interface ComponentLifecycle extends ComponentRefreshable,
         OpenableComponent {
 
     /**
