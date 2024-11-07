@@ -120,8 +120,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
     }
 
     /**
-     * Handler that reacts to the right panel toggle icon being clicked, updating the history. The {@link SpreadsheetMetadataPanelComponent}
-     * will see the history token change and then open or hide itself.
+     * Handler that reacts to the right panel toggle icon being clicked, updating the history.
      */
     private void appLayoutRightToggleIconOnClick(final Event event) {
         final AppContext context = this.context;
