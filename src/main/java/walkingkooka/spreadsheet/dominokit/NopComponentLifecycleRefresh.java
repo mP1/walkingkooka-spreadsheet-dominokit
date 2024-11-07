@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-public interface NopComponentLifecycleRefresh extends HistoryTokenAwareComponentLifecycle {
+public interface NopComponentLifecycleRefresh extends ComponentLifecycle {
 
     @Override
     default void refresh(AppContext context) {
