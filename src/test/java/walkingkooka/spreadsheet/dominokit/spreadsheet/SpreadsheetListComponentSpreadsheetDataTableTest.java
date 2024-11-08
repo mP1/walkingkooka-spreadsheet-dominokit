@@ -17,25 +17,24 @@
 
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.time.LocalDateTime;
 import java.util.Locale;
 
-public final class SpreadsheetListComponentSpreadsheetDataTableTest implements ClassTesting<SpreadsheetListComponentSpreadsheetDataTable>,
-        SpreadsheetMetadataTesting,
-        TreePrintableTesting {
+public final class SpreadsheetListComponentSpreadsheetDataTableTest implements HtmlElementComponentTesting<SpreadsheetListComponentSpreadsheetDataTable, HTMLDivElement>,
+        SpreadsheetMetadataTesting {
 
     @Test
     public void testPrintTreeWhenEmpty() {
