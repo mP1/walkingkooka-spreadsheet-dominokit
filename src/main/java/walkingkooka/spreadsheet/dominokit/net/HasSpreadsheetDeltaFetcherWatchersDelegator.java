@@ -27,4 +27,6 @@ public interface HasSpreadsheetDeltaFetcherWatchersDelegator extends HasSpreadsh
     default Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.spreadsheetDeltaFetcherWatchers().addOnce(watcher);
     }
+
+    SpreadsheetDeltaFetcherWatchers spreadsheetDeltaFetcherWatchers();
 }
