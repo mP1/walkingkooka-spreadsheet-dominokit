@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.card;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetCardTest implements ClassTesting<SpreadsheetCard>,
-        TreePrintableTesting {
+public final class SpreadsheetCardTest implements HtmlElementComponentTesting<SpreadsheetCard, HTMLDivElement> {
 
     @Test
     public void testTreePrintWhenEmpty() {
