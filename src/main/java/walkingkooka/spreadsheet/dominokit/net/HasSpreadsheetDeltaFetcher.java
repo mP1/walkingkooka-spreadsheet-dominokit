@@ -17,11 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.net;
 
-public interface HasSpreadsheetDeltaFetcher {
-
-    Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
-
-    Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher);
+public interface HasSpreadsheetDeltaFetcher extends HasSpreadsheetDeltaFetcherWatchers {
 
     SpreadsheetDeltaFetcher spreadsheetDeltaFetcher();
 }
