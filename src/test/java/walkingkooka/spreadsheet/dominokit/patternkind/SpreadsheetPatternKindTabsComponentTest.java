@@ -17,14 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.patternkind;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
-import walkingkooka.text.printer.TreePrintableTesting;
 
-public final class SpreadsheetPatternKindTabsComponentTest implements ClassTesting<SpreadsheetPatternKindTabsComponent>,
-        TreePrintableTesting {
+public final class SpreadsheetPatternKindTabsComponentTest implements HtmlElementComponentTesting<SpreadsheetPatternKindTabsComponent, HTMLDivElement> {
 
     private final static String ID = "id123-";
 
