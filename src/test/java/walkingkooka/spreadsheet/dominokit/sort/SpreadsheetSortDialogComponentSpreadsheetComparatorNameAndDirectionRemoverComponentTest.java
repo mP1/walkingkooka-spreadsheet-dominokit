@@ -17,16 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.sort;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Arrays;
 import java.util.List;
@@ -34,8 +34,7 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponentTest implements ClassTesting<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent>,
-        TreePrintableTesting {
+public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponentTest implements HtmlElementComponentTesting<SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent, HTMLDivElement> {
 
     // cell.............................................................................................................
 
