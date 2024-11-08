@@ -17,17 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.tab;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetTabsComponentTest implements ClassTesting<SpreadsheetTabsComponent>,
-        TreePrintableTesting {
+public final class SpreadsheetTabsComponentTest implements HtmlElementComponentTesting<SpreadsheetTabsComponent, HTMLDivElement> {
 
     @Test
     public void testEmptyNoTabs() {
