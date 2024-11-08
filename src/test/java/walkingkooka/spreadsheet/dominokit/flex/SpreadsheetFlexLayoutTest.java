@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.flex;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetFlexLayoutTest implements ClassTesting<SpreadsheetFlexLayout>,
-        TreePrintableTesting {
+public final class SpreadsheetFlexLayoutTest implements HtmlElementComponentTesting<SpreadsheetFlexLayout, HTMLDivElement> {
 
     @Test
     public void testTreePrint() {
