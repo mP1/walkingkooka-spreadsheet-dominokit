@@ -27,7 +27,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Objects;
@@ -37,8 +36,7 @@ import java.util.function.Function;
  * A card that holds links, each with a save history token link.
  * The initial use-case for this component is to display available spreadsheet formatter names when the user is editing a format.
  */
-public final class SpreadsheetLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetLinkListComponent>,
-        TreePrintable {
+public final class SpreadsheetLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetLinkListComponent> {
 
     public static SpreadsheetLinkListComponent with(final String id,
                                                     final String title,

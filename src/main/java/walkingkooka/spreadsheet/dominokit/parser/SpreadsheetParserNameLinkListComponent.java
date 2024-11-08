@@ -26,15 +26,13 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.stream.Collectors;
 
 /**
  * A component that list all available {@link SpreadsheetParserName} by querying {@link SpreadsheetParserProvider#spreadsheetParserInfos()}.
  */
-public final class SpreadsheetParserNameLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetParserNameLinkListComponent>,
-        TreePrintable {
+public final class SpreadsheetParserNameLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetParserNameLinkListComponent> {
 
     static SpreadsheetParserNameLinkListComponent empty(final String id) {
         return new SpreadsheetParserNameLinkListComponent(id);

@@ -90,6 +90,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationList;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
+import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStyleProperty;
 
@@ -1421,5 +1422,12 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
 
         return Optional.ofNullable(selection);
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        throw new UnsupportedOperationException();
     }
 }

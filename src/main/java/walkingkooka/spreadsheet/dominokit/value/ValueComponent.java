@@ -23,7 +23,6 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
 import walkingkooka.spreadsheet.dominokit.ComponentWithErrors;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Optional;
 
@@ -33,8 +32,7 @@ import java.util.Optional;
 public interface ValueComponent<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
         extends HtmlElementComponent<E, C>,
         ComponentWithErrors<C>,
-        Value<Optional<V>>,
-        TreePrintable {
+        Value<Optional<V>> {
 
     C setId(final String id);
 

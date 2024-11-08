@@ -54,5 +54,6 @@ public interface SpreadsheetTooltipComponentLike extends TreePrintable {
                     )
             );
         }
+        printer.outdent();
     }
 }

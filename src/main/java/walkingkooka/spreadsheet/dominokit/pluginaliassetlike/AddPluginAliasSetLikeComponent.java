@@ -33,7 +33,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -48,8 +47,7 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
         S extends PluginSelectorLike<N>,
         A extends PluginAliasLike<N, S, A>,
         AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
-        implements HtmlElementComponent<HTMLDivElement, AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS>>,
-        TreePrintable {
+        implements HtmlElementComponent<HTMLDivElement, AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS>> {
 
     /**
      * Creates an empty {@link AddPluginAliasSetLikeComponent}.

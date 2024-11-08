@@ -22,14 +22,12 @@ import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 /**
  * Defines the public API for {@link SpreadsheetFlexLayout}. Used to keep the main/text versions in sync.
  */
 public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout>,
-        ComponentWithChildren<SpreadsheetFlexLayout, HTMLDivElement>,
-        TreePrintable {
+        ComponentWithChildren<SpreadsheetFlexLayout, HTMLDivElement> {
 
     SpreadsheetFlexLayout setId(final String id);
 

@@ -31,7 +31,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
@@ -42,8 +41,7 @@ import java.util.OptionalInt;
 /**
  * A datatable where each row contains a single spreadsheet, showing various metadata items such as creator, timestamps and links for actions.
  */
-final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementComponent<HTMLDivElement, SpreadsheetListComponentSpreadsheetDataTable>,
-        TreePrintable {
+final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementComponent<HTMLDivElement, SpreadsheetListComponentSpreadsheetDataTable> {
 
     /**
      * Creates an empty {@link SpreadsheetListComponentSpreadsheetDataTable}.

@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.toolbar.SpreadsheetToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 
@@ -216,5 +217,12 @@ final class SpreadsheetAppLayout extends AppLayout implements
     @Override
     public Node node() {
         return this.element();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        throw new UnsupportedOperationException();
     }
 }

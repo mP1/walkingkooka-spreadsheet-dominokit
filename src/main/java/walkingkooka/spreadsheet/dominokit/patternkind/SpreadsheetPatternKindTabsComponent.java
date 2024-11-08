@@ -26,15 +26,13 @@ import walkingkooka.spreadsheet.dominokit.tab.SpreadsheetTabsComponent;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Optional;
 
 /**
  * A tab component that displays tabs for each of the given {@link SpreadsheetPatternKind}.
  */
-public final class SpreadsheetPatternKindTabsComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternKindTabsComponent>,
-        TreePrintable {
+public final class SpreadsheetPatternKindTabsComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetPatternKindTabsComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetPatternKindTabsComponent}.

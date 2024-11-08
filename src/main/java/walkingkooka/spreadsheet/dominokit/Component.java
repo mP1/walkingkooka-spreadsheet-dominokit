@@ -19,9 +19,11 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Element;
 import org.dominokit.domino.ui.IsElement;
+import walkingkooka.text.printer.TreePrintable;
 
 /**
  * A component
  */
-public interface Component<E extends Element> extends IsElement<E> {
+public interface Component<E extends Element> extends IsElement<E>,
+        TreePrintable {
 }

@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Objects;
@@ -38,8 +37,7 @@ import java.util.stream.Collectors;
 /**
  * A component which displays links which append possible tokens to the current selector text.
  */
-public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, AppendPluginSelectorTokenComponent<T, A>>,
-        TreePrintable {
+public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, AppendPluginSelectorTokenComponent<T, A>> {
 
     /**
      * Creates an empty {@link AppendPluginSelectorTokenComponent}.

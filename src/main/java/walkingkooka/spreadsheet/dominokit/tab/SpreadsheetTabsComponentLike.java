@@ -21,13 +21,11 @@ import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 /**
  * Defines the public interface of a {@link SpreadsheetTabsComponent}.
  */
-public interface SpreadsheetTabsComponentLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetTabsComponent>,
-        TreePrintable {
+public interface SpreadsheetTabsComponentLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetTabsComponent> {
 
     /**
      * Appends a new tab. The anchor holding the title will be disabled.

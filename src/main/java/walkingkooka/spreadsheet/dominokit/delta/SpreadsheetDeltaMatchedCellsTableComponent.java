@@ -34,7 +34,6 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Objects;
@@ -46,8 +45,7 @@ import java.util.Optional;
 public final class SpreadsheetDeltaMatchedCellsTableComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetDeltaMatchedCellsTableComponent>,
         NopFetcherWatcher,
         NopEmptyResponseFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher,
-        TreePrintable {
+        SpreadsheetDeltaFetcherWatcher {
 
     public static SpreadsheetDeltaMatchedCellsTableComponent with(final String id,
                                                                   final SpreadsheetDeltaMatchedCellsTableComponentContext context) {

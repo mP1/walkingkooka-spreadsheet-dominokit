@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataHistoryToke
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleSaveHistoryToken;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 
@@ -124,5 +125,12 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
     public SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E> setCssText(final String css) {
         this.form.setCssText(css);
         return this;
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        throw new UnsupportedOperationException();
     }
 }
