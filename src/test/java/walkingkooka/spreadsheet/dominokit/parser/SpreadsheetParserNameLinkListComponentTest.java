@@ -17,22 +17,21 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public class SpreadsheetParserNameLinkListComponentTest implements ClassTesting<SpreadsheetParserNameLinkListComponent>,
-        TreePrintableTesting,
+public class SpreadsheetParserNameLinkListComponentTest implements HtmlElementComponentTesting<SpreadsheetParserNameLinkListComponent, HTMLDivElement>,
         SpreadsheetMetadataTesting {
 
     private final static String ID = "ID123-";
