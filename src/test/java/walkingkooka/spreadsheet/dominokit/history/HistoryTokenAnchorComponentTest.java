@@ -17,22 +17,21 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.Url;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class HistoryTokenAnchorComponentTest implements TreePrintableTesting,
-        ClassTesting<HistoryTokenAnchorComponent> {
+public final class HistoryTokenAnchorComponentTest implements HtmlElementComponentTesting<HistoryTokenAnchorComponent, HTMLAnchorElement> {
 
     // historyToken.....................................................................................................
 
