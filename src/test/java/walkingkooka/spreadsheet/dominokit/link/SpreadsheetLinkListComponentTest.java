@@ -17,16 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.link;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,8 +34,7 @@ import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetLinkListComponentTest implements ClassTesting<SpreadsheetLinkListComponent>,
-        TreePrintableTesting {
+public final class SpreadsheetLinkListComponentTest implements HtmlElementComponentTesting<SpreadsheetLinkListComponent, HTMLDivElement> {
 
     private final static String ID = "LinkList123-";
 
