@@ -17,15 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.test.ParseStringTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetViewportComponentTest implements ClassTesting<SpreadsheetViewportComponent>, ParseStringTesting<Optional<SpreadsheetSelection>> {
+public final class SpreadsheetViewportComponentTest implements HtmlElementComponentTesting<SpreadsheetViewportComponent, HTMLDivElement>,
+        ParseStringTesting<Optional<SpreadsheetSelection>> {
 
     // id...............................................................................................................
 
