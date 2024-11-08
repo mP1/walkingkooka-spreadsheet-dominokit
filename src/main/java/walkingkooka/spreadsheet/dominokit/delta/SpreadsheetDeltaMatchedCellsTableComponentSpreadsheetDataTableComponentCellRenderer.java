@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
@@ -27,13 +27,13 @@ import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent;
 
 import java.util.Optional;
 
-final class SpreadsheetFindDialogComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetCell> {
+final class SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetCell> {
 
-    static SpreadsheetFindDialogComponentSpreadsheetDataTableComponentCellRenderer with(final SpreadsheetFindDialogComponentContext context) {
-        return new SpreadsheetFindDialogComponentSpreadsheetDataTableComponentCellRenderer(context);
+    static SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer with(final SpreadsheetDeltaMatchedCellsTableComponentContext context) {
+        return new SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer(context);
     }
 
-    private SpreadsheetFindDialogComponentSpreadsheetDataTableComponentCellRenderer(final SpreadsheetFindDialogComponentContext context) {
+    private SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer(final SpreadsheetDeltaMatchedCellsTableComponentContext context) {
         this.context = context;
     }
 
@@ -112,5 +112,5 @@ final class SpreadsheetFindDialogComponentSpreadsheetDataTableComponentCellRende
         );
     }
 
-    private final SpreadsheetFindDialogComponentContext context;
+    private final SpreadsheetDeltaMatchedCellsTableComponentContext context;
 }

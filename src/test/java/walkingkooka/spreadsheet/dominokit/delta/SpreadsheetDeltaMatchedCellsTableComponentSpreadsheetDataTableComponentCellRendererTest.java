@@ -15,16 +15,16 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetFindDialogComponentSpreadsheetDataTableComponentCellRendererTest implements ClassTesting<SpreadsheetFindDialogComponentSpreadsheetDataTableComponentCellRenderer> {
+public final class SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRendererTest implements ClassTesting<SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer> {
 
     @Override
-    public Class<SpreadsheetFindDialogComponentSpreadsheetDataTableComponentCellRenderer> type() {
-        return SpreadsheetFindDialogComponentSpreadsheetDataTableComponentCellRenderer.class;
+    public Class<SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer> type() {
+        return SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer.class;
     }
 
     @Override
