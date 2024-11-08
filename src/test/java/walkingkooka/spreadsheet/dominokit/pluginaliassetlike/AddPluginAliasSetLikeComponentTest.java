@@ -17,15 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
@@ -33,13 +33,13 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfo;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
-public final class AddPluginAliasSetLikeComponentTest implements ClassTesting<AddPluginAliasSetLikeComponent<ExpressionFunctionName,
+public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComponentTesting<AddPluginAliasSetLikeComponent<ExpressionFunctionName,
         ExpressionFunctionInfo,
         ExpressionFunctionInfoSet,
         ExpressionFunctionSelector,
         ExpressionFunctionAlias,
-        ExpressionFunctionAliasSet>>,
-        TreePrintableTesting {
+        ExpressionFunctionAliasSet>,
+        HTMLDivElement> {
 
     private final static AddPluginAliasSetLikeComponentContext CONTEXT = new FakeAddPluginAliasSetLikeComponentContext() {
         @Override
