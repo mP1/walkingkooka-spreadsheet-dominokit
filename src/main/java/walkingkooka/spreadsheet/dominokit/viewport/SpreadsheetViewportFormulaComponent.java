@@ -42,6 +42,7 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -314,6 +315,13 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
     @Override
     public String toString() {
         return this.formula.toString();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        throw new UnsupportedOperationException();
     }
 
     private final SpreadsheetFormulaComponent formula;

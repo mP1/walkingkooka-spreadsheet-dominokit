@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponen
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.TextAlign;
 
 import java.util.List;
@@ -39,8 +38,7 @@ import java.util.Optional;
 /**
  * A table that displays {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSample} with one per row.
  */
-public final class SpreadsheetFormatterTableComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetFormatterTableComponent>,
-        TreePrintable {
+public final class SpreadsheetFormatterTableComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetFormatterTableComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetFormatterTableComponent}.

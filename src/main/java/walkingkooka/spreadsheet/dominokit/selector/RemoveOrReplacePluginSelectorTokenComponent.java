@@ -32,7 +32,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Collection;
 import java.util.List;
@@ -42,8 +41,7 @@ import java.util.stream.Collectors;
 /**
  * A component with links for each {@link PluginSelectorTokenLike}, with context menu items which support replacing the item.
  */
-public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, RemoveOrReplacePluginSelectorTokenComponent<T, A>>,
-        TreePrintable {
+public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> implements HtmlElementComponent<HTMLDivElement, RemoveOrReplacePluginSelectorTokenComponent<T, A>> {
 
     /**
      * Creates an empty {@link RemoveOrReplacePluginSelectorTokenComponent}.

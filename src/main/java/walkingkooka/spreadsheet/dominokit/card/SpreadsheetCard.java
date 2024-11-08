@@ -39,7 +39,6 @@ import java.util.Optional;
  * A {@link Card} that auto hides when empty.
  */
 public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElement, SpreadsheetCard>,
-        TreePrintable,
         ComponentWithChildren<SpreadsheetCard, HTMLDivElement> {
 
     public static SpreadsheetCard empty() {

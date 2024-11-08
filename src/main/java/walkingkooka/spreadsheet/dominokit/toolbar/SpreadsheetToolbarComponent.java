@@ -34,7 +34,6 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentL
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -49,8 +48,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         LoadedSpreadsheetMetadataRequired,
         NopFetcherWatcher,
         NopEmptyResponseFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher,
-        TreePrintable {
+        SpreadsheetDeltaFetcherWatcher {
 
     public static SpreadsheetToolbarComponent with(final AppContext context) {
         Objects.requireNonNull(context, "context");

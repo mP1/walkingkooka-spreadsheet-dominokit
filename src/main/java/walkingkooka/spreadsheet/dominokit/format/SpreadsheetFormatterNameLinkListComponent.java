@@ -25,15 +25,13 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.stream.Collectors;
 
 /**
  * A component that list all available {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterName} by querying {@link SpreadsheetFormatterProvider#spreadsheetFormatterInfos()}.
  */
-public final class SpreadsheetFormatterNameLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetFormatterNameLinkListComponent>,
-        TreePrintable {
+public final class SpreadsheetFormatterNameLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetFormatterNameLinkListComponent> {
 
     static SpreadsheetFormatterNameLinkListComponent empty(final String id) {
         return new SpreadsheetFormatterNameLinkListComponent(id);

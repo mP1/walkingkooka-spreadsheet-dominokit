@@ -21,14 +21,12 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 /**
  * Interface that defines all the PUBLIC methods of {@link SpreadsheetDialogComponent}.
  * This is used to keep the two SpreadsheetDialogComponent.java (main/test) in sync.
  */
-public interface SpreadsheetDialogComponentLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent>,
-        TreePrintable {
+public interface SpreadsheetDialogComponentLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
 
     /**
      * Getter that returns the ID.

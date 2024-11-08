@@ -28,7 +28,6 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuTarget
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponentTarget;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Optional;
 
@@ -37,8 +36,7 @@ import java.util.Optional;
  */
 public interface HistoryTokenAnchorComponentLike extends HtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent>,
         SpreadsheetContextMenuTarget<HTMLAnchorElement>,
-        SpreadsheetTooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent>,
-        TreePrintable {
+        SpreadsheetTooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent> {
 
     default boolean isDisabled() {
         return null == this.href();

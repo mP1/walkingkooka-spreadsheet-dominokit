@@ -24,6 +24,7 @@ import org.dominokit.domino.ui.menu.direction.DropDirection;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
@@ -91,5 +92,12 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
     @Override
     public final String toString() {
         return this.anchor.toString();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        this.anchor.printTree(printer);
     }
 }
