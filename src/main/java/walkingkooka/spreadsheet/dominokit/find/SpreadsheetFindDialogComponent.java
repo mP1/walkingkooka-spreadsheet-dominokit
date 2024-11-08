@@ -17,16 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.find;
 
-import org.dominokit.domino.ui.datatable.CellTextAlign;
-import org.dominokit.domino.ui.datatable.ColumnConfig;
-import walkingkooka.collect.list.Lists;
-import walkingkooka.net.AbsoluteOrRelativeUrl;
-import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
+import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaMatchedCellsTableComponent;
+import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaMatchedCellsTableComponentContexts;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
@@ -36,18 +31,13 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
-import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetCellRangeReferenceComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFind;
-import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.Expression;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
@@ -56,10 +46,7 @@ import java.util.function.Function;
  * A modal dialog that provides form elements to perform a find with a table showing the matching cells.
  */
 public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher {
+        LoadedSpreadsheetMetadataRequired {
 
     /**
      * Creates a new {@link SpreadsheetFindDialogComponent}.
@@ -81,12 +68,17 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.find = this.anchor("Find");
         this.reset = this.anchor("Reset");
 
-        this.dataTable = this.dataTable();
+        this.table = SpreadsheetDeltaMatchedCellsTableComponent.with(
+                ID,
+                SpreadsheetDeltaMatchedCellsTableComponentContexts.basic(
+                        context, // HistoryTokenContext
+                        context //
+                )
+        );
 
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
-        context.addSpreadsheetDeltaFetcherWatcher(this);
     }
 
     // dialog...........................................................................................................
@@ -116,7 +108,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                                         )
                                 )
                 ).appendChild(
-                        this.dataTable
+                        this.table
                 );
     }
 
@@ -124,71 +116,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private final SpreadsheetFindDialogComponentContext context;
 
-    // datatable........................................................................................................
-
-    private SpreadsheetDataTableComponent<SpreadsheetCell> dataTable() {
-        return SpreadsheetDataTableComponent.with(
-                ID_PREFIX + "cells-Table", // id
-                this.columnConfigs(), // column confiss
-                SpreadsheetFindDialogComponentSpreadsheetDataTableComponentCellRenderer.with(this.context)
-        ).bodyScrollPlugin();
-    }
-
-    private final SpreadsheetDataTableComponent<SpreadsheetCell> dataTable;
-
-    /**
-     * The table showing matching cells will have four columns.
-     * <pre>
-     * cell | formula | value | formatted
-     * </pre>
-     */
-    private List<ColumnConfig<SpreadsheetCell>> columnConfigs() {
-        return Lists.of(
-                columnConfig(
-                        "Cell",
-                        CellTextAlign.LEFT
-                ),
-
-                columnConfig(
-                        "Formula",
-                        CellTextAlign.LEFT
-                ),
-                columnConfig(
-                        "Formatted",
-                        CellTextAlign.LEFT
-                ),
-                columnConfig(
-                        "Value",
-                        CellTextAlign.LEFT
-                )
-        );
-    }
-
-    private ColumnConfig<SpreadsheetCell> columnConfig(final String title,
-                                                       final CellTextAlign cellTextAlign) {
-        return ColumnConfig.<SpreadsheetCell>create(
-                title.toLowerCase(),
-                title
-        ).setTextAlign(cellTextAlign);
-    }
-
-    // SpreadsheetDeltaWatcher.........................................................................................
-
-    /**
-     * Replaces the cells in the {@link SpreadsheetDataTableComponent#setValue(Optional)}.
-     */
-    @Override
-    public void onSpreadsheetDelta(final HttpMethod method,
-                                   final AbsoluteOrRelativeUrl url,
-                                   final SpreadsheetDelta delta,
-                                   final AppContext context) {
-        final List<SpreadsheetCell> cells = Lists.array();
-        cells.addAll(delta.cells());
-
-        this.dataTable.setValue(
-                Optional.of(cells)
-        );
-    }
+    // @VisibleForTesting.
+    final SpreadsheetDeltaMatchedCellsTableComponent table;
 
     // path.....................................................................................................
 

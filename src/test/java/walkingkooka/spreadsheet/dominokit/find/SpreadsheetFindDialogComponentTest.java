@@ -93,14 +93,15 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          \"Find\" id=find-find-Link\n" +
                         "          \"Reset\" id=find-reset-Link\n" +
                         "          \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
-                        "      SpreadsheetDataTableComponent\n" +
-                        "        COLUMN(S)\n" +
-                        "          Cell\n" +
-                        "          Formula\n" +
-                        "          Formatted\n" +
-                        "          Value\n" +
-                        "        PLUGINS\n" +
-                        "          BodyScrollPlugin\n"
+                        "      SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                        "        SpreadsheetDataTableComponent\n" +
+                        "          COLUMN(S)\n" +
+                        "            Cell\n" +
+                        "            Formula\n" +
+                        "            Formatted\n" +
+                        "            Value\n" +
+                        "          PLUGINS\n" +
+                        "            BodyScrollPlugin\n"
         );
     }
 
@@ -159,17 +160,18 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          \"Find\" id=find-find-Link\n" +
                         "          \"Reset\" id=find-reset-Link\n" +
                         "          \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
-                        "      SpreadsheetDataTableComponent\n" +
-                        "        COLUMN(S)\n" +
-                        "          Cell\n" +
-                        "          Formula\n" +
-                        "          Formatted\n" +
-                        "          Value\n" +
-                        "        PLUGINS\n" +
-                        "          BodyScrollPlugin\n"
+                        "      SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                        "        SpreadsheetDataTableComponent\n" +
+                        "          COLUMN(S)\n" +
+                        "            Cell\n" +
+                        "            Formula\n" +
+                        "            Formatted\n" +
+                        "            Value\n" +
+                        "          PLUGINS\n" +
+                        "            BodyScrollPlugin\n"
         );
 
-        dialog.onSpreadsheetDelta(
+        dialog.table.onSpreadsheetDelta(
                 HttpMethod.GET,
                 Url.parseRelative("/api/spreadsheet/2/cell/B1/find?cell-range-path=lrtd&query=%3Dtrue%28%29"),
                 SpreadsheetDelta.EMPTY.setCells(
@@ -230,27 +232,28 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          \"Find\" id=find-find-Link\n" +
                         "          \"Reset\" id=find-reset-Link\n" +
                         "          \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
-                        "      SpreadsheetDataTableComponent\n" +
-                        "        COLUMN(S)\n" +
-                        "          Cell\n" +
-                        "          Formula\n" +
-                        "          Formatted\n" +
-                        "          Value\n" +
-                        "        ROW(S)\n" +
-                        "          ROW 0\n" +
-                        "            \"A1\" [#/123/SpreadsheetName456/cell/A1]\n" +
-                        "            \"=1\" [#/123/SpreadsheetName456/cell/A1/formula]\n" +
-                        "            SpreadsheetTextNodeComponent\n" +
-                        "            SpreadsheetTextComponent\n" +
-                        "              \"\"\n" +
-                        "          ROW 1\n" +
-                        "            \"B2\" [#/123/SpreadsheetName456/cell/B2]\n" +
-                        "            \"=2\" [#/123/SpreadsheetName456/cell/B2/formula]\n" +
-                        "            SpreadsheetTextNodeComponent\n" +
-                        "            SpreadsheetTextComponent\n" +
-                        "              \"\"\n" +
-                        "        PLUGINS\n" +
-                        "          BodyScrollPlugin\n"
+                        "      SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                        "        SpreadsheetDataTableComponent\n" +
+                        "          COLUMN(S)\n" +
+                        "            Cell\n" +
+                        "            Formula\n" +
+                        "            Formatted\n" +
+                        "            Value\n" +
+                        "          ROW(S)\n" +
+                        "            ROW 0\n" +
+                        "              \"A1\" [#/123/SpreadsheetName456/cell/A1]\n" +
+                        "              \"=1\" [#/123/SpreadsheetName456/cell/A1/formula]\n" +
+                        "              SpreadsheetTextNodeComponent\n" +
+                        "              SpreadsheetTextComponent\n" +
+                        "                \"\"\n" +
+                        "            ROW 1\n" +
+                        "              \"B2\" [#/123/SpreadsheetName456/cell/B2]\n" +
+                        "              \"=2\" [#/123/SpreadsheetName456/cell/B2/formula]\n" +
+                        "              SpreadsheetTextNodeComponent\n" +
+                        "              SpreadsheetTextComponent\n" +
+                        "                \"\"\n" +
+                        "          PLUGINS\n" +
+                        "            BodyScrollPlugin\n"
         );
     }
 
