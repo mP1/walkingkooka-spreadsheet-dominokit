@@ -18,10 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.text.printer.TreePrintableTesting;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 
 public interface ValueComponentTesting<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
-        extends ClassTesting<C>,
-        TreePrintableTesting {
+        extends HtmlElementComponentTesting<C, E> {
 }
