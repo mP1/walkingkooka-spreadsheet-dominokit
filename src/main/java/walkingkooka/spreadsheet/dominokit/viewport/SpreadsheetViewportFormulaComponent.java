@@ -321,7 +321,12 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
     @Override
     public void printTree(final IndentingPrinter printer) {
-        throw new UnsupportedOperationException();
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.formula.printTree(printer);
+        }
+        printer.outdent();
     }
 
     private final SpreadsheetFormulaComponent formula;
