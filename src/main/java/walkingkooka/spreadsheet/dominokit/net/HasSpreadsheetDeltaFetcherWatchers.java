@@ -22,6 +22,4 @@ public interface HasSpreadsheetDeltaFetcherWatchers {
     Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
 
     Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher);
-
-    SpreadsheetDeltaFetcherWatchers spreadsheetDeltaFetcherWatchers();
 }
