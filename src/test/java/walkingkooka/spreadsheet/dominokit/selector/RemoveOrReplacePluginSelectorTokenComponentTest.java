@@ -17,23 +17,25 @@
 
 package walkingkooka.spreadsheet.dominokit.selector;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTokenAlternative;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class RemoveOrReplacePluginSelectorTokenComponentTest implements ClassTesting<RemoveOrReplacePluginSelectorTokenComponent<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative>>,
-        TreePrintableTesting {
+public final class RemoveOrReplacePluginSelectorTokenComponentTest implements HtmlElementComponentTesting<RemoveOrReplacePluginSelectorTokenComponent<
+        SpreadsheetFormatterSelectorToken,
+        SpreadsheetFormatterSelectorTokenAlternative>,
+        HTMLDivElement> {
 
     @Test
     public void testEmptyWithNullPrefixFails() {
