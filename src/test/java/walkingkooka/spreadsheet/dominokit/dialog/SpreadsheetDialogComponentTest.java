@@ -17,17 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetDialogComponentTest implements TreePrintableTesting,
-        ClassTesting<SpreadsheetDialogComponent> {
+public final class SpreadsheetDialogComponentTest implements HtmlElementComponentTesting<SpreadsheetDialogComponent, HTMLDivElement> {
 
     @Test
     public void testOpenTitleCloseableChildren() {
