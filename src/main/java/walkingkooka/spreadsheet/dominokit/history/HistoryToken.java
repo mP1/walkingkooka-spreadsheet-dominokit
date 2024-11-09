@@ -332,12 +332,12 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellFindHistoryToken cellFind(final SpreadsheetId id,
                                                            final SpreadsheetName name,
                                                            final AnchoredSpreadsheetSelection anchoredSelection,
-                                                           final SpreadsheetCellQuery find) {
+                                                           final SpreadsheetCellQuery query) {
         return SpreadsheetCellFindHistoryToken.with(
                 id,
                 name,
                 anchoredSelection,
-                find
+                query
         );
     }
 
@@ -1662,31 +1662,6 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * Creates a {@link SpreadsheetCellFindHistoryToken} with the given parameters.
-     */
-    public final HistoryToken setFind(final SpreadsheetCellQuery find) {
-        HistoryToken historyToken = this;
-
-        if (this instanceof SpreadsheetCellHistoryToken) {
-            if (this instanceof SpreadsheetCellFindHistoryToken) {
-                final SpreadsheetCellFindHistoryToken findHistoryToken = (SpreadsheetCellFindHistoryToken) this;
-                historyToken = findHistoryToken.setFind0(find);
-            } else {
-                final SpreadsheetCellHistoryToken cell = (SpreadsheetCellHistoryToken) this;
-                historyToken = cellFind(
-                        cell.id(),
-                        cell.name(),
-                        cell.anchoredSelection(),
-                        find
-                );
-            }
-
-        }
-
-        return historyToken;
-    }
-
-    /**
      * Creates a formula where possible otherwise returns this.
      */
     public abstract HistoryToken setFormula();
@@ -2060,6 +2035,31 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         } else {
             historyToken = this;
+        }
+
+        return historyToken;
+    }
+
+    /**
+     * Creates a {@link SpreadsheetCellFindHistoryToken} with the given parameters.
+     */
+    public final HistoryToken setQuery(final SpreadsheetCellQuery query) {
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            if (this instanceof SpreadsheetCellFindHistoryToken) {
+                final SpreadsheetCellFindHistoryToken findHistoryToken = (SpreadsheetCellFindHistoryToken) this;
+                historyToken = findHistoryToken.setQuery0(query);
+            } else {
+                final SpreadsheetCellHistoryToken cell = (SpreadsheetCellHistoryToken) this;
+                historyToken = cellFind(
+                        cell.id(),
+                        cell.name(),
+                        cell.anchoredSelection(),
+                        query
+                );
+            }
+
         }
 
         return historyToken;

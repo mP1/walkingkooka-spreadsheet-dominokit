@@ -157,8 +157,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     private void onCellRangePathValueChange(final Optional<SpreadsheetCellRangeReferencePath> oldPath,
                                             final Optional<SpreadsheetCellRangeReferencePath> newPath) {
         this.setAndRefresh(
-                t -> t.setFind(
-                        t.find()
+                t -> t.setQuery(
+                        t.query()
                                 .setPath(newPath)
                 )
         );
@@ -182,8 +182,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     private void onQueryChange(final Optional<SpreadsheetFormula> oldFormula,
                                final Optional<SpreadsheetFormula> newFormula) {
         this.setAndRefresh(
-                t -> t.setFind(
-                        t.find()
+                t -> t.setQuery(
+                        t.query()
                                 .setQuery(newFormula.map(SpreadsheetFormula::text)
                                 )
                 )
@@ -207,8 +207,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     private void onValueTypeChange(final Optional<String> oldValue,
                                    final Optional<String> newValue) {
         this.setAndRefresh(
-                t -> t.setFind(
-                        t.find()
+                t -> t.setQuery(
+                        t.query()
                                 .setValueType(newValue)
                 )
         );
@@ -251,8 +251,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     private void refreshReset(final SpreadsheetCellFindHistoryToken token) {
         this.reset.setHistoryToken(
                 Optional.of(
-                        token.setFind(
-                                token.find()
+                        token.setQuery(
+                                token.query()
                                         .setPath(
                                                 Optional.empty()
                                         ).setValueType(
@@ -311,7 +311,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 )
         );
 
-        final SpreadsheetCellQuery find = token.find();
+        final SpreadsheetCellQuery find = token.query();
 
         this.path.setValue(
                 find.path()
@@ -348,7 +348,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 .findCells(
                         id,
                         cells,
-                        historyToken.find()
+                        historyToken.query()
                 );
     }
 

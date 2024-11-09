@@ -40,49 +40,49 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     static SpreadsheetCellFindHistoryToken with(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
-                                                final SpreadsheetCellQuery find) {
+                                                final SpreadsheetCellQuery query) {
         return new SpreadsheetCellFindHistoryToken(
                 id,
                 name,
                 anchoredSelection,
-                find
+                query
         );
     }
 
     private SpreadsheetCellFindHistoryToken(final SpreadsheetId id,
                                             final SpreadsheetName name,
                                             final AnchoredSpreadsheetSelection anchoredSelection,
-                                            final SpreadsheetCellQuery find) {
+                                            final SpreadsheetCellQuery query) {
         super(
                 id,
                 name,
                 anchoredSelection
         );
-        this.find = find;
+        this.query = query;
     }
 
-    public SpreadsheetCellQuery find() {
-        return this.find;
+    public SpreadsheetCellQuery query() {
+        return this.query;
     }
 
-    SpreadsheetCellFindHistoryToken setFind0(final SpreadsheetCellQuery find) {
-        Objects.requireNonNull(find, "find");
+    SpreadsheetCellFindHistoryToken setQuery0(final SpreadsheetCellQuery query) {
+        Objects.requireNonNull(query, "query");
 
-        return this.find.equals(find) ?
+        return this.query.equals(query) ?
                 this :
                 new SpreadsheetCellFindHistoryToken(
                         this.id(),
                         this.name(),
                         this.anchoredSelection(),
-                        find
+                        query
                 );
     }
 
-    private final SpreadsheetCellQuery find;
+    private final SpreadsheetCellQuery query;
 
     @Override
     UrlFragment cellUrlFragment() {
-        return FIND.appendSlashThen(this.find.urlFragment());
+        return FIND.appendSlashThen(this.query.urlFragment());
     }
 
     @Override
@@ -103,7 +103,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
                 id,
                 name,
                 anchoredSelection
-        ).setFind(this.find);
+        ).setQuery(this.query);
     }
 
     @Override
@@ -118,7 +118,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         context.spreadsheetMetadataFetcher()
                 .patchMetadata(
                         this.id(),
-                        SpreadsheetMetadataPropertyName.FIND_QUERY.patch(this.find())
+                        SpreadsheetMetadataPropertyName.FIND_QUERY.patch(this.query())
                 );
     }
 }

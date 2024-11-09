@@ -174,7 +174,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                                final HistoryToken expected) {
         this.checkEquals(
                 expected,
-                token.setFind(find),
+                token.setQuery(find),
                 () -> token + " setFind " + find
         );
     }

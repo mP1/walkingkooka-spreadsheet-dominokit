@@ -86,7 +86,7 @@ final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToo
                 Optional.of(
                         historyToken.setAnchoredSelection(
                                 Optional.of(anchoredSpreadsheetSelection)
-                        ).setFind(
+                        ).setQuery(
                                 SpreadsheetCellQuery.empty()
                         )
                 )
