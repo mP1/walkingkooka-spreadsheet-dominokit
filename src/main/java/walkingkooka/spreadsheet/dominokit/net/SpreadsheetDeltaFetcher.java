@@ -36,7 +36,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetCompara
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportFormulaComponent;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFind;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -343,7 +343,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
 
     public void findCells(final SpreadsheetId id,
                           final SpreadsheetCellRangeReference cells,
-                          final SpreadsheetCellFind find) {
+                          final SpreadsheetCellQuery find) {
         this.get(
                 findCellsUrl(
                         id,
@@ -356,7 +356,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     // @VisibleForTesting
     static RelativeUrl findCellsUrl(final SpreadsheetId id,
                                     final SpreadsheetCellRangeReference cells,
-                                    final SpreadsheetCellFind find) {
+                                    final SpreadsheetCellQuery find) {
         return SpreadsheetMetadataFetcher.url(id)
                 .appendPathName(SpreadsheetDeltaHateosResourceMappings.CELL.toUrlPathName())
                 .appendPathName(

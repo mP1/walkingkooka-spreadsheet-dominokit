@@ -277,7 +277,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     final SortedMap<SpreadsheetCellReference, SpreadsheetCell> cells = Maps.sorted();
 
     /**
-     * A cache of all matched cells. Anytime the window or {link SpreadsheetCellFind} changes this entire cache needs
+     * A cache of all matched cells. Anytime the window or {link SpreadsheetCellQuery} changes this entire cache needs
      * to be cleared and all cells in the viewport reloaded.
      */
     final Set<SpreadsheetCellReference> matchedCells = SortedSets.tree();
