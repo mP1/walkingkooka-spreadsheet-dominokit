@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetCompara
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.text.cursor.TextCursor;
@@ -233,7 +234,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                         queryText.isEmpty() ?
                         Optional.empty() :
                         Optional.of(
-                                queryText
+                                SpreadsheetCellQuery.parse(queryText)
                         )
                 );
             }

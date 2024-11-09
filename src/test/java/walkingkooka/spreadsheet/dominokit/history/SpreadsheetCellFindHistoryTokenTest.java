@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
+import walkingkooka.spreadsheet.meta.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -41,7 +42,11 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             ).setOffset(OptionalInt.of(123))
             .setMax(OptionalInt.of(456))
             .setValueType(Optional.of(SpreadsheetValueType.ANY))
-            .setQuery(Optional.of("=789+blah()"));
+            .setQuery(
+                    Optional.of(
+                            SpreadsheetCellQuery.parse("789+blah()")
+                    )
+            );
 
     // setPath..........................................................................................................
 
@@ -266,7 +271,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
 
     @Test
     public void testParsePathOffsetMaxValueTypeQuery() {
-        final String query = "'Hello'";
+        final String query = "Hello()";
 
         this.parseAndCheck2(
                 "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.DATE + "/query/" + query,
@@ -276,13 +281,15 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                 OptionalInt.of(1234), // offset
                 OptionalInt.of(5678), // max
                 Optional.of(SpreadsheetValueType.DATE), // valueType
-                Optional.of(query) // query
+                Optional.of(
+                        SpreadsheetCellQuery.parse(query)
+                )// query
         );
     }
 
     @Test
     public void testParsePathOffsetMaxValueTypeQuery2() {
-        final String query = "=1/23*4/5";
+        final String query = "1/23*4/5";
 
         this.parseAndCheck2(
                 "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.TIME + "/query/" + query,
@@ -292,7 +299,9 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                 OptionalInt.of(1234), // offset
                 OptionalInt.of(5678), // max
                 Optional.of(SpreadsheetValueType.TIME), // valueType
-                Optional.of(query) // query
+                Optional.of(
+                        SpreadsheetCellQuery.parse(query)
+                )// query
         );
     }
 
@@ -346,7 +355,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
 
     @Test
     public void testParseValueTypeQuery() {
-        final String query = "=1/23*4/5";
+        final String query = "1/23*4/5";
 
         this.parseAndCheck2(
                 "/123/SpreadsheetName456/cell/A1/find/value-type/" + SpreadsheetValueType.TIME + "/query/" + query,
@@ -354,13 +363,15 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                 OptionalInt.empty(), // offset
                 OptionalInt.empty(), // max
                 Optional.of(SpreadsheetValueType.TIME), // valueType
-                Optional.of(query) // query
+                Optional.of(
+                        SpreadsheetCellQuery.parse(query)
+                )// query
         );
     }
 
     @Test
     public void testParseQuery() {
-        final String query = "=1/23*4/5";
+        final String query = "1/23*4/5";
 
         this.parseAndCheck2(
                 "/123/SpreadsheetName456/cell/A1/find/query/" + query,
@@ -368,7 +379,9 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                 OptionalInt.empty(), // offset
                 OptionalInt.empty(), // max
                 Optional.empty(), // valueType
-                Optional.of(query) // query
+                Optional.of(
+                        SpreadsheetCellQuery.parse(query)
+                ) // query
         );
     }
 
@@ -377,7 +390,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                                 final OptionalInt offset,
                                 final OptionalInt max,
                                 final Optional<String> valueType,
-                                final Optional<String> query) {
+                                final Optional<SpreadsheetCellQuery> query) {
         this.parseAndCheck(
                 url,
                 SpreadsheetCellFindHistoryToken.with(
