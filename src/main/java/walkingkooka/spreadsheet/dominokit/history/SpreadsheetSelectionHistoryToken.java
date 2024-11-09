@@ -181,12 +181,12 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
     }
 
     private HistoryToken parseFind(final TextCursor cursor) {
-        SpreadsheetCellQuery find = SpreadsheetCellQuery.empty();
+        SpreadsheetCellQuery query = SpreadsheetCellQuery.empty();
 
         String component = parseComponentOrNull(cursor);
         if (null != component) {
             if ("path".equals(component)) {
-                find = find.setPath(
+                query = query.setPath(
                         parseComponent(cursor)
                                 .map(SpreadsheetCellRangeReferencePath::valueOf)
                 );
@@ -194,7 +194,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 component = parseComponentOrNull(cursor);
             }
             if ("offset".equals(component)) {
-                find = find.setOffset(
+                query = query.setOffset(
                         parseComponent(cursor)
                         .map(Integer::parseInt)
                         .map(OptionalInt::of)
@@ -205,7 +205,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 component = parseComponentOrNull(cursor);
             }
             if ("max".equals(component)) {
-                find = find.setMax(
+                query = query.setMax(
                         parseComponent(cursor)
                         .map(Integer::parseInt)
                         .map(OptionalInt::of)
@@ -216,7 +216,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
                 component = parseComponentOrNull(cursor);
             }
             if ("value-type".equals(component)) {
-                find = find.setValueType(
+                query = query.setValueType(
                         parseComponent(cursor)
                 );
                 component = parseComponentOrNull(cursor);
@@ -229,7 +229,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
 
                 final String queryText = save.textBetween()
                         .toString();
-                find = find.setQuery(
+                query = query.setQuery(
                         queryText.isEmpty() ?
                         Optional.empty() :
                         Optional.of(
@@ -239,7 +239,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             }
         }
 
-        return this.setQuery(find);
+        return this.setQuery(query);
     }
 
     private HistoryToken parseSort(final TextCursor cursor) {
