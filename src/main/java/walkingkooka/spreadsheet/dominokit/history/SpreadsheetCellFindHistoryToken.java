@@ -21,7 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
@@ -40,7 +40,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     static SpreadsheetCellFindHistoryToken with(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
-                                                final SpreadsheetCellQuery query) {
+                                                final SpreadsheetCellFindQuery query) {
         return new SpreadsheetCellFindHistoryToken(
                 id,
                 name,
@@ -52,7 +52,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     private SpreadsheetCellFindHistoryToken(final SpreadsheetId id,
                                             final SpreadsheetName name,
                                             final AnchoredSpreadsheetSelection anchoredSelection,
-                                            final SpreadsheetCellQuery query) {
+                                            final SpreadsheetCellFindQuery query) {
         super(
                 id,
                 name,
@@ -61,11 +61,11 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         this.query = query;
     }
 
-    public SpreadsheetCellQuery query() {
+    public SpreadsheetCellFindQuery query() {
         return this.query;
     }
 
-    SpreadsheetCellFindHistoryToken setQuery0(final SpreadsheetCellQuery query) {
+    SpreadsheetCellFindHistoryToken setQuery0(final SpreadsheetCellFindQuery query) {
         Objects.requireNonNull(query, "query");
 
         return this.query.equals(query) ?
@@ -78,7 +78,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
                 );
     }
 
-    private final SpreadsheetCellQuery query;
+    private final SpreadsheetCellFindQuery query;
 
     @Override
     UrlFragment cellUrlFragment() {

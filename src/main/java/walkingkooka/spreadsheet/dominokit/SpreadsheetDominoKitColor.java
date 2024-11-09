@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.color.Color;
 import walkingkooka.color.WebColorName;
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 /**
@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 public final class SpreadsheetDominoKitColor implements PublicStaticHelper {
 
     /**
-     * This {@link Color} is mixed with cells that are selected for highlighting because of a {@link SpreadsheetCellQuery} query.
+     * This {@link Color} is mixed with cells that are selected for highlighting because of a {@link SpreadsheetCellFindQuery} query.
      */
     public final static Color HIGHLIGHT_COLOR = WebColorName.YELLOW.color();
 

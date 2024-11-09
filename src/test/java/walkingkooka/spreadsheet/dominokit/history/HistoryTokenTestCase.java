@@ -28,7 +28,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.MethodAttributes;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -170,7 +170,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     // setFind..........................................................................................................
 
     final void setFindAndCheck(final HistoryToken token,
-                               final SpreadsheetCellQuery find,
+                               final SpreadsheetCellFindQuery find,
                                final HistoryToken expected) {
         this.checkEquals(
                 expected,

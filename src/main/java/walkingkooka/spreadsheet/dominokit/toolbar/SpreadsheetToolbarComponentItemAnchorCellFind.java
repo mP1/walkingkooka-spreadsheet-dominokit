@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -87,7 +87,7 @@ final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToo
                         historyToken.setAnchoredSelection(
                                 Optional.of(anchoredSpreadsheetSelection)
                         ).setQuery(
-                                SpreadsheetCellQuery.empty()
+                                SpreadsheetCellFindQuery.empty()
                         )
                 )
         );

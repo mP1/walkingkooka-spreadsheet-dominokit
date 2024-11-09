@@ -32,7 +32,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetCellRangeReferenceComponent;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -311,7 +311,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 )
         );
 
-        final SpreadsheetCellQuery find = token.query();
+        final SpreadsheetCellFindQuery find = token.query();
 
         this.path.setValue(
                 find.path()
@@ -331,7 +331,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     /**
      * Copies the parameters from the current {@link HistoryToken} assuming its a {@link SpreadsheetCellFindHistoryToken}
-     * and performs a {@link walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher#findCells(SpreadsheetId, SpreadsheetCellRangeReference, SpreadsheetCellQuery)}.
+     * and performs a {@link walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher#findCells(SpreadsheetId, SpreadsheetCellRangeReference, SpreadsheetCellFindQuery)}.
      */
     private void findCells() {
         final SpreadsheetFindDialogComponentContext context = this.context;

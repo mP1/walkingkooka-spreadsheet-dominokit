@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuItem;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
@@ -332,7 +332,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static SpreadsheetCellFindHistoryToken cellFind(final SpreadsheetId id,
                                                            final SpreadsheetName name,
                                                            final AnchoredSpreadsheetSelection anchoredSelection,
-                                                           final SpreadsheetCellQuery query) {
+                                                           final SpreadsheetCellFindQuery query) {
         return SpreadsheetCellFindHistoryToken.with(
                 id,
                 name,
@@ -2043,7 +2043,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * Creates a {@link SpreadsheetCellFindHistoryToken} with the given parameters.
      */
-    public final HistoryToken setQuery(final SpreadsheetCellQuery query) {
+    public final HistoryToken setQuery(final SpreadsheetCellFindQuery query) {
         HistoryToken historyToken = this;
 
         if (this instanceof SpreadsheetCellHistoryToken) {
