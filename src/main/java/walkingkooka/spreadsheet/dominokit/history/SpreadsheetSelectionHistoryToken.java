@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFind;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
@@ -181,7 +181,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
     }
 
     private HistoryToken parseFind(final TextCursor cursor) {
-        SpreadsheetCellFind find = SpreadsheetCellFind.empty();
+        SpreadsheetCellQuery find = SpreadsheetCellQuery.empty();
 
         String component = parseComponentOrNull(cursor);
         if (null != component) {

@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFind;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -112,12 +112,12 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     public final void testSetFind() {
         this.setFindAndCheck(
                 this.createHistoryToken(),
-                SpreadsheetCellFind.empty(), // query
+                SpreadsheetCellQuery.empty(), // query
                 HistoryToken.cellFind(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
-                        SpreadsheetCellFind.empty()
+                        SpreadsheetCellQuery.empty()
                 )
         );
     }

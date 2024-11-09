@@ -21,7 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFind;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
@@ -40,7 +40,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     static SpreadsheetCellFindHistoryToken with(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
-                                                final SpreadsheetCellFind find) {
+                                                final SpreadsheetCellQuery find) {
         return new SpreadsheetCellFindHistoryToken(
                 id,
                 name,
@@ -52,7 +52,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     private SpreadsheetCellFindHistoryToken(final SpreadsheetId id,
                                             final SpreadsheetName name,
                                             final AnchoredSpreadsheetSelection anchoredSelection,
-                                            final SpreadsheetCellFind find) {
+                                            final SpreadsheetCellQuery find) {
         super(
                 id,
                 name,
@@ -61,11 +61,11 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         this.find = find;
     }
 
-    public SpreadsheetCellFind find() {
+    public SpreadsheetCellQuery find() {
         return this.find;
     }
 
-    SpreadsheetCellFindHistoryToken setFind0(final SpreadsheetCellFind find) {
+    SpreadsheetCellFindHistoryToken setFind0(final SpreadsheetCellQuery find) {
         Objects.requireNonNull(find, "find");
 
         return this.find.equals(find) ?
@@ -78,7 +78,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
                 );
     }
 
-    private final SpreadsheetCellFind find;
+    private final SpreadsheetCellQuery find;
 
     @Override
     UrlFragment cellUrlFragment() {
