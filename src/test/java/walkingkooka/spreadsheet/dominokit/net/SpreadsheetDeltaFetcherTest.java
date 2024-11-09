@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
+import walkingkooka.spreadsheet.meta.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -575,8 +576,8 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
 
     private final static Optional<String> VALUE_TYPE = Optional.of(SpreadsheetValueType.DATE);
 
-    private final static Optional<String> QUERY = Optional.of(
-            "query789"
+    private final static Optional<SpreadsheetCellQuery> QUERY = Optional.of(
+            SpreadsheetCellQuery.parse("query789()")
     );
 
     @Test
@@ -669,7 +670,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 CELLS,
                 SpreadsheetCellFindQuery.empty()
                         .setQuery(QUERY),
-                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?query=query789")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?query=query789()")
         );
     }
 
@@ -684,7 +685,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                         .setMax(MAX)
                         .setValueType(VALUE_TYPE)
                         .setQuery(QUERY),
-                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=bulr&max=34&offset=12&query=query789&value-type=date")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=bulr&max=34&offset=12&query=query789()&value-type=date")
         );
     }
 

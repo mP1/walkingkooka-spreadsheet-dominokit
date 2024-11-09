@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetCellRangeReferenceComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
+import walkingkooka.spreadsheet.meta.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -184,7 +185,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.setAndRefresh(
                 t -> t.setQuery(
                         t.query()
-                                .setQuery(newFormula.map(SpreadsheetFormula::text)
+                                .setQuery(
+                                        newFormula.map(f -> SpreadsheetCellQuery.parse(f.text()))
                                 )
                 )
         );
@@ -321,6 +323,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         );
         this.query.setStringValue(
                 find.query()
+                        .map(SpreadsheetCellQuery::text)
         );
 
         this.refreshFind(token);
