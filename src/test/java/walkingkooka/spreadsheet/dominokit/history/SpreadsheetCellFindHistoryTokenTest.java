@@ -22,7 +22,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellFindHistoryToken> {
-    private final static SpreadsheetCellQuery FIND = SpreadsheetCellQuery.empty()
+    private final static SpreadsheetCellFindQuery FIND = SpreadsheetCellFindQuery.empty()
             .setPath(
                     Optional.of(SpreadsheetCellRangeReferencePath.LRTD)
             ).setOffset(OptionalInt.of(123))
@@ -70,7 +70,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                 SpreadsheetCellRangeReferencePath.BULR
         );
 
-        final SpreadsheetCellQuery find = SpreadsheetCellQuery.empty()
+        final SpreadsheetCellFindQuery find = SpreadsheetCellFindQuery.empty()
                 .setPath(path);
 
         this.checkEquals(
@@ -135,7 +135,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                         ID,
                         NAME,
                         anchoredSpreadsheetSelection,
-                        SpreadsheetCellQuery.empty()
+                        SpreadsheetCellFindQuery.empty()
                 ),
                 UrlFragment.with(expected),
                 anchoredSpreadsheetSelection::toString
@@ -384,7 +384,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                         ID,
                         NAME,
                         SELECTION,
-                        SpreadsheetCellQuery.empty()
+                        SpreadsheetCellFindQuery.empty()
                                 .setPath(path)
                                 .setOffset(offset)
                                 .setMax(max)
