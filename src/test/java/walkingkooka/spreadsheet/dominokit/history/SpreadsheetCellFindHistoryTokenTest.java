@@ -50,7 +50,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         assertThrows(
                 NullPointerException.class,
                 () -> this.createHistoryToken()
-                        .setFind(null)
+                        .setQuery(null)
         );
     }
 
@@ -60,7 +60,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
 
         assertSame(
                 token,
-                token.setFind(token.find())
+                token.setQuery(token.query())
         );
     }
 
@@ -81,7 +81,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                         find
                 ),
                 this.createHistoryToken()
-                        .setFind(find)
+                        .setQuery(find)
         );
     }
 

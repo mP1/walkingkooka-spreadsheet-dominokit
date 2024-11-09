@@ -239,7 +239,7 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
             }
         }
 
-        return this.setFind(find);
+        return this.setQuery(find);
     }
 
     private HistoryToken parseSort(final TextCursor cursor) {
