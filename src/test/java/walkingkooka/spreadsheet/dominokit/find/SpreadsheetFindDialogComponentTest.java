@@ -56,52 +56,55 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
                         "    id=find includeClose=true CLOSED\n" +
-                        "      SpreadsheetCellRangeReferenceComponent\n" +
-                        "        ValueSpreadsheetTextBox\n" +
-                        "          SpreadsheetTextBox\n" +
-                        "            Cell Range [] id=find--cell-range\n" +
-                        "            Errors\n" +
-                        "              Empty \"text\"\n" +
-                        "      SpreadsheetCellRangeReferencePathComponent\n" +
-                        "        SpreadsheetSelectComponent\n" +
-                        "          Cell Range Path [] id=find--cell-range-path-Select\n" +
-                        "            left-right top-down=LRTD\n" +
-                        "            right-left top-down=RLTD\n" +
-                        "            left-right bottom-up=LRBU\n" +
-                        "            right-left bottom-up=RLBU\n" +
-                        "            top-down left-right=TDLR\n" +
-                        "            top-down right-left=TDRL\n" +
-                        "            bottom-up left-right=BULR\n" +
-                        "            bottom-up right-left=BURL\n" +
-                        "      SpreadsheetValueTypeComponent\n" +
-                        "        SpreadsheetSelectComponent\n" +
-                        "          Value type [] id=find-value-type-Select\n" +
-                        "            Any=*\n" +
-                        "            Boolean=boolean\n" +
-                        "            Date=date\n" +
-                        "            Error=error\n" +
-                        "            DateTime=date-time\n" +
-                        "            Number=number\n" +
-                        "            Text=text\n" +
-                        "            Time=time\n" +
-                        "      SpreadsheetFormulaComponent\n" +
-                        "        ValueSpreadsheetTextBox\n" +
-                        "          SpreadsheetTextBox\n" +
-                        "            Query [] id=query-TextBox\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Find\" id=find-find-Link\n" +
-                        "          \"Reset\" id=find-reset-Link\n" +
-                        "          \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
-                        "      SpreadsheetDeltaMatchedCellsTableComponent\n" +
-                        "        SpreadsheetDataTableComponent\n" +
-                        "          COLUMN(S)\n" +
-                        "            Cell\n" +
-                        "            Formula\n" +
-                        "            Formatted\n" +
-                        "            Value\n" +
-                        "          PLUGINS\n" +
-                        "            BodyScrollPlugin\n"
+                        "      SpreadsheetFindDialogComponentGridLayout\n" +
+                        "        Left\n" +
+                        "          SpreadsheetCellRangeReferenceComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Cell Range [] id=find--cell-range\n" +
+                        "                Errors\n" +
+                        "                  Empty \"text\"\n" +
+                        "          SpreadsheetCellRangeReferencePathComponent\n" +
+                        "            SpreadsheetSelectComponent\n" +
+                        "              Cell Range Path [] id=find--cell-range-path-Select\n" +
+                        "                left-right top-down=LRTD\n" +
+                        "                right-left top-down=RLTD\n" +
+                        "                left-right bottom-up=LRBU\n" +
+                        "                right-left bottom-up=RLBU\n" +
+                        "                top-down left-right=TDLR\n" +
+                        "                top-down right-left=TDRL\n" +
+                        "                bottom-up left-right=BULR\n" +
+                        "                bottom-up right-left=BURL\n" +
+                        "          SpreadsheetValueTypeComponent\n" +
+                        "            SpreadsheetSelectComponent\n" +
+                        "              Value type [] id=find-value-type-Select\n" +
+                        "                Any=*\n" +
+                        "                Boolean=boolean\n" +
+                        "                Date=date\n" +
+                        "                Error=error\n" +
+                        "                DateTime=date-time\n" +
+                        "                Number=number\n" +
+                        "                Text=text\n" +
+                        "                Time=time\n" +
+                        "          SpreadsheetFormulaComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Query [] id=query-TextBox\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            ROW\n" +
+                        "              \"Find\" id=find-find-Link\n" +
+                        "              \"Reset\" id=find-reset-Link\n" +
+                        "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                        "        Content\n" +
+                        "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                        "            SpreadsheetDataTableComponent\n" +
+                        "              COLUMN(S)\n" +
+                        "                Cell\n" +
+                        "                Formula\n" +
+                        "                Formatted\n" +
+                        "                Value\n" +
+                        "              PLUGINS\n" +
+                        "                BodyScrollPlugin\n"
         );
     }
 
@@ -123,52 +126,55 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
                         "    id=find includeClose=true CLOSED\n" +
-                        "      SpreadsheetCellRangeReferenceComponent\n" +
-                        "        ValueSpreadsheetTextBox\n" +
-                        "          SpreadsheetTextBox\n" +
-                        "            Cell Range [] id=find--cell-range\n" +
-                        "            Errors\n" +
-                        "              Empty \"text\"\n" +
-                        "      SpreadsheetCellRangeReferencePathComponent\n" +
-                        "        SpreadsheetSelectComponent\n" +
-                        "          Cell Range Path [] id=find--cell-range-path-Select\n" +
-                        "            left-right top-down=LRTD\n" +
-                        "            right-left top-down=RLTD\n" +
-                        "            left-right bottom-up=LRBU\n" +
-                        "            right-left bottom-up=RLBU\n" +
-                        "            top-down left-right=TDLR\n" +
-                        "            top-down right-left=TDRL\n" +
-                        "            bottom-up left-right=BULR\n" +
-                        "            bottom-up right-left=BURL\n" +
-                        "      SpreadsheetValueTypeComponent\n" +
-                        "        SpreadsheetSelectComponent\n" +
-                        "          Value type [] id=find-value-type-Select\n" +
-                        "            Any=*\n" +
-                        "            Boolean=boolean\n" +
-                        "            Date=date\n" +
-                        "            Error=error\n" +
-                        "            DateTime=date-time\n" +
-                        "            Number=number\n" +
-                        "            Text=text\n" +
-                        "            Time=time\n" +
-                        "      SpreadsheetFormulaComponent\n" +
-                        "        ValueSpreadsheetTextBox\n" +
-                        "          SpreadsheetTextBox\n" +
-                        "            Query [] id=query-TextBox\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Find\" id=find-find-Link\n" +
-                        "          \"Reset\" id=find-reset-Link\n" +
-                        "          \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
-                        "      SpreadsheetDeltaMatchedCellsTableComponent\n" +
-                        "        SpreadsheetDataTableComponent\n" +
-                        "          COLUMN(S)\n" +
-                        "            Cell\n" +
-                        "            Formula\n" +
-                        "            Formatted\n" +
-                        "            Value\n" +
-                        "          PLUGINS\n" +
-                        "            BodyScrollPlugin\n"
+                        "      SpreadsheetFindDialogComponentGridLayout\n" +
+                        "        Left\n" +
+                        "          SpreadsheetCellRangeReferenceComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Cell Range [] id=find--cell-range\n" +
+                        "                Errors\n" +
+                        "                  Empty \"text\"\n" +
+                        "          SpreadsheetCellRangeReferencePathComponent\n" +
+                        "            SpreadsheetSelectComponent\n" +
+                        "              Cell Range Path [] id=find--cell-range-path-Select\n" +
+                        "                left-right top-down=LRTD\n" +
+                        "                right-left top-down=RLTD\n" +
+                        "                left-right bottom-up=LRBU\n" +
+                        "                right-left bottom-up=RLBU\n" +
+                        "                top-down left-right=TDLR\n" +
+                        "                top-down right-left=TDRL\n" +
+                        "                bottom-up left-right=BULR\n" +
+                        "                bottom-up right-left=BURL\n" +
+                        "          SpreadsheetValueTypeComponent\n" +
+                        "            SpreadsheetSelectComponent\n" +
+                        "              Value type [] id=find-value-type-Select\n" +
+                        "                Any=*\n" +
+                        "                Boolean=boolean\n" +
+                        "                Date=date\n" +
+                        "                Error=error\n" +
+                        "                DateTime=date-time\n" +
+                        "                Number=number\n" +
+                        "                Text=text\n" +
+                        "                Time=time\n" +
+                        "          SpreadsheetFormulaComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Query [] id=query-TextBox\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            ROW\n" +
+                        "              \"Find\" id=find-find-Link\n" +
+                        "              \"Reset\" id=find-reset-Link\n" +
+                        "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                        "        Content\n" +
+                        "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                        "            SpreadsheetDataTableComponent\n" +
+                        "              COLUMN(S)\n" +
+                        "                Cell\n" +
+                        "                Formula\n" +
+                        "                Formatted\n" +
+                        "                Value\n" +
+                        "              PLUGINS\n" +
+                        "                BodyScrollPlugin\n"
         );
 
         dialog.table.onSpreadsheetDelta(
@@ -195,65 +201,68 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
                         "    id=find includeClose=true CLOSED\n" +
-                        "      SpreadsheetCellRangeReferenceComponent\n" +
-                        "        ValueSpreadsheetTextBox\n" +
-                        "          SpreadsheetTextBox\n" +
-                        "            Cell Range [] id=find--cell-range\n" +
-                        "            Errors\n" +
-                        "              Empty \"text\"\n" +
-                        "      SpreadsheetCellRangeReferencePathComponent\n" +
-                        "        SpreadsheetSelectComponent\n" +
-                        "          Cell Range Path [] id=find--cell-range-path-Select\n" +
-                        "            left-right top-down=LRTD\n" +
-                        "            right-left top-down=RLTD\n" +
-                        "            left-right bottom-up=LRBU\n" +
-                        "            right-left bottom-up=RLBU\n" +
-                        "            top-down left-right=TDLR\n" +
-                        "            top-down right-left=TDRL\n" +
-                        "            bottom-up left-right=BULR\n" +
-                        "            bottom-up right-left=BURL\n" +
-                        "      SpreadsheetValueTypeComponent\n" +
-                        "        SpreadsheetSelectComponent\n" +
-                        "          Value type [] id=find-value-type-Select\n" +
-                        "            Any=*\n" +
-                        "            Boolean=boolean\n" +
-                        "            Date=date\n" +
-                        "            Error=error\n" +
-                        "            DateTime=date-time\n" +
-                        "            Number=number\n" +
-                        "            Text=text\n" +
-                        "            Time=time\n" +
-                        "      SpreadsheetFormulaComponent\n" +
-                        "        ValueSpreadsheetTextBox\n" +
-                        "          SpreadsheetTextBox\n" +
-                        "            Query [] id=query-TextBox\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Find\" id=find-find-Link\n" +
-                        "          \"Reset\" id=find-reset-Link\n" +
-                        "          \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
-                        "      SpreadsheetDeltaMatchedCellsTableComponent\n" +
-                        "        SpreadsheetDataTableComponent\n" +
-                        "          COLUMN(S)\n" +
-                        "            Cell\n" +
-                        "            Formula\n" +
-                        "            Formatted\n" +
-                        "            Value\n" +
-                        "          ROW(S)\n" +
-                        "            ROW 0\n" +
-                        "              \"A1\" [#/123/SpreadsheetName456/cell/A1]\n" +
-                        "              \"=1\" [#/123/SpreadsheetName456/cell/A1/formula]\n" +
-                        "              SpreadsheetTextNodeComponent\n" +
-                        "              SpreadsheetTextComponent\n" +
-                        "                \"\"\n" +
-                        "            ROW 1\n" +
-                        "              \"B2\" [#/123/SpreadsheetName456/cell/B2]\n" +
-                        "              \"=2\" [#/123/SpreadsheetName456/cell/B2/formula]\n" +
-                        "              SpreadsheetTextNodeComponent\n" +
-                        "              SpreadsheetTextComponent\n" +
-                        "                \"\"\n" +
-                        "          PLUGINS\n" +
-                        "            BodyScrollPlugin\n"
+                        "      SpreadsheetFindDialogComponentGridLayout\n" +
+                        "        Left\n" +
+                        "          SpreadsheetCellRangeReferenceComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Cell Range [] id=find--cell-range\n" +
+                        "                Errors\n" +
+                        "                  Empty \"text\"\n" +
+                        "          SpreadsheetCellRangeReferencePathComponent\n" +
+                        "            SpreadsheetSelectComponent\n" +
+                        "              Cell Range Path [] id=find--cell-range-path-Select\n" +
+                        "                left-right top-down=LRTD\n" +
+                        "                right-left top-down=RLTD\n" +
+                        "                left-right bottom-up=LRBU\n" +
+                        "                right-left bottom-up=RLBU\n" +
+                        "                top-down left-right=TDLR\n" +
+                        "                top-down right-left=TDRL\n" +
+                        "                bottom-up left-right=BULR\n" +
+                        "                bottom-up right-left=BURL\n" +
+                        "          SpreadsheetValueTypeComponent\n" +
+                        "            SpreadsheetSelectComponent\n" +
+                        "              Value type [] id=find-value-type-Select\n" +
+                        "                Any=*\n" +
+                        "                Boolean=boolean\n" +
+                        "                Date=date\n" +
+                        "                Error=error\n" +
+                        "                DateTime=date-time\n" +
+                        "                Number=number\n" +
+                        "                Text=text\n" +
+                        "                Time=time\n" +
+                        "          SpreadsheetFormulaComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Query [] id=query-TextBox\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            ROW\n" +
+                        "              \"Find\" id=find-find-Link\n" +
+                        "              \"Reset\" id=find-reset-Link\n" +
+                        "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                        "        Content\n" +
+                        "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                        "            SpreadsheetDataTableComponent\n" +
+                        "              COLUMN(S)\n" +
+                        "                Cell\n" +
+                        "                Formula\n" +
+                        "                Formatted\n" +
+                        "                Value\n" +
+                        "              ROW(S)\n" +
+                        "                ROW 0\n" +
+                        "                  \"A1\" [#/123/SpreadsheetName456/cell/A1]\n" +
+                        "                  \"=1\" [#/123/SpreadsheetName456/cell/A1/formula]\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"\"\n" +
+                        "                ROW 1\n" +
+                        "                  \"B2\" [#/123/SpreadsheetName456/cell/B2]\n" +
+                        "                  \"=2\" [#/123/SpreadsheetName456/cell/B2/formula]\n" +
+                        "                  SpreadsheetTextNodeComponent\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"\"\n" +
+                        "              PLUGINS\n" +
+                        "                BodyScrollPlugin\n"
         );
     }
 

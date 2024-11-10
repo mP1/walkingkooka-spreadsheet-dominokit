@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.find;
 
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -85,32 +86,73 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     // dialog...........................................................................................................
 
     /**
-     * Creates the modal dialog, with a form to perform a FIND.
+     * Creates the modal dialog, which includes a 2 panel layout with the find form on the left, and the table
+     * holding the matches on the right.
      */
     private SpreadsheetDialogComponent dialogCreate() {
         final HistoryTokenContext context = this.context;
 
+//        final CompositeCssClass dui_grid_section = CompositeCssClass.of(
+//                Domino.dui_text_center
+//        );
+
         return SpreadsheetDialogComponent.with(
-                        ID,
-                        "Find",
-                        true, // includeClose
-                        context
-                ).appendChild(this.cellRange)
-                .appendChild(this.path)
-                .appendChild(this.valueType)
-                .appendChild(this.query)
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(this.find)
-                                .appendChild(this.reset)
-                                .appendChild(
-                                        this.closeAnchor(
-                                                context.historyToken()
-                                        )
+                ID,
+                "Find",
+                true, // includeClose
+                context
+        ).appendChild(
+                SpreadsheetFindDialogComponentGridLayout.empty()
+                        .setLeft(
+                                Lists.of(
+                                        this.cellRange,
+                                        this.path,
+                                        this.valueType,
+                                        this.query,
+                                        SpreadsheetFlexLayout.row()
+                                                .appendChild(this.find)
+                                                .appendChild(this.reset)
+                                                .appendChild(
+                                                        this.closeAnchor(
+                                                                context.historyToken()
+                                                        )
+                                                )
                                 )
-                ).appendChild(
-                        this.table
-                );
+                        ).setContent(
+                                Lists.of(
+                                        this.table.setCssText("margin-left: 5px")
+                                )
+                        )
+        );
+//                GridLayout.create()
+//                        .setPadding("5px")
+//                        .setHeight("100%")
+//                        .withLeftPanel(
+//                                (parent, leftPanel) ->
+//                                        leftPanel.addCss(dui_grid_section)
+//                                                .appendChild(this.cellRange)
+//                                                .appendChild(this.path)
+//                                                .appendChild(this.valueType)
+//                                                .appendChild(this.query)
+//                                                .appendChild(
+//                                                        SpreadsheetFlexLayout.row()
+//                                                                .appendChild(this.find)
+//                                                                .appendChild(this.reset)
+//                                                                .appendChild(
+//                                                                        this.closeAnchor(
+//                                                                                context.historyToken()
+//                                                                        )
+//                                                                )
+//                                                )
+//
+//                        ).withContent((parent, content) ->
+//                                content
+//                                        .addCss(dui_grid_section)
+//                                        .appendChild(
+//                                                this.table.setCssText("margin-left: 5px")
+//                                        )
+//                        )
+//        );
     }
 
     private final SpreadsheetDialogComponent dialog;
