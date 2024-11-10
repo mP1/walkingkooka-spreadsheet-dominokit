@@ -103,6 +103,13 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
 
     private Optional<List<T>> value = Optional.empty();
 
+    // cssText..........................................................................................................
+
+    @Override
+    public SpreadsheetDataTableComponent<T> setCssText(final String css) {
+        return this;
+    }
+
     // children.........................................................................................................
 
     @Override

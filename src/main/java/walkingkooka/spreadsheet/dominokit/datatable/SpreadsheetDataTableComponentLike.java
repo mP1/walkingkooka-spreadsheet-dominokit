@@ -44,6 +44,8 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
         ComponentWithChildren<SpreadsheetDataTableComponent<T>, HTMLDivElement>,
         TreePrintable {
 
+    SpreadsheetDataTableComponent<T> setCssText(final String css);
+
     // label............................................................................................................
 
     @Override
