@@ -623,7 +623,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 CELLS,
                 SpreadsheetCellFindQuery.empty()
                         .setPath(PATH),
-                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=bulr")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=BULR")
         );
     }
 
@@ -685,7 +685,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                         .setMax(MAX)
                         .setValueType(VALUE_TYPE)
                         .setQuery(QUERY),
-                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=bulr&max=34&offset=12&query=query789()&value-type=date")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=BULR&max=34&offset=12&query=query789()&value-type=date")
         );
     }
 
