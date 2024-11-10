@@ -47,12 +47,7 @@ final class SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunct
 
         return SpreadsheetFormula.parse(
                 TextCursors.charSequence(text),
-                SpreadsheetParsers.valueOrExpression(
-                        metadata.spreadsheetParser(
-                                context, // SpreadsheetParserProvider
-                                context // ProviderContext
-                        )
-                ),
+                SpreadsheetParsers.expression(),
                 metadata.spreadsheetParserContext(
                         context::now
                 )
