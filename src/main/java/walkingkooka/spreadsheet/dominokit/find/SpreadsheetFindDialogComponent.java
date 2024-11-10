@@ -131,7 +131,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     }
 
     /**
-     * Push the new {@link SpreadsheetCellRangeReference}.
+     * Push the new {@link SpreadsheetCellRangeReference} keeping the original {@link SpreadsheetCellFindQuery}.
      */
     private void onCellRangeValueChange(final Optional<SpreadsheetCellRangeReference> oldCellRange,
                                         final Optional<SpreadsheetCellRangeReference> newCellRange) {
@@ -140,7 +140,9 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                         newCellRange.map(
                                 SpreadsheetSelection::setDefaultAnchor
                         )
-                ).cast(SpreadsheetCellFindHistoryToken.class)
+                ).setQuery(
+                        t.query()
+                )
         );
     }
 
