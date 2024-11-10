@@ -81,7 +81,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
 
     @Override
     UrlFragment cellUrlFragment() {
-        return FIND.appendSlashThen(this.query.urlFragment());
+        return FIND.append(this.query.urlFragment());
     }
 
     @Override
