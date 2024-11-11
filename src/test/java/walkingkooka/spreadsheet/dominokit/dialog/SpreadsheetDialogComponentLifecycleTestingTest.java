@@ -32,6 +32,22 @@ import java.util.Optional;
 
 public final class SpreadsheetDialogComponentLifecycleTestingTest implements SpreadsheetDialogComponentLifecycleTesting<TestSpreadsheetDialogComponentLifecycle> {
 
+    @Test
+    public void testAnchor() {
+        this.treePrintAndCheck(
+                new TestSpreadsheetDialogComponentLifecycle().anchor("Hello"),
+                "\"Hello\" id=id123-hello-Link"
+        );
+    }
+
+    @Test
+    public void testAnchorWithMultiWordText() {
+        this.treePrintAndCheck(
+                new TestSpreadsheetDialogComponentLifecycle().anchor("Hello goodbye"),
+                "\"Hello goodbye\" id=id123-hello-goodbye-Link"
+        );
+    }
+
     private final static HistoryToken HISTORY_TOKEN = HistoryToken.spreadsheetCreate();
 
     @Test

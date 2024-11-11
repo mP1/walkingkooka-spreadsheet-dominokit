@@ -99,8 +99,8 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/formula-functions/save/] id=PluginAliasSetLikeDialogComponent-save-Link\n" +
                         "          \"Reset\" [#/1/Spreadsheet123/metadata/formula-functions/save/name1,%20name2,%20name3] id=PluginAliasSetLikeDialogComponent-reset-Link\n" +
-                        "          \"Remove All\" [#/1/Spreadsheet123/metadata/formula-functions/save/] id=PluginAliasSetLikeDialogComponent-remove all-Link\n" +
-                        "          \"Add All\" [#/1/Spreadsheet123/metadata/formula-functions/save/name1,%20name2,%20name3] id=PluginAliasSetLikeDialogComponent-add all-Link\n" +
+                        "          \"Remove All\" [#/1/Spreadsheet123/metadata/formula-functions/save/] id=PluginAliasSetLikeDialogComponent-remove-all-Link\n" +
+                        "          \"Add All\" [#/1/Spreadsheet123/metadata/formula-functions/save/name1,%20name2,%20name3] id=PluginAliasSetLikeDialogComponent-add-all-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=PluginAliasSetLikeDialogComponent-close-Link\n"
         );
     }
@@ -154,8 +154,8 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/formula-functions/save/name1] id=PluginAliasSetLikeDialogComponent-save-Link\n" +
                         "          \"Reset\" [#/1/Spreadsheet123/metadata/formula-functions/save/name1,%20name2,%20name3] id=PluginAliasSetLikeDialogComponent-reset-Link\n" +
-                        "          \"Remove All\" [#/1/Spreadsheet123/metadata/formula-functions/save/] id=PluginAliasSetLikeDialogComponent-remove all-Link\n" +
-                        "          \"Add All\" [#/1/Spreadsheet123/metadata/formula-functions/save/name1,%20name2,%20name3] id=PluginAliasSetLikeDialogComponent-add all-Link\n" +
+                        "          \"Remove All\" [#/1/Spreadsheet123/metadata/formula-functions/save/] id=PluginAliasSetLikeDialogComponent-remove-all-Link\n" +
+                        "          \"Add All\" [#/1/Spreadsheet123/metadata/formula-functions/save/name1,%20name2,%20name3] id=PluginAliasSetLikeDialogComponent-add-all-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=PluginAliasSetLikeDialogComponent-close-Link\n"
         );
     }
