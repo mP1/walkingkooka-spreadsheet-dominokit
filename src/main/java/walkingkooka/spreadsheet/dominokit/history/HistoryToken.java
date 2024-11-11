@@ -239,34 +239,6 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * {@see SpreadsheetCellFormulaSelectHistoryToken}
-     */
-    public static SpreadsheetCellFormulaSelectHistoryToken formula(final SpreadsheetId id,
-                                                                   final SpreadsheetName name,
-                                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
-        return SpreadsheetCellFormulaSelectHistoryToken.with(
-                id,
-                name,
-                anchoredSelection
-        );
-    }
-
-    /**
-     * {@see SpreadsheetCellFormulaSaveHistoryToken}
-     */
-    public static SpreadsheetCellFormulaSaveHistoryToken formulaSave(final SpreadsheetId id,
-                                                                     final SpreadsheetName name,
-                                                                     final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                     final String formula) {
-        return SpreadsheetCellFormulaSaveHistoryToken.with(
-                id,
-                name,
-                anchoredSelection,
-                formula
-        );
-    }
-
-    /**
      * {@see SpreadsheetCellClipboardCopyHistoryToken}
      */
     public static SpreadsheetCellClipboardCopyHistoryToken cellClipboardCopy(final SpreadsheetId id,
@@ -744,6 +716,38 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
+    // formula..........................................................................................................
+
+    /**
+     * {@see SpreadsheetCellFormulaSelectHistoryToken}
+     */
+    public static SpreadsheetCellFormulaSelectHistoryToken formula(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellFormulaSelectHistoryToken.with(
+                id,
+                name,
+                anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellFormulaSaveHistoryToken}
+     */
+    public static SpreadsheetCellFormulaSaveHistoryToken formulaSave(final SpreadsheetId id,
+                                                                     final SpreadsheetName name,
+                                                                     final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                     final String formula) {
+        return SpreadsheetCellFormulaSaveHistoryToken.with(
+                id,
+                name,
+                anchoredSelection,
+                formula
+        );
+    }
+
+    // label............................................................................................................
+
     /**
      * {@see SpreadsheetLabelMappingSelectHistoryToken}
      */
@@ -782,6 +786,8 @@ public abstract class HistoryToken implements HasUrlFragment,
                 mapping
         );
     }
+
+    // metadata.........................................................................................................
 
     /**
      * {@see SpreadsheetMetadataPropertySelectHistoryToken}
@@ -849,6 +855,8 @@ public abstract class HistoryToken implements HasUrlFragment,
                 name
         );
     }
+
+    // row..............................................................................................................
 
     /**
      * {@see SpreadsheetRowSelectHistoryToken}
@@ -945,7 +953,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
-    // column sort......................................................................................................
+    // row... sort......................................................................................................
 
     /**
      * {@see SpreadsheetRowSortEditHistoryToken}
@@ -992,6 +1000,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
+    // selection........................................................................................................
+
     public static SpreadsheetAnchoredSelectionHistoryToken selection(final SpreadsheetId id,
                                                                      final SpreadsheetName name,
                                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
@@ -1034,6 +1044,8 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return historyToken;
     }
+
+    // spreadsheet......................................................................................................
 
     /**
      * {@see SpreadsheetCreateHistoryToken}
@@ -1150,6 +1162,8 @@ public abstract class HistoryToken implements HasUrlFragment,
     public static UnknownHistoryToken unknown(final UrlFragment fragment) {
         return UnknownHistoryToken.with(fragment);
     }
+
+    // parse............................................................................................................
 
     /**
      * Parses the given {@link String} if that matching fails a {@link UnknownHistoryToken} is returned.
@@ -1319,6 +1333,8 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return historyToken;
     }
+
+    // ctor.............................................................................................................
 
     /**
      * Package private to limit sub-classing
