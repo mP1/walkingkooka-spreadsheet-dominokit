@@ -403,32 +403,6 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         };
     }
 
-    private SpreadsheetFindDialogComponent dialog(final AppContext context) {
-        return SpreadsheetFindDialogComponent.with(
-                new FakeSpreadsheetFindDialogComponentContext() {
-
-                    @Override
-                    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                        return context.addHistoryTokenWatcher(watcher);
-                    }
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return context.historyToken();
-                    }
-                }
-        );
-    }
-
-    private void onHistoryTokenChangeAndCheck(final AppContext context,
-                                              final String expected) {
-        this.onHistoryTokenChangeAndCheck(
-                this.dialog(context),
-                context,
-                expected
-        );
-    }
-
     // ClassTesting.....................................................................................................
 
     @Override
