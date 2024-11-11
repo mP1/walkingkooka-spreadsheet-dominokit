@@ -90,7 +90,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Formatter\n" +
-                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetFormatterNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -145,8 +145,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "              Empty \"text\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" + // save is disabled !!!
-                        "          \"Undo\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
+                        "          \"Save\" DISABLED [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetFormatterSelectorDialogComponent-close-Link\n"
         );
@@ -167,7 +167,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Formatter\n" +
-                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetFormatterNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -253,7 +253,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyy] id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetFormatterSelectorDialogComponent-close-Link\n"
         );
@@ -276,7 +276,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Formatter\n" +
-                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetFormatterNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -381,7 +381,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetFormatterSelectorDialogComponent-close-Link\n"
         );
@@ -404,7 +404,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Formatter\n" +
-                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetFormatterNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -530,7 +530,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%230.00] id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetFormatterSelectorDialogComponent-close-Link\n"
         );
@@ -553,7 +553,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Formatter\n" +
-                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetFormatterNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -605,7 +605,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22] id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetFormatterSelectorDialogComponent-close-Link\n"
         );
@@ -628,7 +628,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Formatter\n" +
-                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetFormatterNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -695,7 +695,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/time-format-pattern%20hh:mm] id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetFormatterSelectorDialogComponent-close-Link\n"
         );
@@ -718,7 +718,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Date formatter\n" +
-                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0 SELECTED\n" +
@@ -816,7 +816,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/date-formatter/save/date-format-pattern%20dd/mm/yyyy] id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/metadata/date-formatter/save/date-format-pattern%20yyyy/mm/dd] id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/metadata/date-formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetFormatterSelectorDialogComponent-close-Link\n"
         );
@@ -839,7 +839,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Date Time formatter\n" +
-                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0\n" +
@@ -956,7 +956,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/date-time-format-pattern%20yyyy/mm/dd%20hh:mm] id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/metadata/date-time-formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetFormatterSelectorDialogComponent-close-Link\n"
         );
@@ -979,7 +979,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Number formatter\n" +
-                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0\n" +
@@ -1117,7 +1117,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/number-formatter/save/number-format-pattern%20$%230.00] id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/metadata/number-formatter/save/number-format-pattern%200.%23] id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/metadata/number-formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetFormatterSelectorDialogComponent-close-Link\n"
         );
@@ -1140,7 +1140,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Text formatter\n" +
-                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0\n" +
@@ -1204,7 +1204,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/text-formatter/save/text-format-pattern%20@%20%22Hello%22] id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/metadata/text-formatter/save/text-format-pattern%20@] id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/metadata/text-formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetFormatterSelectorDialogComponent-close-Link\n"
         );
@@ -1227,7 +1227,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "SpreadsheetFormatterSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Time formatter\n" +
-                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetFormatterSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0\n" +
@@ -1306,7 +1306,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/time-formatter/save/time-format-pattern%20hh:mm] id=SpreadsheetFormatterSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/metadata/time-formatter/save/time-format-pattern%20hh:mm:ss] id=SpreadsheetFormatterSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/metadata/time-formatter/save/] id=SpreadsheetFormatterSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetFormatterSelectorDialogComponent-close-Link\n"
         );
@@ -1462,6 +1462,11 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             }
 
             @Override
+            public void giveFocus(final Runnable focus) {
+                // ignore
+            }
+
+            @Override
             public HistoryToken historyToken() {
                 return historyToken;
             }
@@ -1537,7 +1542,10 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadataTesting.METADATA_EN_AU;
+                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        SpreadsheetId.with(1)
+                );
             }
 
             @Override
