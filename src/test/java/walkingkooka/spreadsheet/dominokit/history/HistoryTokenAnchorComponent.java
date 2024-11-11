@@ -30,16 +30,16 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A duplicate of the original {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent} with almost all the public methods but without any
+ * A duplicate of the original {@link HistoryTokenAnchorComponent} with almost all the public methods but without any
  * dependencies on browser objects.
  * <br>
- * The goal of this class is to allow JVM unit-testing of more complex components such as a Card that has a row of {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent}.
+ * The goal of this class is to allow JVM unit-testing of more complex components such as a Card that has a row of {@link HistoryTokenAnchorComponent}.
  */
 public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComponentLike,
-        TestHtmlElementComponent<HTMLAnchorElement, walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent> {
+        TestHtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent> {
 
-    public static walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent empty() {
-        return new walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent();
+    public static HistoryTokenAnchorComponent empty() {
+        return new HistoryTokenAnchorComponent();
     }
 
     private HistoryTokenAnchorComponent() {
@@ -49,7 +49,7 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     // setCssText.......................................................................................................
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent setCssText(final String css) {
+    public HistoryTokenAnchorComponent setCssText(final String css) {
         return this;
     }
 
@@ -61,7 +61,7 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent setDisabled(final boolean disabled) {
+    public HistoryTokenAnchorComponent setDisabled(final boolean disabled) {
         this.disabled = disabled;
         return this;
     }
@@ -76,7 +76,7 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent setChecked(final boolean checked) {
+    public HistoryTokenAnchorComponent setChecked(final boolean checked) {
         this.checked = checked;
         return this;
     }
@@ -94,7 +94,7 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent setHref(final Url url) {
+    public HistoryTokenAnchorComponent setHref(final Url url) {
         this.href =
                 null == url ?
                         "" :
@@ -112,7 +112,7 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent setId(final String id) {
+    public HistoryTokenAnchorComponent setId(final String id) {
         this.id = id;
         return this;
     }
@@ -127,7 +127,7 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent setTabIndex(final int tabIndex) {
+    public HistoryTokenAnchorComponent setTabIndex(final int tabIndex) {
         this.tabIndex = tabIndex;
         return this;
     }
@@ -143,7 +143,7 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent setTarget(final String target) {
+    public HistoryTokenAnchorComponent setTarget(final String target) {
         this.target = target;
         return this;
     }
@@ -158,7 +158,7 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent setTextContent(final String text) {
+    public HistoryTokenAnchorComponent setTextContent(final String text) {
         this.textContent = text;
         return this;
     }
@@ -175,7 +175,7 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent setIconBefore(final Optional<Icon<?>> icon) {
+    public HistoryTokenAnchorComponent setIconBefore(final Optional<Icon<?>> icon) {
         Objects.requireNonNull(icon, "icon");
 
         this.iconBefore = icon;
@@ -192,7 +192,7 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent setIconAfter(final Optional<Icon<?>> icon) {
+    public HistoryTokenAnchorComponent setIconAfter(final Optional<Icon<?>> icon) {
         Objects.requireNonNull(icon, "icon");
 
         this.iconAfter = icon;
@@ -204,22 +204,22 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     // events..........................................................................................................
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent addClickListener(final EventListener listener) {
+    public HistoryTokenAnchorComponent addClickListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent addFocusListener(final EventListener listener) {
+    public HistoryTokenAnchorComponent addFocusListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent addKeydownListener(final EventListener listener) {
+    public HistoryTokenAnchorComponent addKeydownListener(final EventListener listener) {
         return this;
     }
 
     @Override
-    public walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent addClickAndKeydownEnterListener(final EventListener listener) {
+    public HistoryTokenAnchorComponent addClickAndKeydownEnterListener(final EventListener listener) {
         return this;
     }
 
