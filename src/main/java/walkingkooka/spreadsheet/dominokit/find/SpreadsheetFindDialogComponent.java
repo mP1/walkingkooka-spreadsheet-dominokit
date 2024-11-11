@@ -300,19 +300,19 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
         final SpreadsheetCellQuery highlightingQuery = metadata.get(SpreadsheetMetadataPropertyName.FIND_QUERY).orElse(null);
-        if (null != highlightingQuery) {
-            load = token.setQuery(
-                    token.query()
-                            .setQuery(
-                                    Optional.of(highlightingQuery)
-                            )
-            );
-        }
 
-        final HistoryTokenAnchorComponent anchor = this.loadHighlightingQuery;
-        anchor.setDisabled(null == highlightingQuery);
-        anchor.setHistoryToken(
-                Optional.ofNullable(load)
+
+        this.loadHighlightingQuery.setHistoryToken(
+                Optional.ofNullable(
+                        null != highlightingQuery ?
+                                token.setQuery(
+                                        token.query()
+                                                .setQuery(
+                                                        Optional.of(highlightingQuery)
+                                                )
+                                ) :
+                                null
+                )
         );
     }
 
@@ -326,19 +326,15 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     private void refreshSaveAsHighlightingQuery(final SpreadsheetCellFindHistoryToken token) {
         final Optional<SpreadsheetCellQuery> query = token.query()
                 .query();
-        final boolean disable = false == query.isPresent();
 
-        final HistoryTokenAnchorComponent anchor = this.saveAsHighlightingQuery;
-        anchor.setDisabled(disable);
-
-        if (false == disable) {
-            anchor.setHistoryToken(
-                    Optional.ofNullable(
-                            token.setMetadataPropertyName(SpreadsheetMetadataPropertyName.FIND_QUERY)
-                                    .setSave(query)
-                    )
-            );
-        }
+        this.saveAsHighlightingQuery.setHistoryToken(
+                Optional.ofNullable(
+                        query.isPresent() ?
+                                token.setMetadataPropertyName(SpreadsheetMetadataPropertyName.FIND_QUERY)
+                                        .setSave(query) :
+                                null
+                )
+        );
     }
 
     private final HistoryTokenAnchorComponent saveAsHighlightingQuery;
