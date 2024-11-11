@@ -72,6 +72,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.find = this.anchor("Find");
         this.reset = this.anchor("Reset");
         this.loadHighlightingQuery = this.anchor("Load Highlighting Query");
+        this.saveAsHighlightingQuery = this.anchor("Save as Highlighting Query");
 
         this.table = SpreadsheetDeltaMatchedCellsTableComponent.with(
                 ID,
@@ -112,6 +113,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                                                 .appendChild(this.find)
                                                 .appendChild(this.reset)
                                                 .appendChild(this.loadHighlightingQuery)
+                                                .appendChild(this.saveAsHighlightingQuery)
                                                 .appendChild(
                                                         this.closeAnchor(
                                                                 context.historyToken()
@@ -316,6 +318,31 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private final HistoryTokenAnchorComponent loadHighlightingQuery;
 
+    // saveAsHighlightingQuery..........................................................................................
+
+    /**
+     * Creates a link which will save the QUERY text box value as it will be used as the highlighting query.
+     */
+    private void refreshSaveAsHighlightingQuery(final SpreadsheetCellFindHistoryToken token) {
+        final Optional<SpreadsheetCellQuery> query = token.query()
+                .query();
+        final boolean disable = false == query.isPresent();
+
+        final HistoryTokenAnchorComponent anchor = this.saveAsHighlightingQuery;
+        anchor.setDisabled(disable);
+
+        if (false == disable) {
+            anchor.setHistoryToken(
+                    Optional.ofNullable(
+                            token.setMetadataPropertyName(SpreadsheetMetadataPropertyName.FIND_QUERY)
+                                    .setSave(query)
+                    )
+            );
+        }
+    }
+
+    private final HistoryTokenAnchorComponent saveAsHighlightingQuery;
+
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
     @Override
@@ -378,6 +405,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.refreshFind(token);
         this.refreshReset(token);
         this.refreshLoadHighlightingQuery(token, context);
+        this.refreshSaveAsHighlightingQuery(token);
 
         this.findCells();
     }
