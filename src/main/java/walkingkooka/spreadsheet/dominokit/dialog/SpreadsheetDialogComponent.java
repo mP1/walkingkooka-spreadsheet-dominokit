@@ -243,6 +243,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
         }
 
         this.open = false;
+        this.closeListenerEnabled = false; // dont want Dialog's CloseListener to fire and push HistoryToken.close
         this.dialog.close();
     }
 
