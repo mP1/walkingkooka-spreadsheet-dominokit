@@ -92,10 +92,6 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     private SpreadsheetDialogComponent dialogCreate() {
         final HistoryTokenContext context = this.context;
 
-//        final CompositeCssClass dui_grid_section = CompositeCssClass.of(
-//                Domino.dui_text_center
-//        );
-
         return SpreadsheetDialogComponent.with(
                 ID,
                 "Find",
@@ -124,35 +120,6 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                                 )
                         )
         );
-//                GridLayout.create()
-//                        .setPadding("5px")
-//                        .setHeight("100%")
-//                        .withLeftPanel(
-//                                (parent, leftPanel) ->
-//                                        leftPanel.addCss(dui_grid_section)
-//                                                .appendChild(this.cellRange)
-//                                                .appendChild(this.path)
-//                                                .appendChild(this.valueType)
-//                                                .appendChild(this.query)
-//                                                .appendChild(
-//                                                        SpreadsheetFlexLayout.row()
-//                                                                .appendChild(this.find)
-//                                                                .appendChild(this.reset)
-//                                                                .appendChild(
-//                                                                        this.closeAnchor(
-//                                                                                context.historyToken()
-//                                                                        )
-//                                                                )
-//                                                )
-//
-//                        ).withContent((parent, content) ->
-//                                content
-//                                        .addCss(dui_grid_section)
-//                                        .appendChild(
-//                                                this.table.setCssText("margin-left: 5px")
-//                                        )
-//                        )
-//        );
     }
 
     private final SpreadsheetDialogComponent dialog;
