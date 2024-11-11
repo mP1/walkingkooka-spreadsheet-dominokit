@@ -35,6 +35,8 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToke
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetCellRangeReferenceComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.meta.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -69,6 +71,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
         this.find = this.anchor("Find");
         this.reset = this.anchor("Reset");
+        this.loadHighlightingQuery = this.anchor("Load Highlighting Query");
 
         this.table = SpreadsheetDeltaMatchedCellsTableComponent.with(
                 ID,
@@ -108,6 +111,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                                         SpreadsheetFlexLayout.row()
                                                 .appendChild(this.find)
                                                 .appendChild(this.reset)
+                                                .appendChild(this.loadHighlightingQuery)
                                                 .appendChild(
                                                         this.closeAnchor(
                                                                 context.historyToken()
@@ -278,6 +282,36 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private final HistoryTokenAnchorComponent reset;
 
+    // loadHighlightingQuery............................................................................................
+
+    /**
+     * If a {@link SpreadsheetMetadataPropertyName#FIND_QUERY} is present, enable the anchor with the query, otherwise
+     * disable it.
+     */
+    private void refreshLoadHighlightingQuery(final SpreadsheetCellFindHistoryToken token,
+                                              final AppContext context) {
+        HistoryToken load = null;
+
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+        final SpreadsheetCellQuery highlightingQuery = metadata.get(SpreadsheetMetadataPropertyName.FIND_QUERY).orElse(null);
+        if (null != highlightingQuery) {
+            load = token.setQuery(
+                    token.query()
+                            .setQuery(
+                                    Optional.of(highlightingQuery)
+                            )
+            );
+        }
+
+        final HistoryTokenAnchorComponent anchor = this.loadHighlightingQuery;
+        anchor.setDisabled(null == highlightingQuery);
+        anchor.setHistoryToken(
+                Optional.ofNullable(load)
+        );
+    }
+
+    private final HistoryTokenAnchorComponent loadHighlightingQuery;
+
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
     @Override
@@ -339,6 +373,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
         this.refreshFind(token);
         this.refreshReset(token);
+        this.refreshLoadHighlightingQuery(token, context);
 
         this.findCells();
     }

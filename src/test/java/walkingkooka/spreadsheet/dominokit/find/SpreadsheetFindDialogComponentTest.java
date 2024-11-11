@@ -34,10 +34,13 @@ import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.meta.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import java.util.Optional;
 
 import java.util.Arrays;
 
@@ -50,7 +53,86 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.DATE + "/query/matchXyz()"
         );
 
-        final AppContext appContext = this.appContext(historyToken);
+        final AppContext appContext = this.appContext(
+                Optional.empty(), // no highlighting query
+                historyToken
+        );
+
+        final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
+                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+        );
+        this.onHistoryTokenChangeAndCheck(
+                dialog,
+                appContext,
+                "SpreadsheetFindDialogComponent\n" +
+                        "  SpreadsheetDialogComponent\n" +
+                        "    Find\n" +
+                        "    id=find includeClose=true CLOSED\n" +
+                        "      SpreadsheetFindDialogComponentGridLayout\n" +
+                        "        Left\n" +
+                        "          SpreadsheetCellRangeReferenceComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Cell Range [] id=find--cell-range\n" +
+                        "                Errors\n" +
+                        "                  Empty \"text\"\n" +
+                        "          SpreadsheetCellRangeReferencePathComponent\n" +
+                        "            SpreadsheetSelectComponent\n" +
+                        "              Cell Range Path [] id=find--cell-range-path-Select\n" +
+                        "                left-right top-down=LRTD\n" +
+                        "                right-left top-down=RLTD\n" +
+                        "                left-right bottom-up=LRBU\n" +
+                        "                right-left bottom-up=RLBU\n" +
+                        "                top-down left-right=TDLR\n" +
+                        "                top-down right-left=TDRL\n" +
+                        "                bottom-up left-right=BULR\n" +
+                        "                bottom-up right-left=BURL\n" +
+                        "          SpreadsheetValueTypeComponent\n" +
+                        "            SpreadsheetSelectComponent\n" +
+                        "              Value type [] id=find-value-type-Select\n" +
+                        "                Any=*\n" +
+                        "                Boolean=boolean\n" +
+                        "                Date=date\n" +
+                        "                Error=error\n" +
+                        "                DateTime=date-time\n" +
+                        "                Number=number\n" +
+                        "                Text=text\n" +
+                        "                Time=time\n" +
+                        "          SpreadsheetFormulaComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Query [] id=query-TextBox\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            ROW\n" +
+                        "              \"Find\" id=find-find-Link\n" +
+                        "              \"Reset\" id=find-reset-Link\n" +
+                        "              \"Load Highlighting Query\" id=find-load highlighting query-Link\n" +
+                        "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
+                        "        Content\n" +
+                        "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                        "            SpreadsheetDataTableComponent\n" +
+                        "              COLUMN(S)\n" +
+                        "                Cell\n" +
+                        "                Formula\n" +
+                        "                Formatted\n" +
+                        "                Value\n" +
+                        "              PLUGINS\n" +
+                        "                BodyScrollPlugin\n"
+        );
+    }
+
+    @Test
+    public void testRefreshNoMatchesAndMetadataContainsHighlightingQuery() {
+        final HistoryToken historyToken = HistoryToken.parseString(
+                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.DATE + "/query/matchXyz()"
+        );
+
+        final AppContext appContext = this.appContext(
+                Optional.of(
+                        SpreadsheetCellQuery.parse("highlightQuery()")
+                ), // WITH highlighting query
+                historyToken
+        );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
                 SpreadsheetFindDialogComponentContexts.appContext(appContext)
@@ -118,7 +200,10 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.DATE + "/query/matchXyz()"
         );
 
-        final AppContext appContext = this.appContext(historyToken);
+        final AppContext appContext = this.appContext(
+                Optional.empty(), // no highlighting query
+                historyToken
+        );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
                 SpreadsheetFindDialogComponentContexts.appContext(appContext)
@@ -166,6 +251,9 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "            ROW\n" +
                         "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
                         "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/max/5678/query/matchXyz()] id=find-reset-Link\n" +
+                        "              \"Find\" id=find-find-Link\n" +
+                        "              \"Reset\" id=find-reset-Link\n" +
+                        "              \"Load Highlighting Query\" id=find-load highlighting query-Link\n" +
                         "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                         "        Content\n" +
                         "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
@@ -266,7 +354,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
     }
 
-    private AppContext appContext(final HistoryToken historyToken) {
+    private AppContext appContext(final Optional<SpreadsheetCellQuery> highlightingQuery,
+                                  final HistoryToken historyToken) {
         return new FakeAppContext() {
 
             @Override
