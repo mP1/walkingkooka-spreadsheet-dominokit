@@ -1207,7 +1207,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                                                        final SpreadsheetFormatterSelectorMenuList menus,
                                                        final AppContext context) {
         this.spreadsheetFormatterSelectorMenus = menus;
-        this.refresh(context);
+        this.refreshIfOpen(context);
     }
 
     // metadata.........................................................................................................
