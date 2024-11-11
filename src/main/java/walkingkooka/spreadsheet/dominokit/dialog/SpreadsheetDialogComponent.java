@@ -25,6 +25,7 @@ import org.dominokit.domino.ui.dialogs.DialogSize;
 import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -120,14 +121,6 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
      * Prepares a new {@link Dialog} with a navbar which will hold the title and a close icon.
      */
     private Dialog dialog(final NavBar navBar) {
-        // cant use Dialog Close listener to fire current HistoryToken.close() because that causes problems.
-        //
-        // 1. show spreadsheet list
-        // 2. user clicks load spreadsheet with id
-        // 3. listener sees load spreadsheet with id
-        // 4. dialog closes and fires listener, which fires current history token.close which "changes" history token.
-        //
-        // 3 & 4 break the history tokens.
         return Dialog.create()
                 //.setType(DialogType.DEFAULT) // large
                 .setModal(true)
@@ -136,8 +129,35 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
                 .withHeader(
                         (d, header) ->
                                 header.appendChild(navBar)
-                );
+                ).addCloseListener(this::onClose);
     }
+
+    private void onClose(final Dialog dialog) {
+        this.fireClose();
+    }
+
+    private void fireClose() {
+        if (this.closeListenerEnabled) {
+            this.closeListenerEnabled = false;
+
+            final HistoryTokenContext context = this.context;
+
+            context.pushHistoryToken(
+                    context.historyToken()
+                            .close()
+            );
+        }
+    }
+
+    /**
+     * This flag is used to control whether close listeners fire {@link HistoryToken#close()}.
+     * Programmatically closing a dialog such as when the current history token is no longer true should not fire
+     * the close listener, which will want to close the history token.
+     * <br>
+     * Clicking outside the dialog when it is open should fire the dialog close listener so the history token close is
+     * pushed.
+     */
+    private boolean closeListenerEnabled;
 
     private final HistoryTokenContext context;
 
@@ -194,6 +214,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
     @Override
     public void open() {
         this.open = true;
+        this.closeListenerEnabled = true;
         this.dialog.open();
 
         final HistoryTokenAnchorComponent close = this.close;
