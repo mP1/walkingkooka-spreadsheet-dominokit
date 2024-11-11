@@ -34,6 +34,7 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
     private SpreadsheetFindDialogComponentGridLayout() {
         this.left = Lists.array();
         this.content = Lists.array();
+        this.footer = Lists.array();
     }
 
     SpreadsheetFindDialogComponentGridLayout setLeft(final Collection<Component<?>> children) {
@@ -50,6 +51,13 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
 
     private final List<Component<?>> content;
 
+    SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<Component<?>> children) {
+        this.footer.addAll(children);
+        return this;
+    }
+
+    private final List<Component<?>> footer;
+    
     // Component........................................................................................................
 
     @Override
@@ -63,23 +71,36 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
 
         printer.indent();
         {
-            printer.println("Left");
-            printer.indent();
-            {
-                for (final Component<?> component : this.left) {
-                    component.printTree(printer);
-                }
-            }
-            printer.outdent();
+            this.printTree0(
+                    "Left",
+                    this.left,
+                    printer
+            );
 
-            printer.println("Content");
-            printer.indent();
-            {
-                for (final Component<?> component : this.content) {
-                    component.printTree(printer);
-                }
+            this.printTree0(
+                    "Content",
+                    this.content,
+                    printer
+            );
+
+            this.printTree0(
+                    "Footer",
+                    this.footer,
+                    printer
+            );
+        }
+        printer.outdent();
+    }
+
+    private void printTree0(final String label,
+                            final Collection<Component<?>> children,
+                            final IndentingPrinter printer) {
+        printer.println(label);
+        printer.indent();
+        {
+            for (final Component<?> component : children) {
+                component.printTree(printer);
             }
-            printer.outdent();
         }
         printer.outdent();
     }

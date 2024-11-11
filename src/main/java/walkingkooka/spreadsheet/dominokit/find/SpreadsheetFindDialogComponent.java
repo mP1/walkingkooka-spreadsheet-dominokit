@@ -108,7 +108,14 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                                         this.cellRange,
                                         this.path,
                                         this.valueType,
-                                        this.query,
+                                        this.query
+                                )
+                        ).setContent(
+                                Lists.of(
+                                        this.table.setCssText("margin-left: 5px")
+                                )
+                        ).setFooter(
+                                Lists.of(
                                         SpreadsheetFlexLayout.row()
                                                 .appendChild(this.find)
                                                 .appendChild(this.reset)
@@ -119,10 +126,6 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                                                                 context.historyToken()
                                                         )
                                                 )
-                                )
-                        ).setContent(
-                                Lists.of(
-                                        this.table.setCssText("margin-left: 5px")
                                 )
                         )
         );

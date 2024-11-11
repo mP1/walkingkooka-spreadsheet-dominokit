@@ -27,4 +27,6 @@ abstract class SpreadsheetFindDialogComponentGridLayoutLike implements Component
     abstract SpreadsheetFindDialogComponentGridLayout setLeft(final Collection<Component<?>> children);
 
     abstract SpreadsheetFindDialogComponentGridLayout setContent(final Collection<Component<?>> children);
+
+    abstract SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<Component<?>> children);
 }
