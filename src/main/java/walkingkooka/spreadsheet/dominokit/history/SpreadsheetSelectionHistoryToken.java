@@ -190,68 +190,6 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
         );
     }
 
-//    private HistoryToken parseFind(final TextCursor cursor) {
-//        SpreadsheetCellFindQuery query = SpreadsheetCellFindQuery.empty();
-//
-//        String component = parseComponentOrNull(cursor);
-//        if (null != component) {
-//            if ("path".equals(component)) {
-//                query = query.setPath(
-//                        parseComponent(cursor)
-//                                .map(SpreadsheetCellRangeReferencePath::valueOf)
-//                );
-//
-//                component = parseComponentOrNull(cursor);
-//            }
-//            if ("offset".equals(component)) {
-//                query = query.setOffset(
-//                        parseComponent(cursor)
-//                        .map(Integer::parseInt)
-//                        .map(OptionalInt::of)
-//                        .orElseGet(
-//                                OptionalInt::empty
-//                        )
-//                );
-//                component = parseComponentOrNull(cursor);
-//            }
-//            if ("max".equals(component)) {
-//                query = query.setMax(
-//                        parseComponent(cursor)
-//                        .map(Integer::parseInt)
-//                        .map(OptionalInt::of)
-//                        .orElseGet(
-//                                OptionalInt::empty
-//                        )
-//                );
-//                component = parseComponentOrNull(cursor);
-//            }
-//            if ("value-type".equals(component)) {
-//                query = query.setValueType(
-//                        parseComponent(cursor)
-//                );
-//                component = parseComponentOrNull(cursor);
-//            }
-//            if ("query".equals(component)) {
-//                cursor.next();
-//
-//                final TextCursorSavePoint save = cursor.save();
-//                cursor.end();
-//
-//                final String queryText = save.textBetween()
-//                        .toString();
-//                query = query.setQuery(
-//                        queryText.isEmpty() ?
-//                        Optional.empty() :
-//                        Optional.of(
-//                                SpreadsheetCellQuery.parse(queryText)
-//                        )
-//                );
-//            }
-//        }
-//
-//        return this.setQuery(query);
-//    }
-
     private HistoryToken parseSort(final TextCursor cursor) {
         final HistoryToken historyToken;
 
