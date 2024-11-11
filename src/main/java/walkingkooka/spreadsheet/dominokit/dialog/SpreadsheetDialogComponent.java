@@ -142,12 +142,15 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
         if (this.closeListenerEnabled) {
             this.closeListenerEnabled = false;
 
-            final HistoryTokenContext context = this.context;
+            // just to be sure, verify is open before firing HistoryToken#close
+            if (this.isOpen()) {
+                final HistoryTokenContext context = this.context;
 
-            context.pushHistoryToken(
-                    context.historyToken()
-                            .close()
-            );
+                context.pushHistoryToken(
+                        context.historyToken()
+                                .close()
+                );
+            }
         }
     }
 
