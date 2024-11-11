@@ -91,7 +91,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Parser\n" +
-                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetParserNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -141,8 +141,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "              Empty \"text\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" DISABLED id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
+                        "          \"Save\" DISABLED [#/1/Spreadsheet123/cell/A1/parser/save/] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
@@ -163,7 +163,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Parser\n" +
-                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetParserNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -244,7 +244,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyy] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
@@ -267,7 +267,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Parser\n" +
-                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetParserNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -367,7 +367,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
@@ -390,7 +390,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Parser\n" +
-                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetParserNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -511,7 +511,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20$%230.00] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
@@ -534,7 +534,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Parser\n" +
-                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetParserNameLinkListComponent\n" +
                         "        SpreadsheetLinkListComponent\n" +
                         "          SpreadsheetCard\n" +
@@ -596,7 +596,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern%20hh:mm] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
@@ -619,7 +619,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Date parser\n" +
-                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0 SELECTED\n" +
@@ -710,7 +710,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/date-parser/save/date-parse-pattern%20dd/mm/yyyy] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/metadata/date-parser/save/date-parse-pattern%20yyyy/mm/dd] id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/metadata/date-parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
@@ -733,7 +733,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Date Time parser\n" +
-                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0\n" +
@@ -843,7 +843,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/metadata/date-time-parser/save/date-time-parse-pattern%20yyyy/mm/dd%20hh:mm] id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/metadata/date-time-parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
@@ -866,7 +866,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Number parser\n" +
-                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0\n" +
@@ -997,7 +997,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/number-parser/save/number-parse-pattern%20$%230.00] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/metadata/number-parser/save/number-parse-pattern%200.%23] id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/metadata/number-parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
@@ -1020,7 +1020,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "SpreadsheetParserSelectorDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Time parser\n" +
-                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true CLOSED\n" +
+                        "    id=SpreadsheetParserSelectorDialogComponent includeClose=true\n" +
                         "      SpreadsheetPatternKindTabsComponent\n" +
                         "        SpreadsheetTabsComponent\n" +
                         "          TAB 0\n" +
@@ -1092,7 +1092,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Save\" [#/1/Spreadsheet123/metadata/time-parser/save/time-parse-pattern%20hh:mm] id=SpreadsheetParserSelectorDialogComponent-save-Link\n" +
-                        "          \"Undo\" DISABLED id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/metadata/time-parser/save/time-parse-pattern%20hh:mm:ss] id=SpreadsheetParserSelectorDialogComponent-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/metadata/time-parser/save/] id=SpreadsheetParserSelectorDialogComponent-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetParserSelectorDialogComponent-close-Link\n"
         );
@@ -1328,12 +1328,20 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadataTesting.METADATA_EN_AU;
+                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        SpreadsheetId.with(1)
+                );
             }
 
             @Override
             public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
+            }
+
+            @Override
+            public void giveFocus(final Runnable focus) {
+                // ignore
             }
 
             @Override
