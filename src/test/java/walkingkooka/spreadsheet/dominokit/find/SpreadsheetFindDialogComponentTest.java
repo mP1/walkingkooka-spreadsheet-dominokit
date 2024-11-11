@@ -23,17 +23,23 @@ import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import java.util.Arrays;
 
 public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetFindDialogComponent>,
         SpreadsheetMetadataTesting {
@@ -55,18 +61,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true CLOSED\n" +
+                        "    id=find includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [] id=find--cell-range\n" +
-                        "                Errors\n" +
-                        "                  Empty \"text\"\n" +
+                        "                Cell Range [A1] id=find--cell-range\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
-                        "              Cell Range Path [] id=find--cell-range-path-Select\n" +
+                        "              Cell Range Path [BULR] id=find--cell-range-path-Select\n" +
                         "                left-right top-down=LRTD\n" +
                         "                right-left top-down=RLTD\n" +
                         "                left-right bottom-up=LRBU\n" +
@@ -77,7 +81,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "                bottom-up right-left=BURL\n" +
                         "          SpreadsheetValueTypeComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
-                        "              Value type [] id=find-value-type-Select\n" +
+                        "              Value type [date] id=find-value-type-Select\n" +
                         "                Any=*\n" +
                         "                Boolean=boolean\n" +
                         "                Date=date\n" +
@@ -89,11 +93,11 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetFormulaComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Query [] id=query-TextBox\n" +
+                        "                Query [matchXyz()] id=query-TextBox\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              \"Find\" id=find-find-Link\n" +
-                        "              \"Reset\" id=find-reset-Link\n" +
+                        "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
+                        "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/max/5678/query/matchXyz()] id=find-reset-Link\n" +
                         "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                         "        Content\n" +
                         "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
@@ -125,18 +129,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true CLOSED\n" +
+                        "    id=find includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [] id=find--cell-range\n" +
-                        "                Errors\n" +
-                        "                  Empty \"text\"\n" +
+                        "                Cell Range [A1] id=find--cell-range\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
-                        "              Cell Range Path [] id=find--cell-range-path-Select\n" +
+                        "              Cell Range Path [BULR] id=find--cell-range-path-Select\n" +
                         "                left-right top-down=LRTD\n" +
                         "                right-left top-down=RLTD\n" +
                         "                left-right bottom-up=LRBU\n" +
@@ -147,7 +149,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "                bottom-up right-left=BURL\n" +
                         "          SpreadsheetValueTypeComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
-                        "              Value type [] id=find-value-type-Select\n" +
+                        "              Value type [date] id=find-value-type-Select\n" +
                         "                Any=*\n" +
                         "                Boolean=boolean\n" +
                         "                Date=date\n" +
@@ -159,11 +161,11 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetFormulaComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Query [] id=query-TextBox\n" +
+                        "                Query [matchXyz()] id=query-TextBox\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              \"Find\" id=find-find-Link\n" +
-                        "              \"Reset\" id=find-reset-Link\n" +
+                        "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
+                        "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/max/5678/query/matchXyz()] id=find-reset-Link\n" +
                         "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                         "        Content\n" +
                         "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
@@ -200,18 +202,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true CLOSED\n" +
+                        "    id=find includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [] id=find--cell-range\n" +
-                        "                Errors\n" +
-                        "                  Empty \"text\"\n" +
+                        "                Cell Range [A1] id=find--cell-range\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
-                        "              Cell Range Path [] id=find--cell-range-path-Select\n" +
+                        "              Cell Range Path [BULR] id=find--cell-range-path-Select\n" +
                         "                left-right top-down=LRTD\n" +
                         "                right-left top-down=RLTD\n" +
                         "                left-right bottom-up=LRBU\n" +
@@ -222,7 +222,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "                bottom-up right-left=BURL\n" +
                         "          SpreadsheetValueTypeComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
-                        "              Value type [] id=find-value-type-Select\n" +
+                        "              Value type [date] id=find-value-type-Select\n" +
                         "                Any=*\n" +
                         "                Boolean=boolean\n" +
                         "                Date=date\n" +
@@ -234,11 +234,11 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetFormulaComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Query [] id=query-TextBox\n" +
+                        "                Query [matchXyz()] id=query-TextBox\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              \"Find\" id=find-find-Link\n" +
-                        "              \"Reset\" id=find-reset-Link\n" +
+                        "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
+                        "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/max/5678/query/matchXyz()] id=find-reset-Link\n" +
                         "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                         "        Content\n" +
                         "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
@@ -280,13 +280,36 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             }
 
             @Override
+            public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
+                return this.deltaFetcher;
+            }
+
+            private final SpreadsheetDeltaFetcher deltaFetcher = SpreadsheetDeltaFetcher.with(
+                    SpreadsheetDeltaFetcherWatchers.empty(),
+                    this
+            );
+
+            @Override
+            public void giveFocus(final Runnable focus) {
+                // ignore
+            }
+
+            @Override
             public HistoryToken historyToken() {
                 return historyToken;
             }
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadataTesting.METADATA_EN_AU;
+                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        SpreadsheetId.parse("123")
+                );
+            }
+
+            @Override
+            public void debug(final Object... values) {
+                System.out.println(Arrays.toString(values));
             }
         };
     }
