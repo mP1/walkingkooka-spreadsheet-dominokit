@@ -94,8 +94,10 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
 
         this.navBar = navBar;
 
+        // only auto close when the user clicks the background if a CLOSE icon is included
         this.dialog = dialog(navBar)
-                .id(id);
+                .id(id)
+                .setAutoClose(includeClose);
 
         this.setTitle(title);
     }
