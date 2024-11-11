@@ -47,7 +47,6 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderSamplesContex
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorToken;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateFormatPattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -1334,7 +1333,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
     @Test
     public void testMetadataDateDialogSave() {
         final SpreadsheetMetadataPropertyName<SpreadsheetFormatterSelector> property = SpreadsheetMetadataPropertyName.DATE_FORMATTER;
-        final SpreadsheetDateFormatPattern value = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
+        final SpreadsheetFormatterSelector value = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                .spreadsheetFormatterSelector();
 
         this.historyTokenSaveValueAndCheck(
                 HistoryToken.metadataPropertySelect(
@@ -1347,9 +1347,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         SPREADSHEET_ID,
                         NAME,
                         property,
-                        Optional.of(
-                                value.spreadsheetFormatterSelector()
-                        )
+                        Optional.of(value)
                 )
         );
     }
@@ -1392,7 +1390,8 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
     @Test
     public void testCellDateDialogSave() {
-        final SpreadsheetDateFormatPattern value = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy");
+        final SpreadsheetFormatterSelector value = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                .spreadsheetFormatterSelector();
 
         this.historyTokenSaveValueAndCheck(
                 HistoryToken.cellFormatterSelect(
@@ -1405,9 +1404,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         SPREADSHEET_ID,
                         NAME,
                         CELL,
-                        Optional.of(
-                                value.spreadsheetFormatterSelector()
-                        )
+                        Optional.of(value)
                 )
         );
     }

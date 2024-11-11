@@ -33,8 +33,6 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
@@ -2120,31 +2118,15 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         if (value.isPresent()) {
             final Object valueNotNull = value.get();
-            if (valueNotNull instanceof String) {
-                stringValue = (String) valueNotNull;
+            if (valueNotNull instanceof HasText) {
+                final HasText hasText = (HasText) valueNotNull;
+                stringValue = hasText.text();
             } else {
-                if (valueNotNull instanceof SpreadsheetFormatPattern) {
-                    final SpreadsheetFormatPattern formatPattern = (SpreadsheetFormatPattern) valueNotNull;
-                    stringValue = formatPattern.spreadsheetFormatterSelector()
-                            .toString();
+                if (valueNotNull instanceof Enum) {
+                    final Enum<?> enumm = (Enum<?>) valueNotNull;
+                    stringValue = enumm.name();
                 } else {
-                    if (valueNotNull instanceof SpreadsheetParsePattern) {
-                        final SpreadsheetParsePattern pattern = (SpreadsheetParsePattern) valueNotNull;
-                        stringValue = pattern.spreadsheetParserSelector()
-                                .toString();
-                    } else {
-                        if (valueNotNull instanceof HasText) {
-                            final HasText hasText = (HasText) valueNotNull;
-                            stringValue = hasText.text();
-                        } else {
-                            if (valueNotNull instanceof Enum) {
-                                final Enum<?> enumm = (Enum<?>) valueNotNull;
-                                stringValue = enumm.name();
-                            } else {
-                                stringValue = valueNotNull.toString();
-                            }
-                        }
-                    }
+                    stringValue = valueNotNull.toString();
                 }
             }
         }

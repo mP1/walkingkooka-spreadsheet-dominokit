@@ -43,7 +43,6 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderSamplesContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetDateParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -1120,7 +1119,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
     @Test
     public void testMetadataDateDialogSave() {
         final SpreadsheetMetadataPropertyName<SpreadsheetParserSelector> property = SpreadsheetMetadataPropertyName.DATE_PARSER;
-        final SpreadsheetDateParsePattern value = SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy");
+        final SpreadsheetParserSelector value = SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+                .spreadsheetParserSelector();
 
         this.historyTokenSaveValueAndCheck(
                 HistoryToken.metadataPropertySelect(
@@ -1133,9 +1133,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         SPREADSHEET_ID,
                         NAME,
                         property,
-                        Optional.of(
-                                value.spreadsheetParserSelector()
-                        )
+                        Optional.of(value)
                 )
         );
     }
@@ -1178,7 +1176,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
     @Test
     public void testCellDateDialogSave() {
-        final SpreadsheetDateParsePattern value = SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy");
+        final SpreadsheetParserSelector value = SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+                .spreadsheetParserSelector();
 
         this.historyTokenSaveValueAndCheck(
                 HistoryToken.cellParserSelect(
@@ -1191,9 +1190,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         SPREADSHEET_ID,
                         NAME,
                         CELL,
-                        Optional.of(
-                                value.spreadsheetParserSelector()
-                        )
+                        Optional.of(value)
                 )
         );
     }
