@@ -257,6 +257,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         }
     }
 
+    // find.............................................................................................................
+
     private void refreshFind(final SpreadsheetCellFindHistoryToken token) {
         this.find.setHistoryToken(
                 Optional.of(token)
@@ -264,6 +266,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     }
 
     private final HistoryTokenAnchorComponent find;
+
+    // reset............................................................................................................
 
     private void refreshReset(final SpreadsheetCellFindHistoryToken token) {
         this.reset.setHistoryToken(
