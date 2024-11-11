@@ -47,6 +47,11 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
                 (parent, content) ->
                 {
                     content.addCss(dui_grid_section);
+//                    parent.setLeftSpan(
+//                        SectionSpan._5,
+//                        true,
+//                        true
+//                    );
                     for (final Component<?> child : children) {
                         content.appendChild(child);
                     }
@@ -57,6 +62,20 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
 
     SpreadsheetFindDialogComponentGridLayout setContent(final Collection<Component<?>> children) {
         this.gridLayout.withContent(
+                (parent, content) ->
+                {
+                    content.addCss(dui_grid_section);
+                    for (final Component<?> child : children) {
+                        content.appendChild(child);
+                    }
+                }
+        );
+
+        return this;
+    }
+
+    SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<Component<?>> children) {
+        this.gridLayout.withFooter(
                 (parent, content) ->
                 {
                     content.addCss(dui_grid_section);
