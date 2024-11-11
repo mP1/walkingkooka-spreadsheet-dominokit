@@ -108,7 +108,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                     .setValue(
                             Optional.of("NOT refreshed")
                     );
-            this.dialog = walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent.with(
+            this.dialog = SpreadsheetDialogComponent.with(
                             "id123",
                             "Title456",
                             true, // includeClose
@@ -146,7 +146,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         private final SpreadsheetTextBox refreshed;
 
         @Override
-        public walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent dialog() {
+        public SpreadsheetDialogComponent dialog() {
             return this.dialog;
         }
 
