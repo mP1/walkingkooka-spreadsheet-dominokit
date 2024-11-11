@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -49,7 +50,12 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
      */
     default HistoryTokenAnchorComponent anchor(final String text) {
         return HistoryTokenAnchorComponent.empty()
-                .setId(this.idPrefix() + text.toLowerCase() + SpreadsheetElementIds.LINK)
+                .setId(
+                        this.idPrefix() +
+                                CaseKind.TITLE.change(
+                                        text,
+                                        CaseKind.KEBAB
+                                ) + SpreadsheetElementIds.LINK)
                 .setTextContent(text);
     }
 
