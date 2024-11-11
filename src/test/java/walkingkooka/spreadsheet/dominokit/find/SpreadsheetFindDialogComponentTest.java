@@ -40,9 +40,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-import java.util.Optional;
-
 import java.util.Arrays;
+import java.util.Optional;
 
 public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetFindDialogComponent>,
         SpreadsheetMetadataTesting {
@@ -67,18 +66,16 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true CLOSED\n" +
+                        "    id=find includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [] id=find--cell-range\n" +
-                        "                Errors\n" +
-                        "                  Empty \"text\"\n" +
+                        "                Cell Range [A1] id=find--cell-range\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
-                        "              Cell Range Path [] id=find--cell-range-path-Select\n" +
+                        "              Cell Range Path [BULR] id=find--cell-range-path-Select\n" +
                         "                left-right top-down=LRTD\n" +
                         "                right-left top-down=RLTD\n" +
                         "                left-right bottom-up=LRBU\n" +
@@ -89,7 +86,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "                bottom-up right-left=BURL\n" +
                         "          SpreadsheetValueTypeComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
-                        "              Value type [] id=find-value-type-Select\n" +
+                        "              Value type [date] id=find-value-type-Select\n" +
                         "                Any=*\n" +
                         "                Boolean=boolean\n" +
                         "                Date=date\n" +
@@ -101,12 +98,12 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetFormulaComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Query [] id=query-TextBox\n" +
+                        "                Query [matchXyz()] id=query-TextBox\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              \"Find\" id=find-find-Link\n" +
-                        "              \"Reset\" id=find-reset-Link\n" +
-                        "              \"Load Highlighting Query\" id=find-load highlighting query-Link\n" +
+                        "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
+                        "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/max/5678/query/matchXyz()] id=find-reset-Link\n" +
+                        "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
                         "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                         "        Content\n" +
                         "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
@@ -180,6 +177,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "            ROW\n" +
                         "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
                         "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/max/5678/query/matchXyz()] id=find-reset-Link\n" +
+                        "              \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/highlightQuery()] id=find-load-highlighting-query-Link\n" +
                         "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                         "        Content\n" +
                         "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
@@ -251,9 +249,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "            ROW\n" +
                         "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
                         "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/max/5678/query/matchXyz()] id=find-reset-Link\n" +
-                        "              \"Find\" id=find-find-Link\n" +
-                        "              \"Reset\" id=find-reset-Link\n" +
-                        "              \"Load Highlighting Query\" id=find-load highlighting query-Link\n" +
+                        "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
                         "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                         "        Content\n" +
                         "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
@@ -327,6 +323,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "            ROW\n" +
                         "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
                         "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/max/5678/query/matchXyz()] id=find-reset-Link\n" +
+                        "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
                         "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                         "        Content\n" +
                         "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
@@ -393,6 +390,9 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                         SpreadsheetId.parse("123")
+                ).setOrRemove(
+                        SpreadsheetMetadataPropertyName.FIND_QUERY,
+                        highlightingQuery.orElse(null)
                 );
             }
 
