@@ -433,11 +433,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      */
     private void refreshLoadHighlightingQuery(final SpreadsheetCellFindHistoryToken token,
                                               final AppContext context) {
-        HistoryToken load = null;
-
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
         final SpreadsheetCellQuery highlightingQuery = metadata.get(SpreadsheetMetadataPropertyName.FIND_QUERY).orElse(null);
-
 
         this.loadHighlightingQuery.setHistoryToken(
                 Optional.ofNullable(
