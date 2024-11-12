@@ -72,10 +72,10 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find--cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
-                        "              Cell Range Path [BULR] id=find--cell-range-path-Select\n" +
+                        "              Cell Range Path [BULR] id=find-cell-range-path-Select\n" +
                         "                left-right top-down=LRTD\n" +
                         "                right-left top-down=RLTD\n" +
                         "                left-right bottom-up=LRBU\n" +
@@ -148,10 +148,10 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find--cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
-                        "              Cell Range Path [BULR] id=find--cell-range-path-Select\n" +
+                        "              Cell Range Path [BULR] id=find-cell-range-path-Select\n" +
                         "                left-right top-down=LRTD\n" +
                         "                right-left top-down=RLTD\n" +
                         "                left-right bottom-up=LRBU\n" +
@@ -224,10 +224,10 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find--cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
-                        "              Cell Range Path [] id=find--cell-range-path-Select\n" +
+                        "              Cell Range Path [] id=find-cell-range-path-Select\n" +
                         "                left-right top-down=LRTD\n" +
                         "                right-left top-down=RLTD\n" +
                         "                left-right bottom-up=LRBU\n" +
@@ -298,10 +298,10 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find--cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
-                        "              Cell Range Path [BULR] id=find--cell-range-path-Select\n" +
+                        "              Cell Range Path [BULR] id=find-cell-range-path-Select\n" +
                         "                left-right top-down=LRTD\n" +
                         "                right-left top-down=RLTD\n" +
                         "                left-right bottom-up=LRBU\n" +
@@ -374,10 +374,10 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find--cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
-                        "              Cell Range Path [BULR] id=find--cell-range-path-Select\n" +
+                        "              Cell Range Path [BULR] id=find-cell-range-path-Select\n" +
                         "                left-right top-down=LRTD\n" +
                         "                right-left top-down=RLTD\n" +
                         "                left-right bottom-up=LRBU\n" +
