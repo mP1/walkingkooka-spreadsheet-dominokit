@@ -157,12 +157,6 @@
     <dependencies>
         <dependency>
             <groupId>walkingkooka</groupId>
-            <artifactId>walkingkooka-spreadsheet-gwt</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>walkingkooka</groupId>
             <artifactId>walkingkooka-spreadsheet-server-gwt</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
