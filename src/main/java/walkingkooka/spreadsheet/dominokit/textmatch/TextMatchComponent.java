@@ -21,6 +21,7 @@ package walkingkooka.spreadsheet.dominokit.textmatch;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.expression.function.TextMatch;
 import walkingkooka.text.CaseSensitivity;
 
 import java.util.function.Predicate;
@@ -34,7 +35,7 @@ import java.util.function.Predicate;
  * _search_
  * </pre>
  */
-public final class TextMatchComponent implements ValueSpreadsheetTextBoxWrapper<TextMatchComponent, Predicate<CharSequence>> {
+public final class TextMatchComponent implements ValueSpreadsheetTextBoxWrapper<TextMatchComponent, TextMatch> {
 
     public static TextMatchComponent empty() {
         return new TextMatchComponent();
@@ -42,26 +43,18 @@ public final class TextMatchComponent implements ValueSpreadsheetTextBoxWrapper<
 
     private TextMatchComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                TextMatchComponent::parse,
+                TextMatch::parse,
                 Object::toString
         );
     }
-
-    private static Predicate<CharSequence> parse(final String text) {
-        return Predicates.globPatterns(
-                text,
-                CaseSensitivity.INSENSITIVE
-        );
-    }
-
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<Predicate<CharSequence>> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<TextMatch> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<Predicate<CharSequence>> textBox;
+    private final ValueSpreadsheetTextBox<TextMatch> textBox;
 
     // Object...........................................................................................................
 

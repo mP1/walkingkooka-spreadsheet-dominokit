@@ -22,12 +22,13 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.expression.function.TextMatch;
 import walkingkooka.text.CaseSensitivity;
 
 import java.util.Optional;
 import java.util.function.Predicate;
 
-public final class TextMatchComponentTest implements ValueComponentTesting<HTMLFieldSetElement, Predicate<CharSequence>, TextMatchComponent> {
+public final class TextMatchComponentTest implements ValueComponentTesting<HTMLFieldSetElement, TextMatch, TextMatchComponent> {
 
     @Test
     public void testTreePrintWithoutValue() {
@@ -46,9 +47,8 @@ public final class TextMatchComponentTest implements ValueComponentTesting<HTMLF
                 TextMatchComponent.empty()
                         .setValue(
                                 Optional.of(
-                                        Predicates.globPatterns(
-                                                "starts* ends* *contains*",
-                                                CaseSensitivity.INSENSITIVE
+                                        TextMatch.parse(
+                                                "starts* ends* *contains*"
                                         )
                                 )
                         ),
