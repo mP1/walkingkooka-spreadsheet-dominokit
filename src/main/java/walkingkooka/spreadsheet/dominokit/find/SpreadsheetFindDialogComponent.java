@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.find;
 
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -40,7 +39,6 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetCellRangeReferenc
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
-import walkingkooka.spreadsheet.expression.function.TextMatch;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetConditionParserToken;
@@ -239,7 +237,26 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     /**
      * The {@link SpreadsheetFormulaComponent} that holds the edited {@link Expression}.
      */
-    private final SpreadsheetFormulaComponent query;
+    // VisibleForTesting
+    final SpreadsheetFormulaComponent query;
+
+    private void refreshQueryFromWizardFields(final Optional<?> old,
+                                              final Optional<?> newAlsoIgnored) {
+        this.query.setValue(
+                SpreadsheetFindDialogComponentWizard.query(
+                        this.context.historyToken()
+                                .cast(SpreadsheetCellFindHistoryToken.class)
+                                .query()
+                                .query(),
+                        this.formula.value(),
+                        this.formatter.value(),
+                        this.parser.value(),
+                        this.style.value(),
+                        this.value.value(),
+                        this.formattedValue.value()
+                )
+        );
+    }
 
     // valueType........................................................................................................
 
@@ -299,14 +316,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private TextMatchComponent formula() {
         return textMatchComponent(
-                "Formula",
-                this::onFormulaValueChange
+                "Formula"
         );
-    }
-
-    private void onFormulaValueChange(final Optional<TextMatch> old,
-                                      final Optional<TextMatch> newTextMatch) {
-        // TODO
     }
 
     private final TextMatchComponent formula;
@@ -315,14 +326,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private TextMatchComponent formatter() {
         return textMatchComponent(
-                "Formatter",
-                this::onFormatterValueChange
+                "Formatter"
         );
-    }
-
-    private void onFormatterValueChange(final Optional<TextMatch> old,
-                                        final Optional<TextMatch> newTextMatch) {
-        // TODO
     }
 
     private final TextMatchComponent formatter;
@@ -331,14 +336,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private TextMatchComponent parser() {
         return textMatchComponent(
-                "Parser",
-                this::onParserValueChange
+                "Parser"
         );
-    }
-
-    private void onParserValueChange(final Optional<TextMatch> old,
-                                     final Optional<TextMatch> newTextMatch) {
-        // TODO
     }
 
     private final TextMatchComponent parser;
@@ -347,14 +346,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private TextMatchComponent style() {
         return textMatchComponent(
-                "Style",
-                this::onStyleValueChange
+                "Style"
         );
-    }
-
-    private void onStyleValueChange(final Optional<TextMatch> old,
-                                     final Optional<TextMatch> newTextMatch) {
-
     }
 
     private final TextMatchComponent style;
@@ -381,14 +374,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private TextMatchComponent formattedValue() {
         return textMatchComponent(
-                "Formatted",
-                this::onFormattedValueFormattedValueChange
+                "Formatted"
         );
-    }
-
-    private void onFormattedValueFormattedValueChange(final Optional<TextMatch> old,
-                                                      final Optional<TextMatch> newTextMatch) {
-
     }
 
     private final TextMatchComponent formattedValue;
@@ -397,9 +384,9 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     /**
      * Factory that creates a {@link TextMatchComponent} with the given label and listener.
+     * This is intended to only be used by Wizard fields that contribute to the query by some transformation
      */
-    private static TextMatchComponent textMatchComponent(final String label,
-                                                         final ChangeListener<Optional<TextMatch>> changeListener) {
+    private TextMatchComponent textMatchComponent(final String label) {
         return TextMatchComponent.empty()
                 .setId(
                         ID_PREFIX +
@@ -409,7 +396,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                                 ) +
                                 SpreadsheetElementIds.TEXT_BOX
                 ).setLabel(label)
-                .addChangeListener(changeListener);
+                .addChangeListener(this::refreshQueryFromWizardFields);
     }
 
     // find.............................................................................................................
