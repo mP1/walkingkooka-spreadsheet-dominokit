@@ -168,6 +168,12 @@
         </dependency>
 
         <dependency>
+            <groupId>walkingkooka</groupId>
+            <artifactId>walkingkooka-spreadsheet-expression-function-gwt</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.gwtproject</groupId>
             <artifactId>gwt-user</artifactId>
             <version>${gwt.version}</version>
