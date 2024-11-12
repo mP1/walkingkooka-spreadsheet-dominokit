@@ -95,6 +95,30 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "                Number=number\n" +
                         "                Text=text\n" +
                         "                Time=time\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formula [] id=find-formula-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formatter [] id=find-formatter-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Parser [] id=find-parser-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Style [] id=find-style-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Value [] id=find-value-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formatted [] id=find-formatted-TextBox\n" +
                         "          SpreadsheetFormulaComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
@@ -171,6 +195,30 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "                Number=number\n" +
                         "                Text=text\n" +
                         "                Time=time\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formula [] id=find-formula-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formatter [] id=find-formatter-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Parser [] id=find-parser-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Style [] id=find-style-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Value [] id=find-value-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formatted [] id=find-formatted-TextBox\n" +
                         "          SpreadsheetFormulaComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
@@ -247,6 +295,30 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "                Number=number\n" +
                         "                Text=text\n" +
                         "                Time=time\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formula [] id=find-formula-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formatter [] id=find-formatter-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Parser [] id=find-parser-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Style [] id=find-style-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Value [] id=find-value-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formatted [] id=find-formatted-TextBox\n" +
                         "          SpreadsheetFormulaComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
@@ -321,6 +393,30 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "                Number=number\n" +
                         "                Text=text\n" +
                         "                Time=time\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formula [] id=find-formula-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formatter [] id=find-formatter-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Parser [] id=find-parser-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Style [] id=find-style-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Value [] id=find-value-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formatted [] id=find-formatted-TextBox\n" +
                         "          SpreadsheetFormulaComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
@@ -397,6 +493,30 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "                Number=number\n" +
                         "                Text=text\n" +
                         "                Time=time\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formula [] id=find-formula-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formatter [] id=find-formatter-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Parser [] id=find-parser-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Style [] id=find-style-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Value [] id=find-value-TextBox\n" +
+                        "          TextMatchComponent\n" +
+                        "            ValueSpreadsheetTextBox\n" +
+                        "              SpreadsheetTextBox\n" +
+                        "                Formatted [] id=find-formatted-TextBox\n" +
                         "          SpreadsheetFormulaComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +

@@ -17,10 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.find;
 
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaMatchedCellsTableComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaMatchedCellsTableComponentContexts;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
@@ -33,18 +35,22 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetCellRangeReferenceComponent;
+import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.expression.function.TextMatch;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.CaseKind;
 import walkingkooka.tree.expression.Expression;
 
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 /**
  * A modal dialog that provides form elements to perform a find with a table showing the matching cells.
@@ -68,6 +74,13 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.path = this.path();
         this.query = this.query();
         this.valueType = this.valueType();
+
+        this.formula = this.formula();
+        this.formatter = this.formatter();
+        this.parser = this.parser();
+        this.style = this.style();
+        this.value = this.value();
+        this.formattedValue = this.formattedValue();
 
         this.find = this.anchor("Find");
         this.reset = this.anchor("Reset");
@@ -108,6 +121,12 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                                         this.cellRange,
                                         this.path,
                                         this.valueType,
+                                        this.formula,
+                                        this.formatter,
+                                        this.parser,
+                                        this.style,
+                                        this.value,
+                                        this.formattedValue,
                                         this.query
                                 )
                         ).setContent(
@@ -260,6 +279,121 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         if (token instanceof SpreadsheetCellFindHistoryToken) {
             context.pushHistoryToken(token);
         }
+    }
+
+    // formula..........................................................................................................
+
+    private TextMatchComponent formula() {
+        return textMatchComponent(
+                "Formula",
+                this::onFormulaValueChange
+        );
+    }
+
+    private void onFormulaValueChange(final Optional<TextMatch> old,
+                                      final Optional<TextMatch> newTextMatch) {
+        // TODO
+    }
+
+    private final TextMatchComponent formula;
+
+    // formatter..........................................................................................................
+
+    private TextMatchComponent formatter() {
+        return textMatchComponent(
+                "Formatter",
+                this::onFormatterValueChange
+        );
+    }
+
+    private void onFormatterValueChange(final Optional<TextMatch> old,
+                                        final Optional<TextMatch> newTextMatch) {
+        // TODO
+    }
+
+    private final TextMatchComponent formatter;
+
+    // parser...........................................................................................................
+
+    private TextMatchComponent parser() {
+        return textMatchComponent(
+                "Parser",
+                this::onParserValueChange
+        );
+    }
+
+    private void onParserValueChange(final Optional<TextMatch> old,
+                                     final Optional<TextMatch> newTextMatch) {
+        // TODO
+    }
+
+    private final TextMatchComponent parser;
+
+    // style............................................................................................................
+
+    private TextMatchComponent style() {
+        return textMatchComponent(
+                "Style",
+                this::onStyleValueChange
+        );
+    }
+
+    private void onStyleValueChange(final Optional<TextMatch> old,
+                                     final Optional<TextMatch> newTextMatch) {
+
+    }
+
+    private final TextMatchComponent style;
+    
+    // value............................................................................................................
+
+    private TextMatchComponent value() {
+        return textMatchComponent(
+                "Value",
+                this::onValueValueChange
+        );
+    }
+
+    private void onValueValueChange(final Optional<TextMatch> old,
+                                    final Optional<TextMatch> newTextMatch) {
+
+    }
+
+    private final TextMatchComponent value;
+
+    // formattedValue...................................................................................................
+
+    private TextMatchComponent formattedValue() {
+        return textMatchComponent(
+                "Formatted",
+                this::onFormattedValueFormattedValueChange
+        );
+    }
+
+    private void onFormattedValueFormattedValueChange(final Optional<TextMatch> old,
+                                                      final Optional<TextMatch> newTextMatch) {
+
+    }
+
+    private final TextMatchComponent formattedValue;
+
+    // TextMatchComponent...............................................................................................
+
+    /**
+     * Factory that creates a {@link TextMatchComponent} with the given label and listener.
+     */
+    private static TextMatchComponent textMatchComponent(final String label,
+                                                         final ChangeListener<Optional<TextMatch>> changeListener) {
+        return TextMatchComponent.empty()
+                .setId(
+                        ID_PREFIX +
+                                CaseKind.TITLE.change(
+                                        label,
+                                        CaseKind.KEBAB
+                                ) +
+                                SpreadsheetElementIds.TEXT_BOX
+                ).setLabel(label)
+                .addChangeListener(changeListener);
     }
 
     // find.............................................................................................................
