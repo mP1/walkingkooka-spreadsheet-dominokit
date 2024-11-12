@@ -189,7 +189,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetCellRangeReferencePathComponent path() {
         return SpreadsheetCellRangeReferencePathComponent.empty()
-                .setId(ID_PREFIX + "cell-range-path-Select")
+                .setId(ID_PREFIX + "cell-range-path" + SpreadsheetElementIds.SELECT)
                 .setLabel("Cell Range Path")
                 .addChangeListener(this::onCellRangePathValueChange);
     }
@@ -240,7 +240,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetValueTypeComponent valueType() {
         return SpreadsheetValueTypeComponent.empty()
-                .setId(ID_PREFIX + "value-type-Select")
+                .setId(ID_PREFIX + "value-type" + SpreadsheetElementIds.SELECT)
                 .setLabel("Value type")
                 .addChangeListener(this::onValueTypeChange);
     }
