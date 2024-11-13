@@ -15,46 +15,43 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.formula;
 
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 import walkingkooka.text.cursor.TextCursors;
 
 import java.util.Objects;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 /**
- * A {@link Function} that parsers any given text into a {@link SpreadsheetFormula}. The parser used will be a combination of those in {@link SpreadsheetMetadata}.
+ * A {@link Function} that parsers any given text into a {@link SpreadsheetFormula} and the provided {@link SpreadsheetParserContext}
  */
-final class SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction implements Function<String, SpreadsheetFormula> {
+final class SpreadsheetFunctionComponentExpressionParserFunction implements Function<String, SpreadsheetFormula> {
 
-    public static SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction with(final SpreadsheetFindDialogComponentContext context) {
+    static SpreadsheetFunctionComponentExpressionParserFunction with(final Supplier<SpreadsheetParserContext> context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction(context);
+        return new SpreadsheetFunctionComponentExpressionParserFunction(context);
     }
 
-    private SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction(final SpreadsheetFindDialogComponentContext context) {
+    private SpreadsheetFunctionComponentExpressionParserFunction(final Supplier<SpreadsheetParserContext> context) {
         this.context = context;
     }
 
     @Override
     public SpreadsheetFormula apply(final String text) {
-        final SpreadsheetFindDialogComponentContext context = this.context;
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-
         return SpreadsheetFormula.parse(
                 TextCursors.charSequence(text),
                 SpreadsheetParsers.expression(),
-                metadata.spreadsheetParserContext(
-                        context::now
-                )
+                this.context.get()
         );
     }
 
-    private final SpreadsheetFindDialogComponentContext context;
+    private final Supplier<SpreadsheetParserContext> context;
 
     @Override
     public String toString() {

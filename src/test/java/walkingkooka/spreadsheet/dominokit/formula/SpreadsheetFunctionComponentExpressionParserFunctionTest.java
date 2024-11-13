@@ -15,11 +15,12 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.formula;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetErrorKind;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.dominokit.find.FakeSpreadsheetFindDialogComponentContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
@@ -31,7 +32,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunctionTest implements FunctionTesting<SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction,
+public final class SpreadsheetFunctionComponentExpressionParserFunctionTest implements FunctionTesting<SpreadsheetFunctionComponentExpressionParserFunction,
         String,
         SpreadsheetFormula>,
         SpreadsheetMetadataTesting,
@@ -86,22 +87,16 @@ public final class SpreadsheetFindDialogComponentSpreadsheetFormulaComponentPars
     }
 
     @Override
-    public SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction createFunction() {
-        return SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction.with(
-                new FakeSpreadsheetFindDialogComponentContext() {
-
-                    @Override
-                    public SpreadsheetMetadata spreadsheetMetadata() {
-                        return METADATA_EN_AU;
-                    }
-                }
+    public SpreadsheetFunctionComponentExpressionParserFunction createFunction() {
+        return SpreadsheetFunctionComponentExpressionParserFunction.with(
+                () -> SPREADSHEET_PARSER_CONTEXT
         );
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction> type() {
-        return SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction.class;
+    public Class<SpreadsheetFunctionComponentExpressionParserFunction> type() {
+        return SpreadsheetFunctionComponentExpressionParserFunction.class;
     }
 }
