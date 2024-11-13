@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponent;
+import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFunctionComponentFunctions;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -41,16 +42,18 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
+import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
+import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.tree.expression.Expression;
 
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
-import java.util.function.Predicate;
 
 /**
  * A modal dialog that provides form elements to perform a find with a table showing the matching cells.
@@ -213,10 +216,21 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      */
     private SpreadsheetFormulaComponent query() {
         return SpreadsheetFormulaComponent.empty(
-                        SpreadsheetFindDialogComponentSpreadsheetFormulaComponentParserFunction.with(this.context)
+                        SpreadsheetFunctionComponentFunctions.expressionParser(
+                                this::spreadsheetParserContext
+                        )
                 ).setId("query-TextBox")
                 .setLabel("Query")
                 .addChangeListener(this::onQueryChange);
+    }
+
+    private SpreadsheetParserContext spreadsheetParserContext() {
+        final SpreadsheetFindDialogComponentContext context = this.context;
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+
+        return metadata.spreadsheetParserContext(
+                context::now
+        );
     }
 
     private void onQueryChange(final Optional<SpreadsheetFormula> oldFormula,
