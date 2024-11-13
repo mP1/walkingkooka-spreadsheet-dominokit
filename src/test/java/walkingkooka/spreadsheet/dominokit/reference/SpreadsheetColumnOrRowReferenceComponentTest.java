@@ -17,10 +17,52 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
-import walkingkooka.reflect.ClassTesting2;
+import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 
-public final class SpreadsheetColumnOrRowReferenceComponentTest implements ClassTesting2<SpreadsheetColumnOrRowReferenceComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetColumnOrRowReferenceComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetColumnOrRowReference, SpreadsheetColumnOrRowReferenceComponent> {
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetColumnOrRowReferenceComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "AB"
+                                )
+                        ),
+                "SpreadsheetColumnOrRowReferenceComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [AB]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetColumnOrRowReferenceComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "A1!"
+                                )
+                        ),
+                "SpreadsheetColumnOrRowReferenceComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [A1!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '1' at 1\n"
+        );
+    }
+
+    // class............................................................................................................
+    
     @Override
     public Class<SpreadsheetColumnOrRowReferenceComponent> type() {
         return SpreadsheetColumnOrRowReferenceComponent.class;
