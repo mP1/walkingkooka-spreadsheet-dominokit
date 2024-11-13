@@ -17,13 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
 
-public final class SpreadsheetFormatterInfoSetComponentTest implements ClassTesting2<SpreadsheetFormatterInfoSetComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetFormatterInfoSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetFormatterInfoSet, SpreadsheetFormatterInfoSetComponent> {
 
     @Test
     public void testParseAndText() {
@@ -33,6 +36,42 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements ClassTest
         this.checkEquals(
                 infos,
                 SpreadsheetFormatterInfoSet.parse(infos.text())
+        );
+    }
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetFormatterInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        SpreadsheetFormatterProviders.spreadsheetFormatPattern()
+                                                .spreadsheetFormatterInfos()
+                                                .text()
+                                )
+                        ),
+                "SpreadsheetFormatterInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/automatic automatic,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date-format-pattern date-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date-time-format-pattern date-time-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/general general,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/number-format-pattern number-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/spreadsheet-pattern-collection spreadsheet-pattern-collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/text-format-pattern text-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/time-format-pattern time-format-pattern]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetFormatterInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://www.example.com/Hello !"
+                                )
+                        ),
+                "SpreadsheetFormatterInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://www.example.com/Hello !]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 30\n"
         );
     }
 
