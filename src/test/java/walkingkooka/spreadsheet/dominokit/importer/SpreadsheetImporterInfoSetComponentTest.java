@@ -17,13 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.importer;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterProviders;
 
-public final class SpreadsheetImporterInfoSetComponentTest implements ClassTesting2<SpreadsheetImporterInfoSetComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetImporterInfoSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetImporterInfoSet, SpreadsheetImporterInfoSetComponent> {
 
     @Test
     public void testParseAndText() {
@@ -33,6 +36,42 @@ public final class SpreadsheetImporterInfoSetComponentTest implements ClassTesti
         this.checkEquals(
                 infos,
                 SpreadsheetImporterInfoSet.parse(infos.text())
+        );
+    }
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetImporterInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        SpreadsheetImporterProviders.spreadsheetImport()
+                                                .spreadsheetImporterInfos()
+                                                .text()
+                                )
+                        ),
+                "SpreadsheetImporterInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/empty empty,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/json json]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetImporterInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://www.example.com/Hello !"
+                                )
+                        ),
+                "SpreadsheetImporterInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://www.example.com/Hello !]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 30\n"
         );
     }
 
