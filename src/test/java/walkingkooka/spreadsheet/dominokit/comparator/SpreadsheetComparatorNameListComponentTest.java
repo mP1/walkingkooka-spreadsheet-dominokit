@@ -17,12 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.comparator;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
-public final class SpreadsheetComparatorNameListComponentTest implements ClassTesting2<SpreadsheetComparatorNameListComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetComparatorNameListComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetComparatorNameList, SpreadsheetComparatorNameListComponent> {
 
     @Test
     public void testParseAndText() {
@@ -33,6 +36,36 @@ public final class SpreadsheetComparatorNameListComponentTest implements ClassTe
         this.checkEquals(
                 names,
                 SpreadsheetComparatorNameList.parse(names.text())
+        );
+    }
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetComparatorNameListComponent.empty()
+                        .setStringValue(
+                                Optional.of("day-of-month, month-of-year")
+                        ),
+                "SpreadsheetComparatorNameListComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [day-of-month, month-of-year]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetComparatorNameListComponent.empty()
+                        .setStringValue(
+                                Optional.of("day-of-month, !@#")
+                        ),
+                "SpreadsheetComparatorNameListComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [day-of-month, !@#]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 14\n"
         );
     }
 
