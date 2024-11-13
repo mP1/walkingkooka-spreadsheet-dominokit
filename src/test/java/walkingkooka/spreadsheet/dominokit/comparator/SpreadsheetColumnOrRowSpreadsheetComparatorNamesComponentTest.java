@@ -17,15 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.comparator;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest implements ClassTesting<SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent>,
+public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent>,
         TreePrintableTesting {
 
     @Test
@@ -41,6 +42,36 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [A=text]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
+                        .setStringValue(
+                                Optional.of("A=hello,tree")
+                        ),
+                "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [A=hello,tree]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
+                        .setStringValue(
+                                Optional.of("A=hello,!")
+                        ),
+                "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [A=hello,!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 8\n"
         );
     }
 
