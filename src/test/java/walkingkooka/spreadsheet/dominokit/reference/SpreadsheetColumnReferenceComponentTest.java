@@ -17,10 +17,52 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
-import walkingkooka.reflect.ClassTesting2;
+import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 
-public final class SpreadsheetColumnReferenceComponentTest implements ClassTesting2<SpreadsheetColumnReferenceComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetColumnReferenceComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetColumnReference, SpreadsheetColumnReferenceComponent> {
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetColumnReferenceComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "AB"
+                                )
+                        ),
+                "SpreadsheetColumnReferenceComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [AB]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetColumnReferenceComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "Invalid123!"
+                                )
+                        ),
+                "SpreadsheetColumnReferenceComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Invalid123!]\n" +
+                        "      Errors\n" +
+                        "        Invalid column value -1338306651 expected between 0 and 16384 in \"Invalid123!\"\n"
+        );
+    }
+
+    // class............................................................................................................
+
     @Override
     public Class<SpreadsheetColumnReferenceComponent> type() {
         return SpreadsheetColumnReferenceComponent.class;
