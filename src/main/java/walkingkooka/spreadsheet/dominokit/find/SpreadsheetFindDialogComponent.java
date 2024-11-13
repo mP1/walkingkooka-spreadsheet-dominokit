@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.condition.SpreadsheetConditionParserTokenComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaMatchedCellsTableComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaMatchedCellsTableComponentContexts;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
@@ -42,6 +43,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.parser.SpreadsheetConditionParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
@@ -222,15 +224,6 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 .addChangeListener(this::onQueryChange);
     }
 
-    private SpreadsheetParserContext spreadsheetParserContext() {
-        final SpreadsheetFindDialogComponentContext context = this.context;
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-
-        return metadata.spreadsheetParserContext(
-                context::now
-        );
-    }
-
     private void onQueryChange(final Optional<SpreadsheetFormula> oldFormula,
                                final Optional<SpreadsheetFormula> newFormula) {
         this.setAndRefresh(
@@ -268,6 +261,15 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     }
 
     private final SpreadsheetValueTypeComponent valueType;
+
+    private SpreadsheetParserContext spreadsheetParserContext() {
+        final SpreadsheetFindDialogComponentContext context = this.context;
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+
+        return metadata.spreadsheetParserContext(
+                context::now
+        );
+    }
 
     /**
      * Each time a component of the find is updated, a new {@link HistoryToken} is pushed, which will cause a search
@@ -356,22 +358,24 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     }
 
     private final TextMatchComponent style;
-    
+
     // value............................................................................................................
 
-    private TextMatchComponent value() {
-        return textMatchComponent(
-                "Value",
-                this::onValueValueChange
-        );
+    private SpreadsheetConditionParserTokenComponent value() {
+        return SpreadsheetConditionParserTokenComponent.empty(
+                        this::spreadsheetParserContext
+                ).setId(ID_PREFIX + "value" + SpreadsheetElementIds.TEXT_BOX)
+                .setLabel("Value")
+                .optional()
+                .addChangeListener(this::onValueValueChange);
     }
 
-    private void onValueValueChange(final Optional<TextMatch> old,
-                                    final Optional<TextMatch> newTextMatch) {
+    private void onValueValueChange(final Optional<SpreadsheetConditionParserToken> old,
+                                    final Optional<SpreadsheetConditionParserToken> newTextMatch) {
 
     }
 
-    private final TextMatchComponent value;
+    private final SpreadsheetConditionParserTokenComponent value;
 
     // formattedValue...................................................................................................
 
@@ -541,6 +545,9 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.valueType.setValue(
                 find.valueType()
         );
+
+        this.value.validate();
+
         this.query.setStringValue(
                 find.query()
                         .map(SpreadsheetCellQuery::text)
