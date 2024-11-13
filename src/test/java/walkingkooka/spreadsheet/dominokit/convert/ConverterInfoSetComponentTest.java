@@ -17,13 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.convert;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProviders;
-import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
-public final class ConverterInfoSetComponentTest implements ClassTesting2<ConverterInfoSetComponent> {
+import java.util.Optional;
+
+public final class ConverterInfoSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, ConverterInfoSet, ConverterInfoSetComponent> {
 
     @Test
     public void testParseAndText() {
@@ -35,6 +38,43 @@ public final class ConverterInfoSetComponentTest implements ClassTesting2<Conver
                 ConverterInfoSet.parse(infos.text())
         );
     }
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                ConverterInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        ConverterProviders.converters()
+                                                .converterInfos()
+                                                .text()
+                                )
+                        ),
+                "ConverterInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://github.com/mP1/walkingkooka-convert-provider/Converter/boolean-to-number boolean-to-number,https://github.com/mP1/walkingkooka-convert-provider/Converter/chain chain,https://github.com/mP1/walkingkooka-convert-provider/Converter/character-or-string-to-string character-or-string-to-string,https://github.com/mP1/walkingkooka-convert-provider/Converter/collection collection,https://github.com/mP1/walkingkooka-convert-provider/Converter/custom-to-string custom-to-string,https://github.com/mP1/walkingkooka-convert-provider/Converter/has-text-to-string has-text-to-string,https://github.com/mP1/walkingkooka-convert-provider/Converter/local-date-time-to-local-date local-date-time-to-local-date,https://github.com/mP1/walkingkooka-convert-provider/Converter/local-date-time-to-local-time local-date-time-to-local-time,https://github.com/mP1/walkingkooka-convert-provider/Converter/local-date-time-to-number local-date-time-to-number,https://github.com/mP1/walkingkooka-convert-provider/Converter/local-date-time-to-string local-date-time-to-string,https://github.com/mP1/walkingkooka-convert-provider/Converter/local-date-to-local-date-time local-date-to-local-date-time,https://github.com/mP1/walkingkooka-convert-provider/Converter/local-date-to-number local-date-to-number,https://github.com/mP1/walkingkooka-convert-provider/Converter/local-date-to-string local-date-to-string,https://github.com/mP1/walkingkooka-convert-provider/Converter/local-time-to-local-date-time local-time-to-local-date-time,https://github.com/mP1/walkingkooka-convert-provider/Converter/local-time-to-number local-time-to-number,https://github.com/mP1/walkingkooka-convert-provider/Converter/local-time-to-string local-time-to-string,https://github.com/mP1/walkingkooka-convert-provider/Converter/mapper mapper,https://github.com/mP1/walkingkooka-convert-provider/Converter/never never,https://github.com/mP1/walkingkooka-convert-provider/Converter/number-to-boolean number-to-boolean,https://github.com/mP1/walkingkooka-convert-provider/Converter/number-to-local-date number-to-local-date,https://github.com/mP1/walkingkooka-convert-provider/Converter/number-to-local-date-time number-to-local-date-time,https://github.com/mP1/walkingkooka-convert-provider/Converter/number-to-local-time number-to-local-time,https://github.com/mP1/walkingkooka-convert-provider/Converter/number-to-number number-to-number,https://github.com/mP1/walkingkooka-convert-provider/Converter/number-to-string number-to-string,https://github.com/mP1/walkingkooka-convert-provider/Converter/object object,https://github.com/mP1/walkingkooka-convert-provider/Converter/object-to-string object-to-string,https://github.com/mP1/walkingkooka-convert-provider/Converter/parser parser,https://github.com/mP1/walkingkooka-convert-provider/Converter/simple simple,https://github.com/mP1/walkingkooka-convert-provider/Converter/string-to-character-or-string string-to-character-or-string,https://github.com/mP1/walkingkooka-convert-provider/Converter/string-to-local-date string-to-local-date,https://github.com/mP1/walkingkooka-convert-provider/Converter/string-to-local-date-time string-to-local-date-time,https://github.com/mP1/walkingkooka-convert-provider/Converter/string-to-local-time string-to-local-time,https://github.com/mP1/walkingkooka-convert-provider/Converter/string-to-number string-to-number,https://github.com/mP1/walkingkooka-convert-provider/Converter/to-boolean to-boolean]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                ConverterInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "!"
+                                )
+                        ),
+                "ConverterInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [!]\n" +
+                        "      Errors\n" +
+                        "        no protocol: !\n"
+        );
+    }
+
 
     // class............................................................................................................
 
