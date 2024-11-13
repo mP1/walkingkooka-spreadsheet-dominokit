@@ -17,24 +17,64 @@
 
 package walkingkooka.spreadsheet.dominokit.function;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
 
-public final class ExpressionFunctionInfoSetComponentTest implements ClassTesting2<ExpressionFunctionInfoSetComponent>,
-        SpreadsheetMetadataTesting {
+import java.util.Optional;
+
+public final class ExpressionFunctionInfoSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, ExpressionFunctionInfoSet, ExpressionFunctionInfoSetComponent> {
 
     @Test
     public void testParseAndText() {
-        final ExpressionFunctionInfoSet infos = EXPRESSION_FUNCTION_PROVIDER.expressionFunctionInfos();
+        final ExpressionFunctionInfoSet infos = ExpressionFunctionProviders.expressionFunctions()
+                .expressionFunctionInfos();
 
         this.checkEquals(
                 infos,
                 ExpressionFunctionInfoSet.parse(infos.text())
         );
     }
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                ExpressionFunctionInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        ExpressionFunctionProviders.expressionFunctions()
+                                                .expressionFunctionInfos()
+                                                .text()
+                                )
+                        ),
+                "ExpressionFunctionInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/name name,https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/node node,https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/typeName typeName]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                ExpressionFunctionInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://www.example.com/Hello !"
+                                )
+                        ),
+                "ExpressionFunctionInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://www.example.com/Hello !]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 30\n"
+        );
+    }
+
 
     // class............................................................................................................
 
