@@ -17,10 +17,51 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
-import walkingkooka.reflect.ClassTesting2;
+import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 
-public final class SpreadsheetFormatterNameComponentTest implements ClassTesting2<SpreadsheetFormatterNameComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetFormatterNameComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetFormatterName, SpreadsheetFormatterNameComponent> {
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetFormatterNameComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "Hello"
+                                )
+                        ),
+                "SpreadsheetFormatterNameComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Hello]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetFormatterNameComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "Invalid123!"
+                                )
+                        ),
+                "SpreadsheetFormatterNameComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Invalid123!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 10\n"
+        );
+    }
+
+    // class............................................................................................................
     @Override
     public Class<SpreadsheetFormatterNameComponent> type() {
         return SpreadsheetFormatterNameComponent.class;
