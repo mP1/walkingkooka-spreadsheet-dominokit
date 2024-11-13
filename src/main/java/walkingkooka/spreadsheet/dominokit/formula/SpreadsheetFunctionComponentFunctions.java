@@ -21,17 +21,16 @@ import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 
-import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 public final class SpreadsheetFunctionComponentFunctions implements PublicStaticHelper {
 
     /**
-     * {@see SpreadsheetFunctionComponentExpressionParserFunction}
+     * {@see SpreadsheetFormulaComponentExpressionParserFunction}
      */
     public static Function<String, SpreadsheetFormula> expressionParser(final Supplier<SpreadsheetParserContext> context) {
-        return SpreadsheetFunctionComponentExpressionParserFunction.with(context);
+        return SpreadsheetFormulaComponentExpressionParserFunction.with(context);
     }
 
     private SpreadsheetFunctionComponentFunctions() {

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.formula;
 
 import walkingkooka.spreadsheet.SpreadsheetFormula;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 import walkingkooka.text.cursor.TextCursors;
@@ -30,15 +29,15 @@ import java.util.function.Supplier;
 /**
  * A {@link Function} that parsers any given text into a {@link SpreadsheetFormula} and the provided {@link SpreadsheetParserContext}
  */
-final class SpreadsheetFunctionComponentExpressionParserFunction implements Function<String, SpreadsheetFormula> {
+final class SpreadsheetFormulaComponentExpressionParserFunction implements Function<String, SpreadsheetFormula> {
 
-    static SpreadsheetFunctionComponentExpressionParserFunction with(final Supplier<SpreadsheetParserContext> context) {
+    static SpreadsheetFormulaComponentExpressionParserFunction with(final Supplier<SpreadsheetParserContext> context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetFunctionComponentExpressionParserFunction(context);
+        return new SpreadsheetFormulaComponentExpressionParserFunction(context);
     }
 
-    private SpreadsheetFunctionComponentExpressionParserFunction(final Supplier<SpreadsheetParserContext> context) {
+    private SpreadsheetFormulaComponentExpressionParserFunction(final Supplier<SpreadsheetParserContext> context) {
         this.context = context;
     }
 
