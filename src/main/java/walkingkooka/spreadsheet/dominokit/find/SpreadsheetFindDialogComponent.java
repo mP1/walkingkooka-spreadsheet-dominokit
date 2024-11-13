@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponent;
-import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFunctionComponentFunctions;
+import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponentFunctions;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -43,12 +43,10 @@ import walkingkooka.spreadsheet.expression.function.TextMatch;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
-import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
-import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.tree.expression.Expression;
 
 import java.util.Objects;
@@ -216,7 +214,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      */
     private SpreadsheetFormulaComponent query() {
         return SpreadsheetFormulaComponent.empty(
-                        SpreadsheetFunctionComponentFunctions.expressionParser(
+                        SpreadsheetFormulaComponentFunctions.expressionParser(
                                 this::spreadsheetParserContext
                         )
                 ).setId("query-TextBox")
