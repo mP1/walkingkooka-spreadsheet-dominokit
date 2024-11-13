@@ -111,7 +111,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                Style [] id=find-style-TextBox\n" +
-                        "          TextMatchComponent\n" +
+                        "          SpreadsheetConditionParserTokenComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                Value [] id=find-value-TextBox\n" +
@@ -211,7 +211,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                Style [] id=find-style-TextBox\n" +
-                        "          TextMatchComponent\n" +
+                        "          SpreadsheetConditionParserTokenComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                Value [] id=find-value-TextBox\n" +
@@ -311,7 +311,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                Style [] id=find-style-TextBox\n" +
-                        "          TextMatchComponent\n" +
+                        "          SpreadsheetConditionParserTokenComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                Value [] id=find-value-TextBox\n" +
@@ -409,7 +409,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                Style [] id=find-style-TextBox\n" +
-                        "          TextMatchComponent\n" +
+                        "          SpreadsheetConditionParserTokenComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                Value [] id=find-value-TextBox\n" +
@@ -509,7 +509,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                Style [] id=find-style-TextBox\n" +
-                        "          TextMatchComponent\n" +
+                        "          SpreadsheetConditionParserTokenComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
                         "                Value [] id=find-value-TextBox\n" +
