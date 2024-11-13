@@ -17,10 +17,53 @@
 
 package walkingkooka.spreadsheet.dominokit.comparator;
 
+import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
-public final class SpreadsheetComparatorNameComponentTest implements ClassTesting2<SpreadsheetComparatorNameComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetComparatorNameComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetComparatorName, SpreadsheetComparatorNameComponent> {
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetComparatorNameComponent.empty()
+                        .setStringValue(
+                                Optional.of("hello-comparator")
+                        ),
+                "SpreadsheetComparatorNameComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [hello-comparator]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetComparatorNameComponent.empty()
+                        .setStringValue(
+                                Optional.of("!@#")
+                        ),
+                "SpreadsheetComparatorNameComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [!@#]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 0\n"
+        );
+    }
+
+    // class............................................................................................................
+
+
     @Override
     public Class<SpreadsheetComparatorNameComponent> type() {
         return SpreadsheetComparatorNameComponent.class;
