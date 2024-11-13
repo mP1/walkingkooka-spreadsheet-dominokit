@@ -17,10 +17,48 @@
 
 package walkingkooka.spreadsheet.dominokit.convert;
 
-import walkingkooka.reflect.ClassTesting2;
+import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
+import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
-public final class ConverterSelectorComponentTest implements ClassTesting2<ConverterSelectorComponent> {
+import java.util.Optional;
+
+public final class ConverterSelectorComponentTest implements ValueComponentTesting<HTMLFieldSetElement, ConverterSelector, ConverterSelectorComponent> {
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                ConverterSelectorComponent.empty()
+                        .setStringValue(
+                                Optional.of("hello")
+                        ),
+                "ConverterSelectorComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [hello]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                ConverterSelectorComponent.empty()
+                        .setStringValue(
+                                Optional.of("!@#")
+                        ),
+                "ConverterSelectorComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [!@#]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 0 in \"!@#\"\n"
+        );
+    }
+
+    // class............................................................................................................
+
     @Override
     public Class<ConverterSelectorComponent> type() {
         return ConverterSelectorComponent.class;
