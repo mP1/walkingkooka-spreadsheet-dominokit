@@ -17,10 +17,51 @@
 
 package walkingkooka.spreadsheet.dominokit.importer;
 
-import walkingkooka.reflect.ClassTesting2;
+import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterName;
 
-public final class SpreadsheetImporterNameComponentTest implements ClassTesting2<SpreadsheetImporterNameComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetImporterNameComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetImporterName, SpreadsheetImporterNameComponent> {
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetImporterNameComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "Hello"
+                                )
+                        ),
+                "SpreadsheetImporterNameComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Hello]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetImporterNameComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "Invalid123!"
+                                )
+                        ),
+                "SpreadsheetImporterNameComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Invalid123!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 10\n"
+        );
+    }
+
+    // class............................................................................................................
     @Override
     public Class<SpreadsheetImporterNameComponent> type() {
         return SpreadsheetImporterNameComponent.class;
