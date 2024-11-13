@@ -17,10 +17,52 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
-import walkingkooka.reflect.ClassTesting2;
+import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 
-public final class SpreadsheetParserSelectorComponentTest implements ClassTesting2<SpreadsheetParserSelectorComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetParserSelectorComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetParserSelector, SpreadsheetParserSelectorComponent> {
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetParserSelectorComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "Hello"
+                                )
+                        ),
+                "SpreadsheetParserSelectorComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Hello]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetParserSelectorComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "Invalid123!"
+                                )
+                        ),
+                "SpreadsheetParserSelectorComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Invalid123!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 10 in \"Invalid123!\"\n"
+        );
+    }
+
+    // class............................................................................................................
+
     @Override
     public Class<SpreadsheetParserSelectorComponent> type() {
         return SpreadsheetParserSelectorComponent.class;
