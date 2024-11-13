@@ -17,10 +17,51 @@
 
 package walkingkooka.spreadsheet.dominokit.function;
 
-import walkingkooka.reflect.ClassTesting2;
+import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
 
-public final class ExpressionFunctionAliasSetComponentTest implements ClassTesting2<ExpressionFunctionAliasSetComponent> {
+import java.util.Optional;
+
+public final class ExpressionFunctionAliasSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, ExpressionFunctionAliasSet, ExpressionFunctionAliasSetComponent> {
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                ExpressionFunctionAliasSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "alias1 function1, function2"
+                                )
+                        ),
+                "ExpressionFunctionAliasSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [alias1 function1, function2]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                ExpressionFunctionAliasSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "alias1 function1, 9"
+                                )
+                        ),
+                "ExpressionFunctionAliasSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [alias1 function1, 9]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '9' at 18\n"
+        );
+    }
+
+    // class............................................................................................................
     @Override
     public Class<ExpressionFunctionAliasSetComponent> type() {
         return ExpressionFunctionAliasSetComponent.class;
