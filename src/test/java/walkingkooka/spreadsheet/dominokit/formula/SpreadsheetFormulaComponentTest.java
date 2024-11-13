@@ -17,10 +17,61 @@
 
 package walkingkooka.spreadsheet.dominokit.formula;
 
-import walkingkooka.reflect.ClassTesting2;
+import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
-public final class SpreadsheetFormulaComponentTest implements ClassTesting2<SpreadsheetFormulaComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetFormulaComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetFormula, SpreadsheetFormulaComponent>,
+        SpreadsheetMetadataTesting {
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetFormulaComponent.empty(
+                        SpreadsheetFormulaComponentFunctions.expressionParser(
+                                () -> SPREADSHEET_PARSER_CONTEXT
+                        )
+                ).setStringValue(
+                        Optional.of(
+                                "1+2"
+                        )
+                ),
+                "SpreadsheetFormulaComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [1+2]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetFormulaComponent.empty(
+                                SpreadsheetFormulaComponentFunctions.expressionParser(
+                                        () -> SPREADSHEET_PARSER_CONTEXT
+                                )
+                        )
+                        .setStringValue(
+                                Optional.of(
+                                        "1+!!!"
+                                )
+                        ),
+                "SpreadsheetFormulaComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [1+!!!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at (3,1) \"1+!!!\" expected BINARY_SUB_EXPRESSION\n"
+        );
+    }
+
+    // class............................................................................................................
+
     @Override
     public Class<SpreadsheetFormulaComponent> type() {
         return SpreadsheetFormulaComponent.class;
