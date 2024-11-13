@@ -17,12 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.export;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterAliasSet;
 
-public final class SpreadsheetExporterAliasSetComponentTest implements ClassTesting2<SpreadsheetExporterAliasSetComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetExporterAliasSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetExporterAliasSet, SpreadsheetExporterAliasSetComponent> {
 
     @Test
     public void testParseAndText() {
@@ -31,6 +34,40 @@ public final class SpreadsheetExporterAliasSetComponentTest implements ClassTest
         this.checkEquals(
                 alias,
                 SpreadsheetExporterAliasSet.parse(alias.text())
+        );
+    }
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetExporterAliasSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                       "alias1 exporter1, exporter2"
+                                )
+                        ),
+                "SpreadsheetExporterAliasSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [alias1 exporter1, exporter2]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetExporterAliasSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "alias1 exporter1, 9"
+                                )
+                        ),
+                "SpreadsheetExporterAliasSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [alias1 exporter1, 9]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '9' at 18\n"
         );
     }
 
