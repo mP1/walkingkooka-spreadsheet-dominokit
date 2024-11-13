@@ -17,12 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.comparator;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
+import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
-public final class SpreadsheetComparatorAliasSetComponentTest implements ClassTesting2<SpreadsheetComparatorAliasSetComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetComparatorAliasSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetComparatorAliasSet, SpreadsheetComparatorAliasSetComponent> {
 
     @Test
     public void testParseAndText() {
@@ -31,6 +37,20 @@ public final class SpreadsheetComparatorAliasSetComponentTest implements ClassTe
         this.checkEquals(
                 alias,
                 SpreadsheetComparatorAliasSet.parse(alias.text())
+        );
+    }
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetComparatorAliasSetComponent.empty()
+                        .setStringValue(
+                                Optional.of("alias1 name1, alias2, name2")
+                        ),
+                "SpreadsheetComparatorAliasSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [alias1 name1, alias2, name2]\n"
         );
     }
 
