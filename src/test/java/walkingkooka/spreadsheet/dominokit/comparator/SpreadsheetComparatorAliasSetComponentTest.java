@@ -19,11 +19,8 @@ package walkingkooka.spreadsheet.dominokit.comparator;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
-import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
 import java.util.Optional;
