@@ -17,10 +17,51 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
-import walkingkooka.reflect.ClassTesting2;
+import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 
-public final class SpreadsheetParserNameComponentTest implements ClassTesting2<SpreadsheetParserNameComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetParserNameComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetParserName, SpreadsheetParserNameComponent> {
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetParserNameComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "Hello"
+                                )
+                        ),
+                "SpreadsheetParserNameComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Hello]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetParserNameComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "Invalid123!"
+                                )
+                        ),
+                "SpreadsheetParserNameComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Invalid123!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 10\n"
+        );
+    }
+
+    // class............................................................................................................
     @Override
     public Class<SpreadsheetParserNameComponent> type() {
         return SpreadsheetParserNameComponent.class;
