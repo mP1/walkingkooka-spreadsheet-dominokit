@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public final class SpreadsheetFunctionComponentFunctions implements PublicStaticHelper {
+public final class SpreadsheetFormulaComponentFunctions implements PublicStaticHelper {
 
     /**
      * {@see SpreadsheetFormulaComponentExpressionParserFunction}
@@ -33,7 +33,7 @@ public final class SpreadsheetFunctionComponentFunctions implements PublicStatic
         return SpreadsheetFormulaComponentExpressionParserFunction.with(context);
     }
 
-    private SpreadsheetFunctionComponentFunctions() {
+    private SpreadsheetFormulaComponentFunctions() {
         throw new UnsupportedOperationException();
     }
 }

@@ -22,15 +22,15 @@ import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
 
-public final class SpreadsheetFunctionComponentFunctionsTest implements PublicStaticHelperTesting<SpreadsheetFunctionComponentFunctions> {
+public final class SpreadsheetFormulaComponentFunctionsTest implements PublicStaticHelperTesting<SpreadsheetFormulaComponentFunctions> {
     @Override
     public boolean canHavePublicTypes(final Method method) {
         return false;
     }
 
     @Override
-    public Class<SpreadsheetFunctionComponentFunctions> type() {
-        return SpreadsheetFunctionComponentFunctions.class;
+    public Class<SpreadsheetFormulaComponentFunctions> type() {
+        return SpreadsheetFormulaComponentFunctions.class;
     }
 
     @Override
