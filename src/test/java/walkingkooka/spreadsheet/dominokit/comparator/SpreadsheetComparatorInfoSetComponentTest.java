@@ -17,13 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.comparator;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
-public final class SpreadsheetComparatorInfoSetComponentTest implements ClassTesting2<SpreadsheetComparatorInfoSetComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetComparatorInfoSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetComparatorInfoSet, SpreadsheetComparatorInfoSetComponent> {
 
     @Test
     public void testParseAndText() {
@@ -35,6 +40,24 @@ public final class SpreadsheetComparatorInfoSetComponentTest implements ClassTes
         this.checkEquals(
                 infos,
                 SpreadsheetComparatorInfoSet.parse(infos.text())
+        );
+    }
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetComparatorInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        SpreadsheetComparatorProviders.spreadsheetComparators()
+                                                .spreadsheetComparatorInfos()
+                                                .text()
+                                )
+                        ),
+                "SpreadsheetComparatorInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/date date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/date-time date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/day-of-month day-of-month,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/day-of-week day-of-week,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/hour-of-am-pm hour-of-am-pm,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/hour-of-day hour-of-day,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/minute-of-hour minute-of-hour,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/month-of-year month-of-year,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/nano-of-second nano-of-second,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/number number,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/seconds-of-minute seconds-of-minute,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/text text,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/text-case-insensitive text-case-insensitive,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/time time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetComparator/year year]\n"
         );
     }
 
