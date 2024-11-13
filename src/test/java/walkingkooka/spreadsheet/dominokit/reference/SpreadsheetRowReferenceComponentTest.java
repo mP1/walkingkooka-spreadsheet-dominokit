@@ -17,10 +17,54 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
-import walkingkooka.reflect.ClassTesting2;
+import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 
-public final class SpreadsheetRowReferenceComponentTest implements ClassTesting2<SpreadsheetRowReferenceComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetRowReferenceComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetRowReference, SpreadsheetRowReferenceComponent> {
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetRowReferenceComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "Hello"
+                                )
+                        ),
+                "SpreadsheetRowReferenceComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Hello]\n" +
+                        "      Errors\n" +
+                        "        Invalid character 'H' at 0\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetRowReferenceComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "Invalid123!"
+                                )
+                        ),
+                "SpreadsheetRowReferenceComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Invalid123!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character 'I' at 0\n"
+        );
+    }
+
+    // class............................................................................................................
+
     @Override
     public Class<SpreadsheetRowReferenceComponent> type() {
         return SpreadsheetRowReferenceComponent.class;
