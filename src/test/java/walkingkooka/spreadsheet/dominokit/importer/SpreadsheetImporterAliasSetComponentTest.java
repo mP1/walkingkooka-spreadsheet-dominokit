@@ -17,12 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.importer;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterAliasSet;
 
-public final class SpreadsheetImporterAliasSetComponentTest implements ClassTesting2<SpreadsheetImporterAliasSetComponent> {
+import java.util.Optional;
+
+public final class SpreadsheetImporterAliasSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetImporterAliasSet, SpreadsheetImporterAliasSetComponent> {
 
     @Test
     public void testParseAndText() {
@@ -33,6 +36,42 @@ public final class SpreadsheetImporterAliasSetComponentTest implements ClassTest
                 SpreadsheetImporterAliasSet.parse(alias.text())
         );
     }
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetImporterAliasSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "alias1 importer1, importer2"
+                                )
+                        ),
+                "SpreadsheetImporterAliasSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [alias1 importer1, importer2]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetImporterAliasSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "alias1 importer1, 9"
+                                )
+                        ),
+                "SpreadsheetImporterAliasSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [alias1 importer1, 9]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '9' at 18\n"
+        );
+    }
+
+    // class............................................................................................................
 
     // class............................................................................................................
 
