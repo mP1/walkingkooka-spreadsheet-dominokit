@@ -17,13 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 
-public final class SpreadsheetParserInfoSetComponentTest implements ClassTesting2<SpreadsheetParserInfoSetComponent>,
+import java.util.Optional;
+
+public final class SpreadsheetParserInfoSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetParserInfoSet, SpreadsheetParserInfoSetComponent>,
         SpreadsheetMetadataTesting {
 
     @Test
@@ -33,6 +36,41 @@ public final class SpreadsheetParserInfoSetComponentTest implements ClassTesting
         this.checkEquals(
                 infos,
                 SpreadsheetParserInfoSet.parse(infos.text())
+        );
+    }
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+                SpreadsheetParserInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        SPREADSHEET_PARSER_PROVIDER.spreadsheetParserInfos()
+                                                .text()
+                                )
+                        ),
+                "SpreadsheetParserInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/date-parse-pattern date-parse-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/date-time-parse-pattern date-time-parse-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/number-parse-pattern number-parse-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/time-parse-pattern time-parse-pattern]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetParserInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://www.example.com/Hello !"
+                                )
+                        ),
+                "SpreadsheetParserInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://www.example.com/Hello !]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 30\n"
         );
     }
 
