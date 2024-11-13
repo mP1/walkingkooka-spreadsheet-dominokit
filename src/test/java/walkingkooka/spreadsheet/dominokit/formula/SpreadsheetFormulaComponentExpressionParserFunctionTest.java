@@ -20,8 +20,6 @@ package walkingkooka.spreadsheet.dominokit.formula;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetErrorKind;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
-import walkingkooka.spreadsheet.dominokit.find.FakeSpreadsheetFindDialogComponentContext;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 import walkingkooka.text.cursor.TextCursors;
@@ -32,7 +30,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetFunctionComponentExpressionParserFunctionTest implements FunctionTesting<SpreadsheetFunctionComponentExpressionParserFunction,
+public final class SpreadsheetFormulaComponentExpressionParserFunctionTest implements FunctionTesting<SpreadsheetFormulaComponentExpressionParserFunction,
         String,
         SpreadsheetFormula>,
         SpreadsheetMetadataTesting,
@@ -87,8 +85,8 @@ public final class SpreadsheetFunctionComponentExpressionParserFunctionTest impl
     }
 
     @Override
-    public SpreadsheetFunctionComponentExpressionParserFunction createFunction() {
-        return SpreadsheetFunctionComponentExpressionParserFunction.with(
+    public SpreadsheetFormulaComponentExpressionParserFunction createFunction() {
+        return SpreadsheetFormulaComponentExpressionParserFunction.with(
                 () -> SPREADSHEET_PARSER_CONTEXT
         );
     }
@@ -96,7 +94,7 @@ public final class SpreadsheetFunctionComponentExpressionParserFunctionTest impl
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetFunctionComponentExpressionParserFunction> type() {
-        return SpreadsheetFunctionComponentExpressionParserFunction.class;
+    public Class<SpreadsheetFormulaComponentExpressionParserFunction> type() {
+        return SpreadsheetFormulaComponentExpressionParserFunction.class;
     }
 }
