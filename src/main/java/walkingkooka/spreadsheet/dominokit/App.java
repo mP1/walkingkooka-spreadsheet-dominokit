@@ -33,6 +33,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.plugin.ProviderContexts;
+import walkingkooka.spreadsheet.SpreadsheetExpressionFunctionNames;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
@@ -174,7 +175,7 @@ public class App implements EntryPoint,
 
         this.spreadsheetProvider = SpreadsheetProviders.basic(
                 ConverterProviders.empty(),
-                ExpressionFunctionProviders.empty(),
+                ExpressionFunctionProviders.empty(SpreadsheetExpressionFunctionNames.CASE_SENSITIVITY),
                 SpreadsheetComparatorProviders.empty(),
                 SpreadsheetExporterProviders.empty(),
                 SpreadsheetFormatterProviders.empty(),
@@ -923,7 +924,7 @@ public class App implements EntryPoint,
                 this.expressionFunctionInfoSet.renameIfPresent(
                         ExpressionFunctionInfoSet.EMPTY
                 ),
-                ExpressionFunctionProviders.empty() // TODO should have a non empty EFP
+                ExpressionFunctionProviders.empty(SpreadsheetExpressionFunctionNames.CASE_SENSITIVITY) // TODO should have a non empty EFP
         );
 
         final SpreadsheetFormatterProvider spreadsheetFormatterProvider = SpreadsheetFormatterProviders.mergedMapped(
