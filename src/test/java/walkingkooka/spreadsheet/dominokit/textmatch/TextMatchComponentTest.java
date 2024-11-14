@@ -28,7 +28,7 @@ import java.util.Optional;
 public final class TextMatchComponentTest implements ValueComponentTesting<HTMLFieldSetElement, TextMatch, TextMatchComponent> {
 
     @Test
-    public void testTreePrintWithoutValue() {
+    public void testEmpty() {
         this.treePrintAndCheck(
                 TextMatchComponent.empty(),
                 "TextMatchComponent\n" +
@@ -39,7 +39,7 @@ public final class TextMatchComponentTest implements ValueComponentTesting<HTMLF
     }
 
     @Test
-    public void testTreePrintWithWhitespace() {
+    public void testSetStringValueWithWhitespace() {
         this.treePrintAndCheck(
                 TextMatchComponent.empty()
                         .setStringValue(
@@ -53,7 +53,7 @@ public final class TextMatchComponentTest implements ValueComponentTesting<HTMLF
     }
 
     @Test
-    public void testTreePrintWithAnyValue() {
+    public void testSetStringNotEmpty() {
         this.treePrintAndCheck(
                 TextMatchComponent.empty()
                         .setValue(
