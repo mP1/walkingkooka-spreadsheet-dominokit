@@ -630,16 +630,16 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 "Border"
         );
 
-        final String borderIdPrefix = context.idPrefix() + "border-";
+        final String borderIdPrefix = context.idPrefix() + "border";
 
         for (final Entry<BoxEdge, Icon<?>> boxEdgeAndIcon : BORDER_BOX_EDGE_AND_ICONS.entrySet()) {
             final BoxEdge boxEdge = boxEdgeAndIcon.getKey();
 
             final String enumName = boxEdge.name();
-            final String idPrefix = borderIdPrefix + enumName.toLowerCase() + '-';
+            final String idPrefix = borderIdPrefix + '-' + enumName.toLowerCase();
 
             borderItem(
-                    idPrefix,
+                    idPrefix + '-',
                     border.subMenu(
                             idPrefix + SpreadsheetElementIds.SUB_MENU, // id
                             CaseKind.SNAKE.change(
