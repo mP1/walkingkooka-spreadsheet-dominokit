@@ -19,14 +19,11 @@ package walkingkooka.spreadsheet.dominokit.textmatch;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.predicate.Predicates;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
-import walkingkooka.text.CaseSensitivity;
 
 import java.util.Optional;
-import java.util.function.Predicate;
 
 public final class TextMatchComponentTest implements ValueComponentTesting<HTMLFieldSetElement, TextMatch, TextMatchComponent> {
 
@@ -38,6 +35,20 @@ public final class TextMatchComponentTest implements ValueComponentTesting<HTMLF
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      []\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintWithWhitespace() {
+        this.treePrintAndCheck(
+                TextMatchComponent.empty()
+                        .setStringValue(
+                                Optional.of("   ")
+                        ),
+                "TextMatchComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [   ]\n"
         );
     }
 

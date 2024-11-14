@@ -22,6 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
+import walkingkooka.CanBeEmpty;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
@@ -286,7 +287,26 @@ public final class ValueSpreadsheetTextBox<T> implements ValueComponent<HTMLFiel
         } catch (final Exception ignore) {
             parsed = null;
         }
-        return Optional.ofNullable(parsed);
+        return Optional.ofNullable(
+                null == parsed ||
+                        "".equals(parsed) ||
+                        isEmpty(parsed) ?
+                        null :
+                        parsed
+        );
+    }
+
+    private static boolean isEmpty(final Object value) {
+        final boolean empty;
+
+        if (value instanceof CanBeEmpty) {
+            final CanBeEmpty canBeEmpty = (CanBeEmpty) value;
+            empty = canBeEmpty.isEmpty();
+        } else {
+            empty = false;
+        }
+
+        return empty;
     }
 
     /**
