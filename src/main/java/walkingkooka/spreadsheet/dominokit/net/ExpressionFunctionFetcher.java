@@ -42,7 +42,7 @@ public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionF
     );
 
     static {
-        ExpressionFunctionName.CASE_SENSITIVITY.toString(); // force json unmarshaller to register
+        ExpressionFunctionName.DEFAULT_CASE_SENSITIVITY.toString(); // force json unmarshaller to register
     }
 
     private ExpressionFunctionFetcher(final ExpressionFunctionFetcherWatcher watcher,
