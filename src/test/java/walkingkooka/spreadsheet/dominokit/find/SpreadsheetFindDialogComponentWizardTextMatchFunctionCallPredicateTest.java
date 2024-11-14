@@ -70,6 +70,22 @@ public final class SpreadsheetFindDialogComponentWizardTextMatchFunctionCallPred
         );
     }
 
+    @Test
+    public void testTestCallExpressionTextMatchCellGetterFunctionNameDifferentCase1() {
+        this.testTrue(
+                SpreadsheetFindDialogComponentWizardTextMatchFunctionCallPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
+                expression("TEXTMATCH(\"hello\", cellFormula())")
+        );
+    }
+
+    @Test
+    public void testTestCallExpressionTextMatchCellGetterFunctionNameDifferentCase2() {
+        this.testTrue(
+                SpreadsheetFindDialogComponentWizardTextMatchFunctionCallPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
+                expression("textMatch(\"hello\", CELLFORMULA())")
+        );
+    }
+
     private Expression expression(final String text) {
         return SpreadsheetCellQuery.parse(text)
                 .expression();
