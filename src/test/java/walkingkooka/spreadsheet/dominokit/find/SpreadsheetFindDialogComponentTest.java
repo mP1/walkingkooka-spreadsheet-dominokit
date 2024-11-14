@@ -46,6 +46,8 @@ import java.util.Optional;
 public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetFindDialogComponent>,
         SpreadsheetMetadataTesting {
 
+    // refresh..........................................................................................................
+
     @Test
     public void testRefreshNoMatches() {
         final HistoryToken historyToken = HistoryToken.parseString(
