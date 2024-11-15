@@ -21,12 +21,12 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.text.HasText;
-import walkingkooka.tree.expression.Expression;
 
 import java.util.function.Function;
 
 /**
- * A text box that accepts entry and validates it as a {@link Expression}.
+ * A text box that accepts entry and validates it as a syntactically correct expression with the
+ * {@link SpreadsheetFormula#token()} being populated
  */
 public final class SpreadsheetFormulaComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetFormulaComponent, SpreadsheetFormula> {
 

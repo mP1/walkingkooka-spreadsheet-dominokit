@@ -49,6 +49,29 @@ public final class SpreadsheetFormulaComponentTest implements ValueComponentTest
     }
 
     @Test
+    public void testSetStringValueGetValue() {
+        this.treePrintAndCheck(
+                SpreadsheetFormulaComponent.empty(
+                        SpreadsheetFormulaComponentFunctions.expressionParser(
+                                () -> SPREADSHEET_PARSER_CONTEXT
+                        )
+                ).setStringValue(
+                        Optional.of(
+                                "1+2"
+                        )
+                ).value(),
+                "Formula\n" +
+                        "  token:\n" +
+                        "    SpreadsheetAddition \"1+2\"\n" +
+                        "      SpreadsheetNumber \"1\"\n" +
+                        "        SpreadsheetDigits \"1\" \"1\"\n" +
+                        "      SpreadsheetPlusSymbol \"+\" \"+\"\n" +
+                        "      SpreadsheetNumber \"2\"\n" +
+                        "        SpreadsheetDigits \"2\" \"2\"\n"
+        );
+    }
+
+    @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
                 SpreadsheetFormulaComponent.empty(
