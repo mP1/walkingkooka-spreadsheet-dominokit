@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.condition.SpreadsheetConditionParserTokenComponent;
+import walkingkooka.spreadsheet.dominokit.condition.SpreadsheetConditionRightParserTokenComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaMatchedCellsTableComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaMatchedCellsTableComponentContexts;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
@@ -41,7 +41,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.parser.SpreadsheetConditionParserToken;
+import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
@@ -354,8 +354,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     // value............................................................................................................
 
-    private SpreadsheetConditionParserTokenComponent value() {
-        return SpreadsheetConditionParserTokenComponent.empty(
+    private SpreadsheetConditionRightParserTokenComponent value() {
+        return SpreadsheetConditionRightParserTokenComponent.empty(
                         this::spreadsheetParserContext
                 ).setId(ID_PREFIX + "value" + SpreadsheetElementIds.TEXT_BOX)
                 .setLabel("Value")
@@ -363,12 +363,12 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 .addChangeListener(this::onValueValueChange);
     }
 
-    private void onValueValueChange(final Optional<SpreadsheetConditionParserToken> old,
-                                    final Optional<SpreadsheetConditionParserToken> newTextMatch) {
+    private void onValueValueChange(final Optional<SpreadsheetConditionRightParserToken> old,
+                                    final Optional<SpreadsheetConditionRightParserToken> newTextMatch) {
 
     }
 
-    private final SpreadsheetConditionParserTokenComponent value;
+    private final SpreadsheetConditionRightParserTokenComponent value;
 
     // formattedValue...................................................................................................
 

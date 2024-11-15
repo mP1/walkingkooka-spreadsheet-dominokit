@@ -22,24 +22,24 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.parser.SpreadsheetConditionParserToken;
+import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightParserToken;
 
 import java.util.Optional;
 
-public final class SpreadsheetConditionParserTokenComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetConditionParserToken, SpreadsheetConditionParserTokenComponent>,
+public final class SpreadsheetConditionRightParserTokenComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetConditionRightParserToken, SpreadsheetConditionRightParserTokenComponent>,
         SpreadsheetMetadataTesting {
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetConditionParserTokenComponent.empty(
+                SpreadsheetConditionRightParserTokenComponent.empty(
                                 () -> SPREADSHEET_PARSER_CONTEXT
                         ).setStringValue(
                                 Optional.of(
                                         "< 123"
                                 )
                         ),
-                "SpreadsheetConditionParserTokenComponent\n" +
+                "SpreadsheetConditionRightParserTokenComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [< 123]\n"
@@ -49,14 +49,14 @@ public final class SpreadsheetConditionParserTokenComponentTest implements Value
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetConditionParserTokenComponent.empty(
+                SpreadsheetConditionRightParserTokenComponent.empty(
                                 () -> SPREADSHEET_PARSER_CONTEXT
                         ).setStringValue(
                                 Optional.of(
                                         "1+2"
                                 )
                         ),
-                "SpreadsheetConditionParserTokenComponent\n" +
+                "SpreadsheetConditionRightParserTokenComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [1+2]\n" +
@@ -68,8 +68,8 @@ public final class SpreadsheetConditionParserTokenComponentTest implements Value
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetConditionParserTokenComponent> type() {
-        return SpreadsheetConditionParserTokenComponent.class;
+    public Class<SpreadsheetConditionRightParserTokenComponent> type() {
+        return SpreadsheetConditionRightParserTokenComponent.class;
     }
 
     @Override

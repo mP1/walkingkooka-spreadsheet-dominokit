@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.parser.SpreadsheetConditionParserToken;
+import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursors;
@@ -592,12 +592,12 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
                 Optional.ofNullable(
                     CharSequences.isNullOrEmpty(value) ?
                             null :
-                            SpreadsheetParsers.condition(
+                            SpreadsheetParsers.conditionRight(
                                     SpreadsheetParsers.expression()
                             ).parseText(
                                     value,
                                     SPREADSHEET_PARSER_CONTEXT
-                            ).cast(SpreadsheetConditionParserToken.class)
+                            ).cast(SpreadsheetConditionRightParserToken.class)
                 ),
                 textMatch(formattedValue),
                 expected
@@ -617,7 +617,7 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
                                final Optional<TextMatch> formatter,
                                final Optional<TextMatch> parser,
                                final Optional<TextMatch> style,
-                               final Optional<SpreadsheetConditionParserToken> value,
+                               final Optional<SpreadsheetConditionRightParserToken> value,
                                final Optional<TextMatch> formattedValue,
                                final String expected) {
         this.checkEquals(
