@@ -36,7 +36,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetParserComponentTest implements ValueComponentTesting<HTMLFieldSetElement, ParserToken, SpreadsheetParserComponent>,
+public final class SpreadsheetParserComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetParserToken, SpreadsheetParserComponent>,
         SpreadsheetMetadataTesting {
 
     private final static SpreadsheetParser SPREADSHEET_PARSER = SpreadsheetParsers.conditionRight(
