@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
-import walkingkooka.spreadsheet.parser.SpreadsheetConditionParserToken;
+import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightParserToken;
 import walkingkooka.tree.expression.Expression;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 
@@ -43,7 +43,7 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
                                               final Optional<TextMatch> formatter,
                                               final Optional<TextMatch> parser,
                                               final Optional<TextMatch> style,
-                                              final Optional<SpreadsheetConditionParserToken> value,
+                                              final Optional<SpreadsheetConditionRightParserToken> value,
                                               final Optional<TextMatch> formattedValue) {
         Expression expression = query.map(
                 SpreadsheetCellQuery::expression

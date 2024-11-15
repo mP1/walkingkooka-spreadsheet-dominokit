@@ -17,39 +17,37 @@
 
 package walkingkooka.spreadsheet.dominokit.condition;
 
-import walkingkooka.spreadsheet.SpreadsheetFormula;
-import walkingkooka.spreadsheet.parser.SpreadsheetConditionParserToken;
+import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
-import walkingkooka.text.cursor.TextCursors;
 
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
- * A {@link Function} that parsers any given text into a {@link SpreadsheetConditionParserToken}.
+ * A {@link Function} that parsers any given text into a {@link SpreadsheetConditionRightParserToken}.
  */
-final class SpreadsheetConditionParserTokenComponentConditionFunction implements Function<String, SpreadsheetConditionParserToken> {
+final class SpreadsheetConditionRightParserTokenComponentConditionFunction implements Function<String, SpreadsheetConditionRightParserToken> {
 
-    static SpreadsheetConditionParserTokenComponentConditionFunction with(final Supplier<SpreadsheetParserContext> context) {
+    static SpreadsheetConditionRightParserTokenComponentConditionFunction with(final Supplier<SpreadsheetParserContext> context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetConditionParserTokenComponentConditionFunction(context);
+        return new SpreadsheetConditionRightParserTokenComponentConditionFunction(context);
     }
 
-    private SpreadsheetConditionParserTokenComponentConditionFunction(final Supplier<SpreadsheetParserContext> context) {
+    private SpreadsheetConditionRightParserTokenComponentConditionFunction(final Supplier<SpreadsheetParserContext> context) {
         this.context = context;
     }
 
     @Override
-    public SpreadsheetConditionParserToken apply(final String text) {
-        return SpreadsheetParsers.condition(
+    public SpreadsheetConditionRightParserToken apply(final String text) {
+        return SpreadsheetParsers.conditionRight(
                 SpreadsheetParsers.expression()
         ).parseText(
                 text,
                 this.context.get()
-        ).cast(SpreadsheetConditionParserToken.class);
+        ).cast(SpreadsheetConditionRightParserToken.class);
     }
 
     private final Supplier<SpreadsheetParserContext> context;

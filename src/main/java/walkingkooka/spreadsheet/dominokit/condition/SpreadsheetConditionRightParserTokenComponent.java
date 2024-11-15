@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.condition;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
-import walkingkooka.spreadsheet.parser.SpreadsheetConditionParserToken;
+import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.text.HasText;
 
@@ -27,35 +27,35 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 /**
- * A text box that accepts {@link SpreadsheetConditionParserToken} expressions.
+ * A text box that accepts {@link SpreadsheetConditionRightParserToken} expressions.
  */
-public final class SpreadsheetConditionParserTokenComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetConditionParserTokenComponent, SpreadsheetConditionParserToken> {
+public final class SpreadsheetConditionRightParserTokenComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetConditionRightParserTokenComponent, SpreadsheetConditionRightParserToken> {
 
-    public static SpreadsheetConditionParserTokenComponent empty(final Supplier<SpreadsheetParserContext> context) {
-        return new SpreadsheetConditionParserTokenComponent(
+    public static SpreadsheetConditionRightParserTokenComponent empty(final Supplier<SpreadsheetParserContext> context) {
+        return new SpreadsheetConditionRightParserTokenComponent(
                 Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetConditionParserTokenComponent(final Supplier<SpreadsheetParserContext> context) {
-        final SpreadsheetConditionParserTokenComponentConditionFunction function = SpreadsheetConditionParserTokenComponentConditionFunction.with(context);
+    private SpreadsheetConditionRightParserTokenComponent(final Supplier<SpreadsheetParserContext> context) {
+        final SpreadsheetConditionRightParserTokenComponentConditionFunction function = SpreadsheetConditionRightParserTokenComponentConditionFunction.with(context);
 
         this.textBox = ValueSpreadsheetTextBox.with(
                 function,
                 HasText::text
         ).setValidator(
-                SpreadsheetConditionParserTokenComponentValidator.with(function)
+                SpreadsheetConditionRightParserTokenComponentValidator.with(function)
         );
     }
 
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetConditionParserToken> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetConditionRightParserToken> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<SpreadsheetConditionParserToken> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetConditionRightParserToken> textBox;
 
     // Object...........................................................................................................
 

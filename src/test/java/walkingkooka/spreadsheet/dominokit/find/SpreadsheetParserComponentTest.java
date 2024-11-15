@@ -23,7 +23,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.parser.SpreadsheetConditionParserToken;
+import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
@@ -39,7 +39,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class SpreadsheetParserComponentTest implements ValueComponentTesting<HTMLFieldSetElement, ParserToken, SpreadsheetParserComponent>,
         SpreadsheetMetadataTesting {
 
-    private final static SpreadsheetParser SPREADSHEET_PARSER = SpreadsheetParsers.condition(
+    private final static SpreadsheetParser SPREADSHEET_PARSER = SpreadsheetParsers.conditionRight(
             METADATA_EN_AU.spreadsheetParser(
                     SPREADSHEET_PARSER_PROVIDER,
                     PROVIDER_CONTEXT
@@ -190,7 +190,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
 
         this.valueAndCheck(
                 text,
-                SpreadsheetParserToken.condition(
+                SpreadsheetParserToken.conditionRight(
                         tokens,
                         text
                 )
@@ -198,7 +198,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     }
 
     private void valueAndCheck(final String text,
-                               final SpreadsheetConditionParserToken expected) {
+                               final SpreadsheetConditionRightParserToken expected) {
         this.valueAndCheck(
                 text,
                 Optional.of(expected)
@@ -206,7 +206,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     }
 
     private void valueAndCheck(final String text,
-                               final Optional<SpreadsheetConditionParserToken> expected) {
+                               final Optional<SpreadsheetConditionRightParserToken> expected) {
         final SpreadsheetParserComponent component = valueExpressionParserComponent()
                 .setStringValue(
                         Optional.of(text)
