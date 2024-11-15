@@ -138,7 +138,7 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
         } else {
             // try replace any previous textMatch(component.value, cellXXX())
             expression = old.replaceIf(
-                    SpreadsheetFindDialogComponentWizardTextMatchFunctionCallPredicate.with(cellPropertyGetter), // predicate
+                    SpreadsheetFindDialogComponentWizardTextMatchFunctionCallExpressionPredicate.with(cellPropertyGetter), // predicate
                     (e) -> textMatch(
                             textMatch,
                             cellPropertyGetter
