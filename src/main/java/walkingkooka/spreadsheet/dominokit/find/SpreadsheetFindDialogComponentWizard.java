@@ -21,10 +21,13 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.expression.SpreadsheetFunctionName;
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
 import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightParserToken;
-import walkingkooka.tree.expression.Expression;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserToken;
+import walkingkooka.text.CharSequences;
+import walkingkooka.text.cursor.parser.ParserToken;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 
 import java.util.List;
@@ -45,60 +48,62 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
                                               final Optional<TextMatch> style,
                                               final Optional<SpreadsheetConditionRightParserToken> value,
                                               final Optional<TextMatch> formattedValue) {
-        Expression expression = query.map(
-                SpreadsheetCellQuery::expression
+        ParserToken token = query.map(
+                q -> q.parserToken()
         ).orElse(null);
 
-        final List<Expression> or = Lists.array();
+        final List<SpreadsheetParserToken> or = Lists.array();
 
-        expression = replaceOrOrTextMatch(
-                expression, // old
+        token = replaceOrOrTextMatch(
+                token, // old
                 formula,
                 SpreadsheetExpressionFunctions.CELL_FORMULA,
                 or
         );
 
-        expression = replaceOrOrTextMatch(
-                expression, // old
+        token = replaceOrOrTextMatch(
+                token, // old
                 formatter,
                 SpreadsheetExpressionFunctions.CELL_FORMATTER,
                 or
         );
 
-        expression = replaceOrOrTextMatch(
-                expression, // old
+        token = replaceOrOrTextMatch(
+                token, // old
                 parser,
                 SpreadsheetExpressionFunctions.CELL_PARSER,
                 or
         );
 
-        expression = replaceOrOrTextMatch(
-                expression, // old
+        token = replaceOrOrTextMatch(
+                token, // old
                 style,
                 SpreadsheetExpressionFunctions.CELL_STYLE,
                 or
         );
 
-        expression = replaceOrOrTextMatch(
-                expression, // old
+        token = replaceOrOrTextMatch(
+                token, // old
                 formattedValue,
                 SpreadsheetExpressionFunctions.CELL_FORMATTED_VALUE,
                 or
         );
 
         // append OR expressions
-        expression = appendOrExpressions(
-                expression,
+        token = or(
+                token,
                 or
         );
 
         return Optional.ofNullable(
-                null != expression ?
-                        SpreadsheetFormula.EMPTY.setExpression(
-                                Optional.ofNullable(expression)
+                null != token ?
+                        SpreadsheetFormula.EMPTY.setToken(
+                                Optional.ofNullable(
+                                        token.cast(SpreadsheetParserToken.class)
+                                )
                         ).setText(
-                                null != expression ?
-                                        expression.text() :
+                                null != token ?
+                                        token.text() :
                                         ""
                         ) :
                         null
@@ -108,10 +113,10 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
     /**
      * Attempts to replace an old textMatch call with a new or updates the expression with an OR.
      */
-    private static Expression replaceOrOrTextMatch(final Expression old,
-                                                   final Optional<TextMatch> textMatch,
-                                                   final ExpressionFunctionName cellPropertyGetter,
-                                                   final List<Expression> or) {
+    private static ParserToken replaceOrOrTextMatch(final ParserToken old,
+                                                    final Optional<TextMatch> textMatch,
+                                                    final ExpressionFunctionName cellPropertyGetter,
+                                                    final List<SpreadsheetParserToken> or) {
         return replaceOrOrTextMatch0(
                 old,
                 textMatch.orElse(null),
@@ -120,25 +125,25 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
         );
     }
 
-    private static Expression replaceOrOrTextMatch0(final Expression old,
-                                                    final TextMatch textMatch,
-                                                    final ExpressionFunctionName cellPropertyGetter,
-                                                    final List<Expression> or) {
-        Expression expression = old;
+    private static ParserToken replaceOrOrTextMatch0(final ParserToken old,
+                                                     final TextMatch textMatch,
+                                                     final ExpressionFunctionName cellPropertyGetter,
+                                                     final List<SpreadsheetParserToken> or) {
+        ParserToken token = old;
 
         if (null == old) {
             // only overwrite $expression if textMatch is also not empty
             if (null != textMatch && textMatch.isNotEmpty()) {
                 // expression = textMatch(component.value, cellXXX())
-                expression = textMatch(
+                token = textMatch(
                         textMatch,
                         cellPropertyGetter
                 );
             }
         } else {
             // try replace any previous textMatch(component.value, cellXXX())
-            expression = old.replaceIf(
-                    SpreadsheetFindDialogComponentWizardTextMatchFunctionCallExpressionPredicate.with(cellPropertyGetter), // predicate
+            token = old.replaceIf(
+                    SpreadsheetFindDialogComponentWizardTextMatchFunctionParserTokenPredicate.with(cellPropertyGetter), // predicate
                     (e) -> textMatch(
                             textMatch,
                             cellPropertyGetter
@@ -146,7 +151,7 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
             );
 
             // if replace DID NOT happened then create OR expression(old, textMatch(component.value, cellXXX)
-            if (old.equals(expression) && null != textMatch) {
+            if (old.equals(token) && null != textMatch) {
                 // append ors at the end to create expressions like
                 //
                 // or(1, or(2,3))
@@ -163,11 +168,11 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
             }
         }
 
-        return expression;
+        return token;
     }
 
     /**
-     * Factory that creates an {@link Expression} holding a textMatch function call.
+     * Factory that creates an {@link SpreadsheetParserToken} holding a textMatch function call.
      * <pre>
      * textMatch(
      *   value,
@@ -175,23 +180,69 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
      * )
      * </pre>
      */
-    private static Expression textMatch(final TextMatch value,
-                                        final ExpressionFunctionName cellPropertyGetter) {
-        return Expression.call(
-                TEXT_MATCH_FUNCTION,
+    private static SpreadsheetParserToken textMatch(final TextMatch textMatch,
+                                                    final ExpressionFunctionName cellPropertyGetter) {
+        final String textMatchString = textMatch.text();
+        final String quotedTextMatch = CharSequences.escape(
+                textMatchString
+        ).toString();
+
+        final String cellPropertyGetterName = cellPropertyGetter.value();
+        final String textMatchFunction = TEXT_MATCH_FUNCTION_NAME + "(\"" + quotedTextMatch + "\"," + cellPropertyGetterName + "())";
+
+        return SpreadsheetParserToken.namedFunction(
                 Lists.of(
-                        Expression.value(
-                                value.text()
-                        ),
-                        Expression.call(
-                                Expression.namedFunction(cellPropertyGetter),
-                                Expression.NO_CHILDREN
+                        TEXT_MATCH_FUNCTION_NAME,
+                        SpreadsheetParserToken.functionParameters(
+                                Lists.of(
+                                        SpreadsheetParserToken.text(
+                                                Lists.of(
+                                                        DOUBLE_QUOTE_SYMBOL,
+                                                        SpreadsheetParserToken.textLiteral(
+                                                                quotedTextMatch,
+                                                                textMatchString
+                                                        ),
+                                                        DOUBLE_QUOTE_SYMBOL
+                                                ),
+                                                "" + '"' + quotedTextMatch + '"'
+                                        ),
+                                        SpreadsheetParserToken.namedFunction(
+                                                Lists.of(
+                                                        functionName(cellPropertyGetter),
+                                                        EMPTY_PARAMETER_LIST
+                                                ),
+                                                cellPropertyGetterName + "()"
+                                        )
+                                ),
+                                textMatchFunction
                         )
-                )
+                ),
+                textMatchFunction
         );
     }
 
-    private final static Expression TEXT_MATCH_FUNCTION = Expression.namedFunction(SpreadsheetExpressionFunctions.TEXT_MATCH);
+    private final static SpreadsheetParserToken TEXT_MATCH_FUNCTION_NAME = functionName(
+            SpreadsheetExpressionFunctions.TEXT_MATCH
+    );
+
+    private static SpreadsheetParserToken functionName(final ExpressionFunctionName name) {
+        final String text = name.text();
+
+        return SpreadsheetParserToken.functionName(
+                SpreadsheetFunctionName.with(text),
+                text
+        );
+    }
+
+    private final static SpreadsheetParserToken DOUBLE_QUOTE_SYMBOL = SpreadsheetParserToken.doubleQuoteSymbol("\"", "\"");
+
+    private final static SpreadsheetParserToken EMPTY_PARAMETER_LIST = SpreadsheetParserToken.functionParameters(
+            Lists.of(
+                    SpreadsheetParserToken.parenthesisOpenSymbol("(", "("),
+                    SpreadsheetParserToken.parenthesisOpenSymbol(")", ")")
+            ),
+            "()"
+    );
 
     // old
     //
@@ -200,43 +251,50 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
     //
     // 1, 2, 3
     // or(old, or(1, or(2,3)))
-    private static Expression appendOrExpressions(final Expression expression,
-                                                  final List<Expression> orExpressions) {
-        Expression out = expression;
+    private static ParserToken or(final ParserToken token,
+                                  final List<SpreadsheetParserToken> ors) {
+        ParserToken out = token;
 
-        System.out.println("\n" + expression);
-
-        if (false == orExpressions.isEmpty()) {
+        if (false == ors.isEmpty()) {
             out = or(
-                    expression,
-                    appendOrExpressions(
-                            orExpressions.remove(0),
-                            orExpressions
+                    token,
+                    or(
+                            ors.remove(0),
+                            ors
                     )
             );
         }
-
-        System.out.println("\t\t" + out);
-
 
         return out;
     }
 
     /**
-     * Creates a call to the OR function with the two given {@link Expression}
+     * Creates a call to the OR function with the two given {@link ParserToken}
      */
-    private static Expression or(final Expression left,
-                                 final Expression right) {
-        return Expression.call(
-                OR_FUNCTION,
+    private static ParserToken or(final ParserToken left,
+                                  final ParserToken right) {
+        return SpreadsheetParserToken.namedFunction(
                 Lists.of(
-                        left,
-                        right
-                )
+                        OR_FUNCTION_NAME,
+                        SpreadsheetParserToken.functionParameters(
+                                Lists.of(
+                                        left,
+                                        COMMA,
+                                        right
+                                ),
+                                left + "," + right
+                        )
+                ),
+                "OR(" + left + "," + right + ")"
         );
     }
 
-    private final static Expression OR_FUNCTION = Expression.namedFunction(ExpressionFunctionName.with("OR"));
+    private final static SpreadsheetParserToken OR_FUNCTION_NAME = SpreadsheetParserToken.functionName(
+            SpreadsheetFunctionName.with("OR"),
+            "OR"
+    );
+
+    private final static SpreadsheetParserToken COMMA = SpreadsheetParserToken.valueSeparatorSymbol(",", ",");
 
     /**
      * Stop creation

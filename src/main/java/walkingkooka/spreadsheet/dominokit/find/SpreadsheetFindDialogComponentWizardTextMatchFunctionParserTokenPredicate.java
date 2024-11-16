@@ -29,7 +29,7 @@ import java.util.function.Predicate;
 /**
  * A {@link Predicate} that matches a textMatch function call that also contains a cellXXX getter function.
  */
-final class SpreadsheetFindDialogComponentWizardTextMatchFunctionParserTokenPredicate implements Predicate<SpreadsheetParserToken> {
+final class SpreadsheetFindDialogComponentWizardTextMatchFunctionParserTokenPredicate implements Predicate<ParserToken> {
 
     static SpreadsheetFindDialogComponentWizardTextMatchFunctionParserTokenPredicate with(final ExpressionFunctionName getter) {
         return new SpreadsheetFindDialogComponentWizardTextMatchFunctionParserTokenPredicate(getter);
@@ -56,31 +56,35 @@ final class SpreadsheetFindDialogComponentWizardTextMatchFunctionParserTokenPred
     //        SpreadsheetParenthesisCloseSymbol ")" ")"
     //    SpreadsheetParenthesisCloseSymbol ")" ")"
     @Override
-    public boolean test(final SpreadsheetParserToken token) {
+    public boolean test(final ParserToken token) {
         boolean test = false;
 
-        if (token.isNamedFunction()) {
-            final SpreadsheetNamedFunctionParserToken namedFunction = (SpreadsheetNamedFunctionParserToken) token;
-            final ExpressionFunctionName functionName = namedFunction.functionName()
-                    .toExpressionFunctionName();
+        if(token instanceof SpreadsheetParserToken) {
+            final SpreadsheetParserToken spreadsheetParserToken = token.cast(SpreadsheetParserToken.class);
 
-            if (SpreadsheetExpressionFunctions.TEXT_MATCH.equals(functionName)) {
-                final List<ParserToken> parameters = namedFunction.parameters()
-                        .parameters();
+            if (spreadsheetParserToken.isNamedFunction()) {
+                final SpreadsheetNamedFunctionParserToken namedFunction = (SpreadsheetNamedFunctionParserToken) spreadsheetParserToken;
+                final ExpressionFunctionName functionName = namedFunction.functionName()
+                        .toExpressionFunctionName();
 
-                switch (parameters.size()) {
-                    case 2:
-                        test = isCellGetterFunction(
-                                parameters.get(0)
-                                        .cast(SpreadsheetParserToken.class)
-                        ) ||
-                                isCellGetterFunction(
-                                        parameters.get(1)
-                                                .cast(SpreadsheetParserToken.class)
-                                );
-                        break;
-                    default:
-                        break;
+                if (SpreadsheetExpressionFunctions.TEXT_MATCH.equals(functionName)) {
+                    final List<ParserToken> parameters = namedFunction.parameters()
+                            .parameters();
+
+                    switch (parameters.size()) {
+                        case 2:
+                            test = isCellGetterFunction(
+                                    parameters.get(0)
+                                            .cast(SpreadsheetParserToken.class)
+                            ) ||
+                                    isCellGetterFunction(
+                                            parameters.get(1)
+                                                    .cast(SpreadsheetParserToken.class)
+                                    );
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
