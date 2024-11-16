@@ -54,35 +54,35 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
 
         final List<SpreadsheetParserToken> or = Lists.array();
 
-        token = replaceOrOrTextMatch(
+        token = replaceTextMatchOr(
                 token, // old
                 formula,
                 SpreadsheetExpressionFunctions.CELL_FORMULA,
                 or
         );
 
-        token = replaceOrOrTextMatch(
+        token = replaceTextMatchOr(
                 token, // old
                 formatter,
                 SpreadsheetExpressionFunctions.CELL_FORMATTER,
                 or
         );
 
-        token = replaceOrOrTextMatch(
+        token = replaceTextMatchOr(
                 token, // old
                 parser,
                 SpreadsheetExpressionFunctions.CELL_PARSER,
                 or
         );
 
-        token = replaceOrOrTextMatch(
+        token = replaceTextMatchOr(
                 token, // old
                 style,
                 SpreadsheetExpressionFunctions.CELL_STYLE,
                 or
         );
 
-        token = replaceOrOrTextMatch(
+        token = replaceTextMatchOr(
                 token, // old
                 formattedValue,
                 SpreadsheetExpressionFunctions.CELL_FORMATTED_VALUE,
@@ -113,11 +113,11 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
     /**
      * Attempts to replace an old textMatch call with a new or updates the expression with an OR.
      */
-    private static ParserToken replaceOrOrTextMatch(final ParserToken old,
-                                                    final Optional<TextMatch> textMatch,
-                                                    final ExpressionFunctionName cellPropertyGetter,
-                                                    final List<SpreadsheetParserToken> or) {
-        return replaceOrOrTextMatch0(
+    private static ParserToken replaceTextMatchOr(final ParserToken old,
+                                                  final Optional<TextMatch> textMatch,
+                                                  final ExpressionFunctionName cellPropertyGetter,
+                                                  final List<SpreadsheetParserToken> or) {
+        return replaceTextMatchOr0(
                 old,
                 textMatch.orElse(null),
                 cellPropertyGetter,
@@ -125,10 +125,10 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
         );
     }
 
-    private static ParserToken replaceOrOrTextMatch0(final ParserToken old,
-                                                     final TextMatch textMatch,
-                                                     final ExpressionFunctionName cellPropertyGetter,
-                                                     final List<SpreadsheetParserToken> or) {
+    private static ParserToken replaceTextMatchOr0(final ParserToken old,
+                                                   final TextMatch textMatch,
+                                                   final ExpressionFunctionName cellPropertyGetter,
+                                                   final List<SpreadsheetParserToken> or) {
         ParserToken token = old;
 
         if (null == old) {
