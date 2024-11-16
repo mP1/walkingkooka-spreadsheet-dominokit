@@ -24,6 +24,7 @@ import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.predicate.Predicates;
+import walkingkooka.spreadsheet.SpreadsheetStrings;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
@@ -38,7 +39,6 @@ import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.text.CaseSensitivity;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -208,7 +208,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     private Predicate<CharSequence> predicateNotEmptyFilterText(final String text) {
         return Predicates.globPatterns(
                 text,
-                CaseSensitivity.INSENSITIVE
+                SpreadsheetStrings.CASE_SENSITIVITY
         );
     }
 
