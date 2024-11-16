@@ -27,11 +27,11 @@ import walkingkooka.tree.expression.ExpressionFunctionName;
 import java.util.List;
 import java.util.function.Predicate;
 
-final class SpreadsheetFindDialogComponentWizardCellValueFunctionParserTokenPredicate implements Predicate<ParserToken> {
+final class SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicate implements Predicate<ParserToken> {
 
-    final static SpreadsheetFindDialogComponentWizardCellValueFunctionParserTokenPredicate INSTANCE = new SpreadsheetFindDialogComponentWizardCellValueFunctionParserTokenPredicate();
+    final static SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicate INSTANCE = new SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicate();
 
-    private SpreadsheetFindDialogComponentWizardCellValueFunctionParserTokenPredicate() {
+    private SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicate() {
     }
 
     // SpreadsheetGreaterThan "cellValue() > 1"
