@@ -23,6 +23,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightEqualsParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserToken;
@@ -190,7 +191,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
 
         this.valueAndCheck(
                 text,
-                SpreadsheetParserToken.conditionRight(
+                SpreadsheetParserToken.conditionRightEquals(
                         tokens,
                         text
                 )
@@ -198,7 +199,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     }
 
     private void valueAndCheck(final String text,
-                               final SpreadsheetConditionRightParserToken expected) {
+                               final SpreadsheetConditionRightEqualsParserToken expected) {
         this.valueAndCheck(
                 text,
                 Optional.of(expected)
