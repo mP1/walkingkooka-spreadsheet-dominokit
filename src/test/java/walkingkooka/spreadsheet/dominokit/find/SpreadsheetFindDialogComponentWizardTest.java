@@ -109,7 +109,6 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
         );
     }
 
-    // value currently not implemented
     @Test
     public void testQueryWithEmptyAndValue() {
         this.queryAndCheck(
@@ -118,9 +117,9 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
                 "", // formatter
                 "", // parser
                 "", // style
-                "<1", // value
+                "<111", // value
                 "", // formattedValue
-                ""
+                "cellValue()<111"
         );
     }
 
@@ -210,7 +209,6 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
         );
     }
 
-    // value currently not implemented
     @Test
     public void testQueryWithNotEmptyAndValue() {
         this.queryAndCheck(
@@ -219,9 +217,9 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
                 "", // formatter
                 "", // parser
                 "", // style
-                "<1", // value
+                "<111", // value
                 "", // formattedValue
-                "oldQuery()"
+                "OR(oldQuery(),cellValue()<111)"
         );
     }
 
@@ -297,18 +295,31 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
         );
     }
 
-    // value currently not implemented
     @Test
     public void testQueryValueAndValue() {
         this.queryAndCheck(
-                "textMatch(\"*old*\",cellValue())", // query
+                "cellValue()<111", // query
                 "", // formula
                 "", // formatter
                 "", // parser
                 "", // style
-                "<10", // value
+                ">222", // value
                 "", // formattedValue
-                "textMatch(\"*old*\",cellValue())"
+                "cellValue()>222"
+        );
+    }
+
+    @Test
+    public void testQueryValueAndValue2() {
+        this.queryAndCheck(
+                "cellValue()<111", // query
+                "", // formula
+                "", // formatter
+                "", // parser
+                "", // style
+                "<333", // value
+                "", // formattedValue
+                "cellValue()<333"
         );
     }
 
@@ -384,18 +395,45 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
         );
     }
 
-    // value currently not implemented
     @Test
     public void testQueryWithQueryValueAndValue() {
         this.queryAndCheck(
-                "1+textMatch(\"*old*\",cellValue())", // query
+                "cellValue()<111", // query
                 "", // formula
                 "", // formatter
                 "", // parser
                 "", // style
-                "<10", // value
+                "<333", // value
                 "", // formattedValue
-                "1+textMatch(\"*old*\",cellValue())"
+                "cellValue()<333"
+        );
+    }
+
+    @Test
+    public void testQueryWithQueryValueAndValue2() {
+        this.queryAndCheck(
+                "999+(cellValue()<111)", // query
+                "", // formula
+                "", // formatter
+                "", // parser
+                "", // style
+                "<333", // value
+                "", // formattedValue
+                "999+(cellValue()<333)"
+        );
+    }
+
+    @Test
+    public void testQueryWithQueryValueAndValue3() {
+        this.queryAndCheck(
+                "999+(cellValue()<(111+222))", // query
+                "", // formula
+                "", // formatter
+                "", // parser
+                "", // style
+                "<333", // value
+                "", // formattedValue
+                "999+(cellValue()<333)"
         );
     }
 
@@ -481,7 +519,7 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
                 "", // style
                 "<10", // value
                 "*formattedValue*", // formattedValue
-                "textMatch(\"*formattedValue*\",cellFormattedValue())"
+                "OR(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue()))"
         );
     }
 
@@ -495,7 +533,7 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
                 "*style*", // style
                 "<10", // value
                 "*formattedValue*", // formattedValue
-                "OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),textMatch(\"*formattedValue*\",cellFormattedValue())))))"
+                "OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue()))))))"
         );
     }
 
@@ -553,7 +591,7 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
                 "", // style
                 "<10", // value
                 "*formattedValue*", // formattedValue
-                "OR(oldQuery(),textMatch(\"*formattedValue*\",cellFormattedValue()))"
+                "OR(oldQuery(),OR(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue())))"
         );
     }
 
@@ -567,7 +605,7 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
                 "*style*", // style
                 "<10", // value
                 "*formattedValue*", // formattedValue
-                "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))"
+                "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue())))))))"
         );
     }
 

@@ -121,9 +121,10 @@ public final class SpreadsheetFindDialogComponentWizardConditionCellValueFunctio
         );
     }
 
+    // cellValue on the right not supported.
     @Test
     public void testTestFunctionNameCellValueWithNotEqualsConditionLeft() {
-        this.testTrue(
+        this.testFalse(
                 token("1 <> cellValue()")
         );
     }

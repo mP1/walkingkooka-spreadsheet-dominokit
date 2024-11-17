@@ -55,11 +55,9 @@ final class SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParser
             if (spreadsheetParserToken.isCondition()) {
                 final SpreadsheetConditionParserToken condition = (SpreadsheetConditionParserToken) spreadsheetParserToken;
 
-                final SpreadsheetParserToken left = condition.left();
-                final SpreadsheetParserToken right = condition.right();
-
-                test = this.isCellValueFunction(left) ||
-                        this.isCellValueFunction(right);
+                test = this.isCellValueFunction(
+                        condition.left()
+                );
             }
         }
 
