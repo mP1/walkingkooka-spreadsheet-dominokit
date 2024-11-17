@@ -42,6 +42,9 @@ import java.util.Optional;
  */
 final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
 
+    /**
+     * Refreshes the {@link SpreadsheetFindDialogComponent#query} from other wizard component fields.
+     */
 
     static Optional<SpreadsheetFormula> query(final Optional<SpreadsheetCellQuery> query,
                                               final Optional<TextMatch> formula,
