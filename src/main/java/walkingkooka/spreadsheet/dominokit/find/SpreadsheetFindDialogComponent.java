@@ -514,7 +514,6 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     public void refresh(final AppContext context) {
         final SpreadsheetCellFindHistoryToken token = context.historyToken()
                 .cast(SpreadsheetCellFindHistoryToken.class);
-        context.debug("SpreadsheetFindDialogComponent.refresh " + token);
 
         this.cellRange.setValue(
                 Optional.of(
