@@ -27,9 +27,9 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 import walkingkooka.text.cursor.parser.ParserToken;
 
-public final class SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicateTest implements PredicateTesting2<SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicate, ParserToken>,
-        ToStringTesting<SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicate>,
-        ClassTesting<SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicate>,
+public final class SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicateTest implements PredicateTesting2<SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate, ParserToken>,
+        ToStringTesting<SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate>,
+        ClassTesting<SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate>,
         SpreadsheetMetadataTesting {
 
     @Override
@@ -139,8 +139,8 @@ public final class SpreadsheetFindDialogComponentWizardConditionCellValueFunctio
 
 
     @Override
-    public SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicate createPredicate() {
-        return SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicate.INSTANCE;
+    public SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate createPredicate() {
+        return SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate.INSTANCE;
     }
 
     // toString.........................................................................................................
@@ -148,7 +148,7 @@ public final class SpreadsheetFindDialogComponentWizardConditionCellValueFunctio
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicate.INSTANCE,
+                SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate.INSTANCE,
                 "cellValue()"
         );
     }
@@ -156,8 +156,8 @@ public final class SpreadsheetFindDialogComponentWizardConditionCellValueFunctio
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicate> type() {
-        return SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicate.class;
+    public Class<SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate> type() {
+        return SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate.class;
     }
 
     @Override
