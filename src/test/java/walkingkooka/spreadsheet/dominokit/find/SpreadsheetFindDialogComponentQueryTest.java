@@ -33,7 +33,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
 import java.lang.reflect.Method;
 import java.util.Optional;
 
-public final class SpreadsheetFindDialogComponentWizardTest implements PublicStaticHelperTesting<SpreadsheetFindDialogComponentWizard>,
+public final class SpreadsheetFindDialogComponentQueryTest implements PublicStaticHelperTesting<SpreadsheetFindDialogComponentQuery>,
         TreePrintableTesting,
         SpreadsheetMetadataTesting {
 
@@ -661,7 +661,7 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
         this.checkEquals(
                 parseFormula(expected),
                 parseFormula(
-                        SpreadsheetFindDialogComponentWizard.query(
+                        SpreadsheetFindDialogComponentQuery.query(
                                 query,
                                 formula,
                                 formatter,
@@ -704,8 +704,8 @@ public final class SpreadsheetFindDialogComponentWizardTest implements PublicSta
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetFindDialogComponentWizard> type() {
-        return SpreadsheetFindDialogComponentWizard.class;
+    public Class<SpreadsheetFindDialogComponentQuery> type() {
+        return SpreadsheetFindDialogComponentQuery.class;
     }
 
     @Override

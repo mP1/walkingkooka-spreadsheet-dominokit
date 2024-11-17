@@ -40,7 +40,7 @@ import java.util.Optional;
  * AND (TODO)
  * Update wizard fields from the query
  */
-final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
+final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
 
     /**
      * Refreshes the {@link SpreadsheetFindDialogComponent#query} from other wizard component fields.
@@ -154,7 +154,7 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
         } else {
             // try replace any previous textMatch(component.value, cellXXX())
             token = old.replaceIf(
-                    SpreadsheetFindDialogComponentWizardTextMatchFunctionParserTokenPredicate.with(cellPropertyGetter), // predicate
+                    SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(cellPropertyGetter), // predicate
                     (e) -> textMatch(
                             textMatch,
                             cellPropertyGetter
@@ -262,7 +262,7 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
         } else {
             // try replace any previous cellXXX() conditionRight
             token = old.replaceIf(
-                    SpreadsheetFindDialogComponentWizardConditionCellValueFunctionParserTokenPredicate.INSTANCE, // predicate
+                    SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate.INSTANCE, // predicate
                     (e) -> cellValue(
                             conditionRight
                     ) // mapper
@@ -386,7 +386,7 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
     /**
      * Stop creation
      */
-    private SpreadsheetFindDialogComponentWizard() {
+    private SpreadsheetFindDialogComponentQuery() {
         throw new UnsupportedOperationException();
     }
 }

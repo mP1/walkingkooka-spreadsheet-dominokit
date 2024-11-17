@@ -243,7 +243,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     private void refreshQueryFromWizardFields(final Optional<?> old,
                                               final Optional<?> newAlsoIgnored) {
         this.query.setValue(
-                SpreadsheetFindDialogComponentWizard.query(
+                SpreadsheetFindDialogComponentQuery.query(
                         this.context.historyToken()
                                 .cast(SpreadsheetCellFindHistoryToken.class)
                                 .query()
