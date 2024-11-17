@@ -315,7 +315,7 @@ final class SpreadsheetFindDialogComponentWizard implements PublicStaticHelper {
     private final static SpreadsheetParserToken EMPTY_PARAMETER_LIST = SpreadsheetParserToken.functionParameters(
             Lists.of(
                     SpreadsheetParserToken.parenthesisOpenSymbol("(", "("),
-                    SpreadsheetParserToken.parenthesisOpenSymbol(")", ")")
+                    SpreadsheetParserToken.parenthesisCloseSymbol(")", ")")
             ),
             "()"
     );
