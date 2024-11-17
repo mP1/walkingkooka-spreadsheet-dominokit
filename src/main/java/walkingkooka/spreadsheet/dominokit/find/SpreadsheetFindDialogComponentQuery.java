@@ -316,7 +316,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
     private final static SpreadsheetParserToken DOUBLE_QUOTE_SYMBOL = SpreadsheetParserToken.doubleQuoteSymbol("\"", "\"");
 
     private final static SpreadsheetParserToken EMPTY_PARAMETER_LIST = SpreadsheetParserToken.functionParameters(
-            Lists.of(
+            Lists.<ParserToken>of(
                     SpreadsheetParserToken.parenthesisOpenSymbol("(", "("),
                     SpreadsheetParserToken.parenthesisCloseSymbol(")", ")")
             ),

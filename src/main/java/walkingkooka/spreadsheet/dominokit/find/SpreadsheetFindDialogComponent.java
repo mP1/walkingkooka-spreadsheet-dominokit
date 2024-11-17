@@ -320,7 +320,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         );
     }
 
-    private final TextMatchComponent formula;
+    final TextMatchComponent formula;
 
     // formatter..........................................................................................................
 
@@ -330,7 +330,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         );
     }
 
-    private final TextMatchComponent formatter;
+    final TextMatchComponent formatter;
 
     // parser...........................................................................................................
 
@@ -340,7 +340,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         );
     }
 
-    private final TextMatchComponent parser;
+    final TextMatchComponent parser;
 
     // style............................................................................................................
 
@@ -350,7 +350,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         );
     }
 
-    private final TextMatchComponent style;
+    final TextMatchComponent style;
 
     // value............................................................................................................
 
@@ -368,7 +368,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     }
 
-    private final SpreadsheetConditionRightParserTokenComponent value;
+    final SpreadsheetConditionRightParserTokenComponent value;
 
     // formattedValue...................................................................................................
 
@@ -378,7 +378,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         );
     }
 
-    private final TextMatchComponent formattedValue;
+    final TextMatchComponent formattedValue;
 
     // TextMatchComponent...............................................................................................
 
@@ -534,10 +534,17 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
         this.value.validate();
 
+        final Optional<SpreadsheetCellQuery> maybeQuery = find.query();
         this.query.setStringValue(
-                find.query()
-                        .map(SpreadsheetCellQuery::text)
+                maybeQuery.map(SpreadsheetCellQuery::text)
         );
+        final SpreadsheetCellQuery query = maybeQuery.orElse(null);
+        if (null != query) {
+            SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor.refresh(
+                    query.parserToken(),
+                    this
+            );
+        }
 
         this.refreshFind(token);
         this.refreshReset(token);
