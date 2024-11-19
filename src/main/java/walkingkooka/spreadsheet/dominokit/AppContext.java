@@ -53,8 +53,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContext;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -79,8 +78,7 @@ public interface AppContext extends CanGiveFocus,
         HasSpreadsheetMetadata,
         HasSpreadsheetMetadataFetcher,
         HasSpreadsheetParserFetcher,
-        JsonNodeMarshallContext,
-        JsonNodeUnmarshallContext,
+        JsonNodeMarshallUnmarshallContext,
         ProviderContext,
         SpreadsheetFormatterContext,
         SpreadsheetParserContext,
