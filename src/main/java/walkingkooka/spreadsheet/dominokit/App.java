@@ -119,10 +119,12 @@ import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProvider;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
+import walkingkooka.tree.json.marshall.JsonNodeContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallContextDelegator;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContextDelegator;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextDelegator;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 
 import java.math.MathContext;
@@ -138,7 +140,8 @@ public class App implements EntryPoint,
         AppContext,
         WindowResizeWatcher,
         HistoryTokenContextDelegator,
-        JsonNodeMarshallUnmarshallContextDelegator,
+        JsonNodeMarshallContextDelegator,
+        JsonNodeUnmarshallContextDelegator,
         LoggingContextDelegator,
         NopEmptyResponseFetcherWatcher,
         ProviderContextDelegator,
@@ -857,6 +860,11 @@ public class App implements EntryPoint,
     }
 
     private JsonNodeUnmarshallContext unmarshallContext;
+
+    @Override
+    public JsonNodeContext jsonNodeContext() {
+        return MARSHALL_CONTEXT;
+    }
 
     // SpreadsheetFormatterContext......................................................................................
 

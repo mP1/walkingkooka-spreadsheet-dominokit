@@ -57,6 +57,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContextDelegator;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextNode;
@@ -259,6 +260,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public JsonNodeMarshallUnmarshallContext jsonNodeMarshallUnmarshallContext() {
         throw new UnsupportedOperationException();
     }
 
