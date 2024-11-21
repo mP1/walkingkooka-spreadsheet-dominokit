@@ -104,7 +104,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentT
                 "SpreadsheetSuggestBoxComponent\n" +
                         "  Label123 []\n" +
                         "  Errors\n" +
-                        "    Invalid column \"AAAAA\" not between \"A\" and \"XFE\" in \"AAAAA\"\n"
+                        "    Invalid column \"AAAAA\" not between \"A\" and \"XFE\"\n"
         );
     }
 
@@ -117,7 +117,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentT
                 "SpreadsheetSuggestBoxComponent\n" +
                         "  Label123 [] REQUIRED\n" +
                         "  Errors\n" +
-                        "    Invalid column \"AAAAA\" not between \"A\" and \"XFE\" in \"AAAAA\"\n"
+                        "    Invalid column \"AAAAA\" not between \"A\" and \"XFE\"\n"
         );
     }
 

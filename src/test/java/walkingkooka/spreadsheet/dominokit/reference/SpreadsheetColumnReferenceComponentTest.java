@@ -57,7 +57,7 @@ public final class SpreadsheetColumnReferenceComponentTest implements ValueCompo
                         "    SpreadsheetTextBox\n" +
                         "      [Invalid123!]\n" +
                         "      Errors\n" +
-                        "        Invalid column \"Invalid\" not between \"A\" and \"XFE\" in \"Invalid123!\"\n"
+                        "        Invalid column \"Invalid\" not between \"A\" and \"XFE\"\n"
         );
     }
 
