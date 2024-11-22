@@ -61,7 +61,7 @@ public final class SpreadsheetConditionRightParserTokenComponentTest implements 
                         "    SpreadsheetTextBox\n" +
                         "      [1+2]\n" +
                         "      Errors\n" +
-                        "        Invalid character '1' at 0 in \"1+2\"\n"
+                        "        Invalid character '1' at 0\n"
         );
     }
 
