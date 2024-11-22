@@ -51,6 +51,22 @@ public final class SpreadsheetComparatorAliasSetComponentTest implements ValueCo
         );
     }
 
+    @Test
+    public void testSetStringValueWithInvalidValue() {
+        this.treePrintAndCheck(
+                SpreadsheetComparatorAliasSetComponent.empty()
+                        .setStringValue(
+                                Optional.of("alias1 name1, alias2 !")
+                        ),
+                "SpreadsheetComparatorAliasSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [alias1 name1, alias2 !]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 21\n"
+        );
+    }
+
     // class............................................................................................................
 
     @Override
