@@ -59,6 +59,24 @@ public final class SpreadsheetComparatorInfoSetComponentTest implements ValueCom
         );
     }
 
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetComparatorInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://example.com hello more more"
+                                )
+                        ),
+                "SpreadsheetComparatorInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://example.com hello more more]\n" +
+                        "      Errors\n" +
+                        "        Invalid character 'm' at 26\n"
+        );
+    }
+
     // class............................................................................................................
 
     @Override
