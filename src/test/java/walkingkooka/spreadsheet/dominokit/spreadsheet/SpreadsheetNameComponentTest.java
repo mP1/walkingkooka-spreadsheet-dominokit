@@ -28,12 +28,12 @@ import java.util.Optional;
 public final class SpreadsheetNameComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetName, SpreadsheetNameComponent> {
 
     @Test
-    public void testPrintTree() {
+    public void testSetValue() {
         this.treePrintAndCheck(
                 SpreadsheetNameComponent.empty()
-                        .setValue(
+                        .setStringValue(
                                 Optional.of(
-                                        SpreadsheetName.with("Spreadsheet123")
+                                        "Spreadsheet123"
                                 )
                         ),
                 "SpreadsheetNameComponent\n" +
@@ -42,6 +42,22 @@ public final class SpreadsheetNameComponentTest implements ValueComponentTesting
                         "      [Spreadsheet123]\n"
         );
     }
+
+    @Test
+    public void testSetValueWithInvalid() {
+        this.treePrintAndCheck(
+                SpreadsheetNameComponent.empty()
+                        .clearValue(),
+                "SpreadsheetNameComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      []\n" +
+                        "      Errors\n" +
+                        "        Empty \"name\"\n"
+        );
+    }
+
+    // class............................................................................................................
 
     @Override
     public Class<SpreadsheetNameComponent> type() {
