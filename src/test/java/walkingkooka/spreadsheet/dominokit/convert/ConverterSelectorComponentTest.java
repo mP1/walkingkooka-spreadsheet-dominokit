@@ -53,7 +53,7 @@ public final class ConverterSelectorComponentTest implements ValueComponentTesti
                         "    SpreadsheetTextBox\n" +
                         "      [!@#]\n" +
                         "      Errors\n" +
-                        "        Invalid character '!' at 0 in \"!@#\"\n"
+                        "        Invalid character '!' at 0\n"
         );
     }
 
