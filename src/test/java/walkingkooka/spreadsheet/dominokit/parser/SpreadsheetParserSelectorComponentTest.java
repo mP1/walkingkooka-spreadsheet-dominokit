@@ -57,7 +57,7 @@ public final class SpreadsheetParserSelectorComponentTest implements ValueCompon
                         "    SpreadsheetTextBox\n" +
                         "      [Invalid123!]\n" +
                         "      Errors\n" +
-                        "        Invalid character '!' at 10 in \"Invalid123!\"\n"
+                        "        Invalid character '!' at 10\n"
         );
     }
 
