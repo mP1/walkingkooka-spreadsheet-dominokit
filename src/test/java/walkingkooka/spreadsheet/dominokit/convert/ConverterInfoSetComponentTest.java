@@ -75,6 +75,23 @@ public final class ConverterInfoSetComponentTest implements ValueComponentTestin
         );
     }
 
+    @Test
+    public void testSetStringValueWithInvalid2() {
+        this.treePrintAndCheck(
+                ConverterInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://example.com hello more more more"
+                                )
+                        ),
+                "ConverterInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://example.com hello more more more]\n" +
+                        "      Errors\n" +
+                        "        Invalid character 'm' at 26\n"
+        );
+    }
 
     // class............................................................................................................
 
