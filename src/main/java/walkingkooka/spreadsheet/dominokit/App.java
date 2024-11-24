@@ -33,6 +33,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.plugin.ProviderContexts;
+import walkingkooka.plugin.store.PluginStores;
 import walkingkooka.spreadsheet.SpreadsheetExpressionFunctionNames;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -414,7 +415,10 @@ public class App implements EntryPoint,
             );
 
             final EnvironmentContext environmentContext = metadata.environmentContext();
-            this.providerContext = ProviderContexts.basic(environmentContext);
+            this.providerContext = ProviderContexts.basic(
+                    environmentContext,
+                    PluginStores.fake()
+            );
 
             final Optional<SpreadsheetId> maybeId = metadata.id();
             final Optional<SpreadsheetName> maybeName = metadata.name();
