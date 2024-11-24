@@ -22,6 +22,7 @@ import walkingkooka.color.Color;
 import walkingkooka.convert.Converter;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.net.header.MediaType;
+import walkingkooka.plugin.store.PluginStore;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
@@ -248,6 +249,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public <T> Optional<T> environmentValue(final EnvironmentValueName<T> name) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public PluginStore pluginStore() {
         throw new UnsupportedOperationException();
     }
 
