@@ -51,7 +51,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
-import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaHateosResourceMappings;
+import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaHttpMappings;
 import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaUrlQueryParameters;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -317,7 +317,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         id,
                         selection
                 ).appendPathName(
-                        SpreadsheetDeltaHateosResourceMappings.CLEAR.toUrlPathName()
+                        SpreadsheetDeltaHttpMappings.CLEAR.toUrlPathName()
                 ).setQuery(
                         context.viewportAndWindowQueryString()
                 ),
@@ -358,14 +358,14 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                     final SpreadsheetCellRangeReference cells,
                                     final SpreadsheetCellFindQuery find) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPathName(SpreadsheetDeltaHateosResourceMappings.CELL.toUrlPathName())
+                .appendPathName(SpreadsheetDeltaHttpMappings.CELL.toUrlPathName())
                 .appendPathName(
                         UrlPathName.with(
                                 Objects.requireNonNull(cells, "cells")
                                         .toStringMaybeStar()
                         )
                 ).appendPathName(
-                        SpreadsheetDeltaHateosResourceMappings.FIND.toUrlPathName()
+                        SpreadsheetDeltaHttpMappings.FIND.toUrlPathName()
                 ).setQuery(
                         find.toUrlQueryString()
                 );
@@ -378,7 +378,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.insertColumnOrRow(
                 id,
                 selection,
-                SpreadsheetDeltaHateosResourceMappings.AFTER,
+                SpreadsheetDeltaHttpMappings.AFTER,
                 count
         );
     }
@@ -390,7 +390,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.insertColumnOrRow(
                 id,
                 selection,
-                SpreadsheetDeltaHateosResourceMappings.BEFORE,
+                SpreadsheetDeltaHttpMappings.BEFORE,
                 count
         );
     }
@@ -402,7 +402,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.insertColumnOrRow(
                 id,
                 selection,
-                SpreadsheetDeltaHateosResourceMappings.AFTER,
+                SpreadsheetDeltaHttpMappings.AFTER,
                 count
         );
     }
@@ -414,7 +414,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.insertColumnOrRow(
                 id,
                 selection,
-                SpreadsheetDeltaHateosResourceMappings.BEFORE,
+                SpreadsheetDeltaHttpMappings.BEFORE,
                 count
         );
     }
@@ -777,7 +777,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         id,
                         selection
                 ).appendPathName(
-                        SpreadsheetDeltaHateosResourceMappings.SORT.toUrlPathName()
+                        SpreadsheetDeltaHttpMappings.SORT.toUrlPathName()
                 ).setQuery(
                         this.context.viewportAndWindowQueryString()
                                 .addParameter(
