@@ -24,6 +24,7 @@ import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.environment.EnvironmentContext;
+import walkingkooka.environment.EnvironmentContexts;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
@@ -414,7 +415,9 @@ public class App implements EntryPoint,
                     metadata.mathContext()
             );
 
-            final EnvironmentContext environmentContext = metadata.environmentContext();
+            final EnvironmentContext environmentContext = metadata.environmentContext(
+                    EnvironmentContexts.empty()
+            );
             this.providerContext = ProviderContexts.basic(
                     environmentContext,
                     PluginStores.fake()
