@@ -416,7 +416,7 @@ public class App implements EntryPoint,
             );
 
             final EnvironmentContext environmentContext = metadata.environmentContext(
-                    EnvironmentContexts.empty()
+                    EnvironmentContexts.empty(this)
             );
             this.providerContext = ProviderContexts.basic(
                     environmentContext,
@@ -997,7 +997,6 @@ public class App implements EntryPoint,
 
         try {
             this.formatterContext = metadata.spreadsheetFormatterContext(
-                    () -> this.now(), // not sure why but method ref fails.
                     this.viewportCache, // SpreadsheetLabelNameResolver
                     converterProvider,// ConverterProvider
                     spreadsheetFormatterProvider, // SpreadsheetFormatterProvider

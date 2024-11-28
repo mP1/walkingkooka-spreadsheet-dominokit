@@ -36,6 +36,8 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 
+import java.time.LocalDateTime;
+
 /**
  * An base class capturing most of the requirements for {@link SpreadsheetFormatterSelectorDialogComponentContext}
  */
@@ -77,6 +79,11 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
     @Override
     public final ProviderContext providerContext() {
         return this.context;
+    }
+
+    @Override
+    public final LocalDateTime now() {
+        return this.context.now();
     }
 
     // HistoryTokenContext..............................................................................................

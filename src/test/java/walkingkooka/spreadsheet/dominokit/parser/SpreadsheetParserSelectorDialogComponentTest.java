@@ -1343,7 +1343,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
             @Override
             public LocalDateTime now() {
-                return NOW.get();
+                return NOW.now();
             }
 
             @Override
