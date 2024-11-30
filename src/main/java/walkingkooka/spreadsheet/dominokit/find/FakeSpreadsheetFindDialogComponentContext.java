@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.store.PluginStore;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
@@ -98,6 +99,11 @@ public class FakeSpreadsheetFindDialogComponentContext extends FakeSpreadsheetDi
 
     @Override
     public PluginStore pluginStore() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<EmailAddress> user() {
         throw new UnsupportedOperationException();
     }
 }
