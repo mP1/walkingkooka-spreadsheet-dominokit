@@ -28,6 +28,7 @@ import walkingkooka.environment.EnvironmentContexts;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -416,7 +417,12 @@ public class App implements EntryPoint,
             );
 
             final EnvironmentContext environmentContext = metadata.environmentContext(
-                    EnvironmentContexts.empty(this)
+                    EnvironmentContexts.empty(
+                            this,
+                            Optional.of(
+                                    EmailAddress.parse("user123@example.com")
+                            )
+                    )
             );
             this.providerContext = ProviderContexts.basic(
                     environmentContext,
