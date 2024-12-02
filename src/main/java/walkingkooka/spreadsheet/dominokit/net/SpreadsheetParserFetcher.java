@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
-import walkingkooka.spreadsheet.server.SpreadsheetHttpServerLinkRelations;
+import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserHateosResourceMappings;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.text.CharSequences;
@@ -85,7 +85,7 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
     // /api/spreadsheet/1/parser/*/edit
 
     private final static UrlPath EDIT = UrlPath.parse(
-            "/*/" + SpreadsheetHttpServerLinkRelations.EDIT
+            "/*/" + SpreadsheetServerLinkRelations.EDIT
     );
 
     // GET /api/spreadsheet/SpreadsheetId/parser/*
