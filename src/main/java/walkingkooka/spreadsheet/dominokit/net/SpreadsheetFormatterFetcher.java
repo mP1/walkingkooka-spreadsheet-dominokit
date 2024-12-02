@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.server.SpreadsheetHttpServerLinkRelations;
+import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterHateosResourceMappings;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
@@ -93,7 +93,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
     }
 
     private final static UrlPath EDIT = UrlPath.parse(
-            "/*/" + SpreadsheetHttpServerLinkRelations.EDIT
+            "/*/" + SpreadsheetServerLinkRelations.EDIT
     );
 
     // GET /api/spreadsheet/SpreadsheetId/formatter/*
@@ -112,7 +112,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
     }
 
     private final static UrlPath MENU = UrlPath.parse(
-            "/*/" + SpreadsheetHttpServerLinkRelations.MENU
+            "/*/" + SpreadsheetServerLinkRelations.MENU
     );
 
     // api/spreadsheet/SpreadsheetId/formatter
