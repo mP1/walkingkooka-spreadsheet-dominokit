@@ -60,7 +60,7 @@ public final class SpreadsheetComparatorInfoSetComponentTest implements ValueCom
     }
 
     @Test
-    public void testSetStringValueWithInvalid() {
+    public void testSetStringValueWithInvalidSpreadsheetComparatorName() {
         this.treePrintAndCheck(
                 SpreadsheetComparatorInfoSetComponent.empty()
                         .setStringValue(
@@ -74,6 +74,42 @@ public final class SpreadsheetComparatorInfoSetComponentTest implements ValueCom
                         "      [https://example.com hello more more]\n" +
                         "      Errors\n" +
                         "        Invalid character 'm' at 26\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalidSecondAbsoluteUrl() {
+        this.treePrintAndCheck(
+                SpreadsheetComparatorInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://example.com/1 good,bad://example.com/2 bad"
+                                )
+                        ),
+                "SpreadsheetComparatorInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://example.com/1 good,bad://example.com/2 bad]\n" +
+                        "      Errors\n" +
+                        "        unknown protocol: bad\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalidSecondSpreadsheetComparatorName() {
+        this.treePrintAndCheck(
+                SpreadsheetComparatorInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://example.com/1 good,https://example.com/2 bad!"
+                                )
+                        ),
+                "SpreadsheetComparatorInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://example.com/1 good,https://example.com/2 bad!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 52\n"
         );
     }
 
