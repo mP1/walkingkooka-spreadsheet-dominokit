@@ -92,32 +92,46 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
                         final AS providerAliases, // list of available aliases from provider
                         final AddPluginAliasSetLikeComponentContext context) {
         this.root.hide();
-        final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
-        final Predicate<CharSequence> filter = this.filter;
 
-        int i = 0;
+            final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
+            int i = 0;
 
-        // for each provider Alias MISSING from $aliases add a link.
-        for (final A providerAlias : providerAliases) {
-            final N name = providerAlias.name();
+            // addAll
+            flex.appendChild(
+                    this.anchor(
+                            "*",
+                            providerAliases,
+                            i,
+                            context
+                    )
+            );
 
-            if (false == aliases.containsAliasOrName(name) && (null == filter || filter.test(providerAlias.name().text()))) {
-                flex.appendChild(
-                        this.anchor(
-                                providerAlias,
-                                aliases.concat(providerAlias),
-                                i,
-                                context
-                        )
-                );
+            i++;
 
-                i++;
+            final Predicate<CharSequence> filter = this.filter;
+
+            // for each provider Alias MISSING from $aliases add a link.
+            for (final A providerAlias : providerAliases) {
+                final N name = providerAlias.name();
+
+                if (false == aliases.containsAliasOrName(name) && (null == filter || filter.test(providerAlias.name().text()))) {
+                    flex.appendChild(
+                            this.anchor(
+                                    providerAlias,
+                                    aliases.concat(providerAlias),
+                                    i,
+                                    context
+                            )
+                    );
+
+                    i++;
+                }
             }
-        }
 
-        if (i > 0) {
-            this.root.show();
-        }
+            if(1 == i) {
+                this.flex.removeChild(0);
+                this.root.show();
+            }
     }
 
     /**
@@ -127,13 +141,28 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
                                                final AS aliases,
                                                final int index,
                                                final AddPluginAliasSetLikeComponentContext context) {
+        return this.anchor(
+                CaseKind.kebabToTitle(
+                        add.name()
+                                .value()
+                ),
+                aliases,
+                index,
+                context
+        );
+    }
+
+    /**
+     * Creates an anchor which will when clicked saves the plugin without this {@link PluginAliasLike}.
+     */
+    private HistoryTokenAnchorComponent anchor(final String title,
+                                               final AS aliases,
+                                               final int index,
+                                               final AddPluginAliasSetLikeComponentContext context) {
         return context.historyToken()
                 .saveLink(
                         this.id + index,
-                        CaseKind.kebabToTitle(
-                                add.name()
-                                        .value()
-                        ),
+                        title,
                         aliases.text()
                 );
     }
