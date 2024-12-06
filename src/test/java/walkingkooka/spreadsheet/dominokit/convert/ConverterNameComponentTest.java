@@ -46,14 +46,30 @@ public final class ConverterNameComponentTest implements ValueComponentTesting<H
         this.treePrintAndCheck(
                 ConverterNameComponent.empty()
                         .setStringValue(
-                                Optional.of("!@#")
+                                Optional.of("Hello!")
                         ),
                 "ConverterNameComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
-                        "      [!@#]\n" +
+                        "      [Hello!]\n" +
                         "      Errors\n" +
-                        "        Invalid character '!' at 0\n"
+                        "        Invalid character '!' at 5\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalidSpaces() {
+        this.treePrintAndCheck(
+                ConverterNameComponent.empty()
+                        .setStringValue(
+                                Optional.of(" Hello!")
+                        ),
+                "ConverterNameComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [ Hello!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character ' ' at 0\n"
         );
     }
 
