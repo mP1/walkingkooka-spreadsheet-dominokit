@@ -75,6 +75,42 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements ValueComp
         );
     }
 
+    @Test
+    public void testSetStringValueWithInvalidSecondUrl() {
+        this.treePrintAndCheck(
+                SpreadsheetFormatterInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://www.example.com/Hello Hello, bad://www.example.com Hello2"
+                                )
+                        ),
+                "SpreadsheetFormatterInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://www.example.com/Hello Hello, bad://www.example.com Hello2]\n" +
+                        "      Errors\n" +
+                        "        unknown protocol: bad\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalidSecondSpreadsheetFormatterName() {
+        this.treePrintAndCheck(
+                SpreadsheetFormatterInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://www.example.com/Hello Good, https://www.example.com Bad!"
+                                )
+                        ),
+                "SpreadsheetFormatterInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://www.example.com/Hello Good, https://www.example.com Bad!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 63\n"
+        );
+    }
+
     // class............................................................................................................
 
     @Override
