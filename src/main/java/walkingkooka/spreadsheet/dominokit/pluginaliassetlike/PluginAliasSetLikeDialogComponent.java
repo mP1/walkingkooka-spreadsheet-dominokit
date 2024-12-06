@@ -111,8 +111,6 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                 .setDisabled(true);
         this.reset = this.anchor("Reset")
                 .setDisabled(true);
-        this.removeAll = this.anchor("Remove All")
-                .setDisabled(true);
         this.close = this.anchor("Close")
                 .setDisabled(true);
 
@@ -156,7 +154,6 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                         SpreadsheetFlexLayout.row()
                                 .appendChild(this.save)
                                 .appendChild(this.reset)
-                                .appendChild(this.removeAll)
                                 .appendChild(this.close)
                 );
     }
@@ -258,11 +255,6 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     private final HistoryTokenAnchorComponent reset;
 
     /**
-     * A REMOVE ALL link which will save an empty {@link PluginAliasSetLike}
-     */
-    private final HistoryTokenAnchorComponent removeAll;
-
-    /**
      * A CLOSE link which will close the dialog.
      */
     private final HistoryTokenAnchorComponent close;
@@ -356,12 +348,6 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                         historyToken.setSave(
                                 metadataAliases.text()
                         )
-                )
-        );
-
-        this.removeAll.setHistoryToken(
-                Optional.of(
-                        historyToken.clearSave()
                 )
         );
 

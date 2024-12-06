@@ -91,12 +91,22 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
     public void refresh(final AS aliases, // value from SpreadsheetMetadata
                         final AS providerAliases, // list of available aliases from provider
                         final RemovePluginAliasSetLikeComponentContext context) {
-        this.root.hide();
-
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
-        final Predicate<CharSequence> filter = this.filter;
 
         int i = 0;
+
+        flex.appendChild(
+                this.anchor(
+                        "*",
+                        aliases,
+                        i,
+                        context
+                )
+        );
+
+        i++;
+
+        final Predicate<CharSequence> filter = this.filter;
 
         // for each provider Alias present in $aliases add a link.
         for (final A providerAlias : providerAliases) {
@@ -116,8 +126,11 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
             }
         }
 
-        if (i > 0) {
+        if (i > 1) {
             this.root.show();
+        } else {
+            this.flex.removeChild(0); // remove "*" link
+            this.root.hide();
         }
     }
 
@@ -128,13 +141,28 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
                                                final AS aliases,
                                                final int index,
                                                final RemovePluginAliasSetLikeComponentContext context) {
+        return this.anchor(
+                CaseKind.kebabToTitle(
+                        remove.name()
+                                .value()
+                ),
+                aliases,
+                index,
+                context
+        );
+    }
+
+    /**
+     * Creates an anchor which will when clicked saves the plugin without this {@link PluginAliasLike}.
+     */
+    private HistoryTokenAnchorComponent anchor(final String title,
+                                               final AS aliases,
+                                               final int index,
+                                               final RemovePluginAliasSetLikeComponentContext context) {
         return context.historyToken()
                 .saveLink(
                         this.id + index,
-                        CaseKind.kebabToTitle(
-                                remove.name()
-                                        .value()
-                        ),
+                        title,
                         aliases.text()
                 );
     }
