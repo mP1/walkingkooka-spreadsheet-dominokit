@@ -75,6 +75,23 @@ public final class ExpressionFunctionInfoSetComponentTest implements ValueCompon
         );
     }
 
+    @Test
+    public void testSetStringValueWithInvalidSecondExpressionFunctionInfo() {
+        this.treePrintAndCheck(
+                ExpressionFunctionInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://www.example.com/Good Good, https://www.example.com/Bad Bad!"
+                                )
+                        ),
+                "ExpressionFunctionInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://www.example.com/Good Good, https://www.example.com/Bad Bad!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 66\n"
+        );
+    }
 
     // class............................................................................................................
 
