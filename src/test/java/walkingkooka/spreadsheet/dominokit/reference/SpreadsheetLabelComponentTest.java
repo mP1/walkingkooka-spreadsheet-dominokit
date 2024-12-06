@@ -23,7 +23,6 @@ import walkingkooka.Context;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
@@ -33,7 +32,7 @@ public final class SpreadsheetLabelComponentTest implements ValueComponentTestin
     };
 
     @Test
-    public void testPrintTreeMissingValue() {
+    public void testSetValueMissingValue() {
         this.treePrintAndCheck(
                 SpreadsheetLabelComponent.with(CONTEXT)
                         .setLabel("Label123")
@@ -49,7 +48,7 @@ public final class SpreadsheetLabelComponentTest implements ValueComponentTestin
     }
 
     @Test
-    public void testPrintTreeInvalidStringValue() {
+    public void testSetStringValueInvalidStringValue() {
         this.treePrintAndCheck(
                 SpreadsheetLabelComponent.with(CONTEXT)
                         .setLabel("Label123")
@@ -65,14 +64,12 @@ public final class SpreadsheetLabelComponentTest implements ValueComponentTestin
     }
 
     @Test
-    public void testPrintTreeWithValue() {
+    public void testSetStringValue() {
         this.treePrintAndCheck(
                 SpreadsheetLabelComponent.with(CONTEXT)
                         .setLabel("Label123")
-                        .setValue(
-                                Optional.of(
-                                        SpreadsheetSelection.labelName("SpreadsheetLabel456")
-                                )
+                        .setStringValue(
+                                Optional.of("SpreadsheetLabel456")
                         ),
                 "SpreadsheetLabelComponent\n" +
                         "  SpreadsheetSuggestBoxComponent\n" +
