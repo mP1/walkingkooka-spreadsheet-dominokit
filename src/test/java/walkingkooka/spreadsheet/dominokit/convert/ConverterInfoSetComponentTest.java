@@ -93,6 +93,24 @@ public final class ConverterInfoSetComponentTest implements ValueComponentTestin
         );
     }
 
+    @Test
+    public void testSetStringValueWithInvalidSecondInfo() {
+        this.treePrintAndCheck(
+                ConverterInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://example.com hello, https://example.com/2 !ad"
+                                )
+                        ),
+                "ConverterInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://example.com hello, https://example.com/2 !ad]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 49\n"
+        );
+    }
+
     // class............................................................................................................
 
     @Override
