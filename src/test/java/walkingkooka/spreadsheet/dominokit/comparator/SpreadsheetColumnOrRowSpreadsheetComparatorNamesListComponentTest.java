@@ -28,7 +28,7 @@ import java.util.Optional;
 public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetColumnOrRowSpreadsheetComparatorNamesList, SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent> {
 
     @Test
-    public void testMissingEqualsValidationFailure() {
+    public void testStringStringMissingEqualsValidationFailure() {
         this.treePrintAndCheck(
                 SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
                         .setStringValue(
@@ -44,7 +44,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
     }
 
     @Test
-    public void testMissingComparatorNamesValidationFailure() {
+    public void testSetStringMissingComparatorNamesValidationFailure() {
         this.treePrintAndCheck(
                 SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
                         .setStringValue(
@@ -72,6 +72,38 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
                         "      [A=text;B=text-case-insensitive]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueInvalidSecondColumn() {
+        this.treePrintAndCheck(
+                SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
+                        .setStringValue(
+                                Optional.of("A=GOOD;!B=BAD")
+                        ),
+                "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [A=GOOD;!B=BAD]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 7\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueInvalidSecondSpreadsheetComparatorName() {
+        this.treePrintAndCheck(
+                SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
+                        .setStringValue(
+                                Optional.of("A=GOOD;B=BAD!")
+                        ),
+                "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [A=GOOD;B=BAD!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 12\n"
         );
     }
 
