@@ -85,8 +85,9 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
                         "      Remove\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name2] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name1] id=base-id-123-remove-1-Link\n"
+                        "            \"*\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name1,%20name2] id=base-id-123-remove-0-Link\n" +
+                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name2] id=base-id-123-remove-1-Link\n" +
+                        "            \"Name2\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name1] id=base-id-123-remove-2-Link\n"
         );
     }
 
@@ -108,9 +109,10 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
                         "      Remove\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name2,%20name3] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name1,%20name3] id=base-id-123-remove-1-Link\n" +
-                        "            \"Name3\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name1,%20name2] id=base-id-123-remove-2-Link\n"
+                        "            \"*\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name1,%20name2,%20name3] id=base-id-123-remove-0-Link\n" +
+                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name2,%20name3] id=base-id-123-remove-1-Link\n" +
+                        "            \"Name2\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name1,%20name3] id=base-id-123-remove-2-Link\n" +
+                        "            \"Name3\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name1,%20name2] id=base-id-123-remove-3-Link\n"
         );
     }
 
@@ -133,8 +135,9 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
                         "      Remove\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/missing3,%20name2] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/metadata/formula-functions/save/missing3,%20name1] id=base-id-123-remove-1-Link\n"
+                        "            \"*\" [#/1/SpreadsheetName123/metadata/formula-functions/save/missing3,%20name1,%20name2] id=base-id-123-remove-0-Link\n" +
+                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/missing3,%20name2] id=base-id-123-remove-1-Link\n" +
+                        "            \"Name2\" [#/1/SpreadsheetName123/metadata/formula-functions/save/missing3,%20name1] id=base-id-123-remove-2-Link\n"
         );
     }
 
@@ -156,7 +159,8 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
                         "      Remove\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/] id=base-id-123-remove-0-Link\n"
+                        "            \"*\" [#/1/SpreadsheetName123/metadata/formula-functions/save/alias1%20name1] id=base-id-123-remove-0-Link\n" +
+                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/] id=base-id-123-remove-1-Link\n"
         );
     }
 
@@ -178,7 +182,8 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
                         "      Remove\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/] id=base-id-123-remove-0-Link\n"
+                        "            \"*\" [#/1/SpreadsheetName123/metadata/formula-functions/save/alias1%20name1] id=base-id-123-remove-0-Link\n" +
+                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/] id=base-id-123-remove-1-Link\n"
         );
     }
 
@@ -200,9 +205,10 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
                         "      Remove\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/alias2%20name2,%20alias3%20name3%20https://example.com/name3] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/metadata/formula-functions/save/alias3%20name3%20https://example.com/name3%20,%20name1] id=base-id-123-remove-1-Link\n" +
-                        "            \"Name3\" [#/1/SpreadsheetName123/metadata/formula-functions/save/alias2%20name2,%20name1] id=base-id-123-remove-2-Link\n"
+                        "            \"*\" [#/1/SpreadsheetName123/metadata/formula-functions/save/alias2%20name2,%20alias3%20name3%20https://example.com/name3%20,%20name1] id=base-id-123-remove-0-Link\n" +
+                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/alias2%20name2,%20alias3%20name3%20https://example.com/name3] id=base-id-123-remove-1-Link\n" +
+                        "            \"Name2\" [#/1/SpreadsheetName123/metadata/formula-functions/save/alias3%20name3%20https://example.com/name3%20,%20name1] id=base-id-123-remove-2-Link\n" +
+                        "            \"Name3\" [#/1/SpreadsheetName123/metadata/formula-functions/save/alias2%20name2,%20name1] id=base-id-123-remove-3-Link\n"
         );
     }
 
