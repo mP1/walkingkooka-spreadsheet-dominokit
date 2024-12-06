@@ -113,8 +113,6 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                 .setDisabled(true);
         this.removeAll = this.anchor("Remove All")
                 .setDisabled(true);
-        this.addAll = this.anchor("Add All")
-                .setDisabled(true);
         this.close = this.anchor("Close")
                 .setDisabled(true);
 
@@ -159,7 +157,6 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                                 .appendChild(this.save)
                                 .appendChild(this.reset)
                                 .appendChild(this.removeAll)
-                                .appendChild(this.addAll)
                                 .appendChild(this.close)
                 );
     }
@@ -266,11 +263,6 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     private final HistoryTokenAnchorComponent removeAll;
 
     /**
-     * A ADD ALL link which will save a {@link PluginAliasSetLike} with all {@link PluginAliasLike}.
-     */
-    private final HistoryTokenAnchorComponent addAll;
-
-    /**
      * A CLOSE link which will close the dialog.
      */
     private final HistoryTokenAnchorComponent close;
@@ -370,14 +362,6 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         this.removeAll.setHistoryToken(
                 Optional.of(
                         historyToken.clearSave()
-                )
-        );
-
-        this.addAll.setHistoryToken(
-                Optional.of(
-                        historyToken.setSave(
-                                providerAliases.text()
-                        )
                 )
         );
 
