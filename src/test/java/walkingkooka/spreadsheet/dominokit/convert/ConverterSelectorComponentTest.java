@@ -57,6 +57,22 @@ public final class ConverterSelectorComponentTest implements ValueComponentTesti
         );
     }
 
+    @Test
+    public void testSetStringValueWithInvalid2() {
+        this.treePrintAndCheck(
+                ConverterSelectorComponent.empty()
+                        .setStringValue(
+                                Optional.of("Hello!")
+                        ),
+                "ConverterSelectorComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [Hello!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 5\n"
+        );
+    }
+
     // class............................................................................................................
 
     @Override
