@@ -74,6 +74,42 @@ public final class SpreadsheetParserInfoSetComponentTest implements ValueCompone
         );
     }
 
+    @Test
+    public void testSetStringValueWithInvalidSecondUrl() {
+        this.treePrintAndCheck(
+                SpreadsheetParserInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://www.example.com/Hello Hello, bad://example.com/2"
+                                )
+                        ),
+                "SpreadsheetParserInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://www.example.com/Hello Hello, bad://example.com/2]\n" +
+                        "      Errors\n" +
+                        "        unknown protocol: bad\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalidSecondSpreadsheetParserName() {
+        this.treePrintAndCheck(
+                SpreadsheetParserInfoSetComponent.empty()
+                        .setStringValue(
+                                Optional.of(
+                                        "https://www.example.com/1 Good, https://example.com/2 Bad!"
+                                )
+                        ),
+                "SpreadsheetParserInfoSetComponent\n" +
+                        "  ValueSpreadsheetTextBox\n" +
+                        "    SpreadsheetTextBox\n" +
+                        "      [https://www.example.com/1 Good, https://example.com/2 Bad!]\n" +
+                        "      Errors\n" +
+                        "        Invalid character '!' at 57\n"
+        );
+    }
+
     // class............................................................................................................
 
     @Override
