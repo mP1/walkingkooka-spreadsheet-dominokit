@@ -22,7 +22,6 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
-import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
@@ -31,6 +30,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.spreadsheet.server.meta.SpreadsheetMetadataSet;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
@@ -144,14 +144,14 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
 
         if (from.isPresent()) {
             query = query.addParameter(
-                    FROM,
+                    SpreadsheetUrlQueryParameters.FROM,
                     String.valueOf(from.getAsInt())
             );
         }
 
         if (count.isPresent()) {
             query = query.addParameter(
-                    COUNT,
+                    SpreadsheetUrlQueryParameters.COUNT,
                     String.valueOf(count.getAsInt())
             );
         }
@@ -163,11 +163,6 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
     }
 
     private final static UrlPath STAR = UrlPath.parse("/*");
-
-    private final static UrlParameterName FROM = UrlParameterName.with("from");
-
-    private final static UrlParameterName COUNT = UrlParameterName.with("count");
-
 
     /**
      * Loads an existing spreadsheet
