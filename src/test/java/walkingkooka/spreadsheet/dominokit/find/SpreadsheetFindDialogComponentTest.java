@@ -51,7 +51,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     @Test
     public void testRefreshNoMatches() {
         final HistoryToken historyToken = HistoryToken.parseString(
-                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.DATE + "/query/matchXyz()"
+                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.DATE + "/query/matchXyz()"
         );
 
         final AppContext appContext = this.appContext(
@@ -138,8 +138,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "        Footer\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
-                        "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/max/5678/query/matchXyz()] id=find-reset-Link\n" +
+                        "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
+                        "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
                         "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
                         "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/metadata/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
                         "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
@@ -149,7 +149,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     @Test
     public void testRefreshNoMatchesAndMetadataContainsHighlightingQuery() {
         final HistoryToken historyToken = HistoryToken.parseString(
-                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.DATE + "/query/matchXyz()"
+                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.DATE + "/query/matchXyz()"
         );
 
         final AppContext appContext = this.appContext(
@@ -238,9 +238,9 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "        Footer\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
-                        "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/max/5678/query/matchXyz()] id=find-reset-Link\n" +
-                        "              \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/highlightQuery()] id=find-load-highlighting-query-Link\n" +
+                        "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
+                        "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
+                        "              \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/highlightQuery()] id=find-load-highlighting-query-Link\n" +
                         "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/metadata/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
                         "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
@@ -349,7 +349,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
     @Test
     public void testRefreshShowingMatches() {
         final HistoryToken historyToken = HistoryToken.parseString(
-                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/" + SpreadsheetValueType.DATE + "/query/matchXyz()"
+                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.DATE + "/query/matchXyz()"
         );
 
         final AppContext appContext = this.appContext(
@@ -436,8 +436,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "        Footer\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
-                        "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/max/5678/query/matchXyz()] id=find-reset-Link\n" +
+                        "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
+                        "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
                         "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
                         "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/metadata/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
                         "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
@@ -549,8 +549,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "        Footer\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/max/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
-                        "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/max/5678/query/matchXyz()] id=find-reset-Link\n" +
+                        "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
+                        "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
                         "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
                         "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/metadata/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
                         "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"

@@ -572,7 +572,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
 
     private final static OptionalInt OFFSET = OptionalInt.of(12);
 
-    private final static OptionalInt MAX = OptionalInt.of(34);
+    private final static OptionalInt COUNT = OptionalInt.of(34);
 
     private final static Optional<String> VALUE_TYPE = Optional.of(SpreadsheetValueType.DATE);
 
@@ -639,13 +639,13 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
     }
 
     @Test
-    public void testFindCellsMax() {
+    public void testFindCellsCount() {
         this.findCellsUrlAndCheck(
                 ID,
                 CELLS,
                 SpreadsheetCellFindQuery.empty()
-                        .setMax(MAX),
-                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?max=34")
+                        .setCount(COUNT),
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?count=34")
         );
     }
 
@@ -682,10 +682,10 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 SpreadsheetCellFindQuery.empty()
                         .setPath(PATH)
                         .setOffset(OFFSET)
-                        .setMax(MAX)
+                        .setCount(COUNT)
                         .setValueType(VALUE_TYPE)
                         .setQuery(QUERY),
-                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=BULR&max=34&offset=12&query=query789()&value-type=date")
+                Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=BULR&count=34&offset=12&query=query789()&value-type=date")
         );
     }
 
