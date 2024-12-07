@@ -135,17 +135,17 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
         );
     }
 
-    public void getSpreadsheetMetadatas(final OptionalInt from,
+    public void getSpreadsheetMetadatas(final OptionalInt offset,
                                         final OptionalInt count) {
-        Objects.requireNonNull(from, "from");
+        Objects.requireNonNull(offset, "offset");
         Objects.requireNonNull(count, "count");
 
         UrlQueryString query = UrlQueryString.EMPTY;
 
-        if (from.isPresent()) {
+        if (offset.isPresent()) {
             query = query.addParameter(
-                    SpreadsheetUrlQueryParameters.FROM,
-                    String.valueOf(from.getAsInt())
+                    SpreadsheetUrlQueryParameters.OFFSET,
+                    String.valueOf(offset.getAsInt())
             );
         }
 
