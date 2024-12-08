@@ -27,7 +27,6 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
-import walkingkooka.spreadsheet.server.parser.SpreadsheetParserHateosResourceMappings;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
@@ -99,12 +98,10 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
 
     static RelativeUrl parser(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPath(PARSER);
+                .appendPathName(
+                        SpreadsheetParserName.HATEOS_RESOURCE_NAME.toUrlPathName()
+                );
     }
-
-    private final static UrlPath PARSER = UrlPath.parse(
-            SpreadsheetParserHateosResourceMappings.PARSER.value()
-    );
 
     // Fetcher..........................................................................................................
 
