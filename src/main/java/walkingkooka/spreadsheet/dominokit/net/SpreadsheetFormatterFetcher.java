@@ -25,9 +25,9 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterHateosResourceMappings;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
@@ -119,12 +119,10 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
 
     static RelativeUrl formatter(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPath(FORMATTER);
+                .appendPathName(
+                        SpreadsheetFormatterName.HATEOS_RESOURCE_NAME.toUrlPathName()
+                );
     }
-
-    private final static UrlPath FORMATTER = UrlPath.parse(
-            SpreadsheetFormatterHateosResourceMappings.FORMATTER.value()
-    );
 
     // Fetcher..........................................................................................................
 

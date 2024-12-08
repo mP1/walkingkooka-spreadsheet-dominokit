@@ -19,14 +19,12 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
-import walkingkooka.net.UrlPath;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporter;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterName;
-import walkingkooka.spreadsheet.server.importer.SpreadsheetImporterHateosResourceMappings;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -35,10 +33,6 @@ import java.util.Objects;
  * Fetcher for {@link SpreadsheetImporter} end points.
  */
 public final class SpreadsheetImporterFetcher extends Fetcher<SpreadsheetImporterFetcherWatcher> {
-
-    private final static UrlPath IMPORTER = UrlPath.parse(
-            SpreadsheetImporterHateosResourceMappings.IMPORTER.value()
-    );
 
     static {
         SpreadsheetImporterName.CASE_SENSITIVITY.toString(); // force json unmarshaller to register
@@ -65,7 +59,9 @@ public final class SpreadsheetImporterFetcher extends Fetcher<SpreadsheetImporte
 
     static RelativeUrl importer(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPath(IMPORTER);
+                .appendPathName(
+                        SpreadsheetImporterName.HATEOS_RESOURCE_NAME.toUrlPathName()
+                );
     }
 
     // GET /api/spreadsheet/SpreadsheetId/importer/*
