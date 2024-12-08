@@ -19,14 +19,12 @@ package walkingkooka.spreadsheet.dominokit.net;
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
-import walkingkooka.net.UrlPath;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.server.comparator.SpreadsheetComparatorHateosResourceMappings;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -35,10 +33,6 @@ import java.util.Objects;
  * Fetcher for {@link SpreadsheetComparator} end points.
  */
 public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetComparatorFetcherWatcher> {
-
-    private final static UrlPath COMPARATOR = UrlPath.parse(
-            SpreadsheetComparatorHateosResourceMappings.COMPARATOR.value()
-    );
 
     static {
         SpreadsheetComparatorName.CASE_SENSITIVITY.toString(); // force json unmarshaller to register
@@ -74,7 +68,9 @@ public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetCompa
 
     static RelativeUrl comparator(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPath(COMPARATOR);
+                .appendPathName(
+                        SpreadsheetComparatorName.HATEOS_RESOURCE_NAME.toUrlPathName()
+                );
     }
 
     @Override
