@@ -39,7 +39,7 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 /**
- * A component that contains a panel holding links of for each present {@link PluginAliasLike}, adding when missing from a {@link PluginAliasSetLike}.
+ * A component that contains a card filled with links of {@link PluginAliasLike}.
  */
 public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>,
         I extends PluginInfoLike<I, N>,
@@ -84,7 +84,7 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
     }
 
     /**
-     * A {@link Predicate} which is used to filter links by testing the text against the given {@link Predicate}.
+     * A {@link Predicate} which is used to filter plugins.
      */
     private Predicate<CharSequence> filter;
 
@@ -137,7 +137,7 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
     }
 
     /**
-     * Creates an anchor which will when clicked saves the plugin without this {@link PluginAliasLike}.
+     * Creates an anchor which will when clicked saves the plugin assuming the {@link PluginAliasSetLike}.
      */
     private HistoryTokenAnchorComponent anchor(final A add,
                                                final AS aliases,
@@ -155,7 +155,7 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
     }
 
     /**
-     * Creates an anchor which will when clicked saves the plugin without this {@link PluginAliasLike}.
+     * Creates an anchor which will when clicked saves the plugin assuming the {@link PluginAliasSetLike}.
      */
     private HistoryTokenAnchorComponent anchor(final String title,
                                                final AS aliases,
