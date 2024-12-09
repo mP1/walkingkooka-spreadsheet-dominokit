@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.spreadsheet.server.meta.SpreadsheetMetadataSet;
 import walkingkooka.text.CharSequences;
@@ -72,7 +73,11 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
         ); // JSON register
     }
 
-    private final static RelativeUrl API_BASE = Url.parseRelative("/api/spreadsheet");
+    private final static RelativeUrl API_BASE = Url.EMPTY_RELATIVE_URL.appendPath(
+            SpreadsheetHttpServer.API.append(
+                SpreadsheetMetadata.HATEOS_RESOURCE_NAME.toUrlPathName()
+        )
+    );
 
     /**
      * Extracts the {@link SpreadsheetId} from a URL assumed to contain an endpoint.
