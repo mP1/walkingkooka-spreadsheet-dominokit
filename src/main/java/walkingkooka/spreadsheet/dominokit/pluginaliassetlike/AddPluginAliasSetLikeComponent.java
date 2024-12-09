@@ -93,45 +93,47 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
                         final AddPluginAliasSetLikeComponentContext context) {
         this.root.hide();
 
-            final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
-            int i = 0;
+        final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
+        int i = 0;
 
-            // addAll
-            flex.appendChild(
-                    this.anchor(
-                            "*",
-                            providerAliases,
-                            i,
-                            context
-                    )
-            );
+        // addAll
+        flex.appendChild(
+                this.anchor(
+                        "*",
+                        providerAliases,
+                        i,
+                        context
+                )
+        );
 
-            i++;
+        i++;
 
-            final Predicate<CharSequence> filter = this.filter;
+        final Predicate<CharSequence> filter = this.filter;
 
-            // for each provider Alias MISSING from $aliases add a link.
-            for (final A providerAlias : providerAliases) {
-                final N name = providerAlias.name();
+        // for each provider Alias MISSING from $aliases add a link.
+        for (final A providerAlias : providerAliases) {
+            final N name = providerAlias.name();
 
-                if (false == aliases.containsAliasOrName(name) && (null == filter || filter.test(providerAlias.name().text()))) {
-                    flex.appendChild(
-                            this.anchor(
-                                    providerAlias,
-                                    aliases.concat(providerAlias),
-                                    i,
-                                    context
-                            )
-                    );
+            if (false == aliases.containsAliasOrName(name) && (null == filter || filter.test(providerAlias.name().text()))) {
+                flex.appendChild(
+                        this.anchor(
+                                providerAlias,
+                                aliases.concat(providerAlias),
+                                i,
+                                context
+                        )
+                );
 
-                    i++;
-                }
+                i++;
             }
+        }
 
-            if(1 == i) {
-                this.flex.removeChild(0);
-                this.root.show();
-            }
+        if (1 == i) {
+            this.flex.removeChild(0);
+            this.root.hide();
+        } else {
+            this.root.show();
+        }
     }
 
     /**
