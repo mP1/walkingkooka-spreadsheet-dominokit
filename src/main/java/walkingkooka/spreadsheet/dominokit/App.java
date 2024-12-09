@@ -35,6 +35,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.plugin.ProviderContexts;
+import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.plugin.store.PluginStores;
 import walkingkooka.spreadsheet.SpreadsheetExpressionFunctionNames;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -56,6 +57,9 @@ import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatch
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetComparatorFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetComparatorFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetComparatorFetcherWatchers;
@@ -158,6 +162,7 @@ public class App implements EntryPoint,
         SpreadsheetImporterFetcherWatcher,
         SpreadsheetMetadataFetcherWatcher,
         SpreadsheetParserFetcherWatcher,
+        PluginFetcherWatcher,
         SpreadsheetProviderDelegator,
         SpreadsheetFormatterContextDelegator {
 
@@ -276,6 +281,14 @@ public class App implements EntryPoint,
         );
         this.spreadsheetParserInfoSet = SpreadsheetParserInfoSet.EMPTY;
         this.addSpreadsheetParserFetcherWatcher(this);
+
+        // plugins
+        this.pluginFetcherWatchers = PluginFetcherWatchers.empty();
+        this.pluginFetcher = PluginFetcher.with(
+                this.pluginFetcherWatchers,
+                this
+        );
+        this.addPluginFetcherWatcher(this);
 
         this.providerContext = ProviderContexts.fake();
 
@@ -855,6 +868,33 @@ public class App implements EntryPoint,
         // nop
     }
 
+    // PluginFetcher....................................................................................................
+
+    @Override
+    public PluginFetcher pluginFetcher() {
+        return this.pluginFetcher;
+    }
+
+    private final PluginFetcher pluginFetcher;
+
+    @Override
+    public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {
+        return this.pluginFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addPluginFetcherWatcherOnce(final PluginFetcherWatcher watcher) {
+        return this.pluginFetcherWatchers.addOnce(watcher);
+    }
+
+    private final PluginFetcherWatchers pluginFetcherWatchers;
+
+    @Override
+    public void onPluginSet(final PluginSet plugins,
+                            final AppContext context) {
+        // TODO
+    }
+    
     // JsonNodeMarshallContext..........................................................................................
 
     @Override
