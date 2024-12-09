@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorAliasSetComponent;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetComparatorFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetComparatorFetcherWatcher;
 
 import java.util.Optional;
 import java.util.function.Consumer;

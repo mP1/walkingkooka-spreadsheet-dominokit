@@ -17,10 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.delta;
 
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
-import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.dominokit.net.HasSpreadsheetDeltaFetcherDelegator;
 
 import java.util.Objects;
 

@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.comparator;
 
 import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 
 public class FakeSpreadsheetComparatorNameListDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements SpreadsheetComparatorNameListDialogComponentContext {
     @Override
