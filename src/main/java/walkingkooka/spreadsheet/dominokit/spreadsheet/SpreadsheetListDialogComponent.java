@@ -21,14 +21,14 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
-import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.ArrayList;

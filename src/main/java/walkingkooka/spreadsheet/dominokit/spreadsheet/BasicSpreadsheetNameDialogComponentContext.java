@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 
 abstract class BasicSpreadsheetNameDialogComponentContext implements SpreadsheetNameDialogComponentContext,
         HistoryTokenContextDelegator,

@@ -26,7 +26,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.cursor.TextCursor;
 

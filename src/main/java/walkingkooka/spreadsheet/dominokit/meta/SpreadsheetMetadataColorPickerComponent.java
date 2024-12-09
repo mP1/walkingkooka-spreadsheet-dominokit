@@ -27,11 +27,11 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.net.NopEmptyResponseFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 

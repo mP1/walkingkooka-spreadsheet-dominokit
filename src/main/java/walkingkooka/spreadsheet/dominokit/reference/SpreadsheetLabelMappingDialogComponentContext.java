@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 /**

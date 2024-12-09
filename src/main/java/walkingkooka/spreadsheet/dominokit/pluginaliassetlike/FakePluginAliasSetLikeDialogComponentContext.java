@@ -24,8 +24,8 @@ import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 
 import java.util.function.Consumer;

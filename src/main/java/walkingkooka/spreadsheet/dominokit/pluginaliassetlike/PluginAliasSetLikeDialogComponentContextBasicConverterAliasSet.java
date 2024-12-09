@@ -31,7 +31,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.convert.ConverterAliasSetComponent;
-import walkingkooka.spreadsheet.dominokit.net.ConverterFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 
 import java.util.Optional;
 import java.util.function.Consumer;

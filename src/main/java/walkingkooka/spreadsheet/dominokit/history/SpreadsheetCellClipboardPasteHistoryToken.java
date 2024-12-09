@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
-import walkingkooka.spreadsheet.dominokit.net.SpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 
