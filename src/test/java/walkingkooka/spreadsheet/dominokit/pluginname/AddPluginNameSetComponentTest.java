@@ -155,6 +155,30 @@ public final class AddPluginNameSetComponentTest implements HtmlElementComponent
         );
     }
 
+    @Test
+    public void testRefreshSomeAddedWithFilter() {
+        final AddPluginNameSetComponent component = AddPluginNameSetComponent.empty("base-id-123-add-");
+        component.setFilter((t) -> t.toString().contains("plug"));
+        component.refresh(
+                PluginNameSet.parse("plugin1"), // present
+                PluginNameSet.parse("plugin1, plugin2, hidden3"), // provider
+                CONTEXT
+        );
+
+        // plugin1 add link needed
+        this.treePrintAndCheck(
+                component,
+                "AddPluginNameSetComponent\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      Add\n" +
+                        "        SpreadsheetFlexLayout\n" +
+                        "          ROW\n" +
+                        "            \"*\" [#/1/SpreadsheetName123/metadata/formula-functions/save/plugin1,%20plugin2] id=base-id-123-add-0-Link\n" +
+                        "            \"Plugin2\" [#/1/SpreadsheetName123/metadata/formula-functions/save/plugin1,%20plugin2] id=base-id-123-add-1-Link\n"
+        );
+    }
+
     private AddPluginNameSetComponentContext context() {
         return CONTEXT;
     }
