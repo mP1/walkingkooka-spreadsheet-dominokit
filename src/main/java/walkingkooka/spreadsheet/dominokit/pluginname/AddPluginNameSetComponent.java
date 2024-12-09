@@ -77,8 +77,6 @@ public final class AddPluginNameSetComponent implements HtmlElementComponent<HTM
     public void refresh(final PluginNameSet selectedPluginNames, // value from SpreadsheetMetadata
                         final PluginNameSet availablePluginNames, // list of available plugin names from provider
                         final AddPluginNameSetComponentContext context) {
-        this.root.hide();
-
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
         int i = 0;
 
