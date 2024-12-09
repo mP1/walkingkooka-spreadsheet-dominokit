@@ -93,13 +93,13 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
         SpreadsheetTextBox filter = this.filter;
         if (null == filter) {
             filter = SpreadsheetTextBox.empty()
-                    .magnifyingGlassIcon();
+                    .clearIcon();
             final SpreadsheetTextBox filter2 = filter;
 
             this.card.withHeader(
                     (card, header) -> header.appendChild(
                             PostfixAddOn.of(
-                                    filter2.setCssText("display: inline-block; width: 33%;"))
+                                    filter2.setCssText("display: inline-block; width: 33%; background-color: "))
                     )
             );
         }
