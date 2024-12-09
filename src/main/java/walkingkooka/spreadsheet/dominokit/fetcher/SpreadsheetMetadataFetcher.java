@@ -73,11 +73,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
         ); // JSON register
     }
 
-    private final static RelativeUrl API_BASE = Url.EMPTY_RELATIVE_URL.appendPath(
-            SpreadsheetHttpServer.API.append(
-                SpreadsheetMetadata.HATEOS_RESOURCE_NAME.toUrlPathName()
-        )
-    );
+    private final static RelativeUrl API_BASE = Url.EMPTY_RELATIVE_URL.appendPath(SpreadsheetHttpServer.API_SPREADSHEET);
 
     /**
      * Extracts the {@link SpreadsheetId} from a URL assumed to contain an endpoint.
