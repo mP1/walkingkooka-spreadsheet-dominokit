@@ -191,7 +191,7 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
                         "      Add\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/metadata/formula-functions/save/hidden3,%20name1,%20name2] id=base-id-123-add-0-Link\n" +
+                        "            \"*\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name1,%20name2] id=base-id-123-add-0-Link\n" +
                         "            \"Name1\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name1] id=base-id-123-add-1-Link\n" +
                         "            \"Name2\" [#/1/SpreadsheetName123/metadata/formula-functions/save/name2] id=base-id-123-add-2-Link\n"
         );

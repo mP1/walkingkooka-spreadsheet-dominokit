@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.collect.set.SortedSets;
 import walkingkooka.naming.Name;
 import walkingkooka.plugin.PluginAliasLike;
 import walkingkooka.plugin.PluginAliasSetLike;
@@ -36,6 +37,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.SortedSet;
 import java.util.function.Predicate;
 
 /**
@@ -96,11 +98,30 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
         int i = 0;
 
+        final Predicate<CharSequence> filter = this.filter;
+
+        AS filtered;
+
+        if (null != filter) {
+
+            SortedSet<A> a = SortedSets.tree();
+
+            for (final A providerAlias : providerAliases) {
+                if (filter.test(providerAlias.name().text())) {
+                    a.add(providerAlias);
+                }
+            }
+
+            filtered = providerAliases.setElements(a);
+        } else {
+            filtered = providerAliases;
+        }
+
         // addAll
         flex.appendChild(
                 this.anchor(
                         "*",
-                        providerAliases,
+                        filtered,
                         i,
                         context
                 )
@@ -108,13 +129,11 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
 
         i++;
 
-        final Predicate<CharSequence> filter = this.filter;
-
         // for each provider Alias MISSING from $aliases add a link.
-        for (final A providerAlias : providerAliases) {
+        for (final A providerAlias : filtered) {
             final N name = providerAlias.name();
 
-            if (false == aliases.containsAliasOrName(name) && (null == filter || filter.test(providerAlias.name().text()))) {
+            if (false == aliases.containsAliasOrName(name)) {
                 flex.appendChild(
                         this.anchor(
                                 providerAlias,
