@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasExpressionFunctionFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetComparatorFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetExporterFetcher;
@@ -70,6 +71,7 @@ public interface AppContext extends CanGiveFocus,
         HasNow,
         HasSpreadsheetComparatorFetcher,
         HasConverterFetcher,
+        HasPluginFetcher,
         HasSpreadsheetDeltaFetcher,
         HasSpreadsheetExporterFetcher,
         HasExpressionFunctionFetcher,
