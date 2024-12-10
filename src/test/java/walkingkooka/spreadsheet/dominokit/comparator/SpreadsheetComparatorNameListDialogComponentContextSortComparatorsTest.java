@@ -17,18 +17,35 @@
 
 package walkingkooka.spreadsheet.dominokit.comparator;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.dominokit.AppContexts;
 
-public final class SpreadsheetComparatorNameListDialogComponentContextSortComparatorsTest implements ClassTesting2<SpreadsheetComparatorNameListDialogComponentContextSortComparators> {
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public final class SpreadsheetComparatorNameListDialogComponentContextSortComparatorsTest implements SpreadsheetComparatorNameListDialogComponentContextTesting<SpreadsheetComparatorNameListDialogComponentContextSortComparators> {
+
+    @Test
+    public void testWithNullAppContextFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> SpreadsheetComparatorNameListDialogComponentContextSortComparators.with(null)
+        );
+    }
+
+    @Override
+    public SpreadsheetComparatorNameListDialogComponentContextSortComparators createContext() {
+        return SpreadsheetComparatorNameListDialogComponentContextSortComparators.with(AppContexts.fake());
+    }
+
+    @Override
+    public String typeNameSuffix() {
+        return "Comparators";
+    }
+
+    // class............................................................................................................
 
     @Override
     public Class<SpreadsheetComparatorNameListDialogComponentContextSortComparators> type() {
         return SpreadsheetComparatorNameListDialogComponentContextSortComparators.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
