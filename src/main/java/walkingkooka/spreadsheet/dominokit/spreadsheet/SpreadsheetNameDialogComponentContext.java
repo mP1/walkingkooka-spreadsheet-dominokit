@@ -20,16 +20,14 @@ package walkingkooka.spreadsheet.dominokit.spreadsheet;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
 import java.util.Optional;
 
-public interface SpreadsheetNameDialogComponentContext extends ComponentLifecycleMatcher,
-        HasSpreadsheetMetadataFetcher,
-        HistoryTokenContext,
-        LoggingContext {
+public interface SpreadsheetNameDialogComponentContext extends SpreadsheetDialogComponentContext,
+        ComponentLifecycleMatcher,
+        HasSpreadsheetMetadataFetcher {
 
     boolean shouldLoadSpreadsheetMetadata();
 
