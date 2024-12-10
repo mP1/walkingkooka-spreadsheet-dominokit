@@ -20,15 +20,13 @@ package walkingkooka.spreadsheet.dominokit.format;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.util.Throttler;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
@@ -42,8 +40,7 @@ import java.time.LocalDateTime;
  * An base class capturing most of the requirements for {@link SpreadsheetFormatterSelectorDialogComponentContext}
  */
 abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implements SpreadsheetFormatterSelectorDialogComponentContext,
-        HistoryTokenContextDelegator,
-        LoggingContextDelegator,
+        SpreadsheetDialogComponentContextDelegator,
         SpreadsheetFormatterContextDelegator,
         SpreadsheetFormatterProviderDelegator,
         ProviderContextDelegator {
@@ -84,13 +81,6 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
     @Override
     public final LocalDateTime now() {
         return this.context.now();
-    }
-
-    // HistoryTokenContext..............................................................................................
-
-    @Override
-    public final HistoryTokenContext historyTokenContext() {
-        return this.context;
     }
 
     // misc.............................................................................................................
@@ -143,10 +133,10 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
-    // log..............................................................................................................
+    // SpreadsheetDialogComponentContext................................................................................
 
     @Override
-    public LoggingContext loggingContext() {
+    public final SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
         return this.context;
     }
 
