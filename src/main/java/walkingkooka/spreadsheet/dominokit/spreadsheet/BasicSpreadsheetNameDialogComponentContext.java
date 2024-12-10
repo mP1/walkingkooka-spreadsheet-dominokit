@@ -53,4 +53,11 @@ abstract class BasicSpreadsheetNameDialogComponentContext implements Spreadsheet
     }
 
     private final AppContext context;
+
+    // Object...........................................................................................................
+
+    @Override
+    public final String toString() {
+        return this.context.toString();
+    }
 }
