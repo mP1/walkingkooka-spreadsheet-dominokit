@@ -17,13 +17,22 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
+import walkingkooka.plugin.PluginName;
+import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+
+import java.util.Optional;
 
 /**
  * A watcher that receives all {@link PluginSet} response events.
  */
 public interface PluginFetcherWatcher extends FetcherWatcher {
+
+    void onPlugin(final PluginName name,
+                  final Optional<Plugin> plugin,
+                  final AppContext context);
+
 
     void onPluginSet(final PluginSet plugins,
                      final AppContext context);

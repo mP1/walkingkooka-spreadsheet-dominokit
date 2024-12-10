@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Fetcher for {@link walkingkooka.plugin.store.PluginStore} end points.
@@ -112,6 +113,37 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 this.watcher.onEmptyResponse(context);
+                break;
+            case "Plugin":
+                // extract pluginName from url / 1=api / 2=plugin / 3=PluginName
+                PluginName pluginName = null;
+
+                int i = 0;
+                for (UrlPathName pathName : url.path()) {
+                    if (3 == i) {
+                        pluginName = PluginName.with(pathName.value());
+                        break;
+                    }
+                    i++;
+                }
+
+                if(null == pluginName) {
+                    throw new IllegalStateException("Missing pluginName from url " + url);
+                }
+
+                // GET http://server/api/plugin/PluginName
+                this.watcher.onPlugin(
+                        pluginName,
+                        Optional.ofNullable(
+                                body.trim().isEmpty() ?
+                                        null :
+                                        this.parse(
+                                                body,
+                                                Plugin.class
+                                        )
+                        ), // edit
+                        context
+                );
                 break;
             case "PluginSet":
                 // GET http://server/api/plugin/PluginName/filter

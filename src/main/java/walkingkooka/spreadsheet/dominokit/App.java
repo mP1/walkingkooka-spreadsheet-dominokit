@@ -32,9 +32,11 @@ import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
+import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.plugin.ProviderContexts;
+import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.plugin.store.PluginStores;
 import walkingkooka.spreadsheet.SpreadsheetExpressionFunctionNames;
@@ -888,6 +890,13 @@ public class App implements EntryPoint,
     }
 
     private final PluginFetcherWatchers pluginFetcherWatchers;
+
+    @Override
+    public void onPlugin(final PluginName name,
+                         final Optional<Plugin> plugin,
+                         final AppContext context) {
+        // NOP
+    }
 
     @Override
     public void onPluginSet(final PluginSet plugins,
