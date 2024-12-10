@@ -115,4 +115,11 @@ abstract class PluginAliasSetLikeDialogComponentContextBasic<N extends Name & Co
     }
 
     final AppContext context;
+
+    // Object...........................................................................................................
+
+    @Override
+    public final String toString() {
+        return this.context.toString();
+    }
 }
