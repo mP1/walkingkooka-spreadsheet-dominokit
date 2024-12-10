@@ -127,7 +127,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         SpreadsheetSortDialogComponent.with(
                 SpreadsheetSortDialogComponentContexts.basic(
                         context, // SpreadsheetComparatorProvider
-                        context // HistoryTokenContext
+                        context, // HistoryTokenContext
+                        context // loggingContext
                 )
         );
     }

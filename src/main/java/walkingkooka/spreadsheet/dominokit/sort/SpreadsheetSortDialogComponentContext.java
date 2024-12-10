@@ -18,11 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.sort;
 
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 
 /**
  * The context that belongs to a SORT DIALOG.
  */
-public interface SpreadsheetSortDialogComponentContext extends HistoryTokenContext,
+public interface SpreadsheetSortDialogComponentContext extends SpreadsheetDialogComponentContext,
         SpreadsheetComparatorProvider {
 }
