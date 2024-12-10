@@ -18,16 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 
 abstract class BasicSpreadsheetNameDialogComponentContext implements SpreadsheetNameDialogComponentContext,
-        HistoryTokenContextDelegator,
-        LoggingContextDelegator {
+        SpreadsheetDialogComponentContextDelegator {
 
     BasicSpreadsheetNameDialogComponentContext(final AppContext context) {
         this.context = context;
@@ -48,17 +45,10 @@ abstract class BasicSpreadsheetNameDialogComponentContext implements Spreadsheet
         return this.context.spreadsheetMetadataFetcher();
     }
 
-    // HistoryTokenContext..............................................................................................
+    // SpreadsheetDialogComponentContext................................................................................
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
-        return this.context;
-    }
-
-    // LoggingContext...................................................................................................
-
-    @Override
-    public LoggingContext loggingContext() {
+    public final SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
         return this.context;
     }
 
