@@ -29,6 +29,8 @@ import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialog
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponent;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.pluginname.PluginNameSetDialogComponent;
+import walkingkooka.spreadsheet.dominokit.pluginname.PluginNameSetDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialogComponent;
@@ -54,6 +56,10 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                         metadataFetcherWatchers,
                         context // HasLocale
                 )
+        );
+
+        PluginNameSetDialogComponent.with(
+                PluginNameSetDialogComponentContexts.appContext(context)
         );
 
         PluginAliasSetLikeDialogComponent.with(

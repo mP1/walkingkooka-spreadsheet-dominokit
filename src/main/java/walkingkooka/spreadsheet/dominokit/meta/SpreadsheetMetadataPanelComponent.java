@@ -25,6 +25,7 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.convert.provider.ConverterAliasSet;
 import walkingkooka.net.email.EmailAddress;
+import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
@@ -120,6 +121,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
         items.add(this.timeFormatter());
         items.add(this.timeParser());
+
+        items.add(this.plugins());
 
         items.add(this.comparators());
         items.add(this.sortComparators());
@@ -367,6 +370,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserSelector> timeParser() {
         return link(
                 SpreadsheetMetadataPropertyName.TIME_PARSER
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<PluginNameSet> plugins() {
+        return link(
+                SpreadsheetMetadataPropertyName.PLUGINS
         );
     }
 

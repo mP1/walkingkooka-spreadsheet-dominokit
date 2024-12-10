@@ -59,6 +59,10 @@ public final class AddPluginNameSetComponent implements HtmlElementComponent<HTM
                 .appendChild(this.flex);
     }
 
+    Optional<String> filterValue() {
+        return this.root.filterValue();
+    }
+
     AddPluginNameSetComponent setFilterValueChangeListener(final ChangeListener<Optional<String>> listener) {
         this.root.setFilterValueChangeListener(listener);
         return this;
