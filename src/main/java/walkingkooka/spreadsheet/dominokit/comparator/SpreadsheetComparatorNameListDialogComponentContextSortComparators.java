@@ -87,4 +87,11 @@ final class SpreadsheetComparatorNameListDialogComponentContextSortComparators i
     }
 
     private final AppContext context;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.context.toString();
+    }
 }
