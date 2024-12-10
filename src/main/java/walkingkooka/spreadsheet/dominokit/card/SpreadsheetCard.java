@@ -90,20 +90,17 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
     public SpreadsheetCard setFilterValueChangeListener(final ChangeListener<Optional<String>> changeListener) {
         Objects.requireNonNull(changeListener, "changeListener");
 
-        SpreadsheetTextBox filter = this.filter;
-        if (null == filter) {
-            filter = SpreadsheetTextBox.empty()
+        if (null == this.filter) {
+            this.filter = SpreadsheetTextBox.empty()
                     .clearIcon();
-            final SpreadsheetTextBox filter2 = filter;
-
             this.card.withHeader(
                     (card, header) -> header.appendChild(
                             PostfixAddOn.of(
-                                    filter2.setCssText("display: inline-block; width: 33%; background-color: "))
+                                    this.filter.setCssText("display: inline-block; width: 33%; background-color: "))
                     )
             );
         }
-        filter.addChangeListener(changeListener);
+        this.filter.addChangeListener(changeListener);
 
         return this;
     }
