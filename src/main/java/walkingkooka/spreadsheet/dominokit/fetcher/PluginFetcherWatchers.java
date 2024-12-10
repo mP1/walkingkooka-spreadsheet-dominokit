@@ -17,8 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
+import walkingkooka.plugin.PluginName;
+import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+
+import java.util.Optional;
 
 public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWatcher>
         implements PluginFetcherWatcher {
@@ -29,6 +33,19 @@ public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWa
 
     public static PluginFetcherWatchers empty() {
         return new PluginFetcherWatchers();
+    }
+
+    @Override
+    public void onPlugin(final PluginName name,
+                         final Optional<Plugin> plugin,
+                         final AppContext context) {
+        this.fire(
+                PluginFetcherWatchersPluginEvent.with(
+                        name,
+                        plugin,
+                        context
+                )
+        );
     }
 
     @Override
