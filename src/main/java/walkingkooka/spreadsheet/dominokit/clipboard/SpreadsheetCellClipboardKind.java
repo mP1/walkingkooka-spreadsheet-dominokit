@@ -103,7 +103,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                             context, // SpreadsheetParserProvider
                                             context
                                     ),
-                                    metadata.spreadsheetParserContext(context::now)
+                                    metadata.spreadsheetParserContext(context)
                             )
                     );
                 } catch (final RuntimeException ignore) {
@@ -161,9 +161,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                     context, // SpreadsheetParserProvider
                                     context // ProviderContext
                             ),
-                            metadata.spreadsheetParserContext(
-                                    context::now
-                            )// parser context
+                            metadata.spreadsheetParserContext(context)// parser context
                     )
             );
         }

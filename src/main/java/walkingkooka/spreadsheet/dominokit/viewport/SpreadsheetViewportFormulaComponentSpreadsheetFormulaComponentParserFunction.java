@@ -82,9 +82,7 @@ final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParser
                     )
             );
         }
-        final SpreadsheetParserContext parserContext = metadata.spreadsheetParserContext(
-                context::now
-        );
+        final SpreadsheetParserContext parserContext = metadata.spreadsheetParserContext(context);
 
         return SpreadsheetFormula.parse(
                 TextCursors.charSequence(text),
