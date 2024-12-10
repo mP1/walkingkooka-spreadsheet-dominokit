@@ -20,12 +20,17 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
+import walkingkooka.net.UrlPathName;
+import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
+import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
+import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
+import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -56,6 +61,34 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         super(
                 watcher,
                 context
+        );
+    }
+
+    // GET /api/plugin/PluginName/filter?query=XXX&offset=0&count=10
+    public void filter(final PluginName pluginName,
+                       final String query,
+                       final int offset,
+                       final int count) {
+        Objects.requireNonNull(pluginName, "pluginName");
+        Objects.requireNonNull(query, "query");
+        if (offset < 0) {
+            throw new IllegalArgumentException("Invalid offset " + offset + " < 0");
+        }
+        if (count < 0) {
+            throw new IllegalArgumentException("Invalid count " + count + " < 0");
+        }
+
+        this.get(
+                plugin()
+                        .appendPathName(
+                                UrlPathName.with(pluginName.value())
+                        ).appendPathName(
+                                SpreadsheetServerLinkRelations.FILTER.toUrlPathName()
+                        ).setQuery(
+                                UrlQueryString.EMPTY.addParameter(SpreadsheetUrlQueryParameters.QUERY, query)
+                                        .addParameter(SpreadsheetUrlQueryParameters.OFFSET, String.valueOf(offset))
+                                        .addParameter(SpreadsheetUrlQueryParameters.COUNT, String.valueOf(count))
+                        )
         );
     }
 
