@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext,
         SpreadsheetDialogComponentContextDelegator,
@@ -36,7 +37,9 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
         ProviderContextDelegator {
 
     static AppContextSpreadsheetFindDialogComponentContext with(final AppContext context) {
-        return new AppContextSpreadsheetFindDialogComponentContext(context);
+        return new AppContextSpreadsheetFindDialogComponentContext(
+                Objects.requireNonNull(context, "context")
+        );
     }
 
     private AppContextSpreadsheetFindDialogComponentContext(final AppContext context) {
