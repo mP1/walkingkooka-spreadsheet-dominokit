@@ -18,15 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.sort;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class BasicSpreadsheetSortDialogComponentContextTest implements ClassTesting<BasicSpreadsheetSortDialogComponentContext> {
+public final class BasicSpreadsheetSortDialogComponentContextTest implements SpreadsheetSortDialogComponentContextTesting<BasicSpreadsheetSortDialogComponentContext> {
 
     @Test
     public void testWithNullSpreadsheetComparatorProviderFails() {
@@ -64,15 +62,26 @@ public final class BasicSpreadsheetSortDialogComponentContextTest implements Cla
         );
     }
 
+    // context..........................................................................................................
+
+    @Override
+    public BasicSpreadsheetSortDialogComponentContext createContext() {
+        return BasicSpreadsheetSortDialogComponentContext.with(
+                SpreadsheetComparatorProviders.fake(),
+                HistoryTokenContexts.fake(),
+                LoggingContexts.fake()
+        );
+    }
+
     // class............................................................................................................
+
+    @Override
+    public String typeNameSuffix() {
+        return SpreadsheetSortDialogComponentContext.class.getSimpleName();
+    }
 
     @Override
     public Class<BasicSpreadsheetSortDialogComponentContext> type() {
         return BasicSpreadsheetSortDialogComponentContext.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
