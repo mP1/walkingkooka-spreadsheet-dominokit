@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -37,7 +38,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import java.time.LocalDateTime;
 import java.util.Locale;
 
-public final class SpreadsheetListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetListDialogComponent> {
+public final class SpreadsheetListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetListDialogComponent,
+        SpreadsheetComparatorNameListDialogComponentContext> {
 
     @Test
     public void testEmpty() {

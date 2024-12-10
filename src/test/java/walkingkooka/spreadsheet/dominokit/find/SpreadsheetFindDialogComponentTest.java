@@ -43,7 +43,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Arrays;
 import java.util.Optional;
 
-public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetFindDialogComponent>,
+public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetFindDialogComponent,
+        SpreadsheetFindDialogComponentContext>,
         SpreadsheetMetadataTesting {
 
     // refresh..........................................................................................................

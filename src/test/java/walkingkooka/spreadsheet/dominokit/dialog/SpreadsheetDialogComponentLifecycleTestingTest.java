@@ -23,6 +23,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycleContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
@@ -30,7 +31,8 @@ import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Optional;
 
-public final class SpreadsheetDialogComponentLifecycleTestingTest implements SpreadsheetDialogComponentLifecycleTesting<TestSpreadsheetDialogComponentLifecycle> {
+public final class SpreadsheetDialogComponentLifecycleTestingTest implements SpreadsheetDialogComponentLifecycleTesting<TestSpreadsheetDialogComponentLifecycle,
+        TestSpreadsheetDialogComponentLifecycleContext> {
 
     @Test
     public void testAnchor() {
@@ -228,6 +230,10 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         public String idPrefix() {
             return "id123-";
         }
+    }
+
+    final static class TestSpreadsheetDialogComponentLifecycleContext extends FakeSpreadsheetDialogComponentContext {
+
     }
 
     @Override
