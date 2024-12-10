@@ -231,6 +231,11 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     }
 
     @Override
+    public void dialogReset() {
+        // NOP
+    }
+
+    @Override
     public void openGiveFocus(final AppContext context) {
         boolean loadLabel = false;
 

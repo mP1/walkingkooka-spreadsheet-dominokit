@@ -188,6 +188,11 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     }
 
     @Override
+    public void dialogReset() {
+        // NOP
+    }
+
+    @Override
     public void openGiveFocus(final AppContext context) {
         // NOP
     }

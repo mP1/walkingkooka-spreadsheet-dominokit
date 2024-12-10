@@ -386,6 +386,11 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     }
 
     @Override
+    public void dialogReset() {
+        // NOP
+    }
+
+    @Override
     public void openGiveFocus(final AppContext context) {
         context.giveFocus(
                 this.textBox::focus

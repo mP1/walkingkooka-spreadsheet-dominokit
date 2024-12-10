@@ -646,4 +646,9 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                 token instanceof SpreadsheetColumnSortHistoryToken ||
                 token instanceof SpreadsheetRowSortHistoryToken;
     }
+
+    @Override
+    public void dialogReset() {
+        // NOP
+    }
 }

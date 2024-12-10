@@ -499,6 +499,11 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     }
 
     @Override
+    public void dialogReset() {
+        // this.table.clear();
+    }
+
+    @Override
     public void openGiveFocus(final AppContext context) {
         context.giveFocus(
                 this.cellRange::focus

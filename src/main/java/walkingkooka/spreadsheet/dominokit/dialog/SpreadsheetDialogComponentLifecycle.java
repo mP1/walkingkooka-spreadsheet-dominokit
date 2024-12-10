@@ -83,6 +83,7 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
 
     @Override
     default void open(final AppContext context) {
+        this.dialogReset();
         this.dialog()
                 .open();
     }
@@ -92,13 +93,20 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
      */
     @Override
     default void close(final AppContext context) {
-        this.dialog().close();
+        this.dialog()
+                .close();
+        this.dialogReset();
     }
 
     @Override
     default boolean shouldLogLifecycleChanges() {
         return false; // no need to log, dialog will disappear/appear is enough
     }
+
+    /**
+     * Callback that is called when a dialog is opened and closed, providing an opportunity to reset state etc.
+     */
+    void dialogReset();
 
     // TreePrintable....................................................................................................
 

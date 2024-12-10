@@ -391,6 +391,11 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     }
 
     @Override
+    public void dialogReset() {
+        // NOP
+    }
+
+    @Override
     public void openGiveFocus(final AppContext context) {
         context.giveFocus(
                 this.textBox::focus

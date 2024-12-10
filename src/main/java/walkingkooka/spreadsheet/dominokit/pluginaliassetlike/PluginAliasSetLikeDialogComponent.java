@@ -289,6 +289,11 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     }
 
     @Override
+    public void dialogReset() {
+        // NOP
+    }
+
+    @Override
     public void openGiveFocus(final AppContext context) {
         context.giveFocus(
                 this.textBox::focus
