@@ -114,7 +114,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                 this.watcher.onEmptyResponse(context);
                 break;
             case "PluginSet":
-                // GET http://server/api/spreadsheet/1/formatter
+                // GET http://server/api/plugin/PluginName/filter
                 this.watcher.onPluginSet(
                         this.parse(
                                 body,
