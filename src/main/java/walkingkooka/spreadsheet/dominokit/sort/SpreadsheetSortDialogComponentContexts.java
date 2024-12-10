@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.sort;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
 public final class SpreadsheetSortDialogComponentContexts implements PublicStaticHelper {
 
@@ -27,10 +28,12 @@ public final class SpreadsheetSortDialogComponentContexts implements PublicStati
      * {@see BasicSpreadsheetSortDialogComponentContext}
      */
     public static SpreadsheetSortDialogComponentContext basic(final SpreadsheetComparatorProvider spreadsheetComparatorProvider,
-                                                              final HistoryTokenContext historyTokenContext) {
+                                                              final HistoryTokenContext historyTokenContext,
+                                                              final LoggingContext loggingContext) {
         return BasicSpreadsheetSortDialogComponentContext.with(
                 spreadsheetComparatorProvider,
-                historyTokenContext
+                historyTokenContext,
+                loggingContext
         );
     }
 

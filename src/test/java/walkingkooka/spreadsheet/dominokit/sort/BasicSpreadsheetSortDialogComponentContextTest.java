@@ -22,6 +22,7 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -33,7 +34,8 @@ public final class BasicSpreadsheetSortDialogComponentContextTest implements Cla
                 NullPointerException.class,
                 () -> BasicSpreadsheetSortDialogComponentContext.with(
                         null,
-                        HistoryTokenContexts.fake()
+                        HistoryTokenContexts.fake(),
+                        LoggingContexts.fake()
                 )
         );
     }
@@ -44,10 +46,25 @@ public final class BasicSpreadsheetSortDialogComponentContextTest implements Cla
                 NullPointerException.class,
                 () -> BasicSpreadsheetSortDialogComponentContext.with(
                         SpreadsheetComparatorProviders.fake(),
+                        null,
+                        LoggingContexts.fake()
+                )
+        );
+    }
+
+    @Test
+    public void testWithNullLoggingContextFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> BasicSpreadsheetSortDialogComponentContext.with(
+                        SpreadsheetComparatorProviders.fake(),
+                        HistoryTokenContexts.fake(),
                         null
                 )
         );
     }
+
+    // class............................................................................................................
 
     @Override
     public Class<BasicSpreadsheetSortDialogComponentContext> type() {
