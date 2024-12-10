@@ -148,6 +148,11 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
     }
 
     @Override
+    public void dialogReset() {
+        // NOP
+    }
+
+    @Override
     public void openGiveFocus(final AppContext context) {
         this.count.setValue(Optional.empty()); // clear old value
         context.giveFocus(

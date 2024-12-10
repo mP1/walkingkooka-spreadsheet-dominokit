@@ -165,6 +165,11 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
     }
 
     @Override
+    public void dialogReset() {
+        // NOP
+    }
+
+    @Override
     public void openGiveFocus(final AppContext context) {
         final SpreadsheetNameDialogComponentContext dialogContext = this.context;
 

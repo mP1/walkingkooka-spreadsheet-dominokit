@@ -72,6 +72,12 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                         "      SpreadsheetTextBox\n" +
                         "        [NOT refreshed]\n"
         );
+
+        // dialog never opened or closed
+        this.checkEquals(
+                0,
+                table.dialogReset
+        );
     }
 
     @Test
@@ -93,6 +99,65 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                         "        [onGiveFocus]\n" +
                         "      SpreadsheetTextBox\n" +
                         "        [refreshed]\n"
+        );
+
+        // dialog should be opened but never closed.
+        this.checkEquals(
+                1,
+                table.dialogReset
+        );
+    }
+
+    @Test
+    public void testMatchedOnHistoryTokenChangeAndCheckOpenAndClose() {
+        final TestSpreadsheetDialogComponentLifecycle table = new TestSpreadsheetDialogComponentLifecycle();
+
+        this.onHistoryTokenChangeAndCheck(
+                table,
+                new FakeAppContext() {
+                    @Override
+                    public HistoryToken historyToken() {
+                        return HISTORY_TOKEN;
+                    }
+                },
+                "TestSpreadsheetDialogComponentLifecycle\n" +
+                        "  SpreadsheetDialogComponent\n" +
+                        "    Title456\n" +
+                        "    id=id123 includeClose=true\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        [onGiveFocus]\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        [refreshed]\n"
+        );
+
+        // dialog should be opened but never closed.
+        this.checkEquals(
+                1,
+                table.dialogReset
+        );
+
+        this.onHistoryTokenChangeAndCheck(
+                table,
+                new FakeAppContext() {
+                    @Override
+                    public HistoryToken historyToken() {
+                        return HistoryToken.parseString("/unknown");
+                    }
+                },
+                "TestSpreadsheetDialogComponentLifecycle\n" +
+                        "  SpreadsheetDialogComponent\n" +
+                        "    Title456\n" +
+                        "    id=id123 includeClose=true CLOSED\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        [onGiveFocus]\n" +
+                        "      SpreadsheetTextBox\n" +
+                        "        [refreshed]\n"
+        );
+
+        // dialog should now be closed
+        this.checkEquals(
+                2,
+                table.dialogReset
         );
     }
 
@@ -116,6 +181,13 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
                     ).appendChild(this.onGiveFocus)
                     .appendChild(this.refreshed);
         }
+
+        @Override
+        public void dialogReset() {
+            this.dialogReset++;
+        }
+
+        int dialogReset;
 
         @Override
         public void openGiveFocus(final AppContext context) {
