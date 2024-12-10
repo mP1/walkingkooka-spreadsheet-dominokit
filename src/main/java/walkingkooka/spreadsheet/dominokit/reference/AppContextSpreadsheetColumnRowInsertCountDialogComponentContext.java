@@ -18,11 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -31,8 +29,7 @@ import java.util.Optional;
 import java.util.OptionalInt;
 
 final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext implements SpreadsheetColumnRowInsertCountDialogComponentContext,
-        HistoryTokenContextDelegator,
-        LoggingContextDelegator {
+        SpreadsheetDialogComponentContextDelegator {
 
     static AppContextSpreadsheetColumnRowInsertCountDialogComponentContext with(final AppContext context) {
         return new AppContextSpreadsheetColumnRowInsertCountDialogComponentContext(
@@ -96,13 +93,10 @@ final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext impl
         );
     }
 
-    @Override
-    public HistoryTokenContext historyTokenContext() {
-        return this.context;
-    }
+    // SpreadsheetDialogComponentContext................................................................................
 
     @Override
-    public LoggingContext loggingContext() {
+    public SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
         return this.context;
     }
 

@@ -18,12 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
@@ -32,8 +30,7 @@ import java.util.Objects;
  * A basic implementation of {@link SpreadsheetLabelMappingDialogComponentContext}.
  */
 final class AppContextSpreadsheetLabelMappingDialogComponentContext implements SpreadsheetLabelMappingDialogComponentContext,
-        HistoryTokenContextDelegator,
-        LoggingContextDelegator {
+        SpreadsheetDialogComponentContextDelegator {
 
     static AppContextSpreadsheetLabelMappingDialogComponentContext with(final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -61,17 +58,10 @@ final class AppContextSpreadsheetLabelMappingDialogComponentContext implements S
                 );
     }
 
-    // HistoryTokenContext..............................................................................................
+    // SpreadsheetDialogComponentContext................................................................................
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
-        return this.context;
-    }
-
-    // LoggingContext...................................................................................................
-
-    @Override
-    public LoggingContext loggingContext() {
+    public SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
         return this.context;
     }
 

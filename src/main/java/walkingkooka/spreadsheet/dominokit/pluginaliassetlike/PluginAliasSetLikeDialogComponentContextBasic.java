@@ -25,14 +25,12 @@ import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 
@@ -47,8 +45,7 @@ abstract class PluginAliasSetLikeDialogComponentContextBasic<N extends Name & Co
         S extends PluginSelectorLike<N>,
         A extends PluginAliasLike<N, S, A>,
         AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> implements PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS>,
-        HistoryTokenContextDelegator,
-        LoggingContextDelegator {
+        SpreadsheetDialogComponentContextDelegator {
 
     PluginAliasSetLikeDialogComponentContextBasic(final AppContext context) {
         this.context = Objects.requireNonNull(context, "context");
@@ -110,17 +107,10 @@ abstract class PluginAliasSetLikeDialogComponentContextBasic<N extends Name & Co
         this.context.giveFocus(focus);
     }
 
-    // HistoryTokenContext..............................................................................................
+    // SpreadsheetDialogComponentContext................................................................................
 
     @Override
-    public final HistoryTokenContext historyTokenContext() {
-        return this.context;
-    }
-
-    // LoggingContext...................................................................................................
-
-    @Override
-    public final LoggingContext loggingContext() {
+    public final SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
         return this.context;
     }
 

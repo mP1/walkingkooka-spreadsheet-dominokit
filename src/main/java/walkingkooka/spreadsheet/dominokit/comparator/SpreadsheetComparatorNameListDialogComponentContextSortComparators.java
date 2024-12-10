@@ -19,14 +19,12 @@ package walkingkooka.spreadsheet.dominokit.comparator;
 
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.HasText;
@@ -34,8 +32,7 @@ import walkingkooka.text.HasText;
 import java.util.Objects;
 
 final class SpreadsheetComparatorNameListDialogComponentContextSortComparators implements SpreadsheetComparatorNameListDialogComponentContext,
-        HistoryTokenContextDelegator,
-        LoggingContextDelegator {
+        SpreadsheetDialogComponentContextDelegator {
 
     static SpreadsheetComparatorNameListDialogComponentContextSortComparators with(final AppContext context) {
         return new SpreadsheetComparatorNameListDialogComponentContextSortComparators(
@@ -82,13 +79,10 @@ final class SpreadsheetComparatorNameListDialogComponentContextSortComparators i
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
-    @Override
-    public HistoryTokenContext historyTokenContext() {
-        return this.context;
-    }
+    // SpreadsheetDialogComponentContext................................................................................
 
     @Override
-    public LoggingContext loggingContext() {
+    public SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
         return this.context;
     }
 

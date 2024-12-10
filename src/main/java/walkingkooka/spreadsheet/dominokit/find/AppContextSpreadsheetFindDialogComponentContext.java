@@ -20,12 +20,10 @@ package walkingkooka.spreadsheet.dominokit.find;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
@@ -33,8 +31,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
 import java.time.LocalDateTime;
 
 final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext,
-        HistoryTokenContextDelegator,
-        LoggingContextDelegator,
+        SpreadsheetDialogComponentContextDelegator,
         SpreadsheetParserProviderDelegator,
         ProviderContextDelegator {
 
@@ -44,13 +41,6 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
 
     private AppContextSpreadsheetFindDialogComponentContext(final AppContext context) {
         this.context = context;
-    }
-
-    // HistoryTokenContext..............................................................................................
-
-    @Override
-    public HistoryTokenContext historyTokenContext() {
-        return this.context;
     }
 
     // HasNow...........................................................................................................
@@ -98,10 +88,10 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
         return this.context;
     }
 
-    // LoggingContext...................................................................................................
+    // SpreadsheetDialogComponentContext................................................................................
 
     @Override
-    public LoggingContext loggingContext() {
+    public SpreadsheetDialogComponentContext spreadsheetDialogComponentContext() {
         return this.context;
     }
 
