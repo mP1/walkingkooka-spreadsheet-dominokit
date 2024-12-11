@@ -33,7 +33,7 @@ import walkingkooka.tree.json.JsonNode;
 
 import java.util.Optional;
 
-abstract class Fetcher<W extends FetcherWatcher> {
+abstract public class Fetcher<W extends FetcherWatcher> {
 
     Fetcher(final W watcher,
             final AppContext context) {

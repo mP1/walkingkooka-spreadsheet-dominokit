@@ -17,7 +17,27 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.ContextTesting;
+import walkingkooka.collect.set.Sets;
+import walkingkooka.spreadsheet.dominokit.fetcher.Fetcher;
+
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public interface SpreadsheetDialogComponentContextTesting<C extends SpreadsheetDialogComponentContext> extends ContextTesting<C> {
+
+    @Test
+    default void testNoMethodShouldReturnFetcher() {
+        this.checkEquals(
+                Sets.empty(),
+                Arrays.stream(
+                                this.type()
+                                        .getMethods()
+                        ).filter(m -> Fetcher.class.isAssignableFrom(m.getReturnType()))
+                        .map(Method::toGenericString)
+                        .collect(Collectors.toSet())
+        );
+    }
 }
