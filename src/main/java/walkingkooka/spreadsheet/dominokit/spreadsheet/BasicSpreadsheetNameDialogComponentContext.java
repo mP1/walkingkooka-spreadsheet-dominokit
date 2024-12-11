@@ -17,32 +17,30 @@
 
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchersDelegator;
 
 abstract class BasicSpreadsheetNameDialogComponentContext implements SpreadsheetNameDialogComponentContext,
-        SpreadsheetDialogComponentContextDelegator {
+        SpreadsheetDialogComponentContextDelegator,
+        HasSpreadsheetMetadataFetcherWatchersDelegator {
 
     BasicSpreadsheetNameDialogComponentContext(final AppContext context) {
         this.context = context;
     }
 
     @Override
-    public final Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
+    public final void loadSpreadsheetMetadata(final SpreadsheetId id) {
+        this.context.spreadsheetMetadataFetcher()
+                .loadSpreadsheetMetadata(id);
     }
 
     @Override
-    public final Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
-        return this.context.addSpreadsheetMetadataFetcherWatcherOnce(watcher);
-    }
-
-    @Override
-    public final SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
-        return this.context.spreadsheetMetadataFetcher();
+    public final HasSpreadsheetMetadataFetcherWatchers hasSpreadsheetMetadataFetcherWatchers() {
+        return this.context;
     }
 
     // SpreadsheetDialogComponentContext................................................................................

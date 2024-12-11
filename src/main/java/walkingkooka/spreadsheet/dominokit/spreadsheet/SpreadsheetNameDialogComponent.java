@@ -178,8 +178,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
         this.setName(dialogContext.spreadsheetName());
 
         if (dialogContext.shouldLoadSpreadsheetMetadata()) {
-            dialogContext.spreadsheetMetadataFetcher()
-                    .loadSpreadsheetMetadata(id);
+            dialogContext.loadSpreadsheetMetadata(id);
         }
     }
 
