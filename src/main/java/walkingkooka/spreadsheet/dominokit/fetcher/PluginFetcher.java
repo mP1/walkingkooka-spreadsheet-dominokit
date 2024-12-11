@@ -65,12 +65,10 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         );
     }
 
-    // GET /api/plugin/PluginName/filter?query=XXX&offset=0&count=10
-    public void filter(final PluginName pluginName,
-                       final String query,
+    // GET /api/plugin/*/filter?query=XXX&offset=0&count=10
+    public void filter(final String query,
                        final int offset,
                        final int count) {
-        Objects.requireNonNull(pluginName, "pluginName");
         Objects.requireNonNull(query, "query");
         if (offset < 0) {
             throw new IllegalArgumentException("Invalid offset " + offset + " < 0");
@@ -81,9 +79,8 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
 
         this.get(
                 plugin()
+                        .appendPathName(STAR)
                         .appendPathName(
-                                UrlPathName.with(pluginName.value())
-                        ).appendPathName(
                                 SpreadsheetServerLinkRelations.FILTER.toUrlPathName()
                         ).setQuery(
                                 UrlQueryString.EMPTY.addParameter(SpreadsheetUrlQueryParameters.QUERY, query)
@@ -92,6 +89,8 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                         )
         );
     }
+
+    private final static UrlPathName STAR = UrlPathName.with("*");
 
     static RelativeUrl plugin() {
         return Url.EMPTY_RELATIVE_URL.appendPath(
