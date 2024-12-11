@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.parser;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetParserFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetParserFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatcher;
@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEditConte
  */
 public interface SpreadsheetParserSelectorDialogComponentContext extends CanGiveFocus,
         ComponentLifecycleMatcher,
-        HasSpreadsheetParserFetcher,
+        HasSpreadsheetParserFetcherWatchers,
         SpreadsheetDialogComponentContext,
         SpreadsheetParserProvider,
         SpreadsheetPatternKindTabsComponentContext,
