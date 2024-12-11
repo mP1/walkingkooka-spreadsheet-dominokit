@@ -21,12 +21,14 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.ContextTesting;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.fetcher.Fetcher;
+import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public interface SpreadsheetDialogComponentContextTesting<C extends SpreadsheetDialogComponentContext> extends ContextTesting<C> {
+public interface SpreadsheetDialogComponentContextTesting<C extends SpreadsheetDialogComponentContext> extends ContextTesting<C>,
+        TreePrintableTesting {
 
     @Test
     default void testNoMethodShouldReturnFetcher() {
