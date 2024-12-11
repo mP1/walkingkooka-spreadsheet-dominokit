@@ -17,11 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-public interface HasPluginFetcher {
-
-    Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher);
-
-    Runnable addPluginFetcherWatcherOnce(final PluginFetcherWatcher watcher);
+public interface HasPluginFetcher extends HasPluginFetcherWatchers {
 
     PluginFetcher pluginFetcher();
 }
