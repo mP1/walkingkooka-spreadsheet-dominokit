@@ -82,7 +82,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
             case LABEL_STRING:
                 result = this.parseLabel(cursor);
                 break;
-            case METADATA_STRING:
+            case SPEADSHEET_STRING:
                 result = this.parseMetadata(cursor);
                 break;
             case RELOAD_STRING:

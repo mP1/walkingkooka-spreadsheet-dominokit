@@ -73,7 +73,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
 
     @Test
     public void testUrlFragmentExpressionNumberKind() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/metadata/expression-number-kind");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/spreadsheet/expression-number-kind");
     }
 
     @Test
@@ -84,7 +84,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
                         NAME,
                         SpreadsheetMetadataPropertyName.DATE_FORMATTER
                 ),
-                "/123/SpreadsheetName456/metadata/date-formatter"
+                "/123/SpreadsheetName456/spreadsheet/date-formatter"
         );
     }
 
@@ -96,7 +96,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
                         NAME,
                         SpreadsheetMetadataPropertyName.DEFAULT_YEAR
                 ),
-                "/123/SpreadsheetName456/metadata/default-year"
+                "/123/SpreadsheetName456/spreadsheet/default-year"
         );
     }
 
@@ -105,7 +105,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     @Test
     public void testParseDateFormatter() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/metadata/date-formatter",
+                "/123/SpreadsheetName456/spreadsheet/date-formatter",
                 SpreadsheetMetadataPropertySelectHistoryToken.with(
                         ID,
                         NAME,
@@ -117,7 +117,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     @Test
     public void testParseDefaultYear() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/metadata/default-year",
+                "/123/SpreadsheetName456/spreadsheet/default-year",
                 SpreadsheetMetadataPropertySelectHistoryToken.with(
                         ID,
                         NAME,
@@ -129,7 +129,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     @Test
     public void testParseSpreadsheetId() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/metadata/spreadsheet-id",
+                "/123/SpreadsheetName456/spreadsheet/spreadsheet-id",
                 HistoryToken.metadataPropertySelect(
                         ID,
                         NAME,
@@ -141,7 +141,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     @Test
     public void testParseStyle() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/metadata/style",
+                "/123/SpreadsheetName456/spreadsheet/style",
                 HistoryToken.spreadsheetSelect(
                         ID,
                         NAME

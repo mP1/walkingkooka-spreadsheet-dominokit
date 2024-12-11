@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.HasSpreadsheetPatternKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -178,10 +179,6 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment MENU = UrlFragment.parse(MENU_STRING);
 
-    final static String METADATA_STRING = "metadata";
-
-    final static UrlFragment METADATA = UrlFragment.parse(METADATA_STRING);
-
     final static String PARSER_STRING = "parser";
 
     final static UrlFragment PARSER = SpreadsheetUrlFragments.PARSER;
@@ -211,6 +208,10 @@ public abstract class HistoryToken implements HasUrlFragment,
     final static String SORT_STRING = "sort";
 
     final static UrlFragment SORT = UrlFragment.parse(SORT_STRING);
+
+    final static String SPEADSHEET_STRING = SpreadsheetMetadata.HATEOS_RESOURCE_NAME_STRING;
+
+    final static UrlFragment SPREADSHEET = UrlFragment.parse(SPEADSHEET_STRING);
 
     final static String STYLE_STRING = "style";
 

@@ -70,7 +70,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
 
     @Test
     public void testUrlFragmentColor() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/metadata/style/color");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/spreadsheet/style/color");
     }
 
     @Test
@@ -81,7 +81,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
                         NAME,
                         TextStylePropertyName.FONT_FAMILY
                 ),
-                "/123/SpreadsheetName456/metadata/style/font-family"
+                "/123/SpreadsheetName456/spreadsheet/style/font-family"
         );
     }
 
@@ -93,14 +93,14 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
                         NAME,
                         TextStylePropertyName.FONT_STYLE
                 ),
-                "/123/SpreadsheetName456/metadata/style/font-style"
+                "/123/SpreadsheetName456/spreadsheet/style/font-style"
         );
     }
 
     @Test
     public void testParseBackgroundColor() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/metadata/style/background-color",
+                "/123/SpreadsheetName456/spreadsheet/style/background-color",
                 SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                         ID,
                         NAME,
@@ -112,7 +112,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
     @Test
     public void testParseFontFamily() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/metadata/style/font-family",
+                "/123/SpreadsheetName456/spreadsheet/style/font-family",
                 SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                         ID,
                         NAME,

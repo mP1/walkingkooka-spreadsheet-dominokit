@@ -31,13 +31,13 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/metadata");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/spreadsheet");
     }
 
     @Test
     public void testParseDateFormatPattern() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/metadata/date-format",
+                "/123/SpreadsheetName456/spreadsheet/date-format",
                 SpreadsheetMetadataSelectHistoryToken.with(
                         ID,
                         NAME
@@ -48,7 +48,7 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseStyle() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/metadata/style",
+                "/123/SpreadsheetName456/spreadsheet/style",
                 HistoryToken.spreadsheetSelect(
                         ID,
                         NAME
