@@ -29,6 +29,7 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.server.hateos.HateosResourceName;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.SpreadsheetHateosResourceNames;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetViewportRectangle;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
@@ -358,7 +359,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                     final SpreadsheetCellRangeReference cells,
                                     final SpreadsheetCellFindQuery find) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPathName(SpreadsheetDeltaHttpMappings.CELL.toUrlPathName())
+                .appendPathName(SpreadsheetHateosResourceNames.CELL.toUrlPathName())
                 .appendPathName(
                         UrlPathName.with(
                                 Objects.requireNonNull(cells, "cells")

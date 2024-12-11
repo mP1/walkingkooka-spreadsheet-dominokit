@@ -22,6 +22,7 @@ import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.predicate.character.CharPredicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetHateosResourceNames;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetUrlFragments;
@@ -113,13 +114,13 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     public final static String ENABLE = "enable";
 
-    final static String CELL_STRING = "cell";
+    final static String CELL_STRING = SpreadsheetHateosResourceNames.CELL_STRING;
 
     final static String CLEAR_STRING = "clear";
 
     final static UrlFragment CLEAR = UrlFragment.parse(CLEAR_STRING);
 
-    final static String COLUMN_STRING = "column";
+    final static String COLUMN_STRING = SpreadsheetHateosResourceNames.COLUMN_STRING;
 
     final static String COPY_STRING = "copy";
 
@@ -169,7 +170,7 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment INSERT_BEFORE = UrlFragment.parse(INSERT_BEFORE_STRING);
     
-    final static String LABEL_STRING = "label";
+    final static String LABEL_STRING = SpreadsheetHateosResourceNames.LABEL_STRING;
 
     final static UrlFragment LABEL = UrlFragment.parse(LABEL_STRING);
 
@@ -197,7 +198,7 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment RENAME = UrlFragment.parse(RENAME_STRING);
 
-    final static String ROW_STRING = "row";
+    final static String ROW_STRING = SpreadsheetHateosResourceNames.ROW_STRING;
 
     final static String SELECT_STRING = "";
 
