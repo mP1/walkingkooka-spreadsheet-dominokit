@@ -21,13 +21,15 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 
 import java.util.Optional;
 
 public interface SpreadsheetNameDialogComponentContext extends SpreadsheetDialogComponentContext,
         ComponentLifecycleMatcher,
-        HasSpreadsheetMetadataFetcher {
+        HasSpreadsheetMetadataFetcherWatchers {
+
+    void loadSpreadsheetMetadata(final SpreadsheetId id);
 
     boolean shouldLoadSpreadsheetMetadata();
 
