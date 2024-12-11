@@ -38,7 +38,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Locale;
 
-public final class SpreadsheetLabelMappingDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetLabelMappingDialogComponent> {
+public final class SpreadsheetLabelMappingDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetLabelMappingDialogComponent,
+        SpreadsheetLabelMappingDialogComponentContext> {
 
     // http://localhost:12345/index.html#/1/Untitled/label
     @Test

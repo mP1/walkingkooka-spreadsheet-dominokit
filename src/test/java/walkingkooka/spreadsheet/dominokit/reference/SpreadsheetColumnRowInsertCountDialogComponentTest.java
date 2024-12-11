@@ -33,7 +33,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.OptionalInt;
 
-public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetColumnRowInsertCountDialogComponent>,
+public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetColumnRowInsertCountDialogComponent,
+        SpreadsheetColumnRowInsertCountDialogComponentContext>,
         SpreadsheetMetadataTesting {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);

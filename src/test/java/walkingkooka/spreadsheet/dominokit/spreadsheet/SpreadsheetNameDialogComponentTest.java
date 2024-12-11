@@ -28,7 +28,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
-public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetNameDialogComponent>,
+public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetNameDialogComponent,
+        SpreadsheetNameDialogComponentContext>,
         SpreadsheetMetadataTesting {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);

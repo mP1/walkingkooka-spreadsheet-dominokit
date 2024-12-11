@@ -27,7 +27,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
-public final class SpreadsheetComparatorNameListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetComparatorNameListDialogComponent>,
+public final class SpreadsheetComparatorNameListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetComparatorNameListDialogComponent,
+        SpreadsheetComparatorNameListDialogComponentContext>,
         SpreadsheetMetadataTesting {
 
     @Test

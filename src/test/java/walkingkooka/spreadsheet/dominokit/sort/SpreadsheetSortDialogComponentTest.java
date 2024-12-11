@@ -39,7 +39,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.List;
 
-public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetSortDialogComponent>,
+public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetSortDialogComponent,
+        SpreadsheetSortDialogComponentContext>,
         SpreadsheetMetadataTesting {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
