@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
@@ -98,9 +97,9 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
     @Override
     public final void loadSpreadsheetFormattersEdit(final String text) {
         this.throttler.add(
-                () -> this.spreadsheetFormatterFetcher()
+                () -> this.context.spreadsheetFormatterFetcher()
                         .edit(
-                                context.historyToken()
+                                this.context.historyToken()
                                         .cast(SpreadsheetIdHistoryToken.class)
                                         .id(), // id
                                 text
@@ -112,11 +111,6 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
      * Used to throttle calls to /formatter/STAR/edit
      */
     private final Throttler throttler;
-
-    @Override
-    public final SpreadsheetFormatterFetcher spreadsheetFormatterFetcher() {
-        return this.context.spreadsheetFormatterFetcher();
-    }
 
     @Override
     public final Runnable addSpreadsheetFormatterFetcherWatcher(final SpreadsheetFormatterFetcherWatcher watcher) {
