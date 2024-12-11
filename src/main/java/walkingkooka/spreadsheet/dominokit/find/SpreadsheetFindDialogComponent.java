@@ -572,12 +572,11 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 .selection()
                 .toCellRange();
 
-        context.spreadsheetDeltaFetcher()
-                .findCells(
-                        id,
-                        cells,
-                        historyToken.query()
-                );
+        context.findCells(
+                id,
+                cells,
+                historyToken.query()
+        );
     }
 
     // UI...............................................................................................................

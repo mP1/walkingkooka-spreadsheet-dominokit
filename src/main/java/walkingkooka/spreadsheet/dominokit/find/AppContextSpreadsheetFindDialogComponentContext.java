@@ -19,14 +19,16 @@ package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -66,8 +68,15 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
     }
 
     @Override
-    public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
-        return this.context.spreadsheetDeltaFetcher();
+    public void findCells(final SpreadsheetId id,
+                          final SpreadsheetCellRangeReference cells,
+                          final SpreadsheetCellFindQuery find) {
+        this.context.spreadsheetDeltaFetcher()
+                .findCells(
+                        id,
+                        cells,
+                        find
+                );
     }
 
     // HasSpreadsheetMetadata...........................................................................................
