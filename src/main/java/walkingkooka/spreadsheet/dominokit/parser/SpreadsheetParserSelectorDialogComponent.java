@@ -216,7 +216,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
 
         // couldnt get edit in browser, try server
         if (edit.message().startsWith("Unknown ")) {
-            context.fetchSpreadsheetParsersEdit(text);
+            context.loadSpreadsheetParsersEdit(text);
         } else {
             this.onSpreadsheetParserSelectorEdit(
                     edit,
