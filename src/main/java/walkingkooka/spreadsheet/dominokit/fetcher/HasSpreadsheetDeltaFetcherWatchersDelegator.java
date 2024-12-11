@@ -20,13 +20,14 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 public interface HasSpreadsheetDeltaFetcherWatchersDelegator extends HasSpreadsheetDeltaFetcherWatchers {
 
     default Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.spreadsheetDeltaFetcherWatchers()
-                .add(watcher);
+        return this.hasSpreadsheetDeltaFetcherWatchers()
+                .addSpreadsheetDeltaFetcherWatcher(watcher);
     }
 
     default Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.spreadsheetDeltaFetcherWatchers().addOnce(watcher);
+        return this.hasSpreadsheetDeltaFetcherWatchers()
+                .addSpreadsheetDeltaFetcherWatcherOnce(watcher);
     }
 
-    SpreadsheetDeltaFetcherWatchers spreadsheetDeltaFetcherWatchers();
+    HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers();
 }
