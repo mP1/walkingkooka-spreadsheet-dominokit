@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.delta;
 
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 
@@ -34,11 +33,6 @@ public class FakeSpreadsheetDeltaMatchedCellsTableComponentContext extends FakeH
 
     @Override
     public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
         throw new UnsupportedOperationException();
     }
 }

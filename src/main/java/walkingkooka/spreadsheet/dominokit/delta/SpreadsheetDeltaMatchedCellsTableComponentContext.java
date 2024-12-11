@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.delta;
 
-import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
 public interface SpreadsheetDeltaMatchedCellsTableComponentContext extends HistoryTokenContext,
-        HasSpreadsheetDeltaFetcher {
+        HasSpreadsheetDeltaFetcherWatchers {
 }

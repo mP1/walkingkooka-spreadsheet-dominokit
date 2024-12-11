@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.delta;
 
-import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherDelegator;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 
@@ -26,20 +26,20 @@ import java.util.Objects;
 
 final class BasicSpreadsheetDeltaMatchedCellsTableComponentContext implements SpreadsheetDeltaMatchedCellsTableComponentContext,
         HistoryTokenContextDelegator,
-        HasSpreadsheetDeltaFetcherDelegator {
+        HasSpreadsheetDeltaFetcherWatchers {
 
     static BasicSpreadsheetDeltaMatchedCellsTableComponentContext with(final HistoryTokenContext historyTokenContext,
-                                                                       final HasSpreadsheetDeltaFetcher hasSpreadsheetDeltaFetcher) {
+                                                                       final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
         return new BasicSpreadsheetDeltaMatchedCellsTableComponentContext(
                 Objects.requireNonNull(historyTokenContext, "historyTokenContext"),
-                Objects.requireNonNull(hasSpreadsheetDeltaFetcher, "hasSpreadsheetDeltaFetcher")
+                Objects.requireNonNull(hasSpreadsheetDeltaFetcherWatchers, "hasSpreadsheetDeltaFetcherWatchers")
         );
     }
 
     public BasicSpreadsheetDeltaMatchedCellsTableComponentContext(final HistoryTokenContext historyTokenContext,
-                                                                  final HasSpreadsheetDeltaFetcher hasSpreadsheetDeltaFetcher) {
+                                                                  final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
         this.historyTokenContext = historyTokenContext;
-        this.hasSpreadsheetDeltaFetcher = hasSpreadsheetDeltaFetcher;
+        this.hasSpreadsheetDeltaFetcherWatchers = hasSpreadsheetDeltaFetcherWatchers;
     }
 
     @Override
@@ -50,9 +50,14 @@ final class BasicSpreadsheetDeltaMatchedCellsTableComponentContext implements Sp
     private final HistoryTokenContext historyTokenContext;
 
     @Override
-    public HasSpreadsheetDeltaFetcher hasSpreadsheetDeltaFetcher() {
-        return this.hasSpreadsheetDeltaFetcher;
+    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+        return this.hasSpreadsheetDeltaFetcherWatchers.addSpreadsheetDeltaFetcherWatcher(watcher);
     }
 
-    private final HasSpreadsheetDeltaFetcher hasSpreadsheetDeltaFetcher;
+    @Override
+    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
+        return this.hasSpreadsheetDeltaFetcherWatchers.addSpreadsheetDeltaFetcherWatcherOnce(watcher);
+    }
+
+    private final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers;
 }

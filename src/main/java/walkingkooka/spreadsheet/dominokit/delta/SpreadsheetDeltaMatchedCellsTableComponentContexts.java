@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
 public final class SpreadsheetDeltaMatchedCellsTableComponentContexts implements PublicStaticHelper {
@@ -27,10 +27,10 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentContexts implements
      * {@see BasicSpreadsheetDeltaMatchedCellsTableComponentContext}
      */
     public static SpreadsheetDeltaMatchedCellsTableComponentContext basic(final HistoryTokenContext historyTokenContext,
-                                                                          final HasSpreadsheetDeltaFetcher hasSpreadsheetDeltaFetcher) {
+                                                                          final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
         return BasicSpreadsheetDeltaMatchedCellsTableComponentContext.with(
                 historyTokenContext,
-                hasSpreadsheetDeltaFetcher
+                hasSpreadsheetDeltaFetcherWatchers
         );
     }
 

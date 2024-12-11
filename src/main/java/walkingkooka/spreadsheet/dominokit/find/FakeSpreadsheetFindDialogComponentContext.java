@@ -21,9 +21,10 @@ import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.store.PluginStore;
+import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
@@ -31,6 +32,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorToken;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -53,7 +55,9 @@ public class FakeSpreadsheetFindDialogComponentContext extends FakeSpreadsheetDi
     }
 
     @Override
-    public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
+    public void findCells(final SpreadsheetId id,
+                          final SpreadsheetCellRangeReference cells,
+                          final SpreadsheetCellFindQuery find) {
         throw new UnsupportedOperationException();
     }
 
