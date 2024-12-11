@@ -22,9 +22,10 @@ import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetParserFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetParserFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.util.Throttler;
@@ -45,6 +46,7 @@ abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements S
         SpreadsheetFormatterContextDelegator,
         SpreadsheetFormatterProviderDelegator,
         SpreadsheetParserProviderDelegator,
+        HasSpreadsheetParserFetcherWatchersDelegator,
         ProviderContextDelegator {
 
     SpreadsheetParserSelectorDialogComponentContextBasic(final AppContext context) {
@@ -102,11 +104,6 @@ abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements S
     // SpreadsheetParserFetcher.........................................................................................
 
     @Override
-    public final SpreadsheetParserFetcher spreadsheetParserFetcher() {
-        return this.context.spreadsheetParserFetcher();
-    }
-
-    @Override
     public final Runnable addSpreadsheetParserFetcherWatcher(final SpreadsheetParserFetcherWatcher watcher) {
         return this.context.addSpreadsheetParserFetcherWatcher(watcher);
     }
@@ -117,11 +114,16 @@ abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements S
     }
 
     @Override
+    public final HasSpreadsheetParserFetcherWatchers hasSpreadsheetParserFetcherWatchers() {
+        return this.context;
+    }
+
+    @Override
     public final void loadSpreadsheetParsersEdit(final String text) {
         this.throttler.add(
-                () -> this.spreadsheetParserFetcher()
+                () -> this.context.spreadsheetParserFetcher()
                         .edit(
-                                context.historyToken()
+                                this.context.historyToken()
                                         .cast(SpreadsheetIdHistoryToken.class)
                                         .id(), // id
                                 text
