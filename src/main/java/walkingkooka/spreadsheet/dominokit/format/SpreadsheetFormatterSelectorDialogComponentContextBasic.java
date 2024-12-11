@@ -96,7 +96,7 @@ abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implement
     }
 
     @Override
-    public final void fetchSpreadsheetFormattersEdit(final String text) {
+    public final void loadSpreadsheetFormattersEdit(final String text) {
         this.throttler.add(
                 () -> this.spreadsheetFormatterFetcher()
                         .edit(
