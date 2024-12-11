@@ -94,9 +94,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
 
     static RelativeUrl plugin() {
         return Url.EMPTY_RELATIVE_URL.appendPath(
-                SpreadsheetHttpServer.API_PLUGIN.append(
-                        Plugin.HATEOS_RESOURCE_NAME.toUrlPathName()
-                )
+                SpreadsheetHttpServer.API_PLUGIN
         );
     }
 
