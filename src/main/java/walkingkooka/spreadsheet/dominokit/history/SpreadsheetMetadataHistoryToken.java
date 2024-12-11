@@ -40,7 +40,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
 
     @Override //
     final UrlFragment spreadsheetNameUrlFragment() {
-        return METADATA.appendSlashThen(
+        return SPREADSHEET.appendSlashThen(
                 this.metadataUrlFragment()
         );
     }

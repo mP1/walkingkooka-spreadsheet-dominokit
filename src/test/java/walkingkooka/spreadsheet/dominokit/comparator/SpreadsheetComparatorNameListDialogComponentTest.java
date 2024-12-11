@@ -34,7 +34,7 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements S
     @Test
     public void testRefresh() {
         final AppContext context = this.appContext(
-                "/1/Spreadsheet123/metadata/sort-comparators"
+                "/1/Spreadsheet123/spreadsheet/sort-comparators"
         );
 
         final SpreadsheetComparatorNameListDialogComponent dialog = SpreadsheetComparatorNameListDialogComponent.with(
@@ -82,10 +82,10 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements S
                         "            [day-of-month] id=SpreadsheetComparatorNameListDialogComponent-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/metadata/sort-comparators/save/day-of-month] id=SpreadsheetComparatorNameListDialogComponent-save-Link\n" +
-                        "          \"Undo\" [#/1/Spreadsheet123/metadata/sort-comparators/save/day-of-month] id=SpreadsheetComparatorNameListDialogComponent-undo-Link\n" +
-                        "          \"Clear\" [#/1/Spreadsheet123/metadata/sort-comparators/save/] id=SpreadsheetComparatorNameListDialogComponent-clear-Link\n" +
-                        "          \"Close\" [#/1/Spreadsheet123/metadata] id=SpreadsheetComparatorNameListDialogComponent-close-Link\n"
+                        "          \"Save\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/day-of-month] id=SpreadsheetComparatorNameListDialogComponent-save-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/day-of-month] id=SpreadsheetComparatorNameListDialogComponent-undo-Link\n" +
+                        "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/] id=SpreadsheetComparatorNameListDialogComponent-clear-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=SpreadsheetComparatorNameListDialogComponent-close-Link\n"
         );
     }
 

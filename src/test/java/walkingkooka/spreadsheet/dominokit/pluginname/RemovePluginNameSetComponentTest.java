@@ -75,9 +75,9 @@ public final class RemovePluginNameSetComponentTest implements HtmlElementCompon
                         "      Remove\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/metadata/plugins/save/name1,name2] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/plugins/save/name2] id=base-id-123-remove-1-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/metadata/plugins/save/name1] id=base-id-123-remove-2-Link\n"
+                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1,name2] id=base-id-123-remove-0-Link\n" +
+                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name2] id=base-id-123-remove-1-Link\n" +
+                        "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1] id=base-id-123-remove-2-Link\n"
         );
     }
 
@@ -99,10 +99,10 @@ public final class RemovePluginNameSetComponentTest implements HtmlElementCompon
                         "      Remove\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/metadata/plugins/save/name1,name2,name3] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/plugins/save/name2,name3] id=base-id-123-remove-1-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/metadata/plugins/save/name1,name3] id=base-id-123-remove-2-Link\n" +
-                        "            \"Name3\" [#/1/SpreadsheetName123/metadata/plugins/save/name1,name2] id=base-id-123-remove-3-Link\n"
+                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1,name2,name3] id=base-id-123-remove-0-Link\n" +
+                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name2,name3] id=base-id-123-remove-1-Link\n" +
+                        "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1,name3] id=base-id-123-remove-2-Link\n" +
+                        "            \"Name3\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1,name2] id=base-id-123-remove-3-Link\n"
         );
     }
 
@@ -125,9 +125,9 @@ public final class RemovePluginNameSetComponentTest implements HtmlElementCompon
                         "      Remove\n" +
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/metadata/plugins/save/missing3,name1,name2] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/metadata/plugins/save/missing3,name2] id=base-id-123-remove-1-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/metadata/plugins/save/missing3,name1] id=base-id-123-remove-2-Link\n"
+                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/missing3,name1,name2] id=base-id-123-remove-0-Link\n" +
+                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/missing3,name2] id=base-id-123-remove-1-Link\n" +
+                        "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/missing3,name1] id=base-id-123-remove-2-Link\n"
         );
     }
 

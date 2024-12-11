@@ -3781,9 +3781,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // metadata.........................................................................................................
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameMetadata() {
+    public void testParseSpreadsheetIdSpreadsheetNameSpreadsheet() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/metadata",
+                "/123/SpreadsheetName456/spreadsheet",
                 HistoryToken.metadataSelect(
                         ID,
                         NAME
@@ -3794,7 +3794,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameInvalid() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/metadata/!invalid",
+                "/123/SpreadsheetName456/spreadsheet/!invalid",
                 HistoryToken.metadataSelect(
                         ID,
                         NAME
@@ -3805,7 +3805,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyName() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/metadata/decimal-separator",
+                "/123/SpreadsheetName456/spreadsheet/decimal-separator",
                 HistoryToken.metadataPropertySelect(
                         ID,
                         NAME,
@@ -3817,7 +3817,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameSaveInvalid() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/metadata/decimal-separator/save/123",
+                "/123/SpreadsheetName456/spreadsheet/decimal-separator/save/123",
                 HistoryToken.metadataPropertySelect(
                         ID,
                         NAME,
@@ -3829,7 +3829,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameSaveWithoutValue() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/metadata/decimal-separator/save/",
+                "/123/SpreadsheetName456/spreadsheet/decimal-separator/save/",
                 HistoryToken.metadataPropertySave(
                         ID,
                         NAME,
@@ -3842,7 +3842,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameSave() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/metadata/decimal-separator/save/.",
+                "/123/SpreadsheetName456/spreadsheet/decimal-separator/save/.",
                 HistoryToken.metadataPropertySave(
                         ID,
                         NAME,
@@ -3857,7 +3857,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyNameInvalid() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/metadata/style/!invalid",
+                "/123/SpreadsheetName456/spreadsheet/style/!invalid",
                 HistoryToken.metadataSelect(
                         ID,
                         NAME
@@ -3868,7 +3868,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyName() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/metadata/style/color",
+                "/123/SpreadsheetName456/spreadsheet/style/color",
                 HistoryToken.metadataPropertyStyle(
                         ID,
                         NAME,
@@ -3880,7 +3880,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyNameSaveWithoutValue() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/metadata/style/color/save/",
+                "/123/SpreadsheetName456/spreadsheet/style/color/save/",
                 HistoryToken.metadataPropertyStyleSave(
                         ID,
                         NAME,
@@ -3893,7 +3893,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyNameSave() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/metadata/style/color/save/#123456",
+                "/123/SpreadsheetName456/spreadsheet/style/color/save/#123456",
                 HistoryToken.metadataPropertyStyleSave(
                         ID,
                         NAME,
