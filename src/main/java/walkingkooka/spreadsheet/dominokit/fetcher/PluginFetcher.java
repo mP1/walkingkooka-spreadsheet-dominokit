@@ -24,7 +24,6 @@ import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.plugin.PluginName;
-import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -41,9 +40,10 @@ import java.util.Optional;
  */
 public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
 
+    // force static initializers to register json marshaller/unmarshallers.
     static {
         Plugin.HATEOS_RESOURCE_NAME.toString();
-        PluginNameSet.parse("");
+        PluginSet.EMPTY.isEmpty();
     }
 
     public static PluginFetcher with(final PluginFetcherWatcher watcher,
