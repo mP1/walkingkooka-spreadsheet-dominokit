@@ -23,7 +23,8 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextDelegator;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
@@ -34,6 +35,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext,
+        HasSpreadsheetDeltaFetcherWatchersDelegator,
         SpreadsheetDialogComponentContextDelegator,
         SpreadsheetParserProviderDelegator,
         ProviderContextDelegator {
@@ -58,13 +60,8 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
     // HasSpreadsheetDeltaWatcher.......................................................................................
 
     @Override
-    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
-    }
-
-    @Override
-    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.context.addSpreadsheetDeltaFetcherWatcherOnce(watcher);
+    public HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers() {
+        return this.context;
     }
 
     @Override
