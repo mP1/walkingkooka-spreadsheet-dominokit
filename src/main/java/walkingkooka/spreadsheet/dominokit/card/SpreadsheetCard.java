@@ -105,6 +105,18 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
         return this;
     }
 
+    /**
+     * Getter that returns the current filter text.
+     */
+    public Optional<String> filterValue() {
+        return this.filter.value();
+    }
+
+    public SpreadsheetCard setFilterValue(final Optional<String> value) {
+        this.filter.setValue(value);
+        return this;
+    }
+
     private SpreadsheetTextBox filter;
 
     // ComponentWithChildren............................................................................................
