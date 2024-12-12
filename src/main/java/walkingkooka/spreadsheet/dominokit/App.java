@@ -1067,7 +1067,7 @@ public class App implements EntryPoint,
 
         try {
             this.parserContext = metadata.spreadsheetParserContext(
-                    () -> this.now() // not sure why but method ref fails.
+                    this // HasNow
             );
         } catch (final RuntimeException cause) {
             this.debug("App.refreshSpreadsheetProvider Failed to create SpreadsheetParserContext=" + cause.getMessage(), cause);
