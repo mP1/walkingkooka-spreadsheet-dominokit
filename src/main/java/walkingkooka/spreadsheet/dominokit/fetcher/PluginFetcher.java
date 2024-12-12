@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.text.CharSequences;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -113,20 +114,15 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                 break;
             case "Plugin":
                 // extract pluginName from url / 1=api / 2=plugin / 3=PluginName
-                PluginName pluginName = null;
-
-                int i = 0;
-                for (UrlPathName pathName : url.path()) {
-                    if (3 == i) {
-                        pluginName = PluginName.with(pathName.value());
-                        break;
-                    }
-                    i++;
-                }
-
-                if(null == pluginName) {
+                final List<UrlPathName> names = url.path()
+                        .namesList();
+                if (names.size() < 3) {
                     throw new IllegalStateException("Missing pluginName from url " + url);
                 }
+                final PluginName pluginName = PluginName.with(
+                        names.get(3)
+                                .value()
+                );
 
                 // GET http://server/api/plugin/PluginName
                 this.watcher.onPlugin(
