@@ -123,12 +123,8 @@ public final class AddPluginNameSetComponent implements HtmlElementComponent<HTM
             }
         }
 
-        if (1 == i) {
-            this.flex.removeChild(0);
-            this.root.hide();
-        } else {
-            this.root.show();
-        }
+        // never hide if there are no links otherwise filter box will also be invisible, leaving the user unable to
+        // filter again
     }
 
     /**

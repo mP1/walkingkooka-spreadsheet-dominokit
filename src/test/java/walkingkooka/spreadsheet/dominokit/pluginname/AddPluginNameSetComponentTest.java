@@ -43,7 +43,7 @@ public final class AddPluginNameSetComponentTest implements HtmlElementComponent
     };
 
     @Test
-    public void testRefreshNoneAdded() {
+    public void testRefreshWhenEmpty() {
         final AddPluginNameSetComponent component = AddPluginNameSetComponent.empty("base-id-123-add-");
         component.refresh(
                 PluginNameSet.parse("plugin1, plugin2, plugin3"), // present
@@ -51,10 +51,16 @@ public final class AddPluginNameSetComponentTest implements HtmlElementComponent
                 CONTEXT
         );
 
-        // all plugins(plugin1, plugin2, plugin3) already present no links will be added
+        // card will still be visible with filter and "*" link.
         this.treePrintAndCheck(
                 component,
-                "AddPluginNameSetComponent\n"
+                "AddPluginNameSetComponent\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      Add\n" +
+                        "        SpreadsheetFlexLayout\n" +
+                        "          ROW\n" +
+                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/plugin1,%20plugin2,%20plugin3] id=base-id-123-add-0-Link\n"
         );
     }
     
