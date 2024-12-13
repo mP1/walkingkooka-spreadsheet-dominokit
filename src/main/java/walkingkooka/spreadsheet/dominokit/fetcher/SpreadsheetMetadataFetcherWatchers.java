@@ -23,7 +23,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import java.util.Set;
 
 public final class SpreadsheetMetadataFetcherWatchers extends FetcherWatchers<SpreadsheetMetadataFetcherWatcher>
-        implements SpreadsheetMetadataFetcherWatcher{
+        implements SpreadsheetMetadataFetcherWatcher,
+        HasSpreadsheetMetadataFetcherWatchers {
 
     public static SpreadsheetMetadataFetcherWatchers empty() {
         return new SpreadsheetMetadataFetcherWatchers();
@@ -53,5 +54,17 @@ public final class SpreadsheetMetadataFetcherWatchers extends FetcherWatchers<Sp
                         context
                 )
         );
+    }
+
+    // HasSpreadsheetMetadataFetcherWatchers............................................................................
+
+    @Override
+    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+        return this.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
+        return this.addOnce(watcher);
     }
 }
