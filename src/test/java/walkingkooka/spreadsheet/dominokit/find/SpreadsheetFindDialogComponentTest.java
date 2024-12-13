@@ -75,7 +75,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [BULR] id=find-cell-range-path-Select\n" +
@@ -175,7 +175,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [BULR] id=find-cell-range-path-Select\n" +
@@ -275,7 +275,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [] id=find-cell-range-path-Select\n" +
@@ -373,7 +373,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [BULR] id=find-cell-range-path-Select\n" +
@@ -473,7 +473,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [BULR] id=find-cell-range-path-Select\n" +
@@ -584,7 +584,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [] id=find-cell-range-path-Select\n" +
@@ -682,7 +682,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [] id=find-cell-range-path-Select\n" +
@@ -780,7 +780,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [] id=find-cell-range-path-Select\n" +
@@ -878,7 +878,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [] id=find-cell-range-path-Select\n" +
@@ -976,7 +976,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [] id=find-cell-range-path-Select\n" +
@@ -1074,7 +1074,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [] id=find-cell-range-path-Select\n" +
@@ -1172,7 +1172,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [] id=find-cell-range-path-Select\n" +
@@ -1270,7 +1270,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [] id=find-cell-range-path-Select\n" +
@@ -1368,7 +1368,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [] id=find-cell-range-path-Select\n" +
@@ -1466,7 +1466,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         "          SpreadsheetCellRangeReferenceComponent\n" +
                         "            ValueSpreadsheetTextBox\n" +
                         "              SpreadsheetTextBox\n" +
-                        "                Cell Range [A1] id=find-cell-range\n" +
+                        "                Cell Range [A1] id=find-cell-range-TextBox\n" +
                         "          SpreadsheetCellRangeReferencePathComponent\n" +
                         "            SpreadsheetSelectComponent\n" +
                         "              Cell Range Path [] id=find-cell-range-path-Select\n" +
