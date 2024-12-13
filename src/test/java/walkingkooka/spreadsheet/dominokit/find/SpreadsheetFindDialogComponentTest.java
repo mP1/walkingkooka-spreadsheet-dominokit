@@ -69,7 +69,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -169,7 +169,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -269,7 +269,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -367,7 +367,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -467,7 +467,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -578,7 +578,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -676,7 +676,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -774,7 +774,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -872,7 +872,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -970,7 +970,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -1068,7 +1068,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -1166,7 +1166,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -1264,7 +1264,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -1362,7 +1362,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +
@@ -1460,7 +1460,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetFindDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Find\n" +
-                        "    id=find includeClose=true\n" +
+                        "    id=find-Dialog includeClose=true\n" +
                         "      SpreadsheetFindDialogComponentGridLayout\n" +
                         "        Left\n" +
                         "          SpreadsheetCellRangeReferenceComponent\n" +

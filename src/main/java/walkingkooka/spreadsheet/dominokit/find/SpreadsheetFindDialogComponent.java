@@ -111,7 +111,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         final HistoryTokenContext context = this.context;
 
         return SpreadsheetDialogComponent.with(
-                ID,
+                ID + SpreadsheetElementIds.DIALOG,
                 "Find",
                 true, // includeClose
                 context
