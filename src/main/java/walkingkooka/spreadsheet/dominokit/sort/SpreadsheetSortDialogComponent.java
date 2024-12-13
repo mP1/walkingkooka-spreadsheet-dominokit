@@ -110,17 +110,6 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
     private final SpreadsheetDialogComponent dialog;
 
-    // id...............................................................................................................
-
-    @Override
-    public String idPrefix() {
-        return ID_PREFIX;
-    }
-
-    private final static String ID = "sort";
-
-    final static String ID_PREFIX = ID + "-";
-
     // lifecycle........................................................................................................
 
     /**
@@ -651,4 +640,15 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     public void dialogReset() {
         // NOP
     }
+
+    // id...............................................................................................................
+
+    @Override
+    public String idPrefix() {
+        return ID_PREFIX;
+    }
+
+    private final static String ID = "sort";
+
+    final static String ID_PREFIX = ID + "-";
 }
