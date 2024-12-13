@@ -15,9 +15,10 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginname;
+package walkingkooka.spreadsheet.dominokit.plugin;
 
-import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 
-public interface PluginNameSetDialogComponentContextTesting<C extends PluginNameSetDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C> {
+public class FakeAddPluginNameSetComponentContext extends FakeHistoryTokenContext
+        implements AddPluginNameSetComponentContext {
 }
