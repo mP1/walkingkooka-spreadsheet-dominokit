@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
@@ -65,7 +66,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
         final SpreadsheetColumnRowInsertCountDialogComponentContext context = this.context;
 
         return SpreadsheetDialogComponent.with(
-                        ID,
+                        ID + SpreadsheetElementIds.DIALOG,
                         context.dialogTitle(),
                         true, // includeClose
                         context
