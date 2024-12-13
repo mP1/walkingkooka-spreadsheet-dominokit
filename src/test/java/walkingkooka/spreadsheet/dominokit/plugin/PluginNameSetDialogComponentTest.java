@@ -67,26 +67,26 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "PluginNameSetDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    PluginsTitle999\n" +
-                        "    id=PluginNameSetDialogComponent includeClose=true\n" +
+                        "    id=pluginNameSet-Dialog includeClose=true\n" +
                         "      AddPluginNameSetComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Add\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSetDialogComponent-add-0-Link\n" +
-                        "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=PluginNameSetDialogComponent-add-1-Link\n" +
-                        "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin222] id=PluginNameSetDialogComponent-add-2-Link\n" +
+                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-0-Link\n" +
+                        "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-add-1-Link\n" +
+                        "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin222] id=pluginNameSet-add-2-Link\n" +
                         "      RemovePluginNameSetComponent\n" +
                         "      PluginNameSetComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
-                        "            [] id=PluginNameSetDialogComponent-TextBox\n" +
+                        "            [] id=pluginNameSet-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=PluginNameSetDialogComponent-save-Link\n" +
-                        "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSetDialogComponent-reset-Link\n" +
-                        "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginNameSetDialogComponent-close-Link\n"
+                        "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-save-Link\n" +
+                        "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
         );
     }
 
@@ -107,32 +107,32 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "PluginNameSetDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    PluginsTitle999\n" +
-                        "    id=PluginNameSetDialogComponent includeClose=true\n" +
+                        "    id=pluginNameSet-Dialog includeClose=true\n" +
                         "      AddPluginNameSetComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Add\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSetDialogComponent-add-0-Link\n" +
-                        "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSetDialogComponent-add-1-Link\n" +
+                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-0-Link\n" +
+                        "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-1-Link\n" +
                         "      RemovePluginNameSetComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=PluginNameSetDialogComponent-remove-0-Link\n" +
-                        "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=PluginNameSetDialogComponent-remove-1-Link\n" +
+                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-remove-0-Link\n" +
+                        "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-remove-1-Link\n" +
                         "      PluginNameSetComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
-                        "            [plugin111] id=PluginNameSetDialogComponent-TextBox\n" +
+                        "            [plugin111] id=pluginNameSet-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=PluginNameSetDialogComponent-save-Link\n" +
-                        "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSetDialogComponent-reset-Link\n" +
-                        "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginNameSetDialogComponent-close-Link\n"
+                        "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
+                        "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
         );
     }
 
@@ -153,33 +153,33 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "PluginNameSetDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    PluginsTitle999\n" +
-                        "    id=PluginNameSetDialogComponent includeClose=true\n" +
+                        "    id=pluginNameSet-Dialog includeClose=true\n" +
                         "      AddPluginNameSetComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Add\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222,plugin333] id=PluginNameSetDialogComponent-add-0-Link\n" +
-                        "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSetDialogComponent-add-1-Link\n" +
-                        "                  \"Plugin333\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin333] id=PluginNameSetDialogComponent-add-2-Link\n" +
+                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222,plugin333] id=pluginNameSet-add-0-Link\n" +
+                        "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-1-Link\n" +
+                        "                  \"Plugin333\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin333] id=pluginNameSet-add-2-Link\n" +
                         "      RemovePluginNameSetComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            Remove\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=PluginNameSetDialogComponent-remove-0-Link\n" +
-                        "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=PluginNameSetDialogComponent-remove-1-Link\n" +
+                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-remove-0-Link\n" +
+                        "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-remove-1-Link\n" +
                         "      PluginNameSetComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
-                        "            [plugin111] id=PluginNameSetDialogComponent-TextBox\n" +
+                        "            [plugin111] id=pluginNameSet-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=PluginNameSetDialogComponent-save-Link\n" +
-                        "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSetDialogComponent-reset-Link\n" +
-                        "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginNameSetDialogComponent-close-Link\n"
+                        "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
+                        "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
         );
     }
 
