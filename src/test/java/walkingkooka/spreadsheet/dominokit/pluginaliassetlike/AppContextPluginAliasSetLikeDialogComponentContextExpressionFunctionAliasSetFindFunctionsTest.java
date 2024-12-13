@@ -25,7 +25,7 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfo;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
-public final class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctionsTest implements PluginAliasSetLikeDialogComponentContextTesting<PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctions,
+public final class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctionsTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions,
         ExpressionFunctionName,
         ExpressionFunctionInfo,
         ExpressionFunctionInfoSet,
@@ -33,21 +33,21 @@ public final class PluginAliasSetLikeDialogComponentContextBasicExpressionFuncti
         ExpressionFunctionAlias,
         ExpressionFunctionAliasSet> {
     @Override
-    public PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctions createContext() {
-        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctions.with(AppContexts.fake());
+    public AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions createContext() {
+        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions.with(AppContexts.fake());
     }
 
     // Context..........................................................................................................
 
     @Override
     public String typeNameSuffix() {
-        return ExpressionFunctionAliasSet.class.getSimpleName() + "FormulaFunctions";
+        return ExpressionFunctionAliasSet.class.getSimpleName() + "FindFunctions";
     }
 
     // Class............................................................................................................
 
     @Override
-    public Class<PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctions> type() {
-        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctions.class;
+    public Class<AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions> type() {
+        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions.class;
     }
 }

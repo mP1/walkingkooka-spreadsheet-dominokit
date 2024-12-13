@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterSelector;
 
-public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSetExportersTest implements PluginAliasSetLikeDialogComponentContextTesting<PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSetExporters,
+public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExportersTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters,
         SpreadsheetExporterName,
         SpreadsheetExporterInfo,
         SpreadsheetExporterInfoSet,
@@ -33,8 +33,8 @@ public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExpor
         SpreadsheetExporterAlias,
         SpreadsheetExporterAliasSet> {
     @Override
-    public PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSetExporters createContext() {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSetExporters.with(AppContexts.fake());
+    public AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters createContext() {
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters.with(AppContexts.fake());
     }
 
     // Context..........................................................................................................
@@ -47,7 +47,7 @@ public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExpor
     // Class............................................................................................................
 
     @Override
-    public Class<PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSetExporters> type() {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSetExporters.class;
+    public Class<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters> type() {
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters.class;
     }
 }

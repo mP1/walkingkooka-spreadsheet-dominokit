@@ -18,30 +18,30 @@
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.export.SpreadsheetExporterAliasSet;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
 
-final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsers extends PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSet {
+final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters extends AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSet {
 
-    static PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsers with(final AppContext context) {
-        return new PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsers(context);
+    static AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters with(final AppContext context) {
+        return new AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters(context);
     }
 
-    private PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsers(final AppContext context) {
+    private AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters(final AppContext context) {
         super(context);
     }
 
     // PluginAliasSetLikeDialogComponentContext.........................................................................
 
     @Override
-    SpreadsheetMetadataPropertyName<SpreadsheetParserAliasSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.PARSERS;
+    SpreadsheetMetadataPropertyName<SpreadsheetExporterAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.EXPORTERS;
     }
 
     @Override
-    public SpreadsheetParserAliasSet providerAliasSetLike() {
+    public SpreadsheetExporterAliasSet providerAliasSetLike() {
         return this.context.systemSpreadsheetProvider()
-                .spreadsheetParserInfos()
+                .spreadsheetExporterInfos()
                 .aliasSet();
     }
 }

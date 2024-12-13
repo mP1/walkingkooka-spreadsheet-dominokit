@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class PluginAliasSetLikeDialogComponentContextBasicTest implements ClassTesting<PluginAliasSetLikeDialogComponentContextBasic> {
+public final class AppContextPluginAliasSetLikeDialogComponentContextTest implements ClassTesting<AppContextPluginAliasSetLikeDialogComponentContext> {
 
     @Override
-    public Class<PluginAliasSetLikeDialogComponentContextBasic> type() {
-        return PluginAliasSetLikeDialogComponentContextBasic.class;
+    public Class<AppContextPluginAliasSetLikeDialogComponentContext> type() {
+        return AppContextPluginAliasSetLikeDialogComponentContext.class;
     }
 
     @Override

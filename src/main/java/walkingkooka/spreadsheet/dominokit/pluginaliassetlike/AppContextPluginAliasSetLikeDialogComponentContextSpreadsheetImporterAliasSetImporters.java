@@ -18,30 +18,30 @@
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
+import walkingkooka.spreadsheet.importer.SpreadsheetImporterAliasSet;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
-final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSetFormatters extends PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSet {
+final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters extends AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSet {
 
-    static PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSetFormatters with(final AppContext context) {
-        return new PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSetFormatters(context);
+    static AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters with(final AppContext context) {
+        return new AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters(context);
     }
 
-    private PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSetFormatters(final AppContext context) {
+    private AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters(final AppContext context) {
         super(context);
     }
 
     // PluginAliasSetLikeDialogComponentContext.........................................................................
 
     @Override
-    SpreadsheetMetadataPropertyName<SpreadsheetFormatterAliasSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.FORMATTERS;
+    SpreadsheetMetadataPropertyName<SpreadsheetImporterAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.IMPORTERS;
     }
 
     @Override
-    public SpreadsheetFormatterAliasSet providerAliasSetLike() {
+    public SpreadsheetImporterAliasSet providerAliasSetLike() {
         return this.context.systemSpreadsheetProvider()
-                .spreadsheetFormatterInfos()
+                .spreadsheetImporterInfos()
                 .aliasSet();
     }
 }

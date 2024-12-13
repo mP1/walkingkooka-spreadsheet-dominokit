@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 
-public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparatorsTest implements PluginAliasSetLikeDialogComponentContextTesting<PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparators,
+public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparatorsTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators,
         SpreadsheetComparatorName,
         SpreadsheetComparatorInfo,
         SpreadsheetComparatorInfoSet,
@@ -33,8 +33,8 @@ public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetCompa
         SpreadsheetComparatorAlias,
         SpreadsheetComparatorAliasSet> {
     @Override
-    public PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparators createContext() {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparators.with(AppContexts.fake());
+    public AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators createContext() {
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators.with(AppContexts.fake());
     }
 
     // Context..........................................................................................................
@@ -47,7 +47,7 @@ public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetCompa
     // Class............................................................................................................
 
     @Override
-    public Class<PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparators> type() {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparators.class;
+    public Class<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators> type() {
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators.class;
     }
 }

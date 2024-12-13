@@ -18,69 +18,61 @@
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import elemental2.dom.Headers;
+import walkingkooka.convert.provider.ConverterAlias;
+import walkingkooka.convert.provider.ConverterAliasSet;
+import walkingkooka.convert.provider.ConverterInfo;
+import walkingkooka.convert.provider.ConverterInfoSet;
+import walkingkooka.convert.provider.ConverterName;
+import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserAliasSetComponent;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserAlias;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
-import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
+import walkingkooka.spreadsheet.dominokit.convert.ConverterAliasSetComponent;
+import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-abstract class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSet extends PluginAliasSetLikeDialogComponentContextBasic<SpreadsheetParserName,
-        SpreadsheetParserInfo,
-        SpreadsheetParserInfoSet,
-        SpreadsheetParserSelector,
-        SpreadsheetParserAlias,
-        SpreadsheetParserAliasSet> {
+abstract class AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSet extends AppContextPluginAliasSetLikeDialogComponentContext<ConverterName,
+        ConverterInfo,
+        ConverterInfoSet,
+        ConverterSelector,
+        ConverterAlias,
+        ConverterAliasSet> {
 
-    PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSet(final AppContext context) {
+    AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSet(final AppContext context) {
         super(context);
     }
 
     // PluginAliasSetLikeDialogComponentContext..............................................................................
 
     @Override
-    public final SpreadsheetParserAliasSetComponent textBox() {
-        return SpreadsheetParserAliasSetComponent.empty();
+    public final ConverterAliasSetComponent textBox() {
+        return ConverterAliasSetComponent.empty();
     }
 
     @Override
-    public final SpreadsheetParserAliasSet emptyAliasSetLike() {
-        return SpreadsheetParserAliasSet.EMPTY;
+    public final ConverterAliasSet emptyAliasSetLike() {
+        return ConverterAliasSet.EMPTY;
     }
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
-        this.context.spreadsheetParserFetcher()
+        this.context.converterFetcher()
                 .infoSet(id);
     }
 
     @Override
-    public final Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetParserAliasSet> set) {
-        return this.context.addSpreadsheetParserFetcherWatcher(
-                new SpreadsheetParserFetcherWatcher() {
+    public final Runnable addProviderFetcherWatcher(final Consumer<ConverterAliasSet> set) {
+        return this.context.addConverterFetcherWatcher(
+                new ConverterFetcherWatcher() {
                     @Override
-                    public void onSpreadsheetParserInfoSet(final SpreadsheetId id,
-                                                           final SpreadsheetParserInfoSet infos,
-                                                           final AppContext context) {
+                    public void onConverterInfoSet(final SpreadsheetId id,
+                                                   final ConverterInfoSet infos,
+                                                   final AppContext context) {
                         set.accept(infos.aliasSet());
-                    }
-
-                    @Override
-                    public void onSpreadsheetParserSelectorEdit(final SpreadsheetId id,
-                                                                final SpreadsheetParserSelectorEdit edit,
-                                                                final AppContext context) {
-                        // nop
                     }
 
                     @Override

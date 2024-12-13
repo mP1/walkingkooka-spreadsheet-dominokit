@@ -36,14 +36,14 @@ import walkingkooka.spreadsheet.importer.SpreadsheetImporterSelector;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-abstract class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImporterAliasSet extends PluginAliasSetLikeDialogComponentContextBasic<SpreadsheetImporterName,
+abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSet extends AppContextPluginAliasSetLikeDialogComponentContext<SpreadsheetImporterName,
         SpreadsheetImporterInfo,
         SpreadsheetImporterInfoSet,
         SpreadsheetImporterSelector,
         SpreadsheetImporterAlias,
         SpreadsheetImporterAliasSet> {
 
-    PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImporterAliasSet(final AppContext context) {
+    AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSet(final AppContext context) {
         super(context);
     }
 

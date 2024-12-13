@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 
-public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSetFormattersTest implements PluginAliasSetLikeDialogComponentContextTesting<PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSetFormatters,
+public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormattersTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters,
         SpreadsheetFormatterName,
         SpreadsheetFormatterInfo,
         SpreadsheetFormatterInfoSet,
@@ -33,8 +33,8 @@ public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetForma
         SpreadsheetFormatterAlias,
         SpreadsheetFormatterAliasSet> {
     @Override
-    public PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSetFormatters createContext() {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSetFormatters.with(AppContexts.fake());
+    public AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters createContext() {
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters.with(AppContexts.fake());
     }
 
     // Context..........................................................................................................
@@ -47,7 +47,7 @@ public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetForma
     // Class............................................................................................................
 
     @Override
-    public Class<PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSetFormatters> type() {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSetFormatters.class;
+    public Class<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters> type() {
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters.class;
     }
 }

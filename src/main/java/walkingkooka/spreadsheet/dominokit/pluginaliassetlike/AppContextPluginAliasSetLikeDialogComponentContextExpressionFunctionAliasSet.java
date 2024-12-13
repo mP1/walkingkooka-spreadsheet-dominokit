@@ -18,60 +18,61 @@
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import elemental2.dom.Headers;
-import walkingkooka.convert.provider.ConverterAlias;
-import walkingkooka.convert.provider.ConverterAliasSet;
-import walkingkooka.convert.provider.ConverterInfo;
-import walkingkooka.convert.provider.ConverterInfoSet;
-import walkingkooka.convert.provider.ConverterName;
-import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.convert.ConverterAliasSetComponent;
-import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.function.ExpressionFunctionAliasSetComponent;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.tree.expression.ExpressionFunctionName;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfo;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-abstract class PluginAliasSetLikeDialogComponentContextBasicConverterAliasSet extends PluginAliasSetLikeDialogComponentContextBasic<ConverterName,
-        ConverterInfo,
-        ConverterInfoSet,
-        ConverterSelector,
-        ConverterAlias,
-        ConverterAliasSet> {
+abstract class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSet extends AppContextPluginAliasSetLikeDialogComponentContext<ExpressionFunctionName,
+        ExpressionFunctionInfo,
+        ExpressionFunctionInfoSet,
+        ExpressionFunctionSelector,
+        ExpressionFunctionAlias,
+        ExpressionFunctionAliasSet> {
 
-    PluginAliasSetLikeDialogComponentContextBasicConverterAliasSet(final AppContext context) {
+    AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSet(final AppContext context) {
         super(context);
     }
 
     // PluginAliasSetLikeDialogComponentContext..............................................................................
 
     @Override
-    public final ConverterAliasSetComponent textBox() {
-        return ConverterAliasSetComponent.empty();
+    public final ExpressionFunctionAliasSetComponent textBox() {
+        return ExpressionFunctionAliasSetComponent.empty();
     }
 
     @Override
-    public final ConverterAliasSet emptyAliasSetLike() {
-        return ConverterAliasSet.EMPTY;
+    public final ExpressionFunctionAliasSet emptyAliasSetLike() {
+        return ExpressionFunctionAliasSet.EMPTY;
     }
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
-        this.context.converterFetcher()
+        this.context.expressionFunctionFetcher()
                 .infoSet(id);
     }
 
     @Override
-    public final Runnable addProviderFetcherWatcher(final Consumer<ConverterAliasSet> set) {
-        return this.context.addConverterFetcherWatcher(
-                new ConverterFetcherWatcher() {
+    public final Runnable addProviderFetcherWatcher(final Consumer<ExpressionFunctionAliasSet> set) {
+        return this.context.addExpressionFunctionFetcherWatcher(
+                new ExpressionFunctionFetcherWatcher() {
                     @Override
-                    public void onConverterInfoSet(final SpreadsheetId id,
-                                                   final ConverterInfoSet infos,
-                                                   final AppContext context) {
+                    public void onExpressionFunctionInfoSet(final SpreadsheetId id,
+                                                            final ExpressionFunctionInfoSet infos,
+                                                            final AppContext context) {
                         set.accept(infos.aliasSet());
                     }
 
@@ -105,5 +106,22 @@ abstract class PluginAliasSetLikeDialogComponentContextBasicConverterAliasSet ex
                     }
                 }
         );
+    }
+
+    /**
+     * This takes the {@link ExpressionFunctionInfoSet} filtered by {@link SpreadsheetMetadataPropertyName#FUNCTIONS},
+     * providing a view of the effective {@link ExpressionFunctionAliasSet aliase}.
+     */
+    final ExpressionFunctionAliasSet providerAliasSetLikeAndFunctions() {
+        final AppContext context = this.context;
+
+        return context.spreadsheetMetadata()
+                .get(SpreadsheetMetadataPropertyName.FUNCTIONS)
+                .orElse(ExpressionFunctionAliasSet.EMPTY)
+                .keepAliasOrNameAll(
+                        context.systemSpreadsheetProvider()
+                                .expressionFunctionInfos()
+                                .names()
+                );
     }
 }

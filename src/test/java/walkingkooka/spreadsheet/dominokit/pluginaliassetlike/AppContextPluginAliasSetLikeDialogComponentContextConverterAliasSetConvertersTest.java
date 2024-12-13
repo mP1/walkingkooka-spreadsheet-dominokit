@@ -25,7 +25,7 @@ import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 
-public final class PluginAliasSetLikeDialogComponentContextBasicConverterAliasSetConvertersTest implements PluginAliasSetLikeDialogComponentContextTesting<PluginAliasSetLikeDialogComponentContextBasicConverterAliasSetConverters,
+public final class AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConvertersTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters,
         ConverterName,
         ConverterInfo,
         ConverterInfoSet,
@@ -33,8 +33,8 @@ public final class PluginAliasSetLikeDialogComponentContextBasicConverterAliasSe
         ConverterAlias,
         ConverterAliasSet> {
     @Override
-    public PluginAliasSetLikeDialogComponentContextBasicConverterAliasSetConverters createContext() {
-        return PluginAliasSetLikeDialogComponentContextBasicConverterAliasSetConverters.with(AppContexts.fake());
+    public AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters createContext() {
+        return AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters.with(AppContexts.fake());
     }
 
     // Context..........................................................................................................
@@ -47,7 +47,7 @@ public final class PluginAliasSetLikeDialogComponentContextBasicConverterAliasSe
     // Class............................................................................................................
 
     @Override
-    public Class<PluginAliasSetLikeDialogComponentContextBasicConverterAliasSetConverters> type() {
-        return PluginAliasSetLikeDialogComponentContextBasicConverterAliasSetConverters.class;
+    public Class<AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters> type() {
+        return AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters.class;
     }
 }
