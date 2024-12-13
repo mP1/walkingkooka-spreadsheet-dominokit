@@ -75,17 +75,17 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements S
                 "SpreadsheetComparatorNameListDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort Comparators Title123\n" +
-                        "    id=SpreadsheetComparatorNameListDialogComponent includeClose=true CLOSED\n" +
+                        "    id=spreadsheetComparatorNameList-Dialog includeClose=true CLOSED\n" +
                         "      SpreadsheetComparatorNameListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
-                        "            [day-of-month] id=SpreadsheetComparatorNameListDialogComponent-TextBox\n" +
+                        "            [day-of-month] id=spreadsheetComparatorNameList-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/day-of-month] id=SpreadsheetComparatorNameListDialogComponent-save-Link\n" +
-                        "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/day-of-month] id=SpreadsheetComparatorNameListDialogComponent-undo-Link\n" +
-                        "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/] id=SpreadsheetComparatorNameListDialogComponent-clear-Link\n" +
-                        "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=SpreadsheetComparatorNameListDialogComponent-close-Link\n"
+                        "          \"Save\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/day-of-month] id=spreadsheetComparatorNameList-save-Link\n" +
+                        "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/day-of-month] id=spreadsheetComparatorNameList-undo-Link\n" +
+                        "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/] id=spreadsheetComparatorNameList-clear-Link\n" +
+                        "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetComparatorNameList-close-Link\n"
         );
     }
 
