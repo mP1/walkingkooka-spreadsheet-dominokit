@@ -41,7 +41,7 @@ import java.time.LocalDateTime;
 /**
  * A mostly complete {@link SpreadsheetParserSelectorDialogComponent}.
  */
-abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements SpreadsheetParserSelectorDialogComponentContext,
+abstract class AppContextSpreadsheetParserSelectorDialogComponentContext implements SpreadsheetParserSelectorDialogComponentContext,
         SpreadsheetDialogComponentContextDelegator,
         SpreadsheetFormatterContextDelegator,
         SpreadsheetFormatterProviderDelegator,
@@ -49,7 +49,7 @@ abstract class SpreadsheetParserSelectorDialogComponentContextBasic implements S
         HasSpreadsheetParserFetcherWatchersDelegator,
         ProviderContextDelegator {
 
-    SpreadsheetParserSelectorDialogComponentContextBasic(final AppContext context) {
+    AppContextSpreadsheetParserSelectorDialogComponentContext(final AppContext context) {
         super();
 
         this.throttler = Throttler.empty(Throttler.KEYBOARD_DELAY);

@@ -22,19 +22,19 @@ import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetParserSelectorDialogComponentContextBasicCellTest implements SpreadsheetParserSelectorDialogComponentContextTesting<SpreadsheetParserSelectorDialogComponentContextBasicCell> {
+public final class AppContextSpreadsheetParserSelectorDialogComponentContextCellTest implements SpreadsheetParserSelectorDialogComponentContextTesting<AppContextSpreadsheetParserSelectorDialogComponentContextCell> {
 
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> SpreadsheetParserSelectorDialogComponentContextBasicCell.with(null)
+                () -> AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(null)
         );
     }
 
     @Override
-    public SpreadsheetParserSelectorDialogComponentContextBasicCell createContext() {
-        return SpreadsheetParserSelectorDialogComponentContextBasicCell.with(AppContexts.fake());
+    public AppContextSpreadsheetParserSelectorDialogComponentContextCell createContext() {
+        return AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(AppContexts.fake());
     }
 
     @Override
@@ -45,7 +45,7 @@ public final class SpreadsheetParserSelectorDialogComponentContextBasicCellTest 
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetParserSelectorDialogComponentContextBasicCell> type() {
-        return SpreadsheetParserSelectorDialogComponentContextBasicCell.class;
+    public Class<AppContextSpreadsheetParserSelectorDialogComponentContextCell> type() {
+        return AppContextSpreadsheetParserSelectorDialogComponentContextCell.class;
     }
 }

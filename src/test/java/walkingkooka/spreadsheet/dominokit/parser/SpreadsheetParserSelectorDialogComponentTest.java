@@ -84,7 +84,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetParserSelectorDialogComponent.with(
-                        SpreadsheetParserSelectorDialogComponentContextBasicCell.with(context)
+                        AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(context)
                 ),
                 SpreadsheetParserName.DATE_PARSER_PATTERN + "",
                 context,
@@ -156,7 +156,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetParserSelectorDialogComponent.with(
-                        SpreadsheetParserSelectorDialogComponentContextBasicCell.with(context)
+                        AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(context)
                 ),
                 SpreadsheetParserName.DATE_PARSER_PATTERN + " dd/mm/yyyy",
                 context,
@@ -260,7 +260,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetParserSelectorDialogComponent.with(
-                        SpreadsheetParserSelectorDialogComponentContextBasicCell.with(context)
+                        AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(context)
                 ),
                 SpreadsheetParserName.DATE_TIME_PARSER_PATTERN + " dd/mm/yyyy hh:mm:ss",
                 context,
@@ -383,7 +383,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetParserSelectorDialogComponent.with(
-                        SpreadsheetParserSelectorDialogComponentContextBasicCell.with(context)
+                        AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(context)
                 ),
                 SpreadsheetParserName.NUMBER_PARSER_PATTERN + " $#0.00",
                 context,
@@ -527,7 +527,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetParserSelectorDialogComponent.with(
-                        SpreadsheetParserSelectorDialogComponentContextBasicCell.with(context)
+                        AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(context)
                 ),
                 SpreadsheetParserName.TIME_PARSER_PATTERN + " hh:mm",
                 context,
@@ -612,7 +612,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetParserSelectorDialogComponent.with(
-                        SpreadsheetParserSelectorDialogComponentContextBasicMetadata.with(context)
+                        AppContextSpreadsheetParserSelectorDialogComponentContextMetadata.with(context)
                 ),
                 SpreadsheetParserName.DATE_PARSER_PATTERN + " dd/mm/yyyy",
                 context,
@@ -726,7 +726,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetParserSelectorDialogComponent.with(
-                        SpreadsheetParserSelectorDialogComponentContextBasicMetadata.with(context)
+                        AppContextSpreadsheetParserSelectorDialogComponentContextMetadata.with(context)
                 ),
                 SpreadsheetParserName.DATE_TIME_PARSER_PATTERN + " dd/mm/yyyy hh:mm:ss",
                 context,
@@ -859,7 +859,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetParserSelectorDialogComponent.with(
-                        SpreadsheetParserSelectorDialogComponentContextBasicMetadata.with(context)
+                        AppContextSpreadsheetParserSelectorDialogComponentContextMetadata.with(context)
                 ),
                 SpreadsheetParserName.NUMBER_PARSER_PATTERN + " $#0.00",
                 context,
@@ -1013,7 +1013,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetParserSelectorDialogComponent.with(
-                        SpreadsheetParserSelectorDialogComponentContextBasicMetadata.with(context)
+                        AppContextSpreadsheetParserSelectorDialogComponentContextMetadata.with(context)
                 ),
                 SpreadsheetParserName.TIME_PARSER_PATTERN + " hh:mm",
                 context,
