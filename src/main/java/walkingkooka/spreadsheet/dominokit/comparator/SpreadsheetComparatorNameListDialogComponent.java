@@ -81,7 +81,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
         return ID + "-";
     }
 
-    private final static String ID = SpreadsheetComparatorNameListDialogComponent.class.getSimpleName();
+    private final static String ID = "spreadsheetComparatorNameList";
 
     // dialog...........................................................................................................
 
@@ -92,7 +92,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
         final SpreadsheetComparatorNameListDialogComponentContext context = this.context;
 
         SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                ID,
+                ID + SpreadsheetElementIds.DIALOG,
                 context.dialogTitle(),
                 true, // includeClose
                 context
