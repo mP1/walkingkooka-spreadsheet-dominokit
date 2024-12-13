@@ -80,7 +80,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
 
         this.get(
                 plugin()
-                        .appendPathName(STAR)
+                        .appendPathName(UrlPathName.WILDCARD)
                         .appendPathName(
                                 SpreadsheetServerLinkRelations.FILTER.toUrlPathName()
                         ).setQuery(
@@ -90,8 +90,6 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                         )
         );
     }
-
-    private final static UrlPathName STAR = UrlPathName.with("*");
 
     static RelativeUrl plugin() {
         return Url.EMPTY_RELATIVE_URL.appendPath(
