@@ -22,30 +22,30 @@ import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetFormatterSelectorDialogComponentContextBasicCellTest implements SpreadsheetFormatterSelectorDialogComponentContextTesting<SpreadsheetFormatterSelectorDialogComponentContextBasicCell> {
+public final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadataTest implements SpreadsheetFormatterSelectorDialogComponentContextTesting<AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata> {
 
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> SpreadsheetFormatterSelectorDialogComponentContextBasicCell.with(null)
+                () -> AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(null)
         );
     }
 
     @Override
-    public SpreadsheetFormatterSelectorDialogComponentContextBasicCell createContext() {
-        return SpreadsheetFormatterSelectorDialogComponentContextBasicCell.with(AppContexts.fake());
+    public AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata createContext() {
+        return AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(AppContexts.fake());
     }
 
     @Override
     public String typeNameSuffix() {
-        return "Cell";
+        return "Metadata";
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetFormatterSelectorDialogComponentContextBasicCell> type() {
-        return SpreadsheetFormatterSelectorDialogComponentContextBasicCell.class;
+    public Class<AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata> type() {
+        return AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.class;
     }
 }

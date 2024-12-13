@@ -83,7 +83,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetFormatterSelectorDialogComponent.with(
-                        SpreadsheetFormatterSelectorDialogComponentContextBasicCell.with(context)
+                        AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
                 ),
                 SpreadsheetFormatterName.DATE_FORMAT_PATTERN + "",
                 context,
@@ -160,7 +160,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetFormatterSelectorDialogComponent.with(
-                        SpreadsheetFormatterSelectorDialogComponentContextBasicCell.with(context)
+                        AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
                 ),
                 SpreadsheetFormatterName.DATE_FORMAT_PATTERN + " dd/mm/yyyy",
                 context,
@@ -269,7 +269,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetFormatterSelectorDialogComponent.with(
-                        SpreadsheetFormatterSelectorDialogComponentContextBasicCell.with(context)
+                        AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
                 ),
                 SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN + " dd/mm/yyyy hh:mm:ss",
                 context,
@@ -397,7 +397,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetFormatterSelectorDialogComponent.with(
-                        SpreadsheetFormatterSelectorDialogComponentContextBasicCell.with(context)
+                        AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
                 ),
                 SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN + " $#0.00",
                 context,
@@ -546,7 +546,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetFormatterSelectorDialogComponent.with(
-                        SpreadsheetFormatterSelectorDialogComponentContextBasicCell.with(context)
+                        AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
                 ),
                 SpreadsheetFormatterName.TEXT_FORMAT_PATTERN + " @ \"Hello\"",
                 context,
@@ -621,7 +621,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetFormatterSelectorDialogComponent.with(
-                        SpreadsheetFormatterSelectorDialogComponentContextBasicCell.with(context)
+                        AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
                 ),
                 SpreadsheetFormatterName.TIME_FORMAT_PATTERN + " hh:mm",
                 context,
@@ -711,7 +711,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetFormatterSelectorDialogComponent.with(
-                        SpreadsheetFormatterSelectorDialogComponentContextBasicMetadata.with(context)
+                        AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
                 ),
                 SpreadsheetFormatterName.DATE_FORMAT_PATTERN + " dd/mm/yyyy",
                 context,
@@ -832,7 +832,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetFormatterSelectorDialogComponent.with(
-                        SpreadsheetFormatterSelectorDialogComponentContextBasicMetadata.with(context)
+                        AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
                 ),
                 SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN + " dd/mm/yyyy hh:mm:ss",
                 context,
@@ -972,7 +972,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetFormatterSelectorDialogComponent.with(
-                        SpreadsheetFormatterSelectorDialogComponentContextBasicMetadata.with(context)
+                        AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
                 ),
                 SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN + " $#0.00",
                 context,
@@ -1133,7 +1133,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetFormatterSelectorDialogComponent.with(
-                        SpreadsheetFormatterSelectorDialogComponentContextBasicMetadata.with(context)
+                        AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
                 ),
                 SpreadsheetFormatterName.TEXT_FORMAT_PATTERN + " @ \"Hello\"",
                 context,
@@ -1220,7 +1220,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
                 SpreadsheetFormatterSelectorDialogComponent.with(
-                        SpreadsheetFormatterSelectorDialogComponentContextBasicMetadata.with(context)
+                        AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
                 ),
                 SpreadsheetFormatterName.TIME_FORMAT_PATTERN + " hh:mm",
                 context,

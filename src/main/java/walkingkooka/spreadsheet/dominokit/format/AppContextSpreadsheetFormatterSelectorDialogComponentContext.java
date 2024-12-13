@@ -38,13 +38,13 @@ import java.time.LocalDateTime;
 /**
  * An base class capturing most of the requirements for {@link SpreadsheetFormatterSelectorDialogComponentContext}
  */
-abstract class SpreadsheetFormatterSelectorDialogComponentContextBasic implements SpreadsheetFormatterSelectorDialogComponentContext,
+abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext implements SpreadsheetFormatterSelectorDialogComponentContext,
         SpreadsheetDialogComponentContextDelegator,
         SpreadsheetFormatterContextDelegator,
         SpreadsheetFormatterProviderDelegator,
         ProviderContextDelegator {
 
-    SpreadsheetFormatterSelectorDialogComponentContextBasic(final AppContext context) {
+    AppContextSpreadsheetFormatterSelectorDialogComponentContext(final AppContext context) {
         super();
 
         this.throttler = Throttler.empty(Throttler.KEYBOARD_DELAY);

@@ -28,15 +28,15 @@ import java.util.Objects;
 /**
  * A {@link SpreadsheetFormatterSelectorDialogComponentContext} for editing a metadata formatter.
  */
-final class SpreadsheetFormatterSelectorDialogComponentContextBasicMetadata extends SpreadsheetFormatterSelectorDialogComponentContextBasic {
+final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata extends AppContextSpreadsheetFormatterSelectorDialogComponentContext {
 
-    static SpreadsheetFormatterSelectorDialogComponentContextBasicMetadata with(final AppContext context) {
+    static AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata with(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetFormatterSelectorDialogComponentContextBasicMetadata(context);
+        return new AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata(context);
     }
 
-    private SpreadsheetFormatterSelectorDialogComponentContextBasicMetadata(final AppContext context) {
+    private AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata(final AppContext context) {
         super(context);
     }
 
