@@ -22,6 +22,7 @@ import walkingkooka.Context;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -91,7 +92,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         final SpreadsheetLabelMappingDialogComponentContext context = this.context;
 
         return SpreadsheetDialogComponent.with(
-                        ID,
+                        ID + SpreadsheetElementIds.DIALOG,
                         "Label",
                         true, // includeClose
                         context

@@ -49,7 +49,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "SpreadsheetLabelMappingDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Label\n" +
-                        "    id=labelMapping includeClose=true\n" +
+                        "    id=labelMapping-Dialog includeClose=true\n" +
                         "      SpreadsheetLabelComponent\n" +
                         "        SpreadsheetSuggestBoxComponent\n" +
                         "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
@@ -85,7 +85,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "SpreadsheetLabelMappingDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Label\n" +
-                        "    id=labelMapping includeClose=true\n" +
+                        "    id=labelMapping-Dialog includeClose=true\n" +
                         "      SpreadsheetLabelComponent\n" +
                         "        SpreadsheetSuggestBoxComponent\n" +
                         "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
@@ -112,7 +112,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "SpreadsheetLabelMappingDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Label\n" +
-                        "    id=labelMapping includeClose=true\n" +
+                        "    id=labelMapping-Dialog includeClose=true\n" +
                         "      SpreadsheetLabelComponent\n" +
                         "        SpreadsheetSuggestBoxComponent\n" +
                         "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
@@ -148,7 +148,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "SpreadsheetLabelMappingDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Label\n" +
-                        "    id=labelMapping includeClose=true\n" +
+                        "    id=labelMapping-Dialog includeClose=true\n" +
                         "      SpreadsheetLabelComponent\n" +
                         "        SpreadsheetSuggestBoxComponent\n" +
                         "          Label [Label999] id=labelMapping-label-TextBox REQUIRED\n" +
@@ -185,7 +185,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "SpreadsheetLabelMappingDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Label\n" +
-                        "    id=labelMapping includeClose=true\n" +
+                        "    id=labelMapping-Dialog includeClose=true\n" +
                         "      SpreadsheetLabelComponent\n" +
                         "        SpreadsheetSuggestBoxComponent\n" +
                         "          Label [LoadedLabel123] id=labelMapping-label-TextBox REQUIRED\n" +
