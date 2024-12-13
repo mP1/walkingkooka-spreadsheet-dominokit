@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginname;
+package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.PluginNameSet;

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginname;
+package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;

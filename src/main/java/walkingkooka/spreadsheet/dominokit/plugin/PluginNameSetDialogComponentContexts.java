@@ -16,7 +16,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.pluginname;
+package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.AppContext;
