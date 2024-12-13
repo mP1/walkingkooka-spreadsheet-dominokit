@@ -23,17 +23,17 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class SpreadsheetNameDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see BasicSpreadsheetNameDialogComponentContextSpreadsheetListRename}
+     * {@see AppContextSpreadsheetNameDialogComponentContextSpreadsheetListRename}
      */
     public static SpreadsheetNameDialogComponentContext spreadsheetListRename(final AppContext context) {
-        return BasicSpreadsheetNameDialogComponentContextSpreadsheetListRename.with(context);
+        return AppContextSpreadsheetNameDialogComponentContextSpreadsheetListRename.with(context);
     }
 
     /**
-     * {@see BasicSpreadsheetNameDialogComponentContextSpreadsheetRename}
+     * {@see AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename}
      */
     public static SpreadsheetNameDialogComponentContext spreadsheetRename(final AppContext context) {
-        return BasicSpreadsheetNameDialogComponentContextSpreadsheetRename.with(context);
+        return AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename.with(context);
     }
 
     /**

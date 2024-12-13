@@ -22,19 +22,19 @@ import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class BasicSpreadsheetNameDialogComponentContextSpreadsheetRenameTest implements SpreadsheetNameDialogComponentContextTesting<BasicSpreadsheetNameDialogComponentContextSpreadsheetRename> {
+public final class AppContextSpreadsheetNameDialogComponentContextSpreadsheetRenameTest implements SpreadsheetNameDialogComponentContextTesting<AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename> {
 
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> BasicSpreadsheetNameDialogComponentContextSpreadsheetRename.with(null)
+                () -> AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename.with(null)
         );
     }
 
     @Override
-    public BasicSpreadsheetNameDialogComponentContextSpreadsheetRename createContext() {
-        return BasicSpreadsheetNameDialogComponentContextSpreadsheetRename.with(AppContexts.fake());
+    public AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename createContext() {
+        return AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename.with(AppContexts.fake());
     }
 
     @Override
@@ -45,7 +45,7 @@ public final class BasicSpreadsheetNameDialogComponentContextSpreadsheetRenameTe
     // class............................................................................................................
 
     @Override
-    public Class<BasicSpreadsheetNameDialogComponentContextSpreadsheetRename> type() {
-        return BasicSpreadsheetNameDialogComponentContextSpreadsheetRename.class;
+    public Class<AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename> type() {
+        return AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename.class;
     }
 }

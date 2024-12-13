@@ -24,11 +24,11 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentConte
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchersDelegator;
 
-abstract class BasicSpreadsheetNameDialogComponentContext implements SpreadsheetNameDialogComponentContext,
+abstract class AppContextSpreadsheetNameDialogComponentContext implements SpreadsheetNameDialogComponentContext,
         SpreadsheetDialogComponentContextDelegator,
         HasSpreadsheetMetadataFetcherWatchersDelegator {
 
-    BasicSpreadsheetNameDialogComponentContext(final AppContext context) {
+    AppContextSpreadsheetNameDialogComponentContext(final AppContext context) {
         this.context = context;
     }
 
