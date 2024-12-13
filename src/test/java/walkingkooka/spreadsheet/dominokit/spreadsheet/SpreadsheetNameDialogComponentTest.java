@@ -64,16 +64,16 @@ public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetNameDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Spreadsheet Name\n" +
-                        "    id=spreadsheet-name includeClose=true\n" +
+                        "    id=spreadsheetName-Dialog includeClose=true\n" +
                         "      SpreadsheetNameComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
-                        "            [spreadsheetName123] id=spreadsheet-name-TextBox\n" +
+                        "            [spreadsheetName123] id=spreadsheetName-TextBox\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" [#/1/spreadsheetName123/rename/save/spreadsheetName123] id=spreadsheet-name-save-Link\n" +
-                        "          \"Undo\" DISABLED id=spreadsheet-name-undo-Link\n" +
-                        "          \"Close\" [#/1/spreadsheetName123] id=spreadsheet-name-close-Link\n"
+                        "          \"Save\" [#/1/spreadsheetName123/rename/save/spreadsheetName123] id=spreadsheetName-save-Link\n" +
+                        "          \"Undo\" DISABLED id=spreadsheetName-undo-Link\n" +
+                        "          \"Close\" [#/1/spreadsheetName123] id=spreadsheetName-close-Link\n"
         );
     }
 
