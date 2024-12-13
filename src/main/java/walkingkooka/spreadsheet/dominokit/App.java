@@ -59,6 +59,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatch
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
@@ -158,6 +160,7 @@ public class App implements EntryPoint,
         SpreadsheetComparatorFetcherWatcher,
         ConverterFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher,
+        HasSpreadsheetDeltaFetcherWatchersDelegator,
         SpreadsheetExporterFetcherWatcher,
         ExpressionFunctionFetcherWatcher,
         SpreadsheetFormatterFetcherWatcher,
@@ -535,13 +538,8 @@ public class App implements EntryPoint,
     private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher;
 
     @Override
-    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.spreadsheetDeltaFetcherWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
-        return this.spreadsheetDeltaFetcherWatchers.addOnce(watcher);
+    public HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers() {
+        return this.spreadsheetDeltaFetcherWatchers;
     }
 
     private final SpreadsheetDeltaFetcherWatchers spreadsheetDeltaFetcherWatchers;
