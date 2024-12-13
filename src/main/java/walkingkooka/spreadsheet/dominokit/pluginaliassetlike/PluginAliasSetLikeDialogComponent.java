@@ -130,7 +130,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         return ID + "-";
     }
 
-    private final static String ID = PluginAliasSetLikeDialogComponent.class.getSimpleName();
+    private final static String ID = "pluginAliasSet";
 
     // dialog...........................................................................................................
 
@@ -141,7 +141,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         final PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> context = this.context;
 
         return SpreadsheetDialogComponent.with(
-                        ID,
+                        ID + SpreadsheetElementIds.DIALOG,
                         context.dialogTitle(),
                         true, // includeClose
                         context
