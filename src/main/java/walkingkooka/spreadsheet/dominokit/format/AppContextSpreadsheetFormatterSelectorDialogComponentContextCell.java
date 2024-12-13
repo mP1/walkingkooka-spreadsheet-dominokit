@@ -31,15 +31,15 @@ import java.util.Optional;
 /**
  * A {@link SpreadsheetFormatterSelectorDialogComponentContext} for editing a cell {@link SpreadsheetFormatterSelector}.
  */
-final class SpreadsheetFormatterSelectorDialogComponentContextBasicCell extends SpreadsheetFormatterSelectorDialogComponentContextBasic {
+final class AppContextSpreadsheetFormatterSelectorDialogComponentContextCell extends AppContextSpreadsheetFormatterSelectorDialogComponentContext {
 
-    static SpreadsheetFormatterSelectorDialogComponentContextBasicCell with(final AppContext context) {
+    static AppContextSpreadsheetFormatterSelectorDialogComponentContextCell with(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetFormatterSelectorDialogComponentContextBasicCell(context);
+        return new AppContextSpreadsheetFormatterSelectorDialogComponentContextCell(context);
     }
 
-    private SpreadsheetFormatterSelectorDialogComponentContextBasicCell(final AppContext context) {
+    private AppContextSpreadsheetFormatterSelectorDialogComponentContextCell(final AppContext context) {
         super(context);
     }
 
