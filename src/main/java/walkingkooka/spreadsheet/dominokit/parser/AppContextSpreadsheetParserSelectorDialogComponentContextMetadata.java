@@ -28,15 +28,15 @@ import java.util.Objects;
 /**
  * A {@link SpreadsheetParserSelectorDialogComponentContext} for editing a metadata parser.
  */
-final class SpreadsheetParserSelectorDialogComponentContextBasicMetadata extends SpreadsheetParserSelectorDialogComponentContextBasic {
+final class AppContextSpreadsheetParserSelectorDialogComponentContextMetadata extends AppContextSpreadsheetParserSelectorDialogComponentContext {
 
-    static SpreadsheetParserSelectorDialogComponentContextBasicMetadata with(final AppContext context) {
+    static AppContextSpreadsheetParserSelectorDialogComponentContextMetadata with(final AppContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetParserSelectorDialogComponentContextBasicMetadata(context);
+        return new AppContextSpreadsheetParserSelectorDialogComponentContextMetadata(context);
     }
 
-    private SpreadsheetParserSelectorDialogComponentContextBasicMetadata(final AppContext context) {
+    private AppContextSpreadsheetParserSelectorDialogComponentContextMetadata(final AppContext context) {
         super(context);
     }
 
