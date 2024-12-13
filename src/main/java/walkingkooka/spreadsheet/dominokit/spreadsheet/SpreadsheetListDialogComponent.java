@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
@@ -116,7 +117,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetDialogComponent dialogCreate(final SpreadsheetListComponentContext context) {
         return SpreadsheetDialogComponent.with(
-                        ID, // id
+                        ID + SpreadsheetElementIds.DIALOG, // id
                         "Spreadsheet List", // title
                         false, // includeClose
                         context
@@ -149,7 +150,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
         return ID_PREFIX;
     }
 
-    final static String ID = "spreadsheet-list";
+    final static String ID = "spreadsheetList";
 
     final static String ID_PREFIX = ID + '-';
 
