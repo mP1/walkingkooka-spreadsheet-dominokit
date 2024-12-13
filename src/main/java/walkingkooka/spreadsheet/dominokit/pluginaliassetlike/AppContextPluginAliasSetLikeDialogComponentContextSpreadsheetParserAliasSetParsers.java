@@ -19,29 +19,29 @@ package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
 
-final class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFunctions extends PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSet {
+final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers extends AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSet {
 
-    static PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFunctions with(final AppContext context) {
-        return new PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFunctions(context);
+    static AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers with(final AppContext context) {
+        return new AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers(context);
     }
 
-    private PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFunctions(final AppContext context) {
+    private AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers(final AppContext context) {
         super(context);
     }
 
     // PluginAliasSetLikeDialogComponentContext.........................................................................
 
     @Override
-    SpreadsheetMetadataPropertyName<ExpressionFunctionAliasSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.FUNCTIONS;
+    SpreadsheetMetadataPropertyName<SpreadsheetParserAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.PARSERS;
     }
 
     @Override
-    public ExpressionFunctionAliasSet providerAliasSetLike() {
+    public SpreadsheetParserAliasSet providerAliasSetLike() {
         return this.context.systemSpreadsheetProvider()
-                .expressionFunctionInfos()
+                .spreadsheetParserInfos()
                 .aliasSet();
     }
 }

@@ -17,31 +17,31 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
-final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparators extends PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSet {
+final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters extends AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSet {
 
-    static PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparators with(final AppContext context) {
-        return new PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparators(context);
+    static AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters with(final AppContext context) {
+        return new AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters(context);
     }
 
-    private PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparators(final AppContext context) {
+    private AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters(final AppContext context) {
         super(context);
     }
 
     // PluginAliasSetLikeDialogComponentContext.........................................................................
 
     @Override
-    SpreadsheetMetadataPropertyName<SpreadsheetComparatorAliasSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.COMPARATORS;
+    SpreadsheetMetadataPropertyName<SpreadsheetFormatterAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.FORMATTERS;
     }
 
     @Override
-    public SpreadsheetComparatorAliasSet providerAliasSetLike() {
+    public SpreadsheetFormatterAliasSet providerAliasSetLike() {
         return this.context.systemSpreadsheetProvider()
-                .spreadsheetComparatorInfos()
+                .spreadsheetFormatterInfos()
                 .aliasSet();
     }
 }

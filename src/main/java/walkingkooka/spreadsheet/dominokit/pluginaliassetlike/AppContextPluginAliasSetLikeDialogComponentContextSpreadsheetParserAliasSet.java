@@ -24,70 +24,62 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterAliasSetComponent;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAlias;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
-import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserAliasSetComponent;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAlias;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserAliasSet;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-abstract class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSet extends PluginAliasSetLikeDialogComponentContextBasic<SpreadsheetFormatterName,
-        SpreadsheetFormatterInfo,
-        SpreadsheetFormatterInfoSet,
-        SpreadsheetFormatterSelector,
-        SpreadsheetFormatterAlias,
-        SpreadsheetFormatterAliasSet> {
+abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSet extends AppContextPluginAliasSetLikeDialogComponentContext<SpreadsheetParserName,
+        SpreadsheetParserInfo,
+        SpreadsheetParserInfoSet,
+        SpreadsheetParserSelector,
+        SpreadsheetParserAlias,
+        SpreadsheetParserAliasSet> {
 
-    PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSet(final AppContext context) {
+    AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSet(final AppContext context) {
         super(context);
     }
 
     // PluginAliasSetLikeDialogComponentContext..............................................................................
 
     @Override
-    public final SpreadsheetFormatterAliasSetComponent textBox() {
-        return SpreadsheetFormatterAliasSetComponent.empty();
+    public final SpreadsheetParserAliasSetComponent textBox() {
+        return SpreadsheetParserAliasSetComponent.empty();
     }
 
     @Override
-    public final SpreadsheetFormatterAliasSet emptyAliasSetLike() {
-        return SpreadsheetFormatterAliasSet.EMPTY;
+    public final SpreadsheetParserAliasSet emptyAliasSetLike() {
+        return SpreadsheetParserAliasSet.EMPTY;
     }
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
-        this.context.spreadsheetFormatterFetcher()
+        this.context.spreadsheetParserFetcher()
                 .infoSet(id);
     }
 
     @Override
-    public final Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetFormatterAliasSet> set) {
-        return this.context.addSpreadsheetFormatterFetcherWatcher(
-                new SpreadsheetFormatterFetcherWatcher() {
+    public final Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetParserAliasSet> set) {
+        return this.context.addSpreadsheetParserFetcherWatcher(
+                new SpreadsheetParserFetcherWatcher() {
                     @Override
-                    public void onSpreadsheetFormatterInfoSet(final SpreadsheetId id,
-                                                              final SpreadsheetFormatterInfoSet infos,
-                                                              final AppContext context) {
+                    public void onSpreadsheetParserInfoSet(final SpreadsheetId id,
+                                                           final SpreadsheetParserInfoSet infos,
+                                                           final AppContext context) {
                         set.accept(infos.aliasSet());
                     }
 
                     @Override
-                    public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
-                                                                   final SpreadsheetFormatterSelectorEdit edit,
-                                                                   final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
-                                                                       final SpreadsheetFormatterSelectorMenuList menu,
-                                                                       final AppContext context) {
+                    public void onSpreadsheetParserSelectorEdit(final SpreadsheetId id,
+                                                                final SpreadsheetParserSelectorEdit edit,
+                                                                final AppContext context) {
                         // nop
                     }
 

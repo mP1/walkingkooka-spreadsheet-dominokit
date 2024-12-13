@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterName;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterSelector;
 
-public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImporterAliasSetImportersTest implements PluginAliasSetLikeDialogComponentContextTesting<PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImporterAliasSetImporters,
+public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImportersTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters,
         SpreadsheetImporterName,
         SpreadsheetImporterInfo,
         SpreadsheetImporterInfoSet,
@@ -33,8 +33,8 @@ public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImpor
         SpreadsheetImporterAlias,
         SpreadsheetImporterAliasSet> {
     @Override
-    public PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImporterAliasSetImporters createContext() {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImporterAliasSetImporters.with(AppContexts.fake());
+    public AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters createContext() {
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters.with(AppContexts.fake());
     }
 
     // Context..........................................................................................................
@@ -47,7 +47,7 @@ public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImpor
     // Class............................................................................................................
 
     @Override
-    public Class<PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImporterAliasSetImporters> type() {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImporterAliasSetImporters.class;
+    public Class<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters> type() {
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters.class;
     }
 }

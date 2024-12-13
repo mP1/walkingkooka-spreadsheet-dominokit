@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 
-public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsersTest implements PluginAliasSetLikeDialogComponentContextTesting<PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsers,
+public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsersTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers,
         SpreadsheetParserName,
         SpreadsheetParserInfo,
         SpreadsheetParserInfoSet,
@@ -34,8 +34,8 @@ public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParse
         SpreadsheetParserAlias,
         SpreadsheetParserAliasSet> {
     @Override
-    public PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsers createContext() {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsers.with(AppContexts.fake());
+    public AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers createContext() {
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers.with(AppContexts.fake());
     }
 
     // Context..........................................................................................................
@@ -48,7 +48,7 @@ public final class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParse
     // Class............................................................................................................
 
     @Override
-    public Class<PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsers> type() {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsers.class;
+    public Class<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers> type() {
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers.class;
     }
 }

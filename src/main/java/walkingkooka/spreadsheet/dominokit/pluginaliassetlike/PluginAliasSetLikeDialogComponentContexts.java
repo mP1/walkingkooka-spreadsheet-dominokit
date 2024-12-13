@@ -74,17 +74,17 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector
 public final class PluginAliasSetLikeDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparators}
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators}
      */
     public static PluginAliasSetLikeDialogComponentContext<SpreadsheetComparatorName, SpreadsheetComparatorInfo, SpreadsheetComparatorInfoSet, SpreadsheetComparatorSelector, SpreadsheetComparatorAlias, SpreadsheetComparatorAliasSet> comparators(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetComparatorAliasSetComparators.with(context);
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators.with(context);
     }
     
     /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicConverterAliasSetConverters}
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters}
      */
     public static PluginAliasSetLikeDialogComponentContext<ConverterName, ConverterInfo, ConverterInfoSet, ConverterSelector, ConverterAlias, ConverterAliasSet> converters(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasicConverterAliasSetConverters.with(context);
+        return AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters.with(context);
     }
     
     /**
@@ -101,52 +101,52 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     }
 
     /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSetExporters}
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters}
      */
     public static PluginAliasSetLikeDialogComponentContext<SpreadsheetExporterName, SpreadsheetExporterInfo, SpreadsheetExporterInfoSet, SpreadsheetExporterSelector, SpreadsheetExporterAlias, SpreadsheetExporterAliasSet> exporters(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSetExporters.with(context);
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters.with(context);
     }
     
     /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSet}
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSet}
      */
     public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> findFunctions(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFindFunctions.with(context);
+        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions.with(context);
     }
 
     /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSetFormatters}
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters}
      */
     public static PluginAliasSetLikeDialogComponentContext<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> formatters(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetFormatterAliasSetFormatters.with(context);
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters.with(context);
     }
     
     /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctions}
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFormulaFunctions}
      */
     public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> formulaFunctions(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFormulaFunctions.with(context);
+        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFormulaFunctions.with(context);
     }
 
     /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFunctions}
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFunctions}
      */
     public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> functions(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFunctions.with(context);
+        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFunctions.with(context);
     }
 
     /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImporterAliasSetImporters}
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters}
      */
     public static PluginAliasSetLikeDialogComponentContext<SpreadsheetImporterName, SpreadsheetImporterInfo, SpreadsheetImporterInfoSet, SpreadsheetImporterSelector, SpreadsheetImporterAlias, SpreadsheetImporterAliasSet> importers(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetImporterAliasSetImporters.with(context);
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters.with(context);
     }
 
     /**
-     * {@see PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsers}
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers}
      */
     public static PluginAliasSetLikeDialogComponentContext<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet> parsers(final AppContext context) {
-        return PluginAliasSetLikeDialogComponentContextBasicSpreadsheetParserAliasSetParsers.with(context);
+        return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers.with(context);
     }
     
     /**

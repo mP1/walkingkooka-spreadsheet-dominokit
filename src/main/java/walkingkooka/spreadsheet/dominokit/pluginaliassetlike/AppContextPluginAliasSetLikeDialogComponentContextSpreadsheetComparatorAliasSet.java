@@ -23,55 +23,55 @@ import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAlias;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.export.SpreadsheetExporterAliasSetComponent;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetExporterFetcherWatcher;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterAlias;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterAliasSet;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterInfo;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
-import walkingkooka.spreadsheet.export.SpreadsheetExporterSelector;
+import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorAliasSetComponent;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetComparatorFetcherWatcher;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-abstract class PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSet extends PluginAliasSetLikeDialogComponentContextBasic<SpreadsheetExporterName,
-        SpreadsheetExporterInfo,
-        SpreadsheetExporterInfoSet,
-        SpreadsheetExporterSelector,
-        SpreadsheetExporterAlias,
-        SpreadsheetExporterAliasSet> {
+abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSet extends AppContextPluginAliasSetLikeDialogComponentContext<SpreadsheetComparatorName,
+        SpreadsheetComparatorInfo,
+        SpreadsheetComparatorInfoSet,
+        SpreadsheetComparatorSelector,
+        SpreadsheetComparatorAlias,
+        SpreadsheetComparatorAliasSet> {
 
-    PluginAliasSetLikeDialogComponentContextBasicSpreadsheetExporterAliasSet(final AppContext context) {
+    AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSet(final AppContext context) {
         super(context);
     }
 
     // PluginAliasSetLikeDialogComponentContext..............................................................................
 
     @Override
-    public final SpreadsheetExporterAliasSetComponent textBox() {
-        return SpreadsheetExporterAliasSetComponent.empty();
+    public final SpreadsheetComparatorAliasSetComponent textBox() {
+        return SpreadsheetComparatorAliasSetComponent.empty();
     }
 
     @Override
-    public final SpreadsheetExporterAliasSet emptyAliasSetLike() {
-        return SpreadsheetExporterAliasSet.EMPTY;
+    public final SpreadsheetComparatorAliasSet emptyAliasSetLike() {
+        return SpreadsheetComparatorAliasSet.EMPTY;
     }
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
-        this.context.spreadsheetExporterFetcher()
+        this.context.spreadsheetComparatorFetcher()
                 .infoSet(id);
     }
 
     @Override
-    public final Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetExporterAliasSet> set) {
-        return this.context.addSpreadsheetExporterFetcherWatcher(
-                new SpreadsheetExporterFetcherWatcher() {
+    public final Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetComparatorAliasSet> set) {
+        return this.context.addSpreadsheetComparatorFetcherWatcher(
+                new SpreadsheetComparatorFetcherWatcher() {
                     @Override
-                    public void onSpreadsheetExporterInfoSet(final SpreadsheetId id,
-                                                             final SpreadsheetExporterInfoSet infos,
-                                                             final AppContext context) {
+                    public void onSpreadsheetComparatorInfoSet(final SpreadsheetId id,
+                                                               final SpreadsheetComparatorInfoSet infos,
+                                                               final AppContext context) {
                         set.accept(infos.aliasSet());
                     }
 

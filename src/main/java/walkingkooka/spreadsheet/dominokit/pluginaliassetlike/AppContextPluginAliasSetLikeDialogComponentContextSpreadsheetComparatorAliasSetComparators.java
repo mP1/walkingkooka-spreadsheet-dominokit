@@ -17,31 +17,31 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
-import walkingkooka.convert.provider.ConverterAliasSet;
+import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
-final class PluginAliasSetLikeDialogComponentContextBasicConverterAliasSetConverters extends PluginAliasSetLikeDialogComponentContextBasicConverterAliasSet {
+final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators extends AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSet {
 
-    static PluginAliasSetLikeDialogComponentContextBasicConverterAliasSetConverters with(final AppContext context) {
-        return new PluginAliasSetLikeDialogComponentContextBasicConverterAliasSetConverters(context);
+    static AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators with(final AppContext context) {
+        return new AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators(context);
     }
 
-    private PluginAliasSetLikeDialogComponentContextBasicConverterAliasSetConverters(final AppContext context) {
+    private AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators(final AppContext context) {
         super(context);
     }
 
     // PluginAliasSetLikeDialogComponentContext.........................................................................
 
     @Override
-    SpreadsheetMetadataPropertyName<ConverterAliasSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.CONVERTERS;
+    SpreadsheetMetadataPropertyName<SpreadsheetComparatorAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.COMPARATORS;
     }
 
     @Override
-    public ConverterAliasSet providerAliasSetLike() {
+    public SpreadsheetComparatorAliasSet providerAliasSetLike() {
         return this.context.systemSpreadsheetProvider()
-                .converterInfos()
+                .spreadsheetComparatorInfos()
                 .aliasSet();
     }
 }

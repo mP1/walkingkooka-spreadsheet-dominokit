@@ -39,7 +39,7 @@ import java.util.Objects;
 /**
  * Base class that captures a lot of common functionality for a {@link PluginAliasSetLikeDialogComponentContext}.
  */
-abstract class PluginAliasSetLikeDialogComponentContextBasic<N extends Name & Comparable<N>,
+abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name & Comparable<N>,
         I extends PluginInfoLike<I, N>,
         IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
         S extends PluginSelectorLike<N>,
@@ -47,7 +47,7 @@ abstract class PluginAliasSetLikeDialogComponentContextBasic<N extends Name & Co
         AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> implements PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS>,
         SpreadsheetDialogComponentContextDelegator {
 
-    PluginAliasSetLikeDialogComponentContextBasic(final AppContext context) {
+    AppContextPluginAliasSetLikeDialogComponentContext(final AppContext context) {
         this.context = Objects.requireNonNull(context, "context");
     }
 

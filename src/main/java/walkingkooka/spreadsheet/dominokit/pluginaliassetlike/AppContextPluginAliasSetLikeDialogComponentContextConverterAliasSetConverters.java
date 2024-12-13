@@ -17,29 +17,31 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
+import walkingkooka.convert.provider.ConverterAliasSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
 
-final class PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFindFunctions extends PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSet {
+final class AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters extends AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSet {
 
-    static PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFindFunctions with(final AppContext context) {
-        return new PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFindFunctions(context);
+    static AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters with(final AppContext context) {
+        return new AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters(context);
     }
 
-    private PluginAliasSetLikeDialogComponentContextBasicExpressionFunctionAliasSetFindFunctions(final AppContext context) {
+    private AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters(final AppContext context) {
         super(context);
     }
 
     // PluginAliasSetLikeDialogComponentContext.........................................................................
 
     @Override
-    SpreadsheetMetadataPropertyName<ExpressionFunctionAliasSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.FIND_FUNCTIONS;
+    SpreadsheetMetadataPropertyName<ConverterAliasSet> metadataPropertyName() {
+        return SpreadsheetMetadataPropertyName.CONVERTERS;
     }
 
     @Override
-    public ExpressionFunctionAliasSet providerAliasSetLike() {
-        return this.providerAliasSetLikeAndFunctions();
+    public ConverterAliasSet providerAliasSetLike() {
+        return this.context.systemSpreadsheetProvider()
+                .converterInfos()
+                .aliasSet();
     }
 }
