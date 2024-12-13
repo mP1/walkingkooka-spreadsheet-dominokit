@@ -121,7 +121,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         return ID + "-";
     }
 
-    private final static String ID = SpreadsheetParserSelectorDialogComponent.class.getSimpleName();
+    private final static String ID = "spreadsheetParserSelector";
 
     // dialog...........................................................................................................
 
@@ -132,7 +132,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         final SpreadsheetParserSelectorDialogComponentContext context = this.context;
 
         SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                ID,
+                ID + SpreadsheetElementIds.DIALOG,
                 context.dialogTitle(),
                 true, // includeClose
                 context
