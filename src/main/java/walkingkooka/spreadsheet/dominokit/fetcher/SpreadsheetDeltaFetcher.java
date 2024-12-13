@@ -137,7 +137,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         match = "cells".equals(component.value());
                         break;
                     case 6: // *
-                        match = "*".equals(component.value());
+                        match = UrlPathName.WILDCARD.equals(component);
                         break;
                     default:
                         match = false; // too many components so NO
