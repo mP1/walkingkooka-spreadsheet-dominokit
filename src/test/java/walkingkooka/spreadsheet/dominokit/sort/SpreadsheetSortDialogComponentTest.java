@@ -58,7 +58,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -98,7 +98,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -176,7 +176,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -255,7 +255,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -328,7 +328,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -403,7 +403,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -476,7 +476,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -550,7 +550,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -649,7 +649,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -751,7 +751,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -866,7 +866,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -945,7 +945,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -1050,7 +1050,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -1155,7 +1155,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -1234,7 +1234,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
@@ -1375,7 +1375,7 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "SpreadsheetSortDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Sort\n" +
-                        "    id=sort includeClose=true\n" +
+                        "    id=sort-Dialog includeClose=true\n" +
                         "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                         "        ValueSpreadsheetTextBox\n" +
                         "          SpreadsheetTextBox\n" +
