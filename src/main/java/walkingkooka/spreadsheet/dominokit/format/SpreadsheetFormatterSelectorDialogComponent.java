@@ -123,7 +123,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         return ID + "-";
     }
 
-    private final static String ID = SpreadsheetFormatterSelectorDialogComponent.class.getSimpleName();
+    private final static String ID = "spreadsheetFormatterSelector";
 
     // dialog...........................................................................................................
 
@@ -134,7 +134,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
 
         SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                ID,
+                ID + SpreadsheetElementIds.DIALOG,
                 context.dialogTitle(),
                 true, // includeClose
                 context
