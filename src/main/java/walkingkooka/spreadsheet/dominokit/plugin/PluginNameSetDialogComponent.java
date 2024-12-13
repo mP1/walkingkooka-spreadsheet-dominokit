@@ -97,7 +97,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
         return ID + "-";
     }
 
-    private final static String ID = PluginNameSetDialogComponent.class.getSimpleName();
+    private final static String ID = "pluginNameSet";
 
     // dialog...........................................................................................................
 
@@ -108,7 +108,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
         final PluginNameSetDialogComponentContext context = this.context;
 
         return SpreadsheetDialogComponent.with(
-                        ID,
+                        ID + SpreadsheetElementIds.DIALOG,
                         context.dialogTitle(),
                         true, // includeClose
                         context
