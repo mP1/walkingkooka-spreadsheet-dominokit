@@ -90,7 +90,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetDialogComponent dialogCreate() {
         return SpreadsheetDialogComponent.with(
-                        ID,
+                        ID + SpreadsheetElementIds.DIALOG,
                         "Sort",
                         true, // includeClose
                         this.context
