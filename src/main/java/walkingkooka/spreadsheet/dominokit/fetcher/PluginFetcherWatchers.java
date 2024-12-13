@@ -25,7 +25,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import java.util.Optional;
 
 public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWatcher>
-        implements PluginFetcherWatcher {
+        implements PluginFetcherWatcher,
+        HasPluginFetcherWatchers {
 
     private PluginFetcherWatchers() {
         super();
@@ -57,5 +58,17 @@ public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWa
                         context
                 )
         );
+    }
+
+    // HasPluginFetcherWatchers.........................................................................................
+
+    @Override
+    public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {
+        return this.add(watcher);
+    }
+
+    @Override
+    public Runnable addPluginFetcherWatcherOnce(final PluginFetcherWatcher watcher) {
+        return this.addOnce(watcher);
     }
 }

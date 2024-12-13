@@ -57,6 +57,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
@@ -163,6 +165,7 @@ public class App implements EntryPoint,
         SpreadsheetMetadataFetcherWatcher,
         SpreadsheetParserFetcherWatcher,
         PluginFetcherWatcher,
+        HasPluginFetcherWatchersDelegator,
         SpreadsheetProviderDelegator,
         SpreadsheetFormatterContextDelegator {
 
@@ -883,13 +886,8 @@ public class App implements EntryPoint,
     private final PluginFetcher pluginFetcher;
 
     @Override
-    public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {
-        return this.pluginFetcherWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addPluginFetcherWatcherOnce(final PluginFetcherWatcher watcher) {
-        return this.pluginFetcherWatchers.addOnce(watcher);
+    public HasPluginFetcherWatchers hasPluginFetcherWatchers() {
+        return this.pluginFetcherWatchers;
     }
 
     private final PluginFetcherWatchers pluginFetcherWatchers;
@@ -906,7 +904,7 @@ public class App implements EntryPoint,
                             final AppContext context) {
         // TODO
     }
-    
+
     // JsonNodeMarshallContext..........................................................................................
 
     @Override
