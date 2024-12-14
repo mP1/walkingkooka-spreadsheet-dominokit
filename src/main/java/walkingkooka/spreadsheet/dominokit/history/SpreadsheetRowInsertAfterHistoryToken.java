@@ -73,12 +73,11 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
     HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
-        return rowInsertAfter(
+        return selection(
                 id,
                 name,
-                anchoredSelection,
-                this.count()
-        );
+                anchoredSelection
+        ).insertAfter(this.count());
     }
 
     @Override

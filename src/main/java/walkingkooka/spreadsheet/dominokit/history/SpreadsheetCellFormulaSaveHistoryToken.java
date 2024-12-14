@@ -83,12 +83,12 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
-        return cellFormulaSave(
+        return selection(
                 id,
                 name,
-                anchoredSelection,
-                this.text
-        );
+                anchoredSelection
+        ).formula()
+                .setSave(this.text);
     }
 
     @Override

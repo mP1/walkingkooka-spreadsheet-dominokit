@@ -66,11 +66,11 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
-        return cellFormula(
+        return cell(
                 id,
                 name,
                 anchoredSelection
-        );
+        ).formula();
     }
 
     @Override
