@@ -75,9 +75,4 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
     final HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
         return this;
     }
-
-    @Override //
-    final HistoryToken setUnfreeze0() {
-        return this;
-    }
 }

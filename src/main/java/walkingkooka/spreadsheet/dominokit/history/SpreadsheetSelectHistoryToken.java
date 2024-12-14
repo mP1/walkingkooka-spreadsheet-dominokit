@@ -288,11 +288,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    HistoryToken setUnfreeze0() {
-        return this;
-    }
-
-    @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
 

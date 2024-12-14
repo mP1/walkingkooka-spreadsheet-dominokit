@@ -85,11 +85,6 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
         return this;
     }
 
-    @Override//
-    final HistoryToken setUnfreeze0() {
-        return this;
-    }
-
     // parse............................................................................................................
 
     @Override

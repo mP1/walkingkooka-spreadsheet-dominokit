@@ -128,15 +128,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         );
     }
 
-    @Override //
-    final HistoryToken setUnfreeze0() {
-        return cellUnfreeze(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
     // parse............................................................................................................
 
     @Override
@@ -194,7 +185,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 result = this.setToolbar();
                 break;
             case UNFREEZE_STRING:
-                result = this.setUnfreeze();
+                result = this.unfreeze();
                 break;
             default:
                 cursor.end();

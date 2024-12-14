@@ -140,15 +140,6 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
         return this; // row/1/style not currently supported
     }
 
-    @Override //
-    final HistoryToken setUnfreeze0() {
-        return rowUnfreeze(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
     // parse............................................................................................................
 
     @Override
@@ -186,7 +177,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
                 result = this.parseSort(cursor);
                 break;
             case UNFREEZE_STRING:
-                result = this.setUnfreeze();
+                result = this.unfreeze();
                 break;
             default:
                 cursor.end();

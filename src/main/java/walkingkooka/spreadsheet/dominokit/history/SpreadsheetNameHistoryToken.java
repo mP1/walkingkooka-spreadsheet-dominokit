@@ -128,11 +128,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
      */
     abstract HistoryToken setStyle0(final TextStylePropertyName<?> propertyName);
 
-    /**
-     * Creates a unfreeze {@link SpreadsheetNameHistoryToken}.
-     */
-    abstract HistoryToken setUnfreeze0();
-
     // parse............................................................................................................
 
     final HistoryToken parseSave(final TextCursor cursor) {
