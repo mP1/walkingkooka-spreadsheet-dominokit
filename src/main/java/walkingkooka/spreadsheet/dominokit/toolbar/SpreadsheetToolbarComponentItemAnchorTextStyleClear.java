@@ -68,7 +68,7 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends Spreadsh
         context.historyToken()
                 .anchoredSelectionHistoryTokenOrEmpty()
                 .map(
-                        t -> t.setStyle(PROPERTY)
+                        t -> t.style(PROPERTY)
                 ).ifPresent(context::pushHistoryToken);
     }
 
@@ -82,7 +82,7 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends Spreadsh
                 context.historyToken()
                         .anchoredSelectionHistoryTokenOrEmpty()
                         .map(
-                                t -> t.setStyle(PROPERTY)
+                                t -> t.style(PROPERTY)
                                         .clearSave()
                         )
         );

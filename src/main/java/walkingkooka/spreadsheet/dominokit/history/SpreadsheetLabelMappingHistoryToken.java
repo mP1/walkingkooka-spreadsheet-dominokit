@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
@@ -72,11 +71,6 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     @Override //
     final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
-    }
-
-    @Override //
-    final HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
-        return this;
     }
 
     // parse............................................................................................................

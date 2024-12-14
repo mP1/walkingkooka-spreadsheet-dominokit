@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -96,11 +95,6 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
 
     @Override
     HistoryToken setSave0(final String value) {
-        return this;
-    }
-
-    @Override
-    HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
         return this;
     }
 

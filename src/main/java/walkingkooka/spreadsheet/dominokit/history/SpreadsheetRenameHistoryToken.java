@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
@@ -58,11 +57,6 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
 
     @Override //
     final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
-        return this;
-    }
-
-    @Override //
-    final HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
         return this;
     }
 }
