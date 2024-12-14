@@ -367,7 +367,7 @@ public class App implements EntryPoint,
         // only reload SpreadsheetListDialogComponent after resizing stops.
         DomGlobal.setTimeout(
                 (values) -> {
-                    if (System.currentTimeMillis() - this.lastResize > 1000) {
+                    if (System.currentTimeMillis() - this.lastResize > SPREADSHEET_LIST_RESIZE_DELAY) {
                         final HistoryToken historyToken = this.historyToken();
                         if (historyToken instanceof SpreadsheetListSelectHistoryToken) {
                             final OptionalInt count = historyToken.count();
@@ -379,9 +379,11 @@ public class App implements EntryPoint,
                         }
                     }
                 },
-                1000
+                SPREADSHEET_LIST_RESIZE_DELAY
         );
     }
+
+    private final static int SPREADSHEET_LIST_RESIZE_DELAY = 1000;
 
     /**
      * Used to track when resizing stops, after resizing stops a reload will happen if SpreadsheetListDialogComponent is displayed.
