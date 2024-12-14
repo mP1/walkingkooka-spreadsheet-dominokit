@@ -81,11 +81,11 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
-        return selection(
+        return cellFreeze(
                 id,
                 name,
                 anchoredSelection
-        ).setFreeze();
+        );
     }
 
     @Override

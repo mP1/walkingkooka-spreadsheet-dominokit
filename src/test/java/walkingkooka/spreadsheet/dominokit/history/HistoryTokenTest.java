@@ -670,22 +670,22 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // setFreeze........................................................................................................
 
     @Test
-    public void testSetFreezeNotSpreadsheetNameHistoryTokenSubclass() {
+    public void testFreezeNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setFreeze(),
+                historyToken.freeze(),
                 historyToken
         );
     }
 
     @Test
-    public void testSetFreezeCell() {
+    public void testFreezeCell() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.A1.setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.setFreeze(),
+                historyToken.freeze(),
                 HistoryToken.cellFreeze(
                         ID,
                         NAME,
@@ -695,13 +695,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetFreezeColumn() {
+    public void testFreezeColumn() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseColumn("A")
                 .setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.setFreeze(),
+                historyToken.freeze(),
                 HistoryToken.columnFreeze(
                         ID,
                         NAME,
@@ -711,13 +711,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetFreezeRow() {
+    public void testFreezeRow() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseRow("1")
                 .setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.setFreeze(),
+                historyToken.freeze(),
                 HistoryToken.rowFreeze(
                         ID,
                         NAME,

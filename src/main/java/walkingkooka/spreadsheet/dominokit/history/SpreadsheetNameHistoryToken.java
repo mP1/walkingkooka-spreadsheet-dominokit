@@ -66,11 +66,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     abstract HistoryToken setDelete0();
 
     /**
-     * Creates a freeze {@link SpreadsheetNameHistoryToken}.
-     */
-    abstract HistoryToken setFreeze0();
-
-    /**
      * Creates a setMenu1 {@link SpreadsheetNameHistoryToken}.
      */
     abstract HistoryToken setMenu1();

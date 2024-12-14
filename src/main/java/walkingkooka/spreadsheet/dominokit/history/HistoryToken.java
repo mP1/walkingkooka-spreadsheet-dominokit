@@ -1722,10 +1722,40 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * if possible creates a freeze.
      */
-    public final HistoryToken setFreeze() {
-        return this.setIfSpreadsheetNameHistoryToken(
-                SpreadsheetNameHistoryToken::setFreeze0
-        );
+    public final HistoryToken freeze() {
+        HistoryToken historyToken = this;
+        
+        if(this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+            
+            historyToken = cellFreeze(
+                    cell.id(),
+                    cell.name(),
+                    cell.anchoredSelection()
+            );
+        } else {
+            if(this instanceof SpreadsheetColumnHistoryToken) {
+                final SpreadsheetColumnHistoryToken column = this.cast(SpreadsheetColumnHistoryToken.class);
+
+                historyToken = columnFreeze(
+                        column.id(),
+                        column.name(),
+                        column.anchoredSelection()
+                );
+            } else {
+                if(this instanceof SpreadsheetRowHistoryToken) {
+                    final SpreadsheetRowHistoryToken row = this.cast(SpreadsheetRowHistoryToken.class);
+
+                    historyToken = rowFreeze(
+                            row.id(),
+                            row.name(),
+                            row.anchoredSelection()
+                    );
+                }
+            }
+        }
+
+        return historyToken;
     }
 
     /**
@@ -1735,7 +1765,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         HistoryToken token;
 
         try {
-            token = this.setFreeze();
+            token = this.freeze();
         } catch (final RuntimeException ignored) {
             token = null;
         }
