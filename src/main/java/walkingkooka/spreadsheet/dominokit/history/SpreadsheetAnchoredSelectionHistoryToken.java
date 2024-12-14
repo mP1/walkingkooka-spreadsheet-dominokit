@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
 
@@ -75,6 +76,38 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     abstract HistoryToken setSortEdit0(final String comparators);
 
     abstract HistoryToken setSortSave0(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators);
+
+    // parse............................................................................................................
+
+    final HistoryToken parseSort(final TextCursor cursor) {
+        final HistoryToken historyToken;
+
+        final String component = parseComponent(cursor)
+                .orElse("");
+        switch (component) {
+            case EDIT_STRING:
+                final String comparators = parseComponent(cursor)
+                        .orElse("");
+
+                historyToken = this.setSortEdit(
+                        comparators
+                );
+                break;
+            case SAVE_STRING:
+                historyToken = this.setSortSave(
+                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(
+                                parseComponent(cursor)
+                                        .orElse("")
+                        )
+                );
+                break;
+            default:
+                historyToken = this;
+                break;
+        }
+
+        return historyToken;
+    }
 
     // historyToken helpers.............................................................................................
 

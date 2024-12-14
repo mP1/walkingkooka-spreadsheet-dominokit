@@ -22,9 +22,12 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
 import java.util.OptionalInt;
 
 abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredSelectionHistoryToken {
@@ -181,5 +184,53 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
                 this.name(),
                 this.anchoredSelection()
         );
+    }
+
+    // parse............................................................................................................
+
+    @Override
+    HistoryToken parse0(final String component,
+                        final TextCursor cursor) {
+        final HistoryToken result;
+
+        switch (component) {
+            case CLEAR_STRING:
+                result = this.setClear();
+                break;
+            case DELETE_STRING:
+                result = this.setDelete();
+                break;
+            case FREEZE_STRING:
+                result = this.setFreeze();
+                break;
+            case INSERT_AFTER_STRING:
+                result = this.setInsertAfter(
+                        parseCount(cursor)
+                );
+                break;
+            case INSERT_BEFORE_STRING:
+                result = this.setInsertBefore(
+                        parseCount(cursor)
+                );
+                break;
+            case MENU_STRING:
+                result = this.setMenu(
+                        Optional.empty(), // no selection
+                        SpreadsheetLabelNameResolvers.fake()
+                );
+                break;
+            case SORT_STRING:
+                result = this.parseSort(cursor);
+                break;
+            case UNFREEZE_STRING:
+                result = this.setUnfreeze();
+                break;
+            default:
+                cursor.end();
+                result = this; // ignore
+                break;
+        }
+
+        return result;
     }
 }
