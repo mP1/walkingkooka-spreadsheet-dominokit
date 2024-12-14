@@ -224,7 +224,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     private HistoryToken parseRename(final TextCursor cursor) {
-        return this.setRename();
+        return this.rename();
     }
 
     @Override
