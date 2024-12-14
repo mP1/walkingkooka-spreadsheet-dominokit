@@ -31,34 +31,34 @@ import java.util.OptionalInt;
  */
 public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHistoryToken {
 
-    static SpreadsheetListReloadHistoryToken with(final OptionalInt from,
+    static SpreadsheetListReloadHistoryToken with(final OptionalInt offset,
                                                   final OptionalInt count) {
         return new SpreadsheetListReloadHistoryToken(
-                checkFrom(from),
+                checkOffset(offset),
                 count
         );
     }
 
-    private SpreadsheetListReloadHistoryToken(final OptionalInt from,
+    private SpreadsheetListReloadHistoryToken(final OptionalInt offset,
                                               final OptionalInt count) {
         super(
-                from,
+                offset,
                 count
         );
     }
 
-    // from.............................................................................................................
+    // offset.............................................................................................................
 
     @Override
-    public SpreadsheetListReloadHistoryToken setFrom(final OptionalInt from) {
-        return this.setFrom0(from)
+    public SpreadsheetListReloadHistoryToken setOffset(final OptionalInt offset) {
+        return this.setOffset0(offset)
                 .cast(SpreadsheetListReloadHistoryToken.class);
     }
 
     @Override
-    SpreadsheetListReloadHistoryToken replaceFromAndCount(final OptionalInt from) {
+    SpreadsheetListReloadHistoryToken replaceOffset(final OptionalInt offset) {
         return new SpreadsheetListReloadHistoryToken(
-                from,
+                offset,
                 this.count
         );
     }
@@ -75,7 +75,7 @@ public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHist
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.spreadsheetListSelect(
-                this.from(),
+                this.offset(),
                 this.count()
         );
     }

@@ -25,39 +25,39 @@ import java.util.OptionalInt;
 /**
  * A token that represents a spreadsheet list files dialog.
  * <pre>
- * /from/1/count/10/
+ * /offset/1/count/10/
  * </pre>
  */
 public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHistoryToken {
 
-    static SpreadsheetListSelectHistoryToken with(final OptionalInt from,
+    static SpreadsheetListSelectHistoryToken with(final OptionalInt offset,
                                                   final OptionalInt count) {
         return new SpreadsheetListSelectHistoryToken(
-                checkFrom(from),
+                checkOffset(offset),
                 count
         );
     }
 
-    private SpreadsheetListSelectHistoryToken(final OptionalInt from,
+    private SpreadsheetListSelectHistoryToken(final OptionalInt offset,
                                               final OptionalInt count) {
         super(
-                from,
+                offset,
                 count
         );
     }
 
-    // from.............................................................................................................
+    // offset.............................................................................................................
 
     @Override
-    public SpreadsheetListSelectHistoryToken setFrom(final OptionalInt from) {
-        return this.setFrom0(from)
+    public SpreadsheetListSelectHistoryToken setOffset(final OptionalInt offset) {
+        return this.setOffset0(offset)
                 .cast(SpreadsheetListSelectHistoryToken.class);
     }
 
     @Override
-    SpreadsheetListSelectHistoryToken replaceFromAndCount(final OptionalInt from) {
+    SpreadsheetListSelectHistoryToken replaceOffset(final OptionalInt offset) {
         return new SpreadsheetListSelectHistoryToken(
-                from,
+                offset,
                 this.count
         );
     }
@@ -85,7 +85,7 @@ public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHist
 
         context.spreadsheetMetadataFetcher()
                 .getSpreadsheetMetadatas(
-                        this.from(),
+                        this.offset(),
                         count.isPresent() ?
                                 count :
                                 context.spreadsheetListDialogComponentDefaultCount()
