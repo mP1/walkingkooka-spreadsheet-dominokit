@@ -66,7 +66,8 @@ final class SpreadsheetToolbarComponentItemAnchorReload extends SpreadsheetToolb
     public void refresh(final AppContext context) {
         this.anchor.setHistoryToken(
                 Optional.of(
-                        context.historyToken().setReload()
+                        context.historyToken()
+                                .reload()
                 )
         );
     }

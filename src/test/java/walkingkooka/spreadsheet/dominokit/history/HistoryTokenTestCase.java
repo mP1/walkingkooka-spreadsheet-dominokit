@@ -404,13 +404,13 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
-    // setReload........................................................................................................
+    // reload...........................................................................................................
 
-    final void setReloadAndCheck(final HistoryToken token,
-                                 final HistoryToken expected) {
+    final void reloadAndCheck(final HistoryToken token,
+                              final HistoryToken expected) {
         this.checkEquals(
                 expected,
-                token.setReload(),
+                token.reload(),
                 token::toString
         );
     }

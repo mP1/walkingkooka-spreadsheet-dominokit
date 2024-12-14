@@ -2174,7 +2174,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         return historyToken;
     }
 
-    public final HistoryToken setReload() {
+    public final HistoryToken reload() {
         HistoryToken token = this;
 
         if (this instanceof SpreadsheetListHistoryToken) {

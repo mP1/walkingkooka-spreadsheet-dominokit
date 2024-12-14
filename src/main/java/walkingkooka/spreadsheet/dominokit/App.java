@@ -373,7 +373,7 @@ public class App implements EntryPoint,
                             final OptionalInt count = historyToken.count();
                             if (false == count.isPresent()) {
                                 this.pushHistoryToken(
-                                        historyToken.setReload()
+                                        historyToken.reload()
                                 );
                             }
                         }
