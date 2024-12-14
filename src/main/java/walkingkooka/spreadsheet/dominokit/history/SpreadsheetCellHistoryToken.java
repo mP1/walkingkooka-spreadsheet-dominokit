@@ -57,11 +57,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
     abstract UrlFragment cellUrlFragment();
 
     @Override //
-    final HistoryToken setClear0() {
-        return this; // clear cell not supported
-    }
-
-    @Override //
     final HistoryToken setDelete0() {
 
         // deleting a pattern will create a save pattern with empty string.
@@ -136,9 +131,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         final HistoryToken result;
 
         switch (component) {
-            case CLEAR_STRING:
-                result = this.setClear();
-                break;
             case COPY_STRING:
                 result = this.parseCopy(cursor);
                 break;

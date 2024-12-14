@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetCompara
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -101,7 +102,7 @@ import java.util.function.Function;
  * <br>
  * The {@link #onHistoryTokenChange(HistoryToken, AppContext)} is implemented by some actions such as {@link SpreadsheetCellFormulaSaveHistoryToken},
  * which when it appears in the current history token hash will save a new formula text for the cell belonging to the spreadsheet id.
- * This is done by calling a REST end-point on the server using {@link walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher} which uses
+ * This is done by calling a REST end-point on the server using {@link SpreadsheetDeltaFetcher} which uses
  * the browser's fetch object with a JSON payload.
  * <br>
  * Comprehensive testing for parsing and more are available under the corresponding test history package.
@@ -1565,10 +1566,28 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * if possible creates a clear.
      */
-    public final HistoryToken setClear() {
-        return this.setIfSpreadsheetNameHistoryToken(
-                SpreadsheetNameHistoryToken::setClear0
-        );
+    public final HistoryToken clear() {
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetColumnHistoryToken) {
+            final SpreadsheetColumnHistoryToken column = this.cast(SpreadsheetColumnHistoryToken.class);
+            historyToken = columnClear(
+                    column.id(),
+                    column.name(),
+                    column.anchoredSelection()
+            );
+        } else {
+            if (this instanceof SpreadsheetRowHistoryToken) {
+                final SpreadsheetRowHistoryToken row = this.cast(SpreadsheetRowHistoryToken.class);
+                historyToken = rowClear(
+                        row.id(),
+                        row.name(),
+                        row.anchoredSelection()
+                );
+            }
+        }
+
+        return historyToken;
     }
 
     public final OptionalInt count() {
