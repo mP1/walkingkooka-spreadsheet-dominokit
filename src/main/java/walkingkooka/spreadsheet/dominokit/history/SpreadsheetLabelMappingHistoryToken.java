@@ -22,7 +22,9 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
@@ -107,5 +109,34 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     @Override//
     final HistoryToken setUnfreeze0() {
         return this;
+    }
+
+    // parse............................................................................................................
+
+    @Override
+    HistoryToken parse0(final String component,
+                        final TextCursor cursor) {
+        final HistoryToken result;
+
+        switch (component) {
+            case DELETE_STRING:
+                result = this.setDelete();
+                break;
+            case MENU_STRING:
+                result = this.setMenu(
+                        Optional.empty(), // no selection
+                        SpreadsheetLabelNameResolvers.fake()
+                );
+                break;
+            case SAVE_STRING:
+                result = this.parseSave(cursor);
+                break;
+            default:
+                cursor.end();
+                result = this; // ignore
+                break;
+        }
+
+        return result;
     }
 }
