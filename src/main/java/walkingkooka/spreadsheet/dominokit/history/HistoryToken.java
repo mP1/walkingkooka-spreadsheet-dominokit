@@ -2264,7 +2264,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         return token;
     }
 
-    public final HistoryToken setRename() {
+    public final HistoryToken rename() {
         HistoryToken token = this;
 
         if (this instanceof SpreadsheetNameHistoryToken) {
