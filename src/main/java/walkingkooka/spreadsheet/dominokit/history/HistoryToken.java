@@ -1746,19 +1746,67 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * if possible creates a insert after.
      */
-    public final HistoryToken setInsertAfter(final OptionalInt count) {
-        return this.setIfSpreadsheetNameHistoryToken(
-                (nht) -> nht.setInsertAfter0(count)
-        );
+    public final HistoryToken insertAfter(final OptionalInt count) {
+        checkCount(count);
+
+        HistoryToken historyToken = this;
+        
+        if(historyToken instanceof SpreadsheetColumnHistoryToken) {
+            final SpreadsheetColumnHistoryToken column = historyToken.cast(SpreadsheetColumnHistoryToken.class);
+            
+            historyToken = columnInsertAfter(
+                    column.id(),
+                    column.name(),
+                    column.anchoredSelection(),
+                    count
+            );
+        } else {
+            if(historyToken instanceof SpreadsheetRowHistoryToken) {
+                final SpreadsheetRowHistoryToken row = historyToken.cast(SpreadsheetRowHistoryToken.class);
+
+                historyToken = rowInsertAfter(
+                        row.id(),
+                        row.name(),
+                        row.anchoredSelection(),
+                        count
+                );
+            }
+        }
+        
+        return historyToken;
     }
 
     /**
      * if possible creates a freeze.
      */
-    public final HistoryToken setInsertBefore(final OptionalInt count) {
-        return this.setIfSpreadsheetNameHistoryToken(
-                (nht) -> nht.setInsertBefore0(count)
-        );
+    public final HistoryToken insertBefore(final OptionalInt count) {
+        checkCount(count);
+
+        HistoryToken historyToken = this;
+
+        if(historyToken instanceof SpreadsheetColumnHistoryToken) {
+            final SpreadsheetColumnHistoryToken column = historyToken.cast(SpreadsheetColumnHistoryToken.class);
+
+            historyToken = columnInsertBefore(
+                    column.id(),
+                    column.name(),
+                    column.anchoredSelection(),
+                    count
+            );
+        } else {
+            if(historyToken instanceof SpreadsheetRowHistoryToken) {
+                final SpreadsheetRowHistoryToken row = historyToken.cast(SpreadsheetRowHistoryToken.class);
+
+                historyToken = rowInsertBefore(
+                        row.id(),
+                        row.name(),
+                        row.anchoredSelection(),
+                        count
+                );
+            }
+        }
+
+        return historyToken;
     }
 
     /**

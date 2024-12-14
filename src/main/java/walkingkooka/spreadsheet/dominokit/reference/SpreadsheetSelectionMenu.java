@@ -916,7 +916,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                             SpreadsheetIcons.columnInsertBefore()
                     ),
                     beforeIdPrefix,
-                    columnHistoryToken::setInsertBefore
+                    columnHistoryToken::insertBefore
             );
 
             final String afterIdPrefix = context.idPrefix() + "column-insert-after";
@@ -928,7 +928,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                             SpreadsheetIcons.columnInsertAfter()
                     ),
                     afterIdPrefix,
-                    columnHistoryToken::setInsertAfter
+                    columnHistoryToken::insertAfter
             );
         }
     }
@@ -959,7 +959,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                             SpreadsheetIcons.rowInsertBefore()
                     ),
                     beforeIdPrefix,
-                    rowHistoryToken::setInsertBefore
+                    rowHistoryToken::insertBefore
             );
 
             final String afterIdPrefix = context.idPrefix() + "row-insert-after";
@@ -971,7 +971,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                             SpreadsheetIcons.rowInsertAfter()
                     ),
                     afterIdPrefix,
-                    rowHistoryToken::setInsertAfter
+                    rowHistoryToken::insertAfter
             );
         }
     }

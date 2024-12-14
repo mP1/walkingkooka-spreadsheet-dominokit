@@ -31,7 +31,6 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryToken implements HasName<SpreadsheetName> {
 
@@ -70,18 +69,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
      * Creates a freeze {@link SpreadsheetNameHistoryToken}.
      */
     abstract HistoryToken setFreeze0();
-
-    /**
-     * Creates a insert after {@link SpreadsheetNameHistoryToken}.
-     * This only works for column and rows.
-     */
-    abstract HistoryToken setInsertAfter0(final OptionalInt count);
-
-    /**
-     * Creates a insert before {@link SpreadsheetNameHistoryToken}.
-     * This only works for column and rows.
-     */
-    abstract HistoryToken setInsertBefore0(final OptionalInt count);
 
     /**
      * Creates a setMenu1 {@link SpreadsheetNameHistoryToken}.

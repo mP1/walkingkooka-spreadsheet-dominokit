@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Optional;
-import java.util.OptionalInt;
 
 public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHistoryToken {
 
@@ -90,16 +89,6 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
 
     @Override //
     final HistoryToken setFreeze0() {
-        return this;
-    }
-
-    @Override //
-    final HistoryToken setInsertAfter0(final OptionalInt count) {
-        return this;
-    }
-
-    @Override //
-    final HistoryToken setInsertBefore0(final OptionalInt count) {
         return this;
     }
 

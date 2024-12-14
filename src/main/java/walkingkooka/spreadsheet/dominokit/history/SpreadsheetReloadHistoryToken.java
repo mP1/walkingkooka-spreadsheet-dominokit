@@ -28,7 +28,6 @@ import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
-import java.util.OptionalInt;
 
 /**
  * A token that represents a reload spreadsheet action.
@@ -96,16 +95,6 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
 
     @Override //
     HistoryToken setFreeze0() {
-        return this;
-    }
-
-    @Override //
-    HistoryToken setInsertAfter0(final OptionalInt count) {
-        return this;
-    }
-
-    @Override //
-    HistoryToken setInsertBefore0(final OptionalInt count) {
         return this;
     }
 
