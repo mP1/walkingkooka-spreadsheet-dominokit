@@ -151,14 +151,14 @@ final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementC
     private int tableCount;
 
     void refresh(final SpreadsheetListHistoryToken historyToken) {
-        final int from = historyToken.offset()
+        final int offset = historyToken.offset()
                 .orElse(0);
         final int count = historyToken.count()
                 .orElse(DEFAULT_COUNT);
 
         // previous
         final HistoryTokenAnchorComponent previous = this.previous;
-        final boolean previousDisabled = 0 == from;
+        final boolean previousDisabled = 0 == offset;
         previous.setDisabled(previousDisabled);
         if (false == previousDisabled) {
             previous.setHistoryToken(
@@ -167,7 +167,7 @@ final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementC
                                     OptionalInt.of(
                                             Math.max(
                                                     0,
-                                                    from - count + 1
+                                                    offset - count + 1
                                             )
                                     )
                             )
@@ -184,7 +184,7 @@ final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementC
                     Optional.of(
                             historyToken.setOffset(
                                     OptionalInt.of(
-                                            from + count - 1
+                                            offset + count - 1
                                     )
                             )
                     )
