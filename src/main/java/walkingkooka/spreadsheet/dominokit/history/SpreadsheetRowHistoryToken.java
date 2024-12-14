@@ -28,7 +28,6 @@ import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
-import java.util.OptionalInt;
 
 abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSelectionHistoryToken {
 
@@ -82,26 +81,6 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
                 this.id(),
                 this.name(),
                 this.anchoredSelection()
-        );
-    }
-
-    @Override //
-    final HistoryToken setInsertAfter0(final OptionalInt count) {
-        return rowInsertAfter(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                count
-        );
-    }
-
-    @Override //
-    final HistoryToken setInsertBefore0(final OptionalInt count) {
-        return rowInsertBefore(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                count
         );
     }
 
@@ -197,12 +176,12 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
                 result = this.setFreeze();
                 break;
             case INSERT_AFTER_STRING:
-                result = this.setInsertAfter(
+                result = this.insertAfter(
                         parseCount(cursor)
                 );
                 break;
             case INSERT_BEFORE_STRING:
-                result = this.setInsertBefore(
+                result = this.insertBefore(
                         parseCount(cursor)
                 );
                 break;

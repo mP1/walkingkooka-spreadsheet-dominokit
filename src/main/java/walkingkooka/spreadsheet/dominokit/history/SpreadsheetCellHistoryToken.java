@@ -31,7 +31,6 @@ import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
-import java.util.OptionalInt;
 
 abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSelectionHistoryToken {
 
@@ -82,16 +81,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 this.name(),
                 this.anchoredSelection()
         );
-    }
-
-    @Override //
-    final HistoryToken setInsertAfter0(final OptionalInt count) {
-        return this;
-    }
-
-    @Override //
-    final HistoryToken setInsertBefore0(final OptionalInt count) {
-        return this;
     }
 
     @Override //

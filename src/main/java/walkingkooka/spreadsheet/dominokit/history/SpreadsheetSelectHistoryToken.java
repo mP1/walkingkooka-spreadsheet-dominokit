@@ -31,7 +31,6 @@ import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
-import java.util.OptionalInt;
 import java.util.function.Function;
 
 /**
@@ -245,16 +244,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     @Override
     HistoryToken setFreeze0() {
-        return this;
-    }
-
-    @Override //
-    HistoryToken setInsertAfter0(final OptionalInt count) {
-        return this;
-    }
-
-    @Override //
-    HistoryToken setInsertBefore0(final OptionalInt count) {
         return this;
     }
 

@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
-import java.util.OptionalInt;
 
 public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHistoryToken {
 
@@ -59,15 +58,6 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
 
     @Override //
     final HistoryToken setFreeze0() {
-        return this;
-    }
-
-    @Override final HistoryToken setInsertAfter0(final OptionalInt count) {
-        return this;
-    }
-
-    @Override //
-    final HistoryToken setInsertBefore0(final OptionalInt count) {
         return this;
     }
 

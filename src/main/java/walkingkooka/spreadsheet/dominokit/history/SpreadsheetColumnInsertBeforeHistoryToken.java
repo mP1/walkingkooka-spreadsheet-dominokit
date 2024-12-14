@@ -77,7 +77,7 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
                 id,
                 name,
                 anchoredSelection
-        ).setInsertBefore(
+        ).insertBefore(
                 this.count()
         );
     }
