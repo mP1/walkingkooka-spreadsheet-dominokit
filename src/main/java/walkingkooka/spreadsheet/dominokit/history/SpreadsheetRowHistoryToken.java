@@ -59,15 +59,6 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
     }
 
     @Override //
-    final HistoryToken setDelete0() {
-        return rowDelete(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
-    @Override //
     final HistoryToken setMenu1() {
         return rowMenu(
                 this.id(),
@@ -144,7 +135,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
                 result = this.clear();
                 break;
             case DELETE_STRING:
-                result = this.setDelete();
+                result = this.delete();
                 break;
             case FREEZE_STRING:
                 result = this.freeze();

@@ -68,7 +68,7 @@ public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistor
                 id,
                 name,
                 anchoredSelection
-        ).setDelete();
+        ).delete();
     }
 
     @Override

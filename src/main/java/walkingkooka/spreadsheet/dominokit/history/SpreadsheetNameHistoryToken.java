@@ -56,11 +56,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     private final SpreadsheetName name;
 
     /**
-     * Creates a delete {@link SpreadsheetNameHistoryToken}.
-     */
-    abstract HistoryToken setDelete0();
-
-    /**
      * Creates a setMenu1 {@link SpreadsheetNameHistoryToken}.
      */
     abstract HistoryToken setMenu1();

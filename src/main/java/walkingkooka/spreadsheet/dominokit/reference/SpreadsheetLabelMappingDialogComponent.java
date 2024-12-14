@@ -210,7 +210,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                         label.isPresent() ?
                                 this.context.historyToken()
                                         .setLabelName(label)
-                                        .setDelete() :
+                                        .delete() :
                                 null
                 )
         );

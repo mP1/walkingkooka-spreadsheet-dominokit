@@ -84,11 +84,6 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override //
-    HistoryToken setDelete0() {
-        return this;
-    }
-
-    @Override //
     HistoryToken setMenu1() {
         return this;
     }

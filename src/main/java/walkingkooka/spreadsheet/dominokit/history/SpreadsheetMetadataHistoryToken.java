@@ -78,11 +78,6 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     }
 
     @Override //
-    final HistoryToken setDelete0() {
-        return this;
-    }
-
-    @Override //
     final HistoryToken setMenu1() {
         return this;
     }

@@ -88,7 +88,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
 
         switch (component) {
             case DELETE_STRING:
-                result = this.setDelete();
+                result = this.delete();
                 break;
             case MENU_STRING:
                 result = this.setMenu(

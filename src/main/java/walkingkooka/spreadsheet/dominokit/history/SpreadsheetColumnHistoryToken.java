@@ -59,15 +59,6 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
     }
 
     @Override //
-    final HistoryToken setDelete0() {
-        return columnDelete(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
-    @Override //
     final HistoryToken setMenu1() {
         return columnMenu(
                 this.id(),
@@ -145,7 +136,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
                 result = this.clear();
                 break;
             case DELETE_STRING:
-                result = this.setDelete();
+                result = this.delete();
                 break;
             case FREEZE_STRING:
                 result = this.freeze();

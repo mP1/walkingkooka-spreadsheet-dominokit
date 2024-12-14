@@ -610,25 +610,25 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // setDelete..........................................................................................................
+    // delete...........................................................................................................
 
     @Test
-    public void testSetDeleteWithNotSpreadsheetNameHistoryTokenSubclass() {
+    public void testDeleteWithNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setDelete(),
+                historyToken.delete(),
                 historyToken
         );
     }
 
     @Test
-    public void testSetDeleteCell() {
+    public void testDeleteCell() {
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.setDelete(),
+                historyToken.delete(),
                 HistoryToken.cellDelete(
                         ID,
                         NAME,
@@ -638,12 +638,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetDeleteColumn() {
+    public void testDeleteColumn() {
         final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.setDelete(),
+                historyToken.delete(),
                 HistoryToken.columnDelete(
                         ID,
                         NAME,
@@ -653,12 +653,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetDeleteRow() {
+    public void testDeleteRow() {
         final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.setDelete(),
+                historyToken.delete(),
                 HistoryToken.rowDelete(
                         ID,
                         NAME,
