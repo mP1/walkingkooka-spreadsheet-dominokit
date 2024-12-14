@@ -106,8 +106,6 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
 
     private final static UrlFragment FROM = UrlFragment.with("from");
 
-    private final static UrlFragment COUNT = UrlFragment.with("count");
-
     abstract UrlFragment listUrlFragment();
 
     // HistoryToken.....................................................................................................

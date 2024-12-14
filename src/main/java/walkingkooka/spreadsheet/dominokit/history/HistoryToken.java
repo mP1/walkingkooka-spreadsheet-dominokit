@@ -129,6 +129,8 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static String COUNT_STRING = "count";
 
+    final static UrlFragment COUNT = UrlFragment.with(COUNT_STRING);
+
     final static String CREATE_STRING = "create";
 
     final static UrlFragment CREATE = UrlFragment.parse(CREATE_STRING);
