@@ -49,49 +49,46 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     private SpreadsheetCellFormulaSaveHistoryToken(final SpreadsheetId id,
                                                    final SpreadsheetName name,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                   final String formula) {
+                                                   final String text) {
         super(
                 id,
                 name,
                 anchoredSelection
         );
 
-        this.formula = Objects.requireNonNull(formula, "formula");
+        this.text = Objects.requireNonNull(text, "text");
     }
 
-    public String formula() {
-        return this.formula;
+    public String text() {
+        return this.text;
     }
 
-    private final String formula;
+    private final String text;
 
     @Override
     UrlFragment formulaUrlFragment() {
-        return this.saveUrlFragment(
-                this.formula()
-        );
+        return this.saveUrlFragment(this.text);
     }
 
     @Override
     public HistoryToken clearAction() {
-        return this.setFormula();
-    }
-
-    @Override
-    public HistoryToken setFormula() {
-        return setFormula0();
+        return cellFormula(
+                this.id(),
+                this.name(),
+                this.anchoredSelection()
+        );
     }
 
     @Override //
     HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
-        return selection(
+        return cellFormulaSave(
                 id,
                 name,
-                anchoredSelection
-        ).setFormula()
-                .setSave(this.formula);
+                anchoredSelection,
+                this.text
+        );
     }
 
     @Override
@@ -108,7 +105,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
                 .saveFormulaText(
                         this.id(),
                         this.anchoredSelection().selection(),
-                        this.formula()
+                        this.text
                 );
     }
 }

@@ -55,11 +55,6 @@ public final class UnknownHistoryToken extends HistoryToken {
         return this;
     }
 
-    @Override
-    public HistoryToken setFormula() {
-        return this; // should not happen
-    }
-
     @Override //
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {

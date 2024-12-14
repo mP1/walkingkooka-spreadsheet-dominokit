@@ -77,11 +77,6 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
         return this.selectionSelect();
     }
 
-    @Override
-    public HistoryToken setFormula() {
-        return setFormula0();
-    }
-
     @Override //
     HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
                                                 final SpreadsheetName name,

@@ -88,11 +88,6 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
         return this;
     }
 
-    @Override
-    public final HistoryToken setFormula() {
-        return this;
-    }
-
     @Override //
     final HistoryToken setFreeze0() {
         return this;

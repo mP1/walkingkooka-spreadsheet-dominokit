@@ -244,11 +244,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    public HistoryToken setFormula() {
-        return this;
-    }
-
-    @Override
     HistoryToken setFreeze0() {
         return this;
     }

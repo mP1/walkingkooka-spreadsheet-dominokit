@@ -122,19 +122,19 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
-    // setFormula.......................................................................................................
+    // formula..........................................................................................................
 
     @Test
-    public final void testSetFormula() {
+    public final void testFormula() {
         final T token = this.createHistoryToken();
 
         this.checkEquals(
-                HistoryToken.formula(
+                HistoryToken.cellFormula(
                         ID,
                         NAME,
                         SELECTION
                 ),
-                token.setFormula()
+                token.formula()
         );
     }
 

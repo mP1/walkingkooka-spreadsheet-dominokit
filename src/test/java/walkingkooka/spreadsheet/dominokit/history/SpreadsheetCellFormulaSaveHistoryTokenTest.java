@@ -54,7 +54,7 @@ public final class SpreadsheetCellFormulaSaveHistoryTokenTest extends Spreadshee
     public void testClearAction() {
         this.clearActionAndCheck(
                 this.createHistoryToken(),
-                HistoryToken.formula(
+                HistoryToken.cellFormula(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor()

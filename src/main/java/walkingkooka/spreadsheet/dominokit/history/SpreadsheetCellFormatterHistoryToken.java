@@ -37,11 +37,6 @@ public abstract class SpreadsheetCellFormatterHistoryToken extends SpreadsheetCe
 
     final Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector;
 
-    @Override
-    public final HistoryToken setFormula() {
-        return setFormula0();
-    }
-
     @Override // /cell/A1/formatter
     final UrlFragment cellUrlFragment() {
         return FORMATTER.appendSlashThen(

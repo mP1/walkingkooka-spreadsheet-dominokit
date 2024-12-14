@@ -66,11 +66,6 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
         );
     }
 
-    @Override
-    public HistoryToken setFormula() {
-        return this; // should not happen
-    }
-
     @Override //
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {

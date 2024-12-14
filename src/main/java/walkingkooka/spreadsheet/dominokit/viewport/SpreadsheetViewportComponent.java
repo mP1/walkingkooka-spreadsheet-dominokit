@@ -476,7 +476,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 this.focused = false;
                 context.pushHistoryToken(
                         context.historyToken()
-                                .setFormula()
+                                .formula()
                 );
                 break;
             case Escape:

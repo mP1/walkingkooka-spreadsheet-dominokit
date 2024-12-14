@@ -76,11 +76,6 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
         );
     }
 
-    @Override
-    public final HistoryToken setFormula() {
-        return this;
-    }
-
     @Override //
     final HistoryToken setFreeze0() {
         return rowFreeze(
