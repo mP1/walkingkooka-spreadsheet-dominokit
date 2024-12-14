@@ -57,14 +57,6 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
     public final HistoryToken clearAction() {
         return this.selectionSelect();
     }
-    @Override //
-    final HistoryToken setClear0() {
-        return rowClear(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
 
     @Override //
     final HistoryToken setDelete0() {
@@ -149,7 +141,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
 
         switch (component) {
             case CLEAR_STRING:
-                result = this.setClear();
+                result = this.clear();
                 break;
             case DELETE_STRING:
                 result = this.setDelete();

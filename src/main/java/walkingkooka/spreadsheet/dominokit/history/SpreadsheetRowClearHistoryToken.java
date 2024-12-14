@@ -66,7 +66,7 @@ public class SpreadsheetRowClearHistoryToken extends SpreadsheetRowHistoryToken 
                 id,
                 name,
                 anchoredSelection
-        ).setClear();
+        ).clear();
     }
 
     @Override

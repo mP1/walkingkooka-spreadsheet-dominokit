@@ -47,11 +47,6 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
     abstract UrlFragment spreadsheetRenameUrlFragment();
 
     @Override //
-    final HistoryToken setClear0() {
-        return null;
-    }
-
-    @Override //
     final HistoryToken setDelete0() {
         return this;
     }

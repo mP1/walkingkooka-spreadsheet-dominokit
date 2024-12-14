@@ -64,12 +64,6 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
         );
     }
 
-
-    @Override //
-    final HistoryToken setClear0() {
-        return this;
-    }
-
     @Override //
     final HistoryToken setMenu1() {
         return this;

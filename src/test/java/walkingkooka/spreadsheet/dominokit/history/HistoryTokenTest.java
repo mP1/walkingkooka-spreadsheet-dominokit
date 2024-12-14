@@ -281,20 +281,20 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // setClear..........................................................................................................
+    // clear............................................................................................................
 
     @Test
-    public void testSetClearWithNotSpreadsheetNameHistoryTokenSubclass() {
+    public void testClearWithNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setClear(),
+                historyToken.clear(),
                 historyToken
         );
     }
 
     @Test
-    public void testSetClearCell() {
+    public void testClearCell() {
         final HistoryToken historyToken = HistoryToken.cell(
                 ID,
                 NAME,
@@ -302,18 +302,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
 
         assertSame(
-                historyToken.setClear(),
+                historyToken.clear(),
                 historyToken
         );
     }
 
     @Test
-    public void testSetClearColumn() {
+    public void testClearColumn() {
         final AnchoredSpreadsheetSelection selection = COLUMN.setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, selection);
 
         this.checkEquals(
-                historyToken.setClear(),
+                historyToken.clear(),
                 HistoryToken.columnClear(
                         ID,
                         NAME,
@@ -323,12 +323,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetClearRow() {
+    public void testClearRow() {
         final AnchoredSpreadsheetSelection selection = ROW.setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, selection);
 
         this.checkEquals(
-                historyToken.setClear(),
+                historyToken.clear(),
                 HistoryToken.rowClear(
                         ID,
                         NAME,
