@@ -93,7 +93,7 @@ final class SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableCompon
                                                         cell.reference()
                                                                 .setDefaultAnchor()
                                                 )
-                                        ).setFormula()
+                                        ).formula()
                         )
                 );
     }

@@ -37,11 +37,6 @@ public abstract class SpreadsheetCellParserHistoryToken extends SpreadsheetCellH
 
     final Optional<SpreadsheetParserSelector> spreadsheetParserSelector;
 
-    @Override
-    public final HistoryToken setFormula() {
-        return setFormula0();
-    }
-
     @Override // /cell/A1/parser/
     final UrlFragment cellUrlFragment() {
         return PARSER.appendSlashThen(

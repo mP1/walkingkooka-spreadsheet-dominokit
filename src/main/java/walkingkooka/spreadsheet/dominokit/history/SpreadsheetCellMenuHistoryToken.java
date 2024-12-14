@@ -64,11 +64,6 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
         return this.selectionSelect();
     }
 
-    @Override
-    public HistoryToken setFormula() {
-        return setFormula0();
-    }
-
     @Override //
     HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
                                                 final SpreadsheetName name,

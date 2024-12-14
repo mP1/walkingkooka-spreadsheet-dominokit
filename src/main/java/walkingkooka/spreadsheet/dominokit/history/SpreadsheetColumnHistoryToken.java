@@ -77,11 +77,6 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
         );
     }
 
-    @Override
-    public final HistoryToken setFormula() {
-        return this;
-    }
-
     @Override //
     final HistoryToken setFreeze0() {
         return columnFreeze(

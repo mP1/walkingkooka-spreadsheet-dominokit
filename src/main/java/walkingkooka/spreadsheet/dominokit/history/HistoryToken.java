@@ -361,6 +361,34 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetCellFormulaSelectHistoryToken}
+     */
+    public static SpreadsheetCellFormulaSelectHistoryToken cellFormula(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellFormulaSelectHistoryToken.with(
+                id,
+                name,
+                anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellFormulaSaveHistoryToken}
+     */
+    public static SpreadsheetCellFormulaSaveHistoryToken cellFormulaSave(final SpreadsheetId id,
+                                                                         final SpreadsheetName name,
+                                                                         final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                         final String formula) {
+        return SpreadsheetCellFormulaSaveHistoryToken.with(
+                id,
+                name,
+                anchoredSelection,
+                formula
+        );
+    }
+
+    /**
      * {@see SpreadsheetCellFreezeHistoryToken}
      */
     public static SpreadsheetCellFreezeHistoryToken cellFreeze(final SpreadsheetId id,
@@ -721,36 +749,6 @@ public abstract class HistoryToken implements HasUrlFragment,
                 id,
                 name,
                 anchoredSelection
-        );
-    }
-
-    // formula..........................................................................................................
-
-    /**
-     * {@see SpreadsheetCellFormulaSelectHistoryToken}
-     */
-    public static SpreadsheetCellFormulaSelectHistoryToken formula(final SpreadsheetId id,
-                                                                   final SpreadsheetName name,
-                                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
-        return SpreadsheetCellFormulaSelectHistoryToken.with(
-                id,
-                name,
-                anchoredSelection
-        );
-    }
-
-    /**
-     * {@see SpreadsheetCellFormulaSaveHistoryToken}
-     */
-    public static SpreadsheetCellFormulaSaveHistoryToken formulaSave(final SpreadsheetId id,
-                                                                     final SpreadsheetName name,
-                                                                     final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                     final String formula) {
-        return SpreadsheetCellFormulaSaveHistoryToken.with(
-                id,
-                name,
-                anchoredSelection,
-                formula
         );
     }
 
@@ -1479,6 +1477,22 @@ public abstract class HistoryToken implements HasUrlFragment,
      */
     public abstract HistoryToken clearAction();
 
+    public final HistoryToken formula() {
+        HistoryToken historyToken = this;
+
+        if(this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = cellFormula(
+                    cell.id(),
+                    cell.name(),
+                    cell.anchoredSelection()
+            );
+        }
+
+        return historyToken;
+    }
+
     /**
      * If possible creates a {@link SpreadsheetCellClipboardCopyHistoryToken} token.
      */
@@ -1682,11 +1696,6 @@ public abstract class HistoryToken implements HasUrlFragment,
                 SpreadsheetNameHistoryToken::setDelete0
         );
     }
-
-    /**
-     * Creates a formula where possible otherwise returns this.
-     */
-    public abstract HistoryToken setFormula();
 
     /**
      * If possible selects a formatter {@link HistoryToken}.

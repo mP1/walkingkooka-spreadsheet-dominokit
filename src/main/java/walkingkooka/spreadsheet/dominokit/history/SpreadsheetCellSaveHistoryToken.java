@@ -63,11 +63,6 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         );
     }
 
-    @Override
-    public final HistoryToken setFormula() {
-        return setFormula0();
-    }
-
     @Override //
     final HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
                                                       final SpreadsheetName name,

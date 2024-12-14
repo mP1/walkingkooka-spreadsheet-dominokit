@@ -88,7 +88,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
         context.debug("SpreadsheetViewportFormulaComponent.onFocus " + historyToken.anchoredSelectionOrEmpty());
 
         context.pushHistoryToken(
-                historyToken.setFormula()
+                historyToken.formula()
         );
     }
 
@@ -102,7 +102,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
                 // if cell then edit formula
                 context.pushHistoryToken(
                         context.historyToken()
-                                .setFormula()
+                                .formula()
                                 .setSave(
                                         this.formula.stringValue()
                                                 .orElse("")

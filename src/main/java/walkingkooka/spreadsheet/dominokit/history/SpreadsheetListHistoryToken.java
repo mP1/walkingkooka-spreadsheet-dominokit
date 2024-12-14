@@ -140,11 +140,6 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
         return historyToken;
     }
 
-    @Override
-    public final HistoryToken setFormula() {
-        return this; // should not happen
-    }
-
     @Override //
     final HistoryToken replaceIdAndName(final SpreadsheetId id,
                                         final SpreadsheetName name) {

@@ -57,11 +57,6 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
         return this;
     }
 
-    @Override
-    public final HistoryToken setFormula() {
-        return this; // should not happen
-    }
-
     @Override //
     final HistoryToken setFreeze0() {
         return this;

@@ -58,15 +58,6 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
         );
     }
 
-    @Override
-    public final HistoryToken setFormula() {
-        return formula(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
     @Override //
     final HistoryToken setSave0(final String value) {
         return this;

@@ -31,11 +31,11 @@ public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends Spreadsh
     public void testSetSave() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final String formulaText = "=1";
-        final HistoryToken historyToken = HistoryToken.formula(ID, NAME, selection);
+        final HistoryToken historyToken = HistoryToken.cellFormula(ID, NAME, selection);
 
         this.checkEquals(
                 historyToken.setSave(formulaText),
-                HistoryToken.formulaSave(
+                HistoryToken.cellFormulaSave(
                         ID,
                         NAME,
                         selection,

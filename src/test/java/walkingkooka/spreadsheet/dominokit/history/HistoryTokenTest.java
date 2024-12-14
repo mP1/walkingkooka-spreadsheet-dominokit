@@ -2114,7 +2114,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
 
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-                HistoryToken.formulaSave(
+                HistoryToken.cellFormulaSave(
                         ID,
                         NAME,
                         viewport,
@@ -2696,7 +2696,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameCellFormula() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/A1/formula",
-                HistoryToken.formula(
+                HistoryToken.cellFormula(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor()
@@ -2708,7 +2708,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameCellFormulaSave() {
         this.parseStringAndCheck(
                 "/123/SpreadsheetName456/cell/A1/formula/save/=1+2",
-                HistoryToken.formulaSave(
+                HistoryToken.cellFormulaSave(
                         ID,
                         NAME,
                         CELL.setDefaultAnchor(),
