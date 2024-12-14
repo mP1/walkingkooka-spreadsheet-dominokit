@@ -64,7 +64,7 @@ final class SpreadsheetToolbarComponentItemAnchorFormatter extends SpreadsheetTo
                 .anchoredSelectionHistoryTokenOrEmpty()
                 .map(
                         t -> t.setFormatter()
-                                .setToolbar()
+                                .toolbar()
                 ).ifPresent(context::pushHistoryToken);
     }
 
