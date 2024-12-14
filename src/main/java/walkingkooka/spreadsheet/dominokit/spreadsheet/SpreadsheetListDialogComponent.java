@@ -203,7 +203,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
         final SpreadsheetListHistoryToken historyToken = context.historyToken()
                 .cast(SpreadsheetListHistoryToken.class);
 
-        // refresh reload, history token might have changed from or count etc.
+        // refresh reload, history token might have changed offset or count etc.
         this.reload.setHistoryToken(
                 Optional.of(historyToken.setReload())
         );
