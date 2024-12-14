@@ -220,7 +220,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     private HistoryToken parseReload(final TextCursor cursor) {
-        return this.setReload();
+        return this.reload();
     }
 
     private HistoryToken parseRename(final TextCursor cursor) {
