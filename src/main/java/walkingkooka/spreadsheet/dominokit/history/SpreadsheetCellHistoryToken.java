@@ -146,7 +146,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 );
                 break;
             case PARSER_STRING:
-                result = this.setParser();
+                result = this.parser();
                 break;
             case PASTE_STRING:
                 result = this.parsePaste(cursor);
