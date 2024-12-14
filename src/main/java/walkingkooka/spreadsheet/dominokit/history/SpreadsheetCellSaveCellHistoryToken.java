@@ -121,8 +121,6 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
         return CELL;
     }
 
-    private final static UrlFragment CELL = UrlFragment.parse("cell");
-
     @Override
     UrlFragment urlFragmentSaveValue() {
         return UrlFragment.with(
