@@ -1766,7 +1766,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * If possible selects a formatter {@link HistoryToken}.
      */
-    public final HistoryToken setFormatter() {
+    public final HistoryToken formatter() {
         HistoryToken historyToken;
 
         if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellMenuHistoryToken) {

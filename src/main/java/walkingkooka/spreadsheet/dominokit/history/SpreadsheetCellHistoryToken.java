@@ -134,7 +134,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 result = this.freeze();
                 break;
             case FORMATTER_STRING:
-                result = this.setFormatter();
+                result = this.formatter();
                 break;
             case FORMULA_STRING:
                 result = this.formula();
