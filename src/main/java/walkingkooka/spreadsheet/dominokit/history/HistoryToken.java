@@ -163,8 +163,6 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment FREEZE = UrlFragment.parse(FREEZE_STRING);
 
-    final static String FROM_STRING = "from";
-
     final static String INSERT_AFTER_STRING = "insertAfter";
 
     final static UrlFragment INSERT_AFTER = UrlFragment.parse(INSERT_AFTER_STRING);
@@ -180,6 +178,10 @@ public abstract class HistoryToken implements HasUrlFragment,
     final static String MENU_STRING = "menu";
 
     final static UrlFragment MENU = UrlFragment.parse(MENU_STRING);
+
+    final static String OFFSET_STRING = "offset";
+
+    final static UrlFragment OFFSET = UrlFragment.parse(OFFSET_STRING);
 
     final static String PARSER_STRING = "parser";
 
@@ -1211,10 +1213,10 @@ public abstract class HistoryToken implements HasUrlFragment,
                         case DELETE_STRING:
                             token = parseDelete(cursor);
                             break;
-                        case FROM_STRING:
+                        case OFFSET_STRING:
                             token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
                             token = token.cast(SpreadsheetListHistoryToken.class)
-                                    .setFrom(
+                                    .setOffset(
                                             parseOptionalInt(cursor)
                                     ).parse(cursor);
                             break;
@@ -1590,7 +1592,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 final SpreadsheetListReloadHistoryToken list = this.cast(SpreadsheetListReloadHistoryToken.class);
 
                 with = spreadsheetListReload(
-                        list.from(),
+                        list.offset(),
                         count
                 );
             } else {
@@ -1598,7 +1600,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                     final SpreadsheetListSelectHistoryToken list = this.cast(SpreadsheetListSelectHistoryToken.class);
 
                     with = spreadsheetListSelect(
-                            list.from(),
+                            list.offset(),
                             count
                     );
                 } else {
@@ -2089,7 +2091,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         if (this instanceof SpreadsheetListHistoryToken) {
             final SpreadsheetListHistoryToken spreadsheetListHistoryToken = this.cast(SpreadsheetListHistoryToken.class);
             token = spreadsheetListReload(
-                    spreadsheetListHistoryToken.from(),
+                    spreadsheetListHistoryToken.offset(),
                     spreadsheetListHistoryToken.count()
             );
 
