@@ -28,7 +28,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 import java.util.function.Function;
@@ -265,16 +264,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     @Override
     HistoryToken setSave0(final String value) {
         return this;
-    }
-
-    // factory for /spreadsheet-id/spreadsheet-name/metadata/style/*
-    @Override
-    HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
-        return metadataPropertyStyle(
-                this.id(),
-                this.name(),
-                propertyName
-        );
     }
 
     @Override

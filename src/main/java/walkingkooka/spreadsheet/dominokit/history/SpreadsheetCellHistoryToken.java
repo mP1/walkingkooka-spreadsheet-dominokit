@@ -28,7 +28,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
@@ -95,18 +94,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 this.name(),
                 this.anchoredSelection(),
                 comparators
-        );
-    }
-
-    // style............................................................................................................
-
-    @Override //
-    final HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
-        return cellStyle(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                propertyName
         );
     }
 

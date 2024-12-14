@@ -113,11 +113,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
      */
     abstract HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind);
 
-    /**
-     * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link TextStylePropertyName} property name.
-     */
-    abstract HistoryToken setStyle0(final TextStylePropertyName<?> propertyName);
-
     // parse............................................................................................................
 
     final HistoryToken parseSave(final TextCursor cursor) {
@@ -134,7 +129,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
         final Optional<String> style = parseComponent(cursor);
         if (style.isPresent()) {
-            result = this.setStyle(
+            result = this.style(
                     TextStylePropertyName.with(
                             style.get()
                     )

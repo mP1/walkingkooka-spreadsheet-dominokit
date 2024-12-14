@@ -76,9 +76,4 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
                 )
         );
     }
-
-    @Override
-    HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
-        return this;
-    }
 }

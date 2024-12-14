@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
@@ -100,11 +99,6 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
 
     @Override //
     HistoryToken setSave0(final String value) {
-        return this;
-    }
-
-    @Override
-    HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
         return this;
     }
 

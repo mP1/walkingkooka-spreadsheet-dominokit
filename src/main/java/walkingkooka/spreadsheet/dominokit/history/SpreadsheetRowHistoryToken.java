@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
@@ -114,13 +113,6 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
                 this.anchoredSelection(),
                 comparators
         );
-    }
-
-    // style............................................................................................................
-
-    @Override //
-    final HistoryToken setStyle0(final TextStylePropertyName<?> propertyName) {
-        return this; // row/1/style not currently supported
     }
 
     // parse............................................................................................................

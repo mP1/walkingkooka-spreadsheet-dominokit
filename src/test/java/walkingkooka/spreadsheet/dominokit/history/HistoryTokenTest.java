@@ -1795,26 +1795,26 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // setStyle..........................................................................................................
+    // style............................................................................................................
 
     @Test
-    public void testSetStyleWithNotSpreadsheetNameHistoryTokenSubclass() {
+    public void testStyleWithNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setStyle(TextStylePropertyName.COLOR),
+                historyToken.style(TextStylePropertyName.COLOR),
                 historyToken
         );
     }
 
     @Test
-    public void testSetStyleCell() {
+    public void testStyleCell() {
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.setStyle(property),
+                historyToken.style(property),
                 HistoryToken.cellStyle(
                         ID,
                         NAME,
@@ -1825,13 +1825,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetStyleCell2() {
+    public void testStyleCell2() {
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.OUTLINE_COLOR;
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.setStyle(property),
+                historyToken.style(property),
                 HistoryToken.cellStyle(
                         ID,
                         NAME,
@@ -1842,25 +1842,25 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetStyleColumn() {
+    public void testStyleColumn() {
         final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
 
         assertSame(
-                historyToken.setStyle(property),
+                historyToken.style(property),
                 historyToken
         );
     }
 
     @Test
-    public void testSetStyleRow() {
+    public void testStyleRow() {
         final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
 
         assertSame(
-                historyToken.setStyle(property),
+                historyToken.style(property),
                 historyToken
         );
     }
