@@ -92,8 +92,6 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
         return FORMULA;
     }
 
-    private final static UrlFragment FORMULA = UrlFragment.parse("formula");
-
     @Override
     JsonNode saveValueUrlFragmentValueToJson(final String value) {
         return MARSHALL_CONTEXT.marshall(value);
