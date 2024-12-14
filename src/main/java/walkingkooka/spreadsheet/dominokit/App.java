@@ -357,8 +357,9 @@ public class App implements EntryPoint,
     private void computeAndSaveSpreadsheetListDialogComponentDefaultCount(final int windowHeight) {
         // height - 350 reserved for dialog title, links along bottom etc divided by 32 for each row
         final OptionalInt defaultCount = OptionalInt.of(
-                (windowHeight - 350) / 32
+                (windowHeight - 300) / 32
         );
+        this.debug("App.computeAndSaveSpreadsheetListDialogComponentDefaultCount: (windowHeight: " + windowHeight + " - 300) / 32 = defaultCount): " + defaultCount);
         this.defaultCount = defaultCount;
 
         this.lastResize = System.currentTimeMillis();
