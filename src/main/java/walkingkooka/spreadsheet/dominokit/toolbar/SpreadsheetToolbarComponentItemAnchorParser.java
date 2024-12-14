@@ -64,7 +64,7 @@ final class SpreadsheetToolbarComponentItemAnchorParser extends SpreadsheetToolb
                 .anchoredSelectionHistoryTokenOrEmpty()
                 .map(
                         t -> t.setParser()
-                                .setToolbar()
+                                .toolbar()
                 ).ifPresent(context::pushHistoryToken);
     }
 

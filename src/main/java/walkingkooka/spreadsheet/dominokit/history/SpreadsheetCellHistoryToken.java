@@ -182,7 +182,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 result = this.parseStyle(cursor);
                 break;
             case TOOLBAR_STRING:
-                result = this.setToolbar();
+                result = this.toolbar();
                 break;
             case UNFREEZE_STRING:
                 result = this.unfreeze();

@@ -2291,7 +2291,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
-    public final HistoryToken setToolbar() {
+    public final HistoryToken toolbar() {
         HistoryToken historyToken = this;
 
         if (this instanceof SpreadsheetCellFormatterSelectHistoryToken) {
