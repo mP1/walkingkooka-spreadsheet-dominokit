@@ -117,6 +117,8 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static String CELL_STRING = SpreadsheetHateosResourceNames.CELL_STRING;
 
+    final static UrlFragment CELL = UrlFragment.parse(CELL_STRING);
+
     final static String CLEAR_STRING = "clear";
 
     final static UrlFragment CLEAR = UrlFragment.parse(CLEAR_STRING);
