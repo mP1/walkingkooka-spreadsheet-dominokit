@@ -448,7 +448,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         }
 
         menu.item(
-                historyToken.setDelete()
+                historyToken.delete()
                         .contextMenuItem(
                                 context.idPrefix() +
                                         "delete" +

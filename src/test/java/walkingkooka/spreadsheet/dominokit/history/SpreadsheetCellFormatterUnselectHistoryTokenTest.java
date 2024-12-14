@@ -76,7 +76,7 @@ public final class SpreadsheetCellFormatterUnselectHistoryTokenTest extends Spre
 
     @Test
     public void testSetDelete() {
-        this.setDeleteAndCheck(
+        this.deleteAndCheck(
                 this.createHistoryToken(),
                 this.createHistoryToken()
         );

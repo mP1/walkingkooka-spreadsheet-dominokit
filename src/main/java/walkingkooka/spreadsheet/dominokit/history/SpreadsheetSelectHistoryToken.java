@@ -181,7 +181,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     private HistoryToken parseDelete(final TextCursor cursor) {
-        return this.setDelete();
+        return this.delete();
     }
 
     private HistoryToken parseMetadata(final TextCursor cursor) {
@@ -229,11 +229,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     @Override
     public HistoryToken clearAction() {
-        return this;
-    }
-
-    @Override
-    HistoryToken setDelete0() {
         return this;
     }
 

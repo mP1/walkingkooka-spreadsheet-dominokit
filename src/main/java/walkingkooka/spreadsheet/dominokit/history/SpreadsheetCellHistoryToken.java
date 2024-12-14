@@ -57,19 +57,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
     abstract UrlFragment cellUrlFragment();
 
     @Override //
-    final HistoryToken setDelete0() {
-
-        // deleting a pattern will create a save pattern with empty string.
-        return this instanceof SpreadsheetCellFormatterHistoryToken || this instanceof SpreadsheetCellParserHistoryToken ?
-                this.setSave("") :
-                cellDelete(
-                        this.id(),
-                        this.name(),
-                        this.anchoredSelection()
-                );
-    }
-
-    @Override //
     final HistoryToken setMenu1() {
         return cellMenu(
                 this.id(),
@@ -138,7 +125,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 result = this.parseCut(cursor);
                 break;
             case DELETE_STRING:
-                result = this.setDelete();
+                result = this.delete();
                 break;
             case FIND_STRING:
                 result = this.parseFind(cursor);

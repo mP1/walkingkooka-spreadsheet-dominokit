@@ -73,7 +73,7 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
                 id,
                 name,
                 anchoredSelection
-        ).setDelete();
+        ).delete();
     }
 
     @Override
