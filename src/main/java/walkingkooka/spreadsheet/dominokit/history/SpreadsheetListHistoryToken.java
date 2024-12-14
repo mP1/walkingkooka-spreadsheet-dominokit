@@ -28,45 +28,45 @@ import java.util.OptionalInt;
 
 public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToken {
 
-    SpreadsheetListHistoryToken(final OptionalInt from,
+    SpreadsheetListHistoryToken(final OptionalInt offset,
                                 final OptionalInt count) {
         super();
-        this.from = from;
+        this.offset = offset;
         this.count = count;
     }
 
     // from.............................................................................................................
 
-    public final OptionalInt from() {
-        return this.from;
+    public final OptionalInt offset() {
+        return this.offset;
     }
 
-    public abstract SpreadsheetListHistoryToken setFrom(final OptionalInt from);
+    public abstract SpreadsheetListHistoryToken setOffset(final OptionalInt offset);
 
-    final SpreadsheetListHistoryToken setFrom0(final OptionalInt from) {
-        checkFrom(from);
+    final SpreadsheetListHistoryToken setOffset0(final OptionalInt offset) {
+        checkOffset(offset);
 
-        return this.from.equals(from) ?
+        return this.offset.equals(offset) ?
                 this :
-                this.replaceFromAndCount(
-                        from
+                this.replaceOffset(
+                        offset
                 );
     }
 
-    private final OptionalInt from;
+    private final OptionalInt offset;
 
-    static OptionalInt checkFrom(final OptionalInt from) {
-        Objects.requireNonNull(from, "from");
+    static OptionalInt checkOffset(final OptionalInt offset) {
+        Objects.requireNonNull(offset, "offset");
 
-        from.ifPresent(value -> {
+        offset.ifPresent(value -> {
             if (value < 0) {
-                throw new IllegalArgumentException("Invalid from < 0 got " + value);
+                throw new IllegalArgumentException("Invalid offset < 0 got " + value);
             }
         });
-        return from;
+        return offset;
     }
 
-    abstract SpreadsheetListHistoryToken replaceFromAndCount(final OptionalInt from);
+    abstract SpreadsheetListHistoryToken replaceOffset(final OptionalInt offset);
 
     // count............................................................................................................
 
@@ -74,16 +74,17 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
 
     // HasUrlFragment...................................................................................................
 
-    @Override final UrlFragment spreadsheetUrlFragment() {
+    @Override //
+    final UrlFragment spreadsheetUrlFragment() {
         UrlFragment list = this.listUrlFragment();
 
         {
-            final OptionalInt from = this.from;
-            if (from.isPresent()) {
-                list = list.appendSlashThen(FROM)
+            final OptionalInt offset = this.offset;
+            if (offset.isPresent()) {
+                list = list.appendSlashThen(OFFSET)
                         .appendSlashThen(
                                 UrlFragment.with(
-                                        String.valueOf(from.getAsInt())
+                                        String.valueOf(offset.getAsInt())
                                 )
                         );
             }
@@ -104,7 +105,6 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
         return list;
     }
 
-    private final static UrlFragment FROM = UrlFragment.with("from");
 
     abstract UrlFragment listUrlFragment();
 
@@ -123,9 +123,9 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
                             parseCount(cursor)
                     );
                     break;
-                case FROM_STRING:
+                case OFFSET_STRING:
                     historyToken = historyToken.cast(SpreadsheetListHistoryToken.class)
-                            .setFrom(
+                            .setOffset(
                                     parseOptionalInt(cursor)
                             );
                     break;
@@ -161,7 +161,7 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
 
         context.spreadsheetMetadataFetcher()
                 .getSpreadsheetMetadatas(
-                        this.from(),
+                        this.offset(),
                         count.isPresent() ?
                                 count :
                                 context.spreadsheetListDialogComponentDefaultCount()

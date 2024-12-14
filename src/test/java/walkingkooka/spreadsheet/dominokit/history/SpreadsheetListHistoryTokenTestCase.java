@@ -26,7 +26,7 @@ import java.util.OptionalInt;
 
 public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetListHistoryToken> extends SpreadsheetHistoryTokenTestCase<T> {
 
-    final static OptionalInt FROM = OptionalInt.of(1);
+    final static OptionalInt OFFSET = OptionalInt.of(1);
 
     final static OptionalInt COUNT = OptionalInt.of(23);
 
@@ -81,7 +81,7 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
 
     @Override final T createHistoryToken() {
         return this.createHistoryToken(
-                FROM,
+                OFFSET,
                 COUNT
         );
     }
