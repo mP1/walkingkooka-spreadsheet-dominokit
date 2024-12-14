@@ -55,7 +55,7 @@ final class SpreadsheetSelectionMenuFormatter {
                       final SpreadsheetContextMenu menu,
                       final SpreadsheetSelectionMenuContext context) {
         build0(
-                historyToken.setFormatter(),
+                historyToken.formatter(),
                 menu,
                 context.idPrefix() + "formatter-",
                 context

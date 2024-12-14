@@ -69,11 +69,11 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
         );
     }
 
-    // setFormatter.....................................................................................................
+    // formatter........................................................................................................
 
     @Test
-    public void testSetFormatter() {
-        this.setFormatterAndCheck(
+    public void testFormatter() {
+        this.formatterAndCheck(
                 this.createHistoryToken(),
                 HistoryToken.cellFormatterSelect(
                         ID,
