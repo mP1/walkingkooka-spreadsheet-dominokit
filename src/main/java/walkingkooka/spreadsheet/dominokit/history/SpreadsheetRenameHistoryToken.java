@@ -57,11 +57,6 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
     }
 
     @Override //
-    final HistoryToken setFreeze0() {
-        return this;
-    }
-
-    @Override //
     final HistoryToken setMenu1() {
         return this;
     }

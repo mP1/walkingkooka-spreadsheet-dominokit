@@ -75,7 +75,7 @@ public class SpreadsheetRowFreezeHistoryToken extends SpreadsheetRowHistoryToken
                 id,
                 name,
                 anchoredSelection
-        ).setFreeze();
+        ).freeze();
     }
 
     @Override

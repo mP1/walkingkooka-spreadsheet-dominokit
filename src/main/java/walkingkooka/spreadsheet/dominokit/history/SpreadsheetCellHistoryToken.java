@@ -75,15 +75,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
     }
 
     @Override //
-    final HistoryToken setFreeze0() {
-        return cellFreeze(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
-    @Override //
     final HistoryToken setMenu1() {
         return cellMenu(
                 this.id(),
@@ -170,7 +161,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 result = this.parseFind(cursor);
                 break;
             case FREEZE_STRING:
-                result = this.setFreeze();
+                result = this.freeze();
                 break;
             case FORMATTER_STRING:
                 result = this.setFormatter();

@@ -75,7 +75,7 @@ public class SpreadsheetColumnFreezeHistoryToken extends SpreadsheetColumnHistor
                 id,
                 name,
                 anchoredSelection
-        ).setFreeze();
+        ).freeze();
     }
 
     @Override

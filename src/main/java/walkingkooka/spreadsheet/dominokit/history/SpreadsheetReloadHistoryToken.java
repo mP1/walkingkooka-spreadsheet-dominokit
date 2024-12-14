@@ -94,11 +94,6 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override //
-    HistoryToken setFreeze0() {
-        return this;
-    }
-
-    @Override //
     HistoryToken setMenu1() {
         return this;
     }

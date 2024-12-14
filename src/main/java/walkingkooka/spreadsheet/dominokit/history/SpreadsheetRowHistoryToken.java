@@ -76,15 +76,6 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
     }
 
     @Override //
-    final HistoryToken setFreeze0() {
-        return rowFreeze(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
-    @Override //
     final HistoryToken setMenu1() {
         return rowMenu(
                 this.id(),
@@ -173,7 +164,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
                 result = this.setDelete();
                 break;
             case FREEZE_STRING:
-                result = this.setFreeze();
+                result = this.freeze();
                 break;
             case INSERT_AFTER_STRING:
                 result = this.insertAfter(

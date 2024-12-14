@@ -242,11 +242,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         return this;
     }
 
-    @Override
-    HistoryToken setFreeze0() {
-        return this;
-    }
-
     @Override //
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
