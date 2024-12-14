@@ -119,11 +119,6 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override
-    HistoryToken setUnfreeze0() {
-        return this;
-    }
-
-    @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         context.pushHistoryToken(

@@ -142,15 +142,6 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
         return this; // column/A/style not currently supported
     }
 
-    @Override //
-    final HistoryToken setUnfreeze0() {
-        return columnUnfreeze(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
     // parse............................................................................................................
 
     @Override
@@ -188,7 +179,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
                 result = this.parseSort(cursor);
                 break;
             case UNFREEZE_STRING:
-                result = this.setUnfreeze();
+                result = this.unfreeze();
                 break;
             default:
                 cursor.end();

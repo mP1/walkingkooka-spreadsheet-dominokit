@@ -75,7 +75,7 @@ public class SpreadsheetColumnUnfreezeHistoryToken extends SpreadsheetColumnHist
                 id,
                 name,
                 anchoredSelection
-        ).setUnfreeze();
+        ).unfreeze();
     }
 
     @Override

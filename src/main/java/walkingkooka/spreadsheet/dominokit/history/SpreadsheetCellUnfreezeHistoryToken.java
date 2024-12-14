@@ -86,7 +86,7 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
                 id,
                 name,
                 anchoredSelection
-        ).setUnfreeze();
+        ).unfreeze();
     }
 
     @Override

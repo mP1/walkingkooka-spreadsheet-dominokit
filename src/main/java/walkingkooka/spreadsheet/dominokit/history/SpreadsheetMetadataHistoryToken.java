@@ -96,9 +96,4 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
         return selection.setDefaultAnchor();
     }
-
-    @Override //
-    final HistoryToken setUnfreeze0() {
-        return this;
-    }
 }
