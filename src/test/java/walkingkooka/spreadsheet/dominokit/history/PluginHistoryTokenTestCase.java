@@ -27,6 +27,24 @@ public abstract class PluginHistoryTokenTestCase<T extends PluginHistoryToken> e
     }
 
     @Test
+    public final void testSetIdName() {
+        this.setIdAndNameAndCheck(
+                ID,
+                NAME,
+                HistoryToken.spreadsheetSelect(ID, NAME)
+        );
+    }
+
+    @Test
+    public final void testPatternKind() {
+        this.patternKindAndCheck(
+                this.createHistoryToken()
+        );
+    }
+
+    // parse............................................................................................................
+
+    @Test
     public final void testParse() {
         final T token = this.createHistoryToken();
 
