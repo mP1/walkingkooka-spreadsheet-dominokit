@@ -2804,6 +2804,40 @@ public abstract class HistoryToken implements HasUrlFragment,
                 );
     }
 
+    // UrlFragment......................................................................................................
+
+    /**
+     * Creates a {@link UrlFragment} with a save returning a {@link UrlFragment} with its equivalent value.
+     */
+    static UrlFragment saveUrlFragment(final Object value) {
+        // always want slash after SAVE
+        return SAVE.append(UrlFragment.SLASH)
+                .append(
+                        saveUrlFragmentValue(value)
+                );
+    }
+
+    static UrlFragment saveUrlFragmentValue(final Object value) {
+        return null == value ?
+                UrlFragment.EMPTY :
+                value instanceof UrlFragment ?
+                        (UrlFragment) value :
+                        value instanceof HasUrlFragment ?
+                                ((HasUrlFragment) value)
+                                        .urlFragment() :
+                                value instanceof Optional ?
+                                        saveUrlFragmentValueOptional((Optional<?>) value) :
+                                        UrlFragment.with(
+                                                String.valueOf(value)
+                                        );
+    }
+
+    static UrlFragment saveUrlFragmentValueOptional(final Optional<?> value) {
+        return saveUrlFragmentValue(
+                value.orElse(null)
+        );
+    }
+
     // Object...........................................................................................................
 
     @Override

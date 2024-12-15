@@ -17,10 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
-
-import java.util.Optional;
 
 /**
  * Instances represent a token within a history hash.
@@ -41,38 +38,4 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
     }
 
     abstract UrlFragment spreadsheetUrlFragment();
-
-    // save helpers.....................................................................................................
-
-    /**
-     * Creates a {@link UrlFragment} with a save returning a {@link UrlFragment} with its equivalent value.
-     */
-    final UrlFragment saveUrlFragment(final Object value) {
-        // always want slash after SAVE
-        return SAVE.append(UrlFragment.SLASH)
-                .append(
-                        this.saveUrlFragmentValue(value)
-                );
-    }
-
-    private UrlFragment saveUrlFragmentValue(final Object value) {
-        return null == value ?
-                UrlFragment.EMPTY :
-                value instanceof UrlFragment ?
-                        (UrlFragment) value :
-                        value instanceof HasUrlFragment ?
-                                ((HasUrlFragment) value)
-                                        .urlFragment() :
-                                value instanceof Optional ?
-                                        this.saveUrlFragmentValueOptional((Optional<?>) value) :
-                                        UrlFragment.with(
-                                                String.valueOf(value)
-                                        );
-    }
-
-    private UrlFragment saveUrlFragmentValueOptional(final Optional<?> value) {
-        return this.saveUrlFragmentValue(
-                value.orElse(null)
-        );
-    }
 }
