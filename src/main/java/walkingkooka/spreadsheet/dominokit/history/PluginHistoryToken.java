@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 
 /**
  * Base class for all plugin {@link HistoryToken tokens}.
@@ -26,6 +28,15 @@ public abstract class PluginHistoryToken extends HistoryToken {
 
     PluginHistoryToken() {
         super();
+    }
+
+    @Override //
+    final HistoryToken replaceIdAndName(final SpreadsheetId id,
+                                        final SpreadsheetName name) {
+        return spreadsheetSelect(
+                id,
+                name
+        );
     }
 
     // HasUrlFragment...................................................................................................
