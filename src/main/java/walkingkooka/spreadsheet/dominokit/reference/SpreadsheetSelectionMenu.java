@@ -529,7 +529,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 "Text case"
         ).item(
                 historyToken.style(TextStylePropertyName.TEXT_TRANSFORM)
-                        .setSave("")
+                        .clearSave()
                         .contextMenuItem(
                                 context.idPrefix() + "normal" + SpreadsheetElementIds.MENU_ITEM,
                                 "Normal"
