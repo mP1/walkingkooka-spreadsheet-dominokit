@@ -194,6 +194,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment PASTE = UrlFragment.parse(PASTE_STRING);
 
+    final static String PLUGIN_STRING = "plugin";
+
+    final static UrlFragment PLUGIN = SpreadsheetUrlFragments.PLUGIN;
+
     final static String RELOAD_STRING = "reload";
 
     final static UrlFragment RELOAD = UrlFragment.parse(RELOAD_STRING);
