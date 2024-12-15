@@ -1092,10 +1092,10 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * {@see SpreadsheetListReloadHistoryToken}
      */
-    public static SpreadsheetListHistoryToken spreadsheetListReload(final OptionalInt from,
+    public static SpreadsheetListHistoryToken spreadsheetListReload(final OptionalInt offset,
                                                                     final OptionalInt count) {
         return SpreadsheetListReloadHistoryToken.with(
-                from,
+                offset,
                 count
         );
     }
@@ -1103,10 +1103,10 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * {@see SpreadsheetListSelectHistoryToken}
      */
-    public static SpreadsheetListHistoryToken spreadsheetListSelect(final OptionalInt from,
+    public static SpreadsheetListHistoryToken spreadsheetListSelect(final OptionalInt offset,
                                                                     final OptionalInt count) {
         return SpreadsheetListSelectHistoryToken.with(
-                from,
+                offset,
                 count
         );
     }
