@@ -1698,7 +1698,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         HistoryToken historyToken = this;
 
         if (this instanceof SpreadsheetCellFormatterHistoryToken || this instanceof SpreadsheetCellParserHistoryToken) {
-            historyToken = this.setSave("");
+            historyToken = this.clearSave();
         } else {
             if (this instanceof SpreadsheetCellHistoryToken) {
                 final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
