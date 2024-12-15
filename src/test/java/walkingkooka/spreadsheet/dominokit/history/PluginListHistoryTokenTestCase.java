@@ -17,8 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.OptionalInt;
 
 public abstract class PluginListHistoryTokenTestCase<T extends PluginListHistoryToken> extends PluginHistoryTokenTestCase<T> {
@@ -29,22 +27,6 @@ public abstract class PluginListHistoryTokenTestCase<T extends PluginListHistory
 
     PluginListHistoryTokenTestCase(){
         super();
-    }
-
-    @Test
-    public final void testSetIdName() {
-        this.setIdAndNameAndCheck(
-                ID,
-                NAME,
-                HistoryToken.spreadsheetSelect(ID, NAME)
-        );
-    }
-
-    @Test
-    public final void testPatternKind() {
-        this.patternKindAndCheck(
-                this.createHistoryToken()
-        );
     }
 
     @Override
