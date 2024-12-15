@@ -2278,6 +2278,55 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // plugin...........................................................................................................
+
+    @Test
+    public void testParsePlugin() {
+        this.parseStringAndCheck(
+                "/plugin",
+                HistoryToken.pluginListSelect(
+                        OptionalInt.empty(), // offset
+                        OptionalInt.empty() // count
+                )
+        );
+    }
+
+    @Test
+    public void testParsePluginOffset() {
+        this.parseStringAndCheck(
+                "/plugin/offset/123",
+                HistoryToken.pluginListSelect(
+                        OptionalInt.of(123), // offset
+                        OptionalInt.empty() // count
+                )
+        );
+    }
+
+
+    @Test
+    public void testParsePluginCount() {
+        this.parseStringAndCheck(
+                "/plugin/count/456",
+                HistoryToken.pluginListSelect(
+                        OptionalInt.empty(), // offset
+                        OptionalInt.of(456) // count
+                )
+        );
+    }
+
+    @Test
+    public void testParsePluginReload() {
+        this.parseStringAndCheck(
+                "/plugin/reload",
+                HistoryToken.pluginListReload(
+                        OptionalInt.empty(), // offset
+                        OptionalInt.empty() // count
+                )
+        );
+    }
+
+    // spreadsheet......................................................................................................
+
     @Test
     public void testParseDeleteSpreadsheetId() {
         this.parseStringAndCheck(
