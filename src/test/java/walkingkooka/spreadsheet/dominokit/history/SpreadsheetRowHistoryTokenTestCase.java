@@ -123,23 +123,23 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
-    // setMenu1(Selection)..................................................................................................
+    // menu.............................................................................................................
 
     @Test
-    public final void testSetMenuWithCell() {
-        this.setMenuWithCellAndCheck();
+    public final void testMenuWithCell() {
+        this.menuWithCellAndCheck();
     }
 
     @Test
-    public final void testSetMenuWithColumn() {
-        this.setMenuWithColumnAndCheck();
+    public final void testMenuWithColumn() {
+        this.menuWithColumnAndCheck();
     }
 
     @Test
-    public final void testRowMenuWithSameRow() {
+    public final void testMenuWithSameRow() {
         final SpreadsheetRowReference row = ROW;
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 this.createHistoryToken(
                         row.setDefaultAnchor()
                 ),
@@ -153,10 +153,10 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     }
 
     @Test
-    public final void testRowMenuWithDifferentRow() {
+    public final void testMenuWithDifferentRow() {
         final SpreadsheetRowReference row = ROW.add(1);
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 this.createHistoryToken(
                         ROW.setDefaultAnchor()
                 ),
@@ -170,10 +170,10 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     }
 
     @Test
-    public final void testRowRangeMenuWithRowInside() {
+    public final void testMenuRowRangeMenuWithRowInside() {
         final SpreadsheetRowRangeReference range = SpreadsheetSelection.parseRowRange("1:3");
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 this.createHistoryToken(
                         range.setDefaultAnchor()
                 ),
@@ -187,10 +187,10 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     }
 
     @Test
-    public final void testRowRangeMenuWithRowOutside() {
+    public final void testMenuRowRangeMenuWithRowOutside() {
         final SpreadsheetRowReference row = SpreadsheetSelection.parseRow("99");
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 this.createHistoryToken(
                         SpreadsheetSelection.parseRowRange("1:3").setDefaultAnchor()
                 ),

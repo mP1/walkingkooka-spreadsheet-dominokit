@@ -71,8 +71,8 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
     // setMenu1(Selection)..................................................................................................
 
     @Test
-    public void testSetMenuWithRow() {
-        this.setMenuWithRowAndCheck();
+    public void testMenu() {
+        this.menuWithRowAndCheck();
     }
 
     // unfreezeOrEmpty..................................................................................................

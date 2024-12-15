@@ -435,14 +435,12 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         );
     }
 
-    // setMenu1(Selection)..................................................................................................
+    // menu(Selection)..................................................................................................
 
     @Test
-    public void testSetMenuWithCell() {
-        this.setMenuWithCellAndCheck();
+    public void testMenuWithCell() {
+        this.menuWithCellAndCheck();
     }
-
-    // ClassTesting....................................................................................................
 
     // helpers..........................................................................................................
 

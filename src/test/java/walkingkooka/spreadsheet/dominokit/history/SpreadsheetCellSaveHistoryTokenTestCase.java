@@ -28,8 +28,8 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
     }
 
     @Test
-    public final void testSetMenuWithCell() {
-        this.setMenuWithCellAndCheck();
+    public final void testMenuWithCell() {
+        this.menuWithCellAndCheck();
     }
 
     final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();

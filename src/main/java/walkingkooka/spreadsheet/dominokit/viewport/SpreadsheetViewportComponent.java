@@ -532,7 +532,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
                     context.pushHistoryToken(
                             context.historyToken()
-                                    .setMenu(
+                                    .menu(
                                             Optional.of(selection),
                                             context.spreadsheetViewportCache()
                                     )

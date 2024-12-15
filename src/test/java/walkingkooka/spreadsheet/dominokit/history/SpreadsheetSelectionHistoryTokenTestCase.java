@@ -26,21 +26,21 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
         super();
     }
 
-    // setMenu1(Selection)..............................................................................................
+    // menu(Selection)..................................................................................................
 
     @Test
-    public void testSetMenuWithCell() {
-        this.setMenuWithCellAndCheck();
+    public void testMenuWithCell() {
+        this.menuWithCellAndCheck();
     }
 
     @Test
-    public void testSetMenuWithColumn() {
-        this.setMenuWithColumnAndCheck();
+    public void testMenuWithColumn() {
+        this.menuWithColumnAndCheck();
     }
 
     @Test
-    public void testSetMenuWithRow() {
-        this.setMenuWithRowAndCheck();
+    public void testMenuWithRow() {
+        this.menuWithRowAndCheck();
     }
 
     // setMetadataPropertyName..........................................................................................

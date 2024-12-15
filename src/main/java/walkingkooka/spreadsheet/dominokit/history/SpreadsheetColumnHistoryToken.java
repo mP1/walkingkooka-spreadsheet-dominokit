@@ -58,27 +58,6 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
     }
 
     @Override //
-    final HistoryToken setMenu1() {
-        return columnMenu(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
-    @Override //
-    final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
-        final AnchoredSpreadsheetSelection anchored = this.anchoredSelection();
-
-        return selection.isColumnReference() &&
-                anchored
-                        .selection()
-                        .testColumn(selection.toColumn()) ?
-                anchored :
-                selection.setDefaultAnchor();
-    }
-
-    @Override //
     final HistoryToken setSave0(final String value) {
         HistoryToken historyToken = this;
 
@@ -144,7 +123,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
                 );
                 break;
             case MENU_STRING:
-                result = this.setMenu(
+                result = this.menu(
                         Optional.empty(), // no selection
                         SpreadsheetLabelNameResolvers.fake()
                 );

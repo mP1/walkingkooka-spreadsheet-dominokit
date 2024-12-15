@@ -173,7 +173,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     final static String INSERT_BEFORE_STRING = "insertBefore";
 
     final static UrlFragment INSERT_BEFORE = UrlFragment.parse(INSERT_BEFORE_STRING);
-    
+
     final static String LABEL_STRING = SpreadsheetHateosResourceNames.LABEL_STRING;
 
     final static UrlFragment LABEL = UrlFragment.parse(LABEL_STRING);
@@ -1784,16 +1784,16 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return historyToken;
     }
-    
+
     /**
      * if possible creates a freeze.
      */
     public final HistoryToken freeze() {
         HistoryToken historyToken = this;
-        
+
         if(this instanceof SpreadsheetCellHistoryToken) {
             final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
-            
+
             historyToken = cellFreeze(
                     cell.id(),
                     cell.name(),
@@ -1846,10 +1846,10 @@ public abstract class HistoryToken implements HasUrlFragment,
         checkCount(count);
 
         HistoryToken historyToken = this;
-        
+
         if(historyToken instanceof SpreadsheetColumnHistoryToken) {
             final SpreadsheetColumnHistoryToken column = historyToken.cast(SpreadsheetColumnHistoryToken.class);
-            
+
             historyToken = columnInsertAfter(
                     column.id(),
                     column.name(),
@@ -1868,7 +1868,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 );
             }
         }
-        
+
         return historyToken;
     }
 
@@ -2026,59 +2026,176 @@ public abstract class HistoryToken implements HasUrlFragment,
         return token;
     }
 
+    public final HistoryToken menu() {
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = cellMenu(
+                    cell.id(),
+                    cell.name(),
+                    cell.anchoredSelection()
+            );
+        } else {
+            if (this instanceof SpreadsheetColumnHistoryToken) {
+                final SpreadsheetColumnHistoryToken column = this.cast(SpreadsheetColumnHistoryToken.class);
+
+                historyToken = columnMenu(
+                        column.id(),
+                        column.name(),
+                        column.anchoredSelection()
+                );
+            } else {
+                if (this instanceof SpreadsheetRowHistoryToken) {
+                    final SpreadsheetRowHistoryToken row = this.cast(SpreadsheetRowHistoryToken.class);
+
+                    historyToken = rowMenu(
+                            row.id(),
+                            row.name(),
+                            row.anchoredSelection()
+                    );
+                }
+            }
+        }
+
+        return historyToken;
+    }
+
     /**
      * Creates a {@link HistoryToken} with the given {@link SpreadsheetSelection}.
      * If the given selection is outside the selection for this {@link HistoryToken}, then replace the selection otherwise
      * use the original selection in the new menu history token.
      */
-    public final HistoryToken setMenu(final Optional<SpreadsheetSelection> selection,
-                                      final SpreadsheetLabelNameResolver labelNameResolver) {
+    public final HistoryToken menu(final Optional<SpreadsheetSelection> selection,
+                                   final SpreadsheetLabelNameResolver labelNameResolver) {
         Objects.requireNonNull(selection, "selection");
         Objects.requireNonNull(labelNameResolver, "labelNameResolver");
 
         HistoryToken result = this;
 
         if (selection.isPresent()) {
-            result = this.setMenu0(
+            result = this.menu0(
                     selection.get(),
                     labelNameResolver
             );
         } else {
             if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-                result = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
-                        .setMenu1();
+                result = this.menu();
             }
         }
 
         return result;
     }
 
-    private HistoryToken setMenu0(final SpreadsheetSelection selection,
-                                  final SpreadsheetLabelNameResolver labelNameResolver) {
-        HistoryToken menu = null;
+    private HistoryToken menu0(final SpreadsheetSelection selection,
+                               final SpreadsheetLabelNameResolver labelNameResolver) {
+        HistoryToken historyToken = null;
 
         if (this instanceof SpreadsheetNameHistoryToken) {
-            SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+            SpreadsheetNameHistoryToken name = this.cast(SpreadsheetNameHistoryToken.class);
 
             final Optional<AnchoredSpreadsheetSelection> maybeAnchored = this.anchoredSelectionOrEmpty();
             if (maybeAnchored.isPresent()) {
                 // right mouse happened over already selected selection...
                 if (labelNameResolver.resolveIfLabel(maybeAnchored.get().selection())
                         .test(selection)) {
-                    menu = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
-                            .setMenu1();
+                    historyToken = this.menu();
                 }
             }
 
             // right mouse click happened over a non selected cell/column/row
-            if (null == menu) {
-                menu = spreadsheetNameHistoryToken.setMenu2(selection);
+            if (null == historyToken) {
+                historyToken = name.menu(selection);
             }
-        } else {
-            menu = this; // id missing just return this and ignore context setMenu1.
         }
 
-        return menu;
+        if(null == historyToken) {
+            historyToken = this;
+        }
+
+        return historyToken;
+    }
+
+    /**
+     * Helper that takes a selection (assuming a context menu/right click) on a {@link HistoryToken}, that may
+     * already have a selection and then returns a {@link HistoryToken} with the right new selection.
+     */
+    // @VisibleForTesting
+    final HistoryToken menu(final SpreadsheetSelection selection) {
+        Objects.requireNonNull(selection, "selection");
+        if (false == selection.isScalar()) {
+            throw new IllegalArgumentException("Got " + selection + ", expected cell, column or row");
+        }
+
+        final AnchoredSpreadsheetSelection anchoredMenuSelection;
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+                final AnchoredSpreadsheetSelection anchoredSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
+                        .anchoredSelection();
+
+                if (this instanceof SpreadsheetCellHistoryToken && selection.isCellReference()) {
+                    anchoredMenuSelection = anchoredSelection.selection()
+                            .testCell(selection.toCell()) ?
+                            anchoredSelection :
+                            selection.setDefaultAnchor();
+                } else {
+                    if (this instanceof SpreadsheetColumnHistoryToken && selection.isColumnReference()) {
+                        anchoredMenuSelection = anchoredSelection.selection()
+                                .testColumn(selection.toColumn()) ?
+                                anchoredSelection :
+                                selection.setDefaultAnchor();
+                    } else {
+                        if (this instanceof SpreadsheetRowHistoryToken && selection.isRowReference()) {
+                            anchoredMenuSelection = anchoredSelection.selection()
+                                    .testRow(selection.toRow()) ?
+                                    anchoredSelection :
+                                    selection.setDefaultAnchor();
+                        } else {
+                            anchoredMenuSelection = selection.setDefaultAnchor();
+                        }
+                    }
+                }
+
+            } else {
+                anchoredMenuSelection = selection.setDefaultAnchor();
+            }
+
+            final SpreadsheetNameHistoryToken nameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+            final SpreadsheetId id = nameHistoryToken.id();
+            final SpreadsheetName name = nameHistoryToken.name();
+
+            final SpreadsheetSelection menuSelection = anchoredMenuSelection.selection();
+
+            if (menuSelection.isCellReferenceOrCellRangeReference()) {
+                historyToken = cellMenu(
+                        id,
+                        name,
+                        anchoredMenuSelection
+                );
+            } else {
+                if (menuSelection.isColumnReferenceOrColumnRangeReference()) {
+                    historyToken = columnMenu(
+                            id,
+                            name,
+                            anchoredMenuSelection
+                    );
+
+                } else {
+                    if (menuSelection.isRowReferenceOrRowRangeReference()) {
+                        historyToken = rowMenu(
+                                id,
+                                name,
+                                anchoredMenuSelection
+                        );
+                    }
+                }
+            }
+        }
+
+        return historyToken;
     }
 
     /**
