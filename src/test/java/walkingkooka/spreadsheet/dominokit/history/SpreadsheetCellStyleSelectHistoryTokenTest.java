@@ -31,16 +31,16 @@ import java.util.Optional;
 
 public final class SpreadsheetCellStyleSelectHistoryTokenTest extends SpreadsheetCellStyleHistoryTokenTestCase<SpreadsheetCellStyleSelectHistoryToken<Color>> {
 
-    // setSave.........................................................................................................
+    // save.........................................................................................................
 
     @Test
-    public void testSetSaveStyle() {
+    public void testSaveStyle() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
         final String value = "#123456";
         final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, selection, propertyName);
 
-        this.setSaveAndCheck(
+        this.saveAndCheck(
                 historyToken,
                 value,
                 HistoryToken.cellStyleSave(
@@ -54,13 +54,13 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     }
 
     @Test
-    public void testSetSaveStyleWithEmptyText() {
+    public void testSaveStyleWithEmptyText() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
         final String value = "";
         final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, selection, propertyName);
 
-        this.setSaveAndCheck(
+        this.saveAndCheck(
                 historyToken,
                 value,
                 HistoryToken.cellStyleSave(

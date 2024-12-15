@@ -77,7 +77,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extend
                 Optional.of(
                         context.historyToken()
                                 .setMetadataPropertyName(SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING)
-                                .setSave(
+                                .save(
                                         Optional.of(false == enabled)
                                 )
                 )

@@ -172,7 +172,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                         label.isPresent() && target.isPresent() ?
                                 this.context.historyToken()
                                         .setLabelName(label)
-                                        .setSave(target) :
+                                        .save(target) :
                                 null
                 )
         );
@@ -189,7 +189,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                         this.context.historyToken()
                                 .setLabelName(
                                         this.undoLabel
-                                ).setSave(
+                                ).save(
                                         this.undoTarget
                                 )
                 )

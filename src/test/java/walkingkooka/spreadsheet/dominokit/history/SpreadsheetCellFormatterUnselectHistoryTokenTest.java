@@ -82,11 +82,11 @@ public final class SpreadsheetCellFormatterUnselectHistoryTokenTest extends Spre
         );
     }
 
-    // setSave..........................................................................................................
+    // save.............................................................................................................
 
     @Test
-    public void testSetSave() {
-        this.setSaveAndCheck(
+    public void testSave() {
+        this.saveAndCheck(
                 SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
                         .spreadsheetFormatterSelector()
                         .toString()
@@ -94,8 +94,8 @@ public final class SpreadsheetCellFormatterUnselectHistoryTokenTest extends Spre
     }
 
     @Test
-    public void testSetSaveEmpty() {
-        this.setSaveAndCheck(
+    public void testSaveEmpty() {
+        this.saveAndCheck(
                 ""
         );
     }

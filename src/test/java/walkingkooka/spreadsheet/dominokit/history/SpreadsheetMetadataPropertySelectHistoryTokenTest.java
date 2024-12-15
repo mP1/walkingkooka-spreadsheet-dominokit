@@ -273,14 +273,14 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
         );
     }
 
-    // setSave..........................................................................................................
+    // save.............................................................................................................
 
     @Test
-    public void testSetSaveDateTimeOffset() {
+    public void testSaveDateTimeOffset() {
         final SpreadsheetMetadataPropertyName<Long> propertyName = SpreadsheetMetadataPropertyName.DATETIME_OFFSET;
         final Long value = Converters.EXCEL_1904_DATE_SYSTEM_OFFSET;
 
-        this.setSaveAndCheck(
+        this.saveAndCheck(
                 SpreadsheetMetadataPropertySelectHistoryToken.with(
                         ID,
                         NAME,
@@ -299,10 +299,10 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     }
 
     @Test
-    public void testSetSaveDateTimeOffsetEmpty() {
+    public void testSaveDateTimeOffsetEmpty() {
         final SpreadsheetMetadataPropertyName<Long> propertyName = SpreadsheetMetadataPropertyName.DATETIME_OFFSET;
 
-        this.setSaveAndCheck(
+        this.saveAndCheck(
                 SpreadsheetMetadataPropertySelectHistoryToken.with(
                         ID,
                         NAME,
@@ -319,10 +319,10 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     }
 
     @Test
-    public void testSetSaveExpressionNumberKind() {
+    public void testSaveExpressionNumberKind() {
         final ExpressionNumberKind kind = ExpressionNumberKind.DOUBLE;
 
-        this.setSaveAndCheck(
+        this.saveAndCheck(
                 this.createHistoryToken(),
                 kind.name(),
                 HistoryToken.metadataPropertySave(
@@ -337,8 +337,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     }
 
     @Test
-    public void testSetSaveExpressionNumberKindEmpty() {
-        this.setSaveAndCheck(
+    public void testSaveExpressionNumberKindEmpty() {
+        this.saveAndCheck(
                 this.createHistoryToken(),
                 "",
                 HistoryToken.metadataPropertySave(

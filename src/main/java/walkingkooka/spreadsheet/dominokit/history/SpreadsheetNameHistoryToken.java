@@ -64,7 +64,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         return this instanceof SpreadsheetCellSelectHistoryToken ?
                 this.cast(SpreadsheetCellSelectHistoryToken.class)
                         .parseCellSave(cursor) :
-                this.setSave(
+                this.save(
                         parseAll(cursor)
                 );
     }

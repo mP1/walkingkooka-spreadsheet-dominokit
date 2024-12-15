@@ -215,7 +215,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
                         CharSequences.isNullOrEmpty(name) ?
                                 null :
                                 this.context.historyToken()
-                                        .setSave(name)
+                                        .save(name)
                 )
         );
     }
@@ -228,7 +228,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
                         CharSequences.isNullOrEmpty(lastSave) ?
                                 null :
                                 this.context.historyToken()
-                                        .setSave(lastSave)
+                                        .save(lastSave)
                 )
         );
     }

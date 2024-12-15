@@ -94,7 +94,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     }
 
     @Override
-    HistoryToken setSave0(final String value) {
+    HistoryToken save0(final String value) {
         return this;
     }
 

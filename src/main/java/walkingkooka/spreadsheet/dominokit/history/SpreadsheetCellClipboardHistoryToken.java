@@ -59,7 +59,7 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
     }
 
     @Override //
-    final HistoryToken setSave0(final String value) {
+    final HistoryToken save0(final String value) {
         return this;
     }
 

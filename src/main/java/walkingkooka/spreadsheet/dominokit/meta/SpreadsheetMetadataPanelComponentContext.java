@@ -57,7 +57,7 @@ public interface SpreadsheetMetadataPanelComponentContext extends HistoryTokenCo
         this.pushHistoryToken(
                 this.historyToken()
                         .setMetadataPropertyName(propertyName)
-                        .setSave(saveText)
+                        .save(saveText)
         );
     }
 }

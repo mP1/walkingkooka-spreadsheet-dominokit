@@ -2357,13 +2357,13 @@ public abstract class HistoryToken implements HasUrlFragment,
      * Saves an empty {@link String} which is equivalent to deleting the property.
      */
     public final HistoryToken clearSave() {
-        return this.setSave("");
+        return this.save("");
     }
 
     /**
      * if possible creates a save, otherwise returns this.
      */
-    public final HistoryToken setSave(final Optional<?> value) {
+    public final HistoryToken save(final Optional<?> value) {
         Objects.requireNonNull(value, "value");
 
         String stringValue = "";
@@ -2383,17 +2383,17 @@ public abstract class HistoryToken implements HasUrlFragment,
             }
         }
 
-        return this.setSave(stringValue);
+        return this.save(stringValue);
     }
 
     /**
      * if possible creates a save, otherwise returns this.
      */
-    public final HistoryToken setSave(final String text) {
+    public final HistoryToken save(final String text) {
         Objects.requireNonNull(text, "text");
 
         return this.setIfSpreadsheetIdHistoryToken(
-                SpreadsheetIdHistoryToken::setSave0,
+                SpreadsheetIdHistoryToken::save0,
                 text
         );
     }
@@ -2795,7 +2795,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 .setTextContent(text)
                 .setHistoryToken(
                         Optional.of(
-                                this.setSave(saveText)
+                                this.save(saveText)
                         )
                 );
     }

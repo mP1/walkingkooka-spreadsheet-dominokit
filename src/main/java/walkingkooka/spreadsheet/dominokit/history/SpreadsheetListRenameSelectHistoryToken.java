@@ -56,7 +56,7 @@ public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetLi
     }
 
     @Override
-    HistoryToken setSave0(final String value) {
+    HistoryToken save0(final String value) {
         return HistoryToken.spreadsheetListRenameSave(
                 this.id(),
                 SpreadsheetName.with(value)
@@ -72,7 +72,7 @@ public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetLi
             case SAVE_STRING:
                 final Optional<String> maybeComponent = parseComponent(cursor);
                 if (maybeComponent.isPresent()) {
-                    historyToken = this.setSave(
+                    historyToken = this.save(
                             maybeComponent.get()
                     );
                 }

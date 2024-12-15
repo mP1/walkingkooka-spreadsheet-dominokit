@@ -62,7 +62,7 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
     }
 
     @Override
-    HistoryToken setSave0(final String value) {
+    HistoryToken save0(final String value) {
         final TextStylePropertyName<T> propertyName = this.stylePropertyName();
 
         return HistoryToken.metadataPropertyStyleSave(

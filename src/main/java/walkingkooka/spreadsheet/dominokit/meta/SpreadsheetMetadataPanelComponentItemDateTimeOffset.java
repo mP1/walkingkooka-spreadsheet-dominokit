@@ -183,7 +183,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
             anchor.setHistoryToken(
                     Optional.of(
-                            token.setSave(
+                            token.save(
                                     Optional.of(value)
                             )
                     )

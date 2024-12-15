@@ -53,7 +53,7 @@ public abstract class SpreadsheetCellSortHistoryToken extends SpreadsheetCellHis
         );
     }
 
-    @Override final HistoryToken setSave0(final String value) {
+    @Override final HistoryToken save0(final String value) {
         return HistoryToken.cellSortSave(
                 this.id(),
                 this.name(),
