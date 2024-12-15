@@ -1478,22 +1478,6 @@ public abstract class HistoryToken implements HasUrlFragment,
      */
     public abstract HistoryToken clearAction();
 
-    public final HistoryToken formula() {
-        HistoryToken historyToken = this;
-
-        if(this instanceof SpreadsheetCellHistoryToken) {
-            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
-
-            historyToken = cellFormula(
-                    cell.id(),
-                    cell.name(),
-                    cell.anchoredSelection()
-            );
-        }
-
-        return historyToken;
-    }
-
     /**
      * If possible creates a {@link SpreadsheetCellClipboardCopyHistoryToken} token.
      */
@@ -1785,6 +1769,22 @@ public abstract class HistoryToken implements HasUrlFragment,
         return historyToken;
     }
 
+    public final HistoryToken formula() {
+        HistoryToken historyToken = this;
+
+        if(this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = cellFormula(
+                    cell.id(),
+                    cell.name(),
+                    cell.anchoredSelection()
+            );
+        }
+
+        return historyToken;
+    }
+
     /**
      * if possible creates a freeze.
      */
@@ -1838,6 +1838,41 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return Optional.ofNullable(token);
     }
+
+    /**
+     * Would be setter, returning a {@link HistoryToken} with the given {@link SpreadsheetId} and {@link SpreadsheetName},
+     * creating a new instance if necessary.
+     */
+    public final HistoryToken setIdAndName(final SpreadsheetId id,
+                                           final SpreadsheetName name) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(name, "name");
+
+        HistoryToken token = null;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+            if (id.equals(spreadsheetNameHistoryToken.id()) && name.equals(spreadsheetNameHistoryToken.name())) {
+                token = this;
+            }
+        }
+
+        if (null == token) {
+            token = this.replaceIdAndName(
+                    id,
+                    name
+            );
+        }
+
+        return token;
+    }
+
+    /**
+     * Accepts a id and name, attempting to replace the name if the id is unchanged or when different replaces the
+     * entire history token.
+     */
+    abstract HistoryToken replaceIdAndName(final SpreadsheetId id,
+                                           final SpreadsheetName name);
 
     /**
      * if possible creates a insert after.
@@ -1906,40 +1941,6 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * Returns if a possible a {@link HistoryToken} which shows the metadata panel
-     */
-    public final HistoryToken metadataShow() {
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = token.cast(SpreadsheetNameHistoryToken.class);
-            token = HistoryToken.metadataSelect(
-                    spreadsheetNameHistoryToken.id(),
-                    spreadsheetNameHistoryToken.name()
-            );
-        }
-
-        return token;
-    }
-
-    /**
-     * Returns if a possible a {@link HistoryToken} which hides the metadata panel
-     */
-    public final HistoryToken metadataHide() {
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetMetadataHistoryToken) {
-            final SpreadsheetMetadataHistoryToken spreadsheetMetadataHistoryToken = token.cast(SpreadsheetMetadataHistoryToken.class);
-            token = HistoryToken.spreadsheetSelect(
-                    spreadsheetMetadataHistoryToken.id(),
-                    spreadsheetMetadataHistoryToken.name()
-            );
-        }
-
-        return token;
-    }
-
-    /**
      * Returns true for any metadata {@link SpreadsheetFormatterSelector} {@link HistoryToken}.
      */
     public final boolean isMetadataFormatter() {
@@ -1959,52 +1960,6 @@ public abstract class HistoryToken implements HasUrlFragment,
                         .patternKind()
                         .map(kind)
                         .orElse(false);
-    }
-
-    /**
-     * Would be setter, returning a {@link HistoryToken} with the given {@link SpreadsheetId} and {@link SpreadsheetName},
-     * creating a new instance if necessary.
-     */
-    public final HistoryToken setIdAndName(final SpreadsheetId id,
-                                           final SpreadsheetName name) {
-        Objects.requireNonNull(id, "id");
-        Objects.requireNonNull(name, "name");
-
-        HistoryToken token = null;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            if (id.equals(spreadsheetNameHistoryToken.id()) && name.equals(spreadsheetNameHistoryToken.name())) {
-                token = this;
-            }
-        }
-
-        if (null == token) {
-            token = this.replaceIdAndName(
-                    id,
-                    name
-            );
-        }
-
-        return token;
-    }
-
-    /**
-     * Accepts a id and name, attempting to replace the name if the id is unchanged or when different replaces the
-     * entire history token.
-     */
-    abstract HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                           final SpreadsheetName name);
-
-    /**
-     * Sets or replaces the current {@link SpreadsheetName}.
-     */
-    public final HistoryToken setName(final SpreadsheetName name) {
-        Objects.requireNonNull(name, "name");
-
-        return this instanceof SpreadsheetNameHistoryToken ?
-                this.cast(SpreadsheetNameHistoryToken.class).replaceName(name) :
-                this;
     }
 
     /**
@@ -2199,6 +2154,40 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * Returns if a possible a {@link HistoryToken} which shows the metadata panel
+     */
+    public final HistoryToken metadataShow() {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = token.cast(SpreadsheetNameHistoryToken.class);
+            token = HistoryToken.metadataSelect(
+                    spreadsheetNameHistoryToken.id(),
+                    spreadsheetNameHistoryToken.name()
+            );
+        }
+
+        return token;
+    }
+
+    /**
+     * Returns if a possible a {@link HistoryToken} which hides the metadata panel
+     */
+    public final HistoryToken metadataHide() {
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetMetadataHistoryToken) {
+            final SpreadsheetMetadataHistoryToken spreadsheetMetadataHistoryToken = token.cast(SpreadsheetMetadataHistoryToken.class);
+            token = HistoryToken.spreadsheetSelect(
+                    spreadsheetMetadataHistoryToken.id(),
+                    spreadsheetMetadataHistoryToken.name()
+            );
+        }
+
+        return token;
+    }
+
+    /**
      * Setter that tries to set a {@link SpreadsheetMetadataPropertyName} to the current {@link HistoryToken}.
      */
     public final HistoryToken setMetadataPropertyName(final SpreadsheetMetadataPropertyName<?> propertyName) {
@@ -2231,46 +2220,15 @@ public abstract class HistoryToken implements HasUrlFragment,
         return token;
     }
 
-    // SpreadsheetFormatterSelector........................................................................................
+    /**
+     * Sets or replaces the current {@link SpreadsheetName}.
+     */
+    public final HistoryToken setName(final SpreadsheetName name) {
+        Objects.requireNonNull(name, "name");
 
-    public final Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector() {
-        Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector = Optional.empty();
-
-        if (this instanceof SpreadsheetCellFormatterHistoryToken) {
-            spreadsheetFormatterSelector = this.cast(SpreadsheetCellFormatterHistoryToken.class)
-                    .spreadsheetFormatterSelector;
-        } else {
-            if (this instanceof SpreadsheetMetadataPropertySaveHistoryToken) {
-                final SpreadsheetMetadataPropertySaveHistoryToken metadataSave = this.cast(SpreadsheetMetadataPropertySaveHistoryToken.class);
-                final SpreadsheetMetadataPropertyName<?> propertyName = metadataSave.propertyName();
-                spreadsheetFormatterSelector = propertyName.isSpreadsheetFormatterSelector() ?
-                        metadataSave.propertyValue() :
-                        Optional.empty();
-            }
-        }
-
-        return spreadsheetFormatterSelector;
-    }
-
-    // SpreadsheetParserSelector........................................................................................
-
-    public final Optional<SpreadsheetParserSelector> spreadsheetParserSelector() {
-        Optional<SpreadsheetParserSelector> spreadsheetParserSelector = Optional.empty();
-
-        if (this instanceof SpreadsheetCellParserHistoryToken) {
-            spreadsheetParserSelector = this.cast(SpreadsheetCellParserHistoryToken.class)
-                    .spreadsheetParserSelector;
-        } else {
-            if (this instanceof SpreadsheetMetadataPropertySaveHistoryToken) {
-                final SpreadsheetMetadataPropertySaveHistoryToken metadataSave = this.cast(SpreadsheetMetadataPropertySaveHistoryToken.class);
-                final SpreadsheetMetadataPropertyName<?> propertyName = metadataSave.propertyName();
-                spreadsheetParserSelector = propertyName.isSpreadsheetParserSelector() ?
-                        metadataSave.propertyValue() :
-                        Optional.empty();
-            }
-        }
-
-        return spreadsheetParserSelector;
+        return this instanceof SpreadsheetNameHistoryToken ?
+                this.cast(SpreadsheetNameHistoryToken.class).replaceName(name) :
+                this;
     }
 
     // HasSpreadsheetPatternKind........................................................................................
@@ -2462,6 +2420,44 @@ public abstract class HistoryToken implements HasUrlFragment,
                 SpreadsheetAnchoredSelectionHistoryToken::setSortSave0,
                 comparatorNames
         );
+    }
+
+    public final Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector() {
+        Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector = Optional.empty();
+
+        if (this instanceof SpreadsheetCellFormatterHistoryToken) {
+            spreadsheetFormatterSelector = this.cast(SpreadsheetCellFormatterHistoryToken.class)
+                    .spreadsheetFormatterSelector;
+        } else {
+            if (this instanceof SpreadsheetMetadataPropertySaveHistoryToken) {
+                final SpreadsheetMetadataPropertySaveHistoryToken metadataSave = this.cast(SpreadsheetMetadataPropertySaveHistoryToken.class);
+                final SpreadsheetMetadataPropertyName<?> propertyName = metadataSave.propertyName();
+                spreadsheetFormatterSelector = propertyName.isSpreadsheetFormatterSelector() ?
+                        metadataSave.propertyValue() :
+                        Optional.empty();
+            }
+        }
+
+        return spreadsheetFormatterSelector;
+    }
+
+    public final Optional<SpreadsheetParserSelector> spreadsheetParserSelector() {
+        Optional<SpreadsheetParserSelector> spreadsheetParserSelector = Optional.empty();
+
+        if (this instanceof SpreadsheetCellParserHistoryToken) {
+            spreadsheetParserSelector = this.cast(SpreadsheetCellParserHistoryToken.class)
+                    .spreadsheetParserSelector;
+        } else {
+            if (this instanceof SpreadsheetMetadataPropertySaveHistoryToken) {
+                final SpreadsheetMetadataPropertySaveHistoryToken metadataSave = this.cast(SpreadsheetMetadataPropertySaveHistoryToken.class);
+                final SpreadsheetMetadataPropertyName<?> propertyName = metadataSave.propertyName();
+                spreadsheetParserSelector = propertyName.isSpreadsheetParserSelector() ?
+                        metadataSave.propertyValue() :
+                        Optional.empty();
+            }
+        }
+
+        return spreadsheetParserSelector;
     }
 
     /**
