@@ -174,16 +174,16 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         );
     }
 
-    // setSave.........................................................................................................
+    // save.........................................................................................................
 
     @Test
-    public void testSetSave() {
+    public void testSave() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final String formulaText = "=1";
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, selection);
 
         assertSame(
-                historyToken.setSave(formulaText),
+                historyToken.save(formulaText),
                 historyToken
         );
     }

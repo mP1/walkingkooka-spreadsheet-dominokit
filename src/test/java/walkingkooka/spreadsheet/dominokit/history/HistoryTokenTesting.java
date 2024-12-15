@@ -44,7 +44,7 @@ public interface HistoryTokenTesting extends Testing {
                                                final HistoryToken saved) {
         this.checkEquals(
                 saved,
-                selected.setSave(saveValue),
+                selected.save(saveValue),
                 () -> selected + " save " + CharSequences.quoteIfChars(saveValue.orElse(null))
         );
 
@@ -60,7 +60,7 @@ public interface HistoryTokenTesting extends Testing {
                                                  final HistoryToken removed) {
         this.checkEquals(
                 removed,
-                selected.setSave(removeValue),
+                selected.save(removeValue),
                 () -> selected + " remove " + CharSequences.quoteIfChars(removeValue.orElse(null))
         );
 

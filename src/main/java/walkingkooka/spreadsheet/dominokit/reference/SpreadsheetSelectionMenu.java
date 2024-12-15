@@ -289,7 +289,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                 Optional.of(
                                         historyToken.setMetadataPropertyName(
                                                 SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES
-                                        ).setSave(
+                                        ).save(
                                                 Optional.of(false == hidden)
                                         )
                                 )
@@ -411,7 +411,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
             menu.item(
                     historyToken.style(name)
-                            .setSave(value)
+                            .save(value)
                             .contextMenuItem(
                                     idPrefix + "-" + i + SpreadsheetElementIds.MENU_ITEM,
                                     value.isPresent() ?

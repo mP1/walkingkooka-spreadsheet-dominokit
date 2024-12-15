@@ -91,7 +91,7 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     }
 
     @Override
-    HistoryToken setSave0(final String value) {
+    HistoryToken save0(final String value) {
         final Optional<SpreadsheetLabelName> labelName = this.labelName;
 
         return labelName.isPresent() ?

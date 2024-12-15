@@ -66,7 +66,7 @@ public final class SpreadsheetCellFormatterSelectHistoryToken extends Spreadshee
     }
 
     @Override
-    HistoryToken setSave0(final String value) {
+    HistoryToken save0(final String value) {
         return HistoryToken.cellFormatterSave(
                 this.id(),
                 this.name(),

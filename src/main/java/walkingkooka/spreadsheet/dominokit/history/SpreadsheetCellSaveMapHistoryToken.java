@@ -76,10 +76,10 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
 
     final Map<SpreadsheetCellReference, V> value;
 
-    // setSave..........................................................................................................
+    // save.............................................................................................................
 
     @Override //
-    final HistoryToken setSave0(final String value) {
+    final HistoryToken save0(final String value) {
         return this.replace(
                 this.id(),
                 this.name(),

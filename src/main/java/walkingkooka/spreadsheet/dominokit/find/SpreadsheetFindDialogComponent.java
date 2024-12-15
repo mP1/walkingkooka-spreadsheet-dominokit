@@ -466,7 +466,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 Optional.ofNullable(
                         query.isPresent() ?
                                 token.setMetadataPropertyName(SpreadsheetMetadataPropertyName.FIND_QUERY)
-                                        .setSave(query) :
+                                        .save(query) :
                                 null
                 )
         );

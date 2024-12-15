@@ -41,5 +41,5 @@ public abstract class SpreadsheetIdHistoryToken extends SpreadsheetHistoryToken 
     /**
      * Creates a save {@link HistoryToken} after attempting to parse the value.
      */
-    abstract HistoryToken setSave0(final String value);
+    abstract HistoryToken save0(final String value);
 }

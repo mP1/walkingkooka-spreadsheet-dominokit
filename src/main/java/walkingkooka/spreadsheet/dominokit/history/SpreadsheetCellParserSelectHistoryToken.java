@@ -66,7 +66,7 @@ public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCe
     }
 
     @Override
-    HistoryToken setSave0(final String value) {
+    HistoryToken save0(final String value) {
         return HistoryToken.cellParserSave(
                 this.id(),
                 this.name(),

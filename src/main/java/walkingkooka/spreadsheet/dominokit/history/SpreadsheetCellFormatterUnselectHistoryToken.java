@@ -68,7 +68,7 @@ public final class SpreadsheetCellFormatterUnselectHistoryToken extends Spreadsh
     }
 
     @Override
-    HistoryToken setSave0(final String value) {
+    HistoryToken save0(final String value) {
         return this; // cant "save", because of missing SpreadsheetFormatterSelector
     }
 

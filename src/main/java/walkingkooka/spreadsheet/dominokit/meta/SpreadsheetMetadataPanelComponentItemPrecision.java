@@ -126,7 +126,7 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
 
             anchor.setHistoryToken(
                     Optional.of(
-                            token.setSave(
+                            token.save(
                                     Optional.of(value)
                             )
                     )

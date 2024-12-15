@@ -58,7 +58,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
     }
 
     @Override //
-    final HistoryToken setSave0(final String value) {
+    final HistoryToken save0(final String value) {
         HistoryToken historyToken = this;
 
         if (historyToken instanceof SpreadsheetColumnSortHistoryToken) {

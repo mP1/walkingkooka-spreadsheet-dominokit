@@ -308,7 +308,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
             this.save.setHistoryToken(
                     Optional.of(
                             context.historyToken()
-                                    .setSave(
+                                    .save(
                                             Optional.of(
                                                     edit.selector()
                                                             .map(SpreadsheetFormatterSelector::toString)
@@ -414,7 +414,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         this.undo.setHistoryToken(
                 Optional.of(
                         context.historyToken()
-                                .setSave(undo)
+                                .save(undo)
                 )
         );
 
