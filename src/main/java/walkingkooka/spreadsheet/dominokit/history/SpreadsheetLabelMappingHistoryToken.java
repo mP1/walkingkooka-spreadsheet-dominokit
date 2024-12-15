@@ -20,10 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Optional;
@@ -63,16 +61,6 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
         );
     }
 
-    @Override //
-    final HistoryToken setMenu1() {
-        return this;
-    }
-
-    @Override //
-    final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
-        return selection.setDefaultAnchor();
-    }
-
     // parse............................................................................................................
 
     @Override
@@ -85,7 +73,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
                 result = this.delete();
                 break;
             case MENU_STRING:
-                result = this.setMenu(
+                result = this.menu(
                         Optional.empty(), // no selection
                         SpreadsheetLabelNameResolvers.fake()
                 );

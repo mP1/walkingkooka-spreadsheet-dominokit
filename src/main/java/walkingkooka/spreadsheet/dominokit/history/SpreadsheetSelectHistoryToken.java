@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.text.cursor.TextCursor;
@@ -238,16 +237,6 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                 id,
                 name
         );
-    }
-
-    @Override
-    HistoryToken setMenu1() {
-        return this;
-    }
-
-    @Override //
-    AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
-        return selection.setDefaultAnchor();
     }
 
     // factory for /spreadsheet-id/spreadsheet-name/metadata/pattern/*

@@ -36,21 +36,21 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
         this.clearActionAndCheck();
     }
 
-    // setMenu1(Selection)..................................................................................................
+    // menu(Selection)..................................................................................................
 
     @Test
-    public void testSetMenuWithCell() {
-        this.setMenuWithCellAndCheck();
+    public void testMenuWithCell() {
+        this.menuWithCellAndCheck();
     }
 
     @Test
-    public void testSetMenuWithColumn() {
-        this.setMenuWithColumnAndCheck();
+    public void testMenuWithColumn() {
+        this.menuWithColumnAndCheck();
     }
 
     @Test
-    public void testSetMenuWithRow() {
-        this.setMenuWithRowAndCheck();
+    public void testMenuWithRow() {
+        this.menuWithRowAndCheck();
     }
 
     // setMetadataPropertyName..........................................................................................

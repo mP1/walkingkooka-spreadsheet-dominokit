@@ -49,11 +49,11 @@ public final class SpreadsheetColumnDeleteHistoryTokenTest extends SpreadsheetCo
         );
     }
 
-    // setMenu1(Selection)..................................................................................................
+    // menu(Selection)..................................................................................................
 
     @Test
-    public void testSetMenuWithColumn() {
-        this.setMenuWithColumnAndCheck();
+    public void testMenuWithColumn() {
+        this.menuWithColumnAndCheck();
     }
 
     @Override

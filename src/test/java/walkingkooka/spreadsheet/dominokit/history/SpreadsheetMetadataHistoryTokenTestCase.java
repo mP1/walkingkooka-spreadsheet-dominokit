@@ -25,20 +25,20 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
         super();
     }
 
-    // setMenu1(Selection)..................................................................................................
+    // menu(Selection)..................................................................................................
 
     @Test
-    public final void testSetMenuWithCell() {
-        this.setMenuWithCellAndCheck();
+    public final void testMenuWithCell() {
+        this.menuWithCellAndCheck();
     }
 
     @Test
-    public final void testSetMenuWithColumn() {
-        this.setMenuWithColumnAndCheck();
+    public final void testMenuWithColumn() {
+        this.menuWithColumnAndCheck();
     }
 
     @Test
-    public final void testSetMenuWithRow() {
-        this.setMenuWithRowAndCheck();
+    public final void testMenuWithRow() {
+        this.menuWithRowAndCheck();
     }
 }

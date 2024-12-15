@@ -138,13 +138,13 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
-    // setMenu1 with selection..............................................................................................
+    // menu with selection..............................................................................................
 
     @Test
-    public final void testSetMenuCellMenuWithSameCell() {
+    public final void testMenuCellMenuWithSameCell() {
         final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 this.createHistoryToken(
                         cell.setDefaultAnchor()
                 ),
@@ -158,10 +158,10 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     }
 
     @Test
-    public final void testSetMenuCellMenuWithDifferentCell() {
+    public final void testMenuCellMenuWithDifferentCell() {
         final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("B2");
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 this.createHistoryToken(
                         SpreadsheetSelection.A1.setDefaultAnchor()
                 ),
@@ -175,11 +175,11 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     }
 
     @Test
-    public final void testSetMenuCellRangeMenuWithCellInside() {
+    public final void testMenuCellRangeMenuWithCellInside() {
         final AnchoredSpreadsheetSelection selection = SpreadsheetSelection.parseCellRange("A1:C3")
                 .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 this.createHistoryToken(selection),
                 SpreadsheetSelection.parseCell("B2"),
                 HistoryToken.cellMenu(
@@ -191,10 +191,10 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     }
 
     @Test
-    public final void testSetMenuCellRangeMenuWithCellOutside() {
+    public final void testMenuCellRangeMenuWithCellOutside() {
         final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("Z99");
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 this.createHistoryToken(
                         SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor()
                 ),
@@ -208,13 +208,13 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     }
 
     @Test
-    public final void testSetMenuWithColumn() {
-        this.setMenuWithColumnAndCheck();
+    public final void testMenuWithColumn() {
+        this.menuWithColumnAndCheck();
     }
 
     @Test
-    public final void testSetMenuWithRow() {
-        this.setMenuWithRowAndCheck();
+    public final void testMenuWithRow() {
+        this.menuWithRowAndCheck();
     }
 
     final void urlFragmentAndCheck(final SpreadsheetExpressionReference reference,

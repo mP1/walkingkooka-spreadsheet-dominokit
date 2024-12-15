@@ -67,7 +67,7 @@ public class SpreadsheetRowMenuHistoryToken extends SpreadsheetRowHistoryToken {
                 id,
                 name,
                 anchoredSelection
-        ).setMenu1();
+        ).menu();
     }
 
     @Override

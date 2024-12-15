@@ -55,26 +55,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
     abstract UrlFragment cellUrlFragment();
 
-    @Override //
-    final HistoryToken setMenu1() {
-        return cellMenu(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
-        );
-    }
-
-    @Override //
-    final AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection) {
-        final AnchoredSpreadsheetSelection anchored = this.anchoredSelection();
-
-        return selection.isCellReference() &&
-                anchored.selection()
-                        .testCell(selection.toCell()) ?
-                anchored :
-                selection.setDefaultAnchor();
-    }
-
     // sort.............................................................................................................
 
     @Override //
@@ -127,7 +107,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 result = this.formula();
                 break;
             case MENU_STRING:
-                result = this.setMenu(
+                result = this.menu(
                         Optional.empty(), // no selection
                         SpreadsheetLabelNameResolvers.fake()
                 );

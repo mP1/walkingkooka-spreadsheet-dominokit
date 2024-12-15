@@ -55,11 +55,11 @@ public final class SpreadsheetRowFreezeHistoryTokenTest extends SpreadsheetRowHi
         );
     }
 
-    // setMenu1(Selection)..................................................................................................
+    // menu(Selection)..................................................................................................
 
     @Test
-    public void testSetMenuWithRow() {
-        this.setMenuWithRowAndCheck();
+    public void testMenuWithRow() {
+        this.menuWithRowAndCheck();
     }
     
     @Override

@@ -773,14 +773,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // setMenu..........................................................................................................
+    // menu.............................................................................................................
 
     @Test
-    public void testSetMenuWithNullSelectionFails() {
+    public void testMenuWithNullSelectionFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> HistoryToken.unknown(UrlFragment.EMPTY)
-                        .setMenu(
+                        .menu(
                                 null,
                                 SpreadsheetLabelNameResolvers.fake()
                         )
@@ -788,24 +788,24 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithNullLabelNameResolverFails() {
+    public void testMenuWithNullLabelNameResolverFails() {
         assertThrows(
                 NullPointerException.class,
                 () -> HistoryToken.unknown(UrlFragment.EMPTY)
-                        .setMenu(
+                        .menu(
                                 Optional.of(SpreadsheetSelection.A1),
                                 null
                         )
         );
     }
 
-    // setMenu with empty...............................................................................................
+    // menu with empty..................................................................................................
 
     @Test
-    public void testSetMenuCellWithoutSelection() {
+    public void testMenuCellWithoutSelection() {
         final AnchoredSpreadsheetSelection cell = CELL.setDefaultAnchor();
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -820,10 +820,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuCellRangeWithoutSelection() {
+    public void testMenuCellRangeWithoutSelection() {
         final AnchoredSpreadsheetSelection range = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -838,10 +838,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuCellRangeWithoutSelection2() {
+    public void testMenuCellRangeWithoutSelection2() {
         final AnchoredSpreadsheetSelection range = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -856,10 +856,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuLabelWithoutSelection() {
+    public void testMenuLabelWithoutSelection() {
         final AnchoredSpreadsheetSelection cell = LABEL.setDefaultAnchor();
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -874,10 +874,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuColumnWithoutSelection() {
+    public void testMenuColumnWithoutSelection() {
         final AnchoredSpreadsheetSelection column = COLUMN.setDefaultAnchor();
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.column(
                         ID,
                         NAME,
@@ -892,10 +892,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuColumnRangeWithoutSelection() {
+    public void testMenuColumnRangeWithoutSelection() {
         final AnchoredSpreadsheetSelection range = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT);
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.column(
                         ID,
                         NAME,
@@ -910,10 +910,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuColumnRangeWithoutSelection2() {
+    public void testMenuColumnRangeWithoutSelection2() {
         final AnchoredSpreadsheetSelection range = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.column(
                         ID,
                         NAME,
@@ -928,10 +928,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuRowWithoutSelection() {
+    public void testMenuRowWithoutSelection() {
         final AnchoredSpreadsheetSelection row = ROW.setDefaultAnchor();
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.row(
                         ID,
                         NAME,
@@ -946,10 +946,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuRowRangeWithoutSelection() {
+    public void testMenuRowRangeWithoutSelection() {
         final AnchoredSpreadsheetSelection range = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP);
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.row(
                         ID,
                         NAME,
@@ -964,10 +964,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuRowRangeWithoutSelection2() {
+    public void testMenuRowRangeWithoutSelection2() {
         final AnchoredSpreadsheetSelection range = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.row(
                         ID,
                         NAME,
@@ -981,20 +981,20 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    private void setMenuAndCheck(final HistoryToken token,
+    private void menuAndCheck(final HistoryToken token,
                                  final HistoryToken expected) {
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 token,
                 Optional.empty(),
                 expected
         );
     }
 
-    // setMenu cell.....................................................................................................
+    // menu cell........................................................................................................
 
     @Test
-    public void testSetMenuWithMissingSelection() {
-        this.setMenuAndCheck(
+    public void testMenuWithMissingSelection() {
+        this.menuAndCheck(
                 HistoryToken.spreadsheetSelect(
                         ID,
                         NAME
@@ -1009,8 +1009,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithoutCellSelectAndCellSelection() {
-        this.setMenuAndCheck(
+    public void testMenuWithoutCellSelectAndCellSelection() {
+        this.menuAndCheck(
                 HistoryToken.spreadsheetSelect(
                         ID,
                         NAME
@@ -1025,8 +1025,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithColumnRangeSelectAndCellSelection() {
-        this.setMenuAndCheck(
+    public void testMenuWithColumnRangeSelectAndCellSelection() {
+        this.menuAndCheck(
                 HistoryToken.column(
                         ID,
                         NAME,
@@ -1042,8 +1042,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithCellSelectAndSameCellSelection() {
-        this.setMenuAndCheck(
+    public void testMenuWithCellSelectAndSameCellSelection() {
+        this.menuAndCheck(
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -1059,10 +1059,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithCellSelectAndDifferentCellSelection() {
+    public void testMenuWithCellSelectAndDifferentCellSelection() {
         final SpreadsheetCellReference differentCell = SpreadsheetSelection.parseCell("B2");
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -1078,11 +1078,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithCellRangeSelectAndInsideCellSelection() {
+    public void testMenuWithCellRangeSelectAndInsideCellSelection() {
         final AnchoredSpreadsheetSelection range = SpreadsheetSelection.parseCellRange("A1:C3")
                 .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -1098,10 +1098,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithCellRangeSelectAndOutsideCellSelection() {
+    public void testMenuWithCellRangeSelectAndOutsideCellSelection() {
         final SpreadsheetCellReference differentCell = SpreadsheetSelection.parseCell("C3");
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -1116,11 +1116,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // setMenu column...................................................................................................
+    // menu column......................................................................................................
 
     @Test
-    public void testSetMenuWithoutColumnSelectAndColumnSelection() {
-        this.setMenuAndCheck(
+    public void testMenuWithoutColumnSelectAndColumnSelection() {
+        this.menuAndCheck(
                 HistoryToken.spreadsheetSelect(
                         ID,
                         NAME
@@ -1135,8 +1135,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithRowRangeSelectAndColumnSelection() {
-        this.setMenuAndCheck(
+    public void testMenuWithRowRangeSelectAndColumnSelection() {
+        this.menuAndCheck(
                 HistoryToken.row(
                         ID,
                         NAME,
@@ -1152,8 +1152,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithColumnSelectAndSameColumnSelection() {
-        this.setMenuAndCheck(
+    public void testMenuWithColumnSelectAndSameColumnSelection() {
+        this.menuAndCheck(
                 HistoryToken.column(
                         ID,
                         NAME,
@@ -1169,10 +1169,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithColumnSelectAndDifferentColumnSelection() {
+    public void testMenuWithColumnSelectAndDifferentColumnSelection() {
         final SpreadsheetColumnReference differentColumn = SpreadsheetSelection.parseColumn("B");
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.column(
                         ID,
                         NAME,
@@ -1188,11 +1188,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithColumnRangeSelectAndInsideColumnSelection() {
+    public void testMenuWithColumnRangeSelectAndInsideColumnSelection() {
         final AnchoredSpreadsheetSelection range = SpreadsheetSelection.parseColumnRange("A:C")
                 .setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.column(
                         ID,
                         NAME,
@@ -1208,10 +1208,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithColumnRangeSelectAndOutsideColumnSelection() {
+    public void testMenuWithColumnRangeSelectAndOutsideColumnSelection() {
         final SpreadsheetColumnReference differentColumn = SpreadsheetSelection.parseColumn("C");
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.column(
                         ID,
                         NAME,
@@ -1226,11 +1226,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // setMenu row......................................................................................................
+    // menu row.........................................................................................................
 
     @Test
-    public void testSetMenuWithoutRowSelectAndRowSelection() {
-        this.setMenuAndCheck(
+    public void testMenuWithoutRowSelectAndRowSelection() {
+        this.menuAndCheck(
                 HistoryToken.spreadsheetSelect(
                         ID,
                         NAME
@@ -1245,8 +1245,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithCellSelectAndRowSelection() {
-        this.setMenuAndCheck(
+    public void testMenuWithCellSelectAndRowSelection() {
+        this.menuAndCheck(
                 HistoryToken.cell(
                         ID,
                         NAME,
@@ -1262,8 +1262,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithRowSelectAndSameRowSelection() {
-        this.setMenuAndCheck(
+    public void testMenuWithRowSelectAndSameRowSelection() {
+        this.menuAndCheck(
                 HistoryToken.row(
                         ID,
                         NAME,
@@ -1279,10 +1279,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithRowSelectAndDifferentRowSelection() {
+    public void testMenuWithRowSelectAndDifferentRowSelection() {
         final SpreadsheetRowReference differentRow = SpreadsheetSelection.parseRow("2");
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.row(
                         ID,
                         NAME,
@@ -1298,11 +1298,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithRowRangeSelectAndInsideRowSelection() {
+    public void testMenuWithRowRangeSelectAndInsideRowSelection() {
         final AnchoredSpreadsheetSelection range = SpreadsheetSelection.parseRowRange("1:3")
                 .setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.row(
                         ID,
                         NAME,
@@ -1318,10 +1318,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testSetMenuWithRowRangeSelectAndOutsideRowSelection() {
+    public void testMenuWithRowRangeSelectAndOutsideRowSelection() {
         final SpreadsheetRowReference differentRow = SpreadsheetSelection.parseRow("3");
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 HistoryToken.row(
                         ID,
                         NAME,
@@ -1336,26 +1336,26 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    private void setMenuAndCheck(final HistoryToken token,
-                                 final SpreadsheetSelection selection,
-                                 final HistoryToken expected) {
-        this.setMenuAndCheck(
+    private void menuAndCheck(final HistoryToken token,
+                              final SpreadsheetSelection selection,
+                              final HistoryToken expected) {
+        this.menuAndCheck(
                 token,
                 Optional.of(selection),
                 expected
         );
     }
 
-    private void setMenuAndCheck(final HistoryToken token,
-                                 final Optional<SpreadsheetSelection> selection,
-                                 final HistoryToken expected) {
+    private void menuAndCheck(final HistoryToken token,
+                              final Optional<SpreadsheetSelection> selection,
+                              final HistoryToken expected) {
         this.checkEquals(
                 expected,
-                token.setMenu(
+                token.menu(
                         selection,
                         SpreadsheetLabelNameResolvers.fake()
                 ),
-                () -> token + " setMenu " + selection
+                () -> token + " menu " + selection
         );
     }
 

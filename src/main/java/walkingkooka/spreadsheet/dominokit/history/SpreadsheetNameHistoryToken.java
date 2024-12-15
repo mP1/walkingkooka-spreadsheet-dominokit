@@ -24,8 +24,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -54,59 +52,6 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     }
 
     private final SpreadsheetName name;
-
-    /**
-     * Creates a setMenu1 {@link SpreadsheetNameHistoryToken}.
-     */
-    abstract HistoryToken setMenu1();
-
-    /**
-     * Creates a setMenu1 {@link SpreadsheetNameHistoryToken} for the given {@link SpreadsheetSelection}.
-     */
-    final HistoryToken setMenu2(final SpreadsheetSelection selection) {
-        Objects.requireNonNull(selection, "selection");
-
-        if (selection.isCellRangeReference() || selection.isColumnRangeReference() || selection.isRowRangeReference()) {
-            throw new IllegalArgumentException("Expected cell, column or row but got " + selection);
-        }
-
-        final HistoryToken token;
-
-        final SpreadsheetId id = this.id();
-        final SpreadsheetName name = this.name();
-        final AnchoredSpreadsheetSelection anchored = this.setMenuSelection(selection);
-        final SpreadsheetSelection menuSelection = anchored.selection();
-
-        if (menuSelection.isCellReference() || menuSelection.isCellRangeReference() || menuSelection.isLabelName()) {
-            token = cellMenu(
-                    id,
-                    name,
-                    this.setMenuSelection(selection)
-            );
-        } else {
-            if (menuSelection.isColumnReference() || menuSelection.isColumnRangeReference()) {
-                token = columnMenu(
-                        id,
-                        name,
-                        anchored
-                );
-            } else {
-                if (menuSelection.isRowReference() || menuSelection.isRowRangeReference()) {
-                    token = rowMenu(
-                            id,
-                            name,
-                            anchored
-                    );
-                } else {
-                    throw new IllegalArgumentException("Expected cell, column or row but got " + menuSelection);
-                }
-            }
-        }
-
-        return token;
-    }
-
-    abstract AnchoredSpreadsheetSelection setMenuSelection(final SpreadsheetSelection selection);
 
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link SpreadsheetPatternKind}.

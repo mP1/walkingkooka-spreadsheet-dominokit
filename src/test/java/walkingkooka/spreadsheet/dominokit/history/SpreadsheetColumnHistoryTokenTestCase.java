@@ -123,18 +123,18 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
-    // setMenu1(Selection)..................................................................................................
+    // menu(Selection)..................................................................................................
 
     @Test
-    public final void testSetMenuWithCell() {
-        this.setMenuWithCellAndCheck();
+    public final void testMenuWithCell() {
+        this.menuWithCellAndCheck();
     }
 
     @Test
-    public final void testColumnMenuWithSameColumn() {
+    public final void testMenuColumnWithSameColumn() {
         final SpreadsheetColumnReference column = COLUMN;
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 this.createHistoryToken(
                         column.setDefaultAnchor()
                 ),
@@ -148,10 +148,10 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     }
 
     @Test
-    public final void testColumnMenuWithDifferentColumn() {
+    public final void testMenuColumnWithDifferentColumn() {
         final SpreadsheetColumnReference column = COLUMN.add(1);
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 this.createHistoryToken(
                         COLUMN.setDefaultAnchor()
                 ),
@@ -166,11 +166,11 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
 
 
     @Test
-    public final void testColumnRangeMenuWithColumnInside() {
+    public final void testMenuColumnRangeWithColumnInside() {
         final AnchoredSpreadsheetSelection selection = SpreadsheetSelection.parseColumnRange("A:C")
                 .setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 this.createHistoryToken(selection),
                 SpreadsheetSelection.parseColumn("B"),
                 HistoryToken.columnMenu(
@@ -182,10 +182,10 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     }
 
     @Test
-    public final void testColumnRangeMenuWithColumnOutside() {
+    public final void testMenuColumnRangeWithColumnOutside() {
         final SpreadsheetColumnReference column = SpreadsheetSelection.parseColumn("Z");
 
-        this.setMenuAndCheck(
+        this.menuAndCheck(
                 this.createHistoryToken(
                         SpreadsheetSelection.parseColumnRange("A:C").setDefaultAnchor()
                 ),
@@ -199,8 +199,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     }
 
     @Test
-    public final void testSetMenuWithRow() {
-        this.setMenuWithRowAndCheck();
+    public final void testMenuWithRow() {
+        this.menuWithRowAndCheck();
     }
 
     // patternKind......................................................................................................

@@ -50,11 +50,11 @@ public final class SpreadsheetRowClearHistoryTokenTest extends SpreadsheetRowHis
         );
     }
 
-    // setMenu1(Selection)..................................................................................................
+    // menu.............................................................................................................
 
     @Test
-    public void testSetMenuWithRow() {
-        this.setMenuWithRowAndCheck();
+    public void testMenu() {
+        this.menuWithRowAndCheck();
     }
 
     @Override
