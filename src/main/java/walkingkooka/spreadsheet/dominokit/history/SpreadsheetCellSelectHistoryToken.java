@@ -25,8 +25,6 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.tree.text.TextStyle;
 
-import java.util.Optional;
-
 /**
  * This token selects one or more cells for viewing or editing.
  * <pre>
@@ -97,69 +95,66 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     HistoryToken parseCellSave(final TextCursor cursor) {
         HistoryToken result = this;
 
-        final Optional<String> maybeComponent = parseComponent(cursor);
-        if (maybeComponent.isPresent()) {
-            final String component = maybeComponent.get();
+        final String component = parseComponentOrEmpty(cursor);
 
-            // there will be more such as cell/pattern-format/pattern-parse/style
-            switch (component) {
-                case CELL_STRING:
-                    result = cellSaveCell(
-                            this.id(),
-                            this.name(),
-                            this.anchoredSelection(),
-                            SpreadsheetCellSaveHistoryToken.parseCells(
-                                    cursor
-                            )
-                    );
-                    break;
-                case FORMATTER_STRING:
-                    result = cellSaveFormatter(
-                            this.id(),
-                            this.name(),
-                            this.anchoredSelection(),
-                            SpreadsheetCellSaveHistoryToken.parseMapWithNullableTypedValues(
-                                    cursor
-                            )
-                    );
-                    break;
-                case FORMULA_STRING:
-                    result = cellSaveFormula(
-                            this.id(),
-                            this.name(),
-                            this.anchoredSelection(),
-                            SpreadsheetCellSaveHistoryToken.parseMap(
-                                    cursor,
-                                    String.class
-                            )
-                    );
-                    break;
-                case PARSER_STRING:
-                    result = cellSaveParser(
-                            this.id(),
-                            this.name(),
-                            this.anchoredSelection(),
-                            SpreadsheetCellSaveHistoryToken.parseMapWithNullableTypedValues(
-                                    cursor
-                            )
-                    );
-                    break;
-                case STYLE_STRING:
-                    result = cellSaveStyle(
-                            this.id(),
-                            this.name(),
-                            this.anchoredSelection(),
-                            SpreadsheetCellSaveHistoryToken.parseMap(
-                                    cursor,
-                                    TextStyle.class
-                            )
-                    );
-                    break;
-                default:
-                    cursor.end();
-                    result = this; // ignore
-                    break;
-            }
+        // there will be more such as cell/pattern-format/pattern-parse/style
+        switch (component) {
+            case CELL_STRING:
+                result = cellSaveCell(
+                        this.id(),
+                        this.name(),
+                        this.anchoredSelection(),
+                        SpreadsheetCellSaveHistoryToken.parseCells(
+                                cursor
+                        )
+                );
+                break;
+            case FORMATTER_STRING:
+                result = cellSaveFormatter(
+                        this.id(),
+                        this.name(),
+                        this.anchoredSelection(),
+                        SpreadsheetCellSaveHistoryToken.parseMapWithNullableTypedValues(
+                                cursor
+                        )
+                );
+                break;
+            case FORMULA_STRING:
+                result = cellSaveFormula(
+                        this.id(),
+                        this.name(),
+                        this.anchoredSelection(),
+                        SpreadsheetCellSaveHistoryToken.parseMap(
+                                cursor,
+                                String.class
+                        )
+                );
+                break;
+            case PARSER_STRING:
+                result = cellSaveParser(
+                        this.id(),
+                        this.name(),
+                        this.anchoredSelection(),
+                        SpreadsheetCellSaveHistoryToken.parseMapWithNullableTypedValues(
+                                cursor
+                        )
+                );
+                break;
+            case STYLE_STRING:
+                result = cellSaveStyle(
+                        this.id(),
+                        this.name(),
+                        this.anchoredSelection(),
+                        SpreadsheetCellSaveHistoryToken.parseMap(
+                                cursor,
+                                TextStyle.class
+                        )
+                );
+                break;
+            default:
+                cursor.end();
+                result = this; // ignore
+                break;
         }
 
         return result;

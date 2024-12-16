@@ -1331,6 +1331,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     private final static ParserContext CONTEXT = ParserContexts.fake();
 
+    static String parseComponentOrEmpty(final TextCursor cursor) {
+        return parseComponent(cursor)
+                .orElse("");
+    }
 
     static OptionalInt parseOptionalInt(final TextCursor cursor) {
         final OptionalInt value;

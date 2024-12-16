@@ -133,8 +133,7 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
                     cursor.end();
                     break;
             }
-            nextComponent = parseComponent(cursor)
-                    .orElse("");
+            nextComponent = parseComponentOrEmpty(cursor);
         } while (false == cursor.isEmpty());
 
         return historyToken;
