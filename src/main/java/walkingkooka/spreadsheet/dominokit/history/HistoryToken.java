@@ -47,6 +47,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
+import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.HasText;
 import walkingkooka.text.cursor.TextCursor;
@@ -150,6 +151,10 @@ public abstract class HistoryToken implements HasUrlFragment,
     final static String EDIT_STRING = "edit";
 
     final static UrlFragment EDIT = UrlFragment.parse(EDIT_STRING);
+
+    final static String FILE_STRING = "file";
+
+    final static UrlFragment FILE = UrlFragment.parse(FILE_STRING);
 
     final static String FIND_STRING = "find";
 
@@ -875,6 +880,17 @@ public abstract class HistoryToken implements HasUrlFragment,
     // plugin...........................................................................................................
 
     /**
+     * {@see PluginFileViewHistoryToken}
+     */
+    public static PluginFileViewHistoryToken pluginFileView(final PluginName name,
+                                                            final Optional<JarEntryInfoName> file) {
+        return PluginFileViewHistoryToken.with(
+                name,
+                file
+        );
+    }
+
+    /**
      * {@see PluginListReloadHistoryToken}
      */
     public static PluginListHistoryToken pluginListReload(final OptionalInt offset,
@@ -1294,9 +1310,12 @@ public abstract class HistoryToken implements HasUrlFragment,
     static String parseAll(final TextCursor cursor) {
         final TextCursorSavePoint save = cursor.save();
         cursor.end();
-        return save.textBetween()
-                .toString()
-                .substring(1); // drops assumed leading slash
+
+        final String text = save.textBetween()
+                .toString();
+        return text.isEmpty() ?
+                text :
+                text.substring(1); // drops assumed leading slash
 
     }
 
