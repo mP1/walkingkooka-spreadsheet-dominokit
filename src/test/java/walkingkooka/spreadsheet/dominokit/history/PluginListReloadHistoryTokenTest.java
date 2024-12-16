@@ -48,7 +48,7 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testParseOffset() {
         this.parseAndCheck(
-                "/plugin/reload/offset/10",
+                "/plugin/*/offset/10/reload",
                 PluginListReloadHistoryToken.with(
                         OptionalInt.of(10), // offset
                         OptionalInt.empty() // count
@@ -59,7 +59,7 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testParseCount() {
         this.parseAndCheck(
-                "/plugin/reload/count/20",
+                "/plugin/*/count/20/reload",
                 PluginListReloadHistoryToken.with(
                         OptionalInt.empty(), // offset
                         OptionalInt.of(20) // count
@@ -70,7 +70,7 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testParseOffsetAndCount() {
         this.parseAndCheck(
-                "/plugin/reload/offset/10/count/20",
+                "/plugin/*/offset/10/count/20/reload",
                 PluginListReloadHistoryToken.with(
                         OptionalInt.of(10), // offset
                         OptionalInt.of(20) // count
@@ -80,7 +80,7 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/plugin/reload/offset/1/count/23");
+        this.urlFragmentAndCheck("/plugin/*/offset/1/count/23/reload");
     }
 
     @Test
@@ -90,7 +90,7 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
                         OptionalInt.of(10), // offset
                         OptionalInt.empty() // count
                 ),
-                "/plugin/reload/offset/10"
+                "/plugin/*/offset/10/reload"
         );
     }
 
@@ -101,7 +101,7 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
                         OptionalInt.of(10), // offset
                         OptionalInt.of(20) // count
                 ),
-                "/plugin/reload/offset/10/count/20"
+                "/plugin/*/offset/10/count/20/reload"
         );
     }
 

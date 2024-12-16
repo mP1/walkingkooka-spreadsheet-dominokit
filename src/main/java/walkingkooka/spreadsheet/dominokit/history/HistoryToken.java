@@ -236,6 +236,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment UNFREEZE = UrlFragment.parse(UNFREEZE_STRING);
 
+    final static String WILDCARD_STRING = "*";
+
+    final static UrlFragment WILDCARD = UrlFragment.parse(WILDCARD_STRING);
+
     final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 
     /**
