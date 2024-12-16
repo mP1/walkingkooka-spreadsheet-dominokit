@@ -74,40 +74,10 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
 
     @Override //
     final UrlFragment pluginUrlFragment() {
-        UrlFragment list = UrlFragment.EMPTY;
-
-        boolean addStar = false;
-        {
-            final OptionalInt offset = this.offset;
-            if (offset.isPresent()) {
-                list = list.appendSlashThen(WILDCARD)
-                        .appendSlashThen(OFFSET)
-                        .appendSlashThen(
-                                UrlFragment.with(
-                                        String.valueOf(offset.getAsInt())
-                                )
-                        );
-                addStar = false;
-            }
-        }
-
-        {
-            final OptionalInt count = this.count;
-            if (count.isPresent()) {
-                if(addStar) {
-                    list = list.appendSlashThen(WILDCARD);
-                }
-
-                list = list.appendSlashThen(COUNT)
-                        .appendSlashThen(
-                                UrlFragment.with(
-                                        String.valueOf(count.getAsInt())
-                                )
-                        );
-            }
-        }
-
-        return list.appendSlashThen(
+        return countAndOffsetUrlFragment(
+                this.offset,
+                this.count
+        ).appendSlashThen(
                 this.pluginListUrlFragment()
         );
     }

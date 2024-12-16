@@ -2876,6 +2876,39 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     // UrlFragment......................................................................................................
 
+    static UrlFragment countAndOffsetUrlFragment(final OptionalInt offset,
+                                                 final OptionalInt count) {
+        UrlFragment urlFragment = UrlFragment.EMPTY;
+
+        boolean addStar = false;
+
+        if (offset.isPresent()) {
+            urlFragment = urlFragment.appendSlashThen(WILDCARD)
+                    .appendSlashThen(OFFSET)
+                    .appendSlashThen(
+                            UrlFragment.with(
+                                    String.valueOf(offset.getAsInt())
+                            )
+                    );
+            addStar = false;
+        }
+
+        if (count.isPresent()) {
+            if (addStar) {
+                urlFragment = urlFragment.appendSlashThen(WILDCARD);
+            }
+
+            urlFragment = urlFragment.appendSlashThen(COUNT)
+                    .appendSlashThen(
+                            UrlFragment.with(
+                                    String.valueOf(count.getAsInt())
+                            )
+                    );
+        }
+
+        return urlFragment;
+    }
+
     /**
      * Creates a {@link UrlFragment} with a save returning a {@link UrlFragment} with its equivalent value.
      */
