@@ -24,7 +24,7 @@ import static org.junit.Assert.assertThrows;
 
 public abstract class PluginNameHistoryTokenTestCase<T extends PluginNameHistoryToken> extends PluginHistoryTokenTestCase<T> {
 
-    final PluginName PLUGIN_NAME = PluginName.with("TestPlugin123");
+    final PluginName PLUGIN_NAME = PluginName.with("TestPluginName123");
 
     PluginNameHistoryTokenTestCase(){
         super();

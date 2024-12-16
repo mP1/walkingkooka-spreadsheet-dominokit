@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -1434,6 +1435,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // plugin...........................................................................................................
+
     // reload...........................................................................................................
 
     @Test
@@ -2292,9 +2295,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParsePluginReload() {
         this.parseStringAndCheck(
                 "/plugin/reload",
-                HistoryToken.pluginListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
+                HistoryToken.pluginSelect(
+                        PluginName.with("reload")
                 )
         );
     }
@@ -2317,6 +2319,29 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 HistoryToken.pluginListReload(
                         OptionalInt.of(123), // offset
                         OptionalInt.empty() // count
+                )
+        );
+    }
+
+    // plugin/name......................................................................................................
+
+    @Test
+    public void testParsePluginNameInvalid() {
+        this.parseStringAndCheck(
+                "/plugin/!TestPluginName123",
+                HistoryToken.pluginListSelect(
+                        OptionalInt.empty(), // offset
+                        OptionalInt.empty() // count
+                )
+        );
+    }
+
+    @Test
+    public void testParsePluginName() {
+        this.parseStringAndCheck(
+                "/plugin/TestPluginName123",
+                HistoryToken.pluginSelect(
+                        PluginName.with("TestPluginName123")
                 )
         );
     }

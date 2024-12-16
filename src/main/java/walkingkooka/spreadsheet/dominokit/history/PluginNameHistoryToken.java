@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
+import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
 
@@ -37,7 +38,7 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
         return this.name;
     }
 
-    private final PluginName name;
+    final PluginName name;
 
     /**
      * Creates a save {@link HistoryToken} after attempting to parse the value into a {@link PluginName}.
@@ -45,6 +46,30 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
     abstract HistoryToken save0(final String value);
 
     // UrlFragment......................................................................................................
+
+    @Override
+    final HistoryToken parse0(final String component,
+                              final TextCursor cursor) {
+        final PluginName pluginName = PluginName.with(component);
+        HistoryToken historyToken = this;
+
+        String nextComponent = component;
+
+        do {
+            switch (nextComponent) {
+                case "":
+                    historyToken = pluginSelect(pluginName);
+                    break;
+                default:
+                    cursor.end();
+                    break;
+            }
+            nextComponent = parseComponent(cursor)
+                    .orElse("");
+        } while (false == cursor.isEmpty());
+
+        return historyToken;
+    }
 
     @Override
     final UrlFragment pluginUrlFragment() {

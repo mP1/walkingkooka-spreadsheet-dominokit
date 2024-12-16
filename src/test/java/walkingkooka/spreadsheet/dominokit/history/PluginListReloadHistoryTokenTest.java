@@ -26,7 +26,7 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testParseInvalidOffset() {
         this.parseAndCheck(
-                "/plugin/offset/X/reload",
+                "/plugin/*/offset/X/reload",
                 HistoryToken.pluginListSelect(
                         OptionalInt.empty(), // offset
                         OptionalInt.empty() // count

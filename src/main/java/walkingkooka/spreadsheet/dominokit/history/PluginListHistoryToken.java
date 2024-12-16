@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
+import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 
@@ -65,7 +66,9 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
                 historyToken = this.parseOffsetCountReload(cursor);
                 break;
             default:
-                cursor.end();
+                historyToken = pluginSelect(
+                        PluginName.with(component)
+                );
                 break;
         }
 
