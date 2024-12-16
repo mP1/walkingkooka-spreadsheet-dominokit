@@ -2205,7 +2205,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testParseUnknown() {
-        this.parseStringAndCheck("hello");
+        this.parseStringAndCheck(
+                "hello",
+                HistoryToken.spreadsheetListSelect(
+                        OptionalInt.empty(), // from
+                        OptionalInt.empty() // count
+                )
+        );
     }
 
     @Test
@@ -2239,8 +2245,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseInvalidSpreadsheetId() {
         this.parseStringAndCheck(
                 "/XYZ",
-                HistoryToken.unknown(
-                        UrlFragment.with("/XYZ")
+                HistoryToken.spreadsheetListSelect(
+                        OptionalInt.empty(), // offset
+                        OptionalInt.empty() // count
                 )
         );
     }
@@ -3939,17 +3946,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                         Optional.of(
                                 Color.parse("#123456")
                         )
-                )
-        );
-    }
-
-    // parse helpers....................................................................................................
-
-    private void parseStringAndCheck(final String urlFragment) {
-        this.parseStringAndCheck(
-                urlFragment,
-                UnknownHistoryToken.with(
-                        UrlFragment.parse(urlFragment)
                 )
         );
     }

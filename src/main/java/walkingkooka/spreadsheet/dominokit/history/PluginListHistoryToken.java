@@ -46,8 +46,7 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
     final UrlFragment pluginUrlFragment() {
         return countAndOffsetUrlFragment(
                 this.offset,
-                this.count
-        ).appendSlashThen(
+                this.count,
                 this.pluginListUrlFragment()
         );
     }
@@ -56,57 +55,19 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
 
     // HistoryToken.....................................................................................................
 
-    @Override
+    @Override //
     final HistoryToken parse0(final String component,
                               final TextCursor cursor) {
         HistoryToken historyToken = this;
 
-        String nextComponent = component;
-
-        do {
-            switch (nextComponent) {
-                case WILDCARD_STRING:
-                    historyToken = parseOffsetCount(cursor);
-                    break;
-                default:
-                    cursor.end();
-                    break;
-            }
-            nextComponent = parseComponent(cursor)
-                    .orElse("");
-        } while (false == cursor.isEmpty());
-
-        return historyToken;
-    }
-
-    private HistoryToken parseOffsetCount(final TextCursor cursor){
-        HistoryToken historyToken = this;
-
-        String nextComponent = parseComponentOrEmpty(cursor);
-
-        do {
-            switch (nextComponent) {
-                case "":
-                    break;
-                case COUNT_STRING:
-                    historyToken = historyToken.setCount(
-                            parseCount(cursor)
-                    );
-                    break;
-                case OFFSET_STRING:
-                    historyToken = historyToken.setOffset(
-                                    parseOptionalInt(cursor)
-                            );
-                    break;
-                case RELOAD_STRING:
-                    historyToken = historyToken.reload();
-                    break;
-                default:
-                    cursor.end();
-                    break;
-            }
-            nextComponent = parseComponentOrEmpty(cursor);
-        } while (false == nextComponent.isEmpty());
+        switch (component) {
+            case WILDCARD_STRING:
+                historyToken = this.parseOffsetCountReload(cursor);
+                break;
+            default:
+                cursor.end();
+                break;
+        }
 
         return historyToken;
     }

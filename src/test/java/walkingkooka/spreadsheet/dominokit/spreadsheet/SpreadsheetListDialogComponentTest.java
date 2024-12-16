@@ -53,15 +53,15 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
-                        "          \"reload\" [#/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
-                        "          \"10 Rows\" [#/count/10] id=spreadsheetList-count-10-rows-Link\n" +
-                        "          \"20 Rows\" [#/count/20] id=spreadsheetList-count-20-rows-Link\n"
+                        "          \"reload\" [#/*/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
+                        "          \"10 Rows\" [#/*/count/10] id=spreadsheetList-count-10-rows-Link\n" +
+                        "          \"20 Rows\" [#/*/count/20] id=spreadsheetList-count-20-rows-Link\n"
         );
     }
 
     @Test
     public void testSeveralRows() {
-        final AppContext context = appContext("/offset/1/count/3");
+        final AppContext context = appContext("/*/offset/1/count/3");
 
         final SpreadsheetListDialogComponent dialog = this.dialog(
                 spreadsheetListComponentContext(context)
@@ -79,9 +79,9 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
-                        "          \"reload\" [#/reload/offset/1/count/3] mdi-reload id=spreadsheetList-reload-Link\n" +
-                        "          \"10 Rows\" [#/offset/1/count/10] id=spreadsheetList-count-10-rows-Link\n" +
-                        "          \"20 Rows\" [#/offset/1/count/20] id=spreadsheetList-count-20-rows-Link\n"
+                        "          \"reload\" [#/*/offset/1/count/3/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
+                        "          \"10 Rows\" [#/*/offset/1/count/10] id=spreadsheetList-count-10-rows-Link\n" +
+                        "          \"20 Rows\" [#/*/offset/1/count/20] id=spreadsheetList-count-20-rows-Link\n"
         );
 
         // previous history token opens the diloag, otherwise the metadata's below will be ignored.
@@ -159,16 +159,16 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "              CHILDREN\n" +
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
-                        "                    mdi-arrow-left \"previous\" [#/offset/0/count/3] id=spreadsheetList-datatable-previous-Link\n" +
-                        "                    \"next\" [#/offset/3/count/3] mdi-arrow-right id=spreadsheetList-datatable-next-Link\n" +
+                        "                    mdi-arrow-left \"previous\" [#/*/offset/0/count/3] id=spreadsheetList-datatable-previous-Link\n" +
+                        "                    \"next\" [#/*/offset/3/count/3] mdi-arrow-right id=spreadsheetList-datatable-next-Link\n" +
                         "              PLUGINS\n" +
                         "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
                         "          \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
-                        "          \"reload\" [#/reload/offset/1/count/3] mdi-reload id=spreadsheetList-reload-Link\n" +
-                        "          \"10 Rows\" [#/offset/1/count/10] id=spreadsheetList-count-10-rows-Link\n" +
-                        "          \"20 Rows\" [#/offset/1/count/20] id=spreadsheetList-count-20-rows-Link\n"
+                        "          \"reload\" [#/*/offset/1/count/3/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
+                        "          \"10 Rows\" [#/*/offset/1/count/10] id=spreadsheetList-count-10-rows-Link\n" +
+                        "          \"20 Rows\" [#/*/offset/1/count/20] id=spreadsheetList-count-20-rows-Link\n"
         );
     }
 
