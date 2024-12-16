@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 
-import java.util.Objects;
 import java.util.OptionalInt;
 
 public abstract class PluginListHistoryToken extends PluginHistoryToken {
@@ -33,38 +32,9 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
         this.count = count;
     }
 
-    // from.............................................................................................................
+    // offset...........................................................................................................
 
-    public final OptionalInt offset() {
-        return this.offset;
-    }
-
-    public abstract PluginListHistoryToken setOffset(final OptionalInt offset);
-
-    final PluginListHistoryToken setOffset0(final OptionalInt offset) {
-        checkOffset(offset);
-
-        return this.offset.equals(offset) ?
-                this :
-                this.replaceOffset(
-                        offset
-                );
-    }
-
-    private final OptionalInt offset;
-
-    static OptionalInt checkOffset(final OptionalInt offset) {
-        Objects.requireNonNull(offset, "offset");
-
-        offset.ifPresent(value -> {
-            if (value < 0) {
-                throw new IllegalArgumentException("Invalid offset < 0 got " + value);
-            }
-        });
-        return offset;
-    }
-
-    abstract PluginListHistoryToken replaceOffset(final OptionalInt offset);
+    final OptionalInt offset;
 
     // count............................................................................................................
 

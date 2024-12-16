@@ -46,22 +46,6 @@ public final class PluginListSelectHistoryToken extends PluginListHistoryToken {
         );
     }
 
-    // offset.............................................................................................................
-
-    @Override
-    public PluginListSelectHistoryToken setOffset(final OptionalInt offset) {
-        return this.setOffset0(offset)
-                .cast(PluginListSelectHistoryToken.class);
-    }
-
-    @Override
-    PluginListSelectHistoryToken replaceOffset(final OptionalInt offset) {
-        return new PluginListSelectHistoryToken(
-                offset,
-                this.count
-        );
-    }
-
     // HasUrlFragment...................................................................................................
 
     @Override

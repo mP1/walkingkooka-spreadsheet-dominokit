@@ -2298,6 +2298,81 @@ public abstract class HistoryToken implements HasUrlFragment,
                 this;
     }
 
+    public final OptionalInt offset() {
+        final OptionalInt offset;
+
+        if (this instanceof PluginListHistoryToken) {
+            offset = this.cast(PluginListHistoryToken.class).offset;
+        } else {
+            if (this instanceof SpreadsheetListHistoryToken) {
+                offset = this.cast(SpreadsheetListHistoryToken.class).offset;
+            } else {
+                offset = OptionalInt.empty();
+            }
+        }
+
+        return offset;
+    }
+
+    /**
+     * Would be setter that tries to replace the {@link #offset()} with new value.
+     */
+    public final HistoryToken setOffset(final OptionalInt offset) {
+        checkOffset(offset);
+
+        final HistoryToken with;
+
+        if (this.offset().equals(offset)) {
+            with = this;
+        } else {
+            if (this instanceof PluginListReloadHistoryToken) {
+                with = pluginListReload(
+                        offset,
+                        this.count()
+                );
+            } else {
+                if (this instanceof PluginListSelectHistoryToken) {
+                    with = pluginListSelect(
+                            offset,
+                            this.count()
+                    );
+                } else {
+                    if (this instanceof SpreadsheetListReloadHistoryToken) {
+                        final SpreadsheetListReloadHistoryToken list = this.cast(SpreadsheetListReloadHistoryToken.class);
+
+                        with = spreadsheetListReload(
+                                offset,
+                                this.count()
+                        );
+                    } else {
+                        if (this instanceof SpreadsheetListSelectHistoryToken) {
+                            with = spreadsheetListSelect(
+                                    offset,
+                                    this.count()
+                            );
+                        } else {
+                            with = this;
+                        }
+                    }
+                }
+            }
+        }
+
+        return with;
+    }
+
+    final static OptionalInt checkOffset(final OptionalInt offset) {
+        Objects.requireNonNull(offset, "offset");
+
+        offset.ifPresent(value -> {
+            if (value < 0) {
+                throw new IllegalArgumentException("Invalid offset < 0 got " + value);
+            }
+        });
+
+        return offset;
+    }
+
     // HasSpreadsheetPatternKind........................................................................................
 
     @Override
@@ -2880,7 +2955,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                  final OptionalInt count) {
         UrlFragment urlFragment = UrlFragment.EMPTY;
 
-        boolean addStar = false;
+        boolean addStar = true;
 
         if (offset.isPresent()) {
             urlFragment = urlFragment.appendSlashThen(WILDCARD)
