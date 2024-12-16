@@ -2282,6 +2282,17 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParsePluginReload() {
+        this.parseStringAndCheck(
+                "/plugin/reload",
+                HistoryToken.pluginListSelect(
+                        OptionalInt.empty(), // offset
+                        OptionalInt.empty() // count
+                )
+        );
+    }
+
+    @Test
     public void testParsePluginStarReload() {
         this.parseStringAndCheck(
                 "/plugin/*/reload",
