@@ -32,12 +32,6 @@ public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTok
     default void onHistoryTokenChangeAndCheck(final T component,
                                               final AppContext context,
                                               final String expected) {
-        this.checkEquals(
-                false,
-                component.isMatch(NOT_MATCHED),
-                () -> "should not be matched " + NOT_MATCHED
-        );
-
         onHistoryTokenChangeAndCheck(
                 component,
                 component,

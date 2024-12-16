@@ -50,7 +50,7 @@ public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHist
     // HasUrlFragment...................................................................................................
 
     @Override
-    UrlFragment listUrlFragment() {
+    UrlFragment spreadsheetListUrlFragment() {
         return RELOAD;
     }
 

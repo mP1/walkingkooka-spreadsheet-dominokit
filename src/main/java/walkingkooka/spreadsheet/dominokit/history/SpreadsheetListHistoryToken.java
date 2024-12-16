@@ -46,67 +46,21 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
 
     @Override //
     final UrlFragment spreadsheetUrlFragment() {
-        UrlFragment list = this.listUrlFragment();
-
-        {
-            final OptionalInt offset = this.offset;
-            if (offset.isPresent()) {
-                list = list.appendSlashThen(OFFSET)
-                        .appendSlashThen(
-                                UrlFragment.with(
-                                        String.valueOf(offset.getAsInt())
-                                )
-                        );
-            }
-        }
-
-        {
-            final OptionalInt count = this.count;
-            if (count.isPresent()) {
-                list = list.appendSlashThen(COUNT)
-                        .appendSlashThen(
-                                UrlFragment.with(
-                                        String.valueOf(count.getAsInt())
-                                )
-                        );
-            }
-        }
-
-        return list;
+        return countAndOffsetUrlFragment(
+                this.offset,
+                this.count,
+                this.spreadsheetListUrlFragment()
+        );
     }
 
-
-    abstract UrlFragment listUrlFragment();
+    abstract UrlFragment spreadsheetListUrlFragment();
 
     // HistoryToken.....................................................................................................
 
+    @Override //
     final HistoryToken parse0(final String component,
                               final TextCursor cursor) {
-        HistoryToken historyToken = this;
-
-        String nextComponent = component;
-
-        do {
-            switch (nextComponent) {
-                case COUNT_STRING:
-                    historyToken = historyToken.setCount(
-                            parseCount(cursor)
-                    );
-                    break;
-                case OFFSET_STRING:
-                    historyToken = historyToken.cast(SpreadsheetListHistoryToken.class)
-                            .setOffset(
-                                    parseOptionalInt(cursor)
-                            );
-                    break;
-                default:
-                    cursor.end();
-                    break;
-            }
-            nextComponent = parseComponentOrEmpty(cursor);
-        } while (false == cursor.isEmpty());
-
-        return historyToken;
+        throw new UnsupportedOperationException();
     }
 
     @Override //

@@ -1205,7 +1205,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     // parse............................................................................................................
 
     /**
-     * Parses the given {@link String} if that matching fails a {@link UnknownHistoryToken} is returned.
+     * Parses the given {@link String} if that matching fails a {@link SpreadsheetListSelectHistoryToken} is returned.
      */
     public static HistoryToken parseString(final String fragment) {
         return parse(
@@ -1214,7 +1214,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * Parses the given {@link UrlFragment} if that matching fails a {@link UnknownHistoryToken} is returned.
+     * Parses the given {@link UrlFragment} if that matching fails a {@link SpreadsheetListSelectHistoryToken} is returned.
      */
     public static HistoryToken parse(final UrlFragment fragment) {
         Objects.requireNonNull(fragment, "fragment");
@@ -1226,50 +1226,35 @@ public abstract class HistoryToken implements HasUrlFragment,
             token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
         } else {
             try {
-                final Optional<String> maybeComponent = parseComponent(cursor);
-                if (maybeComponent.isPresent()) {
-                    final String component = maybeComponent.get();
-                    switch (component) {
-                        case SELECT_STRING:
-                            token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
-                            break;
-                        case COUNT_STRING:
-                            token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
-                            token = token.setCount(
-                                    parseCount(cursor)
-                            ).parse(cursor);
-                            break;
-                        case CREATE_STRING:
-                            token = HistoryToken.spreadsheetCreate()
-                                    .parse(cursor);
-                            break;
-                        case DELETE_STRING:
-                            token = parseDelete(cursor);
-                            break;
-                        case PLUGIN_STRING:
-                            token = PLUGIN_LIST_SELECT_HISTORY_TOKEN;
-                            token = token.parse(cursor);
-                            break;
-                        case OFFSET_STRING:
-                            token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
-                            token = token.cast(SpreadsheetListHistoryToken.class)
-                                    .setOffset(
-                                            parseOptionalInt(cursor)
-                                    ).parse(cursor);
-                            break;
-                        case RELOAD_STRING:
-                            token = SPREADSHEET_LIST_RELOAD_HISTORY_TOKEN;
-                            token = token.parse(cursor);
-                            break;
-                        case RENAME_STRING:
-                            token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
-                            token = parseRename(cursor);
-                            break;
-                        default:
-                            token = spreadsheetLoad(
-                                    SpreadsheetId.parse(component)
-                            ).parse(cursor);
-                    }
+                final String component = parseComponentOrEmpty(cursor);
+                switch (component) {
+                    case SELECT_STRING:
+                        token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
+                        break;
+                    case WILDCARD_STRING:
+                        token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
+                        token = token.parseOffsetCountReload(cursor);
+                        break;
+                    case CREATE_STRING:
+                        token = HistoryToken.spreadsheetCreate()
+                                .parse(cursor);
+                        break;
+                    case DELETE_STRING:
+                        token = parseDelete(cursor);
+                        break;
+                    case PLUGIN_STRING:
+                        token = PLUGIN_LIST_SELECT_HISTORY_TOKEN;
+                        token = token.parse(cursor);
+                        break;
+                    case RENAME_STRING:
+                        token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
+                        token = parseRename(cursor);
+                        break;
+                    default:
+                        token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
+                        token = spreadsheetLoad(
+                                SpreadsheetId.parse(component)
+                        ).parse(cursor);
                 }
             } catch (final RuntimeException ignore) {
                 // nop
@@ -1282,11 +1267,6 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return token;
     }
-
-    private final static SpreadsheetListHistoryToken SPREADSHEET_LIST_RELOAD_HISTORY_TOKEN = HistoryToken.spreadsheetListReload(
-            OptionalInt.empty(), // from
-            OptionalInt.empty() // count
-    );
 
     private final static SpreadsheetListHistoryToken SPREADSHEET_LIST_SELECT_HISTORY_TOKEN = HistoryToken.spreadsheetListSelect(
             OptionalInt.empty(), // from
@@ -1369,6 +1349,38 @@ public abstract class HistoryToken implements HasUrlFragment,
                     SpreadsheetId.parse(maybeComponent.get())
             );
         }
+
+        return historyToken;
+    }
+
+    final HistoryToken parseOffsetCountReload(final TextCursor cursor){
+        HistoryToken historyToken = this;
+
+        String nextComponent = parseComponentOrEmpty(cursor);
+
+        do {
+            switch (nextComponent) {
+                case "":
+                    break;
+                case COUNT_STRING:
+                    historyToken = historyToken.setCount(
+                            parseCount(cursor)
+                    );
+                    break;
+                case OFFSET_STRING:
+                    historyToken = historyToken.setOffset(
+                            parseOptionalInt(cursor)
+                    );
+                    break;
+                case RELOAD_STRING:
+                    historyToken = historyToken.reload();
+                    break;
+                default:
+                    cursor.end();
+                    break;
+            }
+            nextComponent = parseComponentOrEmpty(cursor);
+        } while (false == nextComponent.isEmpty());
 
         return historyToken;
     }
@@ -2952,7 +2964,8 @@ public abstract class HistoryToken implements HasUrlFragment,
     // UrlFragment......................................................................................................
 
     static UrlFragment countAndOffsetUrlFragment(final OptionalInt offset,
-                                                 final OptionalInt count) {
+                                                 final OptionalInt count,
+                                                 final UrlFragment suffix) {
         UrlFragment urlFragment = UrlFragment.EMPTY;
 
         boolean addStar = true;
@@ -2971,6 +2984,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         if (count.isPresent()) {
             if (addStar) {
                 urlFragment = urlFragment.appendSlashThen(WILDCARD);
+                addStar = false;
             }
 
             urlFragment = urlFragment.appendSlashThen(COUNT)
@@ -2979,6 +2993,14 @@ public abstract class HistoryToken implements HasUrlFragment,
                                     String.valueOf(count.getAsInt())
                             )
                     );
+        }
+
+        if(false == suffix.isEmpty()) {
+            if (addStar) {
+                urlFragment = urlFragment.appendSlashThen(WILDCARD);
+            }
+
+            urlFragment = urlFragment.appendSlashThen(suffix);
         }
 
         return urlFragment;

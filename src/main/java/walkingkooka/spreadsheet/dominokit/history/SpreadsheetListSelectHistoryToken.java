@@ -25,7 +25,7 @@ import java.util.OptionalInt;
 /**
  * A token that represents a spreadsheet list files dialog.
  * <pre>
- * /offset/1/count/10/
+ * /STAR/offset/1/count/10/
  * </pre>
  */
 public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHistoryToken {
@@ -49,7 +49,7 @@ public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHist
     // HasUrlFragment...................................................................................................
 
     @Override
-    UrlFragment listUrlFragment() {
+    UrlFragment spreadsheetListUrlFragment() {
         return UrlFragment.EMPTY;
     }
 
