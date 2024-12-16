@@ -102,8 +102,7 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
                     );
                     break;
                 case OFFSET_STRING:
-                    historyToken = historyToken.cast(PluginListHistoryToken.class)
-                            .setOffset(
+                    historyToken = historyToken.setOffset(
                                     parseOptionalInt(cursor)
                             );
                     break;
