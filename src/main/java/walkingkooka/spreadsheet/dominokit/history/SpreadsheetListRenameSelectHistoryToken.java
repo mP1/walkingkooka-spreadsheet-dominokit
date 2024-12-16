@@ -23,8 +23,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 
-import java.util.Optional;
-
 /**
  * Displays the rename spreadsheet dialog for editing.
  * <pre>
@@ -70,12 +68,9 @@ public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetLi
 
         switch (component) {
             case SAVE_STRING:
-                final Optional<String> maybeComponent = parseComponent(cursor);
-                if (maybeComponent.isPresent()) {
-                    historyToken = this.save(
-                            maybeComponent.get()
-                    );
-                }
+                historyToken = this.save(
+                        parseComponentOrEmpty(cursor)
+                );
                 break;
             default:
                 break;

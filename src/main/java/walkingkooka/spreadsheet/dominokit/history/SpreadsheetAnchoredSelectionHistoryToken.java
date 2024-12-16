@@ -82,22 +82,17 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     final HistoryToken parseSort(final TextCursor cursor) {
         final HistoryToken historyToken;
 
-        final String component = parseComponent(cursor)
-                .orElse("");
+        final String component = parseComponentOrEmpty(cursor);
         switch (component) {
             case EDIT_STRING:
-                final String comparators = parseComponent(cursor)
-                        .orElse("");
-
                 historyToken = this.setSortEdit(
-                        comparators
+                        parseComponentOrEmpty(cursor)
                 );
                 break;
             case SAVE_STRING:
                 historyToken = this.setSortSave(
                         SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(
-                                parseComponent(cursor)
-                                        .orElse("")
+                                parseComponentOrEmpty(cursor)
                         )
                 );
                 break;
