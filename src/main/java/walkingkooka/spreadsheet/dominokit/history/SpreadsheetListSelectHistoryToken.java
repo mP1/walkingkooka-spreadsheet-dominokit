@@ -46,22 +46,6 @@ public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHist
         );
     }
 
-    // offset.............................................................................................................
-
-    @Override
-    public SpreadsheetListSelectHistoryToken setOffset(final OptionalInt offset) {
-        return this.setOffset0(offset)
-                .cast(SpreadsheetListSelectHistoryToken.class);
-    }
-
-    @Override
-    SpreadsheetListSelectHistoryToken replaceOffset(final OptionalInt offset) {
-        return new SpreadsheetListSelectHistoryToken(
-                offset,
-                this.count
-        );
-    }
-
     // HasUrlFragment...................................................................................................
 
     @Override
