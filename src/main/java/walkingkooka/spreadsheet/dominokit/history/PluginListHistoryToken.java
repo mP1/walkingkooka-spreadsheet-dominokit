@@ -74,23 +74,30 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
 
     @Override //
     final UrlFragment pluginUrlFragment() {
-        UrlFragment list = this.pluginListUrlFragment();
+        UrlFragment list = UrlFragment.EMPTY;
 
+        boolean addStar = false;
         {
             final OptionalInt offset = this.offset;
             if (offset.isPresent()) {
-                list = list.appendSlashThen(OFFSET)
+                list = list.appendSlashThen(WILDCARD)
+                        .appendSlashThen(OFFSET)
                         .appendSlashThen(
                                 UrlFragment.with(
                                         String.valueOf(offset.getAsInt())
                                 )
                         );
+                addStar = false;
             }
         }
 
         {
             final OptionalInt count = this.count;
             if (count.isPresent()) {
+                if(addStar) {
+                    list = list.appendSlashThen(WILDCARD);
+                }
+
                 list = list.appendSlashThen(COUNT)
                         .appendSlashThen(
                                 UrlFragment.with(
@@ -100,7 +107,9 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
             }
         }
 
-        return list;
+        return list.appendSlashThen(
+                this.pluginListUrlFragment()
+        );
     }
 
     abstract UrlFragment pluginListUrlFragment();
@@ -116,20 +125,11 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
 
         do {
             switch (nextComponent) {
-                case COUNT_STRING:
-                    historyToken = historyToken.setCount(
-                            parseCount(cursor)
-                    );
-                    break;
-                case OFFSET_STRING:
-                    historyToken = historyToken.cast(PluginListHistoryToken.class)
-                            .setOffset(
-                                    parseOptionalInt(cursor)
-                            );
+                case WILDCARD_STRING:
+                    historyToken = parseOffsetCount(cursor);
                     break;
                 case RELOAD_STRING:
                     historyToken = RELOAD_HISTORY_TOKEN;
-                    historyToken = historyToken.parse(cursor);
                     break;
                 default:
                     cursor.end();
@@ -146,6 +146,39 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
             OptionalInt.empty(), // offset
             OptionalInt.empty() //count
     );
+
+    private HistoryToken parseOffsetCount(final TextCursor cursor){
+        HistoryToken historyToken = this;
+
+        String nextComponent = parseComponentOrEmpty(cursor);
+
+        do {
+            switch (nextComponent) {
+                case "":
+                    break;
+                case COUNT_STRING:
+                    historyToken = historyToken.setCount(
+                            parseCount(cursor)
+                    );
+                    break;
+                case OFFSET_STRING:
+                    historyToken = historyToken.cast(PluginListHistoryToken.class)
+                            .setOffset(
+                                    parseOptionalInt(cursor)
+                            );
+                    break;
+                case RELOAD_STRING:
+                    historyToken = historyToken.reload();
+                    break;
+                default:
+                    cursor.end();
+                    break;
+            }
+            nextComponent = parseComponentOrEmpty(cursor);
+        } while (false == nextComponent.isEmpty());
+
+        return historyToken;
+    }
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

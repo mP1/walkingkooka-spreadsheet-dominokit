@@ -2261,7 +2261,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParsePluginOffset() {
         this.parseStringAndCheck(
-                "/plugin/offset/123",
+                "/plugin/*/offset/123",
                 HistoryToken.pluginListSelect(
                         OptionalInt.of(123), // offset
                         OptionalInt.empty() // count
@@ -2273,7 +2273,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParsePluginCount() {
         this.parseStringAndCheck(
-                "/plugin/count/456",
+                "/plugin/*/count/456",
                 HistoryToken.pluginListSelect(
                         OptionalInt.empty(), // offset
                         OptionalInt.of(456) // count
@@ -2284,9 +2284,20 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParsePluginReload() {
         this.parseStringAndCheck(
-                "/plugin/reload",
+                "/plugin/*/reload",
                 HistoryToken.pluginListReload(
                         OptionalInt.empty(), // offset
+                        OptionalInt.empty() // count
+                )
+        );
+    }
+
+    @Test
+    public void testParsePluginOffsetReload() {
+        this.parseStringAndCheck(
+                "/plugin/*/offset/123/reload",
+                HistoryToken.pluginListReload(
+                        OptionalInt.of(123), // offset
                         OptionalInt.empty() // count
                 )
         );

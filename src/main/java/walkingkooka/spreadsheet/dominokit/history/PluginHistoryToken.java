@@ -45,8 +45,7 @@ public abstract class PluginHistoryToken extends HistoryToken {
     public final UrlFragment urlFragment() {
         return UrlFragment.SLASH.append(
                 HistoryToken.PLUGIN
-        ).append(UrlFragment.SLASH)
-                .append(this.pluginUrlFragment());
+        ).appendSlashThen(this.pluginUrlFragment());
     }
 
     abstract UrlFragment pluginUrlFragment();

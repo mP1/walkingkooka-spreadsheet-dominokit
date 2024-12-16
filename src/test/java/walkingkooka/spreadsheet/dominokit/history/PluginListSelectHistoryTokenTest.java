@@ -37,7 +37,7 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testParseOffset() {
         this.parseAndCheck(
-                "/plugin/offset/10",
+                "/plugin/*/offset/10",
                 PluginListSelectHistoryToken.with(
                         OptionalInt.of(10), // offset
                         OptionalInt.empty() // count
@@ -48,7 +48,7 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testParseCount() {
         this.parseAndCheck(
-                "/plugin/count/20",
+                "/plugin/*/count/20",
                 PluginListSelectHistoryToken.with(
                         OptionalInt.empty(), // offset
                         OptionalInt.of(20) // count
@@ -59,7 +59,7 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testParseOffsetAndCount() {
         this.parseAndCheck(
-                "/plugin/offset/10/count/20",
+                "/plugin/*/offset/10/count/20",
                 PluginListSelectHistoryToken.with(
                         OptionalInt.of(10), // offset
                         OptionalInt.of(20) // count
@@ -69,7 +69,12 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/plugin/offset/1/count/23");
+        this.urlFragmentAndCheck(
+                PluginListSelectHistoryToken.with(
+                        OptionalInt.empty(), // offset
+                        OptionalInt.empty() // count
+                ),
+                "/plugin");
     }
 
     @Test
@@ -79,7 +84,7 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
                         OptionalInt.of(10), // offset
                         OptionalInt.empty() // count
                 ),
-                "/plugin/offset/10"
+                "/plugin/*/offset/10"
         );
     }
 
@@ -90,7 +95,7 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
                         OptionalInt.of(10), // offset
                         OptionalInt.of(20) // count
                 ),
-                "/plugin/offset/10/count/20"
+                "/plugin/*/offset/10/count/20"
         );
     }
 
