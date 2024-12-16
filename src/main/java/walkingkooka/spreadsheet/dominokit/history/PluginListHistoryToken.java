@@ -68,9 +68,6 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
                 case WILDCARD_STRING:
                     historyToken = parseOffsetCount(cursor);
                     break;
-                case RELOAD_STRING:
-                    historyToken = RELOAD_HISTORY_TOKEN;
-                    break;
                 default:
                     cursor.end();
                     break;
@@ -81,11 +78,6 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
 
         return historyToken;
     }
-
-    private final static PluginListReloadHistoryToken RELOAD_HISTORY_TOKEN = PluginListReloadHistoryToken.with(
-            OptionalInt.empty(), // offset
-            OptionalInt.empty() //count
-    );
 
     private HistoryToken parseOffsetCount(final TextCursor cursor){
         HistoryToken historyToken = this;
