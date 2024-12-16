@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.net.UrlFragment;
 
 import java.util.OptionalInt;
 
@@ -37,20 +36,6 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
 
     @Test
     public void testParseOffset() {
-        System.out.println(
-                PluginListSelectHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.empty() // count
-                )
-        );
-
-final HistoryToken t = HistoryToken.parseString("/plugin/*/offset/20");
-        System.out.println(
-                t
-        );
-
-        final UrlFragment f = t.urlFragment();
-
         this.parseAndCheck(
                 "/plugin/*/offset/10",
                 PluginListSelectHistoryToken.with(
