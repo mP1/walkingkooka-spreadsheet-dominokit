@@ -26,8 +26,6 @@ import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -70,19 +68,12 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
                 "No spreadsheets"
         );
 
-        this.previous = previous(context);
-        this.previous.setCssText("float=left");
-
-        this.next = next(context);
-        this.next.setCssText("float=right");
-
-        this.table.appendChild(
-                SpreadsheetFlexLayout.row()
-                        .appendChild(this.previous)
-                        .appendChild(this.next)
+        this.card.appendChild(
+                this.table.previousNextLinks(
+                        ID_PREFIX,
+                        context
+                )
         );
-
-        this.card.appendChild(table);
 
         this.tableRowCount = 0;
     }
@@ -156,71 +147,35 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
         final int count = historyToken.count()
                 .orElse(DEFAULT_COUNT);
 
-        // previous
-        final HistoryTokenAnchorComponent previous = this.previous;
         final boolean previousDisabled = 0 == offset;
-        previous.setDisabled(previousDisabled);
-        if (false == previousDisabled) {
-            previous.setHistoryToken(
-                    Optional.of(
-                            historyToken.setOffset(
-                                    OptionalInt.of(
-                                            Math.max(
-                                                    0,
-                                                    offset - count + 1
-                                            )
-                                    )
-                            )
-                    )
-            );
-        }
-
-        // next
-        final HistoryTokenAnchorComponent next = this.next;
         final boolean nextDisabled = this.tableRowCount < count;
-        next.setDisabled(nextDisabled);
-        if (false == nextDisabled) {
-            next.setHistoryToken(
-                    Optional.of(
-                            historyToken.setOffset(
-                                    OptionalInt.of(
-                                            offset + count - 1
-                                    )
-                            )
-                    )
-            );
-        }
+
+        this.table.setPrevious(
+                Optional.ofNullable(
+                        false == previousDisabled ?
+                                historyToken.setOffset(
+                                        OptionalInt.of(
+                                                Math.max(
+                                                        0,
+                                                        offset - count + 1
+                                                )
+                                        )
+                                ) :
+                                null
+                )
+        );
+        this.table.setNext(
+                Optional.ofNullable(
+                        false == nextDisabled ?
+                                historyToken.setOffset(
+                                        OptionalInt.of(
+                                                offset + count - 1
+                                        )
+                                ) :
+                                null
+                )
+        );
     }
-
-    // previous.........................................................................................................
-
-    private static HistoryTokenAnchorComponent previous(final SpreadsheetListComponentContext context) {
-        return context.historyToken()
-                .link(ID_PREFIX + "previous")
-                .setTextContent("previous")
-                .setIconBefore(
-                        Optional.of(
-                                SpreadsheetIcons.spreadsheetListTablePrevious()
-                        )
-                );
-    }
-
-    private final HistoryTokenAnchorComponent previous;
-
-    // next.............................................................................................................
-
-    private static HistoryTokenAnchorComponent next(final SpreadsheetListComponentContext context) {
-        return context.historyToken()
-                .link(ID_PREFIX + "next")
-                .setTextContent("next")
-                .setIconAfter(
-                        Optional.of(
-                                SpreadsheetIcons.spreadsheetListTableNext()
-                        )
-                );
-    }
-
-    private final HistoryTokenAnchorComponent next;
 
     // setCssText.......................................................................................................
 

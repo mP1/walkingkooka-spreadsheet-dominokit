@@ -24,6 +24,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
@@ -36,11 +37,13 @@ import java.util.Optional;
 public final class SpreadsheetDataTableComponentTest implements ClassTesting<SpreadsheetDataTableComponent<String>>,
         TreePrintableTesting {
 
+    private final static String ID_PREFIX = "tableId123-";
+
     @Test
     public void testEmptyValue() {
         this.treePrintAndCheck(
                 walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent.<String>with(
-                        "tableId123-", // id-prefix
+                        ID_PREFIX, // id-prefix
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
                                 ColumnConfig.create("column-2B-name", "column-2B-title"),
@@ -68,7 +71,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     public void testThreeColumnsNotValue() {
         this.treePrintAndCheck(
                 SpreadsheetDataTableComponent.<String>with(
-                        "tableId123-", // id-prefix
+                        ID_PREFIX, // id-prefix
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
                                 ColumnConfig.create("column-2B-name", "column-2B-title"),
@@ -96,7 +99,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     public void testThreeColumnsNotValueWithChildren() {
         this.treePrintAndCheck(
                 SpreadsheetDataTableComponent.<String>with(
-                        "tableId123-", // id-prefix
+                        ID_PREFIX, // id-prefix
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
                                 ColumnConfig.create("column-2B-name", "column-2B-title"),
@@ -137,7 +140,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     public void testThreeColumnsThreeRows() {
         this.treePrintAndCheck(
                 SpreadsheetDataTableComponent.<String>with(
-                        "tableId123-", // id-prefix
+                        ID_PREFIX, // id-prefix
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
                                 ColumnConfig.create("column-2B-name", "column-2B-title"),
@@ -195,7 +198,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     public void testThreeColumnsMixedComponentTypes() {
         this.treePrintAndCheck(
                 SpreadsheetDataTableComponent.<String>with(
-                        "tableId123-", // id-prefix
+                        ID_PREFIX, // id-prefix
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
                                 ColumnConfig.create("column-2B-name", "column-2B-title"),
@@ -263,7 +266,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     public void testBodyScrollPlugin() {
         this.treePrintAndCheck(
                 SpreadsheetDataTableComponent.<String>with(
-                        "tableId123-", // id-prefix
+                        ID_PREFIX, // id-prefix
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
                                 ColumnConfig.create("column-2B-name", "column-2B-title"),
@@ -293,7 +296,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     public void testEmptyStatePlugin() {
         this.treePrintAndCheck(
                 SpreadsheetDataTableComponent.<String>with(
-                        "tableId123-", // id-prefix
+                        ID_PREFIX, // id-prefix
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
                                 ColumnConfig.create("column-2B-name", "column-2B-title"),
@@ -326,7 +329,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     public void testThreeColumnsNoValueHeadersHidden() {
         this.treePrintAndCheck(
                 SpreadsheetDataTableComponent.<String>with(
-                        "tableId123-", // id-prefix
+                        ID_PREFIX, // id-prefix
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
                                 ColumnConfig.create("column-2B-name", "column-2B-title"),
@@ -350,7 +353,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     public void testThreeColumnsThreeRowsHeadersHidden() {
         this.treePrintAndCheck(
                 SpreadsheetDataTableComponent.<String>with(
-                        "tableId123-", // id-prefix
+                        ID_PREFIX, // id-prefix
                         Lists.of(
                                 ColumnConfig.create("column-1A-name", "column-1A-title"),
                                 ColumnConfig.create("column-2B-name", "column-2B-title"),
@@ -397,6 +400,86 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                         "        \"HHH\"\n" +
                         "      SpreadsheetTextComponent\n" +
                         "        \"III\"\n"
+        );
+    }
+
+    @Test
+    public void testThreeColumnsIncludeNextPrev() {
+        this.treePrintAndCheck(
+                SpreadsheetDataTableComponent.<String>with(
+                        ID_PREFIX, // id-prefix
+                        Lists.of(
+                                ColumnConfig.create("column-1A-name", "column-1A-title"),
+                                ColumnConfig.create("column-2B-name", "column-2B-title"),
+                                ColumnConfig.create("column-3C-name", "column-3C-title")
+                        ),
+                        (column, data) -> SpreadsheetTextComponent.with(
+                                Optional.of(
+                                        CharSequences.repeating(
+                                                data.charAt(column),
+                                                3
+                                        ).toString()
+                                )
+                        )
+                ).setValue(
+                        Optional.of(
+                                Lists.of(
+                                        "ABC",
+                                        "DEF",
+                                        "GHI"
+                                )
+                        )
+                ).previousNextLinks(
+                        ID_PREFIX,
+                        new FakeHistoryTokenContext() {
+
+                            @Override
+                            public HistoryToken historyToken() {
+                                return HistoryToken.parseString("/");
+                            }
+                        }
+                ).setPrevious(
+                        Optional.of(
+                                HistoryToken.parseString("/*/offset/11/count/5")
+                        )
+                ).setNext(
+                        Optional.of(
+                                HistoryToken.parseString("/*/offset/22/count/5")
+                        )
+                ),
+                "SpreadsheetDataTableComponent\n" +
+                        "  id=tableId123-Table\n" +
+                        "  COLUMN(S)\n" +
+                        "    column-1A-title\n" +
+                        "    column-2B-title\n" +
+                        "    column-3C-title\n" +
+                        "  ROW(S)\n" +
+                        "    ROW 0\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"AAA\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"BBB\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"CCC\"\n" +
+                        "    ROW 1\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"DDD\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"EEE\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"FFF\"\n" +
+                        "    ROW 2\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"GGG\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"HHH\"\n" +
+                        "      SpreadsheetTextComponent\n" +
+                        "        \"III\"\n" +
+                        "  CHILDREN\n" +
+                        "    SpreadsheetFlexLayout\n" +
+                        "      ROW\n" +
+                        "        mdi-arrow-left \"previous\" [#/*/offset/11/count/5] id=tableId123-previous-Link\n" +
+                        "        \"next\" [#/*/offset/22/count/5] mdi-arrow-right id=tableId123-next-Link\n"
         );
     }
 
