@@ -153,6 +153,13 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         return this;
     }
 
+    /**
+     * Clears or empties the table.
+     */
+    public SpreadsheetDataTableComponent<T> clear() {
+        return this.setValue(Optional.empty());
+    }
+
     private final DataTable<T> table;
 
     private final LocalListDataStore<T> dataStore;
