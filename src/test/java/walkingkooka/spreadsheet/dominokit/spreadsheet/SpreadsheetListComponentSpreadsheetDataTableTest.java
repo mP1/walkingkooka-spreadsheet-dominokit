@@ -117,8 +117,8 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
                         "        CHILDREN\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheetList-datatable-previous-Link\n" +
-                        "              \"next\" DISABLED [#/] mdi-arrow-right id=spreadsheetList-datatable-next-Link\n" +
+                        "              mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheetList-previous-Link\n" +
+                        "              \"next\" DISABLED [#/] mdi-arrow-right id=spreadsheetList-next-Link\n" +
                         "        PLUGINS\n" +
                         "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );
@@ -194,8 +194,8 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
                         "        CHILDREN\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              mdi-arrow-left \"previous\" [#/*/offset/0/count/2] id=spreadsheetList-datatable-previous-Link\n" +
-                        "              \"next\" [#/*/offset/2/count/2] mdi-arrow-right id=spreadsheetList-datatable-next-Link\n" +
+                        "              mdi-arrow-left \"previous\" [#/*/offset/0/count/2] id=spreadsheetList-previous-Link\n" +
+                        "              \"next\" [#/*/offset/2/count/2] mdi-arrow-right id=spreadsheetList-next-Link\n" +
                         "        PLUGINS\n" +
                         "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );
@@ -271,8 +271,8 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
                         "        CHILDREN\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheetList-datatable-previous-Link\n" +
-                        "              \"next\" [#/*/offset/1/count/2] mdi-arrow-right id=spreadsheetList-datatable-next-Link\n" +
+                        "              mdi-arrow-left \"previous\" DISABLED [#/] id=spreadsheetList-previous-Link\n" +
+                        "              \"next\" [#/*/offset/1/count/2] mdi-arrow-right id=spreadsheetList-next-Link\n" +
                         "        PLUGINS\n" +
                         "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );

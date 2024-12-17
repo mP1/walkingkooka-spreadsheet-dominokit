@@ -159,8 +159,8 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "              CHILDREN\n" +
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
-                        "                    mdi-arrow-left \"previous\" [#/*/offset/0/count/3] id=spreadsheetList-datatable-previous-Link\n" +
-                        "                    \"next\" [#/*/offset/3/count/3] mdi-arrow-right id=spreadsheetList-datatable-next-Link\n" +
+                        "                    mdi-arrow-left \"previous\" [#/*/offset/0/count/3] id=spreadsheetList-previous-Link\n" +
+                        "                    \"next\" [#/*/offset/3/count/3] mdi-arrow-right id=spreadsheetList-next-Link\n" +
                         "              PLUGINS\n" +
                         "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
                         "      SpreadsheetFlexLayout\n" +
