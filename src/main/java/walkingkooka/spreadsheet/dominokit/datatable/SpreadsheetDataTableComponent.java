@@ -28,6 +28,7 @@ import org.dominokit.domino.ui.datatable.plugins.summary.EmptyStatePlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -72,6 +73,8 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
                         )
                 ),
                 localListDataStore
+        ).setId(
+                CharSequences.subSequence(id, 0, -1) + SpreadsheetElementIds.TABLE
         );
         this.dataStore = localListDataStore;
 
