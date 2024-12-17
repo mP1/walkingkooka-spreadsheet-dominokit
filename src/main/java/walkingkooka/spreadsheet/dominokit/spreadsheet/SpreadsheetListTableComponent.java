@@ -42,15 +42,15 @@ import java.util.OptionalInt;
 /**
  * A datatable where each row contains a single spreadsheet, showing various metadata items such as creator, timestamps and links for actions.
  */
-final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementComponent<HTMLDivElement, SpreadsheetListComponentSpreadsheetDataTable> {
+final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetListTableComponent> {
 
     /**
-     * Creates an empty {@link SpreadsheetListComponentSpreadsheetDataTable}.
+     * Creates an empty {@link SpreadsheetListTableComponent}.
      */
-    static SpreadsheetListComponentSpreadsheetDataTable empty(final SpreadsheetListComponentContext context) {
+    static SpreadsheetListTableComponent empty(final SpreadsheetListComponentContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new SpreadsheetListComponentSpreadsheetDataTable(context);
+        return new SpreadsheetListTableComponent(context);
     }
 
     private final static String ID = "spreadsheetList";
@@ -59,13 +59,13 @@ final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementC
 
     final static int DEFAULT_COUNT = 10;
 
-    private SpreadsheetListComponentSpreadsheetDataTable(final SpreadsheetListComponentContext context) {
+    private SpreadsheetListTableComponent(final SpreadsheetListComponentContext context) {
         this.card = SpreadsheetCard.empty();
 
         this.table = SpreadsheetDataTableComponent.with(
                 ID + SpreadsheetElementIds.TABLE,
                 columnConfigs(),
-                SpreadsheetListComponentSpreadsheetDataTableComponentCellRenderer.with(context)
+                SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer.with(context)
         ).emptyStatePlugin(
                 SpreadsheetIcons.spreadsheetListTableEmpty(),
                 "No spreadsheets"
@@ -138,7 +138,7 @@ final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementC
 
     private final SpreadsheetDataTableComponent<SpreadsheetMetadata> table;
 
-    SpreadsheetListComponentSpreadsheetDataTable setMetadata(final List<SpreadsheetMetadata> metadatas) {
+    SpreadsheetListTableComponent setMetadata(final List<SpreadsheetMetadata> metadatas) {
         this.table.setValue(
                 Optional.of(
                         metadatas
@@ -226,7 +226,7 @@ final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementC
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetListComponentSpreadsheetDataTable setCssText(final String css) {
+    public SpreadsheetListTableComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.card.setCssText(css);

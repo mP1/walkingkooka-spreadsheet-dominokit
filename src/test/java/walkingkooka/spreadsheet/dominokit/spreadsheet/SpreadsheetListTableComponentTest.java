@@ -33,24 +33,24 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import java.time.LocalDateTime;
 import java.util.Locale;
 
-public final class SpreadsheetListComponentSpreadsheetDataTableTest implements HtmlElementComponentTesting<SpreadsheetListComponentSpreadsheetDataTable, HTMLDivElement>,
+public final class SpreadsheetListTableComponentTest implements HtmlElementComponentTesting<SpreadsheetListTableComponent, HTMLDivElement>,
         SpreadsheetMetadataTesting {
 
     @Test
     public void testPrintTreeWhenEmpty() {
         this.refreshAndCheck(
-                SpreadsheetListComponentSpreadsheetDataTable.empty(
+                SpreadsheetListTableComponent.empty(
                         context("/")
                 ),
                 "/",
-                "SpreadsheetListComponentSpreadsheetDataTable\n"
+                "SpreadsheetListTableComponent\n"
         );
     }
 
     @Test
     public void testPrintTreeWhenSeveralSpreadsheets() {
         this.refreshAndCheck(
-                SpreadsheetListComponentSpreadsheetDataTable.empty(
+                SpreadsheetListTableComponent.empty(
                         context("/")
                 ).setMetadata(
                         Lists.of(
@@ -60,7 +60,7 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
                         )
                 ),
                 "/",
-                "SpreadsheetListComponentSpreadsheetDataTable\n" +
+                "SpreadsheetListTableComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
@@ -128,7 +128,7 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
     @Test
     public void testPrintTreeWhenSeveralSpreadsheetsAndPrevious() {
         this.refreshAndCheck(
-                SpreadsheetListComponentSpreadsheetDataTable.empty(
+                SpreadsheetListTableComponent.empty(
                         context("/offset/1/count/2")
                 ).setMetadata(
                         Lists.of(
@@ -138,7 +138,7 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
                         )
                 ),
                 "/*/offset/1/count/2",
-                "SpreadsheetListComponentSpreadsheetDataTable\n" +
+                "SpreadsheetListTableComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
@@ -206,7 +206,7 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
     @Test
     public void testPrintTreeWhenSeveralSpreadsheetsAndNext() {
         this.refreshAndCheck(
-                SpreadsheetListComponentSpreadsheetDataTable.empty(
+                SpreadsheetListTableComponent.empty(
                         context("/")
                 ).setMetadata(
                         Lists.of(
@@ -216,7 +216,7 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
                         )
                 ),
                 "/*/count/2",
-                "SpreadsheetListComponentSpreadsheetDataTable\n" +
+                "SpreadsheetListTableComponent\n" +
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
@@ -295,7 +295,7 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
         };
     }
 
-    private void refreshAndCheck(final SpreadsheetListComponentSpreadsheetDataTable table,
+    private void refreshAndCheck(final SpreadsheetListTableComponent table,
                                  final String historyToken,
                                  final String expected) {
         this.refreshAndCheck(
@@ -306,7 +306,7 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
         );
     }
 
-    private void refreshAndCheck(final SpreadsheetListComponentSpreadsheetDataTable table,
+    private void refreshAndCheck(final SpreadsheetListTableComponent table,
                                  final SpreadsheetListHistoryToken historyToken,
                                  final String expected) {
         table.refresh(historyToken);
@@ -333,8 +333,8 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
     }
 
     @Override
-    public Class<SpreadsheetListComponentSpreadsheetDataTable> type() {
-        return SpreadsheetListComponentSpreadsheetDataTable.class;
+    public Class<SpreadsheetListTableComponent> type() {
+        return SpreadsheetListTableComponent.class;
     }
 
     @Override

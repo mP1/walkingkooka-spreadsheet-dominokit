@@ -107,11 +107,11 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
 
     // table............................................................................................................
 
-    private SpreadsheetListComponentSpreadsheetDataTable table() {
-        return SpreadsheetListComponentSpreadsheetDataTable.empty(this.context);
+    private SpreadsheetListTableComponent table() {
+        return SpreadsheetListTableComponent.empty(this.context);
     }
 
-    private final SpreadsheetListComponentSpreadsheetDataTable table;
+    private final SpreadsheetListTableComponent table;
 
     // SpreadsheetDialogComponentLifecycle..............................................................................
 

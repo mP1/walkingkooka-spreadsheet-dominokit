@@ -31,13 +31,13 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-final class SpreadsheetListComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetMetadata> {
+final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetMetadata> {
 
-    static SpreadsheetListComponentSpreadsheetDataTableComponentCellRenderer with(final SpreadsheetListComponentContext context) {
-        return new SpreadsheetListComponentSpreadsheetDataTableComponentCellRenderer(context);
+    static SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer with(final SpreadsheetListComponentContext context) {
+        return new SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer(context);
     }
 
-    private SpreadsheetListComponentSpreadsheetDataTableComponentCellRenderer(final SpreadsheetListComponentContext context) {
+    private SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer(final SpreadsheetListComponentContext context) {
         this.context = context;
     }
 
