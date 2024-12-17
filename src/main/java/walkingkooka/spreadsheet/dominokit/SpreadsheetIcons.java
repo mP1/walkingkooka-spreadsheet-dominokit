@@ -306,6 +306,14 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         );
     }
 
+    public static MdiIcon tableNext() {
+        return Icons.arrow_right();
+    }
+
+    public static MdiIcon tablePrevious() {
+        return Icons.arrow_left();
+    }
+
     public static MdiIcon textBoxClear() {
         return Icons.close_circle();
     }
