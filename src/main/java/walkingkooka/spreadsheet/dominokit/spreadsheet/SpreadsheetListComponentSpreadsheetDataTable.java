@@ -98,27 +98,27 @@ final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementC
                 columnConfig(
                         "Created by",
                         "created-by",
-                        TextAlign.CENTER
+                        TextAlign.LEFT
                 ),
                 columnConfig(
                         "Created",
                         "create-date-time",
-                        TextAlign.CENTER
+                        TextAlign.LEFT
                 ),
                 columnConfig(
                         "Last modified by",
                         "last-modified-by",
-                        TextAlign.CENTER
+                        TextAlign.LEFT
                 ),
                 columnConfig(
                         "Last modified",
                         "last-modified-date-time",
-                        TextAlign.CENTER
+                        TextAlign.LEFT
                 ),
                 columnConfig(
                         "Links",
                         "links",
-                        TextAlign.CENTER
+                        TextAlign.LEFT
                 )
         );
     }
