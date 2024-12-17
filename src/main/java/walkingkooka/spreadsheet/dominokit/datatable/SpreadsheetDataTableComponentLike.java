@@ -28,6 +28,10 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.text.CharSequences;
@@ -144,6 +148,39 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
     default SpreadsheetDataTableComponent<T> focus() {
         throw new UnsupportedOperationException();
     }
+
+    // prev/next links..................................................................................................
+
+    SpreadsheetDataTableComponent<T> previousNextLinks(final String idPrefix,
+                                                       final HistoryTokenContext context);
+
+    default HistoryTokenAnchorComponent previous(final String idPrefix,
+                                                 final HistoryTokenContext context) {
+        return context.historyToken()
+                .link(idPrefix + "previous")
+                .setTextContent("previous")
+                .setIconBefore(
+                        Optional.of(
+                                SpreadsheetIcons.tablePrevious()
+                        )
+                );
+    }
+
+    default HistoryTokenAnchorComponent next(final String idPrefix,
+                                             final HistoryTokenContext context) {
+        return context.historyToken()
+                .link(idPrefix + "next")
+                .setTextContent("next")
+                .setIconAfter(
+                        Optional.of(
+                                SpreadsheetIcons.tableNext()
+                        )
+                );
+    }
+
+    SpreadsheetDataTableComponent setPrevious(final Optional<HistoryToken> historyToken);
+
+    SpreadsheetDataTableComponent setNext(final Optional<HistoryToken> historyToken);
 
     // header...........................................................................................................
 

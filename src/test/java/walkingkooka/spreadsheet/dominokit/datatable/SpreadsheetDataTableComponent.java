@@ -23,6 +23,10 @@ import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -130,6 +134,52 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     }
 
     private final List<IsElement<?>> children = Lists.array();
+
+    // prev / next links................................................................................................
+
+    /**
+     * Creates and adds previous and next links. It is assumed the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken}
+     */
+    @Override
+    public SpreadsheetDataTableComponent<T> previousNextLinks(final String idPrefix,
+                                                              final HistoryTokenContext context) {
+        Objects.requireNonNull(idPrefix, "idPrefix");
+        Objects.requireNonNull(context, "context");
+
+        this.previous = previous(idPrefix, context);
+        this.previous.setCssText("float=left");
+
+        this.next = next(idPrefix, context);
+        this.next.setCssText("float=right");
+
+        this.appendChild(
+                SpreadsheetFlexLayout.row()
+                        .appendChild(this.previous)
+                        .appendChild(this.next)
+        );
+
+        return this;
+    }
+
+    // previous.........................................................................................................
+
+    @Override
+    public SpreadsheetDataTableComponent setPrevious(final Optional<HistoryToken> historyToken) {
+        this.previous.setHistoryToken(historyToken);
+        return this;
+    }
+
+    private HistoryTokenAnchorComponent previous;
+
+    // next.............................................................................................................
+
+    @Override
+    public SpreadsheetDataTableComponent setNext(final Optional<HistoryToken> historyToken) {
+        this.next.setHistoryToken(historyToken);
+        return this;
+    }
+
+    private HistoryTokenAnchorComponent next;
 
     // header...........................................................................................................
 
