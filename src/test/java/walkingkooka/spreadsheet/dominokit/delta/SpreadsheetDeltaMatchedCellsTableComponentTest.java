@@ -87,6 +87,7 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Htm
                 SpreadsheetDelta.EMPTY,
                 "SpreadsheetDeltaMatchedCellsTableComponent\n" +
                         "  SpreadsheetDataTableComponent\n" +
+                        "    id=ID123-cells-Table\n" +
                         "    COLUMN(S)\n" +
                         "      Cell\n" +
                         "      Formula\n" +
@@ -120,6 +121,7 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Htm
                 ),
                 "SpreadsheetDeltaMatchedCellsTableComponent\n" +
                         "  SpreadsheetDataTableComponent\n" +
+                        "    id=ID123-cells-Table\n" +
                         "    COLUMN(S)\n" +
                         "      Cell\n" +
                         "      Formula\n" +
@@ -168,6 +170,7 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Htm
                 ),
                 "SpreadsheetDeltaMatchedCellsTableComponent\n" +
                         "  SpreadsheetDataTableComponent\n" +
+                        "    id=ID123-cells-Table\n" +
                         "    COLUMN(S)\n" +
                         "      Cell\n" +
                         "      Formula\n" +

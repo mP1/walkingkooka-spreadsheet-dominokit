@@ -52,7 +52,7 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
     private SpreadsheetFormatterTableComponent(final String id) {
         this.cellRenderer = SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer.with(id);
         this.dataTable = SpreadsheetDataTableComponent.with(
-                id + SpreadsheetElementIds.TABLE, // id
+                CharSequences.subSequence(id, 0, -1 ) + SpreadsheetElementIds.TABLE, // id
                 columnConfigs(), // configs
                 this.cellRenderer
         ).hideHeaders();

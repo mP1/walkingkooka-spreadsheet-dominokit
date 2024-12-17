@@ -199,6 +199,8 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
+            printer.println("id=" + this.id());
+
             // print columns
             if (false == headersHidden) {
                 printer.println("COLUMN(S)");

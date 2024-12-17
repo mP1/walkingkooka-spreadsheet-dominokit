@@ -92,9 +92,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         this.parserNames = SpreadsheetParserNameLinkListComponent.empty(ID + "-parserNames-");
         this.parserName = Optional.empty();
 
-        this.table = SpreadsheetFormatterTableComponent.empty(
-                ID + SpreadsheetElementIds.TABLE + "-"
-        );
+        this.table = SpreadsheetFormatterTableComponent.empty(ID + "-");
 
         this.appender = AppendPluginSelectorTokenComponent.empty(ID + "-appender-");
 

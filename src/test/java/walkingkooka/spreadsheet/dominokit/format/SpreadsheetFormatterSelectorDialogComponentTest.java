@@ -110,29 +110,30 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetFormatterSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20d/m/yy] id=spreadsheetFormatterSelector-Table-Short-Link\n" +
+                        "                  \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20d/m/yy] id=spreadsheetFormatterSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31/12/99\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Medium\n" +
-                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20d%20mmm%20yyyy] id=spreadsheetFormatterSelector-Table-Medium-Link\n" +
+                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20d%20mmm%20yyyy] id=spreadsheetFormatterSelector-Medium-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 Dec. 1999\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Table-Long-Link\n" +
+                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 December 1999\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Full\n" +
-                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Table-Full-Link\n" +
+                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -187,29 +188,30 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetFormatterSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20d/m/yy] id=spreadsheetFormatterSelector-Table-Short-Link\n" +
+                        "                  \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20d/m/yy] id=spreadsheetFormatterSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31/12/99\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Medium\n" +
-                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20d%20mmm%20yyyy] id=spreadsheetFormatterSelector-Table-Medium-Link\n" +
+                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20d%20mmm%20yyyy] id=spreadsheetFormatterSelector-Medium-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 Dec. 1999\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Table-Long-Link\n" +
+                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 December 1999\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Full\n" +
-                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Table-Full-Link\n" +
+                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -296,29 +298,30 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetFormatterSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Table-Short-Link\n" +
+                        "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31/12/99, 12:58 PM\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Medium\n" +
-                        "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Table-Medium-Link\n" +
+                        "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Medium-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 Dec. 1999, 12:58:00 PM\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Table-Long-Link\n" +
+                        "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 December 1999 at 12:58:00 PM\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Full\n" +
-                        "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Table-Full-Link\n" +
+                        "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -424,77 +427,78 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetFormatterSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Number\n" +
-                        "                  \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Table-Number-Link\n" +
+                        "                  \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    123.5\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Number\n" +
-                        "                  \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Table-Number-Link\n" +
+                        "                  \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    -123.5\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Number\n" +
-                        "                  \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Table-Number-Link\n" +
+                        "                  \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    0.\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Integer\n" +
-                        "                  \"#,##0\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Table-Integer-Link\n" +
+                        "                  \"#,##0\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    124\n" +
                         "                ROW 4\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Integer\n" +
-                        "                  \"#,##0\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Table-Integer-Link\n" +
+                        "                  \"#,##0\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    -124\n" +
                         "                ROW 5\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Integer\n" +
-                        "                  \"#,##0\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Table-Integer-Link\n" +
+                        "                  \"#,##0\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    0\n" +
                         "                ROW 6\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Percent\n" +
-                        "                  \"#,##0%\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Table-Percent-Link\n" +
+                        "                  \"#,##0%\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12,350%\n" +
                         "                ROW 7\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Percent\n" +
-                        "                  \"#,##0%\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Table-Percent-Link\n" +
+                        "                  \"#,##0%\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    -12,350%\n" +
                         "                ROW 8\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Percent\n" +
-                        "                  \"#,##0%\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Table-Percent-Link\n" +
+                        "                  \"#,##0%\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    0%\n" +
                         "                ROW 9\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Currency\n" +
-                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Table-Currency-Link\n" +
+                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $123.50\n" +
                         "                ROW 10\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Currency\n" +
-                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Table-Currency-Link\n" +
+                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $-123.50\n" +
                         "                ROW 11\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Currency\n" +
-                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Table-Currency-Link\n" +
+                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $0.00\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -573,11 +577,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetFormatterSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Default\n" +
-                        "                  \"@\" [#/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=spreadsheetFormatterSelector-Table-Default-Link\n" +
+                        "                  \"@\" [#/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@] id=spreadsheetFormatterSelector-Default-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Hello 123\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -648,17 +653,18 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetFormatterSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/formatter/save/time-format-pattern%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Table-Short-Link\n" +
+                        "                  \"h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/formatter/save/time-format-pattern%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12:58 PM\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/formatter/save/time-format-pattern%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Table-Long-Link\n" +
+                        "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/formatter/save/time-format-pattern%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12:58:00 PM\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -750,29 +756,30 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetFormatterSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"d/m/yy\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/date-format-pattern%20d/m/yy] id=spreadsheetFormatterSelector-Table-Short-Link\n" +
+                        "                  \"d/m/yy\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/date-format-pattern%20d/m/yy] id=spreadsheetFormatterSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31/12/99\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Medium\n" +
-                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/date-format-pattern%20d%20mmm%20yyyy] id=spreadsheetFormatterSelector-Table-Medium-Link\n" +
+                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/date-format-pattern%20d%20mmm%20yyyy] id=spreadsheetFormatterSelector-Medium-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 Dec. 1999\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/date-format-pattern%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Table-Long-Link\n" +
+                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/date-format-pattern%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 December 1999\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Full\n" +
-                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/date-format-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Table-Full-Link\n" +
+                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/date-format-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetFormatterSelector-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -871,29 +878,30 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetFormatterSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/date-time-format-pattern%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Table-Short-Link\n" +
+                        "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/date-time-format-pattern%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31/12/99, 12:58 PM\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Medium\n" +
-                        "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/date-time-format-pattern%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Table-Medium-Link\n" +
+                        "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/date-time-format-pattern%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Medium-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 Dec. 1999, 12:58:00 PM\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/date-time-format-pattern%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Table-Long-Link\n" +
+                        "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/date-time-format-pattern%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 December 1999 at 12:58:00 PM\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Full\n" +
-                        "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/date-time-format-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Table-Full-Link\n" +
+                        "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/date-time-format-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -1011,77 +1019,78 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetFormatterSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Number\n" +
-                        "                  \"#,##0.###\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Table-Number-Link\n" +
+                        "                  \"#,##0.###\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    123.5\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Number\n" +
-                        "                  \"#,##0.###\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Table-Number-Link\n" +
+                        "                  \"#,##0.###\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    -123.5\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Number\n" +
-                        "                  \"#,##0.###\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Table-Number-Link\n" +
+                        "                  \"#,##0.###\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230.%23%23%23] id=spreadsheetFormatterSelector-Number-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    0.\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Integer\n" +
-                        "                  \"#,##0\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Table-Integer-Link\n" +
+                        "                  \"#,##0\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    124\n" +
                         "                ROW 4\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Integer\n" +
-                        "                  \"#,##0\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Table-Integer-Link\n" +
+                        "                  \"#,##0\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    -124\n" +
                         "                ROW 5\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Integer\n" +
-                        "                  \"#,##0\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Table-Integer-Link\n" +
+                        "                  \"#,##0\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230] id=spreadsheetFormatterSelector-Integer-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    0\n" +
                         "                ROW 6\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Percent\n" +
-                        "                  \"#,##0%\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Table-Percent-Link\n" +
+                        "                  \"#,##0%\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12,350%\n" +
                         "                ROW 7\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Percent\n" +
-                        "                  \"#,##0%\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Table-Percent-Link\n" +
+                        "                  \"#,##0%\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    -12,350%\n" +
                         "                ROW 8\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Percent\n" +
-                        "                  \"#,##0%\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Table-Percent-Link\n" +
+                        "                  \"#,##0%\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20%23,%23%230%25] id=spreadsheetFormatterSelector-Percent-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    0%\n" +
                         "                ROW 9\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Currency\n" +
-                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Table-Currency-Link\n" +
+                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $123.50\n" +
                         "                ROW 10\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Currency\n" +
-                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Table-Currency-Link\n" +
+                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $-123.50\n" +
                         "                ROW 11\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Currency\n" +
-                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Table-Currency-Link\n" +
+                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20$%23,%23%230.00] id=spreadsheetFormatterSelector-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $0.00\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -1172,11 +1181,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetFormatterSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Default\n" +
-                        "                  \"@\" [#/1/Spreadsheet123/spreadsheet/text-formatter/save/text-format-pattern%20@] id=spreadsheetFormatterSelector-Table-Default-Link\n" +
+                        "                  \"@\" [#/1/Spreadsheet123/spreadsheet/text-formatter/save/text-format-pattern%20@] id=spreadsheetFormatterSelector-Default-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Hello 123\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -1259,17 +1269,18 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetFormatterSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"h:mm AM/PM\" [#/1/Spreadsheet123/spreadsheet/time-formatter/save/time-format-pattern%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Table-Short-Link\n" +
+                        "                  \"h:mm AM/PM\" [#/1/Spreadsheet123/spreadsheet/time-formatter/save/time-format-pattern%20h:mm%20AM/PM] id=spreadsheetFormatterSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12:58 PM\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/time-formatter/save/time-format-pattern%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Table-Long-Link\n" +
+                        "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/time-formatter/save/time-format-pattern%20h:mm:ss%20AM/PM] id=spreadsheetFormatterSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12:58:00 PM\n" +
                         "      AppendPluginSelectorTokenComponent\n" +

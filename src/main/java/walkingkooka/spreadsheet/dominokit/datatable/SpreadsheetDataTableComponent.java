@@ -70,7 +70,7 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
                         )
                 ),
                 localListDataStore
-        ).id(id);
+        );
         this.dataStore = localListDataStore;
 
         this.cellRenderer = cellRenderer;
