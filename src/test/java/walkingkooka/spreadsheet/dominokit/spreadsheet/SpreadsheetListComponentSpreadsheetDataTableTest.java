@@ -64,6 +64,7 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
+                        "        id=spreadsheetList-Table\n" +
                         "        COLUMN(S)\n" +
                         "          Name\n" +
                         "          Created by\n" +
@@ -141,6 +142,7 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
+                        "        id=spreadsheetList-Table\n" +
                         "        COLUMN(S)\n" +
                         "          Name\n" +
                         "          Created by\n" +
@@ -218,6 +220,7 @@ public final class SpreadsheetListComponentSpreadsheetDataTableTest implements H
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
+                        "        id=spreadsheetList-Table\n" +
                         "        COLUMN(S)\n" +
                         "          Name\n" +
                         "          Created by\n" +

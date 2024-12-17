@@ -50,6 +50,7 @@ public final class SpreadsheetFormatterTableComponentTest implements ClassTestin
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
+                        "        id=id123-Table\n" +
                         "        ROW(S)\n" +
                         "          ROW 0\n" +
                         "            SpreadsheetTextNodeComponent\n" +
@@ -81,6 +82,7 @@ public final class SpreadsheetFormatterTableComponentTest implements ClassTestin
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
+                        "        id=id123-Table\n" +
                         "        ROW(S)\n" +
                         "          ROW 0\n" +
                         "            SpreadsheetTextNodeComponent\n" +
@@ -99,7 +101,9 @@ public final class SpreadsheetFormatterTableComponentTest implements ClassTestin
 
     private void refreshAndCheck(final List<SpreadsheetFormatterSample> samples,
                                  final String expected) {
-        final SpreadsheetFormatterTableComponent component = SpreadsheetFormatterTableComponent.empty("id123-");
+        final SpreadsheetFormatterTableComponent component = SpreadsheetFormatterTableComponent.empty(
+                "id123-"
+        );
         component.refresh(
                 samples,
                 new FakeSpreadsheetFormatterTableComponentContext() {

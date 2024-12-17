@@ -106,29 +106,30 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetParserSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20d/m/yy] id=spreadsheetParserSelector-Table-Short-Link\n" +
+                        "                  \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20d/m/yy] id=spreadsheetParserSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31/12/99\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Medium\n" +
-                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20d%20mmm%20yyyy] id=spreadsheetParserSelector-Table-Medium-Link\n" +
+                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20d%20mmm%20yyyy] id=spreadsheetParserSelector-Medium-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 Dec. 1999\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Table-Long-Link\n" +
+                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 December 1999\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Full\n" +
-                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Table-Full-Link\n" +
+                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -178,29 +179,30 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetParserSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20d/m/yy] id=spreadsheetParserSelector-Table-Short-Link\n" +
+                        "                  \"d/m/yy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20d/m/yy] id=spreadsheetParserSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31/12/99\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Medium\n" +
-                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20d%20mmm%20yyyy] id=spreadsheetParserSelector-Table-Medium-Link\n" +
+                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20d%20mmm%20yyyy] id=spreadsheetParserSelector-Medium-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 Dec. 1999\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Table-Long-Link\n" +
+                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 December 1999\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Full\n" +
-                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Table-Full-Link\n" +
+                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -282,29 +284,30 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetParserSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetParserSelector-Table-Short-Link\n" +
+                        "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetParserSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31/12/99, 12:58 PM\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Medium\n" +
-                        "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Table-Medium-Link\n" +
+                        "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Medium-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 Dec. 1999, 12:58:00 PM\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Table-Long-Link\n" +
+                        "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 December 1999 at 12:58:00 PM\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Full\n" +
-                        "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Table-Full-Link\n" +
+                        "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -405,77 +408,78 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetParserSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Number\n" +
-                        "                  \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Table-Number-Link\n" +
+                        "                  \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    123.5\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Number\n" +
-                        "                  \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Table-Number-Link\n" +
+                        "                  \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    -123.5\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Number\n" +
-                        "                  \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Table-Number-Link\n" +
+                        "                  \"#,##0.###\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    0.\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Integer\n" +
-                        "                  \"#,##0\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Table-Integer-Link\n" +
+                        "                  \"#,##0\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    124\n" +
                         "                ROW 4\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Integer\n" +
-                        "                  \"#,##0\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Table-Integer-Link\n" +
+                        "                  \"#,##0\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    -124\n" +
                         "                ROW 5\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Integer\n" +
-                        "                  \"#,##0\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Table-Integer-Link\n" +
+                        "                  \"#,##0\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    0\n" +
                         "                ROW 6\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Percent\n" +
-                        "                  \"#,##0%\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Table-Percent-Link\n" +
+                        "                  \"#,##0%\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12,350%\n" +
                         "                ROW 7\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Percent\n" +
-                        "                  \"#,##0%\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Table-Percent-Link\n" +
+                        "                  \"#,##0%\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    -12,350%\n" +
                         "                ROW 8\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Percent\n" +
-                        "                  \"#,##0%\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Table-Percent-Link\n" +
+                        "                  \"#,##0%\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    0%\n" +
                         "                ROW 9\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Currency\n" +
-                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Table-Currency-Link\n" +
+                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $123.50\n" +
                         "                ROW 10\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Currency\n" +
-                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Table-Currency-Link\n" +
+                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $-123.50\n" +
                         "                ROW 11\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Currency\n" +
-                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Table-Currency-Link\n" +
+                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $0.00\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -549,17 +553,18 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetParserSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern%20h:mm%20AM/PM] id=spreadsheetParserSelector-Table-Short-Link\n" +
+                        "                  \"h:mm AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern%20h:mm%20AM/PM] id=spreadsheetParserSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12:58 PM\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Table-Long-Link\n" +
+                        "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12:58:00 PM\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -644,29 +649,30 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetParserSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"d/m/yy\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-parse-pattern%20d/m/yy] id=spreadsheetParserSelector-Table-Short-Link\n" +
+                        "                  \"d/m/yy\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-parse-pattern%20d/m/yy] id=spreadsheetParserSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31/12/99\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Medium\n" +
-                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-parse-pattern%20d%20mmm%20yyyy] id=spreadsheetParserSelector-Table-Medium-Link\n" +
+                        "                  \"d mmm yyyy\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-parse-pattern%20d%20mmm%20yyyy] id=spreadsheetParserSelector-Medium-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 Dec. 1999\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-parse-pattern%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Table-Long-Link\n" +
+                        "                  \"d mmmm yyyy\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-parse-pattern%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 December 1999\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Full\n" +
-                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Table-Full-Link\n" +
+                        "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-parse-pattern%20dddd,%20d%20mmmm%20yyyy] id=spreadsheetParserSelector-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -758,29 +764,30 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetParserSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-time-parse-pattern%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetParserSelector-Table-Short-Link\n" +
+                        "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-time-parse-pattern%20d/m/yy,%20h:mm%20AM/PM] id=spreadsheetParserSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31/12/99, 12:58 PM\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Medium\n" +
-                        "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-time-parse-pattern%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Table-Medium-Link\n" +
+                        "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-time-parse-pattern%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Medium-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 Dec. 1999, 12:58:00 PM\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-time-parse-pattern%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Table-Long-Link\n" +
+                        "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-time-parse-pattern%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    31 December 1999 at 12:58:00 PM\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Full\n" +
-                        "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-time-parse-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Table-Full-Link\n" +
+                        "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-time-parse-pattern%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Full-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -891,77 +898,78 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetParserSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Number\n" +
-                        "                  \"#,##0.###\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Table-Number-Link\n" +
+                        "                  \"#,##0.###\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    123.5\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Number\n" +
-                        "                  \"#,##0.###\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Table-Number-Link\n" +
+                        "                  \"#,##0.###\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    -123.5\n" +
                         "                ROW 2\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Number\n" +
-                        "                  \"#,##0.###\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Table-Number-Link\n" +
+                        "                  \"#,##0.###\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230.%23%23%23] id=spreadsheetParserSelector-Number-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    0.\n" +
                         "                ROW 3\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Integer\n" +
-                        "                  \"#,##0\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Table-Integer-Link\n" +
+                        "                  \"#,##0\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    124\n" +
                         "                ROW 4\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Integer\n" +
-                        "                  \"#,##0\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Table-Integer-Link\n" +
+                        "                  \"#,##0\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    -124\n" +
                         "                ROW 5\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Integer\n" +
-                        "                  \"#,##0\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Table-Integer-Link\n" +
+                        "                  \"#,##0\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230] id=spreadsheetParserSelector-Integer-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    0\n" +
                         "                ROW 6\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Percent\n" +
-                        "                  \"#,##0%\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Table-Percent-Link\n" +
+                        "                  \"#,##0%\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12,350%\n" +
                         "                ROW 7\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Percent\n" +
-                        "                  \"#,##0%\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Table-Percent-Link\n" +
+                        "                  \"#,##0%\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    -12,350%\n" +
                         "                ROW 8\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Percent\n" +
-                        "                  \"#,##0%\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Table-Percent-Link\n" +
+                        "                  \"#,##0%\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20%23,%23%230%25] id=spreadsheetParserSelector-Percent-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    0%\n" +
                         "                ROW 9\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Currency\n" +
-                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Table-Currency-Link\n" +
+                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $123.50\n" +
                         "                ROW 10\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Currency\n" +
-                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Table-Currency-Link\n" +
+                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $-123.50\n" +
                         "                ROW 11\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Currency\n" +
-                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Table-Currency-Link\n" +
+                        "                  \"$#,##0.00\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20$%23,%23%230.00] id=spreadsheetParserSelector-Currency-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    $0.00\n" +
                         "      AppendPluginSelectorTokenComponent\n" +
@@ -1045,17 +1053,18 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetParserSelector-Table\n" +
                         "              ROW(S)\n" +
                         "                ROW 0\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Short\n" +
-                        "                  \"h:mm AM/PM\" [#/1/Spreadsheet123/spreadsheet/time-parser/save/time-parse-pattern%20h:mm%20AM/PM] id=spreadsheetParserSelector-Table-Short-Link\n" +
+                        "                  \"h:mm AM/PM\" [#/1/Spreadsheet123/spreadsheet/time-parser/save/time-parse-pattern%20h:mm%20AM/PM] id=spreadsheetParserSelector-Short-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12:58 PM\n" +
                         "                ROW 1\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    Long\n" +
-                        "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/time-parser/save/time-parse-pattern%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Table-Long-Link\n" +
+                        "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet123/spreadsheet/time-parser/save/time-parse-pattern%20h:mm:ss%20AM/PM] id=spreadsheetParserSelector-Long-Link\n" +
                         "                  SpreadsheetTextNodeComponent\n" +
                         "                    12:58:00 PM\n" +
                         "      AppendPluginSelectorTokenComponent\n" +

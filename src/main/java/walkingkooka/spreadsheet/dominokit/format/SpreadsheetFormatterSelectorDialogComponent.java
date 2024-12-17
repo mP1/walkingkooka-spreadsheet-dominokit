@@ -93,7 +93,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         this.formatterNames = SpreadsheetFormatterNameLinkListComponent.empty(ID + "-formatterNames-");
 
         this.table = SpreadsheetFormatterTableComponent.empty(
-                ID + SpreadsheetElementIds.TABLE + "-"
+                ID + "-"
         );
 
         this.appender = AppendPluginSelectorTokenComponent.empty(ID + "-appender-");

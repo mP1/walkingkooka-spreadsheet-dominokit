@@ -106,6 +106,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
                         "            SpreadsheetDataTableComponent\n" +
+                        "              id=spreadsheetList-Table\n" +
                         "              COLUMN(S)\n" +
                         "                Name\n" +
                         "                Created by\n" +
