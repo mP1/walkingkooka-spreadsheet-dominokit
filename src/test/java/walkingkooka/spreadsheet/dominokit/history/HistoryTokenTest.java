@@ -2211,7 +2211,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         this.parseStringAndCheck(
                 "hello",
                 HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // from
+                        OptionalInt.empty(), // offset
                         OptionalInt.empty() // count
                 )
         );
@@ -2222,7 +2222,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         this.parseStringAndCheck(
                 "",
                 HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // from
+                        OptionalInt.empty(), // offset
                         OptionalInt.empty() // count
                 )
         );
@@ -2233,7 +2233,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         this.parseStringAndCheck(
                 "/",
                 HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // from
+                        OptionalInt.empty(), // offset
                         OptionalInt.empty() // count
                 )
         );
