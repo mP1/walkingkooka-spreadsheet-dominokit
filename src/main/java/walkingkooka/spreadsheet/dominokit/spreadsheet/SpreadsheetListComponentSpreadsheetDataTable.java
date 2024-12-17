@@ -84,7 +84,7 @@ final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementC
 
         this.card.appendChild(table);
 
-        this.tableCount = 0;
+        this.tableRowCount = 0;
     }
 
     private List<ColumnConfig<SpreadsheetMetadata>> columnConfigs() {
@@ -143,12 +143,12 @@ final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementC
                         metadatas
                 )
         );
-        this.tableCount = metadatas.size();
+        this.tableRowCount = metadatas.size();
 
         return this;
     }
 
-    private int tableCount;
+    private int tableRowCount;
 
     void refresh(final SpreadsheetListHistoryToken historyToken) {
         final int offset = historyToken.offset()
@@ -177,7 +177,7 @@ final class SpreadsheetListComponentSpreadsheetDataTable implements HtmlElementC
 
         // next
         final HistoryTokenAnchorComponent next = this.next;
-        final boolean nextDisabled = this.tableCount < count;
+        final boolean nextDisabled = this.tableRowCount < count;
         next.setDisabled(nextDisabled);
         if (false == nextDisabled) {
             next.setHistoryToken(
