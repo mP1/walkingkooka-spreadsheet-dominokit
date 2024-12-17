@@ -49,7 +49,7 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
     // label............................................................................................................
 
     @Override
-    default SpreadsheetDataTableComponent<T> setLabel(String label) {
+    default SpreadsheetDataTableComponent<T> setLabel(final String label) {
         throw new UnsupportedOperationException();
     }
 
