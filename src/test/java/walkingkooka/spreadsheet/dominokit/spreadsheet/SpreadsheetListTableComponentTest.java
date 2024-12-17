@@ -48,7 +48,7 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
     }
 
     @Test
-    public void testPrintTreeWhenSeveralSpreadsheets() {
+    public void testTableThreeColumnsThreeRows() {
         this.refreshAndCheck(
                 SpreadsheetListTableComponent.empty(
                         context("/")
@@ -126,7 +126,7 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
     }
 
     @Test
-    public void testPrintTreeWhenSeveralSpreadsheetsAndPrevious() {
+    public void testTableThreeColumnsThreeRowsAndPrevious() {
         this.refreshAndCheck(
                 SpreadsheetListTableComponent.empty(
                         context("/offset/1/count/2")
@@ -204,7 +204,7 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
     }
 
     @Test
-    public void testPrintTreeWhenSeveralSpreadsheetsAndNext() {
+    public void testTableThreeColumnsThreeRowsAndNext() {
         this.refreshAndCheck(
                 SpreadsheetListTableComponent.empty(
                         context("/")
