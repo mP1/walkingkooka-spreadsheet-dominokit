@@ -23,7 +23,6 @@ import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
@@ -52,7 +51,7 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
     private SpreadsheetFormatterTableComponent(final String id) {
         this.cellRenderer = SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer.with(id);
         this.dataTable = SpreadsheetDataTableComponent.with(
-                CharSequences.subSequence(id, 0, -1 ) + SpreadsheetElementIds.TABLE, // id
+                id, // id
                 columnConfigs(), // configs
                 this.cellRenderer
         ).hideHeaders();

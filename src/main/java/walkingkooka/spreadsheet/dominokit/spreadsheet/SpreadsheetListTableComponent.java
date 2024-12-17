@@ -23,7 +23,6 @@ import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
@@ -63,7 +62,7 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
         this.card = SpreadsheetCard.empty();
 
         this.table = SpreadsheetDataTableComponent.with(
-                ID + SpreadsheetElementIds.TABLE,
+                ID_PREFIX,
                 columnConfigs(),
                 SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer.with(context)
         ).emptyStatePlugin(

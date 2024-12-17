@@ -52,7 +52,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
         this.cellRenderer = cellRenderer;
         this.plugins = Lists.array();
 
-        this.setId(id);
+        this.id = id;
     }
 
     // id...............................................................................................................
@@ -64,9 +64,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
 
     @Override
     public SpreadsheetDataTableComponent<T> setId(final String id) {
-        CharSequences.failIfNullOrEmpty(id, "id");
-        this.id = id;
-        return this;
+        throw new UnsupportedOperationException();
     }
 
     private String id;

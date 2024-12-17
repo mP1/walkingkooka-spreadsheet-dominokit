@@ -58,7 +58,7 @@ public final class SpreadsheetDeltaMatchedCellsTableComponent implements HtmlEle
     private SpreadsheetDeltaMatchedCellsTableComponent(final String id,
                                                        final SpreadsheetDeltaMatchedCellsTableComponentContext context) {
         this.dataTable = SpreadsheetDataTableComponent.with(
-                id + "cells-Table", // id
+                id + "cells-", // id-prefix
                 columnConfigs(), // column configs
                 SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer.with(context)
         ).bodyScrollPlugin();

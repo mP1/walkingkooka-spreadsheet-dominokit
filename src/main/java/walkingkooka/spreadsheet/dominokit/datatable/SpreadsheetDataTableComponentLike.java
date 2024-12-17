@@ -28,6 +28,7 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -199,7 +200,15 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            printer.println("id=" + this.id());
+            printer.println(
+                    "id=" +
+                            CharSequences.subSequence(
+                                    this.id(),
+                                    0,
+                                    -1
+                            ) +
+                            SpreadsheetElementIds.TABLE
+            );
 
             // print columns
             if (false == headersHidden) {
