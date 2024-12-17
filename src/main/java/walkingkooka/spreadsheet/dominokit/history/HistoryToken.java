@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.Cast;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.plugin.PluginName;
 import walkingkooka.predicate.character.CharPredicates;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetHateosResourceNames;
@@ -892,6 +893,15 @@ public abstract class HistoryToken implements HasUrlFragment,
         return PluginListSelectHistoryToken.with(
                 offset,
                 count
+        );
+    }
+
+    /**
+     * {@see PluginSelectHistoryToken}
+     */
+    public static PluginSelectHistoryToken pluginSelect(final PluginName name) {
+        return PluginSelectHistoryToken.with(
+                name
         );
     }
 
