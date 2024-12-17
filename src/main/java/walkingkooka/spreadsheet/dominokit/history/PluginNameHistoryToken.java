@@ -22,6 +22,7 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Instances represent a token within a history hash including the {@link PluginName}
@@ -47,29 +48,33 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
 
     // UrlFragment......................................................................................................
 
-    @Override
+    @Override //
     final HistoryToken parse0(final String component,
                               final TextCursor cursor) {
         final PluginName pluginName = PluginName.with(component);
         HistoryToken historyToken = this;
 
-        String nextComponent = component;
-
-        do {
-            switch (nextComponent) {
-                case "":
-                    historyToken = pluginSelect(pluginName);
-                    break;
-                default:
-                    cursor.end();
-                    break;
-            }
-            nextComponent = parseComponent(cursor)
-                    .orElse("");
-        } while (false == cursor.isEmpty());
+        switch (component) {
+            case SELECT_STRING:
+                historyToken = pluginSelect(pluginName);
+                break;
+            case FILE_STRING:
+                historyToken = pluginFileView(
+                        this.name,
+                        Optional.empty()
+                );
+                historyToken = historyToken.cast(PluginFileViewHistoryToken.class)
+                        .parseFile(cursor);
+                break;
+            default:
+                cursor.end();
+                historyToken = this;
+                break;
+        }
 
         return historyToken;
     }
+
 
     @Override
     final UrlFragment pluginUrlFragment() {
