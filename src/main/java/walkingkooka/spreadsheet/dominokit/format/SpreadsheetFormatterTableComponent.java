@@ -89,7 +89,7 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
     }
 
     private static ColumnConfig<SpreadsheetFormatterSample> columnConfig(final String columnName,
-                                                                                   final TextAlign textAlign) {
+                                                                         final TextAlign textAlign) {
         return ColumnConfig.<SpreadsheetFormatterSample>create(columnName)
                 .setFixed(true)
                 .minWidth("33%")
