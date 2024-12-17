@@ -56,6 +56,8 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
                                           final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
         CharSequences.failIfNullOrEmpty(id, "id");
 
+        this.id = id;
+
         final LocalListDataStore<T> localListDataStore = new LocalListDataStore<>();
 
         this.table = new DataTable<>(
@@ -74,8 +76,6 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         this.dataStore = localListDataStore;
 
         this.cellRenderer = cellRenderer;
-
-        this.setId(id);
 
         this.children = Lists.array();
 
@@ -109,13 +109,14 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
 
     @Override
     public String id() {
-        return this.table.getId();
+        return this.id;
     }
+
+    private final String id;
 
     @Override
     public SpreadsheetDataTableComponent<T> setId(final String id) {
-        this.table.setId(id);
-        return this;
+        throw new UnsupportedOperationException();
     }
 
     // disabled.........................................................................................................
