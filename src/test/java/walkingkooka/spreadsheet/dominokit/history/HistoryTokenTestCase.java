@@ -434,7 +434,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
     final void saveAndCheck(final HistoryToken token,
-                               final String save) {
+                            final String save) {
         this.saveAndCheck(
                 token,
                 save,
@@ -443,8 +443,8 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
     final void saveAndCheck(final HistoryToken token,
-                               final String save,
-                               final HistoryToken expected) {
+                            final String save,
+                            final HistoryToken expected) {
         this.checkEquals(
                 expected,
                 token.save(save),
