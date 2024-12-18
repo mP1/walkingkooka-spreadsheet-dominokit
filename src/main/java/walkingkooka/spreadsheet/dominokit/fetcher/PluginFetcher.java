@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
+import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.text.CharSequences;
 
 import java.util.List;
@@ -125,6 +126,22 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 this.watcher.onEmptyResponse(context);
+                break;
+            case "JarEntryInfoList":
+                // GET https://server/api/plugin/Plugin/list
+                this.watcher.onJarEntryInfoList(
+                        this.extractPluginName(url),
+                        Optional.ofNullable(
+                                body.trim()
+                                        .isEmpty() ?
+                                        null :
+                                        this.parse(
+                                                body,
+                                                JarEntryInfoList.class
+                                        )
+                        ),
+                        this.context
+                );
                 break;
             case "Plugin":
                 // GET http://server/api/plugin/PluginName
