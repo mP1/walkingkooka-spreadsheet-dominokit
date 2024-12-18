@@ -51,6 +51,6 @@ final class PluginFetcherWatchersPluginSetEvent extends FetcherWatchersEvent<Plu
 
     @Override
     public String toString() {
-        return this.plugins + " " + this.context;
+        return this.plugins.toString();
     }
 }
