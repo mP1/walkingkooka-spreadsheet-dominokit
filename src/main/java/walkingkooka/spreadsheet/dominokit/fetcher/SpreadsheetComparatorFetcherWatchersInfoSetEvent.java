@@ -58,6 +58,6 @@ final class SpreadsheetComparatorFetcherWatchersInfoSetEvent extends FetcherWatc
 
     @Override
     public String toString() {
-        return this.id + " " + this.infos + " " + this.context;
+        return this.id + " " + this.infos;
     }
 }

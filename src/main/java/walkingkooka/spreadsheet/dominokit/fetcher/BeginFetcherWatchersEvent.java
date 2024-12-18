@@ -68,6 +68,6 @@ final class BeginFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherW
 
     @Override
     public String toString() {
-        return this.method + " " + this.url + " " + this.body + " " + this.context;
+        return this.method + " " + this.url + " " + this.body;
     }
 }

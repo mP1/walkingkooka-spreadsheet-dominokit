@@ -83,6 +83,6 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
 
     @Override
     public String toString() {
-        return this.method + " " + this.url + " " + this.status + " " + this.headers + " " + this.body + " " + this.context;
+        return this.method + " " + this.url + " " + this.status + " " + this.headers + " " + this.body;
     }
 }

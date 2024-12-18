@@ -41,6 +41,6 @@ final class EmptyResponseFetcherWatchersEvent<W extends FetcherWatcher> extends 
 
     @Override
     public String toString() {
-        return this.context.toString();
+        return "";
     }
 }

@@ -67,6 +67,6 @@ final class SpreadsheetDeltaFetcherWatchersEvent extends FetcherWatchersEvent<Sp
 
     @Override
     public String toString() {
-        return this.method + " " + this.url + " " + this.delta + " " + this.context;
+        return this.method + " " + this.url + " " + this.delta;
     }
 }
