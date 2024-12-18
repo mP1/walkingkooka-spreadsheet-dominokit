@@ -59,6 +59,6 @@ final class SpreadsheetFormatterFetcherWatchersMenuListEvent extends FetcherWatc
 
     @Override
     public String toString() {
-        return this.id + " " + this.menuList + " " + this.context;
+        return this.id + " " + this.menuList;
     }
 }

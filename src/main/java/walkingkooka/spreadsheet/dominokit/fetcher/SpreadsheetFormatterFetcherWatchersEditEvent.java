@@ -59,6 +59,6 @@ final class SpreadsheetFormatterFetcherWatchersEditEvent extends FetcherWatchers
 
     @Override
     public String toString() {
-        return this.id + " " + this.edit + " " + this.context;
+        return this.id + " " + this.edit;
     }
 }
