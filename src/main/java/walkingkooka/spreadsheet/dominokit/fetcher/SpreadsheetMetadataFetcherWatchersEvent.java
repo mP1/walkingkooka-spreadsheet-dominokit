@@ -48,6 +48,6 @@ final class SpreadsheetMetadataFetcherWatchersEvent extends FetcherWatchersEvent
 
     @Override
     public String toString() {
-        return this.metadata + " " + this.context;
+        return this.metadata.toString();
     }
 }

@@ -47,6 +47,6 @@ final class ErrorFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherW
 
     @Override
     public String toString() {
-        return this.cause + " " + this.context;
+        return this.cause.toString();
     }
 }

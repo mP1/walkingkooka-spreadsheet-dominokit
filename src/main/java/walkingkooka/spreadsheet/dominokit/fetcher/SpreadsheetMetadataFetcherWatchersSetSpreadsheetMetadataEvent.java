@@ -53,6 +53,6 @@ final class SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent extend
 
     @Override
     public String toString() {
-        return this.metadatas + " " + this.context;
+        return this.metadatas.toString();
     }
 }
