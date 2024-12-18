@@ -52,7 +52,6 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         SpreadsheetListDialogComponent.with(
                 SpreadsheetListComponentContexts.basic(
                         context, // HistoryTokenContext
-                        context.spreadsheetMetadataFetcher(),
                         metadataFetcherWatchers,
                         context // HasLocale
                 )

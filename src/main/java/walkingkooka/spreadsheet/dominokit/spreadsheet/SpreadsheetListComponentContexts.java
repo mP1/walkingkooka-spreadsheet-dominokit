@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.locale.HasLocale;
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
@@ -29,12 +28,10 @@ public final class SpreadsheetListComponentContexts implements PublicStaticHelpe
      * {@see BasicSpreadsheetListComponentContext}
      */
     public static SpreadsheetListComponentContext basic(final HistoryTokenContext historyTokenContext,
-                                                        final SpreadsheetMetadataFetcher metadataFetcher,
                                                         final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers,
                                                         final HasLocale hasLocale) {
         return BasicSpreadsheetListComponentContext.with(
                 historyTokenContext,
-                metadataFetcher,
                 metadataFetcherWatchers,
                 hasLocale
         );

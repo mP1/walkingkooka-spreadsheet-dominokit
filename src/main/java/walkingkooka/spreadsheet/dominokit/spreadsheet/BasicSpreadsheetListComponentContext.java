@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.locale.HasLocale;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -30,23 +29,19 @@ public final class BasicSpreadsheetListComponentContext implements SpreadsheetLi
         HistoryTokenContextDelegator {
 
     static BasicSpreadsheetListComponentContext with(final HistoryTokenContext historyTokenContext,
-                                                     final SpreadsheetMetadataFetcher metadataFetcher,
                                                      final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers,
                                                      final HasLocale hasLocale) {
         return new BasicSpreadsheetListComponentContext(
                 historyTokenContext,
-                metadataFetcher,
                 metadataFetcherWatchers,
                 hasLocale
         );
     }
 
     private BasicSpreadsheetListComponentContext(final HistoryTokenContext historyTokenContext,
-                                                 final SpreadsheetMetadataFetcher metadataFetcher,
                                                  final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers,
                                                  final HasLocale hasLocale) {
         this.historyTokenContext = historyTokenContext;
-        this.metadataFetcher = metadataFetcher;
         this.metadataFetcherWatchers = metadataFetcherWatchers;
         this.hasLocale = hasLocale;
     }
@@ -62,13 +57,6 @@ public final class BasicSpreadsheetListComponentContext implements SpreadsheetLi
     }
 
     private final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers;
-
-    @Override
-    public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
-        return this.metadataFetcher;
-    }
-
-    private final SpreadsheetMetadataFetcher metadataFetcher;
 
     @Override
     public Locale locale() {
