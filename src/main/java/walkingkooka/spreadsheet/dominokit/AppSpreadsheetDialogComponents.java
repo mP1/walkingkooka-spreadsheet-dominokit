@@ -50,11 +50,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     static void register(final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers,
                          final AppContext context) {
         SpreadsheetListDialogComponent.with(
-                SpreadsheetListComponentContexts.basic(
-                        context, // HistoryTokenContext
-                        metadataFetcherWatchers,
-                        context // HasLocale
-                )
+                SpreadsheetListComponentContexts.appContext(context)
         );
 
         PluginNameSetDialogComponent.with(
