@@ -61,6 +61,6 @@ final class PluginFetcherWatchersJarEntryInfoListEvent extends FetcherWatchersEv
 
     @Override
     public String toString() {
-        return this.list + " " + this.context;
+        return this.name + " " + this.list;
     }
 }
