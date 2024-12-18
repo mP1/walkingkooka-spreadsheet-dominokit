@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySav
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -249,6 +250,13 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
     }
 
     // PluginFetcherWatcher.............................................................................................
+
+    @Override
+    public void onJarEntryInfoList(final PluginName name,
+                                   final Optional<JarEntryInfoList> list,
+                                   final AppContext context) {
+        // NOP
+    }
 
     @Override
     public void onPlugin(final PluginName name,

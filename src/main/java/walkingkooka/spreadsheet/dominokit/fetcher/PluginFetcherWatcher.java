@@ -21,6 +21,7 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 
 import java.util.Optional;
 
@@ -28,6 +29,11 @@ import java.util.Optional;
  * A watcher that receives all {@link PluginSet} response events.
  */
 public interface PluginFetcherWatcher extends FetcherWatcher {
+
+    void onJarEntryInfoList(final PluginName name,
+                            final Optional<JarEntryInfoList> list,
+                            final AppContext context);
+
 
     void onPlugin(final PluginName name,
                   final Optional<Plugin> plugin,

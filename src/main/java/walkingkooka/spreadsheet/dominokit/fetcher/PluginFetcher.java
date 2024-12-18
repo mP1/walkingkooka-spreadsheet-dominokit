@@ -91,6 +91,22 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         );
     }
 
+    // GET /api/plugin/PluginName/list
+    public void list(final PluginName pluginName) {
+        Objects.requireNonNull(pluginName, "pluginName");
+
+        this.get(
+                plugin()
+                        .appendPathName(
+                                UrlPathName.with(
+                                        pluginName.value()
+                                )
+                        ).appendPathName(
+                                SpreadsheetServerLinkRelations.LIST.toUrlPathName()
+                        )
+        );
+    }
+
     static RelativeUrl plugin() {
         return Url.EMPTY_RELATIVE_URL.appendPath(
                 SpreadsheetHttpServer.API_PLUGIN
