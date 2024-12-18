@@ -27,7 +27,6 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -232,13 +231,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
     }
 
     private SpreadsheetListComponentContext spreadsheetListComponentContext(final AppContext context) {
-        final SpreadsheetMetadataFetcherWatchers watchers = SpreadsheetMetadataFetcherWatchers.empty();
-
-        return SpreadsheetListComponentContexts.basic(
-                context, // historyToken
-                watchers,
-                context // HasLocale
-        );
+        return SpreadsheetListComponentContexts.appContext(context);
     }
 
     private SpreadsheetListDialogComponent dialog(final SpreadsheetListComponentContext context) {
