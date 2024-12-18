@@ -129,6 +129,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
+import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProvider;
@@ -890,6 +891,13 @@ public class App implements EntryPoint,
     }
 
     private final PluginFetcherWatchers pluginFetcherWatchers;
+
+    @Override
+    public void onJarEntryInfoList(final PluginName name,
+                                   final Optional<JarEntryInfoList> list,
+                                   final AppContext context) {
+        // NOP
+    }
 
     @Override
     public void onPlugin(final PluginName name,
