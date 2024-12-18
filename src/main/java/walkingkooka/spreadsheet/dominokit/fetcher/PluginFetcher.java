@@ -127,20 +127,9 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                 this.watcher.onEmptyResponse(context);
                 break;
             case "Plugin":
-                // extract pluginName from url / 1=api / 2=plugin / 3=PluginName
-                final List<UrlPathName> names = url.path()
-                        .namesList();
-                if (names.size() < 3) {
-                    throw new IllegalStateException("Missing pluginName from url " + url);
-                }
-                final PluginName pluginName = PluginName.with(
-                        names.get(3)
-                                .value()
-                );
-
                 // GET http://server/api/plugin/PluginName
                 this.watcher.onPlugin(
-                        pluginName,
+                        this.extractPluginName(url),
                         Optional.ofNullable(
                                 body.trim().isEmpty() ?
                                         null :
@@ -165,5 +154,18 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
+    }
+
+    // extract pluginName from url / 1=api / 2=plugin / 3=PluginName
+    private PluginName extractPluginName(final AbsoluteOrRelativeUrl url) {
+        final List<UrlPathName> names = url.path()
+                .namesList();
+        if (names.size() < 3) {
+            throw new IllegalStateException("Missing pluginName from url " + url);
+        }
+        return PluginName.with(
+                names.get(3)
+                        .value()
+        );
     }
 }
