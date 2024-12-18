@@ -22,6 +22,7 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.Objects;
+import java.util.OptionalInt;
 
 /**
  * Represents the selection of a single {@link walkingkooka.plugin.store.Plugin}.
@@ -53,9 +54,14 @@ public final class PluginSelectHistoryToken extends PluginNameHistoryToken {
         return this; // not a SAVE HistoryToken return this
     }
 
+    // /plugin/Plugin123 -> /plugin
+
     @Override
     public HistoryToken clearAction() {
-        return this;
+        return HistoryToken.pluginListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+        );
     }
 
     @Override
