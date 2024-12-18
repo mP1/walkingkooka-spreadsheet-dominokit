@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 
@@ -38,11 +37,6 @@ public class FakeSpreadsheetListComponentContext extends FakeHistoryTokenContext
 
     @Override
     public Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
         throw new UnsupportedOperationException();
     }
 }

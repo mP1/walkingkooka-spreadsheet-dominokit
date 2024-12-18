@@ -18,10 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.dominokit.UiFormattingContext;
-import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
-public interface SpreadsheetListComponentContext extends HasSpreadsheetMetadataFetcher,
+public interface SpreadsheetListComponentContext extends HasSpreadsheetMetadataFetcherWatchers,
         HistoryTokenContext,
         UiFormattingContext {
 }
