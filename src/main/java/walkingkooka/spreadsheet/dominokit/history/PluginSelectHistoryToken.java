@@ -42,7 +42,7 @@ public final class PluginSelectHistoryToken extends PluginNameHistoryToken {
     // HistoryToken.....................................................................................................
 
     //
-    // /plugin/view/PluginName123
+    // /plugin/PluginName123
     //
     @Override
     UrlFragment pluginNameUrlFragment() {
