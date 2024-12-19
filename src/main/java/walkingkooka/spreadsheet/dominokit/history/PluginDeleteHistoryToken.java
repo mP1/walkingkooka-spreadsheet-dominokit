@@ -70,8 +70,6 @@ public final class PluginDeleteHistoryToken extends PluginNameHistoryToken {
         context.pluginFetcher()
                 .deletePlugin(this.name());
 
-        context.pushHistoryToken(
-                this.clearAction()
-        );
+        context.pushHistoryToken(previous);
     }
 }
