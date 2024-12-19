@@ -1471,13 +1471,11 @@ public abstract class HistoryToken implements HasUrlFragment,
         HistoryToken closed = this;
 
         if( this instanceof PluginSelectHistoryToken) {
-            closed = this.cast(PluginSelectHistoryToken.class)
-                    .clearAction();
+            closed = this.clearAction();
         }
 
         if (this instanceof SpreadsheetCellFindHistoryToken) {
-            final SpreadsheetCellFindHistoryToken find = (SpreadsheetCellFindHistoryToken) this;
-            closed = find.clearAction();
+            closed = this.clearAction();
         }
 
         if (this instanceof SpreadsheetCellSortHistoryToken || this instanceof SpreadsheetColumnSortHistoryToken || this instanceof SpreadsheetRowSortHistoryToken) {
