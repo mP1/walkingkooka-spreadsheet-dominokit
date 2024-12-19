@@ -17,13 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
+import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
+import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfo;
+import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.CharSequences;
 
 import java.time.LocalDateTime;
@@ -165,16 +168,33 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
         );
     }
 
-    // view
+    // download, view
     // TODO need to include row number in id to make it really unique
     private SpreadsheetFlexLayout links(final JarEntryInfo info) {
+        final JarEntryInfoListTableComponentContext context = this.context;
+
+        final PluginName pluginName = context.pluginName();
+        final JarEntryInfoName filename = info.name();
+
+        final HistoryTokenAnchorComponent download = context.historyToken()
+                .link(this.id + "download")
+                .setTextContent("download");
+        download.setDisabled(null == pluginName);
+        download.setHref(
+                PluginFetcher.pluginDownloadUrl(
+                        pluginName,
+                        Optional.of(filename)
+                )
+        );
+
         final HistoryTokenAnchorComponent view = HistoryToken.pluginFileView(
-                        this.context.pluginName(),
-                        Optional.of(info.name())
+                        pluginName,
+                        Optional.of(filename)
                 ).link(this.id + "view")
                 .setTextContent("view");
 
         return SpreadsheetFlexLayout.row()
+                .appendChild(download)
                 .appendChild(view);
     }
 

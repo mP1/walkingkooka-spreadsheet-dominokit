@@ -252,6 +252,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
                         "                    \"2/1/00, 12:58 pm\"\n" +
                         "                  SpreadsheetFlexLayout\n" +
                         "                    ROW\n" +
+                        "                      \"download\" [/api/plugin/TestPluginName123/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
                         "                      \"view\" [#/plugin/TestPluginName123/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
                         "              PLUGINS\n" +
                         "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
