@@ -31,6 +31,30 @@ import static org.junit.Assert.assertThrows;
 
 public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
 
+    // pluginName.......................................................................................................
+
+    @Test
+    public void testPluginNameWithNullFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> PluginFetcher.pluginName(
+                        null
+                )
+        );
+    }
+
+    @Test
+    public void testPluginName() {
+        this.checkEquals(
+                Url.parseRelative("/api/plugin/TestPluginName123"),
+                PluginFetcher.pluginName(
+                        PluginName.with("TestPluginName123")
+                )
+        );
+    }
+
+    // pluginDownloadUrl................................................................................................
+
     @Test
     public void testPluginDownloadUrlWithNullPluginNameFails() {
         assertThrows(
