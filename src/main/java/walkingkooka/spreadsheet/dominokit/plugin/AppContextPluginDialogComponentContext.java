@@ -57,7 +57,7 @@ final class AppContextPluginDialogComponentContext implements PluginDialogCompon
     @Override
     public void listJarEntries(final PluginName pluginName) {
         this.context.pluginFetcher()
-                .list(pluginName);
+                .listJarEntries(pluginName);
     }
 
     // HasPluginFetcherWatchersDelegator................................................................................
