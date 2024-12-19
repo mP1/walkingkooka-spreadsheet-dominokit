@@ -58,6 +58,9 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
             case SELECT_STRING:
                 historyToken = pluginSelect(pluginName);
                 break;
+            case DELETE_STRING:
+                historyToken = this.delete();
+                break;
             case FILE_STRING:
                 historyToken = pluginFileView(
                         this.name,

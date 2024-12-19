@@ -46,7 +46,7 @@ public final class PluginDeleteHistoryToken extends PluginNameHistoryToken {
     //
     @Override
     UrlFragment pluginNameUrlFragment() {
-        return UrlFragment.EMPTY;
+        return DELETE;
     }
 
     @Override
