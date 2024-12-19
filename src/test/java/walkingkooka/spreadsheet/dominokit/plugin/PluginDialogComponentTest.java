@@ -45,7 +45,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
     private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName123");
 
     @Test
-    public void testEmpty() {
+    public void testEmptyBeforeLoadingJarEntryInfoList() {
         this.onHistoryTokenChangeAndCheck(
                 "/plugin/" + PLUGIN_NAME,
                 "PluginDialogComponent\n" +
@@ -70,6 +70,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
                         "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
+                        "          \"Download\" DISABLED id=plugin-download-Link\n" +
                         "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
     }
@@ -108,6 +109,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
                         "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
+                        "          \"Download\" DISABLED id=plugin-download-Link\n" +
                         "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
 
@@ -145,6 +147,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
                         "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
+                        "          \"Download\" [/api/plugin/TestPluginName123/download] id=plugin-download-Link\n" +
                         "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
     }
@@ -184,6 +187,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
                         "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
+                        "          \"Download\" DISABLED id=plugin-download-Link\n" +
                         "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
 
@@ -253,6 +257,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
                         "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
+                        "          \"Download\" [/api/plugin/TestPluginName123/download] id=plugin-download-Link\n" +
                         "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
     }

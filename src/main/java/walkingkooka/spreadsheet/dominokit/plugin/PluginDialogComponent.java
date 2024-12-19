@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
+import walkingkooka.net.Url;
+import walkingkooka.net.UrlPathName;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
@@ -32,6 +34,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.PluginSelectHistoryToken;
+import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
+import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 
 import java.util.Objects;
@@ -58,6 +62,7 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
         context.addPluginFetcherWatcher(this);
 
         this.table = this.table();
+        this.download = this.anchor("Download");
         this.close = this.anchor("Close");
 
         this.dialog = this.dialogCreate(context);
@@ -86,9 +91,30 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
 
     private HistoryTokenAnchorComponent close;
 
+    // download.........................................................................................................
+
+    private void refreshDownload() {
+        final PluginName pluginName = this.pluginName;
+        final HistoryTokenAnchorComponent link = this.download;
+        link.setDisabled(null == pluginName);
+        link.setHref(
+                null == pluginName ?
+                        null :
+                        Url.EMPTY_RELATIVE_URL.appendPath(
+                                SpreadsheetHttpServer.API_PLUGIN.append(
+                                        UrlPathName.with(pluginName.value())
+                                ).append(
+                                        SpreadsheetServerLinkRelations.DOWNLOAD.toUrlPathName()
+                                )
+                        )
+        );
+    }
+
+    private HistoryTokenAnchorComponent download;
+
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
-    // TODO add DOWNLOAD, DELETE, RENAME links
+    // TODO add DELETE, RENAME links
     private SpreadsheetDialogComponent dialogCreate(final PluginDialogComponentContext context) {
         return SpreadsheetDialogComponent.with(
                         ID + SpreadsheetElementIds.DIALOG, // id
@@ -98,6 +124,7 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
                 ).appendChild(this.table)
                 .appendChild(
                         SpreadsheetFlexLayout.row()
+                                .appendChild(this.download)
                                 .appendChild(this.close)
                 );
     }
@@ -188,6 +215,8 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
                         .orElse("Loading...")
         );
         this.table.setList(this.list);
+
+        this.refreshDownload();
         this.refreshClose(context);
     }
 
