@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
@@ -42,7 +41,7 @@ import java.util.OptionalLong;
 public final class PluginDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginDialogComponent,
         SpreadsheetComparatorNameListDialogComponentContext> {
 
-    private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName123");
+    private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName111");
 
     @Test
     public void testEmptyBeforeLoadingJarEntryInfoList() {
@@ -77,7 +76,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
 
     @Test
     public void testLoadReturnsEmptyJar() {
-        final AppContext context = appContext("/plugin/" + PLUGIN_NAME);
+        final TestAppContext context = new TestAppContext("/plugin/" + PLUGIN_NAME);
 
         final PluginDialogComponent dialog = this.dialog(
                 this.pluginDialogComponentContext(context)
@@ -127,7 +126,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
                 context,
                 "PluginDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    TestPluginName123\n" +
+                        "    TestPluginName111\n" +
                         "    id=plugin-Dialog includeClose=true\n" +
                         "      JarEntryInfoListTableComponent\n" +
                         "        SpreadsheetCard\n" +
@@ -147,7 +146,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
                         "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Download\" [/api/plugin/TestPluginName123/download] id=plugin-download-Link\n" +
+                        "          \"Download\" [/api/plugin/TestPluginName111/download] id=plugin-download-Link\n" +
                         "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
     }
@@ -155,7 +154,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
 
     @Test
     public void testLoadReturnsNonEmptyJar() {
-        final AppContext context = appContext("/plugin/" + PLUGIN_NAME);
+        final TestAppContext context = new TestAppContext("/plugin/" + PLUGIN_NAME);
 
         final PluginDialogComponent dialog = this.dialog(
                 this.pluginDialogComponentContext(context)
@@ -221,7 +220,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
                 context,
                 "PluginDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
-                        "    TestPluginName123\n" +
+                        "    TestPluginName111\n" +
                         "    id=plugin-Dialog includeClose=true\n" +
                         "      JarEntryInfoListTableComponent\n" +
                         "        SpreadsheetCard\n" +
@@ -252,13 +251,197 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
                         "                    \"2/1/00, 12:58 pm\"\n" +
                         "                  SpreadsheetFlexLayout\n" +
                         "                    ROW\n" +
-                        "                      \"download\" [/api/plugin/TestPluginName123/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                        "                      \"view\" [#/plugin/TestPluginName123/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
+                        "                      \"download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                        "                      \"view\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
                         "              PLUGINS\n" +
                         "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Download\" [/api/plugin/TestPluginName123/download] id=plugin-download-Link\n" +
+                        "          \"Download\" [/api/plugin/TestPluginName111/download] id=plugin-download-Link\n" +
+                        "          \"Close\" [#/plugin] id=plugin-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testLoadDifferentPlugin() {
+        final TestAppContext context = new TestAppContext("/plugin/" + PLUGIN_NAME);
+
+        final PluginDialogComponent dialog = this.dialog(
+                this.pluginDialogComponentContext(context)
+        );
+
+        // initially empty
+        this.onHistoryTokenChangeAndCheck(
+                dialog,
+                context,
+                "PluginDialogComponent\n" +
+                        "  SpreadsheetDialogComponent\n" +
+                        "    Loading...\n" +
+                        "    id=plugin-Dialog includeClose=true\n" +
+                        "      JarEntryInfoListTableComponent\n" +
+                        "        SpreadsheetCard\n" +
+                        "          Card\n" +
+                        "            SpreadsheetDataTableComponent\n" +
+                        "              id=plugin-Table\n" +
+                        "              COLUMN(S)\n" +
+                        "                Name\n" +
+                        "                Size(Compressed)\n" +
+                        "                Method\n" +
+                        "                CRC\n" +
+                        "                Created\n" +
+                        "                Last modified by\n" +
+                        "                Links\n" +
+                        "              ROW(S)\n" +
+                        "              PLUGINS\n" +
+                        "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
+                        "      SpreadsheetFlexLayout\n" +
+                        "        ROW\n" +
+                        "          \"Download\" DISABLED id=plugin-download-Link\n" +
+                        "          \"Close\" [#/plugin] id=plugin-close-Link\n"
+        );
+
+        dialog.onJarEntryInfoList(
+                PLUGIN_NAME,
+                Optional.of(
+                        JarEntryInfoList.with(
+                                Lists.of(
+                                        JarEntryInfo.with(
+                                                JarEntryInfoName.with("/META-INF/MANIFEST.MF"), // filename
+                                                OptionalLong.of(111), // size
+                                                OptionalLong.of(11), // compressedSize
+                                                OptionalInt.of(1), // method
+                                                OptionalLong.of(0x1111), // crc
+                                                Optional.of(
+                                                        LocalDateTime.of(1999, 1, 1, 1, 1)
+                                                ), // created
+                                                Optional.of(
+                                                        LocalDateTime.of(2000, 1, 1, 1, 1)
+                                                ) // last mod
+                                        )
+                                )
+                        )
+                ),
+                context
+        );
+
+        // refresh again !
+        this.onHistoryTokenChangeAndCheck(
+                dialog,
+                context,
+                "PluginDialogComponent\n" +
+                        "  SpreadsheetDialogComponent\n" +
+                        "    TestPluginName111\n" +
+                        "    id=plugin-Dialog includeClose=true\n" +
+                        "      JarEntryInfoListTableComponent\n" +
+                        "        SpreadsheetCard\n" +
+                        "          Card\n" +
+                        "            SpreadsheetDataTableComponent\n" +
+                        "              id=plugin-Table\n" +
+                        "              COLUMN(S)\n" +
+                        "                Name\n" +
+                        "                Size(Compressed)\n" +
+                        "                Method\n" +
+                        "                CRC\n" +
+                        "                Created\n" +
+                        "                Last modified by\n" +
+                        "                Links\n" +
+                        "              ROW(S)\n" +
+                        "                ROW 0\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"/META-INF/MANIFEST.MF\"\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"111 (11)\"\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"1\"\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"1111\"\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"1/1/99, 1:01 am\"\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"1/1/00, 1:01 am\"\n" +
+                        "                  SpreadsheetFlexLayout\n" +
+                        "                    ROW\n" +
+                        "                      \"download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                        "                      \"view\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
+                        "              PLUGINS\n" +
+                        "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
+                        "      SpreadsheetFlexLayout\n" +
+                        "        ROW\n" +
+                        "          \"Download\" [/api/plugin/TestPluginName111/download] id=plugin-download-Link\n" +
+                        "          \"Close\" [#/plugin] id=plugin-close-Link\n"
+        );
+
+        final PluginName differentPluginName = PluginName.with("differentPlugin222");
+        context.historyToken = "/plugin/" + differentPluginName;
+
+        dialog.onJarEntryInfoList(
+                differentPluginName,
+                Optional.of(
+                        JarEntryInfoList.with(
+                                Lists.of(
+                                        JarEntryInfo.with(
+                                                JarEntryInfoName.with("/META-INF/MANIFEST.MF"), // filename
+                                                OptionalLong.of(222), // size
+                                                OptionalLong.of(222), // compressedSize
+                                                OptionalInt.of(2), // method
+                                                OptionalLong.of(0x222222), // crc
+                                                Optional.of(
+                                                        LocalDateTime.of(1999, 2, 2, 2, 2)
+                                                ), // created
+                                                Optional.of(
+                                                        LocalDateTime.of(2000, 2, 2, 2, 2)
+                                                ) // last mod
+                                        )
+                                )
+                        )
+                ),
+                context
+        );
+
+        // refresh again !
+        this.onHistoryTokenChangeAndCheck(
+                dialog,
+                context,
+                "PluginDialogComponent\n" +
+                        "  SpreadsheetDialogComponent\n" +
+                        "    differentPlugin222\n" +
+                        "    id=plugin-Dialog includeClose=true\n" +
+                        "      JarEntryInfoListTableComponent\n" +
+                        "        SpreadsheetCard\n" +
+                        "          Card\n" +
+                        "            SpreadsheetDataTableComponent\n" +
+                        "              id=plugin-Table\n" +
+                        "              COLUMN(S)\n" +
+                        "                Name\n" +
+                        "                Size(Compressed)\n" +
+                        "                Method\n" +
+                        "                CRC\n" +
+                        "                Created\n" +
+                        "                Last modified by\n" +
+                        "                Links\n" +
+                        "              ROW(S)\n" +
+                        "                ROW 0\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"/META-INF/MANIFEST.MF\"\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"222 (222)\"\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"2\"\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"222222\"\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"2/2/99, 2:02 am\"\n" +
+                        "                  SpreadsheetTextComponent\n" +
+                        "                    \"2/2/00, 2:02 am\"\n" +
+                        "                  SpreadsheetFlexLayout\n" +
+                        "                    ROW\n" +
+                        "                      \"download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                        "                      \"view\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
+                        "              PLUGINS\n" +
+                        "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
+                        "      SpreadsheetFlexLayout\n" +
+                        "        ROW\n" +
+                        "          \"Download\" [/api/plugin/differentPlugin222/download] id=plugin-download-Link\n" +
                         "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
     }
@@ -266,37 +449,41 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
     private void onHistoryTokenChangeAndCheck(final String historyToken,
                                               final String expected) {
         this.onHistoryTokenChangeAndCheck(
-                appContext(historyToken),
+                new TestAppContext(historyToken),
                 expected
         );
     }
 
-    private static FakeAppContext appContext(final String historyToken) {
-        return new FakeAppContext() {
+    static class TestAppContext extends FakeAppContext {
 
-            @Override
-            public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {
-                return null;
-            }
+        TestAppContext(final String historyToken) {
+            this.historyToken = historyToken;
+        }
 
-            @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                return null;
-            }
+        @Override
+        public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {
+            return null;
+        }
 
-            @Override
-            public HistoryToken historyToken() {
-                return HistoryToken.parseString(historyToken);
-            }
+        @Override
+        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            return null;
+        }
 
-            @Override
-            public Locale locale() {
-                return Locale.forLanguageTag("EN-AU");
-            }
-        };
+        @Override
+        public HistoryToken historyToken() {
+            return HistoryToken.parseString(this.historyToken);
+        }
+
+        String historyToken;
+
+        @Override
+        public Locale locale() {
+            return Locale.forLanguageTag("EN-AU");
+        }
     }
 
-    private void onHistoryTokenChangeAndCheck(final AppContext context,
+    private void onHistoryTokenChangeAndCheck(final TestAppContext context,
                                               final String expected) {
         this.onHistoryTokenChangeAndCheck(
                 this.dialog(
@@ -307,7 +494,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
         );
     }
 
-    private PluginDialogComponentContext pluginDialogComponentContext(final AppContext context) {
+    private PluginDialogComponentContext pluginDialogComponentContext(final TestAppContext context) {
         return new FakePluginDialogComponentContext() {
             @Override
             public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {
