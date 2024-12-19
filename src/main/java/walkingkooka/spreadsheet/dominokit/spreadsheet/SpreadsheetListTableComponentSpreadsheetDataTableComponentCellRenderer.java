@@ -33,11 +33,17 @@ import java.util.Optional;
 
 final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetMetadata> {
 
-    static SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer with(final SpreadsheetListComponentContext context) {
-        return new SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer(context);
+    static SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer with(final String id,
+                                                                                       final SpreadsheetListComponentContext context) {
+        return new SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer(
+                id,
+                context
+        );
     }
 
-    private SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer(final SpreadsheetListComponentContext context) {
+    private SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer(final String id,
+                                                                                   final SpreadsheetListComponentContext context) {
+        this.id = id;
         this.context = context;
     }
 
@@ -86,11 +92,12 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
     }
 
     private HtmlElementComponent<?, ?> spreadsheetName(final SpreadsheetMetadata metadata) {
-        final SpreadsheetId id = metadata.id().orElse(null);
+        final SpreadsheetId spreadsheetId = metadata.id()
+                .orElse(null);
 
-        return HistoryToken.spreadsheetLoad(id)
+        return HistoryToken.spreadsheetLoad(spreadsheetId)
                 .link(
-                        SpreadsheetListDialogComponent.ID_PREFIX + id.toString()
+                        this.id + spreadsheetId.toString()
                 ).setTextContent(
                         metadata.name()
                                 .orElse(null)
@@ -119,23 +126,26 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
     }
 
     private SpreadsheetFlexLayout links(final SpreadsheetMetadata metadata) {
-        final SpreadsheetId id = metadata.id()
+        final String id = this.id;
+        final SpreadsheetId spreadsheetId = metadata.id()
                 .orElse(null);
 
         final HistoryTokenAnchorComponent rename = HistoryToken.spreadsheetListRenameSelect(
-                        id
-                ).link(SpreadsheetListDialogComponent.ID_PREFIX + id + "-rename")
+                        spreadsheetId
+                ).link(id + spreadsheetId + "-rename")
                 .setTextContent("Rename");
 
         final HistoryTokenAnchorComponent delete = HistoryToken.spreadsheetListDelete(
-                        id
-                ).link(SpreadsheetListDialogComponent.ID_PREFIX + id + "-delete")
+                        spreadsheetId
+                ).link(id + spreadsheetId + "-delete")
                 .setTextContent("Delete");
 
         return SpreadsheetFlexLayout.row()
                 .appendChild(rename)
                 .appendChild(delete);
     }
+
+    private final String id;
 
     private final SpreadsheetListComponentContext context;
 }

@@ -44,25 +44,27 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
     /**
      * Creates an empty {@link SpreadsheetListTableComponent}.
      */
-    static SpreadsheetListTableComponent empty(final SpreadsheetListComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetListTableComponent(context);
+    static SpreadsheetListTableComponent empty(final String id,
+                                               final SpreadsheetListComponentContext context) {
+        return new SpreadsheetListTableComponent(
+                Objects.requireNonNull(id, "id"),
+                Objects.requireNonNull(context, "context")
+        );
     }
-
-    private final static String ID = "spreadsheetList";
-
-    private final static String ID_PREFIX = ID + '-';
 
     final static int DEFAULT_COUNT = 10;
 
-    private SpreadsheetListTableComponent(final SpreadsheetListComponentContext context) {
+    private SpreadsheetListTableComponent(final String id,
+                                          final SpreadsheetListComponentContext context) {
         this.card = SpreadsheetCard.empty();
 
         this.table = SpreadsheetDataTableComponent.with(
-                ID_PREFIX,
+                id,
                 columnConfigs(),
-                SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer.with(context)
+                SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer.with(
+                        id,
+                        context
+                )
         ).emptyStatePlugin(
                 SpreadsheetIcons.spreadsheetListTableEmpty(),
                 "No spreadsheets"
@@ -70,7 +72,7 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
 
         this.card.appendChild(
                 this.table.previousNextLinks(
-                        ID_PREFIX,
+                        id,
                         context
                 )
         );

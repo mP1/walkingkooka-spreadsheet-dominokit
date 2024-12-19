@@ -36,10 +36,13 @@ import java.util.Locale;
 public final class SpreadsheetListTableComponentTest implements HtmlElementComponentTesting<SpreadsheetListTableComponent, HTMLDivElement>,
         SpreadsheetMetadataTesting {
 
+    private final static String ID = "Table123-";
+
     @Test
     public void testPrintTreeWhenEmpty() {
         this.refreshAndCheck(
                 SpreadsheetListTableComponent.empty(
+                        ID,
                         context("/")
                 ),
                 "/",
@@ -51,6 +54,7 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
     public void testTableThreeColumnsThreeRows() {
         this.refreshAndCheck(
                 SpreadsheetListTableComponent.empty(
+                        ID,
                         context("/")
                 ).setMetadata(
                         Lists.of(
@@ -64,7 +68,7 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
-                        "        id=spreadsheetList-Table\n" +
+                        "        id=Table123-Table\n" +
                         "        COLUMN(S)\n" +
                         "          Name\n" +
                         "          Created by\n" +
@@ -74,7 +78,7 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "          Links\n" +
                         "        ROW(S)\n" +
                         "          ROW 0\n" +
-                        "            \"Spreadsheet111\" [#/1] id=spreadsheetList-1-Link\n" +
+                        "            \"Spreadsheet111\" [#/1] id=Table123-1-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -85,10 +89,10 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "              \"31/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
-                        "                \"Rename\" [#/rename/1] id=spreadsheetList-1-rename-Link\n" +
-                        "                \"Delete\" [#/delete/1] id=spreadsheetList-1-delete-Link\n" +
+                        "                \"Rename\" [#/rename/1] id=Table123-1-rename-Link\n" +
+                        "                \"Delete\" [#/delete/1] id=Table123-1-delete-Link\n" +
                         "          ROW 1\n" +
-                        "            \"Spreadsheet222\" [#/2] id=spreadsheetList-2-Link\n" +
+                        "            \"Spreadsheet222\" [#/2] id=Table123-2-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -99,10 +103,10 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "              \"31/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
-                        "                \"Rename\" [#/rename/2] id=spreadsheetList-2-rename-Link\n" +
-                        "                \"Delete\" [#/delete/2] id=spreadsheetList-2-delete-Link\n" +
+                        "                \"Rename\" [#/rename/2] id=Table123-2-rename-Link\n" +
+                        "                \"Delete\" [#/delete/2] id=Table123-2-delete-Link\n" +
                         "          ROW 2\n" +
-                        "            \"Spreadsheet333\" [#/3] id=spreadsheetList-3-Link\n" +
+                        "            \"Spreadsheet333\" [#/3] id=Table123-3-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -113,13 +117,13 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "              \"31/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
-                        "                \"Rename\" [#/rename/3] id=spreadsheetList-3-rename-Link\n" +
-                        "                \"Delete\" [#/delete/3] id=spreadsheetList-3-delete-Link\n" +
+                        "                \"Rename\" [#/rename/3] id=Table123-3-rename-Link\n" +
+                        "                \"Delete\" [#/delete/3] id=Table123-3-delete-Link\n" +
                         "        CHILDREN\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              mdi-arrow-left \"previous\" DISABLED id=spreadsheetList-previous-Link\n" +
-                        "              \"next\" DISABLED mdi-arrow-right id=spreadsheetList-next-Link\n" +
+                        "              mdi-arrow-left \"previous\" DISABLED id=Table123-previous-Link\n" +
+                        "              \"next\" DISABLED mdi-arrow-right id=Table123-next-Link\n" +
                         "        PLUGINS\n" +
                         "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );
@@ -129,6 +133,7 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
     public void testTableThreeColumnsThreeRowsAndPrevious() {
         this.refreshAndCheck(
                 SpreadsheetListTableComponent.empty(
+                        ID,
                         context("/offset/1/count/2")
                 ).setMetadata(
                         Lists.of(
@@ -142,7 +147,7 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
-                        "        id=spreadsheetList-Table\n" +
+                        "        id=Table123-Table\n" +
                         "        COLUMN(S)\n" +
                         "          Name\n" +
                         "          Created by\n" +
@@ -152,7 +157,7 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "          Links\n" +
                         "        ROW(S)\n" +
                         "          ROW 0\n" +
-                        "            \"Spreadsheet111\" [#/1] id=spreadsheetList-1-Link\n" +
+                        "            \"Spreadsheet111\" [#/1] id=Table123-1-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -163,10 +168,10 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "              \"31/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
-                        "                \"Rename\" [#/rename/1] id=spreadsheetList-1-rename-Link\n" +
-                        "                \"Delete\" [#/delete/1] id=spreadsheetList-1-delete-Link\n" +
+                        "                \"Rename\" [#/rename/1] id=Table123-1-rename-Link\n" +
+                        "                \"Delete\" [#/delete/1] id=Table123-1-delete-Link\n" +
                         "          ROW 1\n" +
-                        "            \"Spreadsheet222\" [#/2] id=spreadsheetList-2-Link\n" +
+                        "            \"Spreadsheet222\" [#/2] id=Table123-2-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -177,10 +182,10 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "              \"31/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
-                        "                \"Rename\" [#/rename/2] id=spreadsheetList-2-rename-Link\n" +
-                        "                \"Delete\" [#/delete/2] id=spreadsheetList-2-delete-Link\n" +
+                        "                \"Rename\" [#/rename/2] id=Table123-2-rename-Link\n" +
+                        "                \"Delete\" [#/delete/2] id=Table123-2-delete-Link\n" +
                         "          ROW 2\n" +
-                        "            \"Spreadsheet333\" [#/3] id=spreadsheetList-3-Link\n" +
+                        "            \"Spreadsheet333\" [#/3] id=Table123-3-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -191,13 +196,13 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "              \"31/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
-                        "                \"Rename\" [#/rename/3] id=spreadsheetList-3-rename-Link\n" +
-                        "                \"Delete\" [#/delete/3] id=spreadsheetList-3-delete-Link\n" +
+                        "                \"Rename\" [#/rename/3] id=Table123-3-rename-Link\n" +
+                        "                \"Delete\" [#/delete/3] id=Table123-3-delete-Link\n" +
                         "        CHILDREN\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              mdi-arrow-left \"previous\" [#/*/offset/0/count/2] id=spreadsheetList-previous-Link\n" +
-                        "              \"next\" [#/*/offset/2/count/2] mdi-arrow-right id=spreadsheetList-next-Link\n" +
+                        "              mdi-arrow-left \"previous\" [#/*/offset/0/count/2] id=Table123-previous-Link\n" +
+                        "              \"next\" [#/*/offset/2/count/2] mdi-arrow-right id=Table123-next-Link\n" +
                         "        PLUGINS\n" +
                         "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );
@@ -207,6 +212,7 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
     public void testTableThreeColumnsThreeRowsAndNext() {
         this.refreshAndCheck(
                 SpreadsheetListTableComponent.empty(
+                        ID,
                         context("/")
                 ).setMetadata(
                         Lists.of(
@@ -220,7 +226,7 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "  SpreadsheetCard\n" +
                         "    Card\n" +
                         "      SpreadsheetDataTableComponent\n" +
-                        "        id=spreadsheetList-Table\n" +
+                        "        id=Table123-Table\n" +
                         "        COLUMN(S)\n" +
                         "          Name\n" +
                         "          Created by\n" +
@@ -230,7 +236,7 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "          Links\n" +
                         "        ROW(S)\n" +
                         "          ROW 0\n" +
-                        "            \"Spreadsheet111\" [#/1] id=spreadsheetList-1-Link\n" +
+                        "            \"Spreadsheet111\" [#/1] id=Table123-1-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -241,10 +247,10 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "              \"31/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
-                        "                \"Rename\" [#/rename/1] id=spreadsheetList-1-rename-Link\n" +
-                        "                \"Delete\" [#/delete/1] id=spreadsheetList-1-delete-Link\n" +
+                        "                \"Rename\" [#/rename/1] id=Table123-1-rename-Link\n" +
+                        "                \"Delete\" [#/delete/1] id=Table123-1-delete-Link\n" +
                         "          ROW 1\n" +
-                        "            \"Spreadsheet222\" [#/2] id=spreadsheetList-2-Link\n" +
+                        "            \"Spreadsheet222\" [#/2] id=Table123-2-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -255,10 +261,10 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "              \"31/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
-                        "                \"Rename\" [#/rename/2] id=spreadsheetList-2-rename-Link\n" +
-                        "                \"Delete\" [#/delete/2] id=spreadsheetList-2-delete-Link\n" +
+                        "                \"Rename\" [#/rename/2] id=Table123-2-rename-Link\n" +
+                        "                \"Delete\" [#/delete/2] id=Table123-2-delete-Link\n" +
                         "          ROW 2\n" +
-                        "            \"Spreadsheet333\" [#/3] id=spreadsheetList-3-Link\n" +
+                        "            \"Spreadsheet333\" [#/3] id=Table123-3-Link\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"user@example.com\"\n" +
                         "            SpreadsheetTextComponent\n" +
@@ -269,13 +275,13 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
                         "              \"31/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
-                        "                \"Rename\" [#/rename/3] id=spreadsheetList-3-rename-Link\n" +
-                        "                \"Delete\" [#/delete/3] id=spreadsheetList-3-delete-Link\n" +
+                        "                \"Rename\" [#/rename/3] id=Table123-3-rename-Link\n" +
+                        "                \"Delete\" [#/delete/3] id=Table123-3-delete-Link\n" +
                         "        CHILDREN\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              mdi-arrow-left \"previous\" DISABLED id=spreadsheetList-previous-Link\n" +
-                        "              \"next\" [#/*/offset/1/count/2] mdi-arrow-right id=spreadsheetList-next-Link\n" +
+                        "              mdi-arrow-left \"previous\" DISABLED id=Table123-previous-Link\n" +
+                        "              \"next\" [#/*/offset/1/count/2] mdi-arrow-right id=Table123-next-Link\n" +
                         "        PLUGINS\n" +
                         "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );
