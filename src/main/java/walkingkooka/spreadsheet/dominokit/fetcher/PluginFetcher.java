@@ -96,15 +96,9 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
 
     // GET /api/plugin/PluginName/list
     public void list(final PluginName pluginName) {
-        Objects.requireNonNull(pluginName, "pluginName");
-
         this.get(
-                plugin()
+                pluginName(pluginName)
                         .appendPathName(
-                                UrlPathName.with(
-                                        pluginName.value()
-                                )
-                        ).appendPathName(
                                 SpreadsheetServerLinkRelations.LIST.toUrlPathName()
                         )
         );
@@ -113,6 +107,17 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
     static RelativeUrl plugin() {
         return Url.EMPTY_RELATIVE_URL.appendPath(
                 SpreadsheetHttpServer.API_PLUGIN
+        );
+    }
+
+    // api/plugin/PluginName
+    static RelativeUrl pluginName(final PluginName pluginName) {
+        Objects.requireNonNull(pluginName, "pluginName");
+
+        return Url.EMPTY_RELATIVE_URL.appendPath(
+                SpreadsheetHttpServer.API_PLUGIN.append(
+                        UrlPathName.with(pluginName.value())
+                )
         );
     }
 
@@ -125,13 +130,8 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         Objects.requireNonNull(pluginName, "pluginName");
         Objects.requireNonNull(file, "file");
 
-        RelativeUrl url = Url.EMPTY_RELATIVE_URL.appendPath(
-                SpreadsheetHttpServer.API_PLUGIN.append(
-                        UrlPathName.with(pluginName.value())
-                ).append(
-                        SpreadsheetServerLinkRelations.DOWNLOAD.toUrlPathName()
-                )
-        );
+        RelativeUrl url = pluginName(pluginName)
+                .appendPathName(SpreadsheetServerLinkRelations.DOWNLOAD.toUrlPathName());
         if (file.isPresent()) {
             url = url.appendPath(
                     UrlPath.parse(
