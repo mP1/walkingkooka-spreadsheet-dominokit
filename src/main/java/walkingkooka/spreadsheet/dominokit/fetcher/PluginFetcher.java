@@ -72,7 +72,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
     // DELETE /api/plugin/PluginName
     public void deletePlugin(final PluginName pluginName) {
         this.delete(
-                pluginName(pluginName)
+                pluginNameUrl(pluginName)
         );
     }
 
@@ -104,7 +104,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
     // GET /api/plugin/PluginName/list
     public void listJarEntries(final PluginName pluginName) {
         this.get(
-                pluginName(pluginName)
+                pluginNameUrl(pluginName)
                         .appendPathName(
                                 SpreadsheetServerLinkRelations.LIST.toUrlPathName()
                         )
@@ -118,7 +118,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
     }
 
     // api/plugin/PluginName
-    static RelativeUrl pluginName(final PluginName pluginName) {
+    public static RelativeUrl pluginNameUrl(final PluginName pluginName) {
         Objects.requireNonNull(pluginName, "pluginName");
 
         return Url.EMPTY_RELATIVE_URL.appendPath(
@@ -137,7 +137,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         Objects.requireNonNull(pluginName, "pluginName");
         Objects.requireNonNull(file, "file");
 
-        RelativeUrl url = pluginName(pluginName)
+        RelativeUrl url = pluginNameUrl(pluginName)
                 .appendPathName(SpreadsheetServerLinkRelations.DOWNLOAD.toUrlPathName());
         if (file.isPresent()) {
             url = url.appendPath(

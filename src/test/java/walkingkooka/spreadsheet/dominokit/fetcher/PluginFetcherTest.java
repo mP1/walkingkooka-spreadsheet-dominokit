@@ -31,23 +31,23 @@ import static org.junit.Assert.assertThrows;
 
 public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
 
-    // pluginName.......................................................................................................
+    // pluginNameUrl....................................................................................................
 
     @Test
-    public void testPluginNameWithNullFails() {
+    public void testPluginNameUrlWithNullFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> PluginFetcher.pluginName(
+                () -> PluginFetcher.pluginNameUrl(
                         null
                 )
         );
     }
 
     @Test
-    public void testPluginName() {
+    public void testPluginNameUrl() {
         this.checkEquals(
                 Url.parseRelative("/api/plugin/TestPluginName123"),
-                PluginFetcher.pluginName(
+                PluginFetcher.pluginNameUrl(
                         PluginName.with("TestPluginName123")
                 )
         );
