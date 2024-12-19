@@ -59,6 +59,8 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
         context.addPluginFetcherWatcher(this);
 
         this.table = this.table();
+
+        this.delete = this.anchor("Delete");
         this.download = this.anchor("Download");
         this.close = this.anchor("Close");
 
@@ -88,6 +90,23 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
 
     private HistoryTokenAnchorComponent close;
 
+    // delete.........................................................................................................
+
+    private void refreshDelete() {
+        final HistoryTokenContext context = this.context;
+
+        this.delete.setHistoryToken(
+                Optional.ofNullable(
+                        null == this.pluginName ?
+                                null :
+                        context.historyToken()
+                                .delete()
+                )
+        );
+    }
+
+    private HistoryTokenAnchorComponent delete;
+    
     // download.........................................................................................................
 
     private void refreshDownload() {
@@ -118,6 +137,7 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
                 ).appendChild(this.table)
                 .appendChild(
                         SpreadsheetFlexLayout.row()
+                                .appendChild(this.delete)
                                 .appendChild(this.download)
                                 .appendChild(this.close)
                 );
@@ -210,6 +230,7 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
         );
         this.table.setList(this.list);
 
+        this.refreshDelete();
         this.refreshDownload();
         this.refreshClose(context);
     }
