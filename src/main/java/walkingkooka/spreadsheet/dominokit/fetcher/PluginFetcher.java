@@ -102,7 +102,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
     }
 
     // GET /api/plugin/PluginName/list
-    public void list(final PluginName pluginName) {
+    public void listJarEntries(final PluginName pluginName) {
         this.get(
                 pluginName(pluginName)
                         .appendPathName(
