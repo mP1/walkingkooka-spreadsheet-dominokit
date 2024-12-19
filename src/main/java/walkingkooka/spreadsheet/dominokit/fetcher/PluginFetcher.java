@@ -69,6 +69,13 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         );
     }
 
+    // DELETE /api/plugin/PluginName
+    public void deletePlugin(final PluginName pluginName) {
+        this.delete(
+                pluginName(pluginName)
+        );
+    }
+
     // GET /api/plugin/*/filter?query=XXX&offset=0&count=10
     public void filter(final String query,
                        final int offset,
