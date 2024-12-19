@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
+import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
@@ -31,6 +32,7 @@ import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
+import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.CharSequences;
 
 import java.util.List;
@@ -112,6 +114,32 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         return Url.EMPTY_RELATIVE_URL.appendPath(
                 SpreadsheetHttpServer.API_PLUGIN
         );
+    }
+
+    /**
+     * Builds a URL to download a file within or the plugin archive.
+     */
+    // api/plugin/PluginName/download
+    public static RelativeUrl pluginDownloadUrl(final PluginName pluginName,
+                                                final Optional<JarEntryInfoName> file) {
+        Objects.requireNonNull(pluginName, "pluginName");
+        Objects.requireNonNull(file, "file");
+
+        RelativeUrl url = Url.EMPTY_RELATIVE_URL.appendPath(
+                SpreadsheetHttpServer.API_PLUGIN.append(
+                        UrlPathName.with(pluginName.value())
+                ).append(
+                        SpreadsheetServerLinkRelations.DOWNLOAD.toUrlPathName()
+                )
+        );
+        if (file.isPresent()) {
+            url = url.appendPath(
+                    UrlPath.parse(
+                            file.get().value())
+            );
+        }
+
+        return url;
     }
 
     // Fetcher..........................................................................................................

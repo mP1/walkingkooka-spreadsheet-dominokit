@@ -17,8 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import walkingkooka.net.Url;
-import walkingkooka.net.UrlPathName;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
@@ -28,14 +26,13 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.PluginSelectHistoryToken;
-import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
-import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 
 import java.util.Objects;
@@ -100,12 +97,9 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
         link.setHref(
                 null == pluginName ?
                         null :
-                        Url.EMPTY_RELATIVE_URL.appendPath(
-                                SpreadsheetHttpServer.API_PLUGIN.append(
-                                        UrlPathName.with(pluginName.value())
-                                ).append(
-                                        SpreadsheetServerLinkRelations.DOWNLOAD.toUrlPathName()
-                                )
+                        PluginFetcher.pluginDownloadUrl(
+                                pluginName,
+                                Optional.empty() // no file, want archive
                         )
         );
     }
