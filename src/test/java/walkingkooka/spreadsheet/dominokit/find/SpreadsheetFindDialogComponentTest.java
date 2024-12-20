@@ -28,16 +28,18 @@ import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Arrays;
@@ -61,7 +63,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -162,7 +164,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -263,7 +265,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -362,7 +364,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -575,7 +577,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -674,7 +676,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -773,7 +775,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -872,7 +874,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -971,7 +973,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -1070,7 +1072,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -1169,7 +1171,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -1268,7 +1270,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -1367,7 +1369,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -1466,7 +1468,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
 
         final SpreadsheetFindDialogComponent dialog = SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(appContext)
+                new TestSpreadsheetFindDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
                 dialog,
@@ -1568,16 +1570,6 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             }
 
             @Override
-            public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
-                return this.deltaFetcher;
-            }
-
-            private final SpreadsheetDeltaFetcher deltaFetcher = SpreadsheetDeltaFetcher.with(
-                    SpreadsheetDeltaFetcherWatchers.empty(),
-                    this
-            );
-
-            @Override
             public void giveFocus(final Runnable focus) {
                 // ignore
             }
@@ -1603,6 +1595,41 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 System.out.println(Arrays.toString(values));
             }
         };
+    }
+
+    static class TestSpreadsheetFindDialogComponentContext extends FakeSpreadsheetFindDialogComponentContext {
+
+        TestSpreadsheetFindDialogComponentContext(final AppContext context) {
+            this.context = context;
+        }
+
+        @Override
+        public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+            return this.deltaFetcherWatchers.addSpreadsheetDeltaFetcherWatcher(watcher);
+        }
+
+        private final SpreadsheetDeltaFetcherWatchers deltaFetcherWatchers = SpreadsheetDeltaFetcherWatchers.empty();
+
+        @Override
+        public HistoryToken historyToken() {
+            return this.context.historyToken();
+        }
+
+        @Override
+        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            return this.historyTokenWatchers.add(watcher);
+        }
+
+        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+
+        private final AppContext context;
+
+        @Override
+        public void findCells(final SpreadsheetId id,
+                              final SpreadsheetCellRangeReference cells,
+                              final SpreadsheetCellFindQuery find) {
+            // nop
+        }
     }
 
     // ClassTesting.....................................................................................................
