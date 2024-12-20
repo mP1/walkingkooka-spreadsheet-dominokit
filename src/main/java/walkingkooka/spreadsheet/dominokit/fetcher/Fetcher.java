@@ -87,17 +87,6 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     final void fetch(final HttpMethod method,
                      final AbsoluteOrRelativeUrl url,
                      final Optional<String> body) {
-        FetcherFetch.fetch(
-                method,
-                url,
-                body,
-                this
-        );
-    }
-
-    final void nativeFetch(final HttpMethod method,
-                           final AbsoluteOrRelativeUrl url,
-                           final Optional<String> body) {
         final RequestInit requestInit = RequestInit.create();
         requestInit.setMethod(method.value());
 
