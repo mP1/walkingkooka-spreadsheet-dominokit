@@ -21,8 +21,10 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
 import elemental2.dom.RequestInit;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.header.Accept;
 import walkingkooka.net.header.HttpHeaderName;
 import walkingkooka.net.header.MediaType;
+import walkingkooka.net.http.HttpEntity;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
@@ -31,6 +33,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
+import java.util.List;
+import java.util.Map.Entry;
 import java.util.Optional;
 
 abstract public class Fetcher<W extends FetcherWatcher> {
@@ -41,74 +45,133 @@ abstract public class Fetcher<W extends FetcherWatcher> {
         this.context = context;
     }
 
+    /**
+     * Performs a DELETE to the given {@link AbsoluteOrRelativeUrl} without any body and with the header: Accept set to Json.
+     */
     final void delete(final AbsoluteOrRelativeUrl url) {
-        this.fetch(
+        this.fetchJson(
                 HttpMethod.DELETE,
                 url,
                 Optional.empty()
         );
     }
 
+    /**
+     * Performs a GET to the given {@link AbsoluteOrRelativeUrl} without any body and with the header: Accept set to Json.
+     */
     final void get(final AbsoluteOrRelativeUrl url) {
-        this.fetch(
+        this.fetchJson(
                 HttpMethod.GET,
                 url,
                 Optional.empty()
         );
     }
 
+    /**
+     * Performs a PATCH to the given {@link AbsoluteOrRelativeUrl} with the body and with the headers:
+     * Content-Type and Accept set to Json.
+     */
     final void patch(final AbsoluteOrRelativeUrl url,
                      final String body) {
-        this.fetch(
+        this.fetchJson(
                 HttpMethod.PATCH,
                 url,
                 Optional.of(body)
         );
     }
 
+    /**
+     * Performs a POST to the given {@link AbsoluteOrRelativeUrl} with the body and with the headers:
+     * Content-Type and Accept set to Json.
+     */
     final void post(final AbsoluteOrRelativeUrl url,
                     final String body) {
-        this.fetch(
+        this.fetchJson(
                 HttpMethod.POST,
                 url,
                 Optional.of(body)
         );
     }
 
+    /**
+     * Performs a PUT to the given {@link AbsoluteOrRelativeUrl} with the body and with the headers:
+     * Content-Type and Accept set to Json.
+     */
     final void put(final AbsoluteOrRelativeUrl url,
                    final String body) {
-        this.fetch(
+        this.fetchJson(
                 HttpMethod.PUT,
                 url,
                 Optional.of(body)
         );
     }
 
+    /**
+     * Performs a fetch using the given {@link HttpMethod} and url with the given body with two headers,
+     * content-type and accept both set to JSON. To use other headers the {@link #fetch(HttpMethod, AbsoluteOrRelativeUrl, HttpEntity)},
+     * must be used.
+     */
+    final void fetchJson(final HttpMethod method,
+                         final AbsoluteOrRelativeUrl url,
+                         final Optional<String> body) {
+        HttpEntity entity = HttpEntity.EMPTY.setAccept(ACCEPT_JSON);
+        if (false == HttpMethod.GET.equals(method)) {
+            entity = entity.setContentType(
+                    MediaType.APPLICATION_JSON
+            );
+
+            if (body.isPresent()) {
+                entity = entity.setBodyText(
+                        body.get()
+                );
+            }
+        }
+
+        this.fetch(
+                method,
+                url,
+                entity
+        );
+    }
+
+    private final static Accept ACCEPT_JSON = MediaType.APPLICATION_JSON.accept();
+
+    /**
+     * Performs a fetch using the provided parameters, note that the given {@link HttpEntity} must contain all required
+     * headers and body.
+     */
     final void fetch(final HttpMethod method,
                      final AbsoluteOrRelativeUrl url,
-                     final Optional<String> body) {
+                     final HttpEntity entity) {
         final RequestInit requestInit = RequestInit.create();
         requestInit.setMethod(method.value());
 
         final Headers headers = new Headers();
-        headers.append(
-                HttpHeaderName.ACCEPT.value(),
-                MediaType.APPLICATION_JSON.value()
-        );
 
-        // always send content-type: application/json except for GETs
-        if (false == HttpMethod.GET.equals(method)) {
-            headers.append(
-                    HttpHeaderName.CONTENT_TYPE.value(),
-                    MediaType.APPLICATION_JSON.value()
-            );
+        for (final Entry<HttpHeaderName<?>, List<?>> headerAndValues : entity.headers().entrySet()) {
+            final String headerName = headerAndValues.getKey()
+                    .value();
 
-            if (body.isPresent()) {
-                requestInit.setBody(body.get());
+            for (final Object headerValue : headerAndValues.getValue()) {
+                headers.append(
+                        headerName,
+                        headerValue.toString()
+                );
             }
         }
 
         requestInit.setHeaders(headers);
+
+        final String bodyText = entity.bodyText();
+        final Optional<String> body = Optional.ofNullable(
+                bodyText.isEmpty() ?
+                        null :
+                        bodyText
+        );
+
+        if (false == bodyText.isEmpty()) {
+            requestInit.setBody(bodyText);
+        }
 
         this.onBegin(
                 method,
