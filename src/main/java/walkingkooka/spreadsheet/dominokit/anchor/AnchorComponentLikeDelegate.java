@@ -192,5 +192,8 @@ public interface AnchorComponentLikeDelegate<A extends AnchorComponentLike<A>> e
                 .element();
     }
 
-    A anchorComponentLike();
+    /**
+     * The {@link AnchorComponentLike} delegate target.
+     */
+    AnchorComponentLike<?> anchorComponentLike();
 }
