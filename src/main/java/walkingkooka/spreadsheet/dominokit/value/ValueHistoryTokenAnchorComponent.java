@@ -36,9 +36,9 @@ import java.util.function.Function;
  */
 public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent<HTMLAnchorElement, T, ValueHistoryTokenAnchorComponent<T>> {
 
-    static <T> ValueHistoryTokenAnchorComponent<T> with(final HistoryTokenAnchorComponent anchor,
-                                                        final Function<HistoryTokenAnchorComponent, Optional<T>> getter,
-                                                        final BiConsumer<Optional<T>, HistoryTokenAnchorComponent> setter) {
+    public static <T> ValueHistoryTokenAnchorComponent<T> with(final HistoryTokenAnchorComponent anchor,
+                                                               final Function<HistoryTokenAnchorComponent, Optional<T>> getter,
+                                                               final BiConsumer<Optional<T>, HistoryTokenAnchorComponent> setter) {
         return new ValueHistoryTokenAnchorComponent<>(
                 Objects.requireNonNull(anchor, "anchor"),
                 Objects.requireNonNull(getter, "getter"),
