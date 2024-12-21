@@ -255,8 +255,8 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
                         "                    \"2/1/00, 12:58 pm\"\n" +
                         "                  SpreadsheetFlexLayout\n" +
                         "                    ROW\n" +
-                        "                      \"download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                        "                      \"view\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
+                        "                      \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                        "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
                         "              PLUGINS\n" +
                         "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                         "      SpreadsheetFlexLayout\n" +
@@ -367,8 +367,8 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
                         "                    \"1/1/00, 1:01 am\"\n" +
                         "                  SpreadsheetFlexLayout\n" +
                         "                    ROW\n" +
-                        "                      \"download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                        "                      \"view\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
+                        "                      \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                        "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
                         "              PLUGINS\n" +
                         "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                         "      SpreadsheetFlexLayout\n" +
@@ -442,8 +442,8 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
                         "                    \"2/2/00, 2:02 am\"\n" +
                         "                  SpreadsheetFlexLayout\n" +
                         "                    ROW\n" +
-                        "                      \"download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                        "                      \"view\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
+                        "                      \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                        "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
                         "              PLUGINS\n" +
                         "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                         "      SpreadsheetFlexLayout\n" +

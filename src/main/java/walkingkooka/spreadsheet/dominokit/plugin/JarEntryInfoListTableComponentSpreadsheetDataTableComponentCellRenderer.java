@@ -178,7 +178,7 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
 
         final PluginDownloadAnchorComponent download = PluginDownloadAnchorComponent.empty()
                 .setId(this.id + "download" + SpreadsheetElementIds.LINK)
-                .setTextContent("download")
+                .setTextContent("Download")
                 .setValue(
                         Optional.of(
                                 PluginDownload.with(
@@ -192,7 +192,7 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
                         pluginName,
                         Optional.of(filename)
                 ).link(this.id + "view")
-                .setTextContent("view");
+                .setTextContent("View");
 
         return SpreadsheetFlexLayout.row()
                 .appendChild(download)
