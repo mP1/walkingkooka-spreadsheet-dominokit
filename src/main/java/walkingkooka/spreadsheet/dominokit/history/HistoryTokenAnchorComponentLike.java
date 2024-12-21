@@ -17,12 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
-import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.Url;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuTarget;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
@@ -34,15 +32,9 @@ import java.util.Optional;
 /**
  * Defines the public methods for a {@link HistoryTokenAnchorComponent}.
  */
-public interface HistoryTokenAnchorComponentLike extends HtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent>,
+public interface HistoryTokenAnchorComponentLike extends AnchorComponentLike<HistoryTokenAnchorComponent>,
         SpreadsheetContextMenuTarget<HTMLAnchorElement>,
-        SpreadsheetTooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent> {
-
-    default boolean isDisabled() {
-        return null == this.href();
-    }
-
-    HistoryTokenAnchorComponent setDisabled(final boolean disabled);
+        SpreadsheetTooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent>{
 
     // historyToken....................................................................................................
 
@@ -92,78 +84,6 @@ public interface HistoryTokenAnchorComponentLike extends HtmlElementComponent<HT
                 }
         );
     }
-
-    // checked.........................................................................................................
-
-    boolean isChecked();
-
-    HistoryTokenAnchorComponent setChecked(final boolean checked);
-
-    // href.............................................................................................................
-
-    /**
-     * Getter that returns the HREF attribute of this ANCHOR.
-     */
-    Url href();
-
-    /**
-     * Setter that replaces the HREF attribute of this ANCHOR.
-     */
-    HistoryTokenAnchorComponent setHref(final Url url);
-
-    // id...............................................................................................................
-
-    String id();
-
-    HistoryTokenAnchorComponent setId(final String id);
-
-    // tabIndex.........................................................................................................
-
-    int tabIndex();
-
-    HistoryTokenAnchorComponent setTabIndex(final int tabIndex);
-
-    // target.........................................................................................................
-
-    String target();
-
-    HistoryTokenAnchorComponent setTarget(final String target);
-
-    // textContent......................................................................................................
-
-    String textContent();
-
-    HistoryTokenAnchorComponent setTextContent(final String text);
-
-    // iconBefore | text Content | iconAfter
-
-    // iconBefore......................................................................................................
-
-    Optional<Icon<?>> iconBefore();
-
-    HistoryTokenAnchorComponent setIconBefore(final Optional<Icon<?>> icon);
-
-    // iconAfter......................................................................................................
-
-    Optional<Icon<?>> iconAfter();
-
-    HistoryTokenAnchorComponent setIconAfter(final Optional<Icon<?>> icon);
-
-    // events...........................................................................................................
-    HistoryTokenAnchorComponent addClickListener(final EventListener listener);
-
-    HistoryTokenAnchorComponent addFocusListener(final EventListener listener);
-
-    HistoryTokenAnchorComponent addKeydownListener(final EventListener listener);
-
-    /**
-     * Adds a {@link EventListener} that receives click and keydown with ENTER events.
-     */
-    HistoryTokenAnchorComponent addClickAndKeydownEnterListener(final EventListener listener);
-
-    // focus............................................................................................................
-
-    void focus();
 
     // SpreadsheetTooltipComponentTarget................................................................................
 
