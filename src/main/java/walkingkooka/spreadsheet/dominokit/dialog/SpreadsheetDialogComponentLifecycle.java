@@ -27,8 +27,6 @@ import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
-import java.util.Optional;
-
 /**
  * A specialized {@link HistoryTokenAwareComponentLifecycle} that adds some basic support for {@link SpreadsheetDialogComponent}.
  */
@@ -60,15 +58,10 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
     }
 
     /**
-     * Factory that creates a Anchor which will close this dialog by pushing a {@link HistoryToken#close()}.
+     * Factory that creates an Anchor which will close, it will need to be updated with a closed {@link HistoryToken}.
      */
-    default HistoryTokenAnchorComponent closeAnchor(final HistoryToken historyToken) {
-        return this.anchor("Close")
-                .setHistoryToken(
-                        Optional.of(
-                                historyToken.close()
-                        )
-                );
+    default HistoryTokenAnchorComponent closeAnchor() {
+        return this.anchor("Close");
     }
 
     // HistoryTokenAwareComponentLifecycle..............................................................................................

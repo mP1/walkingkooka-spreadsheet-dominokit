@@ -71,6 +71,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         this.save = this.anchor("Save");
         this.undo = this.anchor("Undo");
         this.delete = this.anchor("Delete");
+        this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
 
@@ -103,11 +104,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                                 .appendChild(this.save)
                                 .appendChild(this.undo)
                                 .appendChild(this.delete)
-                                .appendChild(
-                                        this.closeAnchor(
-                                                context.historyToken()
-                                        )
-                                )
+                                .appendChild(this.close)
                 );
     }
 
@@ -218,6 +215,19 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private final HistoryTokenAnchorComponent delete;
 
+    // close............................................................................................................
+
+    private void refreshClose() {
+        this.close.setHistoryToken(
+                Optional.ofNullable(
+                        this.context.historyToken()
+                                .close()
+                )
+        );
+    }
+
+    private final HistoryTokenAnchorComponent close;
+
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
     // save should not open or close the dialog.
@@ -282,6 +292,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         this.refreshSave();
         this.refreshUndo();
         this.refreshDelete();
+        this.refreshClose();
 
         this.loadLabelIfNecessary();
     }

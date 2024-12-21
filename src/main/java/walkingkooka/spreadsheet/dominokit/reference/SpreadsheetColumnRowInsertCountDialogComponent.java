@@ -51,6 +51,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
 
         this.count = this.count();
         this.go = this.anchor("Go");
+        this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
 
@@ -74,11 +75,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
                 .appendChild(
                         SpreadsheetFlexLayout.row()
                                 .appendChild(this.go)
-                                .appendChild(
-                                        this.closeAnchor(
-                                                context.historyToken()
-                                        )
-                                )
+                                .appendChild(this.close)
                 );
     }
 
@@ -118,6 +115,21 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
     }
 
     private final SpreadsheetIntegerBox count;
+
+    // go...............................................................................................................
+
+    private void refreshClose() {
+        this.close.setHistoryToken(
+                Optional.of(
+                        this.context.historyToken()
+                                .close()
+                )
+        );
+    }
+
+    private final HistoryTokenAnchorComponent close;
+
+    // go...............................................................................................................
 
     private void refreshGo() {
         this.go.setHistoryToken(
@@ -163,7 +175,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
 
     @Override
     public void refresh(final AppContext context) {
-        // NOP
+        this.refreshClose();
     }
 
     // Object..........................................................................................................

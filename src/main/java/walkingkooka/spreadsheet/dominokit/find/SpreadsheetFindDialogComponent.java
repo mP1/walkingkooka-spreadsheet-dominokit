@@ -87,6 +87,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.reset = this.anchor("Reset");
         this.loadHighlightingQuery = this.anchor("Load Highlighting Query");
         this.saveAsHighlightingQuery = this.anchor("Save as Highlighting Query");
+        this.close = this.closeAnchor();
 
         this.table = SpreadsheetDeltaMatchedCellsTableComponent.with(
                 ID,
@@ -141,11 +142,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                                                 .appendChild(this.reset)
                                                 .appendChild(this.loadHighlightingQuery)
                                                 .appendChild(this.saveAsHighlightingQuery)
-                                                .appendChild(
-                                                        this.closeAnchor(
-                                                                context.historyToken()
-                                                        )
-                                                )
+                                                .appendChild(this.close)
                                 )
                         )
         );
@@ -474,6 +471,16 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private final HistoryTokenAnchorComponent saveAsHighlightingQuery;
 
+    // close............................................................................................................
+
+    private void refreshClose(final SpreadsheetCellFindHistoryToken token) {
+        this.close.setHistoryToken(
+            Optional.of(token.close())
+        );
+    }
+
+    private final HistoryTokenAnchorComponent close;
+
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
     @Override
@@ -553,6 +560,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.refreshReset(token);
         this.refreshLoadHighlightingQuery(token, context);
         this.refreshSaveAsHighlightingQuery(token);
+        this.refreshClose(token);
 
         this.findCells();
     }

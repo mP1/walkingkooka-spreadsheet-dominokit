@@ -106,7 +106,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                 .setDisabled(true);
         this.clear = this.anchor("Clear")
                 .setDisabled(true);
-        this.close = this.anchor("Close")
+        this.close = this.closeAnchor()
                 .setDisabled(true);
 
         this.dialog = this.dialogCreate();

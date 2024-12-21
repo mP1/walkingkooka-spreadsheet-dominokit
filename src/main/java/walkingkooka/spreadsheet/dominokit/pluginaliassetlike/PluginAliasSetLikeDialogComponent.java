@@ -111,7 +111,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                 .setDisabled(true);
         this.reset = this.anchor("Reset")
                 .setDisabled(true);
-        this.close = this.anchor("Close")
+        this.close = this.closeAnchor()
                 .setDisabled(true);
 
         this.dialog = this.dialogCreate();
