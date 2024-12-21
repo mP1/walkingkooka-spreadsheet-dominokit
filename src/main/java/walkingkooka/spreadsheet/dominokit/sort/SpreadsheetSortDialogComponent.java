@@ -79,9 +79,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
 
         this.sort = this.anchor("Sort")
                 .setDisabled(true);
-        this.close = this.closeAnchor(
-                context.historyToken()
-        );
+        this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
     }

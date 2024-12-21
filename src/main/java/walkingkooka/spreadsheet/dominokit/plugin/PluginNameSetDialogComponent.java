@@ -86,7 +86,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
 
         this.save = this.anchor("Save");
         this.reset = this.anchor("Reset");
-        this.close = this.anchor("Close");
+        this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
     }

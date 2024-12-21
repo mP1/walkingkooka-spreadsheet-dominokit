@@ -61,7 +61,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
                 .setDisabled(true);
         this.undo = this.anchor("Undo")
                 .setDisabled(true);
-        this.close = this.anchor("Close");
+        this.close = this.closeAnchor();
 
         this.lastSave = null;
 
