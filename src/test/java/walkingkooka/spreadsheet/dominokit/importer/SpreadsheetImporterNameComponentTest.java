@@ -61,6 +61,13 @@ public final class SpreadsheetImporterNameComponentTest implements ValueComponen
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetImporterNameComponent createComponent() {
+        return SpreadsheetImporterNameComponent.empty();
+    }
+
     // class............................................................................................................
     @Override
     public Class<SpreadsheetImporterNameComponent> type() {

@@ -107,6 +107,13 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent createComponent() {
+        return SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty();
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

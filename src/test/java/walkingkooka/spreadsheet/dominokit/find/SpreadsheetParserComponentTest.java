@@ -208,7 +208,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
 
     private void valueAndCheck(final String text,
                                final Optional<SpreadsheetConditionRightParserToken> expected) {
-        final SpreadsheetParserComponent component = valueExpressionParserComponent()
+        final SpreadsheetParserComponent component = createComponent()
                 .setStringValue(
                         Optional.of(text)
                 );
@@ -227,7 +227,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     @Test
     public void testTreePrintWithEmptyText() {
         this.treePrintAndCheck(
-                this.valueExpressionParserComponent(),
+                this.createComponent(),
                 "SpreadsheetParserComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
@@ -240,7 +240,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     @Test
     public void testTreePrintWithAdditionExpression() {
         this.treePrintAndCheck(
-                this.valueExpressionParserComponent()
+                this.createComponent()
                         .setStringValue(
                                 Optional.of(
                                         "=1+2"
@@ -256,7 +256,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     @Test
     public void testTreePrintWithConditionTest() {
         this.treePrintAndCheck(
-                this.valueExpressionParserComponent()
+                this.createComponent()
                         .setStringValue(
                                 Optional.of(
                                         ">3"
@@ -272,7 +272,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     @Test
     public void testTreePrintWithString() {
         this.treePrintAndCheck(
-                this.valueExpressionParserComponent()
+                this.createComponent()
                         .setStringValue(
                                 Optional.of(
                                         "=\"Hello\""
@@ -288,7 +288,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     @Test
     public void testTreePrintWithNumber() {
         this.treePrintAndCheck(
-                this.valueExpressionParserComponent()
+                this.createComponent()
                         .setStringValue(
                                 Optional.of(
                                         "=123.0"
@@ -304,7 +304,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     @Test
     public void testTreePrintWithDate() {
         this.treePrintAndCheck(
-                this.valueExpressionParserComponent()
+                this.createComponent()
                         .setStringValue(
                                 Optional.of(
                                         "=1999/12/31"
@@ -320,7 +320,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     @Test
     public void testTreePrintWithDateTime() {
         this.treePrintAndCheck(
-                this.valueExpressionParserComponent()
+                this.createComponent()
                         .setStringValue(
                                 Optional.of(
                                         "=1999/12/31 12:58"
@@ -336,7 +336,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     @Test
     public void testTreePrintWithTime() {
         this.treePrintAndCheck(
-                this.valueExpressionParserComponent()
+                this.createComponent()
                         .setStringValue(
                                 Optional.of(
                                         "=12:58:59"
@@ -352,7 +352,7 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     @Test
     public void testTreePrintWithInvalidExpression() {
         this.treePrintAndCheck(
-                this.valueExpressionParserComponent()
+                this.createComponent()
                         .setStringValue(
                                 Optional.of(
                                         "=1.25+"
@@ -367,7 +367,10 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
         );
     }
 
-    private SpreadsheetParserComponent valueExpressionParserComponent() {
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetParserComponent createComponent() {
         return SpreadsheetParserComponent.empty(
                 SPREADSHEET_PARSER,
                 SPREADSHEET_PARSER_CONTEXT

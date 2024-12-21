@@ -61,6 +61,13 @@ public final class SpreadsheetFormatterNameComponentTest implements ValueCompone
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetFormatterNameComponent createComponent() {
+        return SpreadsheetFormatterNameComponent.empty();
+    }
+
     // class............................................................................................................
     @Override
     public Class<SpreadsheetFormatterNameComponent> type() {

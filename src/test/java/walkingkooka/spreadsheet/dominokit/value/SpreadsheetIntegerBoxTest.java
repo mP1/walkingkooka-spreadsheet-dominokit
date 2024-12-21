@@ -40,6 +40,13 @@ public final class SpreadsheetIntegerBoxTest implements ValueComponentTesting<HT
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetIntegerBox createComponent() {
+        return SpreadsheetIntegerBox.empty();
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

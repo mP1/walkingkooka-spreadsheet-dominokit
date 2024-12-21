@@ -61,6 +61,13 @@ public final class SpreadsheetFormatterSelectorComponentTest implements ValueCom
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetFormatterSelectorComponent createComponent() {
+        return SpreadsheetFormatterSelectorComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

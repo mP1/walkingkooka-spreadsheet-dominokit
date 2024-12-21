@@ -61,6 +61,13 @@ public final class ExpressionFunctionNameComponentTest implements ValueComponent
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public ExpressionFunctionNameComponent createComponent() {
+        return ExpressionFunctionNameComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

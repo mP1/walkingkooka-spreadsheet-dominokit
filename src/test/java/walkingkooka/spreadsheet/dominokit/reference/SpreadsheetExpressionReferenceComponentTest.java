@@ -145,6 +145,13 @@ public final class SpreadsheetExpressionReferenceComponentTest implements ValueC
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetExpressionReferenceComponent createComponent() {
+        return SpreadsheetExpressionReferenceComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

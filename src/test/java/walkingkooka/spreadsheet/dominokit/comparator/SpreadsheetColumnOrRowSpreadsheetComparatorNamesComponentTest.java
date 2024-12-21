@@ -89,6 +89,13 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent createComponent() {
+        return SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty();
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

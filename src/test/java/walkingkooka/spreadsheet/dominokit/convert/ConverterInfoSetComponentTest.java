@@ -111,6 +111,13 @@ public final class ConverterInfoSetComponentTest implements ValueComponentTestin
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public ConverterInfoSetComponent createComponent() {
+        return ConverterInfoSetComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

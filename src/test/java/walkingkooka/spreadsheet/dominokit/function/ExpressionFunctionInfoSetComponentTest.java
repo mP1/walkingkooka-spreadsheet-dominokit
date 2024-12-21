@@ -93,6 +93,13 @@ public final class ExpressionFunctionInfoSetComponentTest implements ValueCompon
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public ExpressionFunctionInfoSetComponent createComponent() {
+        return ExpressionFunctionInfoSetComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

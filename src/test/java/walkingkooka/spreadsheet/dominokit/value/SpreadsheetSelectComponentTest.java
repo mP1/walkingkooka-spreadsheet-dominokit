@@ -47,6 +47,13 @@ public final class SpreadsheetSelectComponentTest implements ValueComponentTesti
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetSelectComponent<String> createComponent() {
+        return SpreadsheetSelectComponent.empty();
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

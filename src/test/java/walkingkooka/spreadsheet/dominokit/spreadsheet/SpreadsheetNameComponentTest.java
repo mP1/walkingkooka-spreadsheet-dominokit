@@ -57,6 +57,13 @@ public final class SpreadsheetNameComponentTest implements ValueComponentTesting
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetNameComponent createComponent() {
+        return SpreadsheetNameComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

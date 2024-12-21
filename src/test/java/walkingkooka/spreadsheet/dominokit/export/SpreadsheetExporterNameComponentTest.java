@@ -61,6 +61,13 @@ public final class SpreadsheetExporterNameComponentTest implements ValueComponen
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetExporterNameComponent createComponent() {
+        return SpreadsheetExporterNameComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

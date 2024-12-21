@@ -70,6 +70,13 @@ public final class TextMatchComponentTest implements ValueComponentTesting<HTMLF
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public TextMatchComponent createComponent() {
+        return TextMatchComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

@@ -61,6 +61,13 @@ public final class SpreadsheetColumnReferenceComponentTest implements ValueCompo
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetColumnReferenceComponent createComponent() {
+        return SpreadsheetColumnReferenceComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

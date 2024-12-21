@@ -59,24 +59,20 @@ public final class ValueSpreadsheetTextBoxTest implements ValueComponentTesting<
     public void testSetValue() {
         this.checkEquals(
                 Optional.of("AB12"),
-                ValueSpreadsheetTextBox.with(
-                        SpreadsheetSelection::parseCell,
-                        HasText::text
-                ).setValue(
-                        Optional.of(
-                                SpreadsheetSelection.parseCell("AB12")
-                        )
-                ).stringValue()
+                this.createComponent()
+                        .setValue(
+                                Optional.of(
+                                        SpreadsheetSelection.parseCell("AB12")
+                                )
+                        ).stringValue()
         );
     }
 
     @Test
     public void testPrintTreeSetStringValueInvalidCharacter() {
         this.treePrintAndCheck(
-                ValueSpreadsheetTextBox.with(
-                                SpreadsheetSelection::parseCell,
-                                HasText::text
-                        ).setId("id123")
+                this.createComponent()
+                        .setId("id123")
                         .setStringValue(
                                 Optional.of(
                                         "AB!12"
@@ -93,10 +89,8 @@ public final class ValueSpreadsheetTextBoxTest implements ValueComponentTesting<
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                ValueSpreadsheetTextBox.with(
-                                SpreadsheetSelection::parseCell,
-                                HasText::text
-                        ).setId("id123")
+                this.createComponent()
+                        .setId("id123")
                         .setValue(
                                 Optional.of(
                                         SpreadsheetSelection.parseCell("AB12")
@@ -105,6 +99,16 @@ public final class ValueSpreadsheetTextBoxTest implements ValueComponentTesting<
                 "ValueSpreadsheetTextBox\n" +
                         "  SpreadsheetTextBox\n" +
                         "    [AB12] id=id123\n"
+        );
+    }
+
+    // ValueComponent...................................................................................................
+
+    @Override
+    public ValueSpreadsheetTextBox<SpreadsheetCellReference> createComponent() {
+        return ValueSpreadsheetTextBox.with(
+                SpreadsheetSelection::parseCell,
+                HasText::text
         );
     }
 

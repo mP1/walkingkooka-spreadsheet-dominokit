@@ -83,6 +83,15 @@ public final class SpreadsheetValueTypeComponentTest implements ValueComponentTe
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetValueTypeComponent createComponent() {
+        return SpreadsheetValueTypeComponent.empty();
+    }
+
+    // class............................................................................................................
+
     @Override
     public Class<SpreadsheetValueTypeComponent> type() {
         return SpreadsheetValueTypeComponent.class;

@@ -77,6 +77,13 @@ public final class SpreadsheetLabelComponentTest implements ValueComponentTestin
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetLabelComponent createComponent() {
+        return SpreadsheetLabelComponent.with(CONTEXT);
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

@@ -71,6 +71,13 @@ public final class PluginNameSetComponentTest implements ValueComponentTesting<H
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public PluginNameSetComponent createComponent() {
+        return PluginNameSetComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override
