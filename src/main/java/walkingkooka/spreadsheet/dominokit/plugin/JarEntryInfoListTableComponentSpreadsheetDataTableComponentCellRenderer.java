@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
-import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -176,16 +176,17 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
         final PluginName pluginName = context.pluginName();
         final JarEntryInfoName filename = info.name();
 
-        final HistoryTokenAnchorComponent download = context.historyToken()
-                .link(this.id + "download")
-                .setTextContent("download");
-        download.setDisabled(null == pluginName);
-        download.setHref(
-                PluginFetcher.pluginDownloadUrl(
-                        pluginName,
-                        Optional.of(filename)
-                )
-        );
+        final PluginDownloadAnchorComponent download = PluginDownloadAnchorComponent.empty()
+                .setId(this.id + "download" + SpreadsheetElementIds.LINK)
+                .setTextContent("download")
+                .setValue(
+                        Optional.of(
+                                PluginDownload.with(
+                                        pluginName,
+                                        Optional.of(filename)
+                                )
+                        )
+                );
 
         final HistoryTokenAnchorComponent view = HistoryToken.pluginFileView(
                         pluginName,
