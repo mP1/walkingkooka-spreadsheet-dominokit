@@ -17,12 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
+import walkingkooka.net.header.Accept;
+import walkingkooka.net.header.MediaType;
+import walkingkooka.net.http.HttpEntity;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
@@ -110,6 +114,27 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                         )
         );
     }
+
+    /**
+     * Loads a text files from the given {@link PluginName}.
+     */
+    public void loadJarTextFile(final PluginName pluginName,
+                                final JarEntryInfoName filename) {
+        this.fetch(
+                HttpMethod.GET,
+                pluginDownloadUrl(
+                        pluginName,
+                        Optional.of(filename)
+                ),
+                HttpEntity.EMPTY.setAccept(LOAD_TEXT_FILE_ACCEPT)
+        );
+    }
+
+    private final static Accept LOAD_TEXT_FILE_ACCEPT = Accept.with(
+            Lists.of(
+                    MediaType.ANY_TEXT
+            )
+    );
 
     static RelativeUrl plugin() {
         return Url.EMPTY_RELATIVE_URL.appendPath(
