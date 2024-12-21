@@ -96,8 +96,8 @@ public final class JarEntryInfoListTableComponentTest implements HtmlElementComp
                         "              \"2/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
-                        "                \"download\" [/api/plugin/TestPlugin123/download/META/MANIFEST.MF] id=Table123-download-Link\n" +
-                        "                \"view\" [#/plugin/TestPlugin123/file/META/MANIFEST.MF] id=Table123-view-Link\n" +
+                        "                \"Download\" [/api/plugin/TestPlugin123/download/META/MANIFEST.MF] id=Table123-download-Link\n" +
+                        "                \"View\" [#/plugin/TestPlugin123/file/META/MANIFEST.MF] id=Table123-view-Link\n" +
                         "        PLUGINS\n" +
                         "          EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n"
         );
@@ -151,8 +151,8 @@ public final class JarEntryInfoListTableComponentTest implements HtmlElementComp
                         "              \"\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
-                        "                \"download\" [/api/plugin/TestPlugin123/download/dir1/file2.txt] id=Table123-download-Link\n" +
-                        "                \"view\" [#/plugin/TestPlugin123/file/dir1/file2.txt] id=Table123-view-Link\n" +
+                        "                \"Download\" [/api/plugin/TestPlugin123/download/dir1/file2.txt] id=Table123-download-Link\n" +
+                        "                \"View\" [#/plugin/TestPlugin123/file/dir1/file2.txt] id=Table123-view-Link\n" +
                         "        PLUGINS\n" +
                         "          EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n"
         );
@@ -215,8 +215,8 @@ public final class JarEntryInfoListTableComponentTest implements HtmlElementComp
                         "              \"2/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
-                        "                \"download\" [/api/plugin/TestPlugin123/download/META/MANIFEST.MF] id=Table123-download-Link\n" +
-                        "                \"view\" [#/plugin/TestPlugin123/file/META/MANIFEST.MF] id=Table123-view-Link\n" +
+                        "                \"Download\" [/api/plugin/TestPlugin123/download/META/MANIFEST.MF] id=Table123-download-Link\n" +
+                        "                \"View\" [#/plugin/TestPlugin123/file/META/MANIFEST.MF] id=Table123-view-Link\n" +
                         "          ROW 1\n" +
                         "            SpreadsheetTextComponent\n" +
                         "              \"/dir1/file2.txt\"\n" +
@@ -232,8 +232,8 @@ public final class JarEntryInfoListTableComponentTest implements HtmlElementComp
                         "              \"\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
-                        "                \"download\" [/api/plugin/TestPlugin123/download/dir1/file2.txt] id=Table123-download-Link\n" +
-                        "                \"view\" [#/plugin/TestPlugin123/file/dir1/file2.txt] id=Table123-view-Link\n" +
+                        "                \"Download\" [/api/plugin/TestPlugin123/download/dir1/file2.txt] id=Table123-download-Link\n" +
+                        "                \"View\" [#/plugin/TestPlugin123/file/dir1/file2.txt] id=Table123-view-Link\n" +
                         "        PLUGINS\n" +
                         "          EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n"
         );
