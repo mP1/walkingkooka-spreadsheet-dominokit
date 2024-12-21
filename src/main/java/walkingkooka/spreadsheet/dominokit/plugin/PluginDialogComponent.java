@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -61,7 +60,9 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
         this.table = this.table();
 
         this.delete = this.anchor("Delete");
-        this.download = this.anchor("Download");
+        this.download = PluginDownloadAnchorComponent.empty()
+                .setTextContent("Download")
+                .setId("plugin-download" + SpreadsheetElementIds.LINK);
         this.close = this.anchor("Close");
 
         this.dialog = this.dialogCreate(context);
@@ -106,24 +107,24 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
     }
 
     private HistoryTokenAnchorComponent delete;
-    
+
     // download.........................................................................................................
 
     private void refreshDownload() {
         final PluginName pluginName = this.pluginName;
-        final HistoryTokenAnchorComponent link = this.download;
-        link.setDisabled(null == pluginName);
-        link.setHref(
-                null == pluginName ?
-                        null :
-                        PluginFetcher.pluginDownloadUrl(
-                                pluginName,
-                                Optional.empty() // no file, want archive
-                        )
+        this.download.setValue(
+                Optional.ofNullable(
+                        null == pluginName ?
+                                null :
+                                PluginDownload.with(
+                                        pluginName,
+                                        Optional.empty() // no file, want archive
+                                )
+                )
         );
     }
 
-    private HistoryTokenAnchorComponent download;
+    private PluginDownloadAnchorComponent download;
 
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
