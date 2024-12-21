@@ -102,14 +102,10 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
         this.textBox = this.textBox();
 
-        this.save = this.anchor("Save")
-                .setDisabled(true);
-        this.undo = this.anchor("Undo")
-                .setDisabled(true);
-        this.clear = this.anchor("Clear")
-                .setDisabled(true);
-        this.close = this.closeAnchor()
-                .setDisabled(true);
+        this.save = this.anchor("Save");
+        this.undo = this.anchor("Undo");
+        this.clear = this.anchor("Clear");
+        this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
 
