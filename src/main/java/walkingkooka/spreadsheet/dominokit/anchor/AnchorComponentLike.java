@@ -22,7 +22,6 @@ import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 
 import java.util.Optional;
 
@@ -35,13 +34,13 @@ public interface AnchorComponentLike<A extends AnchorComponentLike<A>> extends H
         return null == this.href();
     }
 
-    HistoryTokenAnchorComponent setDisabled(final boolean disabled);
+    A setDisabled(final boolean disabled);
 
     // checked.........................................................................................................
 
     boolean isChecked();
 
-    HistoryTokenAnchorComponent setChecked(final boolean checked);
+    A setChecked(final boolean checked);
 
     // href.............................................................................................................
 
@@ -53,31 +52,31 @@ public interface AnchorComponentLike<A extends AnchorComponentLike<A>> extends H
     /**
      * Setter that replaces the HREF attribute of this ANCHOR.
      */
-    HistoryTokenAnchorComponent setHref(final Url url);
+    A setHref(final Url url);
 
     // id...............................................................................................................
 
     String id();
 
-    HistoryTokenAnchorComponent setId(final String id);
+    A setId(final String id);
 
     // tabIndex.........................................................................................................
 
     int tabIndex();
 
-    HistoryTokenAnchorComponent setTabIndex(final int tabIndex);
+    A setTabIndex(final int tabIndex);
 
     // target.........................................................................................................
 
     String target();
 
-    HistoryTokenAnchorComponent setTarget(final String target);
+    A setTarget(final String target);
 
     // textContent......................................................................................................
 
     String textContent();
 
-    HistoryTokenAnchorComponent setTextContent(final String text);
+    A setTextContent(final String text);
 
     // iconBefore | text Content | iconAfter
 
@@ -85,25 +84,25 @@ public interface AnchorComponentLike<A extends AnchorComponentLike<A>> extends H
 
     Optional<Icon<?>> iconBefore();
 
-    HistoryTokenAnchorComponent setIconBefore(final Optional<Icon<?>> icon);
+    A setIconBefore(final Optional<Icon<?>> icon);
 
     // iconAfter......................................................................................................
 
     Optional<Icon<?>> iconAfter();
 
-    HistoryTokenAnchorComponent setIconAfter(final Optional<Icon<?>> icon);
+    A setIconAfter(final Optional<Icon<?>> icon);
 
     // events...........................................................................................................
-    HistoryTokenAnchorComponent addClickListener(final EventListener listener);
+    A addClickListener(final EventListener listener);
 
-    HistoryTokenAnchorComponent addFocusListener(final EventListener listener);
+    A addFocusListener(final EventListener listener);
 
-    HistoryTokenAnchorComponent addKeydownListener(final EventListener listener);
+    A addKeydownListener(final EventListener listener);
 
     /**
      * Adds a {@link EventListener} that receives click and keydown with ENTER events.
      */
-    HistoryTokenAnchorComponent addClickAndKeydownEnterListener(final EventListener listener);
+    A addClickAndKeydownEnterListener(final EventListener listener);
 
     // focus............................................................................................................
 
