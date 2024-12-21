@@ -106,5 +106,5 @@ public interface AnchorComponentLike<A extends AnchorComponentLike<A>> extends H
 
     // focus............................................................................................................
 
-    void focus();
+    A focus();
 }

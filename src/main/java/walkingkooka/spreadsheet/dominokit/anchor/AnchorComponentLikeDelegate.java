@@ -168,9 +168,10 @@ public interface AnchorComponentLikeDelegate<A extends AnchorComponentLike<A>> e
     }
 
     @Override
-    default void focus() {
+    default A focus() {
         this.anchorComponentLike()
                 .focus();
+        return (A) this;
     }
 
     @Override
