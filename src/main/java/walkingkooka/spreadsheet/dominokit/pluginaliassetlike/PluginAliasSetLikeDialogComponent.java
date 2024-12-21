@@ -107,12 +107,9 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                         (oldValue, newValue) -> this.onTextBox(this.text())
                 );
 
-        this.save = this.anchor("Save")
-                .setDisabled(true);
-        this.reset = this.anchor("Reset")
-                .setDisabled(true);
-        this.close = this.closeAnchor()
-                .setDisabled(true);
+        this.save = this.anchor("Save");
+        this.reset = this.anchor("Reset");
+        this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
     }
