@@ -145,7 +145,25 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
     public void testTreePrintWithoutValue() {
         this.treePrintAndCheck(
                 this.createComponent(),
-                "ValueHistoryTokenAnchorComponent\n"
+                ""
+        );
+    }
+
+    @Test
+    public void testTreePrintWithoutValueAndDisabled() {
+        this.treePrintAndCheck(
+                this.createComponent()
+                        .setDisabled(true),
+                "DISABLED"
+        );
+    }
+
+    @Test
+    public void testTreePrintWithoutValueAndSetId() {
+        this.treePrintAndCheck(
+                this.createComponent()
+                        .setId("Anchor123"),
+                "id=Anchor123"
         );
     }
 
@@ -158,8 +176,7 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
                                         JarEntryInfoName.MANIFEST_MF
                                 )
                         ),
-                "ValueHistoryTokenAnchorComponent\n" +
-                        "  [/api/plugin/TestPluginName123/download/META-INF/MANIFEST.MF]"
+                "[/api/plugin/TestPluginName123/download/META-INF/MANIFEST.MF]"
         );
     }
 
