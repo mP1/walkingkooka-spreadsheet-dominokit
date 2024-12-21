@@ -226,8 +226,8 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     // focus............................................................................................................
 
     @Override
-    public void focus() {
-        // NOP
+    public HistoryTokenAnchorComponent focus() {
+        return this;
     }
 
     // SpreadsheetContextMenuTarget.....................................................................................

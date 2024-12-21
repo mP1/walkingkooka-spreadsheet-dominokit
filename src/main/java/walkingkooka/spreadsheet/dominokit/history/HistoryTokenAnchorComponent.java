@@ -357,8 +357,9 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     // focus............................................................................................................
 
     @Override
-    public void focus() {
+    public HistoryTokenAnchorComponent focus() {
         this.element().focus();
+        return this;
     }
 
     // isElement........................................................................................................
