@@ -77,6 +77,12 @@ public final class ConverterAliasSetComponentTest implements ValueComponentTesti
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public ConverterAliasSetComponent createComponent() {
+        return ConverterAliasSetComponent.empty();
+    }
 
     // class............................................................................................................
 

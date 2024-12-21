@@ -73,6 +73,13 @@ public final class ConverterNameComponentTest implements ValueComponentTesting<H
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public ConverterNameComponent createComponent() {
+        return ConverterNameComponent.empty();
+    }
+
     // class............................................................................................................
     
     @Override

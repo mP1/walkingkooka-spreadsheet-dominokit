@@ -61,6 +61,13 @@ public final class SpreadsheetParserNameComponentTest implements ValueComponentT
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetParserNameComponent createComponent() {
+        return SpreadsheetParserNameComponent.empty();
+    }
+
     // class............................................................................................................
     @Override
     public Class<SpreadsheetParserNameComponent> type() {

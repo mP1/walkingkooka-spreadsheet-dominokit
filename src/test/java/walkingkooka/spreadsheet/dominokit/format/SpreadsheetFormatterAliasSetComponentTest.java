@@ -71,6 +71,13 @@ public final class SpreadsheetFormatterAliasSetComponentTest implements ValueCom
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetFormatterAliasSetComponent createComponent() {
+        return SpreadsheetFormatterAliasSetComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

@@ -57,6 +57,13 @@ public final class SpreadsheetComparatorNameComponentTest implements ValueCompon
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetComparatorNameComponent createComponent() {
+        return SpreadsheetComparatorNameComponent.empty();
+    }
+
     // class............................................................................................................
 
 

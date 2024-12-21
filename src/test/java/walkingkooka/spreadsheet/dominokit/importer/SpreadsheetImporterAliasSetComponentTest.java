@@ -71,7 +71,12 @@ public final class SpreadsheetImporterAliasSetComponentTest implements ValueComp
         );
     }
 
-    // class............................................................................................................
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetImporterAliasSetComponent createComponent() {
+        return SpreadsheetImporterAliasSetComponent.empty();
+    }
 
     // class............................................................................................................
 

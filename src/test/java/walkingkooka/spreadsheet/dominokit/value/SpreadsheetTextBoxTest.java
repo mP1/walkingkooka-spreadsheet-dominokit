@@ -139,6 +139,13 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetTextBox createComponent() {
+        return SpreadsheetTextBox.empty();
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

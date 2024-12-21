@@ -32,9 +32,8 @@ public final class SpreadsheetConditionRightParserTokenComponentTest implements 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetConditionRightParserTokenComponent.empty(
-                                () -> SPREADSHEET_PARSER_CONTEXT
-                        ).setStringValue(
+                this.createComponent()
+                        .setStringValue(
                                 Optional.of(
                                         "< 123"
                                 )
@@ -49,9 +48,8 @@ public final class SpreadsheetConditionRightParserTokenComponentTest implements 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetConditionRightParserTokenComponent.empty(
-                                () -> SPREADSHEET_PARSER_CONTEXT
-                        ).setStringValue(
+                this.createComponent()
+                        .setStringValue(
                                 Optional.of(
                                         "1+2"
                                 )
@@ -62,6 +60,15 @@ public final class SpreadsheetConditionRightParserTokenComponentTest implements 
                         "      [1+2]\n" +
                         "      Errors\n" +
                         "        Invalid character '1' at 0\n"
+        );
+    }
+
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetConditionRightParserTokenComponent createComponent() {
+        return SpreadsheetConditionRightParserTokenComponent.empty(
+                () -> SPREADSHEET_PARSER_CONTEXT
         );
     }
 

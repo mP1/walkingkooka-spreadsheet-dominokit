@@ -71,6 +71,13 @@ public final class SpreadsheetParserAliasSetComponentTest implements ValueCompon
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetParserAliasSetComponent createComponent() {
+        return SpreadsheetParserAliasSetComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

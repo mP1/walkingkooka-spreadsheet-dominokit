@@ -73,6 +73,13 @@ public final class ConverterSelectorComponentTest implements ValueComponentTesti
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public ConverterSelectorComponent createComponent() {
+        return ConverterSelectorComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

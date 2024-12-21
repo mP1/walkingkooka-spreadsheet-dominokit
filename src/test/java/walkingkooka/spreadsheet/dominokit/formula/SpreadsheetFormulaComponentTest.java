@@ -32,15 +32,12 @@ public final class SpreadsheetFormulaComponentTest implements ValueComponentTest
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetFormulaComponent.empty(
-                        SpreadsheetFormulaComponentFunctions.expressionParser(
-                                () -> SPREADSHEET_PARSER_CONTEXT
-                        )
-                ).setStringValue(
-                        Optional.of(
-                                "1+2"
-                        )
-                ),
+                this.createComponent()
+                        .setStringValue(
+                                Optional.of(
+                                        "1+2"
+                                )
+                        ),
                 "SpreadsheetFormulaComponent\n" +
                         "  ValueSpreadsheetTextBox\n" +
                         "    SpreadsheetTextBox\n" +
@@ -51,15 +48,12 @@ public final class SpreadsheetFormulaComponentTest implements ValueComponentTest
     @Test
     public void testSetStringValueGetValue() {
         this.treePrintAndCheck(
-                SpreadsheetFormulaComponent.empty(
-                        SpreadsheetFormulaComponentFunctions.expressionParser(
-                                () -> SPREADSHEET_PARSER_CONTEXT
-                        )
-                ).setStringValue(
-                        Optional.of(
-                                "1+2"
-                        )
-                ).value(),
+                this.createComponent()
+                        .setStringValue(
+                                Optional.of(
+                                        "1+2"
+                                )
+                        ).value(),
                 "Formula\n" +
                         "  token:\n" +
                         "    SpreadsheetAddition \"1+2\"\n" +
@@ -74,11 +68,7 @@ public final class SpreadsheetFormulaComponentTest implements ValueComponentTest
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetFormulaComponent.empty(
-                                SpreadsheetFormulaComponentFunctions.expressionParser(
-                                        () -> SPREADSHEET_PARSER_CONTEXT
-                                )
-                        )
+                this.createComponent()
                         .setStringValue(
                                 Optional.of(
                                         "1+!!!"
@@ -90,6 +80,17 @@ public final class SpreadsheetFormulaComponentTest implements ValueComponentTest
                         "      [1+!!!]\n" +
                         "      Errors\n" +
                         "        Invalid character '!' at (3,1) \"1+!!!\" expected BINARY_SUB_EXPRESSION\n"
+        );
+    }
+
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetFormulaComponent createComponent() {
+        return SpreadsheetFormulaComponent.empty(
+                SpreadsheetFormulaComponentFunctions.expressionParser(
+                        () -> SPREADSHEET_PARSER_CONTEXT
+                )
         );
     }
 

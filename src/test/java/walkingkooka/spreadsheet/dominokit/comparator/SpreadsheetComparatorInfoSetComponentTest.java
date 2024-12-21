@@ -113,6 +113,13 @@ public final class SpreadsheetComparatorInfoSetComponentTest implements ValueCom
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetComparatorInfoSetComponent createComponent() {
+        return SpreadsheetComparatorInfoSetComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

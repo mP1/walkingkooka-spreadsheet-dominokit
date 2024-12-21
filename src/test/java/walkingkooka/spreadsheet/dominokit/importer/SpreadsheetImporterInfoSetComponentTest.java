@@ -111,6 +111,13 @@ public final class SpreadsheetImporterInfoSetComponentTest implements ValueCompo
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetImporterInfoSetComponent createComponent() {
+        return SpreadsheetImporterInfoSetComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

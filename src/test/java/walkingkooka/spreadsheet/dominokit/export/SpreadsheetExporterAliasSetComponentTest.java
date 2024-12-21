@@ -71,6 +71,13 @@ public final class SpreadsheetExporterAliasSetComponentTest implements ValueComp
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetExporterAliasSetComponent createComponent() {
+        return SpreadsheetExporterAliasSetComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

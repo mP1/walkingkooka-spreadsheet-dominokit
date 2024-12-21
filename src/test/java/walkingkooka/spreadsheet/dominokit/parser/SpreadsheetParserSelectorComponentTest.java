@@ -61,6 +61,13 @@ public final class SpreadsheetParserSelectorComponentTest implements ValueCompon
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetParserSelectorComponent createComponent() {
+        return SpreadsheetParserSelectorComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

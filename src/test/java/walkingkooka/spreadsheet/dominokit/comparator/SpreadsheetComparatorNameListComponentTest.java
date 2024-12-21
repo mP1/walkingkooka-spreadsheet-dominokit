@@ -69,6 +69,13 @@ public final class SpreadsheetComparatorNameListComponentTest implements ValueCo
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetComparatorNameListComponent createComponent() {
+        return SpreadsheetComparatorNameListComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

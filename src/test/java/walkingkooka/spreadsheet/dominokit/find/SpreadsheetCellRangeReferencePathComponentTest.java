@@ -66,6 +66,13 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements Val
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetCellRangeReferencePathComponent createComponent() {
+        return SpreadsheetCellRangeReferencePathComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

@@ -50,7 +50,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentT
     @Test
     public void testOptionalValidationPass() {
         this.treePrintAndCheck(
-                this.createSpreadsheetSuggestBox()
+                this.createComponent()
                         .setLabel("Label123")
                         .optional(),
                 "SpreadsheetSuggestBoxComponent\n" +
@@ -61,7 +61,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentT
     @Test
     public void testOptionalEmptyValueValidationPass() {
         this.treePrintAndCheck(
-                this.createSpreadsheetSuggestBox()
+                this.createComponent()
                         .setLabel("Label123")
                         .optional()
                         .setValue(Optional.empty()),
@@ -73,7 +73,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentT
     @Test
     public void testValidationPass() {
         this.treePrintAndCheck(
-                this.createSpreadsheetSuggestBox()
+                this.createComponent()
                         .setLabel("Label123")
                         .setValue(Optional.of(SpreadsheetSelection.A1)),
                 "SpreadsheetSuggestBoxComponent\n" +
@@ -84,7 +84,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentT
     @Test
     public void testValidationFailureInvalidCharacterException() {
         this.treePrintAndCheck(
-                this.createSpreadsheetSuggestBox()
+                this.createComponent()
                         .setLabel("Label123")
                         .setStringValue(Optional.of("Not-a-cell")),
                 "SpreadsheetSuggestBoxComponent\n" +
@@ -97,7 +97,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentT
     @Test
     public void testOptionalValidationFailure() {
         this.treePrintAndCheck(
-                this.createSpreadsheetSuggestBox()
+                this.createComponent()
                         .setLabel("Label123")
                         .optional()
                         .setStringValue(Optional.of("AAAAA")),
@@ -111,7 +111,7 @@ public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentT
     @Test
     public void testValidationFailure() {
         this.treePrintAndCheck(
-                this.createSpreadsheetSuggestBox()
+                this.createComponent()
                         .setLabel("Label123")
                         .setStringValue(Optional.of("AAAAA")),
                 "SpreadsheetSuggestBoxComponent\n" +
@@ -121,13 +121,16 @@ public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentT
         );
     }
 
-    private SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> createSpreadsheetSuggestBox() {
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> createComponent() {
         return SpreadsheetSuggestBoxComponent.with(
                 SpreadsheetSelection::parseCell,
                 SUGGESTIONS_STORE
         );
     }
-
+    
     // ClassTesting.....................................................................................................
 
     @Override

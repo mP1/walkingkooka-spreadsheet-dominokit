@@ -111,6 +111,13 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements ValueComp
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetFormatterInfoSetComponent createComponent() {
+        return SpreadsheetFormatterInfoSetComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

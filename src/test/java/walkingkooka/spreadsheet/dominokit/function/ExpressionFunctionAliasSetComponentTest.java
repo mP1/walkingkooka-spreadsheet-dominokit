@@ -61,6 +61,13 @@ public final class ExpressionFunctionAliasSetComponentTest implements ValueCompo
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public ExpressionFunctionAliasSetComponent createComponent() {
+        return ExpressionFunctionAliasSetComponent.empty();
+    }
+
     // class............................................................................................................
     @Override
     public Class<ExpressionFunctionAliasSetComponent> type() {

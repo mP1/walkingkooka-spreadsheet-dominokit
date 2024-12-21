@@ -67,6 +67,13 @@ public final class SpreadsheetComparatorAliasSetComponentTest implements ValueCo
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetComparatorAliasSetComponent createComponent() {
+        return SpreadsheetComparatorAliasSetComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override

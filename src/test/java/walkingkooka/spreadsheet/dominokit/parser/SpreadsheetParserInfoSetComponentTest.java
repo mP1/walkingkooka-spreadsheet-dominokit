@@ -110,6 +110,13 @@ public final class SpreadsheetParserInfoSetComponentTest implements ValueCompone
         );
     }
 
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetParserInfoSetComponent createComponent() {
+        return SpreadsheetParserInfoSetComponent.empty();
+    }
+
     // class............................................................................................................
 
     @Override
