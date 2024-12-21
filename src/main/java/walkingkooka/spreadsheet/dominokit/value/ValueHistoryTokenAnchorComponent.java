@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegate;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -34,7 +34,8 @@ import java.util.function.Function;
  * A ValueComponent that wraps a {@link HistoryTokenAnchorComponent}, adding additional support for setting a value via a function.
  * Decorations such as icon for the anchor must be set on the {@link HistoryTokenAnchorComponent} itself as no delegating methods are available.
  */
-public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent<HTMLAnchorElement, T, ValueHistoryTokenAnchorComponent<T>> {
+public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent<HTMLAnchorElement, T, ValueHistoryTokenAnchorComponent<T>>,
+        AnchorComponentLikeDelegate<ValueHistoryTokenAnchorComponent<T>> {
 
     public static <T> ValueHistoryTokenAnchorComponent<T> with(final HistoryTokenAnchorComponent anchor,
                                                                final Function<HistoryTokenAnchorComponent, Optional<T>> getter,
@@ -173,12 +174,6 @@ public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent
     }
 
     @Override
-    public ValueHistoryTokenAnchorComponent<T> focus() {
-        this.anchor.focus();
-        return this;
-    }
-
-    @Override
     public List<String> errors() {
         return List.of();
     }
@@ -189,20 +184,19 @@ public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent
     }
 
     @Override
-    public ValueHistoryTokenAnchorComponent<T> setCssText(final String css) {
-        this.anchor.setCssText(css);
+    public ValueHistoryTokenAnchorComponent<T> focus() {
+        this.anchor.focus();
         return this;
     }
 
-    @Override
-    public Node node() {
-        return this.anchor.node();
-    }
+    // AnchorComponentLikeDelegate......................................................................................
 
     @Override
-    public HTMLAnchorElement element() {
-        return this.anchor.element();
+    public HistoryTokenAnchorComponent anchorComponentLike() {
+        return this.anchor;
     }
+
+    // TreePrintable....................................................................................................
 
     @Override
     public void printTree(final IndentingPrinter printer) {
