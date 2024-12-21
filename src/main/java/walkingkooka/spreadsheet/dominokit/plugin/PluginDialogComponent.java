@@ -62,7 +62,7 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
         this.delete = this.anchor("Delete");
         this.download = PluginDownloadAnchorComponent.empty()
                 .setTextContent("Download")
-                .setId("plugin-download" + SpreadsheetElementIds.LINK);
+                .setId(ID_PREFIX + "download" + SpreadsheetElementIds.LINK);
         this.close = this.anchor("Close");
 
         this.dialog = this.dialogCreate(context);
