@@ -200,13 +200,8 @@ public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent
 
     @Override
     public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-
-        printer.indent();
-        {
-            this.anchor.printTree(printer);
-        }
-        printer.outdent();
+        // continuing the anchor tradition, delegate to the anchor#printTree and do not print this#class#simpleName
+        this.anchor.printTree(printer);
     }
 
     private final HistoryTokenAnchorComponent anchor;
