@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.PluginSelectHistoryToken;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
+import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -174,6 +175,14 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
         this.list = list.orElse(JarEntryInfoList.EMPTY);
 
         this.refreshIfOpen(context);
+    }
+
+    @Override
+    public void onJarEntryInfoName(final PluginName pluginName,
+                                   final Optional<JarEntryInfoName> filename,
+                                   final String body,
+                                   final AppContext context) {
+        // NOP
     }
 
     @Override

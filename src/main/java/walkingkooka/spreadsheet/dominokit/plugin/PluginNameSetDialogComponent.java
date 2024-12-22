@@ -40,6 +40,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySel
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
+import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -254,6 +255,14 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
     @Override
     public void onJarEntryInfoList(final PluginName name,
                                    final Optional<JarEntryInfoList> list,
+                                   final AppContext context) {
+        // NOP
+    }
+
+    @Override
+    public void onJarEntryInfoName(final PluginName pluginName,
+                                   final Optional<JarEntryInfoName> filename,
+                                   final String body,
                                    final AppContext context) {
         // NOP
     }

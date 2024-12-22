@@ -203,6 +203,15 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                         this.context
                 );
                 break;
+            case "JarEntryInfoName":
+                // GET https://server/api/plugin/PluginName/download/**
+                this.watcher.onJarEntryInfoName(
+                        this.extractPluginName(url),
+                        JarEntryInfoName.pluginDownloadPathExtract(url.path()),
+                        body,
+                        context
+                );
+                break;
             case "Plugin":
                 // GET http://server/api/plugin/PluginName
                 this.watcher.onPlugin(

@@ -22,6 +22,7 @@ import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
+import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 import java.util.Optional;
 
@@ -34,6 +35,10 @@ public interface PluginFetcherWatcher extends FetcherWatcher {
                             final Optional<JarEntryInfoList> list,
                             final AppContext context);
 
+    void onJarEntryInfoName(final PluginName pluginName,
+                            final Optional<JarEntryInfoName> filename,
+                            final String body,
+                            final AppContext context);
 
     void onPlugin(final PluginName name,
                   final Optional<Plugin> plugin,
