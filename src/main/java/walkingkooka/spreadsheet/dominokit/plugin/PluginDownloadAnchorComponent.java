@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.Node;
 import walkingkooka.net.RelativeUrl;
-import walkingkooka.net.UrlPathName;
+import walkingkooka.net.UrlPath;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
@@ -31,9 +31,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.printer.IndentingPrinter;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * An anchor that uses given {@link PluginName} and {@link JarEntryInfoName} to set the HREF to download the plugin archive or a file within.
@@ -62,31 +60,15 @@ public final class PluginDownloadAnchorComponent implements HtmlElementComponent
         PluginDownload pluginDownload = null;
         if (null != url) {
             // 1=api / 2=plugin / 3=download / 4=path
-            final List<UrlPathName> names = url.path()
-                    .namesList();
+            final UrlPath path = url.path();
 
             pluginDownload = PluginDownload.with(
                     PluginName.with(
-                            names.get(2)
+                            path.namesList()
+                                    .get(2)
                                     .value()
                     ),
-                    Optional.ofNullable(
-                            3 == names.size() ?
-                                    null :
-                                    JarEntryInfoName.with(
-                                            names
-                                                    .stream()
-                                                    .skip(5)
-                                                    .map(n -> n.value())
-                                                    .collect(
-                                                            Collectors.joining(
-                                                                    JarEntryInfoName.SEPARATOR.string(),
-                                                                    JarEntryInfoName.SEPARATOR.string(),
-                                                                    ""
-                                                            )
-                                                    )
-                                    )
-                    )
+                    JarEntryInfoName.pluginDownloadPathExtract(path)
             );
         }
 
