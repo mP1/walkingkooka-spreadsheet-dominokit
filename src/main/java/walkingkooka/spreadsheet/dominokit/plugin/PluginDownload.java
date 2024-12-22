@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.ToStringBuilder;
+import walkingkooka.net.UrlPath;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
@@ -25,6 +26,19 @@ import java.util.Objects;
 import java.util.Optional;
 
 public final class PluginDownload {
+
+    public static PluginDownload extract(final UrlPath path) {
+        Objects.requireNonNull(path, "path");
+
+        return PluginDownload.with(
+                PluginName.with(
+                        path.namesList()
+                                .get(3)
+                                .value()
+                ),
+                JarEntryInfoName.pluginDownloadPathExtract(path)
+        );
+    }
 
     public static PluginDownload with(final PluginName pluginName,
                                       final Optional<JarEntryInfoName> filename) {
