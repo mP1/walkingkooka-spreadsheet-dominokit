@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.Node;
 import walkingkooka.net.RelativeUrl;
-import walkingkooka.net.UrlPath;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
@@ -57,22 +56,13 @@ public final class PluginDownloadAnchorComponent implements HtmlElementComponent
     private Optional<PluginDownload> getter(final HistoryTokenAnchorComponent anchor) {
         final RelativeUrl url = (RelativeUrl) anchor.href();
 
-        PluginDownload pluginDownload = null;
-        if (null != url) {
-            // 1=api / 2=plugin / 3=download / 4=path
-            final UrlPath path = url.path();
-
-            pluginDownload = PluginDownload.with(
-                    PluginName.with(
-                            path.namesList()
-                                    .get(2)
-                                    .value()
-                    ),
-                    JarEntryInfoName.pluginDownloadPathExtract(path)
-            );
-        }
-
-        return Optional.ofNullable(pluginDownload);
+        return Optional.ofNullable(
+                null != url ?
+                        null :
+                        PluginDownload.extract(
+                                url.path()
+                        )
+        );
     }
 
     private void setter(final Optional<PluginDownload> value,
