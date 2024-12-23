@@ -30,7 +30,7 @@ final class PluginFetcherWatchersJarEntryInfoNameEvent extends FetcherWatchersEv
 
     static PluginFetcherWatchersJarEntryInfoNameEvent with(final PluginName pluginName,
                                                            final Optional<JarEntryInfoName> filename,
-                                                           final String body,
+                                                           final Optional<String> body,
                                                            final AppContext context) {
         return new PluginFetcherWatchersJarEntryInfoNameEvent(
                 pluginName,
@@ -42,7 +42,7 @@ final class PluginFetcherWatchersJarEntryInfoNameEvent extends FetcherWatchersEv
 
     private PluginFetcherWatchersJarEntryInfoNameEvent(final PluginName pluginName,
                                                        final Optional<JarEntryInfoName> filename,
-                                                       final String body,
+                                                       final Optional<String> body,
                                                        final AppContext context) {
         super(context);
         this.pluginName = pluginName;
@@ -64,10 +64,10 @@ final class PluginFetcherWatchersJarEntryInfoNameEvent extends FetcherWatchersEv
 
     private final Optional<JarEntryInfoName> filename;
 
-    private final String body;
+    private final Optional<String> body;
 
     @Override
     public String toString() {
-        return this.pluginName + " " + this.filename + " " + this.body;
+        return this.pluginName + " " + this.filename + " " + this.body.orElse("");
     }
 }

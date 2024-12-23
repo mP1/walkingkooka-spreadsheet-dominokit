@@ -37,7 +37,7 @@ public interface PluginFetcherWatcher extends FetcherWatcher {
 
     void onJarEntryInfoName(final PluginName pluginName,
                             final Optional<JarEntryInfoName> filename,
-                            final String body,
+                            final Optional<String> body,
                             final AppContext context);
 
     void onPlugin(final PluginName name,

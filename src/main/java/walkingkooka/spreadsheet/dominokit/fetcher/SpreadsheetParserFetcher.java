@@ -32,6 +32,7 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Fetcher for {@link SpreadsheetParserSelector} end points.
@@ -109,7 +110,7 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
-                          final String body) {
+                          final Optional<String> body) {
         final AppContext context = this.context;
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
@@ -122,7 +123,7 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
                         SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
                                 .get(), // the request url
                         this.parse(
-                                body,
+                                body.orElse(""),
                                 SpreadsheetParserInfoSet.class
                         ), // edit
                         context
@@ -134,7 +135,7 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
                         SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
                                 .get(), // the request url
                         this.parse(
-                                body,
+                                body.orElse(""),
                                 SpreadsheetParserSelectorEdit.class
                         ), // edit
                         context

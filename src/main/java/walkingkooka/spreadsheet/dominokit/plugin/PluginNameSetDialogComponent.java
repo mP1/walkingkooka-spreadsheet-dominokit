@@ -262,7 +262,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
     @Override
     public void onJarEntryInfoName(final PluginName pluginName,
                                    final Optional<JarEntryInfoName> filename,
-                                   final String body,
+                                   final Optional<String> body,
                                    final AppContext context) {
         // NOP
     }

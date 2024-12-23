@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.export.SpreadsheetExporterName;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Fetcher for {@link SpreadsheetExporter} end points.
@@ -73,7 +74,7 @@ public final class SpreadsheetExporterFetcher extends Fetcher<SpreadsheetExporte
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
-                          final String body) {
+                          final Optional<String> body) {
         final AppContext context = this.context;
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
@@ -86,7 +87,7 @@ public final class SpreadsheetExporterFetcher extends Fetcher<SpreadsheetExporte
                         SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
                                 .get(), // the request url
                         this.parse(
-                                body,
+                                body.orElse(""),
                                 SpreadsheetExporterInfoSet.class
                         ), // edit
                         context

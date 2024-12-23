@@ -870,7 +870,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
-                          final String body) {
+                          final Optional<String> body) {
         final AppContext context = this.context;
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
@@ -883,7 +883,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         method, // method
                         url, // the request url
                         this.parse(
-                                body,
+                                body.orElse(""),
                                 SpreadsheetDelta.class
                         ), // delta
                         context
