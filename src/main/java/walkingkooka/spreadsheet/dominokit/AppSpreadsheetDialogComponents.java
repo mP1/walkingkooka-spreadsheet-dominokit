@@ -29,6 +29,8 @@ import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialog
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.plugin.PluginDialogComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.PluginDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.plugin.PluginFileViewDialogComponent;
+import walkingkooka.spreadsheet.dominokit.plugin.PluginFileViewDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.plugin.PluginNameSetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.PluginNameSetDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponent;
@@ -53,6 +55,9 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                          final AppContext context) {
         PluginDialogComponent.with(
                 PluginDialogComponentContexts.appContext(context)
+        );
+        PluginFileViewDialogComponent.with(
+                PluginFileViewDialogComponentContexts.appContext(context)
         );
 
         SpreadsheetListDialogComponent.with(
