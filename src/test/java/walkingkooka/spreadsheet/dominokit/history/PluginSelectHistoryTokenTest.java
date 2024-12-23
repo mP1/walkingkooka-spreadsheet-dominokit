@@ -43,6 +43,16 @@ public final class PluginSelectHistoryTokenTest extends PluginNameHistoryTokenTe
     }
 
     @Test
+    public void testClose() {
+        this.closeAndCheck(
+                HistoryToken.pluginListSelect(
+                        OptionalInt.empty(), // offset
+                        OptionalInt.empty() // count
+                )
+        );
+    }
+
+    @Test
     public void testSave() {
         this.saveAndCheck(
                 "Ignored Save"
