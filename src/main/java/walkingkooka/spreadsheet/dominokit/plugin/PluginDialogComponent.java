@@ -180,7 +180,7 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
     @Override
     public void onJarEntryInfoName(final PluginName pluginName,
                                    final Optional<JarEntryInfoName> filename,
-                                   final String body,
+                                   final Optional<String> body,
                                    final AppContext context) {
         // NOP
     }

@@ -225,7 +225,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
-                          final String body) {
+                          final Optional<String> body) {
         final SpreadsheetMetadataFetcherWatcher watcher = this.watcher;
         final AppContext context = this.context;
 
@@ -238,7 +238,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
             case "SpreadsheetMetadata":
                 watcher.onSpreadsheetMetadata(
                         this.parse(
-                                body,
+                                body.orElse(""),
                                 SpreadsheetMetadata.class
                         ),
                         context
@@ -247,7 +247,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
             case "SpreadsheetMetadataSet":
                 watcher.onSpreadsheetMetadataSet(
                         this.parse(
-                                body,
+                                body.orElse(""),
                                 SpreadsheetMetadataSet.class
                         ),
                         context

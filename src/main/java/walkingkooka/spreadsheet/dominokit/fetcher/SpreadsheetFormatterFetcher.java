@@ -35,6 +35,7 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Fetcher for {@link SpreadsheetFormatterSelector} end points.
@@ -130,7 +131,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
-                          final String body) {
+                          final Optional<String> body) {
         final AppContext context = this.context;
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
@@ -143,7 +144,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
                         SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
                                 .get(), // the request formatter
                         this.parse(
-                                body,
+                                body.orElse(""),
                                 SpreadsheetFormatterInfoSet.class
                         ), // edit
                         context
@@ -155,7 +156,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
                         SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
                                 .get(), // the request formatter
                         this.parse(
-                                body,
+                                body.orElse(""),
                                 SpreadsheetFormatterSelectorEdit.class
                         ), // edit
                         context
@@ -167,7 +168,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
                         SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
                                 .get(), // the request formatter
                         this.parse(
-                                body,
+                                body.orElse(""),
                                 SpreadsheetFormatterSelectorMenuList.class
                         ), // menu
                         context

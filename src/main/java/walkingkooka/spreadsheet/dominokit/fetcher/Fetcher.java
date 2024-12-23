@@ -197,7 +197,9 @@ abstract public class Fetcher<W extends FetcherWatcher> {
                                                     response.headers.get(
                                                             HateosResourceMapping.X_CONTENT_TYPE_NAME.value()
                                                     ),
-                                                    text
+                                                    204 == response.status ?
+                                                            Optional.empty() :
+                                                            Optional.of(text)
                                             );
                                         } else {
                                             final HttpStatus status = HttpStatusCode.withCode(response.status)
@@ -240,14 +242,18 @@ abstract public class Fetcher<W extends FetcherWatcher> {
 
     /**
      * Logs a debug level message with the given parameters and then calls #onSuccess.
+     * Note if the response.status is NO_CONTENT the body will be {@link Optional#empty()}.
      */
     private void fireSuccess(final HttpMethod method,
                              final AbsoluteOrRelativeUrl url,
                              final String contentTypeName,
-                             final String body) {
+                             final Optional<String> body) {
         String actualBodyLength = "";
-        if (false == CharSequences.isNullOrEmpty(body)) {
-            actualBodyLength = " " + body.length();
+        if (body.isPresent()) {
+            final String bodyText = body.get();
+            if(false == CharSequences.isNullOrEmpty(bodyText)) {
+                actualBodyLength = " " + bodyText.length();
+            }
         }
 
         this.context.debug(this.getClass().getSimpleName() + ".onSuccess " + method + " " + url + " " + contentTypeName + actualBodyLength);
@@ -266,7 +272,7 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     abstract void onSuccess(final HttpMethod method,
                             final AbsoluteOrRelativeUrl url,
                             final String contentTypeName,
-                            final String body);
+                            final Optional<String> body);
 
     /**
      * This method is invoked for non 2xx responses.

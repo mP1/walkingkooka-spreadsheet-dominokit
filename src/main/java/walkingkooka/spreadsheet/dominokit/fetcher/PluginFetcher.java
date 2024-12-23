@@ -180,8 +180,10 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
-                          final String body) {
+                          final Optional<String> body) {
         final AppContext context = this.context;
+
+        final String bodyText = body.orElse("");
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
@@ -192,11 +194,11 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                 this.watcher.onJarEntryInfoList(
                         this.extractPluginName(url),
                         Optional.ofNullable(
-                                body.trim()
+                                bodyText.trim()
                                         .isEmpty() ?
                                         null :
                                         this.parse(
-                                                body,
+                                                bodyText,
                                                 JarEntryInfoList.class
                                         )
                         ),
@@ -217,10 +219,11 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                 this.watcher.onPlugin(
                         this.extractPluginName(url),
                         Optional.ofNullable(
-                                body.trim().isEmpty() ?
+                                bodyText.trim()
+                                        .isEmpty() ?
                                         null :
                                         this.parse(
-                                                body,
+                                                bodyText,
                                                 Plugin.class
                                         )
                         ), // edit
@@ -231,7 +234,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                 // GET http://server/api/plugin/PluginName/filter
                 this.watcher.onPluginSet(
                         this.parse(
-                                body,
+                                bodyText,
                                 PluginSet.class
                         ), // edit
                         context

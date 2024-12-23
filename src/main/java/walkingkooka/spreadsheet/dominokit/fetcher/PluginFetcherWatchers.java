@@ -54,7 +54,7 @@ public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWa
     @Override
     public void onJarEntryInfoName(final PluginName pluginName,
                                    final Optional<JarEntryInfoName> filename,
-                                   final String body,
+                                   final Optional<String> body,
                                    final AppContext context) {
         this.fire(
                 PluginFetcherWatchersJarEntryInfoNameEvent.with(

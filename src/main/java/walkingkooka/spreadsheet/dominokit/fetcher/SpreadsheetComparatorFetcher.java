@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Fetcher for {@link SpreadsheetComparator} end points.
@@ -77,7 +78,7 @@ public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetCompa
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
-                          final String body) {
+                          final Optional<String> body) {
         final AppContext context = this.context;
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
@@ -90,7 +91,7 @@ public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetCompa
                         SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
                                 .get(), // the request url
                         this.parse(
-                                body,
+                                body.orElse(""),
                                 SpreadsheetComparatorInfoSet.class
                         ), // edit
                         context

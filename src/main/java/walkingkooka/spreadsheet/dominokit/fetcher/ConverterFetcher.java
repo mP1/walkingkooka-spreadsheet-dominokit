@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.server.convert.ConverterHateosResourceMappings;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Fetcher for {@link Converter} end points.
@@ -79,7 +80,7 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
     public void onSuccess(final HttpMethod method,
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
-                          final String body) {
+                          final Optional<String> body) {
         final AppContext context = this.context;
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
@@ -92,7 +93,7 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
                         SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
                                 .get(), // the request url
                         this.parse(
-                                body,
+                                body.orElse(""),
                                 ConverterInfoSet.class
                         ), // edit
                         context
