@@ -34,6 +34,7 @@ public final class TextViewComponent implements TextViewComponentLike {
 
     private TextViewComponent() {
         super();
+        this.clearValue();
     }
 
     @Override
