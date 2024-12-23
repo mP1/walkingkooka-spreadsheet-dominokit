@@ -94,6 +94,13 @@ public final class PluginFileViewHistoryTokenTest extends PluginNameHistoryToken
     }
 
     @Test
+    public void testClose() {
+        this.closeAndCheck(
+                HistoryToken.pluginSelect(PLUGIN_NAME)
+        );
+    }
+
+    @Test
     public void testSave() {
         this.saveAndCheck(
                 "Ignored Save"

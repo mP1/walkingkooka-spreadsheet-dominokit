@@ -1483,6 +1483,11 @@ public abstract class HistoryToken implements HasUrlFragment,
             closed = this.clearAction();
         }
 
+        // must come after PluginSelectHistoryToken
+        if( this instanceof PluginFileViewHistoryToken) {
+            closed = this.clearAction();
+        }
+
         if (this instanceof SpreadsheetCellFindHistoryToken) {
             closed = this.clearAction();
         }
