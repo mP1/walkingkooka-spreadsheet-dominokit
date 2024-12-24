@@ -19,18 +19,17 @@ package walkingkooka.spreadsheet.dominokit.find;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
-import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 
 import java.util.Collection;
 
 abstract class SpreadsheetFindDialogComponentGridLayoutLike implements HtmlElementComponent<HTMLDivElement, SpreadsheetFindDialogComponentGridLayout> {
 
-    abstract SpreadsheetFindDialogComponentGridLayout setLeft(final Collection<Component<?>> children);
+    abstract SpreadsheetFindDialogComponentGridLayout setLeft(final Collection<HtmlElementComponent<?, ?>> children);
 
-    abstract SpreadsheetFindDialogComponentGridLayout setContent(final Collection<Component<?>> children);
+    abstract SpreadsheetFindDialogComponentGridLayout setContent(final Collection<HtmlElementComponent<?, ?>> children);
 
-    abstract SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<Component<?>> children);
+    abstract SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<HtmlElementComponent<?, ?>> children);
 
     @Override
     public final Node node() {

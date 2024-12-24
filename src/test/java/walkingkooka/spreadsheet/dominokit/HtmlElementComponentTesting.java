@@ -19,5 +19,5 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.HTMLElement;
 
-public interface HtmlElementComponentTesting<C extends HtmlElementComponent<E, C>, E extends HTMLElement> extends ComponentTesting<C, E> {
+public interface HtmlElementComponentTesting<C extends HtmlElementComponent<E, C>, E extends HTMLElement> extends ComponentTesting<C> {
 }

@@ -49,9 +49,9 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
     }
 
     @Override
-    public Component<?> render(final int column,
-                               final SpreadsheetMetadata metadata) {
-        final Component<?> component;
+    public Component render(final int column,
+                            final SpreadsheetMetadata metadata) {
+        final Component component;
 
         switch (column) {
             case 0: // name

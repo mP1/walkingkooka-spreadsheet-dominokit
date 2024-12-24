@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
-import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.tree.text.TextNode;
 
@@ -54,20 +52,6 @@ public final class SpreadsheetTextNodeComponent implements SpreadsheetTextNodeCo
         this.value = value;
         return this;
     }
-
-    // IsElement........................................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        if (null == this.element) {
-            this.element = ElementsFactory.elements.div()
-                    .appendChild(this.node())
-                    .element();
-        }
-        return this.element;
-    }
-
-    private HTMLDivElement element;
 
     // node.............................................................................................................
 

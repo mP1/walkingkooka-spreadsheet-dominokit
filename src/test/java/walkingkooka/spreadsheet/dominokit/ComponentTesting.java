@@ -17,10 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import elemental2.dom.Element;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.text.printer.TreePrintableTesting;
 
-public interface ComponentTesting<C extends Component<E>, E extends Element> extends TreePrintableTesting,
+public interface ComponentTesting<C extends Component> extends TreePrintableTesting,
         ClassTesting<C> {
 }

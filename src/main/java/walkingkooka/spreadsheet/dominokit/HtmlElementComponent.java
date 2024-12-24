@@ -19,11 +19,13 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
+import org.dominokit.domino.ui.IsElement;
 
 /**
  * A {@link Component} that adds a few helpers relating to {@link HTMLElement} and {@link Node}.
  */
-public interface HtmlElementComponent<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends Component<E> {
+public interface HtmlElementComponent<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends Component,
+        IsElement<E> {
 
     // setCssText.......................................................................................................
 

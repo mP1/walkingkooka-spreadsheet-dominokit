@@ -24,6 +24,6 @@ import walkingkooka.spreadsheet.dominokit.Component;
  */
 public interface SpreadsheetDataTableComponentCellRenderer<T> {
 
-    Component<?> render(final int column,
-                        final T row);
+    Component render(final int column,
+                     final T row);
 }

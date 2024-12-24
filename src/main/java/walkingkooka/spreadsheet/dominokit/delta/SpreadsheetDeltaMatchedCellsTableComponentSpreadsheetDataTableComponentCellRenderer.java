@@ -38,9 +38,9 @@ final class SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableCompon
     }
 
     @Override
-    public Component<?> render(final int column,
-                               final SpreadsheetCell cell) {
-        final Component<?> component;
+    public Component render(final int column,
+                            final SpreadsheetCell cell) {
+        final Component component;
 
         switch (column) {
             case 0: // cell
