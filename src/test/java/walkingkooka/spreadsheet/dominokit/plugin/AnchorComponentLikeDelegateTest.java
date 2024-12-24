@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegate;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.AnchorComponentLikeDelegateTest.TestAnchorComponentLikeDelegate;
-import walkingkooka.text.printer.IndentingPrinter;
 
 public final class AnchorComponentLikeDelegateTest implements ClassTesting<TestAnchorComponentLikeDelegate> {
 
@@ -49,12 +48,6 @@ public final class AnchorComponentLikeDelegateTest implements ClassTesting<TestA
         @Override
         public AnchorComponentLike<?> anchorComponentLike() {
             return HistoryTokenAnchorComponent.empty();
-        }
-
-        @Override
-        public void printTree(final IndentingPrinter printer) {
-            this.anchorComponentLike()
-                    .printTree(printer);
         }
     }
 }

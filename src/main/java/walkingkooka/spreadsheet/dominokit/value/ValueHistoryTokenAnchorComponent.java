@@ -23,7 +23,6 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegate;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Objects;
@@ -195,14 +194,6 @@ public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent
     @Override
     public HistoryTokenAnchorComponent anchorComponentLike() {
         return this.anchor;
-    }
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        // continuing the anchor tradition, delegate to the anchor#printTree and do not print this#class#simpleName
-        this.anchor.printTree(printer);
     }
 
     private final HistoryTokenAnchorComponent anchor;
