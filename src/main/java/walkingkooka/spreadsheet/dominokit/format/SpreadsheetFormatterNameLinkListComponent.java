@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
@@ -68,11 +67,6 @@ public final class SpreadsheetFormatterNameLinkListComponent implements HtmlElem
     public SpreadsheetFormatterNameLinkListComponent setCssText(final String css) {
         this.list.setCssText(css);
         return this;
-    }
-
-    @Override
-    public Node node() {
-        return this.list.element();
     }
 
     @Override

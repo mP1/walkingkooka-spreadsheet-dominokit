@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
@@ -230,13 +229,6 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     public SpreadsheetTextBox setCssText(final String css) {
         Objects.requireNonNull(css, "css");
         return this;
-    }
-
-    // Node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     // SpreadsheetTextBoxTreePrintable..................................................................................

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.patternkind;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -136,13 +135,6 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlElementCom
     @Override
     public HTMLDivElement element() {
         return this.tabsComponent.element();
-    }
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     // setCssText.......................................................................................................

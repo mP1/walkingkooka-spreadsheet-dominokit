@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.selector;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import walkingkooka.collect.list.ImmutableList;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.PluginSelectorTokenAlternativeLike;
@@ -201,13 +200,6 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
     @Override
     public HTMLDivElement element() {
         return this.root.element();
-    }
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     // TreePrintable....................................................................................................

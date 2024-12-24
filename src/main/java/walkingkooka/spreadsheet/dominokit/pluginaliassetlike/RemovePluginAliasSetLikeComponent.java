@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.naming.Name;
 import walkingkooka.plugin.PluginAliasLike;
@@ -194,13 +193,6 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
     @Override
     public HTMLDivElement element() {
         return this.root.element();
-    }
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     // TreePrintable....................................................................................................

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.flex;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.style.CssClass;
@@ -149,13 +148,6 @@ public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
     @Override
     public HTMLDivElement element() {
         return this.div.element();
-    }
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     private final DivElement div = ElementsFactory.elements.div();

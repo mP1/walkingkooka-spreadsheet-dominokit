@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.sort;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorDirection;
@@ -156,13 +155,6 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
     @Override
     public HTMLDivElement element() {
         return this.root.element();
-    }
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     /**

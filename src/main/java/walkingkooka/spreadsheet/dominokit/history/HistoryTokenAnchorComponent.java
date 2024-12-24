@@ -21,7 +21,6 @@ import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.elements.AnchorElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
@@ -367,13 +366,6 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     @Override
     public HTMLAnchorElement element() {
         return this.element.element();
-    }
-
-    // Node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     final AnchorElement element;

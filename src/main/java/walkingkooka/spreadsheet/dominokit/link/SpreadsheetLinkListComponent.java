@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.link;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
@@ -144,13 +143,6 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
     @Override
     public HTMLDivElement element() {
         return this.root.element();
-    }
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     // TreePrintable....................................................................................................

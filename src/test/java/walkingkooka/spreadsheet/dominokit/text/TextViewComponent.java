@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.text;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -66,11 +65,6 @@ public final class TextViewComponent implements TextViewComponentLike {
     @Override
     public TextViewComponent setCssText(final String css) {
         return this;
-    }
-
-    @Override
-    public Node node() {
-        throw new UnsupportedOperationException();
     }
 
     @Override

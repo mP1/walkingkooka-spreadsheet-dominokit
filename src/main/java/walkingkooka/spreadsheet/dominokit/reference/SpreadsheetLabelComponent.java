@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.reference;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent;
@@ -236,13 +235,6 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     }
 
     private final SpreadsheetSuggestBoxComponent suggestBox;
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.suggestBox.node();
-    }
 
     // TreePrintable....................................................................................................
 

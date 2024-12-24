@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.HTMLElement;
-import elemental2.dom.Node;
 import walkingkooka.CanBeEmpty;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
@@ -319,12 +318,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         return false == this.isOpen();
     }
 
-    // node.............................................................................................................
-
-    @Override
-    public final Node node() {
-        return this.element();
-    }
+    // IsElement........................................................................................................
 
     /**
      * The root {@link HTMLElement}

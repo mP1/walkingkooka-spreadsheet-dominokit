@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
@@ -125,13 +124,6 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
     @Override
     public HTMLDivElement element() {
         return this.card.element();
-    }
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     // setCssText.......................................................................................................

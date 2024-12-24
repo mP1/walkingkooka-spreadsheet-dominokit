@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.tab;
 
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.tabs.Tab;
 import org.dominokit.domino.ui.tabs.TabsPanel;
 import walkingkooka.collect.list.Lists;
@@ -137,13 +136,6 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
 
         this.tabsPanel.cssText(css);
         return this;
-    }
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     // element..........................................................................................................
