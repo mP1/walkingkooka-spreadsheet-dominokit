@@ -36,5 +36,8 @@ public interface HtmlElementComponent<E extends HTMLElement, C extends HtmlEleme
 
     // node.............................................................................................................
 
-    Node node();
+    @Override
+    default Node node() {
+        return this.element();
+    }
 }

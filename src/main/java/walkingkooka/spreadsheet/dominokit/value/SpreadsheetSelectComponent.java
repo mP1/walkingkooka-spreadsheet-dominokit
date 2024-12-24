@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.Select;
 import org.dominokit.domino.ui.forms.suggest.SelectOption;
@@ -290,13 +289,6 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     }
 
     private final Select<T> select;
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
-    }
 
     // Object...........................................................................................................
 

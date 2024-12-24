@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import elemental2.dom.HTMLAnchorElement;
-import elemental2.dom.Node;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
@@ -98,11 +97,6 @@ public final class PluginDownloadAnchorComponent implements HtmlElementComponent
     public PluginDownloadAnchorComponent setCssText(final String css) {
         this.component.setCssText(css);
         return this;
-    }
-
-    @Override
-    public Node node() {
-        return this.component.node();
     }
 
     @Override

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.HTMLElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.layout.AppLayout;
 import walkingkooka.spreadsheet.dominokit.form.SpreadsheetFormComponentLifecycle;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -38,11 +37,6 @@ abstract class SpreadsheetAppLayoutDrawerComponent<E extends HTMLElement, T exte
     public final T setCssText(final String css) {
         this.form.setCssText(css);
         return (T) this;
-    }
-
-    @Override
-    public final Node node() {
-        return this.form.node();
     }
 
     @Override

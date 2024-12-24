@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.delta;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
@@ -121,11 +120,6 @@ public final class SpreadsheetDeltaMatchedCellsTableComponent implements HtmlEle
     }
 
     // HtmlElementComponent.............................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
-    }
 
     @Override
     public HTMLDivElement element() {

@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value;
 import elemental2.dom.Element;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.elements.SpanElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.SuggestBox;
@@ -350,13 +349,6 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     }
 
     private final SuggestBox<String, SpanElement, SuggestOption<String>> suggestBox;
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
-    }
 
     // Object...........................................................................................................
 

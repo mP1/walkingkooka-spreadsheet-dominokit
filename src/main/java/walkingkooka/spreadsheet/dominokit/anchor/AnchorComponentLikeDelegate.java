@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.anchor;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.net.Url;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -180,12 +179,6 @@ public interface AnchorComponentLikeDelegate<A extends AnchorComponentLike<A>> e
         this.anchorComponentLike()
                 .setCssText(css);
         return (A) this;
-    }
-
-    @Override
-    default Node node() {
-        return this.anchorComponentLike()
-                .node();
     }
 
     @Override

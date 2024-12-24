@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
@@ -194,13 +193,6 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
     @Override
     public HTMLDivElement element() {
         return this.card.element();
-    }
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     private final SpreadsheetCard card;

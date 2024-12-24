@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.card;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
@@ -166,13 +165,6 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
     @Override
     public HTMLDivElement element() {
         return this.card.element();
-    }
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     private final Card card;

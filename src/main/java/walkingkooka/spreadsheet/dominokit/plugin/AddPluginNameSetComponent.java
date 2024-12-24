@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.plugin.PluginName;
@@ -190,13 +189,6 @@ public final class AddPluginNameSetComponent implements HtmlElementComponent<HTM
     @Override
     public HTMLDivElement element() {
         return this.root.element();
-    }
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     // TreePrintable....................................................................................................

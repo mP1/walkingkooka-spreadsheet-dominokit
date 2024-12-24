@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLElement;
-import elemental2.dom.Node;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
@@ -109,11 +108,6 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
     @Override
     public String toString() {
         return this.form.toString();
-    }
-
-    @Override
-    public Node node() {
-        return this.form.node();
     }
 
     @Override

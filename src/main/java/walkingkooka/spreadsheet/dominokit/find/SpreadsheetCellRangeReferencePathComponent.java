@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.find;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import elemental2.dom.Node;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetSelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
@@ -189,13 +188,6 @@ public final class SpreadsheetCellRangeReferencePathComponent implements ValueCo
     @Override
     public HTMLFieldSetElement element() {
         return this.select.element();
-    }
-
-    // node.............................................................................................................
-
-    @Override
-    public Node node() {
-        return this.element();
     }
 
     // Value............................................................................................................
