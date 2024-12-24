@@ -21,11 +21,14 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.net.Url;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
-public interface AnchorComponentLikeDelegator<A extends AnchorComponentLike<A>> extends AnchorComponentLike<A> {
+public interface AnchorComponentLikeDelegator<A extends AnchorComponentLike<A>> extends AnchorComponentLike<A>,
+        HtmlElementComponentDelegator<HTMLAnchorElement, A> {
 
     @Override
     default boolean isDisabled() {
@@ -174,19 +177,6 @@ public interface AnchorComponentLikeDelegator<A extends AnchorComponentLike<A>> 
         return (A) this;
     }
 
-    @Override
-    default A setCssText(final String css) {
-        this.anchorComponentLike()
-                .setCssText(css);
-        return (A) this;
-    }
-
-    @Override
-    default HTMLAnchorElement element() {
-        return this.anchorComponentLike()
-                .element();
-    }
-
     // TreePrintable....................................................................................................
 
     @Override
@@ -200,4 +190,11 @@ public interface AnchorComponentLikeDelegator<A extends AnchorComponentLike<A>> 
      * The {@link AnchorComponentLike} delegate target.
      */
     AnchorComponentLike<?> anchorComponentLike();
+
+    // HtmlElementComponent.............................................................................................
+
+    @Override
+    default HtmlElementComponent<HTMLAnchorElement, ?> htmlElementComponent() {
+        return this.anchorComponentLike();
+    }
 }
