@@ -25,7 +25,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
-public interface AnchorComponentLikeDelegate<A extends AnchorComponentLike<A>> extends AnchorComponentLike<A> {
+public interface AnchorComponentLikeDelegator<A extends AnchorComponentLike<A>> extends AnchorComponentLike<A> {
 
     @Override
     default boolean isDisabled() {

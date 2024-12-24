@@ -21,7 +21,7 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegate;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 
 import java.util.List;
@@ -35,7 +35,7 @@ import java.util.function.Function;
  * Decorations such as icon for the anchor must be set on the {@link HistoryTokenAnchorComponent} itself as no delegating methods are available.
  */
 public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent<HTMLAnchorElement, T, ValueHistoryTokenAnchorComponent<T>>,
-        AnchorComponentLikeDelegate<ValueHistoryTokenAnchorComponent<T>> {
+        AnchorComponentLikeDelegator<ValueHistoryTokenAnchorComponent<T>> {
 
     public static <T> ValueHistoryTokenAnchorComponent<T> with(final HistoryTokenAnchorComponent anchor,
                                                                final Function<HistoryTokenAnchorComponent, Optional<T>> getter,
@@ -189,7 +189,7 @@ public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent
         return this;
     }
 
-    // AnchorComponentLikeDelegate......................................................................................
+    // AnchorComponentLikeDelegator......................................................................................
 
     @Override
     public HistoryTokenAnchorComponent anchorComponentLike() {
