@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.spreadsheet.dominokit.Component;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent;
@@ -65,7 +64,7 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
         return rendered;
     }
 
-    private HtmlElementComponent<?, ?> label(final String label) {
+    private Component<?> label(final String label) {
         return SpreadsheetTextNodeComponent.with(
                 Optional.of(
                         TextNode.text(label)
@@ -73,7 +72,7 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
         );
     }
 
-    private HtmlElementComponent<?, ?> selector(final String id,
+    private Component<?> selector(final String id,
                                                 final SpreadsheetFormatterSelector selector) {
         final HistoryToken historyToken = this.context.historyToken();
 
@@ -84,7 +83,7 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
         );
     }
 
-    private HtmlElementComponent<?, ?> formatted(final TextNode formatted) {
+    private Component<?> formatted(final TextNode formatted) {
         return SpreadsheetTextNodeComponent.with(
                 Optional.of(
                         formatted

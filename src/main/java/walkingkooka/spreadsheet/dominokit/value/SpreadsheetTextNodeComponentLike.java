@@ -17,148 +17,23 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.TextNode;
 
-import java.util.List;
 import java.util.Optional;
 
 /**
  * Defines the public interface for a {@link SpreadsheetTextNodeComponent}.
  */
-public interface SpreadsheetTextNodeComponentLike extends ValueComponent<HTMLDivElement, TextNode, SpreadsheetTextNodeComponent>,
+public interface SpreadsheetTextNodeComponentLike extends Component<HTMLDivElement>,
         TreePrintable {
 
-    // id...............................................................................................................
-    @Override
-    default SpreadsheetTextNodeComponent setId(final String id) {
-        throw new UnsupportedOperationException();
-    }
+    Optional<TextNode> value();
 
-    @Override
-    default String id() {
-        return null;
-    }
-
-    // label............................................................................................................
-
-    @Override
-    default SpreadsheetTextNodeComponent setLabel(String label) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default String label() {
-        return "";
-    }
-
-    // disabled.........................................................................................................
-
-    @Override
-    default boolean isDisabled() {
-        return false;
-    }
-
-    @Override
-    default SpreadsheetTextNodeComponent setDisabled(final boolean disabled) {
-        throw new UnsupportedOperationException();
-    }
-
-    // helperText.......................................................................................................
-
-    @Override
-    default SpreadsheetTextNodeComponent alwaysShowHelperText() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default Optional<String> helperText() {
-        return Optional.empty();
-    }
-
-    @Override
-    default SpreadsheetTextNodeComponent setHelperText(final Optional<String> text) {
-        throw new UnsupportedOperationException();
-    }
-
-    // validation.......................................................................................................
-
-    @Override
-    default SpreadsheetTextNodeComponent validate() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetTextNodeComponent optional() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetTextNodeComponent required() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default boolean isRequired() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default List<String> errors() {
-        return Lists.empty();
-    }
-
-    @Override
-    default SpreadsheetTextNodeComponent setErrors(final List<String> errors) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetTextNodeComponent setCssText(String css) {
-        throw new UnsupportedOperationException();
-    }
-
-    // events...........................................................................................................
-
-    @Override
-    default SpreadsheetTextNodeComponent addChangeListener(final ChangeListener<Optional<TextNode>> listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetTextNodeComponent addFocusListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetTextNodeComponent addKeydownListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetTextNodeComponent addKeyupListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetTextNodeComponent hideMarginBottom() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetTextNodeComponent removeBorders() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetTextNodeComponent focus() {
-        throw new UnsupportedOperationException();
-    }
+    SpreadsheetTextNodeComponent setValue(final Optional<TextNode> value);
 
     // TreePrintable....................................................................................................
 
