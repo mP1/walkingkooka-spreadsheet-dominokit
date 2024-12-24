@@ -28,7 +28,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
-import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
@@ -109,13 +108,6 @@ public final class PluginDownloadAnchorComponent implements HtmlElementComponent
     @Override
     public HTMLAnchorElement element() {
         return this.component.element();
-    }
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        this.component.printTree(printer);
     }
 
     private final ValueHistoryTokenAnchorComponent<PluginDownload> component;

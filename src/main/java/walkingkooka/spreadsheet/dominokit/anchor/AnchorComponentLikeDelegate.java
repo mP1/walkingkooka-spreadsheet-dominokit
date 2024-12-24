@@ -22,6 +22,7 @@ import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.net.Url;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
@@ -191,6 +192,15 @@ public interface AnchorComponentLikeDelegate<A extends AnchorComponentLike<A>> e
     default HTMLAnchorElement element() {
         return this.anchorComponentLike()
                 .element();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    default void printTree(final IndentingPrinter printer) {
+        // continuing the anchor tradition, delegate to the anchor#printTree and do not print this#class#simpleName
+        this.anchorComponentLike()
+                .printTree(printer);
     }
 
     /**
