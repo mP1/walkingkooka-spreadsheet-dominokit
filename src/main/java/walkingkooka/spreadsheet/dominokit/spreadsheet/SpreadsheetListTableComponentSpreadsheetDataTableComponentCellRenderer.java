@@ -34,7 +34,7 @@ import java.util.Optional;
 final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetMetadata> {
 
     static SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer with(final String id,
-                                                                                       final SpreadsheetListComponentContext context) {
+                                                                                       final SpreadsheetListDialogComponentContext context) {
         return new SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer(
                 id,
                 context
@@ -42,7 +42,7 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
     }
 
     private SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer(final String id,
-                                                                                   final SpreadsheetListComponentContext context) {
+                                                                                   final SpreadsheetListDialogComponentContext context) {
         this.id = id;
         this.context = context;
     }
@@ -147,5 +147,5 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
 
     private final String id;
 
-    private final SpreadsheetListComponentContext context;
+    private final SpreadsheetListDialogComponentContext context;
 }

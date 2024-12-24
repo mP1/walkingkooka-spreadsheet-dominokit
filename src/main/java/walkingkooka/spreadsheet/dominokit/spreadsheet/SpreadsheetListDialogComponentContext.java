@@ -21,7 +21,7 @@ import walkingkooka.spreadsheet.dominokit.UiFormattingContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
-public interface SpreadsheetListComponentContext extends HasSpreadsheetMetadataFetcherWatchers,
+public interface SpreadsheetListDialogComponentContext extends HasSpreadsheetMetadataFetcherWatchers,
         HistoryTokenContext,
         UiFormattingContext {
 }

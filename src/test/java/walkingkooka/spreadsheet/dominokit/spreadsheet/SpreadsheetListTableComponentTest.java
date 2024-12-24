@@ -287,8 +287,8 @@ public final class SpreadsheetListTableComponentTest implements HtmlElementCompo
         );
     }
 
-    private static FakeSpreadsheetListComponentContext context(final String historyToken) {
-        return new FakeSpreadsheetListComponentContext() {
+    private static FakeSpreadsheetListDialogComponentContext context(final String historyToken) {
+        return new FakeSpreadsheetListDialogComponentContext() {
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.parseString(historyToken);

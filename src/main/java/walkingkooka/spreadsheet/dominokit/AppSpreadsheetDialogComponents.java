@@ -41,8 +41,8 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialo
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetLabelMappingDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponent;
 import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListComponentContexts;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponent;
+import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
 
@@ -61,7 +61,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         );
 
         SpreadsheetListDialogComponent.with(
-                SpreadsheetListComponentContexts.appContext(context)
+                SpreadsheetListDialogComponentContexts.appContext(context)
         );
 
         PluginNameSetDialogComponent.with(
