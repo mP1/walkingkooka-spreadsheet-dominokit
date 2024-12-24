@@ -57,8 +57,13 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
     }
 
     private final List<Component<?>> footer;
-    
-    // Component........................................................................................................
+
+    // HtmlElementComponent.............................................................................................
+
+    @Override
+    public SpreadsheetFindDialogComponentGridLayout setCssText(final String css) {
+        return this;
+    }
 
     @Override
     public HTMLDivElement element() {
