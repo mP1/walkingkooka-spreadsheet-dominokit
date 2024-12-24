@@ -93,16 +93,5 @@ public final class PluginDownloadAnchorComponent implements HtmlElementComponent
         return this;
     }
 
-    @Override
-    public PluginDownloadAnchorComponent setCssText(final String css) {
-        this.component.setCssText(css);
-        return this;
-    }
-
-    @Override
-    public HTMLAnchorElement element() {
-        return this.component.element();
-    }
-
     private final ValueHistoryTokenAnchorComponent<PluginDownload> component;
 }
