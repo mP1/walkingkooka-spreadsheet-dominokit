@@ -88,7 +88,13 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
         return this;
     }
 
-    // Component........................................................................................................
+    // HtmlElementComponent.............................................................................................
+
+    @Override
+    public SpreadsheetFindDialogComponentGridLayout setCssText(final String css) {
+        this.gridLayout.cssText(css);
+        return this;
+    }
 
     @Override
     public HTMLDivElement element() {
