@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegate;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -175,7 +176,7 @@ public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent
 
     @Override
     public List<String> errors() {
-        return List.of();
+        return Lists.of();
     }
 
     @Override
