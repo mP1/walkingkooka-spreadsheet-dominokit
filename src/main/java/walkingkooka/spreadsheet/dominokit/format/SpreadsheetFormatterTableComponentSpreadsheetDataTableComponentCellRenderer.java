@@ -38,9 +38,9 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
     }
 
     @Override
-    public Component<?> render(final int column,
-                               final SpreadsheetFormatterSample sample) {
-        final Component<?> rendered;
+    public Component render(final int column,
+                            final SpreadsheetFormatterSample sample) {
+        final Component rendered;
 
         switch (column) {
             case 0:
@@ -64,7 +64,7 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
         return rendered;
     }
 
-    private Component<?> label(final String label) {
+    private Component label(final String label) {
         return SpreadsheetTextNodeComponent.with(
                 Optional.of(
                         TextNode.text(label)
@@ -72,7 +72,7 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
         );
     }
 
-    private Component<?> selector(final String id,
+    private Component selector(final String id,
                                                 final SpreadsheetFormatterSelector selector) {
         final HistoryToken historyToken = this.context.historyToken();
 
@@ -83,7 +83,7 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
         );
     }
 
-    private Component<?> formatted(final TextNode formatted) {
+    private Component formatted(final TextNode formatted) {
         return SpreadsheetTextNodeComponent.with(
                 Optional.of(
                         formatted

@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import elemental2.dom.Element;
+import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.CanBeEmpty;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -29,7 +29,7 @@ import java.util.Objects;
 /**
  * Defines methods for a {@link Component} that has children.
  */
-public interface ComponentWithChildren<C extends Component<E>, E extends Element> extends CanBeEmpty {
+public interface ComponentWithChildren<C extends HtmlElementComponent<E, C>, E extends HTMLElement> extends CanBeEmpty {
 
     /**
      * Appends a new child.

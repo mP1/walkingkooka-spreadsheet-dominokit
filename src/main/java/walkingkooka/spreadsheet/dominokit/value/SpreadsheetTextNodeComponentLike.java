@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -28,7 +27,7 @@ import java.util.Optional;
 /**
  * Defines the public interface for a {@link SpreadsheetTextNodeComponent}.
  */
-public interface SpreadsheetTextNodeComponentLike extends Component<HTMLDivElement>,
+public interface SpreadsheetTextNodeComponentLike extends Component,
         TreePrintable {
 
     Optional<TextNode> value();

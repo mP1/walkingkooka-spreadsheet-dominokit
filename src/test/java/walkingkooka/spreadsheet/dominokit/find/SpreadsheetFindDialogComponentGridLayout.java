@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.find;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.Component;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Collection;
@@ -37,26 +37,26 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
         this.footer = Lists.array();
     }
 
-    SpreadsheetFindDialogComponentGridLayout setLeft(final Collection<Component<?>> children) {
+    SpreadsheetFindDialogComponentGridLayout setLeft(final Collection<HtmlElementComponent<?, ?>> children) {
         this.left.addAll(children);
         return this;
     }
 
-    private final List<Component<?>> left;
+    private final List<HtmlElementComponent<?, ?>> left;
 
-    SpreadsheetFindDialogComponentGridLayout setContent(final Collection<Component<?>> children) {
+    SpreadsheetFindDialogComponentGridLayout setContent(final Collection<HtmlElementComponent<?, ?>> children) {
         this.content.addAll(children);
         return this;
     }
 
-    private final List<Component<?>> content;
+    private final List<HtmlElementComponent<?, ?>> content;
 
-    SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<Component<?>> children) {
+    SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<HtmlElementComponent<?, ?>> children) {
         this.footer.addAll(children);
         return this;
     }
 
-    private final List<Component<?>> footer;
+    private final List<HtmlElementComponent<?, ?>> footer;
 
     // HtmlElementComponent.............................................................................................
 
@@ -98,12 +98,12 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
     }
 
     private void printTree0(final String label,
-                            final Collection<Component<?>> children,
+                            final Collection<HtmlElementComponent<?, ?>> children,
                             final IndentingPrinter printer) {
         printer.println(label);
         printer.indent();
         {
-            for (final Component<?> component : children) {
+            for (final HtmlElementComponent<?, ?> component : children) {
                 component.printTree(printer);
             }
         }

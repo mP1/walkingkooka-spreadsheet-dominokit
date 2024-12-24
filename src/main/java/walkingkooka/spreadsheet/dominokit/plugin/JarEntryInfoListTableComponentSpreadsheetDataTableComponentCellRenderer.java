@@ -52,9 +52,9 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
     }
 
     @Override
-    public Component<?> render(final int column,
+    public Component render(final int column,
                             final JarEntryInfo info) {
-        final Component<?> component;
+        final Component component;
 
         switch (column) {
             case 0: // filename

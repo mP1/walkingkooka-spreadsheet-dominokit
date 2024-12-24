@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.grid.GridLayout;
 import org.dominokit.domino.ui.style.CompositeCssClass;
 import org.dominokit.domino.ui.utils.Domino;
-import walkingkooka.spreadsheet.dominokit.Component;
+import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Collection;
@@ -42,7 +42,7 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
                 .setHeight("100%");
     }
 
-    SpreadsheetFindDialogComponentGridLayout setLeft(final Collection<Component<?>> children) {
+    SpreadsheetFindDialogComponentGridLayout setLeft(final Collection<HtmlElementComponent<?, ?>> children) {
         this.gridLayout.withLeftPanel(
                 (parent, content) ->
                 {
@@ -52,7 +52,7 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
 //                        true,
 //                        true
 //                    );
-                    for (final Component<?> child : children) {
+                    for (final HtmlElementComponent<?, ?> child : children) {
                         content.appendChild(child);
                     }
                 }
@@ -60,12 +60,12 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
         return this;
     }
 
-    SpreadsheetFindDialogComponentGridLayout setContent(final Collection<Component<?>> children) {
+    SpreadsheetFindDialogComponentGridLayout setContent(final Collection<HtmlElementComponent<?, ?>> children) {
         this.gridLayout.withContent(
                 (parent, content) ->
                 {
                     content.addCss(dui_grid_section);
-                    for (final Component<?> child : children) {
+                    for (final HtmlElementComponent<?, ?> child : children) {
                         content.appendChild(child);
                     }
                 }
@@ -74,12 +74,12 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
         return this;
     }
 
-    SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<Component<?>> children) {
+    SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<HtmlElementComponent<?, ?>> children) {
         this.gridLayout.withFooter(
                 (parent, content) ->
                 {
                     content.addCss(dui_grid_section);
-                    for (final Component<?> child : children) {
+                    for (final HtmlElementComponent<?, ?> child : children) {
                         content.appendChild(child);
                     }
                 }
