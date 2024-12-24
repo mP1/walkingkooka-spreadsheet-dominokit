@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.Value;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
@@ -48,9 +49,9 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
     }
 
     @Override
-    public HtmlElementComponent<?, ?> render(final int column,
-                                             final SpreadsheetMetadata metadata) {
-        final HtmlElementComponent<?, ?> component;
+    public Component<?> render(final int column,
+                               final SpreadsheetMetadata metadata) {
+        final Component<?> component;
 
         switch (column) {
             case 0: // name

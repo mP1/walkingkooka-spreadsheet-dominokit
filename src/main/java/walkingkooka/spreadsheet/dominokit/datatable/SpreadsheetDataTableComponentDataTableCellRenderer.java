@@ -42,12 +42,10 @@ final class SpreadsheetDataTableComponentDataTableCellRenderer<T> implements Cel
 
     @Override
     public Node asElement(final CellInfo<T> cellInfo) {
-        final HtmlElementComponent<?, ?> component = this.cellRenderer.render(
+        return this.cellRenderer.render(
                 this.columnNumber,
                 cellInfo.getRecord()
-        );
-
-        return component.node();
+        ).node();
     }
 
     private final Integer columnNumber;
