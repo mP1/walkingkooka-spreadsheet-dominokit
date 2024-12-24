@@ -53,14 +53,12 @@ public final class SpreadsheetTextNodeComponent implements SpreadsheetTextNodeCo
         return this;
     }
 
-    // IsElement........................................................................................................
+    // node.............................................................................................................
 
     @Override
     public HTMLDivElement element() {
         throw new UnsupportedOperationException();
     }
-
-    // node.............................................................................................................
 
     @Override
     public Node node() {
