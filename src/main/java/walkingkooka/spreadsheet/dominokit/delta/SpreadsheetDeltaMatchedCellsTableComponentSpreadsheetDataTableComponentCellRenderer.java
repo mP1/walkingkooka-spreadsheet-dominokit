@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -38,9 +38,9 @@ final class SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableCompon
     }
 
     @Override
-    public HtmlElementComponent<?, ?> render(final int column,
-                                             final SpreadsheetCell cell) {
-        final HtmlElementComponent<?, ?> component;
+    public Component<?> render(final int column,
+                               final SpreadsheetCell cell) {
+        final Component<?> component;
 
         switch (column) {
             case 0: // cell

@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Element;
+import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -26,4 +27,6 @@ import walkingkooka.text.printer.TreePrintable;
  */
 public interface Component<E extends Element> extends IsElement<E>,
         TreePrintable {
+
+    Node node();
 }

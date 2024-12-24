@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
@@ -52,9 +52,9 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
     }
 
     @Override
-    public HtmlElementComponent<?, ?> render(final int column,
-                                             final JarEntryInfo info) {
-        final HtmlElementComponent<?, ?> component;
+    public Component<?> render(final int column,
+                            final JarEntryInfo info) {
+        final Component<?> component;
 
         switch (column) {
             case 0: // filename

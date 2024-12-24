@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
+import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -38,9 +39,9 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
     }
 
     @Override
-    public HtmlElementComponent<?, ?> render(final int column,
-                                             final SpreadsheetFormatterSample sample) {
-        final HtmlElementComponent<?, ?> rendered;
+    public Component<?> render(final int column,
+                               final SpreadsheetFormatterSample sample) {
+        final Component<?> rendered;
 
         switch (column) {
             case 0:

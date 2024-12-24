@@ -17,13 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.datatable;
 
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.Component;
 
 /**
  * Renders a single column for the given row for a {@link SpreadsheetDataTableComponent}.
  */
 public interface SpreadsheetDataTableComponentCellRenderer<T> {
 
-    HtmlElementComponent<?, ?> render(final int column,
-                                      final T row);
+    Component<?> render(final int column,
+                        final T row);
 }
