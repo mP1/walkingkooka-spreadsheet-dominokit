@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.HTMLElement;
 
-public interface HtmlElementDelegator<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends HtmlElementComponent<E, C> {
+public interface HtmlElementComponentDelegator<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends HtmlElementComponent<E, C> {
 
     @Override
     default C setCssText(final String css) {
