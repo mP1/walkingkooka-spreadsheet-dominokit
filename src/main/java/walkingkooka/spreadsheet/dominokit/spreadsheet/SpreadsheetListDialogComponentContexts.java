@@ -17,26 +17,29 @@
 
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
-import java.util.Locale;
+public final class SpreadsheetListDialogComponentContexts implements PublicStaticHelper {
 
-public class FakeSpreadsheetListComponentContext extends FakeHistoryTokenContext
-        implements SpreadsheetListComponentContext {
-
-    @Override
-    public Locale locale() {
-        throw new UnsupportedOperationException();
+    /**
+     * {@see AppContextSpreadsheetListDialogComponentContext}
+     */
+    public static SpreadsheetListDialogComponentContext appContext(final AppContext context) {
+        return AppContextSpreadsheetListDialogComponentContext.with(context);
     }
 
-    @Override
-    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-        throw new UnsupportedOperationException();
+    /**
+     * {@see FakeSpreadsheetListDialogComponentContext}
+     */
+    public static SpreadsheetListDialogComponentContext fake() {
+        return new FakeSpreadsheetListDialogComponentContext();
     }
 
-    @Override
-    public Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
+    /**
+     * Stop creation
+     */
+    private SpreadsheetListDialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

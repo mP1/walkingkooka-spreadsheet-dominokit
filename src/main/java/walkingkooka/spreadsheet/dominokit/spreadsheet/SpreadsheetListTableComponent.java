@@ -45,7 +45,7 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
      * Creates an empty {@link SpreadsheetListTableComponent}.
      */
     static SpreadsheetListTableComponent empty(final String id,
-                                               final SpreadsheetListComponentContext context) {
+                                               final SpreadsheetListDialogComponentContext context) {
         return new SpreadsheetListTableComponent(
                 Objects.requireNonNull(id, "id"),
                 Objects.requireNonNull(context, "context")
@@ -55,7 +55,7 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
     final static int DEFAULT_COUNT = 10;
 
     private SpreadsheetListTableComponent(final String id,
-                                          final SpreadsheetListComponentContext context) {
+                                          final SpreadsheetListDialogComponentContext context) {
         this.card = SpreadsheetCard.empty();
 
         this.table = SpreadsheetDataTableComponent.with(

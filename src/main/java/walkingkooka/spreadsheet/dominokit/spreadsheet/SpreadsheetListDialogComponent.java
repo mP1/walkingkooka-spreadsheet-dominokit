@@ -47,13 +47,13 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
         NopFetcherWatcher,
         NopEmptyResponseFetcherWatcher {
 
-    public static SpreadsheetListDialogComponent with(final SpreadsheetListComponentContext context) {
+    public static SpreadsheetListDialogComponent with(final SpreadsheetListDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetListDialogComponent(context);
     }
 
-    private SpreadsheetListDialogComponent(final SpreadsheetListComponentContext context) {
+    private SpreadsheetListDialogComponent(final SpreadsheetListDialogComponentContext context) {
         this.context = context;
 
         context.addHistoryTokenWatcher(this);
@@ -118,7 +118,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
 
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
-    private SpreadsheetDialogComponent dialogCreate(final SpreadsheetListComponentContext context) {
+    private SpreadsheetDialogComponent dialogCreate(final SpreadsheetListDialogComponentContext context) {
         return SpreadsheetDialogComponent.with(
                         ID + SpreadsheetElementIds.DIALOG, // id
                         "Spreadsheet List", // title
@@ -144,7 +144,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
 
     private final SpreadsheetDialogComponent dialog;
 
-    private final SpreadsheetListComponentContext context;
+    private final SpreadsheetListDialogComponentContext context;
 
     // id...............................................................................................................
 

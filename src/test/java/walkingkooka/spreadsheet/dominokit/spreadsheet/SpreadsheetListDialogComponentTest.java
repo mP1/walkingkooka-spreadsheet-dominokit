@@ -230,11 +230,11 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
         );
     }
 
-    private SpreadsheetListComponentContext spreadsheetListComponentContext(final AppContext context) {
-        return SpreadsheetListComponentContexts.appContext(context);
+    private SpreadsheetListDialogComponentContext spreadsheetListComponentContext(final AppContext context) {
+        return SpreadsheetListDialogComponentContexts.appContext(context);
     }
 
-    private SpreadsheetListDialogComponent dialog(final SpreadsheetListComponentContext context) {
+    private SpreadsheetListDialogComponent dialog(final SpreadsheetListDialogComponentContext context) {
         return SpreadsheetListDialogComponent.with(context);
     }
 

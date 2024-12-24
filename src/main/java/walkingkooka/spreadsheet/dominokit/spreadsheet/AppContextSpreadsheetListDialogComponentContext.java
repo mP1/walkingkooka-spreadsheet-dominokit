@@ -26,17 +26,17 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import java.util.Locale;
 import java.util.Objects;
 
-public final class AppContextSpreadsheetListComponentContext implements SpreadsheetListComponentContext,
+public final class AppContextSpreadsheetListDialogComponentContext implements SpreadsheetListDialogComponentContext,
         HistoryTokenContextDelegator,
         HasSpreadsheetMetadataFetcherWatchersDelegator {
 
-    static AppContextSpreadsheetListComponentContext with(final AppContext context) {
-        return new AppContextSpreadsheetListComponentContext(
+    static AppContextSpreadsheetListDialogComponentContext with(final AppContext context) {
+        return new AppContextSpreadsheetListDialogComponentContext(
                 Objects.requireNonNull(context, "context")
         );
     }
 
-    private AppContextSpreadsheetListComponentContext(final AppContext context) {
+    private AppContextSpreadsheetListDialogComponentContext(final AppContext context) {
         this.context = context;
     }
 
