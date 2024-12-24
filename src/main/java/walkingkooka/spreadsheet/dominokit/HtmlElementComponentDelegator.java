@@ -34,5 +34,5 @@ public interface HtmlElementComponentDelegator<E extends HTMLElement, C extends 
                 .element();
     }
 
-    C htmlElementComponent();
+    HtmlElementComponent<E, ?> htmlElementComponent();
 }
