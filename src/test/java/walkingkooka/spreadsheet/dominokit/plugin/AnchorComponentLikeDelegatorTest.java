@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegate;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.plugin.AnchorComponentLikeDelegateTest.TestAnchorComponentLikeDelegate;
+import walkingkooka.spreadsheet.dominokit.plugin.AnchorComponentLikeDelegatorTest.TestAnchorComponentLikeDelegator;
 
-public final class AnchorComponentLikeDelegateTest implements ClassTesting<TestAnchorComponentLikeDelegate> {
+public final class AnchorComponentLikeDelegatorTest implements ClassTesting<TestAnchorComponentLikeDelegator> {
 
     @Override
     public void testTestNaming() {
@@ -34,8 +34,8 @@ public final class AnchorComponentLikeDelegateTest implements ClassTesting<TestA
     // class............................................................................................................
 
     @Override
-    public Class<TestAnchorComponentLikeDelegate> type() {
-        return TestAnchorComponentLikeDelegate.class;
+    public Class<TestAnchorComponentLikeDelegator> type() {
+        return TestAnchorComponentLikeDelegator.class;
     }
 
     @Override
@@ -43,7 +43,7 @@ public final class AnchorComponentLikeDelegateTest implements ClassTesting<TestA
         return JavaVisibility.PACKAGE_PRIVATE;
     }
 
-    final static class TestAnchorComponentLikeDelegate implements AnchorComponentLikeDelegate<TestAnchorComponentLikeDelegate> {
+    final static class TestAnchorComponentLikeDelegator implements AnchorComponentLikeDelegator<TestAnchorComponentLikeDelegator> {
 
         @Override
         public AnchorComponentLike<?> anchorComponentLike() {

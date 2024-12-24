@@ -22,7 +22,7 @@ import walkingkooka.net.RelativeUrl;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegate;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
@@ -34,7 +34,7 @@ import java.util.Optional;
  * An anchor that uses given {@link PluginName} and {@link JarEntryInfoName} to set the HREF to download the plugin archive or a file within.
  */
 public final class PluginDownloadAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, PluginDownloadAnchorComponent>,
-        AnchorComponentLikeDelegate<PluginDownloadAnchorComponent> {
+        AnchorComponentLikeDelegator<PluginDownloadAnchorComponent> {
 
     public static PluginDownloadAnchorComponent empty() {
         return new PluginDownloadAnchorComponent();
@@ -75,7 +75,7 @@ public final class PluginDownloadAnchorComponent implements HtmlElementComponent
             );
     }
 
-    // AnchorComponentLikeDelegate......................................................................................
+    // AnchorComponentLikeDelegator......................................................................................
 
     @Override
     public AnchorComponentLike<?> anchorComponentLike() {
