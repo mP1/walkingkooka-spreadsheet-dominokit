@@ -18,13 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.gwtproject.core.shared.GwtIncompatible;
-import walkingkooka.Cast;
 
 class HistoryTokenCastGwt extends HistoryTokenCast {
 
     @GwtIncompatible
     static <T extends HistoryToken> T cast(final HistoryToken historyToken,
                                            final Class<T> cast) {
-        return Cast.to(historyToken);
+        return cast.cast(historyToken);
     }
 }

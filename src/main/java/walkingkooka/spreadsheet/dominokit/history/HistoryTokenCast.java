@@ -17,10 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Cast;
+
 class HistoryTokenCast {
 
     static <T extends HistoryToken> T cast(final HistoryToken historyToken,
                                            final Class<T> cast) {
-        return cast.cast(historyToken);
+        return Cast.to(historyToken);
     }
 }
