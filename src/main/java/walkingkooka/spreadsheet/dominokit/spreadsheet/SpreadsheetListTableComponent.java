@@ -70,10 +70,7 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
         );
 
         this.card.appendChild(
-                this.table.previousNextLinks(
-                        id,
-                        context
-                )
+                this.table.previousNextLinks(id)
         );
     }
 

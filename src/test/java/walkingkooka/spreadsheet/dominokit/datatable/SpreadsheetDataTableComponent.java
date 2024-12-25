@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -141,15 +140,13 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
      * Creates and adds previous and next links. It is assumed the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken}
      */
     @Override
-    public SpreadsheetDataTableComponent<T> previousNextLinks(final String idPrefix,
-                                                              final HistoryTokenContext context) {
+    public SpreadsheetDataTableComponent<T> previousNextLinks(final String idPrefix) {
         Objects.requireNonNull(idPrefix, "idPrefix");
-        Objects.requireNonNull(context, "context");
 
-        this.previous = previous(idPrefix, context);
+        this.previous = this.previous(idPrefix);
         this.previous.setCssText("float=left");
 
-        this.next = next(idPrefix, context);
+        this.next = this.next(idPrefix);
         this.next.setCssText("float=right");
 
         this.appendChild(
