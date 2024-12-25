@@ -25,7 +25,7 @@ import java.util.OptionalInt;
 /**
  * A token that represents a plugin list files dialog.
  * <pre>
- * /plugin/offset/1/count/10/
+ * /plugin/STAR/offset/1/count/10/
  * </pre>
  */
 public final class PluginListSelectHistoryToken extends PluginListHistoryToken {
