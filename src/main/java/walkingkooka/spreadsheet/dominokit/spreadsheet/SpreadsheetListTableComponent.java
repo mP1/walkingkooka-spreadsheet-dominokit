@@ -33,7 +33,6 @@ import walkingkooka.tree.text.TextAlign;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 /**
  * A datatable where each row contains a single spreadsheet, showing various metadata items such as creator, timestamps and links for actions.
@@ -135,40 +134,9 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
     }
 
     void refresh(final SpreadsheetListHistoryToken historyToken) {
-        final int offset = historyToken.offset()
-                .orElse(0);
-        final int count = historyToken.count()
-                .orElse(DEFAULT_COUNT);
-
-        final boolean previousDisabled = 0 == offset;
-        final boolean nextDisabled = this.table.value()
-                .map(List::size)
-                .orElse(0) < count;
-
-        this.table.setPrevious(
-                Optional.ofNullable(
-                        false == previousDisabled ?
-                                historyToken.setOffset(
-                                        OptionalInt.of(
-                                                Math.max(
-                                                        0,
-                                                        offset - count + 1
-                                                )
-                                        )
-                                ) :
-                                null
-                )
-        );
-        this.table.setNext(
-                Optional.ofNullable(
-                        false == nextDisabled ?
-                                historyToken.setOffset(
-                                        OptionalInt.of(
-                                                offset + count - 1
-                                        )
-                                ) :
-                                null
-                )
+        this.table.refreshPreviousNextLinks(
+                historyToken,
+                DEFAULT_COUNT
         );
     }
 
