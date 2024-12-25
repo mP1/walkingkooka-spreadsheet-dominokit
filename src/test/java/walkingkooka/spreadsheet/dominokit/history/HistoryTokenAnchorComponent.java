@@ -57,16 +57,16 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
 
     @Override
     public boolean isDisabled() {
-        return this.disabled;
+        return null == this.href;
     }
 
     @Override
     public HistoryTokenAnchorComponent setDisabled(final boolean disabled) {
-        this.disabled = disabled;
+        if(disabled){
+            this.href = null;
+        }
         return this;
     }
-
-    private boolean disabled;
 
     // checked..........................................................................................................
 

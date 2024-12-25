@@ -38,7 +38,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
     public void testAnchor() {
         this.treePrintAndCheck(
                 new TestSpreadsheetDialogComponentLifecycle().anchor("Hello"),
-                "\"Hello\" id=id123-hello-Link"
+                "\"Hello\" DISABLED id=id123-hello-Link"
         );
     }
 
@@ -46,7 +46,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
     public void testAnchorWithMultiWordText() {
         this.treePrintAndCheck(
                 new TestSpreadsheetDialogComponentLifecycle().anchor("Hello goodbye"),
-                "\"Hello goodbye\" id=id123-hello-goodbye-Link"
+                "\"Hello goodbye\" DISABLED id=id123-hello-goodbye-Link"
         );
     }
 

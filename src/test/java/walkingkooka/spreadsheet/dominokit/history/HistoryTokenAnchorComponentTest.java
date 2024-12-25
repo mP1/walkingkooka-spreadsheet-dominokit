@@ -39,7 +39,7 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
     public void testSetHistoryTokenEmpty() {
         this.treePrintAndCheck(
                 HistoryTokenAnchorComponent.empty(),
-                ""
+                "DISABLED"
         );
     }
 
@@ -177,7 +177,7 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
                         .setHref(
                                 Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
                         ).setDisabled(true),
-                "IconBefore456 \"Text789\" DISABLED [#/1/SpreadsheetName234/cell/A1] CHECKED IconAfter123"
+                "IconBefore456 \"Text789\" DISABLED CHECKED IconAfter123"
         );
     }
 

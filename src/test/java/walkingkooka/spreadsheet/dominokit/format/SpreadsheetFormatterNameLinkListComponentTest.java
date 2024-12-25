@@ -72,7 +72,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlElemen
                         "          ROW\n" +
                         "            \"Automatic\" [#/1/SpreadsheetName123/cell/A1/formatter/save/automatic] id=ID123-0-Link\n" +
                         "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-1-Link\n" +
-                        "            \"Date Format Pattern\" DISABLED [#/1/SpreadsheetName123/cell/A1/formatter/save/date-format-pattern] id=ID123-2-Link\n" +
+                        "            \"Date Format Pattern\" DISABLED id=ID123-2-Link\n" +
                         "            \"Date Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time-format-pattern] id=ID123-3-Link\n" +
                         "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-4-Link\n" +
                         "            \"Number Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number-format-pattern] id=ID123-5-Link\n" +

@@ -121,7 +121,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
                         "        SpreadsheetFlexLayout\n" +
                         "          ROW\n" +
                         "            \"Label-apple1\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20apple1] id=LinkList123-0-Link\n" +
-                        "            \"Label-banana2\" DISABLED [#/1/Spreadsheet123/cell/A1/formatter/save/save%20banana2] id=LinkList123-1-Link\n" +
+                        "            \"Label-banana2\" DISABLED id=LinkList123-1-Link\n" +
                         "            \"Label-carrot3\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20carrot3] id=LinkList123-2-Link\n"
         );
     }
