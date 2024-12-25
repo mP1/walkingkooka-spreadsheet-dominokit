@@ -33,6 +33,8 @@ import walkingkooka.spreadsheet.dominokit.plugin.PluginFileViewDialogComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.PluginFileViewDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.plugin.PluginNameSetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.PluginNameSetDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.plugin.PluginSetDialogComponent;
+import walkingkooka.spreadsheet.dominokit.plugin.PluginSetDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponent;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponent;
@@ -53,6 +55,9 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
     static void register(final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers,
                          final AppContext context) {
+        PluginSetDialogComponent.with(
+                PluginSetDialogComponentContexts.appContext(context)
+        );
         JarEntryInfoListDialogComponent.with(
                 JarEntryInfoListDialogComponentContexts.appContext(context)
         );
