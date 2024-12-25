@@ -93,6 +93,7 @@ public final class PluginSetTableComponentTest implements HtmlElementComponentTe
                         "              \"31/12/99, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
+                        "                \"Delete\" [#/plugin/TestPlugin111/delete] id=Table123-delete-Link\n" +
                         "                \"Download\" [/api/plugin/TestPlugin111/download] id=Table123-download-Link\n" +
                         "                \"View\" [#/plugin/TestPlugin111] id=Table123-view-Link\n" +
                         "          ROW 1\n" +
@@ -106,6 +107,7 @@ public final class PluginSetTableComponentTest implements HtmlElementComponentTe
                         "              \"1/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
+                        "                \"Delete\" [#/plugin/TestPlugin222/delete] id=Table123-delete-Link\n" +
                         "                \"Download\" [/api/plugin/TestPlugin222/download] id=Table123-download-Link\n" +
                         "                \"View\" [#/plugin/TestPlugin222] id=Table123-view-Link\n" +
                         "        CHILDREN\n" +
@@ -180,6 +182,7 @@ public final class PluginSetTableComponentTest implements HtmlElementComponentTe
                         "              \"1/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
+                        "                \"Delete\" [#/plugin/TestPlugin111/delete] id=Table123-delete-Link\n" +
                         "                \"Download\" [/api/plugin/TestPlugin111/download] id=Table123-download-Link\n" +
                         "                \"View\" [#/plugin/TestPlugin111] id=Table123-view-Link\n" +
                         "          ROW 1\n" +
@@ -193,6 +196,7 @@ public final class PluginSetTableComponentTest implements HtmlElementComponentTe
                         "              \"2/1/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
+                        "                \"Delete\" [#/plugin/TestPlugin222/delete] id=Table123-delete-Link\n" +
                         "                \"Download\" [/api/plugin/TestPlugin222/download] id=Table123-download-Link\n" +
                         "                \"View\" [#/plugin/TestPlugin222] id=Table123-view-Link\n" +
                         "          ROW 2\n" +
@@ -206,6 +210,7 @@ public final class PluginSetTableComponentTest implements HtmlElementComponentTe
                         "              \"3/3/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
+                        "                \"Delete\" [#/plugin/TestPlugin333/delete] id=Table123-delete-Link\n" +
                         "                \"Download\" [/api/plugin/TestPlugin333/download] id=Table123-download-Link\n" +
                         "                \"View\" [#/plugin/TestPlugin333] id=Table123-view-Link\n" +
                         "          ROW 3\n" +
@@ -219,6 +224,7 @@ public final class PluginSetTableComponentTest implements HtmlElementComponentTe
                         "              \"4/4/00, 12:58 pm\"\n" +
                         "            SpreadsheetFlexLayout\n" +
                         "              ROW\n" +
+                        "                \"Delete\" [#/plugin/TestPlugin444/delete] id=Table123-delete-Link\n" +
                         "                \"Download\" [/api/plugin/TestPlugin444/download] id=Table123-download-Link\n" +
                         "                \"View\" [#/plugin/TestPlugin444] id=Table123-view-Link\n" +
                         "        CHILDREN\n" +

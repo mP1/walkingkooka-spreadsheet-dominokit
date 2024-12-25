@@ -118,6 +118,13 @@ final class PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer imp
     private SpreadsheetFlexLayout links(final Plugin plugin) {
         final PluginName pluginName = plugin.name();
 
+        final PluginDeleteAnchorComponent delete = PluginDeleteAnchorComponent.empty()
+                .setId(this.id + "delete" + SpreadsheetElementIds.LINK)
+                .setTextContent("Delete")
+                .setValue(
+                        Optional.of(pluginName)
+                );
+        
         final PluginDownloadAnchorComponent download = PluginDownloadAnchorComponent.empty()
                 .setId(this.id + "download" + SpreadsheetElementIds.LINK)
                 .setTextContent("Download")
@@ -138,6 +145,7 @@ final class PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer imp
                 );
 
         return SpreadsheetFlexLayout.row()
+                .appendChild(delete)
                 .appendChild(download)
                 .appendChild(view);
     }

@@ -111,6 +111,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                         "                    \"31/12/99, 12:58 pm\"\n" +
                         "                  SpreadsheetFlexLayout\n" +
                         "                    ROW\n" +
+                        "                      \"Delete\" [#/plugin/TestPluginName1/delete] id=pluginList-delete-Link\n" +
                         "                      \"Download\" [/api/plugin/TestPluginName1/download] id=pluginList-download-Link\n" +
                         "                      \"View\" [#/plugin/TestPluginName1] id=pluginList-view-Link\n" +
                         "                ROW 1\n" +
@@ -124,6 +125,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                         "                    \"31/12/99, 12:58 pm\"\n" +
                         "                  SpreadsheetFlexLayout\n" +
                         "                    ROW\n" +
+                        "                      \"Delete\" [#/plugin/TestPluginName2/delete] id=pluginList-delete-Link\n" +
                         "                      \"Download\" [/api/plugin/TestPluginName2/download] id=pluginList-download-Link\n" +
                         "                      \"View\" [#/plugin/TestPluginName2] id=pluginList-view-Link\n" +
                         "                ROW 2\n" +
@@ -137,6 +139,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                         "                    \"31/12/99, 12:58 pm\"\n" +
                         "                  SpreadsheetFlexLayout\n" +
                         "                    ROW\n" +
+                        "                      \"Delete\" [#/plugin/TestPluginName3/delete] id=pluginList-delete-Link\n" +
                         "                      \"Download\" [/api/plugin/TestPluginName3/download] id=pluginList-download-Link\n" +
                         "                      \"View\" [#/plugin/TestPluginName3] id=pluginList-view-Link\n" +
                         "              CHILDREN\n" +
@@ -186,6 +189,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                         "                    \"31/12/99, 12:58 pm\"\n" +
                         "                  SpreadsheetFlexLayout\n" +
                         "                    ROW\n" +
+                        "                      \"Delete\" [#/plugin/TestPluginName2/delete] id=pluginList-delete-Link\n" +
                         "                      \"Download\" [/api/plugin/TestPluginName2/download] id=pluginList-download-Link\n" +
                         "                      \"View\" [#/plugin/TestPluginName2] id=pluginList-view-Link\n" +
                         "                ROW 1\n" +
@@ -199,6 +203,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                         "                    \"31/12/99, 12:58 pm\"\n" +
                         "                  SpreadsheetFlexLayout\n" +
                         "                    ROW\n" +
+                        "                      \"Delete\" [#/plugin/TestPluginName3/delete] id=pluginList-delete-Link\n" +
                         "                      \"Download\" [/api/plugin/TestPluginName3/download] id=pluginList-download-Link\n" +
                         "                      \"View\" [#/plugin/TestPluginName3] id=pluginList-view-Link\n" +
                         "                ROW 2\n" +
@@ -212,6 +217,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                         "                    \"31/12/99, 12:58 pm\"\n" +
                         "                  SpreadsheetFlexLayout\n" +
                         "                    ROW\n" +
+                        "                      \"Delete\" [#/plugin/TestPluginName4/delete] id=pluginList-delete-Link\n" +
                         "                      \"Download\" [/api/plugin/TestPluginName4/download] id=pluginList-download-Link\n" +
                         "                      \"View\" [#/plugin/TestPluginName4] id=pluginList-view-Link\n" +
                         "              CHILDREN\n" +
