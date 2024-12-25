@@ -24,7 +24,6 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
@@ -407,46 +406,38 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
     public void testThreeColumnsIncludeNextPrev() {
         this.treePrintAndCheck(
                 SpreadsheetDataTableComponent.<String>with(
-                        ID_PREFIX, // id-prefix
-                        Lists.of(
-                                ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                ColumnConfig.create("column-3C-name", "column-3C-title")
-                        ),
-                        (column, data) -> SpreadsheetTextComponent.with(
-                                Optional.of(
-                                        CharSequences.repeating(
-                                                data.charAt(column),
-                                                3
-                                        ).toString()
-                                )
-                        )
-                ).setValue(
-                        Optional.of(
+                                ID_PREFIX, // id-prefix
                                 Lists.of(
-                                        "ABC",
-                                        "DEF",
-                                        "GHI"
+                                        ColumnConfig.create("column-1A-name", "column-1A-title"),
+                                        ColumnConfig.create("column-2B-name", "column-2B-title"),
+                                        ColumnConfig.create("column-3C-name", "column-3C-title")
+                                ),
+                                (column, data) -> SpreadsheetTextComponent.with(
+                                        Optional.of(
+                                                CharSequences.repeating(
+                                                        data.charAt(column),
+                                                        3
+                                                ).toString()
+                                        )
                                 )
-                        )
-                ).previousNextLinks(
-                        ID_PREFIX,
-                        new FakeHistoryTokenContext() {
-
-                            @Override
-                            public HistoryToken historyToken() {
-                                return HistoryToken.parseString("/");
-                            }
-                        }
-                ).setPrevious(
-                        Optional.of(
-                                HistoryToken.parseString("/*/offset/11/count/5")
-                        )
-                ).setNext(
-                        Optional.of(
-                                HistoryToken.parseString("/*/offset/22/count/5")
-                        )
-                ),
+                        ).setValue(
+                                Optional.of(
+                                        Lists.of(
+                                                "ABC",
+                                                "DEF",
+                                                "GHI"
+                                        )
+                                )
+                        ).previousNextLinks(ID_PREFIX)
+                        .setPrevious(
+                                Optional.of(
+                                        HistoryToken.parseString("/*/offset/11/count/5")
+                                )
+                        ).setNext(
+                                Optional.of(
+                                        HistoryToken.parseString("/*/offset/22/count/5")
+                                )
+                        ),
                 "SpreadsheetDataTableComponent\n" +
                         "  id=tableId123-Table\n" +
                         "  COLUMN(S)\n" +

@@ -68,10 +68,7 @@ final class PluginSetTableComponent implements HtmlElementComponent<HTMLDivEleme
         );
 
         this.card.appendChild(
-                this.table.previousNextLinks(
-                        id,
-                        context
-                )
+                this.table.previousNextLinks(id)
         );
     }
 

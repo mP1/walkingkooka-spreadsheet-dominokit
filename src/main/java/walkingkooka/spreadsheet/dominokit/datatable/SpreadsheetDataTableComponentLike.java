@@ -28,11 +28,10 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -151,13 +150,11 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
 
     // prev/next links..................................................................................................
 
-    SpreadsheetDataTableComponent<T> previousNextLinks(final String idPrefix,
-                                                       final HistoryTokenContext context);
+    SpreadsheetDataTableComponent<T> previousNextLinks(final String idPrefix);
 
-    default HistoryTokenAnchorComponent previous(final String idPrefix,
-                                                 final HistoryTokenContext context) {
-        return context.historyToken()
-                .link(idPrefix + "previous")
+    default HistoryTokenAnchorComponent previous(final String idPrefix) {
+        return HistoryTokenAnchorComponent.empty()
+                .setId(idPrefix + "previous" + SpreadsheetElementIds.LINK)
                 .setTextContent("previous")
                 .setIconBefore(
                         Optional.of(
@@ -166,10 +163,9 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
                 );
     }
 
-    default HistoryTokenAnchorComponent next(final String idPrefix,
-                                             final HistoryTokenContext context) {
-        return context.historyToken()
-                .link(idPrefix + "next")
+    default HistoryTokenAnchorComponent next(final String idPrefix) {
+        return HistoryTokenAnchorComponent.empty()
+                .setId(idPrefix + "next" + SpreadsheetElementIds.LINK)
                 .setTextContent("next")
                 .setIconAfter(
                         Optional.of(

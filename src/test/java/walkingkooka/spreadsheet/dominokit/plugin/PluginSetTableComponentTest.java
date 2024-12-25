@@ -110,8 +110,8 @@ public final class PluginSetTableComponentTest implements HtmlElementComponentTe
                         "        CHILDREN\n" +
                         "          SpreadsheetFlexLayout\n" +
                         "            ROW\n" +
-                        "              mdi-arrow-left \"previous\" [#/plugin/TestPlugin123] id=Table123-previous-Link\n" +
-                        "              \"next\" [#/plugin/TestPlugin123] mdi-arrow-right id=Table123-next-Link\n" +
+                        "              mdi-arrow-left \"previous\" DISABLED id=Table123-previous-Link\n" +
+                        "              \"next\" DISABLED mdi-arrow-right id=Table123-next-Link\n" +
                         "        PLUGINS\n" +
                         "          EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n"
         );
