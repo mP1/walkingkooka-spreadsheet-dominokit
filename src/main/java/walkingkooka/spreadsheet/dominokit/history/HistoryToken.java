@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Cast;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
@@ -2087,8 +2086,7 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     private boolean isMetadataFormatterOrParser(final Function<SpreadsheetPatternKind, Boolean> kind) {
         return this instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-                this.cast(HasSpreadsheetPatternKind.class)
-                        .patternKind()
+                this.patternKind()
                         .map(kind)
                         .orElse(false);
     }
@@ -2960,8 +2958,11 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * Type safe cast to the given {@link Class literal}.
      */
-    public <T> T cast(final Class<T> cast) {
-        return Cast.to(this);
+    public final <T extends HistoryToken> T cast(final Class<T> cast) {
+        return HistoryTokenCastGwt.cast(
+                this,
+                cast
+        );
     }
 
     // onHistoryTokenChange.............................................................................................
