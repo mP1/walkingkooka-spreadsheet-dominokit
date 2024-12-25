@@ -60,7 +60,9 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
 
         this.table = this.table();
 
-        this.delete = this.anchor("Delete");
+        this.delete = PluginDeleteAnchorComponent.empty()
+                .setTextContent("Delete")
+                .setId(ID_PREFIX + "delete" + SpreadsheetElementIds.LINK);
         this.download = PluginDownloadAnchorComponent.empty()
                 .setTextContent("Download")
                 .setId(ID_PREFIX + "download" + SpreadsheetElementIds.LINK);
@@ -95,19 +97,12 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
     // delete.........................................................................................................
 
     private void refreshDelete() {
-        final HistoryTokenContext context = this.context;
-
-        this.delete.setHistoryToken(
-                Optional.ofNullable(
-                        null == this.pluginName ?
-                                null :
-                        context.historyToken()
-                                .delete()
-                )
+        this.delete.setValue(
+                Optional.ofNullable(this.pluginName)
         );
     }
 
-    private HistoryTokenAnchorComponent delete;
+    private PluginDeleteAnchorComponent delete;
 
     // download.........................................................................................................
 
