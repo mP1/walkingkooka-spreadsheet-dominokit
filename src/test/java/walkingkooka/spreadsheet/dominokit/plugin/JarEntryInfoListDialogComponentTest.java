@@ -38,7 +38,7 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.OptionalLong;
 
-public final class PluginDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginDialogComponent,
+public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<JarEntryInfoListDialogComponent,
         SpreadsheetComparatorNameListDialogComponentContext> {
 
     private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName111");
@@ -47,7 +47,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
     public void testEmptyBeforeLoadingJarEntryInfoList() {
         this.onHistoryTokenChangeAndCheck(
                 "/plugin/" + PLUGIN_NAME,
-                "PluginDialogComponent\n" +
+                "JarEntryInfoListDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Loading...\n" +
                         "    id=plugin-Dialog includeClose=true\n" +
@@ -79,7 +79,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
     public void testLoadReturnsEmptyJar() {
         final TestAppContext context = new TestAppContext("/plugin/" + PLUGIN_NAME);
 
-        final PluginDialogComponent dialog = this.dialog(
+        final JarEntryInfoListDialogComponent dialog = this.dialog(
                 this.pluginDialogComponentContext(context)
         );
 
@@ -87,7 +87,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
         this.onHistoryTokenChangeAndCheck(
                 dialog,
                 context,
-                "PluginDialogComponent\n" +
+                "JarEntryInfoListDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Loading...\n" +
                         "    id=plugin-Dialog includeClose=true\n" +
@@ -126,7 +126,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
         this.onHistoryTokenChangeAndCheck(
                 dialog,
                 context,
-                "PluginDialogComponent\n" +
+                "JarEntryInfoListDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    TestPluginName111\n" +
                         "    id=plugin-Dialog includeClose=true\n" +
@@ -159,7 +159,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
     public void testLoadReturnsNonEmptyJar() {
         final TestAppContext context = new TestAppContext("/plugin/" + PLUGIN_NAME);
 
-        final PluginDialogComponent dialog = this.dialog(
+        final JarEntryInfoListDialogComponent dialog = this.dialog(
                 this.pluginDialogComponentContext(context)
         );
 
@@ -167,7 +167,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
         this.onHistoryTokenChangeAndCheck(
                 dialog,
                 context,
-                "PluginDialogComponent\n" +
+                "JarEntryInfoListDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Loading...\n" +
                         "    id=plugin-Dialog includeClose=true\n" +
@@ -222,7 +222,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
         this.onHistoryTokenChangeAndCheck(
                 dialog,
                 context,
-                "PluginDialogComponent\n" +
+                "JarEntryInfoListDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    TestPluginName111\n" +
                         "    id=plugin-Dialog includeClose=true\n" +
@@ -271,7 +271,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
     public void testLoadDifferentPlugin() {
         final TestAppContext context = new TestAppContext("/plugin/" + PLUGIN_NAME);
 
-        final PluginDialogComponent dialog = this.dialog(
+        final JarEntryInfoListDialogComponent dialog = this.dialog(
                 this.pluginDialogComponentContext(context)
         );
 
@@ -279,7 +279,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
         this.onHistoryTokenChangeAndCheck(
                 dialog,
                 context,
-                "PluginDialogComponent\n" +
+                "JarEntryInfoListDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Loading...\n" +
                         "    id=plugin-Dialog includeClose=true\n" +
@@ -334,7 +334,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
         this.onHistoryTokenChangeAndCheck(
                 dialog,
                 context,
-                "PluginDialogComponent\n" +
+                "JarEntryInfoListDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    TestPluginName111\n" +
                         "    id=plugin-Dialog includeClose=true\n" +
@@ -409,7 +409,7 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
         this.onHistoryTokenChangeAndCheck(
                 dialog,
                 context,
-                "PluginDialogComponent\n" +
+                "JarEntryInfoListDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    differentPlugin222\n" +
                         "    id=plugin-Dialog includeClose=true\n" +
@@ -502,8 +502,8 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
         );
     }
 
-    private PluginDialogComponentContext pluginDialogComponentContext(final TestAppContext context) {
-        return new FakePluginDialogComponentContext() {
+    private JarEntryInfoListDialogComponentContext pluginDialogComponentContext(final TestAppContext context) {
+        return new FakeJarEntryInfoListDialogComponentContext() {
             @Override
             public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {
                 return this.watchers.addPluginFetcherWatcher(watcher);
@@ -537,15 +537,15 @@ public final class PluginDialogComponentTest implements SpreadsheetDialogCompone
         };
     }
 
-    private PluginDialogComponent dialog(final PluginDialogComponentContext context) {
-        return PluginDialogComponent.with(context);
+    private JarEntryInfoListDialogComponent dialog(final JarEntryInfoListDialogComponentContext context) {
+        return JarEntryInfoListDialogComponent.with(context);
     }
 
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<PluginDialogComponent> type() {
-        return PluginDialogComponent.class;
+    public Class<JarEntryInfoListDialogComponent> type() {
+        return JarEntryInfoListDialogComponent.class;
     }
 
     @Override

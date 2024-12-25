@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 
 import java.util.Locale;
 
-public class FakePluginDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements PluginDialogComponentContext {
+public class FakeJarEntryInfoListDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements JarEntryInfoListDialogComponentContext {
 
     @Override
     public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {
