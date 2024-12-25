@@ -57,7 +57,10 @@ public final class PluginListSelectHistoryToken extends PluginListHistoryToken {
 
     @Override
     public HistoryToken clearAction() {
-        return this;
+        return HistoryToken.spreadsheetListSelect(
+                OptionalInt.empty(),
+                OptionalInt.empty()
+        );
     }
 
     // HistoryToken.....................................................................................................

@@ -1478,6 +1478,10 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken close() {
         HistoryToken closed = this;
 
+        if( this instanceof PluginListSelectHistoryToken) {
+            closed = this.clearAction();
+        }
+
         if( this instanceof PluginSelectHistoryToken) {
             closed = this.clearAction();
         }
