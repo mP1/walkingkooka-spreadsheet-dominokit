@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 
-public interface PluginDialogComponentContext extends HasPluginFetcherWatchers,
+public interface JarEntryInfoListDialogComponentContext extends HasPluginFetcherWatchers,
         JarEntryInfoListTableComponentContext {
 
     /**

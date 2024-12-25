@@ -41,18 +41,18 @@ import java.util.Optional;
 /**
  * A dialog that includes a table showing all the entries for a JAR file, along with delete, download and close links.
  */
-public final class PluginDialogComponent implements SpreadsheetDialogComponentLifecycle,
+public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogComponentLifecycle,
         PluginFetcherWatcher,
         NopFetcherWatcher,
         NopEmptyResponseFetcherWatcher {
 
-    public static PluginDialogComponent with(final PluginDialogComponentContext context) {
+    public static JarEntryInfoListDialogComponent with(final JarEntryInfoListDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
 
-        return new PluginDialogComponent(context);
+        return new JarEntryInfoListDialogComponent(context);
     }
 
-    private PluginDialogComponent(final PluginDialogComponentContext context) {
+    private JarEntryInfoListDialogComponent(final JarEntryInfoListDialogComponentContext context) {
         this.context = context;
 
         context.addHistoryTokenWatcher(this);
@@ -130,7 +130,7 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
     // TODO add DELETE, RENAME links
-    private SpreadsheetDialogComponent dialogCreate(final PluginDialogComponentContext context) {
+    private SpreadsheetDialogComponent dialogCreate(final JarEntryInfoListDialogComponentContext context) {
         return SpreadsheetDialogComponent.with(
                         ID + SpreadsheetElementIds.DIALOG, // id
                         "Plugin", // title
@@ -152,7 +152,7 @@ public final class PluginDialogComponent implements SpreadsheetDialogComponentLi
 
     private final SpreadsheetDialogComponent dialog;
 
-    private final PluginDialogComponentContext context;
+    private final JarEntryInfoListDialogComponentContext context;
 
     // id...............................................................................................................
 

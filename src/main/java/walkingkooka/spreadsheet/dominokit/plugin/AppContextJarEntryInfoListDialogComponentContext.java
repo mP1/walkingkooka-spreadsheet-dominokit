@@ -28,17 +28,17 @@ import walkingkooka.spreadsheet.dominokit.history.PluginSelectHistoryToken;
 import java.util.Locale;
 import java.util.Objects;
 
-final class AppContextPluginDialogComponentContext implements PluginDialogComponentContext,
+final class AppContextJarEntryInfoListDialogComponentContext implements JarEntryInfoListDialogComponentContext,
         HasPluginFetcherWatchersDelegator,
         SpreadsheetDialogComponentContextDelegator {
 
-    static AppContextPluginDialogComponentContext with(final AppContext context) {
-        return new AppContextPluginDialogComponentContext(
+    static AppContextJarEntryInfoListDialogComponentContext with(final AppContext context) {
+        return new AppContextJarEntryInfoListDialogComponentContext(
                 Objects.requireNonNull(context, "context")
         );
     }
 
-    private AppContextPluginDialogComponentContext(final AppContext context) {
+    private AppContextJarEntryInfoListDialogComponentContext(final AppContext context) {
         this.context = context;
     }
 

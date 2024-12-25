@@ -20,26 +20,26 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public final class PluginDialogComponentContexts implements PublicStaticHelper {
+public final class JarEntryInfoListDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see AppContextPluginDialogComponentContext}
+     * {@see AppContextJarEntryInfoListDialogComponentContext}
      */
-    public static PluginDialogComponentContext appContext(final AppContext context) {
-        return AppContextPluginDialogComponentContext.with(context);
+    public static JarEntryInfoListDialogComponentContext appContext(final AppContext context) {
+        return AppContextJarEntryInfoListDialogComponentContext.with(context);
     }
 
     /**
-     * {@see FakePluginDialogComponentContext}
+     * {@see FakeJarEntryInfoListDialogComponentContext}
      */
-    public static PluginDialogComponentContext fake() {
-        return new FakePluginDialogComponentContext();
+    public static JarEntryInfoListDialogComponentContext fake() {
+        return new FakeJarEntryInfoListDialogComponentContext();
     }
 
     /**
      * Stop creation
      */
-    private PluginDialogComponentContexts() {
+    private JarEntryInfoListDialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }
