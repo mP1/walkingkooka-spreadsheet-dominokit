@@ -17,15 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.UiFormattingContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
 public interface PluginSetTableComponentContext extends HistoryTokenContext,
         UiFormattingContext {
-
-    /**
-     * The {@link PluginName} of the enclosing plugin that contains this JAR file.
-     */
-    PluginName pluginName();
 }
