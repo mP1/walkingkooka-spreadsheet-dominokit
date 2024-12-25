@@ -17,11 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
-import walkingkooka.spreadsheet.dominokit.history.PluginSelectHistoryToken;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -38,12 +36,7 @@ final class AppContextPluginSetTableComponentContext implements PluginSetTableCo
         this.context = context;
     }
 
-    @Override
-    public PluginName pluginName() {
-        return this.context.historyToken()
-                .cast(PluginSelectHistoryToken.class)
-                .name();
-    }
+    // HasLocale........................................................................................................
 
     @Override
     public Locale locale() {

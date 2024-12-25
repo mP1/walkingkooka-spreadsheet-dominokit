@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 
 import java.util.Locale;
@@ -26,11 +25,6 @@ public class FakePluginSetTableComponentContext extends FakeHistoryTokenContext 
 
     public FakePluginSetTableComponentContext() {
         super();
-    }
-
-    @Override
-    public PluginName pluginName() {
-        throw new UnsupportedOperationException();
     }
 
     @Override
