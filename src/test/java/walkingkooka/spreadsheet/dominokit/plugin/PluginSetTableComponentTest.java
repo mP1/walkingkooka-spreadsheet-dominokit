@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 import java.time.LocalDateTime;
 import java.util.Locale;
+import java.util.OptionalInt;
 
 public final class PluginSetTableComponentTest implements HtmlElementComponentTesting<PluginSetTableComponent, HTMLDivElement>,
         JarFileTesting {
@@ -112,6 +113,119 @@ public final class PluginSetTableComponentTest implements HtmlElementComponentTe
                         "            ROW\n" +
                         "              mdi-arrow-left \"previous\" DISABLED id=Table123-previous-Link\n" +
                         "              \"next\" DISABLED mdi-arrow-right id=Table123-next-Link\n" +
+                        "        PLUGINS\n" +
+                        "          EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n"
+        );
+    }
+
+    @Test
+    public void testSeveralRowsWithRefreshPreviousNext() {
+        this.treePrintAndCheck(
+                this.createComponent()
+                        .setSet(
+                                PluginSet.with(
+                                        SortedSets.of(
+                                                this.plugin(
+                                                        "TestPlugin111",
+                                                        "filename111.jar",
+                                                        "user111@example.com",
+                                                        "2000-01-01T12:58:59"
+                                                ),
+                                                this.plugin(
+                                                        "TestPlugin222",
+                                                        "filename222.jar",
+                                                        "user222@example.com",
+                                                        "2000-01-02T12:58:59"
+                                                ),
+                                                this.plugin(
+                                                        "TestPlugin333",
+                                                        "filename333.jar",
+                                                        "user333@example.com",
+                                                        "2000-03-03T12:58:59"
+                                                ),
+                                                this.plugin(
+                                                        "TestPlugin444",
+                                                        "filename444.jar",
+                                                        "user444@example.com",
+                                                        "2000-04-04T12:58:59"
+                                                )
+                                        )
+                                )
+                        ).refresh(
+                                HistoryToken.pluginListSelect(
+                                        OptionalInt.of(10), // offset
+                                        OptionalInt.of(4) // count
+                                )
+                        ),
+                "PluginSetTableComponent\n" +
+                        "  SpreadsheetCard\n" +
+                        "    Card\n" +
+                        "      SpreadsheetDataTableComponent\n" +
+                        "        id=Table123-Table\n" +
+                        "        COLUMN(S)\n" +
+                        "          Name\n" +
+                        "          Filename\n" +
+                        "          User\n" +
+                        "          Timestamp\n" +
+                        "          Links\n" +
+                        "        ROW(S)\n" +
+                        "          ROW 0\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"TestPlugin111\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"filename111.jar\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user111@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"1/1/00, 12:58 pm\"\n" +
+                        "            SpreadsheetFlexLayout\n" +
+                        "              ROW\n" +
+                        "                \"Download\" [/api/plugin/TestPlugin111/download] id=Table123-download-Link\n" +
+                        "                \"View\" [#/plugin/TestPlugin111] id=Table123-view-Link\n" +
+                        "          ROW 1\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"TestPlugin222\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"filename222.jar\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user222@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"2/1/00, 12:58 pm\"\n" +
+                        "            SpreadsheetFlexLayout\n" +
+                        "              ROW\n" +
+                        "                \"Download\" [/api/plugin/TestPlugin222/download] id=Table123-download-Link\n" +
+                        "                \"View\" [#/plugin/TestPlugin222] id=Table123-view-Link\n" +
+                        "          ROW 2\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"TestPlugin333\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"filename333.jar\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user333@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"3/3/00, 12:58 pm\"\n" +
+                        "            SpreadsheetFlexLayout\n" +
+                        "              ROW\n" +
+                        "                \"Download\" [/api/plugin/TestPlugin333/download] id=Table123-download-Link\n" +
+                        "                \"View\" [#/plugin/TestPlugin333] id=Table123-view-Link\n" +
+                        "          ROW 3\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"TestPlugin444\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"filename444.jar\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"user444@example.com\"\n" +
+                        "            SpreadsheetTextComponent\n" +
+                        "              \"4/4/00, 12:58 pm\"\n" +
+                        "            SpreadsheetFlexLayout\n" +
+                        "              ROW\n" +
+                        "                \"Download\" [/api/plugin/TestPlugin444/download] id=Table123-download-Link\n" +
+                        "                \"View\" [#/plugin/TestPlugin444] id=Table123-view-Link\n" +
+                        "        CHILDREN\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            ROW\n" +
+                        "              mdi-arrow-left \"previous\" [#/plugin/*/offset/7/count/4] id=Table123-previous-Link\n" +
+                        "              \"next\" [#/plugin/*/offset/13/count/4] mdi-arrow-right id=Table123-next-Link\n" +
                         "        PLUGINS\n" +
                         "          EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n"
         );

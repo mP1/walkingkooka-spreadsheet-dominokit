@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
+import walkingkooka.spreadsheet.dominokit.history.PluginListHistoryToken;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextAlign;
 
@@ -125,6 +126,16 @@ final class PluginSetTableComponent implements HtmlElementComponent<HTMLDivEleme
         );
         return this;
     }
+
+    PluginSetTableComponent refresh(final PluginListHistoryToken historyToken) {
+        this.table.refreshPreviousNextLinks(
+                historyToken,
+                DEFAULT_COUNT
+        );
+        return this;
+    }
+
+    private final static int DEFAULT_COUNT = 10;
 
     // setCssText.......................................................................................................
 
