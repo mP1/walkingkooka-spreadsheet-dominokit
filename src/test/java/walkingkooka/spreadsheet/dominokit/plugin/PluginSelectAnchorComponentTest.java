@@ -33,7 +33,7 @@ public final class PluginSelectAnchorComponentTest implements HtmlElementCompone
                 PluginSelectAnchorComponent.empty()
                         .setId("plugin-select-anchor-id")
                         .setTextContent("View123!"),
-                "\"View123!\" id=plugin-select-anchor-id"
+                "\"View123!\" DISABLED id=plugin-select-anchor-id"
         );
     }
 

@@ -116,6 +116,8 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
 
     private final SpreadsheetIntegerBox count;
 
+    private final static int DEFAULT_COUNT = 1;
+
     // go...............................................................................................................
 
     private void refreshClose() {
@@ -138,7 +140,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
                                 .setCount(
                                         OptionalInt.of(
                                                 this.count.value()
-                                                        .orElse(0)
+                                                        .orElse(DEFAULT_COUNT)
                                         )
                                 )
                 )
@@ -175,6 +177,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
 
     @Override
     public void refresh(final AppContext context) {
+        this.refreshGo();
         this.refreshClose();
     }
 

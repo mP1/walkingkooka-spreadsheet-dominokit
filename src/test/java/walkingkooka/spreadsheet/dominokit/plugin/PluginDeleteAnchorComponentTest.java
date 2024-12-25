@@ -33,7 +33,7 @@ public final class PluginDeleteAnchorComponentTest implements HtmlElementCompone
                 PluginDeleteAnchorComponent.empty()
                         .setId("plugin-delete-anchor-id")
                         .setTextContent("View123!"),
-                "\"View123!\" id=plugin-delete-anchor-id"
+                "\"View123!\" DISABLED id=plugin-delete-anchor-id"
         );
     }
 

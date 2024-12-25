@@ -98,7 +98,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "            Card\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"Date Parse Pattern\" DISABLED [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
+                        "                  \"Date Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
                         "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
                         "                  \"Number Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                         "                  \"Time Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
@@ -142,7 +142,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "              Empty \"text\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
-                        "          \"Save\" DISABLED [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-save-Link\n" +
+                        "          \"Save\" DISABLED id=spreadsheetParserSelector-save-Link\n" +
                         "          \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-undo-Link\n" +
                         "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
                         "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetParserSelector-close-Link\n"
@@ -171,7 +171,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "            Card\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"Date Parse Pattern\" DISABLED [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
+                        "                  \"Date Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
                         "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
                         "                  \"Number Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                         "                  \"Time Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
@@ -277,7 +277,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"Date Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
-                        "                  \"Date Time Parse Pattern\" DISABLED [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
+                        "                  \"Date Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-1-Link\n" +
                         "                  \"Number Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                         "                  \"Time Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
@@ -402,7 +402,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                ROW\n" +
                         "                  \"Date Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                         "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
-                        "                  \"Number Parse Pattern\" DISABLED [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
+                        "                  \"Number Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-2-Link\n" +
                         "                  \"Time Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
@@ -548,7 +548,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"Date Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                         "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
                         "                  \"Number Parse Pattern\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
-                        "                  \"Time Parse Pattern\" DISABLED [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
+                        "                  \"Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-3-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +
@@ -641,7 +641,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "            Card\n" +
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
-                        "                  \"Date Parse Pattern\" DISABLED [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
+                        "                  \"Date Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-0-Link\n" +
                         "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
                         "                  \"Number Parse Pattern\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                         "                  \"Time Parse Pattern\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
@@ -757,7 +757,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "              SpreadsheetFlexLayout\n" +
                         "                ROW\n" +
                         "                  \"Date Parse Pattern\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
-                        "                  \"Date Time Parse Pattern\" DISABLED [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
+                        "                  \"Date Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-1-Link\n" +
                         "                  \"Number Parse Pattern\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
                         "                  \"Time Parse Pattern\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
@@ -892,7 +892,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                ROW\n" +
                         "                  \"Date Parse Pattern\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                         "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
-                        "                  \"Number Parse Pattern\" DISABLED [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
+                        "                  \"Number Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-2-Link\n" +
                         "                  \"Time Parse Pattern\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
@@ -1048,7 +1048,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                         "                  \"Date Parse Pattern\" [#/1/Spreadsheet123/spreadsheet/time-parser/save/date-parse-pattern] id=spreadsheetParserSelector-parserNames-0-Link\n" +
                         "                  \"Date Time Parse Pattern\" [#/1/Spreadsheet123/spreadsheet/time-parser/save/date-time-parse-pattern] id=spreadsheetParserSelector-parserNames-1-Link\n" +
                         "                  \"Number Parse Pattern\" [#/1/Spreadsheet123/spreadsheet/time-parser/save/number-parse-pattern] id=spreadsheetParserSelector-parserNames-2-Link\n" +
-                        "                  \"Time Parse Pattern\" DISABLED [#/1/Spreadsheet123/spreadsheet/time-parser/save/time-parse-pattern] id=spreadsheetParserSelector-parserNames-3-Link\n" +
+                        "                  \"Time Parse Pattern\" DISABLED id=spreadsheetParserSelector-parserNames-3-Link\n" +
                         "      SpreadsheetFormatterTableComponent\n" +
                         "        SpreadsheetCard\n" +
                         "          Card\n" +

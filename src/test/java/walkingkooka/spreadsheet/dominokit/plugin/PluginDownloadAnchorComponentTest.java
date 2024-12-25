@@ -34,7 +34,7 @@ public final class PluginDownloadAnchorComponentTest implements HtmlElementCompo
                 PluginDownloadAnchorComponent.empty()
                         .setId("Download123")
                         .setTextContent("Download123!"),
-                "\"Download123!\" id=Download123"
+                "\"Download123!\" DISABLED id=Download123"
         );
     }
 

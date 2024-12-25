@@ -145,7 +145,7 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
     public void testTreePrintWithoutValue() {
         this.treePrintAndCheck(
                 this.createComponent(),
-                ""
+                "DISABLED"
         );
     }
 
@@ -163,7 +163,7 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
         this.treePrintAndCheck(
                 this.createComponent()
                         .setId("Anchor123"),
-                "id=Anchor123"
+                "DISABLED id=Anchor123"
         );
     }
 
