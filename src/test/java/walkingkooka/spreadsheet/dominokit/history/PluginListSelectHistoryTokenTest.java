@@ -101,7 +101,23 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
 
     @Test
     public void testClearAction() {
-        this.clearActionAndCheck();
+        this.clearActionAndCheck(
+                this.createHistoryToken(),
+                HistoryToken.spreadsheetListSelect(
+                        OptionalInt.empty(), // offset
+                        OptionalInt.empty() // count
+                )
+        );
+    }
+
+    @Test
+    public void testClose() {
+        this.closeAndCheck(
+                HistoryToken.spreadsheetListSelect(
+                        OptionalInt.empty(), // offset
+                        OptionalInt.empty() // count
+                )
+        );
     }
 
     @Test
