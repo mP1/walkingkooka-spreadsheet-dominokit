@@ -107,6 +107,11 @@ public final class PluginSetTableComponentTest implements HtmlElementComponentTe
                         "              ROW\n" +
                         "                \"Download\" [/api/plugin/TestPlugin222/download] id=Table123-download-Link\n" +
                         "                \"View\" [#/plugin/TestPlugin222] id=Table123-view-Link\n" +
+                        "        CHILDREN\n" +
+                        "          SpreadsheetFlexLayout\n" +
+                        "            ROW\n" +
+                        "              mdi-arrow-left \"previous\" [#/plugin/TestPlugin123] id=Table123-previous-Link\n" +
+                        "              \"next\" [#/plugin/TestPlugin123] mdi-arrow-right id=Table123-next-Link\n" +
                         "        PLUGINS\n" +
                         "          EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n"
         );
