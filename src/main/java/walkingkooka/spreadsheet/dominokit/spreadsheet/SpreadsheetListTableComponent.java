@@ -75,8 +75,6 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
                         context
                 )
         );
-
-        this.tableRowCount = 0;
     }
 
     private List<ColumnConfig<SpreadsheetMetadata>> columnConfigs() {
@@ -135,12 +133,9 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
                         metadatas
                 )
         );
-        this.tableRowCount = metadatas.size();
 
         return this;
     }
-
-    private int tableRowCount;
 
     void refresh(final SpreadsheetListHistoryToken historyToken) {
         final int offset = historyToken.offset()
@@ -149,7 +144,9 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
                 .orElse(DEFAULT_COUNT);
 
         final boolean previousDisabled = 0 == offset;
-        final boolean nextDisabled = this.tableRowCount < count;
+        final boolean nextDisabled = this.table.value()
+                .map(List::size)
+                .orElse(0) < count;
 
         this.table.setPrevious(
                 Optional.ofNullable(
