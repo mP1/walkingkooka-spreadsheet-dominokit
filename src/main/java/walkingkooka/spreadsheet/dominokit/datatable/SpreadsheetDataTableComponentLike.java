@@ -174,9 +174,9 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
                 );
     }
 
-    SpreadsheetDataTableComponent setPrevious(final Optional<HistoryToken> historyToken);
+    SpreadsheetDataTableComponent<T> setPrevious(final Optional<HistoryToken> historyToken);
 
-    SpreadsheetDataTableComponent setNext(final Optional<HistoryToken> historyToken);
+    SpreadsheetDataTableComponent<T> setNext(final Optional<HistoryToken> historyToken);
 
     // header...........................................................................................................
 
