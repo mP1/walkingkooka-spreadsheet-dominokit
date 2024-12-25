@@ -37,9 +37,11 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 
 /**
  * A {@link ValueComponent} wrapper around a {@link DataTable}.
@@ -177,6 +179,51 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
     SpreadsheetDataTableComponent<T> setPrevious(final Optional<HistoryToken> historyToken);
 
     SpreadsheetDataTableComponent<T> setNext(final Optional<HistoryToken> historyToken);
+
+    /**
+     * Updates the previous and next links using the history token to fetch the offset and count.
+     * Note the next link will include the last row of the current view, and the previous link will include the first row of the current view.
+     */
+    default SpreadsheetDataTableComponent<T> refreshPreviousNextLinks(final HistoryToken historyToken,
+                                                                      final int defaultCount) {
+        final int offset = historyToken.offset()
+                .orElse(0);
+        final int count = historyToken.count()
+                .orElse(defaultCount);
+
+        final boolean previousDisabled = 0 == offset;
+        final boolean nextDisabled = this.value()
+                .map(Collection::size)
+                .orElse(0) < count;
+
+        this.setPrevious(
+                Optional.ofNullable(
+                        false == previousDisabled ?
+                                historyToken.setOffset(
+                                        OptionalInt.of(
+                                                Math.max(
+                                                        0,
+                                                        offset - count + 1
+                                                )
+                                        )
+                                ) :
+                                null
+                )
+        );
+        this.setNext(
+                Optional.ofNullable(
+                        false == nextDisabled ?
+                                historyToken.setOffset(
+                                        OptionalInt.of(
+                                                offset + count - 1
+                                        )
+                                ) :
+                                null
+                )
+        );
+
+        return (SpreadsheetDataTableComponent<T>) this;
+    }
 
     // header...........................................................................................................
 
