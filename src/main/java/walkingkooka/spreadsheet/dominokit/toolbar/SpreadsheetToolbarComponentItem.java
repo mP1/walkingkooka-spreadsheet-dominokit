@@ -128,6 +128,13 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     }
 
     /**
+     * {@link SpreadsheetToolbarComponentItemAnchorPlugin}
+     */
+    static SpreadsheetToolbarComponentItem<?> plugin(final HistoryTokenContext context) {
+        return SpreadsheetToolbarComponentItemAnchorPlugin.with(context);
+    }
+
+    /**
      * {@link SpreadsheetToolbarComponentItemAnchorReload}
      */
     static SpreadsheetToolbarComponentItem<?> reload(final HistoryTokenContext context) {

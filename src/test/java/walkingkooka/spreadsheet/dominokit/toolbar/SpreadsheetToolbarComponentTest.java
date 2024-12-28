@@ -191,6 +191,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                         "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
                         "        SpreadsheetTooltipComponent\n" +
                         "          \"Reload\"\n" +
+                        "      mdi-power-plug \"Plugin\" [#/plugin] id=toolbar-plugin-Link\n" +
+                        "        SpreadsheetTooltipComponent\n" +
+                        "          \"Manage system plugin(s)\"\n" +
                         "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n" +
                         "        SpreadsheetTooltipComponent\n" +
                         "          \"Click to open swagger html client\"\n"
@@ -231,6 +234,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                         "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
                         "        SpreadsheetTooltipComponent\n" +
                         "          \"Reload\"\n" +
+                        "      mdi-power-plug \"Plugin\" [#/plugin] id=toolbar-plugin-Link\n" +
+                        "        SpreadsheetTooltipComponent\n" +
+                        "          \"Manage system plugin(s)\"\n" +
                         "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n" +
                         "        SpreadsheetTooltipComponent\n" +
                         "          \"Click to open swagger html client\"\n"
@@ -271,6 +277,9 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                         "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
                         "        SpreadsheetTooltipComponent\n" +
                         "          \"Reload\"\n" +
+                        "      mdi-power-plug \"Plugin\" [#/plugin] id=toolbar-plugin-Link\n" +
+                        "        SpreadsheetTooltipComponent\n" +
+                        "          \"Manage system plugin(s)\"\n" +
                         "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n" +
                         "        SpreadsheetTooltipComponent\n" +
                         "          \"Click to open swagger html client\"\n"

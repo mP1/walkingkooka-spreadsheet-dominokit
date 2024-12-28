@@ -125,6 +125,8 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
                 SpreadsheetToolbarComponentItem.labelCreate(context),
                 // reload
                 SpreadsheetToolbarComponentItem.reload(context),
+                // plugin
+                SpreadsheetToolbarComponentItem.plugin(context),
                 // swagger
                 SpreadsheetToolbarComponentItem.swagger(context)
         );
@@ -234,6 +236,10 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
 
     public static String parserId() {
         return TOOLBAR_ID_PREFIX + "parser";
+    }
+
+    public static String pluginId() {
+        return TOOLBAR_ID_PREFIX + "plugin";
     }
 
     public static String reloadId() {
