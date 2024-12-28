@@ -921,6 +921,17 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see PluginSaveHistoryToken}
+     */
+    public static PluginSaveHistoryToken pluginSave(final PluginName name,
+                                                    final String save) {
+        return PluginSaveHistoryToken.with(
+                name,
+                save
+        );
+    }
+
+    /**
      * {@see PluginSelectHistoryToken}
      */
     public static PluginSelectHistoryToken pluginSelect(final PluginName name) {
@@ -1237,6 +1248,15 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     // parse............................................................................................................
+
+    final HistoryToken parseSave(final TextCursor cursor) {
+        return this instanceof SpreadsheetCellSelectHistoryToken ?
+                this.cast(SpreadsheetCellSelectHistoryToken.class)
+                        .parseCellSave(cursor) :
+                this.save(
+                        parseAll(cursor)
+                );
+    }
 
     /**
      * Parses the given {@link String} if that matching fails a {@link SpreadsheetListSelectHistoryToken} is returned.
@@ -2607,10 +2627,19 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken save(final String text) {
         Objects.requireNonNull(text, "text");
 
-        return this.setIfSpreadsheetIdHistoryToken(
-                SpreadsheetIdHistoryToken::save0,
-                text
-        );
+        HistoryToken historyToken;
+
+        if (this instanceof PluginNameHistoryToken) {
+            historyToken = this.cast(PluginNameHistoryToken.class)
+                    .save0(text);
+        } else {
+            historyToken = this.setIfSpreadsheetIdHistoryToken(
+                    SpreadsheetIdHistoryToken::save0,
+                    text
+            );
+        }
+
+        return historyToken;
     }
 
     /**

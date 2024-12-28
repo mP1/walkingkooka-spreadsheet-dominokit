@@ -2323,6 +2323,17 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    @Test
+    public void testParsePluginPluginNameSave() {
+        this.parseStringAndCheck(
+                "/plugin/TestPluginName123/save/text123",
+                HistoryToken.pluginSave(
+                        PluginName.with("TestPluginName123"),
+                        "text123"
+                )
+        );
+    }
+
     // plugin/name......................................................................................................
 
     @Test

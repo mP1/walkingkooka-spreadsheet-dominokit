@@ -42,13 +42,6 @@ public final class PluginDeleteHistoryTokenTest extends PluginNameHistoryTokenTe
         );
     }
 
-    @Test
-    public void testSave() {
-        this.saveAndCheck(
-                "Ignored Save"
-        );
-    }
-
     @Override
     PluginDeleteHistoryToken createHistoryToken(final PluginName name) {
         return PluginDeleteHistoryToken.with(name);

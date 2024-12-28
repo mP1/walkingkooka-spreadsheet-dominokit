@@ -22,14 +22,31 @@ import walkingkooka.plugin.PluginName;
 
 import java.util.OptionalInt;
 
-public final class PluginSelectHistoryTokenTest extends PluginNameHistoryTokenTestCase<PluginSelectHistoryToken> {
+import static org.junit.Assert.assertThrows;
+
+public final class PluginSaveHistoryTokenTest extends PluginNameHistoryTokenTestCase<PluginSaveHistoryToken> {
+
+    // with.............................................................................................................
+
+    @Test
+    public void testWithNullSaveFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> PluginSaveHistoryToken.with(
+                        PLUGIN_NAME,
+                        null
+                )
+        );
+    }
+
+    // HasUrlFragment...................................................................................................
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/plugin/TestPluginName123");
+        this.urlFragmentAndCheck("/plugin/TestPluginName123/save/value123");
     }
 
-    // clearAction.....................................................................................................
+    // clearAction......................................................................................................
 
     @Test
     public void testClearAction() {
@@ -42,25 +59,18 @@ public final class PluginSelectHistoryTokenTest extends PluginNameHistoryTokenTe
         );
     }
 
-    @Test
-    public void testClose() {
-        this.closeAndCheck(
-                HistoryToken.pluginListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
-        );
-    }
-
     @Override
-    PluginSelectHistoryToken createHistoryToken(final PluginName name) {
-        return PluginSelectHistoryToken.with(name);
+    PluginSaveHistoryToken createHistoryToken(final PluginName name) {
+        return PluginSaveHistoryToken.with(
+                name,
+                "value123"
+        );
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<PluginSelectHistoryToken> type() {
-        return PluginSelectHistoryToken.class;
+    public Class<PluginSaveHistoryToken> type() {
+        return PluginSaveHistoryToken.class;
     }
 }

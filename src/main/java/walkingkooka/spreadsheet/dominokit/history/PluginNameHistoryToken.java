@@ -44,7 +44,12 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
     /**
      * Creates a save {@link HistoryToken} after attempting to parse the value into a {@link PluginName}.
      */
-    abstract HistoryToken save0(final String value);
+    final HistoryToken save0(final String value) {
+        return HistoryToken.pluginSave(
+                this.name,
+                value
+        );
+    }
 
     // UrlFragment......................................................................................................
 
@@ -69,6 +74,9 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
                 historyToken = historyToken.cast(PluginFileViewHistoryToken.class)
                         .parseFile(cursor);
                 break;
+            case SAVE_STRING:
+                historyToken = this.parseSave(cursor);
+                break;
             default:
                 cursor.end();
                 historyToken = this;
@@ -77,7 +85,6 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
 
         return historyToken;
     }
-
 
     @Override
     final UrlFragment pluginUrlFragment() {

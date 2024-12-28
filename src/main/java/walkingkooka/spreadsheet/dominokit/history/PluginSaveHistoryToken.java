@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -25,28 +26,39 @@ import java.util.Objects;
 import java.util.OptionalInt;
 
 /**
- * Represents the selection of a single {@link walkingkooka.plugin.store.Plugin}.
+ * Represents an action to prompt the user to upload a plugin.
  */
-public final class PluginSelectHistoryToken extends PluginNameHistoryToken {
+public final class PluginSaveHistoryToken extends PluginNameHistoryToken implements Value<String> {
 
-    static PluginSelectHistoryToken with(final PluginName name) {
-        return new PluginSelectHistoryToken(
-                Objects.requireNonNull(name, "name")
+    static PluginSaveHistoryToken with(final PluginName name,
+                                       final String value) {
+        return new PluginSaveHistoryToken(
+                Objects.requireNonNull(name, "name"),
+                Objects.requireNonNull(value, "value")
         );
     }
 
-    private PluginSelectHistoryToken(final PluginName name) {
+    private PluginSaveHistoryToken(final PluginName name,
+                                   final String value) {
         super(name);
+        this.value = value;
     }
+
+    @Override
+    public String value() {
+        return this.value;
+    }
+
+    final String value;
 
     // HistoryToken.....................................................................................................
 
     //
-    // /plugin/PluginName123
+    // /plugin/PluginName123/save/XYZ
     //
     @Override
     UrlFragment pluginNameUrlFragment() {
-        return UrlFragment.EMPTY;
+        return saveUrlFragment(this.value);
     }
 
     // /plugin/Plugin123 -> /plugin
