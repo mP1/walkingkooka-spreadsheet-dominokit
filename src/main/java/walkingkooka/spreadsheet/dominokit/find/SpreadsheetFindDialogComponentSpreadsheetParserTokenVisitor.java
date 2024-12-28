@@ -87,7 +87,6 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
                     break;
             }
         }
-        ;
     }
 
     // textMatch( cellXXX(), StringLiteral)
