@@ -30,7 +30,7 @@ final class SpreadsheetAppLayoutDrawerComponentRight<E extends HTMLElement> exte
 
     static <E extends HTMLElement> SpreadsheetAppLayoutDrawerComponentRight<E> with(final AppLayout appLayout,
                                                                                     final SpreadsheetFormComponentLifecycle<E, ?> form) {
-        return new SpreadsheetAppLayoutDrawerComponentRight(
+        return new SpreadsheetAppLayoutDrawerComponentRight<>(
                 Objects.requireNonNull(appLayout, "appLayout"),
                 Objects.requireNonNull(form, "form")
         );

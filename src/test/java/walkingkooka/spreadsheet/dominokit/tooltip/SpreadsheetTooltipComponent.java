@@ -28,7 +28,7 @@ import java.util.Objects;
  */
 public final class SpreadsheetTooltipComponent implements SpreadsheetTooltipComponentLike {
 
-    public static SpreadsheetTooltipComponent attach(final SpreadsheetTooltipComponentTarget component,
+    public static SpreadsheetTooltipComponent attach(final SpreadsheetTooltipComponentTarget<?, ?> component,
                                                      final String text,
                                                      final DropDirection direction) {
         Objects.requireNonNull(component, "component");
@@ -42,7 +42,7 @@ public final class SpreadsheetTooltipComponent implements SpreadsheetTooltipComp
         );
     }
 
-    private SpreadsheetTooltipComponent(final SpreadsheetTooltipComponentTarget component,
+    private SpreadsheetTooltipComponent(final SpreadsheetTooltipComponentTarget<?, ?> component,
                                         final String text,
                                         final DropDirection direction) {
         this.text = text;
@@ -76,5 +76,5 @@ public final class SpreadsheetTooltipComponent implements SpreadsheetTooltipComp
         this.component.tooltipDetached();
     }
 
-    private final SpreadsheetTooltipComponentTarget component;
+    private final SpreadsheetTooltipComponentTarget<?, ?> component;
 }

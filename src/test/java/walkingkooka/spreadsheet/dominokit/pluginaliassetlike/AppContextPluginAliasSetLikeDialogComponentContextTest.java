@@ -17,14 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
+import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class AppContextPluginAliasSetLikeDialogComponentContextTest implements ClassTesting<AppContextPluginAliasSetLikeDialogComponentContext> {
+public final class AppContextPluginAliasSetLikeDialogComponentContextTest implements ClassTesting<AppContextPluginAliasSetLikeDialogComponentContext<?, ?, ?, ?, ?, ?>> {
 
     @Override
-    public Class<AppContextPluginAliasSetLikeDialogComponentContext> type() {
-        return AppContextPluginAliasSetLikeDialogComponentContext.class;
+    public Class<AppContextPluginAliasSetLikeDialogComponentContext<?, ?, ?, ?, ?, ?>> type() {
+        return Cast.to(AppContextPluginAliasSetLikeDialogComponentContext.class);
     }
 
     @Override

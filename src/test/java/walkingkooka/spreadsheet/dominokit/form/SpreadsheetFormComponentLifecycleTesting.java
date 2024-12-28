@@ -17,7 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.form;
 
+import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleTesting;
 
-public interface SpreadsheetFormComponentLifecycleTesting<T extends SpreadsheetFormComponentLifecycle> extends ComponentLifecycleTesting<T> {
+public interface SpreadsheetFormComponentLifecycleTesting<E extends HTMLElement,
+        C extends SpreadsheetFormComponentLifecycle<E, C>,
+        T extends SpreadsheetFormComponentLifecycle<E, C>> extends ComponentLifecycleTesting<T> {
 }

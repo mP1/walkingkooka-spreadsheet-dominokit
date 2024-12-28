@@ -300,7 +300,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
         boolean match = false;
 
         if(token instanceof SpreadsheetMetadataPropertySelectHistoryToken) {
-            final SpreadsheetMetadataPropertySelectHistoryToken metadataPropertySelect = token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class);
+            final SpreadsheetMetadataPropertySelectHistoryToken<?> metadataPropertySelect = token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class);
             match = SpreadsheetMetadataPropertyName.PLUGINS.equals(metadataPropertySelect.propertyName());
         }
 
@@ -325,7 +325,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
                         .orElse(PluginNameSet.EMPTY)
         );
 
-        final SpreadsheetMetadataPropertySelectHistoryToken propertySelectHistoryToken = context.historyToken()
+        final SpreadsheetMetadataPropertySelectHistoryToken<?> propertySelectHistoryToken = context.historyToken()
                 .cast(SpreadsheetMetadataPropertySelectHistoryToken.class);
 
         // load latest metadata

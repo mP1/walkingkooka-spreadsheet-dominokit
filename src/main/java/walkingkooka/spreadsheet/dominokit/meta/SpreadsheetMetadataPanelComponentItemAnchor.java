@@ -36,7 +36,7 @@ final class SpreadsheetMetadataPanelComponentItemAnchor<T> extends SpreadsheetMe
         checkPropertyName(propertyName);
         checkContext(context);
 
-        return new SpreadsheetMetadataPanelComponentItemAnchor(
+        return new SpreadsheetMetadataPanelComponentItemAnchor<>(
                 propertyName,
                 context
         );

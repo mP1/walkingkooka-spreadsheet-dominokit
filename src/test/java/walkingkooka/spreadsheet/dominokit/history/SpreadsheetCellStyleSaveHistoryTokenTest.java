@@ -206,7 +206,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                 Color.parse("#123456")
         );
 
-        final SpreadsheetCellStyleSaveHistoryToken historyToken = SpreadsheetCellStyleSaveHistoryToken.with(
+        final SpreadsheetCellStyleSaveHistoryToken<?> historyToken = SpreadsheetCellStyleSaveHistoryToken.with(
                 ID,
                 NAME,
                 SELECTION,
