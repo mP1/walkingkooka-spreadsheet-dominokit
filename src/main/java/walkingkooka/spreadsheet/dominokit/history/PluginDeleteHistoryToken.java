@@ -49,11 +49,6 @@ public final class PluginDeleteHistoryToken extends PluginNameHistoryToken {
         return DELETE;
     }
 
-    @Override
-    HistoryToken save0(final String value) {
-        return this; // not a SAVE HistoryToken return this
-    }
-
     // /plugin/Plugin123 -> /plugin
 
     @Override

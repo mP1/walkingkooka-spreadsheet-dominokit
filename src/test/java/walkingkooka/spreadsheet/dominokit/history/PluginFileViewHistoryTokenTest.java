@@ -100,13 +100,6 @@ public final class PluginFileViewHistoryTokenTest extends PluginNameHistoryToken
         );
     }
 
-    @Test
-    public void testSave() {
-        this.saveAndCheck(
-                "Ignored Save"
-        );
-    }
-
     @Override
     PluginFileViewHistoryToken createHistoryToken(final PluginName name) {
         return PluginFileViewHistoryToken.with(

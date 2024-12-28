@@ -90,11 +90,6 @@ public final class PluginFileViewHistoryToken extends PluginNameHistoryToken {
     }
 
     @Override
-    HistoryToken save0(final String value) {
-        return this; // not a SAVE HistoryToken return this
-    }
-
-    @Override
     public HistoryToken clearAction() {
         return pluginSelect(this.name);
     }
