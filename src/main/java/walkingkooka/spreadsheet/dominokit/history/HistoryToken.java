@@ -3074,7 +3074,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 );
     }
 
-    static UrlFragment saveUrlFragmentValue(final Object value) {
+    private static UrlFragment saveUrlFragmentValue(final Object value) {
         return null == value ?
                 UrlFragment.EMPTY :
                 value instanceof UrlFragment ?
@@ -3089,7 +3089,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                         );
     }
 
-    static UrlFragment saveUrlFragmentValueOptional(final Optional<?> value) {
+    private static UrlFragment saveUrlFragmentValueOptional(final Optional<?> value) {
         return saveUrlFragmentValue(
                 value.orElse(null)
         );
