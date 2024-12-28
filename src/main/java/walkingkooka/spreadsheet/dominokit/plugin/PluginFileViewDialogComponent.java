@@ -120,7 +120,7 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
         );
     }
 
-    private HistoryTokenAnchorComponent close;
+    private final HistoryTokenAnchorComponent close;
 
     // download.........................................................................................................
 
@@ -142,7 +142,7 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
         );
     }
 
-    private PluginDownloadAnchorComponent download;
+    private final PluginDownloadAnchorComponent download;
 
     // SpreadsheetDialogComponentLifecycle..............................................................................
 

@@ -86,7 +86,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
         );
     }
 
-    private HistoryTokenAnchorComponent close;
+    private final HistoryTokenAnchorComponent close;
 
     // SpreadsheetDialogComponentLifecycle..............................................................................
 

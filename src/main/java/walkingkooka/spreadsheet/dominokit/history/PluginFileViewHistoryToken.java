@@ -60,7 +60,7 @@ public final class PluginFileViewHistoryToken extends PluginNameHistoryToken {
                 );
     }
 
-    private Optional<JarEntryInfoName> file;
+    private final Optional<JarEntryInfoName> file;
 
 
     // HistoryToken.....................................................................................................

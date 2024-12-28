@@ -70,7 +70,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
         throw new UnsupportedOperationException();
     }
 
-    private String id;
+    private final String id;
 
     // disabled.........................................................................................................
 
