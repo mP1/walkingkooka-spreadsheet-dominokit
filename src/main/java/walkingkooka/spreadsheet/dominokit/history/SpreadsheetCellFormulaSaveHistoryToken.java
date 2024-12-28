@@ -67,7 +67,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
 
     @Override
     UrlFragment formulaUrlFragment() {
-        return this.saveUrlFragment(this.text);
+        return saveUrlFragment(this.text);
     }
 
     @Override

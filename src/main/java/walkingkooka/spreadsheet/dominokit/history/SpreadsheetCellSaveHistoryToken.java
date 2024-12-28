@@ -135,7 +135,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
 
     @Override//
     final UrlFragment cellUrlFragment() {
-        return this.saveUrlFragment(
+        return saveUrlFragment(
                 this.urlFragmentSaveEntity()
         ).appendSlashThen(
                 this.urlFragmentSaveValue()

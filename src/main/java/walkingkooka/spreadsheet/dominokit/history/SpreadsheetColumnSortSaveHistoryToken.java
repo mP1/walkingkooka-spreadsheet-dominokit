@@ -74,7 +74,7 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
 
     @Override
     UrlFragment sortUrlFragment() {
-        return this.saveUrlFragment(this.comparatorNames);
+        return saveUrlFragment(this.comparatorNames);
     }
 
     @Override

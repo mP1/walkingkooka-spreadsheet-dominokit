@@ -74,7 +74,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
 
     @Override
     UrlFragment styleUrlFragment() {
-        return this.saveUrlFragment(this.propertyValue());
+        return saveUrlFragment(this.propertyValue());
     }
 
     @Override //

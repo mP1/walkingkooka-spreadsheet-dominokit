@@ -83,7 +83,7 @@ public final class SpreadsheetRenameSaveHistoryToken extends SpreadsheetRenameHi
 
     @Override
     UrlFragment spreadsheetRenameUrlFragment() {
-        return this.saveUrlFragment(this.value.urlFragment());
+        return saveUrlFragment(this.value.urlFragment());
     }
 
     @Override

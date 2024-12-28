@@ -62,7 +62,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
 
     @Override
     UrlFragment metadataPropertyUrlFragment() {
-        return this.saveUrlFragment(
+        return saveUrlFragment(
                 this.propertyValue()
         );
     }

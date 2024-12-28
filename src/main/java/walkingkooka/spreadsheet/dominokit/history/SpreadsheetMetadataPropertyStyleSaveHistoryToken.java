@@ -64,7 +64,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
 
     @Override
     UrlFragment styleUrlFragment() {
-        return this.saveUrlFragment(
+        return saveUrlFragment(
                 this.stylePropertyValue()
         );
     }

@@ -90,7 +90,7 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
     // cell/A1/formatter/save/SpreadsheetFormatterSelector
     @Override
     UrlFragment formatterUrlFragment() {
-        return this.saveUrlFragment(this.spreadsheetFormatterSelector);
+        return saveUrlFragment(this.spreadsheetFormatterSelector);
     }
 
     @Override
