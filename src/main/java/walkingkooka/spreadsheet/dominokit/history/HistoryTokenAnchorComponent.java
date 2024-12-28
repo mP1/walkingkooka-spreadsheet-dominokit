@@ -407,7 +407,7 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
         this.tooltip = Optional.empty();
     }
 
-    public Optional<SpreadsheetTooltipComponent> spreadsheetTooltipComponent() {
+    @Override public Optional<SpreadsheetTooltipComponent> spreadsheetTooltipComponent() {
         return this.tooltip;
     }
 

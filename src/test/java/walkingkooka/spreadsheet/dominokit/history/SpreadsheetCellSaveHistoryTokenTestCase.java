@@ -27,11 +27,6 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
         super();
     }
 
-    @Test
-    public final void testMenuWithCell() {
-        this.menuWithCellAndCheck();
-    }
-
     final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 
     // patternKind......................................................................................................

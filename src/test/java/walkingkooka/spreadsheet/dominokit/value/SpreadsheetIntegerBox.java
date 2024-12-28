@@ -169,7 +169,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
         return this;
     }
 
-    public Optional<String> helperText() {
+    @Override public Optional<String> helperText() {
         return this.helperText;
     }
 

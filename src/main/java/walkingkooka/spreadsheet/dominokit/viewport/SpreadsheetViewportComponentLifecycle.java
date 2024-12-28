@@ -37,7 +37,7 @@ public interface SpreadsheetViewportComponentLifecycle extends HistoryTokenAware
         return false;
     }
 
-    default boolean isMatch(final HistoryToken token) {
+    @Override default boolean isMatch(final HistoryToken token) {
         boolean match = token instanceof SpreadsheetNameHistoryToken;
 
         if (match) {

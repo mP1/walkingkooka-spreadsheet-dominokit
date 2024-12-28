@@ -264,7 +264,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
             return Locale.forLanguageTag("EN-AU");
         }
 
-        public PluginStore pluginStore() {
+        @Override public PluginStore pluginStore() {
             return this.pluginStore;
         }
 

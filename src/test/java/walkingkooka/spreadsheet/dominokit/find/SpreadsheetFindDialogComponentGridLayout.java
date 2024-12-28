@@ -37,21 +37,21 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
         this.footer = Lists.array();
     }
 
-    SpreadsheetFindDialogComponentGridLayout setLeft(final Collection<HtmlElementComponent<?, ?>> children) {
+    @Override SpreadsheetFindDialogComponentGridLayout setLeft(final Collection<HtmlElementComponent<?, ?>> children) {
         this.left.addAll(children);
         return this;
     }
 
     private final List<HtmlElementComponent<?, ?>> left;
 
-    SpreadsheetFindDialogComponentGridLayout setContent(final Collection<HtmlElementComponent<?, ?>> children) {
+    @Override SpreadsheetFindDialogComponentGridLayout setContent(final Collection<HtmlElementComponent<?, ?>> children) {
         this.content.addAll(children);
         return this;
     }
 
     private final List<HtmlElementComponent<?, ?>> content;
 
-    SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<HtmlElementComponent<?, ?>> children) {
+    @Override SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<HtmlElementComponent<?, ?>> children) {
         this.footer.addAll(children);
         return this;
     }

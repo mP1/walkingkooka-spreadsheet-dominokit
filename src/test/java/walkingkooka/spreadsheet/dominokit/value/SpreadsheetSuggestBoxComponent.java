@@ -130,7 +130,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         return this;
     }
 
-    public Optional<String> stringValue() {
+    @Override public Optional<String> stringValue() {
         return this.stringValue;
     }
 

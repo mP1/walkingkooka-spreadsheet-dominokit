@@ -57,8 +57,8 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
         );
     }
 
-    final T createHistoryToken(final SpreadsheetId id,
-                               final SpreadsheetName name) {
+    @Override final T createHistoryToken(final SpreadsheetId id,
+                                         final SpreadsheetName name) {
         return this.createHistoryToken(
                 id,
                 name,

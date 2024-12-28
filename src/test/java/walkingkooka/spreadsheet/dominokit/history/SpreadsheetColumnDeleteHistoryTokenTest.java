@@ -49,13 +49,6 @@ public final class SpreadsheetColumnDeleteHistoryTokenTest extends SpreadsheetCo
         );
     }
 
-    // menu(Selection)..................................................................................................
-
-    @Test
-    public void testMenuWithColumn() {
-        this.menuWithColumnAndCheck();
-    }
-
     @Override
     SpreadsheetColumnDeleteHistoryToken createHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name,

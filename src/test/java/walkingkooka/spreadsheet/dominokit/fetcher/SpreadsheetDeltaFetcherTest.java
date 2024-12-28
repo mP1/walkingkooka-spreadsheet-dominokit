@@ -740,7 +740,7 @@ public final class SpreadsheetDeltaFetcherTest implements Testing {
                 new FakeSpreadsheetDeltaFetcherWatcher(),
                 new FakeAppContext() {
 
-                    public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
+                    @Override public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
                         return SpreadsheetMetadataFetcher.with(
                                 new FakeSpreadsheetMetadataFetcherWatcher(),
                                 AppContexts.fake()

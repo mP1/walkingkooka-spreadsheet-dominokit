@@ -202,7 +202,7 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Htm
                 "ID123-",
                 SpreadsheetDeltaMatchedCellsTableComponentContexts.basic(
                         new FakeHistoryTokenContext() {
-                            @Test
+                            @Override @Test
                             public HistoryToken historyToken() {
                                 return HistoryToken.parseString("/1/Spreadsheet222/cell/A1/find");
                             }

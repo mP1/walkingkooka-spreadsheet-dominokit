@@ -55,7 +55,7 @@ public final class SpreadsheetTextNodeComponent implements SpreadsheetTextNodeCo
 
     // node.............................................................................................................
 
-    public Node node() {
+    @Override public Node node() {
         if (null == this.node) {
             this.node = Doms.node(
                     this.value.orElse(TextNode.EMPTY_TEXT)

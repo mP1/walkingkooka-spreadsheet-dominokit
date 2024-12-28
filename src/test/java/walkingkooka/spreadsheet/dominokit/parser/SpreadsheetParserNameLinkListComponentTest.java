@@ -82,7 +82,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlElementCo
                         return SPREADSHEET_PARSER_PROVIDER.spreadsheetParserInfos();
                     }
 
-                    public Optional<SpreadsheetParserName> parserName() {
+                    @Override public Optional<SpreadsheetParserName> parserName() {
                         return spreadsheetParserName;
                     }
 
