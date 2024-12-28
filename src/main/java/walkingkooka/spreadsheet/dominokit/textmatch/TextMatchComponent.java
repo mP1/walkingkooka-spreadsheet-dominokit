@@ -18,13 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.textmatch;
 
 
-import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
-import walkingkooka.text.CaseSensitivity;
-
-import java.util.function.Predicate;
 
 /**
  * A text box that allows the entry of a glob pattern which may be used to match the text form of a {@link walkingkooka.spreadsheet.SpreadsheetCell}
