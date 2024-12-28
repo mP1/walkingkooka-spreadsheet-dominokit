@@ -28,8 +28,6 @@ import walkingkooka.util.FunctionTesting;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 public final class SpreadsheetFormulaComponentExpressionParserFunctionTest implements FunctionTesting<SpreadsheetFormulaComponentExpressionParserFunction,
         String,
         SpreadsheetFormula>,
