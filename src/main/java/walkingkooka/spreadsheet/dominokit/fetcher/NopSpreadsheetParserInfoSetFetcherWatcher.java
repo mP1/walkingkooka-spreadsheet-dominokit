@@ -23,9 +23,9 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 
 public interface NopSpreadsheetParserInfoSetFetcherWatcher extends SpreadsheetParserFetcherWatcher {
 
-    default void onSpreadsheetParserInfoSet(final SpreadsheetId id,
-                                            final SpreadsheetParserInfoSet infos,
-                                            final AppContext context) {
+    @Override default void onSpreadsheetParserInfoSet(final SpreadsheetId id,
+                                                      final SpreadsheetParserInfoSet infos,
+                                                      final AppContext context) {
         // ignore
     }
 }

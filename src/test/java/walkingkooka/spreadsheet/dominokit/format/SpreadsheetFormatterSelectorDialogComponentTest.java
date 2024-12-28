@@ -1515,7 +1515,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 return null;
             }
 
-            @Test
+            @Override
             public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector selector,
                                                              final ProviderContext context) {
                 return SpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatter(

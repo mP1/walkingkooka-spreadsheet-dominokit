@@ -88,7 +88,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
                 );
     }
 
-    public SpreadsheetDialogComponent dialog() {
+    @Override public SpreadsheetDialogComponent dialog() {
         return this.dialog;
     }
 

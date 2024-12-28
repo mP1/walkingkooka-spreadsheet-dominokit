@@ -89,13 +89,6 @@ public final class SpreadsheetCellFreezeHistoryTokenTest extends SpreadsheetCell
         );
     }
 
-    // menu(Selection)..................................................................................................
-
-    @Test
-    public void testMenuWithCell() {
-        this.menuWithCellAndCheck();
-    }
-
     // patternKind......................................................................................................
 
     @Test

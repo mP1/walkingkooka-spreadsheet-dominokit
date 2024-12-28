@@ -125,13 +125,6 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
         );
     }
 
-    // menu(Selection)..................................................................................................
-
-    @Test
-    public void testMenuWithColumn() {
-        this.menuWithColumnAndCheck();
-    }
-
     @Override
     SpreadsheetColumnInsertBeforeHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                  final SpreadsheetName name,

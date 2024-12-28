@@ -51,11 +51,6 @@ public final class SpreadsheetColumnClearHistoryTokenTest extends SpreadsheetCol
 
     // menu(Selection)..................................................................................................
 
-    @Test
-    public void testMenuWithColumn() {
-        this.menuWithColumnAndCheck();
-    }
-
     @Override
     SpreadsheetColumnClearHistoryToken createHistoryToken(final SpreadsheetId id,
                                                           final SpreadsheetName name,

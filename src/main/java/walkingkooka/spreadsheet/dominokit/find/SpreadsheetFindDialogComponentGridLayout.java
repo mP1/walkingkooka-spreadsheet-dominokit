@@ -42,7 +42,7 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
                 .setHeight("100%");
     }
 
-    SpreadsheetFindDialogComponentGridLayout setLeft(final Collection<HtmlElementComponent<?, ?>> children) {
+    @Override SpreadsheetFindDialogComponentGridLayout setLeft(final Collection<HtmlElementComponent<?, ?>> children) {
         this.gridLayout.withLeftPanel(
                 (parent, content) ->
                 {
@@ -60,7 +60,7 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
         return this;
     }
 
-    SpreadsheetFindDialogComponentGridLayout setContent(final Collection<HtmlElementComponent<?, ?>> children) {
+    @Override SpreadsheetFindDialogComponentGridLayout setContent(final Collection<HtmlElementComponent<?, ?>> children) {
         this.gridLayout.withContent(
                 (parent, content) ->
                 {
@@ -74,7 +74,7 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
         return this;
     }
 
-    SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<HtmlElementComponent<?, ?>> children) {
+    @Override SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<HtmlElementComponent<?, ?>> children) {
         this.gridLayout.withFooter(
                 (parent, content) ->
                 {

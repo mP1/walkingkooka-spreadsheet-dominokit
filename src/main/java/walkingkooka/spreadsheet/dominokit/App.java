@@ -1163,7 +1163,7 @@ public class App implements EntryPoint,
 
     // HistoryTokenContextDelegator.....................................................................................
 
-    public HistoryTokenContext historyTokenContext() {
+    @Override public HistoryTokenContext historyTokenContext() {
         return this.appHistoryTokenContextHistoryTokenWatcher;
     }
 

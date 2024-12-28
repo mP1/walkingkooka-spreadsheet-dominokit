@@ -203,7 +203,7 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
 
     // events...........................................................................................................
 
-    public SpreadsheetSelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
+    @Override public SpreadsheetSelectComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.select.addChangeListener(

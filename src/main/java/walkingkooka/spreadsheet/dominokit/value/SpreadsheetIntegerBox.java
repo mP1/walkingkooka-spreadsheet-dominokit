@@ -286,7 +286,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
         throw new UnsupportedOperationException();
     }
 
-    public boolean isRequired() {
+    @Override public boolean isRequired() {
         return this.required;
     }
 

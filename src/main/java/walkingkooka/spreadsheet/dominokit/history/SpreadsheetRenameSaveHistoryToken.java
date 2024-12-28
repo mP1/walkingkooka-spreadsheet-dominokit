@@ -52,6 +52,7 @@ public final class SpreadsheetRenameSaveHistoryToken extends SpreadsheetRenameHi
         this.value = Objects.requireNonNull(value, "value");
     }
 
+    @Override
     public SpreadsheetName value() {
         return this.value;
     }

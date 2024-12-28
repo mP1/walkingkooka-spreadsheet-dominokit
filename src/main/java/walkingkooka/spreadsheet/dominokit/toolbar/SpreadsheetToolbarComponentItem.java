@@ -330,6 +330,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     /**
      * The root {@link HTMLElement}
      */
+    @Override
     public abstract HTMLElement element();
 
     // HistoryTokenAwareComponentLifecycle..............................................................................

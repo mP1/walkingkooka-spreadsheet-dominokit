@@ -136,6 +136,11 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     }
 
     @Test
+    public final void testMenuWithRow() {
+        this.menuWithRowAndCheck();
+    }
+
+    @Test
     public final void testMenuWithSameRow() {
         final SpreadsheetRowReference row = ROW;
 
@@ -234,8 +239,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
-    final T createHistoryToken(final SpreadsheetId id,
-                               final SpreadsheetName name) {
+    @Override final T createHistoryToken(final SpreadsheetId id,
+                                         final SpreadsheetName name) {
         return this.createHistoryToken(
                 id,
                 name,

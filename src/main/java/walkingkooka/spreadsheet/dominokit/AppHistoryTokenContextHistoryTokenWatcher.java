@@ -98,7 +98,7 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
     /**
      * Pushes the given {@link HistoryToken} to the browser location#hash.
      */
-    public void pushHistoryToken(final HistoryToken token) {
+    @Override public void pushHistoryToken(final HistoryToken token) {
         Objects.requireNonNull(token, "token");
 
         HistoryToken push = token;
@@ -222,7 +222,7 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
 
     // LoggingContextDelegator..........................................................................................
 
-    public LoggingContext loggingContext() {
+    @Override public LoggingContext loggingContext() {
         return this.appContext;
     }
 

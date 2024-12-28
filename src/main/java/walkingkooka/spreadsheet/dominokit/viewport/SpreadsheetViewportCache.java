@@ -196,6 +196,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * Attempts to resolve any labels to a non label {@link SpreadsheetSelection}.
      * This is useful when trying to show selected cells for a label.
      */
+    @Override
     public SpreadsheetSelection resolveLabel(final SpreadsheetLabelName labelName) {
         Objects.requireNonNull(labelName, "labelName");
 

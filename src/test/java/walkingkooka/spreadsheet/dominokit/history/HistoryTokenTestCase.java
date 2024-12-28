@@ -455,7 +455,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     // equals...........................................................................................................
 
     @Test
-    public final void testEqualsDifferentType() {
+    public final void testEqualsDifferentHistoryTokenType() {
         this.checkNotEquals(
                 new FakeHistoryToken() {
                     @Override

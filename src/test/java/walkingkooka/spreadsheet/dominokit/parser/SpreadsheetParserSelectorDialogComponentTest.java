@@ -1284,7 +1284,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 );
             }
 
-            @Test
+            @Override
             public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
                                                        final ProviderContext context) {
                 return SpreadsheetMetadataTesting.SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(

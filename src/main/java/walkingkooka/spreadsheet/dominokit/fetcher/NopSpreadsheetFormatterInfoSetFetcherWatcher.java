@@ -23,9 +23,9 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 
 public interface NopSpreadsheetFormatterInfoSetFetcherWatcher extends SpreadsheetFormatterFetcherWatcher {
 
-    default void onSpreadsheetFormatterInfoSet(final SpreadsheetId id,
-                                               final SpreadsheetFormatterInfoSet infos,
-                                               final AppContext context) {
+    @Override default void onSpreadsheetFormatterInfoSet(final SpreadsheetId id,
+                                                         final SpreadsheetFormatterInfoSet infos,
+                                                         final AppContext context) {
         // ignore
     }
 }

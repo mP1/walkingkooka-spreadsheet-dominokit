@@ -67,13 +67,6 @@ public final class SpreadsheetColumnSelectHistoryTokenTest extends SpreadsheetCo
         );
     }
 
-    // menu.............................................................................................................
-
-    @Test
-    public void testMenuWithColumn() {
-        this.menuWithColumnAndCheck();
-    }
-
     // unfreezeOrEmpty....................................................................................................
 
     @Test

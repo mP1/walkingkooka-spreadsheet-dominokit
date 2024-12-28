@@ -253,7 +253,7 @@ public final class JarEntryInfoListTableComponentTest implements HtmlElementComp
                 return HistoryToken.parseString("/plugin/TestPlugin123");
             }
 
-            public PluginName pluginName() {
+            @Override public PluginName pluginName() {
                 return PluginName.with("TestPlugin123");
             }
 

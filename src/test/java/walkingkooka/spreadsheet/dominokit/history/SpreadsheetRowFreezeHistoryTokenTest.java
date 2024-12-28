@@ -55,13 +55,6 @@ public final class SpreadsheetRowFreezeHistoryTokenTest extends SpreadsheetRowHi
         );
     }
 
-    // menu(Selection)..................................................................................................
-
-    @Test
-    public void testMenuWithRow() {
-        this.menuWithRowAndCheck();
-    }
-    
     @Override
     SpreadsheetRowFreezeHistoryToken createHistoryToken(final SpreadsheetId id,
                                                         final SpreadsheetName name,

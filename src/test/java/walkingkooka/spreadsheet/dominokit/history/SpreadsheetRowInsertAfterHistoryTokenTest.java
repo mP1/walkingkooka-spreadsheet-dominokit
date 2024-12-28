@@ -125,13 +125,6 @@ public final class SpreadsheetRowInsertAfterHistoryTokenTest extends Spreadsheet
         );
     }
 
-    // menu(Selection)..................................................................................................
-
-    @Test
-    public void testMenuWithRow() {
-        this.menuWithRowAndCheck();
-    }
-
     @Override
     SpreadsheetRowInsertAfterHistoryToken createHistoryToken(final SpreadsheetId id,
                                                              final SpreadsheetName name,

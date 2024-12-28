@@ -126,8 +126,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     // menu(Selection)..................................................................................................
 
     @Test
-    public final void testMenuWithCell() {
-        this.menuWithCellAndCheck();
+    public final void testMenuWithColumn() {
+        this.menuWithColumnAndCheck();
     }
 
     @Test
@@ -234,8 +234,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
-    final T createHistoryToken(final SpreadsheetId id,
-                               final SpreadsheetName name) {
+    @Override final T createHistoryToken(final SpreadsheetId id,
+                                         final SpreadsheetName name) {
         return this.createHistoryToken(
                 id,
                 name,
