@@ -209,6 +209,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.content_paste();
     }
 
+    public static MdiIcon plugin() {
+        return Icons.power_plug();
+    }
+
     public static MdiIcon reload() {
         return Icons.reload();
     }
