@@ -161,7 +161,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     // previous.........................................................................................................
 
     @Override
-    public SpreadsheetDataTableComponent setPrevious(final Optional<HistoryToken> historyToken) {
+    public SpreadsheetDataTableComponent<T> setPrevious(final Optional<HistoryToken> historyToken) {
         this.previous.setHistoryToken(historyToken);
         return this;
     }
@@ -171,7 +171,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     // next.............................................................................................................
 
     @Override
-    public SpreadsheetDataTableComponent setNext(final Optional<HistoryToken> historyToken) {
+    public SpreadsheetDataTableComponent<T> setNext(final Optional<HistoryToken> historyToken) {
         this.next.setHistoryToken(historyToken);
         return this;
     }

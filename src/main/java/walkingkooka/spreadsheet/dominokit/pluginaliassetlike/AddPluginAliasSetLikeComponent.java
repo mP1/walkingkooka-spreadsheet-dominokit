@@ -74,12 +74,12 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
                 .appendChild(this.flex);
     }
 
-    AddPluginAliasSetLikeComponent setFilterValueChangeListener(final ChangeListener<Optional<String>> listener) {
+    AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS> setFilterValueChangeListener(final ChangeListener<Optional<String>> listener) {
         this.root.setFilterValueChangeListener(listener);
         return this;
     }
 
-    AddPluginAliasSetLikeComponent setFilter(final Predicate<CharSequence> filter) {
+    AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS> setFilter(final Predicate<CharSequence> filter) {
         this.filter = filter;
         return this;
     }

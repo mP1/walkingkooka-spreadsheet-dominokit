@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history.util;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.UrlFragment;
@@ -40,9 +41,9 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class HistoryTokenRecorderTest implements ClassTesting<HistoryTokenRecorder>,
+public final class HistoryTokenRecorderTest implements ClassTesting<HistoryTokenRecorder<?>>,
         TreePrintableTesting,
-        ToStringTesting<HistoryTokenRecorder> {
+        ToStringTesting<HistoryTokenRecorder<?>> {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
 
@@ -281,7 +282,7 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
         );
     }
 
-    private void onHistoryChangeAndCheck(final HistoryTokenRecorder recorder,
+    private void onHistoryChangeAndCheck(final HistoryTokenRecorder<?> recorder,
                                          final List<HistoryToken> fired,
                                          final SpreadsheetFormatterSelector... expected) {
         HistoryToken previous = HistoryToken.unknown(UrlFragment.SLASH);
@@ -392,8 +393,8 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<HistoryTokenRecorder> type() {
-        return HistoryTokenRecorder.class;
+    public Class<HistoryTokenRecorder<?>> type() {
+        return Cast.to(HistoryTokenRecorder.class);
     }
 
     @Override

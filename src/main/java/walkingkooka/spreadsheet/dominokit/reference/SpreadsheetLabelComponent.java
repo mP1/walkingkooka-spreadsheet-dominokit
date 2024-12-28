@@ -234,7 +234,7 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
         return this.suggestBox.element();
     }
 
-    private final SpreadsheetSuggestBoxComponent suggestBox;
+    private final SpreadsheetSuggestBoxComponent<SpreadsheetLabelName> suggestBox;
 
     // TreePrintable....................................................................................................
 

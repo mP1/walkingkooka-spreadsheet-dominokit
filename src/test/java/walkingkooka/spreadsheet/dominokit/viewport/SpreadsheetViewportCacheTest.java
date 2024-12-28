@@ -55,7 +55,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolverTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -72,7 +71,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetViewportCacheTest implements IteratorTesting,
-        SpreadsheetLabelNameResolverTesting,
+        SpreadsheetLabelNameResolverTesting<SpreadsheetViewportCache>,
         ClassTesting<SpreadsheetViewportCache> {
 
     private final static SpreadsheetCellReference A1 = SpreadsheetCellReference.A1;
@@ -4060,7 +4059,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     // SpreadsheetLabelNameResolver.....................................................................................
 
     @Override
-    public SpreadsheetLabelNameResolver createSpreadsheetLabelNameResolver() {
+    public SpreadsheetViewportCache createSpreadsheetLabelNameResolver() {
         return this.viewportCache();
     }
 

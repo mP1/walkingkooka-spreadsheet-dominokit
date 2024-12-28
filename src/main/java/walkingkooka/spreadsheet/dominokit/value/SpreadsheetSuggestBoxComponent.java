@@ -220,7 +220,7 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         );
     }
 
-    private SpreadsheetSuggestBoxComponent setValidator(final Validator<Optional<String>> validator) {
+    private SpreadsheetSuggestBoxComponent<T> setValidator(final Validator<Optional<String>> validator) {
         this.suggestBox.getValidators()
                 .clear();
         this.suggestBox.addValidator(
