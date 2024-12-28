@@ -91,12 +91,28 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
                 );
     }
 
+    /**
+     * Returns all the components that will occupy the toolbar.
+     * <br>
+     * Basic organisation
+     * <ol>
+     *     <li>styling</li>
+     *     <li>metadata switches (hide zero values)</li>
+     *     <li>finding/sorting/highlighting</li>
+     *     <li>labels</li>
+     *     <li>reload</li>
+     *     <li>plugin</li>
+     *     <li>swagger (maybe remove later or hide)</li>
+     * </ol>
+     */
     private static List<SpreadsheetToolbarComponentItem<?>> components(final AppContext context) {
         return Lists.of(
+                // style
                 SpreadsheetToolbarComponentItem.bold(context),
                 SpreadsheetToolbarComponentItem.italics(context),
                 SpreadsheetToolbarComponentItem.strikeThru(context),
                 SpreadsheetToolbarComponentItem.underline(context),
+                // text
                 SpreadsheetToolbarComponentItem.textAlignLeft(context),
                 SpreadsheetToolbarComponentItem.textAlignCenter(context),
                 SpreadsheetToolbarComponentItem.textAlignRight(context),
@@ -109,14 +125,14 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
                 SpreadsheetToolbarComponentItem.textCaseCapitalize(context),
                 SpreadsheetToolbarComponentItem.textCaseLowercase(context),
                 SpreadsheetToolbarComponentItem.textCaseUppercase(context),
-                // pattern
+                // format/pattern
                 SpreadsheetToolbarComponentItem.formatPattern(context),
                 SpreadsheetToolbarComponentItem.parsePattern(context),
                 // clear
                 SpreadsheetToolbarComponentItem.clearStyle(context),
                 // metadata properties
                 SpreadsheetToolbarComponentItem.hideZeroValues(context),
-                // FindCells | Highlight
+                // finding/sorting/highlighting
                 SpreadsheetToolbarComponentItem.findCells(context),
                 SpreadsheetToolbarComponentItem.highlightCells(context),
                 // SORT
