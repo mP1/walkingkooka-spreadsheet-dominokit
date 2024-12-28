@@ -90,7 +90,7 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
     // cell/A1/parser/save/SpreadsheetParserSelector
     @Override //
     UrlFragment parserUrlFragment() {
-        return this.saveUrlFragment(this.spreadsheetParserSelector);
+        return saveUrlFragment(this.spreadsheetParserSelector);
     }
 
     @Override
