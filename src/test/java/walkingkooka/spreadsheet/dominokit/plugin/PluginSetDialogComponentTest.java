@@ -257,7 +257,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
             return this.historyToken;
         }
 
-        HistoryToken historyToken;
+        final HistoryToken historyToken;
 
         @Override
         public Locale locale() {

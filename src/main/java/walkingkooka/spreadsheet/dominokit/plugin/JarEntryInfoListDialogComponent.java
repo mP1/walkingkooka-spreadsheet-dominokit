@@ -92,7 +92,7 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
         );
     }
 
-    private HistoryTokenAnchorComponent close;
+    private final HistoryTokenAnchorComponent close;
 
     // delete.........................................................................................................
 
@@ -102,7 +102,7 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
         );
     }
 
-    private PluginDeleteAnchorComponent delete;
+    private final PluginDeleteAnchorComponent delete;
 
     // download.........................................................................................................
 
@@ -120,7 +120,7 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
         );
     }
 
-    private PluginDownloadAnchorComponent download;
+    private final PluginDownloadAnchorComponent download;
 
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
