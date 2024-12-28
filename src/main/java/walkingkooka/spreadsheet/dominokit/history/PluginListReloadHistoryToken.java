@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import java.util.OptionalInt;
 
 /**
- * A token that reloads the list shown by {@link PluginListDialogComponent}.
+ * A token that reloads the list shown by {@link walkingkooka.spreadsheet.dominokit.plugin.PluginSetDialogComponent}.
  * <pre>
  * /plugin/reload
  * </pre>
