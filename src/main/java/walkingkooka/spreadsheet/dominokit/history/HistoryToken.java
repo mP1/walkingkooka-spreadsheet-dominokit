@@ -1807,7 +1807,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         return parseOptionalInt(cursor);
     }
 
-    final static OptionalInt checkCount(final OptionalInt count) {
+    static OptionalInt checkCount(final OptionalInt count) {
         Objects.requireNonNull(count, "count");
 
         count.ifPresent(value -> {
@@ -2427,7 +2427,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         return with;
     }
 
-    final static OptionalInt checkOffset(final OptionalInt offset) {
+    static OptionalInt checkOffset(final OptionalInt offset) {
         Objects.requireNonNull(offset, "offset");
 
         offset.ifPresent(value -> {
