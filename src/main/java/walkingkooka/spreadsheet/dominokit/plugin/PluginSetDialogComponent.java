@@ -60,6 +60,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
 
         this.table = this.table();
 
+        this.uploadAnchor = this.uploadAnchor();
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate(context);
@@ -76,6 +77,20 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
 
     private final PluginSetTableComponent table;
 
+    // upload...........................................................................................................
+
+    private PluginUploadAnchorComponent uploadAnchor() {
+        return PluginUploadAnchorComponent.empty()
+                .setId(ID_PREFIX + "upload" + SpreadsheetElementIds.LINK)
+                .setTextContent("Upload");
+    }
+
+    private void refreshUploadAnchor(final HistoryTokenContext context) {
+        this.uploadAnchor.setDisabled(false);
+    }
+
+    private final PluginUploadAnchorComponent uploadAnchor;
+    
     // close............................................................................................................
 
     private void refreshClose(final HistoryTokenContext context) {
@@ -99,6 +114,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
                 ).appendChild(this.table)
                 .appendChild(
                         SpreadsheetFlexLayout.row()
+                                .appendChild(this.uploadAnchor)
                                 .appendChild(this.close)
                 );
     }
@@ -172,6 +188,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
     @Override
     public void dialogReset() {
         this.table.setSet(PluginSet.EMPTY);
+        this.uploadAnchor.setDisabled(true);
     }
 
     @Override
@@ -195,6 +212,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
                 context.historyToken()
                         .cast(PluginListSelectHistoryToken.class)
         );
+        this.refreshUploadAnchor(context);
         this.refreshClose(context);
     }
 }
