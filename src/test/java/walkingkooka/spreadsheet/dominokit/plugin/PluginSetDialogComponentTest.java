@@ -73,6 +73,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                         "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
+                        "          \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
                         "          \"Close\" [#/] id=pluginList-close-Link\n"
         );
     }
@@ -151,6 +152,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                         "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
+                        "          \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
                         "          \"Close\" [#/] id=pluginList-close-Link\n"
         );
     }
@@ -229,6 +231,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                         "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
+                        "          \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
                         "          \"Close\" [#/] id=pluginList-close-Link\n"
         );
     }
