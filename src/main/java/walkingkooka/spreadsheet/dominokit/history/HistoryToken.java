@@ -203,6 +203,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment PLUGIN = SpreadsheetUrlFragments.PLUGIN;
 
+    final static String PLUGIN_UPLOAD_STRING = "plugin-upload";
+
+    final static UrlFragment PLUGIN_UPLOAD = UrlFragment.parse(PLUGIN_UPLOAD_STRING);
+
     final static String RELOAD_STRING = "reload";
 
     final static UrlFragment RELOAD = UrlFragment.parse(RELOAD_STRING);
@@ -940,6 +944,13 @@ public abstract class HistoryToken implements HasUrlFragment,
         );
     }
 
+    /**
+     * {@see PluginUploadHistoryToken}
+     */
+    public static PluginUploadHistoryToken pluginUpload() {
+        return PluginUploadHistoryToken.INSTANCE;
+    }
+
     // row..............................................................................................................
 
     /**
@@ -1300,6 +1311,10 @@ public abstract class HistoryToken implements HasUrlFragment,
                         token = PLUGIN_LIST_SELECT_HISTORY_TOKEN;
                         token = token.parse(cursor);
                         break;
+                    case PLUGIN_UPLOAD_STRING:
+                        token = HistoryToken.pluginUpload();
+                        token = token.parse(cursor);
+                        break;
                     case RENAME_STRING:
                         token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
                         token = parseRename(cursor);
@@ -1508,6 +1523,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         // must come after PluginSelectHistoryToken
         if( this instanceof PluginFileViewHistoryToken) {
+            closed = this.clearAction();
+        }
+
+        if( this instanceof PluginUploadHistoryToken) {
             closed = this.clearAction();
         }
 

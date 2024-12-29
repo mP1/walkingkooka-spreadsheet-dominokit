@@ -2334,6 +2334,24 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    @Test
+    public void testParsePluginSlashUpload() {
+        this.parseStringAndCheck(
+                "/plugin/upload",
+                HistoryToken.pluginSelect(
+                        PluginName.with("upload")
+                )
+        );
+    }
+
+    @Test
+    public void testParsePluginUpload() {
+        this.parseStringAndCheck(
+                "/plugin-upload",
+                HistoryToken.pluginUpload()
+        );
+    }
+
     // plugin/name......................................................................................................
 
     @Test
