@@ -113,7 +113,9 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
 
         final HttpMethod method = HttpMethod.with("CustomHttpMethod");
         final Url url = Url.parseAbsolute("https://example/");
-        final Optional<String> body = Optional.of("Body123");
+        final Optional<FetcherRequestBody<?>> body = Optional.of(
+                FetcherRequestBody.string("Body123")
+        );
         final AppContext appContext = AppContexts.fake();
 
         final SpreadsheetDeltaFetcherWatchers watchers = SpreadsheetDeltaFetcherWatchers.empty();
@@ -123,7 +125,7 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
                     @Override
                     public void onBegin(final HttpMethod m,
                                         final Url u,
-                                        final Optional<String> b,
+                                        final Optional<FetcherRequestBody<?>> b,
                                         final AppContext context) {
                         SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(method, m);
                         SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(u, u);

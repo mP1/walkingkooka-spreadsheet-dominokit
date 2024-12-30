@@ -25,6 +25,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.function.ExpressionFunctionAliasSetComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionFunctionName;
@@ -79,7 +80,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunct
                     @Override
                     public void onBegin(final HttpMethod method,
                                         final Url url,
-                                        final Optional<String> body,
+                                        final Optional<FetcherRequestBody<?>> body,
                                         final AppContext context) {
                         // nop
                     }

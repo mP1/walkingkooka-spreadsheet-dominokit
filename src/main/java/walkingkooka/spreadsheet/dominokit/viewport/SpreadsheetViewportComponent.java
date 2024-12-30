@@ -49,6 +49,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.VisibleHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
+import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopSpreadsheetFormatterInfoSetFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -1109,7 +1110,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     @Override
     public void onBegin(final HttpMethod method,
                         final Url url,
-                        final Optional<String> body,
+                        final Optional<FetcherRequestBody<?>> body,
                         final AppContext context) {
         // nop
     }

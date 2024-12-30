@@ -443,7 +443,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         )
                         ).appendPathName(afterOrBefore.toUrlPathName())
                         .setQuery(queryString),
-                ""
+                FetcherRequestBody.string("")
         );
     }
 
@@ -521,11 +521,13 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         id,
                         mapping.label()
                 ),
-                this.context.marshall(
-                        SpreadsheetDelta.EMPTY.setLabels(
-                                Sets.of(mapping)
-                        )
-                ).toString()
+                FetcherRequestBody.string(
+                        this.context.marshall(
+                                SpreadsheetDelta.EMPTY.setLabels(
+                                        Sets.of(mapping)
+                                )
+                        ).toString()
+                )
         );
     }
 
@@ -602,10 +604,12 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 ).setQuery(
                         context.viewportAndWindowQueryString()
                 ),
-                patcher.apply(
-                        cellToStyles,
-                        this.context
-                ).toString()
+                FetcherRequestBody.string(
+                        patcher.apply(
+                                cellToStyles,
+                                this.context
+                        ).toString()
+                )
         );
     }
 

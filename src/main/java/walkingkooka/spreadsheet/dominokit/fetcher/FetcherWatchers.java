@@ -69,7 +69,7 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
     @Override
     public final void onBegin(final HttpMethod method,
                               final Url url,
-                              final Optional<String> body,
+                              final Optional<FetcherRequestBody<?>> body,
                               final AppContext context) {
         // cant use fire because it removes one shot watchers...
         final FetcherWatchersEvent<W> event = FetcherWatchersEvent.begin(

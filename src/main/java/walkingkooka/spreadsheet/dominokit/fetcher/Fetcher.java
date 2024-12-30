@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
 import elemental2.dom.RequestInit;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.header.Accept;
 import walkingkooka.net.header.HttpHeaderName;
@@ -30,10 +31,11 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
 import walkingkooka.net.http.server.hateos.HateosResourceMapping;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.server.SpreadsheetServerMediaTypes;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 
-import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 
@@ -72,7 +74,7 @@ abstract public class Fetcher<W extends FetcherWatcher> {
      * Content-Type and Accept set to Json.
      */
     final void patch(final AbsoluteOrRelativeUrl url,
-                     final String body) {
+                     final FetcherRequestBody<?> body) {
         this.fetchJson(
                 HttpMethod.PATCH,
                 url,
@@ -85,7 +87,7 @@ abstract public class Fetcher<W extends FetcherWatcher> {
      * Content-Type and Accept set to Json.
      */
     final void post(final AbsoluteOrRelativeUrl url,
-                    final String body) {
+                    final FetcherRequestBody<?> body) {
         this.fetchJson(
                 HttpMethod.POST,
                 url,
@@ -98,7 +100,7 @@ abstract public class Fetcher<W extends FetcherWatcher> {
      * Content-Type and Accept set to Json.
      */
     final void put(final AbsoluteOrRelativeUrl url,
-                   final String body) {
+                   final FetcherRequestBody<?> body) {
         this.fetchJson(
                 HttpMethod.PUT,
                 url,
@@ -108,29 +110,38 @@ abstract public class Fetcher<W extends FetcherWatcher> {
 
     /**
      * Performs a fetch using the given {@link HttpMethod} and url with the given body with two headers,
-     * content-type and accept both set to JSON. To use other headers the {@link #fetch(HttpMethod, AbsoluteOrRelativeUrl, HttpEntity)},
+     * content-type and accept both set to JSON. To use other headers the {@link #fetch(HttpMethod, AbsoluteOrRelativeUrl, Map, Optional)},
      * must be used.
      */
     final void fetchJson(final HttpMethod method,
                          final AbsoluteOrRelativeUrl url,
-                         final Optional<String> body) {
-        HttpEntity entity = HttpEntity.EMPTY.setAccept(ACCEPT_JSON);
+                         final Optional<FetcherRequestBody<?>> body) {
+        // HttpEntity entity = HttpEntity.EMPTY.setAccept(ACCEPT_JSON);
+        final Map<HttpHeaderName<?>, Object> headers = Maps.sorted();
+
         if (false == HttpMethod.GET.equals(method)) {
-            entity = entity.setContentType(
-                    MediaType.APPLICATION_JSON
+            //entity = entity.setContentType(
+            //        MediaType.APPLICATION_JSON
+            //);
+            headers.put(
+                    HttpHeaderName.CONTENT_TYPE,
+                    SpreadsheetServerMediaTypes.CONTENT_TYPE
             );
 
-            if (body.isPresent()) {
-                entity = entity.setBodyText(
-                        body.get()
-                );
-            }
+//            if (body.isPresent()) {
+//                entity = entity.setBodyText(
+//                        body.get()
+//                                .value()
+//                                .toString()
+//                );
+//            }
         }
 
         this.fetch(
                 method,
                 url,
-                entity
+                headers,//entity
+                body
         );
     }
 
@@ -142,35 +153,46 @@ abstract public class Fetcher<W extends FetcherWatcher> {
      */
     final void fetch(final HttpMethod method,
                      final AbsoluteOrRelativeUrl url,
-                     final HttpEntity entity) {
+                     final Map<HttpHeaderName<?>, Object> headers,
+                     final Optional<FetcherRequestBody<?>> body) {
         final RequestInit requestInit = RequestInit.create();
         requestInit.setMethod(method.value());
 
-        final Headers headers = new Headers();
+        final Headers nativeHeaders = new Headers();
 
-        for (final Entry<HttpHeaderName<?>, List<?>> headerAndValues : entity.headers().entrySet()) {
+        for (final Entry<HttpHeaderName<?>, Object> headerAndValues : headers.entrySet()) {
             final String headerName = headerAndValues.getKey()
                     .value();
+            final Object headerValue = headerAndValues.getValue();
 
-            for (final Object headerValue : headerAndValues.getValue()) {
-                headers.append(
+            //for (final Object headerValue : headerAndValues.getValue()) {
+            nativeHeaders.append(
                         headerName,
                         headerValue.toString()
                 );
-            }
+            //}
         }
 
-        requestInit.setHeaders(headers);
+        requestInit.setHeaders(nativeHeaders);
 
-        final String bodyText = entity.bodyText();
-        final Optional<String> body = Optional.ofNullable(
-                bodyText.isEmpty() ?
-                        null :
-                        bodyText
-        );
+//        final String bodyText = entity.bodyText();
+//        final Optional<String> body = Optional.ofNullable(
+//                bodyText.isEmpty() ?
+//                        null :
+//                        bodyText
+//        );
 
-        if (false == bodyText.isEmpty()) {
-            requestInit.setBody(bodyText);
+//        if (false == bodyText.isEmpty()) {
+//            requestInit.setBody(bodyText);
+//        }
+
+        if(body.isPresent()) {
+            //final FetcherRequestBody<?> fetcherRequestBody = body.get();
+//            if(fetcherRequestBody instanceof FetcherRequestBodyString) {
+//                final FetcherRequestBodyString
+//                requestInit.setBody(bodyText)
+//            }
+            body.get().requestInit(requestInit);
         }
 
         this.onBegin(
@@ -231,7 +253,7 @@ abstract public class Fetcher<W extends FetcherWatcher> {
      */
     private void onBegin(final HttpMethod method,
                          final AbsoluteOrRelativeUrl url,
-                         final Optional<String> body) {
+                         final Optional<FetcherRequestBody<?>> body) {
         this.watcher.onBegin(
                 method,
                 url,
@@ -317,10 +339,12 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     /**
      * Parses the JSON String into the requested type.
      */
-    final String toJson(final Object value) {
-        return this.context.marshall(
-                value
-        ).toString();
+    final FetcherRequestBody<String> toJson(final Object value) {
+        return FetcherRequestBody.string(
+                this.context.marshall(
+                        value
+                ).toString()
+        );
     }
 
     /**

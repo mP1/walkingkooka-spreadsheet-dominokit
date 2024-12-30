@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
@@ -25,8 +26,8 @@ import walkingkooka.net.UrlPath;
 import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.header.Accept;
+import walkingkooka.net.header.HttpHeaderName;
 import walkingkooka.net.header.MediaType;
-import walkingkooka.net.http.HttpEntity;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
@@ -126,7 +127,11 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                         pluginName,
                         Optional.of(filename)
                 ),
-                HttpEntity.EMPTY.setAccept(LOAD_TEXT_FILE_ACCEPT)
+                Maps.of(
+                        HttpHeaderName.ACCEPT,
+                        LOAD_TEXT_FILE_ACCEPT
+                ),
+                Optional.empty()
         );
     }
 

@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorAliasSetComponent;
+import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetComparatorFetcherWatcher;
 
 import java.util.Optional;
@@ -78,7 +79,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComp
                     @Override
                     public void onBegin(final HttpMethod method,
                                         final Url url,
-                                        final Optional<String> body,
+                                        final Optional<FetcherRequestBody<?>> body,
                                         final AppContext context) {
                         // nop
                     }

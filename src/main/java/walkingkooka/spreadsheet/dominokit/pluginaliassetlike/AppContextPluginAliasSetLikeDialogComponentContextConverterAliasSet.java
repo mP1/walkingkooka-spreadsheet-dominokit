@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.convert.ConverterAliasSetComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -78,7 +79,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextConverterAliasS
                     @Override
                     public void onBegin(final HttpMethod method,
                                         final Url url,
-                                        final Optional<String> body,
+                                        final Optional<FetcherRequestBody<?>> body,
                                         final AppContext context) {
                         // nop
                     }
