@@ -945,10 +945,10 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * {@see PluginUploadHistoryToken}
+     * {@see PluginUploadSelectHistoryToken}
      */
-    public static PluginUploadHistoryToken pluginUpload() {
-        return PluginUploadHistoryToken.INSTANCE;
+    public static PluginUploadSelectHistoryToken pluginUploadSelect() {
+        return PluginUploadSelectHistoryToken.INSTANCE;
     }
 
     // row..............................................................................................................
@@ -1312,7 +1312,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                         token = token.parse(cursor);
                         break;
                     case PLUGIN_UPLOAD_STRING:
-                        token = HistoryToken.pluginUpload();
+                        token = HistoryToken.pluginUploadSelect();
                         token = token.parse(cursor);
                         break;
                     case RENAME_STRING:
@@ -1526,7 +1526,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             closed = this.clearAction();
         }
 
-        if( this instanceof PluginUploadHistoryToken) {
+        if( this instanceof PluginUploadSelectHistoryToken) {
             closed = this.clearAction();
         }
 

@@ -18,18 +18,22 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
-import walkingkooka.plugin.PluginName;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 
-/**
- * Base class for several plugin upload related {@link HistoryToken}.
- * <br>
- * Note that the urlFragment is <code>/plugin-upload</code> and not <code>/plugin/upload</code> because upload is also a
- * valid {@link PluginName}.
- */
-public abstract class PluginUploadHistoryToken extends PluginHistoryToken {
+import java.util.OptionalInt;
 
-    PluginUploadHistoryToken() {
+/**
+ * A history token that displays a file browser allowing the user to upload a plugin *.JAR file.
+ */
+public final class PluginUploadSelectHistoryToken extends PluginUploadHistoryToken {
+
+    /**
+     * Singleton
+     */
+    final static PluginUploadSelectHistoryToken INSTANCE = new PluginUploadSelectHistoryToken();
+
+    private PluginUploadSelectHistoryToken() {
         super();
     }
 
@@ -45,10 +49,23 @@ public abstract class PluginUploadHistoryToken extends PluginHistoryToken {
     // /plugin-upload
     //
     @Override
-    final UrlFragment pluginUrlFragment() {
-        return UrlFragment.SLASH.append(PLUGIN_UPLOAD)
-                .appendSlashThen(this.pluginUploadUrlFragment());
+    UrlFragment pluginUploadUrlFragment() {
+        return UrlFragment.EMPTY;
     }
 
-    abstract UrlFragment pluginUploadUrlFragment();
+    // /plugin/Plugin123 -> /plugin
+
+    @Override
+    public HistoryToken clearAction() {
+        return HistoryToken.pluginListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+        );
+    }
+
+    @Override
+    public void onHistoryTokenChange(final HistoryToken previous,
+                                     final AppContext context) {
+        // NOP
+    }
 }
