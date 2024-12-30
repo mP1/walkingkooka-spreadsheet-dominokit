@@ -17,49 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import org.junit.jupiter.api.Test;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
 
-import java.util.OptionalInt;
-
-public final class PluginUploadHistoryTokenTest extends PluginHistoryTokenTestCase<PluginUploadHistoryToken> {
-
-    @Test
-    public void testUrlFragment() {
-        this.urlFragmentAndCheck("/plugin-upload");
-    }
-
-    // clearAction.....................................................................................................
-
-    @Test
-    public void testClearAction() {
-        this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.pluginListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
-        );
-    }
-
-    @Test
-    public void testClose() {
-        this.closeAndCheck(
-                HistoryToken.pluginListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
-        );
-    }
-
-    @Override
-    PluginUploadHistoryToken createHistoryToken() {
-        return PluginUploadHistoryToken.INSTANCE;
-    }
-
-    // class............................................................................................................
+public final class PluginUploadHistoryTokenTest implements ClassTesting<PluginUploadHistoryToken> {
 
     @Override
     public Class<PluginUploadHistoryToken> type() {
         return PluginUploadHistoryToken.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
     }
 }

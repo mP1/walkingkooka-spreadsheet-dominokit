@@ -2345,10 +2345,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParsePluginUpload() {
+    public void testParsePluginUploadSelect() {
         this.parseStringAndCheck(
                 "/plugin-upload",
-                HistoryToken.pluginUpload()
+                HistoryToken.pluginUploadSelect()
         );
     }
 

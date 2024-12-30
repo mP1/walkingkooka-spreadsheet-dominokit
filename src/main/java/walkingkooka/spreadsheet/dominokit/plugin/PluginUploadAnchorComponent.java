@@ -47,7 +47,7 @@ public final class PluginUploadAnchorComponent implements HtmlElementComponent<H
                 Optional.ofNullable(
                         disabled ?
                                 null :
-                                HistoryToken.pluginUpload()
+                                HistoryToken.pluginUploadSelect()
                 )
         );
         return this;
