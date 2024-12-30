@@ -28,24 +28,27 @@ import java.util.Optional;
 
 public interface NopFetcherWatcher extends FetcherWatcher {
 
-    @Override default void onBegin(final HttpMethod method,
-                                   final Url url,
-                                   final Optional<String> body,
-                                   final AppContext context) {
+    @Override //
+    default void onBegin(final HttpMethod method,
+                         final Url url,
+                         final Optional<FetcherRequestBody<?>> body,
+                         final AppContext context) {
         // nop
     }
 
-    @Override default void onFailure(final HttpMethod method,
-                                     final AbsoluteOrRelativeUrl url,
-                                     final HttpStatus status,
-                                     final Headers headers,
-                                     final String body,
-                                     final AppContext context) {
+    @Override //
+    default void onFailure(final HttpMethod method,
+                           final AbsoluteOrRelativeUrl url,
+                           final HttpStatus status,
+                           final Headers headers,
+                           final String body,
+                           final AppContext context) {
         // nop
     }
 
-    @Override default void onError(final Object cause,
-                                   final AppContext context) {
+    @Override//
+    default void onError(final Object cause,
+                         final AppContext context) {
         // nop
     }
 }

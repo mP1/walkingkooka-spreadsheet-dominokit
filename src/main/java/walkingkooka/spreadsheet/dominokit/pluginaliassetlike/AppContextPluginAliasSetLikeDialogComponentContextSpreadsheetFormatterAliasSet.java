@@ -24,6 +24,7 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterAliasSetComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterAlias;
@@ -94,7 +95,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetForm
                     @Override
                     public void onBegin(final HttpMethod method,
                                         final Url url,
-                                        final Optional<String> body,
+                                        final Optional<FetcherRequestBody<?>> body,
                                         final AppContext context) {
                         // nop
                     }

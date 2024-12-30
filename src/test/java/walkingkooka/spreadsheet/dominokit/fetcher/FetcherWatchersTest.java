@@ -36,6 +36,10 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
 
     private final static AbsoluteOrRelativeUrl URL = Url.parseRelative("/something");
 
+    private final static Optional<FetcherRequestBody<?>> BODY = Optional.of(
+            FetcherRequestBody.string("*BODY*")
+    );
+
     // addOnce..........................................................................................................
 
     @Test
@@ -47,12 +51,12 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         final TestFetcherWatcher watcher = new TestFetcherWatcher();
         watchers.addOnce(watcher);
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
         watchers.onSuccess(context);
 
         this.checkEquals("onBeginonSuccess", watcher.toString());
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
         watchers.onSuccess(context);
 
         this.checkEquals("onBeginonSuccess", watcher.toString());
@@ -70,13 +74,13 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         final TestFetcherWatcher watcher = new TestFetcherWatcher();
         watchers.add(watcher);
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
         watchers.onSuccess(context);
 
         this.checkEquals("onBeginonSuccess", onceWatcher.b.toString());
         this.checkEquals("onBeginonSuccess", watcher.toString());
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
         watchers.onSuccess(context);
 
         this.checkEquals("onBeginonSuccess", onceWatcher.b.toString());
@@ -92,12 +96,12 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         final TestFetcherWatcher watcher = new TestFetcherWatcher();
         watchers.addOnce(watcher);
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
         watchers.onFailure(HttpMethod.GET, URL, HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body", context);
 
         this.checkEquals("onBeginonFailure", watcher.toString());
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
         watchers.onFailure(HttpMethod.GET, URL, HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body", context);
 
         this.checkEquals("onBeginonFailure", watcher.toString());
@@ -114,12 +118,12 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
 
         final Exception error = new Exception();
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
         watchers.onError(error, context);
 
         this.checkEquals("onBeginonError", watcher.toString());
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
         watchers.onError(error, context);
 
         this.checkEquals("onBeginonError", watcher.toString());
@@ -143,7 +147,7 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         @Override
         public void onBegin(final HttpMethod method,
                             final Url url,
-                            final Optional<String> body,
+                            final Optional<FetcherRequestBody<?>> body,
                             final AppContext context) {
             this.b.append("onBegin");
         }
@@ -212,12 +216,12 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         final TestFetcherWatcher2 onceWatcher = new TestFetcherWatcher2("B", b);
         watchers.addOnce(onceWatcher);
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
         watchers.onSuccess(context);
 
         this.checkEquals("B.onBeginA.onBeginB.onSuccessA.onSuccess", b.toString());
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, Optional.of("Body"), context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
         watchers.onSuccess(context);
 
         this.checkEquals("B.onBeginA.onBeginB.onSuccessA.onSuccessA.onBeginA.onSuccess", b.toString());
@@ -248,7 +252,7 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         @Override
         public void onBegin(final HttpMethod method,
                             final Url url,
-                            final Optional<String> body,
+                            final Optional<FetcherRequestBody<?>> body,
                             final AppContext context) {
             this.b.append(this.prefix).append(".onBegin");
         }

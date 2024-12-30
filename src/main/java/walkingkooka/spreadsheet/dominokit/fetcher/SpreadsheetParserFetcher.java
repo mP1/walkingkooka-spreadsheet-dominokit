@@ -77,8 +77,10 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
         this.post(
                 parser(id)
                         .appendPath(EDIT),
-                JsonNode.string(selector)
-                        .toString()
+                FetcherRequestBody.string(
+                        JsonNode.string(selector)
+                                .toString()
+                )
         );
     }
 

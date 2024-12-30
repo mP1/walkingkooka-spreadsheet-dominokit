@@ -30,6 +30,7 @@ import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasExpressionFunctionFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcher;
@@ -144,7 +145,7 @@ public interface AppContext extends CanGiveFocus,
                     @Override
                     public void onBegin(final HttpMethod method,
                                         final Url url,
-                                        final Optional<String> body,
+                                        final Optional<FetcherRequestBody<?>> body,
                                         final AppContext context) {
                         // ignore
                     }

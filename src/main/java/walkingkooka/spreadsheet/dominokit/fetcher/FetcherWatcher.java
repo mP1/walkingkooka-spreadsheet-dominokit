@@ -30,7 +30,7 @@ public interface FetcherWatcher {
 
     void onBegin(final HttpMethod method,
                  final Url url,
-                 final Optional<String> body,
+                 final Optional<FetcherRequestBody<?>> body,
                  final AppContext context);
 
     void onFailure(final HttpMethod method,

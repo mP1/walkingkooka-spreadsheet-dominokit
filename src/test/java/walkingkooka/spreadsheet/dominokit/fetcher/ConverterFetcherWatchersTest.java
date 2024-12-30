@@ -116,7 +116,9 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
 
         final HttpMethod method = HttpMethod.with("CustomHttpMethod");
         final Url url = Url.parseAbsolute("https://example/");
-        final Optional<String> body = Optional.of("Body123");
+        final Optional<FetcherRequestBody<?>> body = Optional.of(
+                FetcherRequestBody.string("Body123")
+        );
         final AppContext appContext = AppContexts.fake();
 
         final ConverterFetcherWatchers watchers = ConverterFetcherWatchers.empty();
@@ -126,7 +128,7 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
                     @Override
                     public void onBegin(final HttpMethod m,
                                         final Url u,
-                                        final Optional<String> b,
+                                        final Optional<FetcherRequestBody<?>> b,
                                         final AppContext context) {
                         ConverterFetcherWatchersTest.this.checkEquals(method, m);
                         ConverterFetcherWatchersTest.this.checkEquals(u, u);

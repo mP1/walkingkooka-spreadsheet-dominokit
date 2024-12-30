@@ -35,7 +35,7 @@ abstract class FakeFetcherWatcher implements FetcherWatcher {
     @Override
     public void onBegin(final HttpMethod method,
                         final Url url,
-                        final Optional<String> body,
+                        final Optional<FetcherRequestBody<?>> body,
                         final AppContext context) {
         throw new UnsupportedOperationException();
     }

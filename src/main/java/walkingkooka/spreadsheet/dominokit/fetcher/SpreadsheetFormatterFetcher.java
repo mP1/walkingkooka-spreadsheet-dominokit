@@ -88,8 +88,10 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
         this.post(
                 formatter(id)
                         .appendPath(EDIT),
-                JsonNode.string(selector)
-                        .toString()
+                FetcherRequestBody.string(
+                        JsonNode.string(selector)
+                                .toString()
+                )
         );
     }
 

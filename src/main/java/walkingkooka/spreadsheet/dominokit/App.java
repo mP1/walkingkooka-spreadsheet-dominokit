@@ -57,6 +57,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
@@ -604,7 +605,7 @@ public class App implements EntryPoint,
     @Override
     public void onBegin(final HttpMethod method,
                         final Url url,
-                        final Optional<String> body,
+                        final Optional<FetcherRequestBody<?>> body,
                         final AppContext context) {
         context.debug(method + " " + url, body.orElse(null));
     }

@@ -30,7 +30,7 @@ final class BeginFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherW
 
     static <W extends FetcherWatcher> BeginFetcherWatchersEvent<W> with(final HttpMethod method,
                                                                         final Url url,
-                                                                        final Optional<String> body,
+                                                                        final Optional<FetcherRequestBody<?>> body,
                                                                         final AppContext context) {
         return new BeginFetcherWatchersEvent<>(
                 method,
@@ -42,7 +42,7 @@ final class BeginFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherW
 
     private BeginFetcherWatchersEvent(final HttpMethod method,
                                       final Url url,
-                                      final Optional<String> body,
+                                      final Optional<FetcherRequestBody<?>> body,
                                       final AppContext context) {
         super(context);
         this.method = method;
@@ -64,7 +64,7 @@ final class BeginFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherW
 
     private final Url url;
 
-    private final Optional<String> body;
+    private final Optional<FetcherRequestBody<?>> body;
 
     @Override
     public String toString() {

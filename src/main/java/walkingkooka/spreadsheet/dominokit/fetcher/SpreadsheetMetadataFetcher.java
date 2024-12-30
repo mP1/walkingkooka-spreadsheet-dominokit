@@ -123,7 +123,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
     public void createSpreadsheetMetadata() {
         this.post(
                 API_BASE,
-                ""
+                FetcherRequestBody.string("")
         );
     }
 
