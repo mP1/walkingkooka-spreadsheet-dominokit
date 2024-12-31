@@ -92,7 +92,7 @@ public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBas
                         NAME,
                         CONTENT
                 ),
-                "Filename123/base64/Filecontent456"
+                "base64/Filename123/Filecontent456"
         );
     }
 
@@ -103,7 +103,7 @@ public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBas
                         NAME,
                         ""
                 ),
-                "Filename123/base64"
+                "base64/Filename123"
         );
     }
 
@@ -143,7 +143,7 @@ public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBas
     public void testToString() {
         this.toStringAndCheck(
                 this.createObject(),
-                "Filename123/base64/Filecontent456"
+                "base64/Filename123/Filecontent456"
         );
     }
 
