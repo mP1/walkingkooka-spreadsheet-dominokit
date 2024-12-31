@@ -22,44 +22,39 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.text.cursor.TextCursor;
 
-import java.util.OptionalInt;
+import java.util.Objects;
 
 /**
- * A history token that displays a file browser allowing the user to upload a plugin *.JAR file.
+ * A history token that saves the given file.
  */
-public final class PluginUploadSelectHistoryToken extends PluginUploadHistoryToken {
+public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken {
 
     /**
-     * Singleton
+     * Factory
      */
-    final static PluginUploadSelectHistoryToken INSTANCE = new PluginUploadSelectHistoryToken();
-
-    private PluginUploadSelectHistoryToken() {
-        super();
+    static PluginUploadSaveHistoryToken with(final BrowserFile file) {
+        return new PluginUploadSaveHistoryToken(
+                Objects.requireNonNull(file, "file")
+        );
     }
+
+    private PluginUploadSaveHistoryToken(final BrowserFile file) {
+        super();
+        this.file = file;
+    }
+
+    public BrowserFile file() {
+        return this.file;
+    }
+
+    private final BrowserFile file;
 
     // HistoryToken.....................................................................................................
 
     @Override
     HistoryToken parse0(final String component,
                         final TextCursor cursor) {
-        PluginUploadHistoryToken historyToken = this;
-
-        switch(component) {
-            case SAVE_STRING:
-                historyToken = pluginUploadSave(
-                        BrowserFile.parse(
-                                parseAll(cursor)
-                        )
-                );
-                break;
-            case "":
-            default:
-                historyToken = this;
-                break;
-        }
-
-        return historyToken; // ignore anything that follows /plugin-upload
+        return this; // ignore anything that follows /plugin-upload
     }
 
     //
@@ -67,17 +62,16 @@ public final class PluginUploadSelectHistoryToken extends PluginUploadHistoryTok
     //
     @Override
     UrlFragment pluginUploadUrlFragment() {
-        return UrlFragment.EMPTY;
+        return SAVE.appendSlashThen(
+                this.file.urlFragment()
+        );
     }
 
     // /plugin/Plugin123 -> /plugin
 
     @Override
     public HistoryToken clearAction() {
-        return HistoryToken.pluginListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
-        );
+        return HistoryToken.pluginUploadSelect();
     }
 
     @Override

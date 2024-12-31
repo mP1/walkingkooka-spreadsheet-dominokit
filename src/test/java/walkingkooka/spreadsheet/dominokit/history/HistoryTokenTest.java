@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -2349,6 +2350,19 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         this.parseStringAndCheck(
                 "/plugin-upload",
                 HistoryToken.pluginUploadSelect()
+        );
+    }
+
+    @Test
+    public void testParsePluginUploadSave() {
+        this.parseStringAndCheck(
+                "/plugin-upload/save/base64/Filename123/FileContent456",
+                HistoryToken.pluginUploadSave(
+                        BrowserFile.base64(
+                                "Filename123",
+                                "FileContent456"
+                        )
+                )
         );
     }
 

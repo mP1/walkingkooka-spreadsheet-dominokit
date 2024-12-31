@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
-import walkingkooka.text.cursor.TextCursor;
 
 /**
  * Base class for several plugin upload related {@link HistoryToken}.
@@ -34,12 +33,6 @@ public abstract class PluginUploadHistoryToken extends PluginHistoryToken {
     }
 
     // HistoryToken.....................................................................................................
-
-    @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
-        return this; // ignore anything that follows /plugin-upload
-    }
 
     //
     // /plugin-upload

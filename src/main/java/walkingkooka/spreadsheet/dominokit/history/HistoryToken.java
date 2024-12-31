@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
+import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -946,6 +947,13 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see PluginUploadSaveHistoryToken}
+     */
+    public static PluginUploadSaveHistoryToken pluginUploadSave(final BrowserFile file) {
+        return PluginUploadSaveHistoryToken.with(file);
+    }
+
+    /**
      * {@see PluginUploadSelectHistoryToken}
      */
     public static PluginUploadSelectHistoryToken pluginUploadSelect() {
@@ -1533,6 +1541,10 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         if( this instanceof PluginUploadSelectHistoryToken) {
+            closed = this.clearAction();
+        }
+
+        if (this instanceof PluginUploadSaveHistoryToken) {
             closed = this.clearAction();
         }
 
