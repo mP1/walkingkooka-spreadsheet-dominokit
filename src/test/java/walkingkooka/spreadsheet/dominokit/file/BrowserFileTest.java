@@ -22,8 +22,8 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.test.ParseStringTesting;
 
-public final class FileTest implements ParseStringTesting<File>,
-        ClassTesting<File> {
+public final class BrowserFileTest implements ParseStringTesting<BrowserFile>,
+        ClassTesting<BrowserFile> {
 
     // parse............................................................................................................
 
@@ -36,7 +36,7 @@ public final class FileTest implements ParseStringTesting<File>,
     public void testParse() {
         this.parseStringAndCheck(
                 "filename123/base64/fileContent456",
-                FileBase64.with(
+                BrowserFileBase64.with(
                         "filename123",
                         "fileContent456"
                 )
@@ -47,7 +47,7 @@ public final class FileTest implements ParseStringTesting<File>,
     public void testParseWithEmptyContent() {
         this.parseStringAndCheck(
                 "filename123/base64/",
-                FileBase64.with(
+                BrowserFileBase64.with(
                         "filename123",
                         ""
                 )
@@ -58,7 +58,7 @@ public final class FileTest implements ParseStringTesting<File>,
     public void testParseWithEmptyContent2() {
         this.parseStringAndCheck(
                 "filename123/base64",
-                FileBase64.with(
+                BrowserFileBase64.with(
                         "filename123",
                         ""
                 )
@@ -66,8 +66,8 @@ public final class FileTest implements ParseStringTesting<File>,
     }
 
     @Override
-    public File parseString(final String string) {
-        return File.parse(string);
+    public BrowserFile parseString(final String string) {
+        return BrowserFile.parse(string);
     }
 
     @Override
@@ -83,8 +83,8 @@ public final class FileTest implements ParseStringTesting<File>,
     // class............................................................................................................
 
     @Override
-    public Class<File> type() {
-        return File.class;
+    public Class<BrowserFile> type() {
+        return BrowserFile.class;
     }
 
     @Override

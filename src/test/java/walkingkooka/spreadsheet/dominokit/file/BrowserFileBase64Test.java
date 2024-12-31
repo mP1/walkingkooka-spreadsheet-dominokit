@@ -26,9 +26,9 @@ import walkingkooka.reflect.JavaVisibility;
 
 import static org.junit.Assert.assertThrows;
 
-public final class FileBase64Test implements ClassTesting2<FileBase64>,
-        HashCodeEqualsDefinedTesting2<FileBase64>,
-        ToStringTesting<FileBase64>,
+public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBase64>,
+        HashCodeEqualsDefinedTesting2<BrowserFileBase64>,
+        ToStringTesting<BrowserFileBase64>,
         HasUrlFragmentTesting {
 
     private final static String NAME = "Filename123";
@@ -41,7 +41,7 @@ public final class FileBase64Test implements ClassTesting2<FileBase64>,
     public void testWithNullNameFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> FileBase64.with(
+                () -> BrowserFileBase64.with(
                         null,
                         CONTENT
                 )
@@ -52,7 +52,7 @@ public final class FileBase64Test implements ClassTesting2<FileBase64>,
     public void testWithEmptyNameFails() {
         assertThrows(
                 IllegalArgumentException.class,
-                () -> FileBase64.with(
+                () -> BrowserFileBase64.with(
                         "",
                         CONTENT
                 )
@@ -63,7 +63,7 @@ public final class FileBase64Test implements ClassTesting2<FileBase64>,
     public void testWithNullContentFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> FileBase64.with(
+                () -> BrowserFileBase64.with(
                         NAME,
                         null
                 )
@@ -74,7 +74,7 @@ public final class FileBase64Test implements ClassTesting2<FileBase64>,
     public void testWithEmptyContent() {
         final String content = "";
 
-        final FileBase64 fileBase64 = FileBase64.with(
+        final BrowserFileBase64 fileBase64 = BrowserFileBase64.with(
                 NAME,
                 content
         );
@@ -88,7 +88,7 @@ public final class FileBase64Test implements ClassTesting2<FileBase64>,
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-                FileBase64.with(
+                BrowserFileBase64.with(
                         NAME,
                         CONTENT
                 ),
@@ -99,7 +99,7 @@ public final class FileBase64Test implements ClassTesting2<FileBase64>,
     @Test
     public void testUrlFragmentWithEmptyContent() {
         this.urlFragmentAndCheck(
-                FileBase64.with(
+                BrowserFileBase64.with(
                         NAME,
                         ""
                 ),
@@ -112,7 +112,7 @@ public final class FileBase64Test implements ClassTesting2<FileBase64>,
     @Test
     public void testEqualsDifferentName() {
         this.checkNotEquals(
-                FileBase64.with(
+                BrowserFileBase64.with(
                         "different-name",
                         CONTENT
                 )
@@ -122,7 +122,7 @@ public final class FileBase64Test implements ClassTesting2<FileBase64>,
     @Test
     public void testEqualsDifferentContent() {
         this.checkNotEquals(
-                FileBase64.with(
+                BrowserFileBase64.with(
                         NAME,
                         "different-content"
                 )
@@ -130,8 +130,8 @@ public final class FileBase64Test implements ClassTesting2<FileBase64>,
     }
 
     @Override
-    public FileBase64 createObject() {
-        return FileBase64.with(
+    public BrowserFileBase64 createObject() {
+        return BrowserFileBase64.with(
                 NAME,
                 CONTENT
         );
@@ -150,8 +150,8 @@ public final class FileBase64Test implements ClassTesting2<FileBase64>,
     // class............................................................................................................
 
     @Override
-    public Class<FileBase64> type() {
-        return FileBase64.class;
+    public Class<BrowserFileBase64> type() {
+        return BrowserFileBase64.class;
     }
 
     @Override
