@@ -23,14 +23,14 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.text.CharSequences;
 
 /**
- * Does not hold a native File but supports sub-classes that can represent a file in various text forms.
+ * Does not hold a native BrowserFile but supports sub-classes that can represent a file in various text forms.
  */
-public abstract class File implements HasUrlFragment {
+public abstract class BrowserFile implements HasUrlFragment {
 
     /**
-     * Currently only supports parsing text in {@link FileBase64} form.
+     * Currently only supports parsing text in {@link BrowserFileBase64} form.
      */
-    public static File parse(final String text) {
+    public static BrowserFile parse(final String text) {
         CharSequences.failIfNullOrEmpty(text, "text");
 
         final int endOfFileName = text.indexOf(HistoryToken.SEPARATOR.character());
@@ -77,17 +77,17 @@ public abstract class File implements HasUrlFragment {
     final static String BASE64 = "base64";
 
     /**
-     * {@see FileBase64}.
+     * {@see BrowserFileBase64}.
      */
-    public static File base64(final String name,
-                              final String content) {
-        return FileBase64.with(
+    public static BrowserFile base64(final String name,
+                                     final String content) {
+        return BrowserFileBase64.with(
                 name,
                 content
         );
     }
 
-    File() {
+    BrowserFile() {
         super();
     }
 

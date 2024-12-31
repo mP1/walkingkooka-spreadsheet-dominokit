@@ -24,22 +24,22 @@ import walkingkooka.text.CharSequences;
 import java.util.Objects;
 
 /**
- * A {@link File} that holds the name and content encoded in base64. No attempt is made to decode the string, it is
+ * A {@link BrowserFile} that holds the name and content encoded in base64. No attempt is made to decode the string, it is
  * assumed to be valid.
  */
-final class FileBase64 extends File {
+final class BrowserFileBase64 extends BrowserFile {
 
-    static FileBase64 with(final String name,
-                           final String content) {
-        return new FileBase64(
+    static BrowserFileBase64 with(final String name,
+                                  final String content) {
+        return new BrowserFileBase64(
                 CharSequences.failIfNullOrEmpty(name, "name")
                         .replace(HistoryToken.SEPARATOR.string(), ""), // remove slash
                 Objects.requireNonNull(content, "content")
         );
     }
 
-    private FileBase64(final String name,
-                       final String content) {
+    private BrowserFileBase64(final String name,
+                              final String content) {
         this.name = name;
         this.content = content;
     }
@@ -69,10 +69,10 @@ final class FileBase64 extends File {
 
     @Override
     public boolean equals(Object other) {
-        return this == other || other instanceof FileBase64 && this.equals0((FileBase64) other);
+        return this == other || other instanceof BrowserFileBase64 && this.equals0((BrowserFileBase64) other);
     }
 
-    private boolean equals0(final FileBase64 other) {
+    private boolean equals0(final BrowserFileBase64 other) {
         return this.name.equals(other.name) &&
                 this.content.equals(other.content);
     }
