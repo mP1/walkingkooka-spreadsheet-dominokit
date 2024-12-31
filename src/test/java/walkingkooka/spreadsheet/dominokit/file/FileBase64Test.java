@@ -18,74 +18,69 @@
 package walkingkooka.spreadsheet.dominokit.file;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.Binary;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.test.ParseStringTesting;
-
-import java.nio.charset.StandardCharsets;
 
 import static org.junit.Assert.assertThrows;
 
-public final class FileBinaryTest implements ClassTesting2<FileBinary>,
-        HashCodeEqualsDefinedTesting2<FileBinary>,
-        ToStringTesting<FileBinary>,
-        HasUrlFragmentTesting,
-        ParseStringTesting<FileBinary> {
+public final class FileBase64Test implements ClassTesting2<FileBase64>,
+        HashCodeEqualsDefinedTesting2<FileBase64>,
+        ToStringTesting<FileBase64>,
+        HasUrlFragmentTesting {
+
+    private final static String NAME = "Filename123";
+
+    private final static String CONTENT = "Filecontent456";
 
     // with.............................................................................................................
 
     @Test
-    public void testWithNullBinaryFails() {
+    public void testWithNullNameFails() {
         assertThrows(
                 NullPointerException.class,
-                () -> FileBinary.withBinary0(null)
-        );
-    }
-
-    // parse............................................................................................................
-
-    @Override
-    public void testParseStringEmptyFails() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Test
-    public void testParse() {
-        this.parseStringAndCheck(
-                "SGVsbG8xMjM=",
-                FileBinary.withBinary0(
-                        Binary.with(
-                                "Hello123".getBytes(StandardCharsets.UTF_8)
-                        )
+                () -> FileBase64.with(
+                        null,
+                        CONTENT
                 )
         );
     }
 
     @Test
-    public void testParseEmptyString() {
-        this.parseStringAndCheck(
-                "",
-                FileBinary.withBinary0(Binary.EMPTY)
+    public void testWithEmptyNameFails() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> FileBase64.with(
+                        "",
+                        CONTENT
+                )
         );
     }
 
-    @Override
-    public FileBinary parseString(final String string) {
-        return FileBinary.parseFileBinary(string);
+    @Test
+    public void testWithNullContentFails() {
+        assertThrows(
+                NullPointerException.class,
+                () -> FileBase64.with(
+                        NAME,
+                        null
+                )
+        );
     }
 
-    @Override
-    public Class<? extends RuntimeException> parseStringFailedExpected(final Class<? extends RuntimeException> thrown) {
-        return thrown;
-    }
+    @Test
+    public void testWithEmptyContent() {
+        final String content = "";
 
-    @Override
-    public RuntimeException parseStringFailedExpected(final RuntimeException thrown) {
-        return thrown;
+        final FileBase64 fileBase64 = FileBase64.with(
+                NAME,
+                content
+        );
+
+        this.checkEquals(NAME, fileBase64.name);
+        this.checkEquals(content, fileBase64.content);
     }
 
     // HasUrlFragment...................................................................................................
@@ -93,34 +88,52 @@ public final class FileBinaryTest implements ClassTesting2<FileBinary>,
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-                FileBinary.withBinary0(
-                        Binary.with(
-                                "Hello123".getBytes(StandardCharsets.UTF_8)
-                        )
+                FileBase64.with(
+                        NAME,
+                        CONTENT
                 ),
-                "SGVsbG8xMjM="
+                "Filename123/base64/Filecontent456"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentWithEmptyContent() {
+        this.urlFragmentAndCheck(
+                FileBase64.with(
+                        NAME,
+                        ""
+                ),
+                "Filename123/base64"
         );
     }
 
     // equals...........................................................................................................
 
     @Test
-    public void testEqualsDifferent() {
+    public void testEqualsDifferentName() {
         this.checkNotEquals(
-                FileBinary.withBinary0(
-                        Binary.with(
-                                "Different".getBytes(StandardCharsets.UTF_8)
-                        )
+                FileBase64.with(
+                        "different-name",
+                        CONTENT
+                )
+        );
+    }
+
+    @Test
+    public void testEqualsDifferentContent() {
+        this.checkNotEquals(
+                FileBase64.with(
+                        NAME,
+                        "different-content"
                 )
         );
     }
 
     @Override
-    public FileBinary createObject() {
-        return FileBinary.withBinary0(
-                Binary.with(
-                        "Hello".getBytes(StandardCharsets.UTF_8)
-                )
+    public FileBase64 createObject() {
+        return FileBase64.with(
+                NAME,
+                CONTENT
         );
     }
 
@@ -130,15 +143,15 @@ public final class FileBinaryTest implements ClassTesting2<FileBinary>,
     public void testToString() {
         this.toStringAndCheck(
                 this.createObject(),
-                "[72, 101, 108, 108, 111]"
+                "Filename123/base64/Filecontent456"
         );
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<FileBinary> type() {
-        return FileBinary.class;
+    public Class<FileBase64> type() {
+        return FileBase64.class;
     }
 
     @Override
