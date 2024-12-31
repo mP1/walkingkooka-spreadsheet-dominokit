@@ -165,33 +165,15 @@ abstract public class Fetcher<W extends FetcherWatcher> {
                     .value();
             final Object headerValue = headerAndValues.getValue();
 
-            //for (final Object headerValue : headerAndValues.getValue()) {
             nativeHeaders.append(
-                        headerName,
-                        headerValue.toString()
-                );
-            //}
+                    headerName,
+                    headerValue.toString()
+            );
         }
 
         requestInit.setHeaders(nativeHeaders);
 
-//        final String bodyText = entity.bodyText();
-//        final Optional<String> body = Optional.ofNullable(
-//                bodyText.isEmpty() ?
-//                        null :
-//                        bodyText
-//        );
-
-//        if (false == bodyText.isEmpty()) {
-//            requestInit.setBody(bodyText);
-//        }
-
-        if(body.isPresent()) {
-            //final FetcherRequestBody<?> fetcherRequestBody = body.get();
-//            if(fetcherRequestBody instanceof FetcherRequestBodyString) {
-//                final FetcherRequestBodyString
-//                requestInit.setBody(bodyText)
-//            }
+        if (body.isPresent()) {
             body.get().requestInit(requestInit);
         }
 
