@@ -17,47 +17,79 @@
 
 package walkingkooka.spreadsheet.dominokit.file;
 
-import org.gwtproject.core.shared.GwtIncompatible;
-import walkingkooka.Binary;
+import walkingkooka.EmptyTextException;
 import walkingkooka.net.HasUrlFragment;
-import walkingkooka.spreadsheet.dominokit.fetcher.Fetcher;
-
-import java.util.Optional;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.text.CharSequences;
 
 /**
- * Holds a native file blob, such as a dropped file or a file selected using a file picker.
+ * Does not hold a native File but supports sub-classes that can represent a file in various text forms.
  */
-public abstract class File extends FileGwt implements HasUrlFragment {
-
-    @GwtIncompatible
-    public static File parse(final String value) {
-        return FileBinary.parseFileBinary(value);
-    }
+public abstract class File implements HasUrlFragment {
 
     /**
-     * {@see FileBinary}.
+     * Currently only supports parsing text in {@link FileBase64} form.
      */
-    public static File withBinary(final Binary binary) {
-        return FileBinary.withBinary0(binary);
+    public static File parse(final String text) {
+        CharSequences.failIfNullOrEmpty(text, "text");
+
+        final int endOfFileName = text.indexOf(HistoryToken.SEPARATOR.character());
+        if (-1 == endOfFileName) {
+            throw new IllegalArgumentException("Missing " + HistoryToken.SEPARATOR + " after filename");
+        }
+
+        final String filename = text.substring(
+                0,
+                endOfFileName
+        );
+        if (filename.isEmpty()) {
+            throw new EmptyTextException("Missing filename");
+        }
+
+        final int endOfType = text.indexOf(
+                HistoryToken.SEPARATOR.character(),
+                endOfFileName + 1
+        );
+        final String type = text.substring(
+                endOfFileName + 1,
+                -1 == endOfType ?
+                        text.length() :
+                        endOfType
+        );
+
+        switch (type) {
+            case "":
+                throw new EmptyTextException("Missing type");
+            case BASE64:
+                return base64(
+                        filename,
+                        -1 == endOfType ?
+                                "" :
+                                text.substring(
+                                        endOfType + 1
+                                )
+                );
+            default:
+                throw new IllegalArgumentException("Invalid type " + CharSequences.quoteAndEscape(type));
+        }
     }
 
+    final static String BASE64 = "base64";
+
     /**
-     * {@see FileElemental}.
+     * {@see FileBase64}.
      */
-    public static File withFile(final elemental2.dom.File file) {
-        return FileElemental.withFile0(file);
+    public static File base64(final String name,
+                              final String content) {
+        return FileBase64.with(
+                name,
+                content
+        );
     }
 
     File() {
         super();
     }
-
-    /**
-     * Getter only intended to be called by {@link Fetcher}.
-     * <br>
-     * The file may be absent if {@link #parse(String)} was used to create this instance.
-     */
-    public abstract Optional<elemental2.dom.File> file();
 
     // Object...........................................................................................................
 
