@@ -48,6 +48,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.CharacterConstant;
 import walkingkooka.text.HasText;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
@@ -1374,12 +1375,17 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * The separator character used between components or complex path of a {@link HistoryToken}.
+     */
+    public final static CharacterConstant SEPARATOR = CharacterConstant.with('/');
+
+    /**
      * A {@link Parser} that consumes a path component within an {@link UrlFragment}.
      */
     private final static Parser<ParserContext> COMPONENT = Parsers.stringInitialAndPartCharPredicate(
-            CharPredicates.is('/'),
+            CharPredicates.is(SEPARATOR.character()),
             CharPredicates.not(
-                    CharPredicates.is('/')
+                    CharPredicates.is(SEPARATOR.character())
             ),
             1,
             MAX_LENGTH
