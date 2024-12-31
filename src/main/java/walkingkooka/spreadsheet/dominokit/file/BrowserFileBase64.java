@@ -46,10 +46,12 @@ final class BrowserFileBase64 extends BrowserFile {
 
     // UrlFragment......................................................................................................
 
+    // plugin-upload/base64/filename/file-content
     @Override
     public UrlFragment urlFragment() {
-        return UrlFragment.with(this.name)
-                .appendSlashThen(BASE64_URLFRAGMENT)
+        return BASE64_URLFRAGMENT.appendSlashThen(
+                        UrlFragment.with(this.name)
+                )
                 .appendSlashThen(
                         UrlFragment.with(this.content)
                 );

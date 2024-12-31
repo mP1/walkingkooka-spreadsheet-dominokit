@@ -33,45 +33,47 @@ public abstract class BrowserFile implements HasUrlFragment {
     public static BrowserFile parse(final String text) {
         CharSequences.failIfNullOrEmpty(text, "text");
 
-        final int endOfFileName = text.indexOf(HistoryToken.SEPARATOR.character());
-        if (-1 == endOfFileName) {
-            throw new IllegalArgumentException("Missing " + HistoryToken.SEPARATOR + " after filename");
+        final int endOfType = text.indexOf(HistoryToken.SEPARATOR.character());
+        if (-1 == endOfType) {
+            throw new IllegalArgumentException("Missing filename");
         }
 
-        final String filename = text.substring(
-                0,
-                endOfFileName
-        );
-        if (filename.isEmpty()) {
-            throw new EmptyTextException("Missing filename");
-        }
-
-        final int endOfType = text.indexOf(
-                HistoryToken.SEPARATOR.character(),
-                endOfFileName + 1
-        );
         final String type = text.substring(
-                endOfFileName + 1,
-                -1 == endOfType ?
-                        text.length() :
-                        endOfType
+                0,
+                endOfType
         );
+        if (type.isEmpty()) {
+            throw new EmptyTextException("Missing type");
+        }
 
         switch (type) {
-            case "":
-                throw new EmptyTextException("Missing type");
             case BASE64:
-                return base64(
-                        filename,
-                        -1 == endOfType ?
-                                "" :
-                                text.substring(
-                                        endOfType + 1
-                                )
+                return parseBase64(
+                        text.substring(endOfType + 1)
                 );
             default:
                 throw new IllegalArgumentException("Invalid type " + CharSequences.quoteAndEscape(type));
         }
+    }
+
+    private static BrowserFile parseBase64(final String text) {
+        final int endOfFilename = text.indexOf(
+                HistoryToken.SEPARATOR.character()
+        );
+
+        return base64(
+                text.substring(
+                        0,
+                        -1 == endOfFilename ?
+                                text.length() :
+                                endOfFilename
+                ),
+                -1 == endOfFilename ?
+                        "" :
+                        text.substring(
+                                endOfFilename + 1
+                        )
+        );
     }
 
     final static String BASE64 = "base64";

@@ -35,7 +35,7 @@ public final class BrowserFileTest implements ParseStringTesting<BrowserFile>,
     @Test
     public void testParse() {
         this.parseStringAndCheck(
-                "filename123/base64/fileContent456",
+                "base64/filename123/fileContent456",
                 BrowserFileBase64.with(
                         "filename123",
                         "fileContent456"
@@ -46,7 +46,7 @@ public final class BrowserFileTest implements ParseStringTesting<BrowserFile>,
     @Test
     public void testParseWithEmptyContent() {
         this.parseStringAndCheck(
-                "filename123/base64/",
+                "base64/filename123/",
                 BrowserFileBase64.with(
                         "filename123",
                         ""
@@ -57,7 +57,7 @@ public final class BrowserFileTest implements ParseStringTesting<BrowserFile>,
     @Test
     public void testParseWithEmptyContent2() {
         this.parseStringAndCheck(
-                "filename123/base64",
+                "base64/filename123",
                 BrowserFileBase64.with(
                         "filename123",
                         ""
