@@ -19,61 +19,65 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import elemental2.dom.Headers;
 import elemental2.dom.RequestInit;
+import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 
 import java.util.Objects;
 
 /**
- * A fetcher request body that holds a {@link String} value.
+ * A fetcher request body that holds a {@link BrowserFile file} value.
  */
-final class FetcherRequestBodyString extends FetcherRequestBody<String> {
+final class FetcherRequestBodyFile extends FetcherRequestBody<BrowserFile> {
 
-    static FetcherRequestBodyString with(final String value) {
-        return new FetcherRequestBodyString(
-                Objects.requireNonNull(value, "value")
+    static FetcherRequestBodyFile with(final BrowserFile file) {
+        return new FetcherRequestBodyFile(
+                Objects.requireNonNull(file, "file")
         );
     }
 
-    private FetcherRequestBodyString(final String value) {
-        this.value = value;
+    private FetcherRequestBodyFile(final BrowserFile file) {
+        this.file = file;
     }
 
     @Override
     void handleFetch(final Headers headers,
                      final RequestInit requestInit,
                      final Runnable doFetch) {
-        requestInit.setBody(this.value);
-        doFetch.run();
+        this.file.handleFetch(
+                headers,
+                requestInit,
+                doFetch
+        );
     }
 
     // Value............................................................................................................
 
     @Override
-    public String value() {
-        return this.value;
+    public BrowserFile value() {
+        return this.file;
     }
 
-    private final String value;
+    private final BrowserFile file;
 
     // Object...........................................................................................................
 
 
     @Override
     public int hashCode() {
-        return this.value.hashCode();
+        return this.file.hashCode();
     }
 
     @Override
     public boolean equals(final Object other) {
         return this == other ||
-                (other instanceof FetcherRequestBodyString && this.equals0((FetcherRequestBodyString) other));
+                (other instanceof FetcherRequestBodyFile && this.equals0((FetcherRequestBodyFile) other));
     }
 
-    private boolean equals0(final FetcherRequestBodyString other) {
-        return this.value.equals(other.value);
+    private boolean equals0(final FetcherRequestBodyFile other) {
+        return this.file.equals(other.file);
     }
 
     @Override
     public String toString() {
-        return this.value;
+        return this.file.toString();
     }
 }

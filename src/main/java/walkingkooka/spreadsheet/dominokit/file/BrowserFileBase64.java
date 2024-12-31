@@ -17,7 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.file;
 
+import elemental2.dom.Headers;
+import elemental2.dom.RequestInit;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.net.header.HttpHeaderName;
+import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.text.CharSequences;
 
@@ -42,6 +46,18 @@ final class BrowserFileBase64 extends BrowserFile {
                               final String content) {
         this.name = name;
         this.content = content;
+    }
+
+    @Override
+    public void handleFetch(final Headers headers,
+                            final RequestInit requestInit,
+                            final Runnable doFetch) {
+        headers.set(
+                HttpHeaderName.CONTENT_TYPE.text(),
+                MediaType.TEXT_BASE64.value()
+        );
+        requestInit.setBody(this.content);
+        doFetch.run();
     }
 
     // UrlFragment......................................................................................................

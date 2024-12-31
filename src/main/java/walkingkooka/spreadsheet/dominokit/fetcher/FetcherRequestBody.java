@@ -17,13 +17,22 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
+import elemental2.dom.Headers;
 import elemental2.dom.RequestInit;
 import walkingkooka.Value;
+import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 
 /**
  * Holds a fetcher request body, such as a {@link String} or {@link elemental2.dom.Blob}.
  */
 public abstract class FetcherRequestBody<T> implements Value<T> {
+
+    /**
+     * {@see FetcherRequestBodyFile}
+     */
+    public static FetcherRequestBody<BrowserFile> file(final BrowserFile file) {
+        return FetcherRequestBodyFile.with(file);
+    }
 
     /**
      * {@see FetcherRequestBodyString}
@@ -40,5 +49,7 @@ public abstract class FetcherRequestBody<T> implements Value<T> {
         return this instanceof FetcherRequestBodyString;
     }
 
-    abstract void requestInit(final RequestInit requestInit);
+    abstract void handleFetch(final Headers headers,
+                              final RequestInit requestInit,
+                              final Runnable doFetch);
 }

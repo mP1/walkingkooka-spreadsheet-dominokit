@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.file;
 
+import elemental2.dom.Headers;
+import elemental2.dom.RequestInit;
 import walkingkooka.EmptyTextException;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -92,6 +94,13 @@ public abstract class BrowserFile implements HasUrlFragment {
     BrowserFile() {
         super();
     }
+
+    /**
+     * Completes the request and fetch
+     */
+    abstract public void handleFetch(final Headers headers,
+                                     final RequestInit requestInit,
+                                     final Runnable doFetch);
 
     // Object...........................................................................................................
 
