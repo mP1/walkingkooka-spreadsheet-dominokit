@@ -148,8 +148,7 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     private final static Accept ACCEPT_JSON = MediaType.APPLICATION_JSON.accept();
 
     /**
-     * Performs a fetch using the provided parameters, note that the given {@link HttpEntity} must contain all required
-     * headers and body.
+     * Performs a fetch using the provided parameters
      */
     final void fetch(final HttpMethod method,
                      final AbsoluteOrRelativeUrl url,
@@ -173,10 +172,31 @@ abstract public class Fetcher<W extends FetcherWatcher> {
 
         requestInit.setHeaders(nativeHeaders);
 
-        if (body.isPresent()) {
-            body.get().requestInit(requestInit);
-        }
+        final Runnable doFetch = () -> this.doFetch(
+                method,
+                url,
+                headers,
+                body,
+                requestInit
+        );
 
+        if (body.isPresent()) {
+            body.get()
+                    .handleFetch(
+                            nativeHeaders,
+                            requestInit,
+                            doFetch
+                    );
+        } else {
+            doFetch.run();
+        }
+    }
+
+    private void doFetch(final HttpMethod method,
+                         final AbsoluteOrRelativeUrl url,
+                         final Map<HttpHeaderName<?>, Object> headers,
+                         final Optional<FetcherRequestBody<?>> body,
+                         final RequestInit requestInit) {
         this.onBegin(
                 method,
                 url,
