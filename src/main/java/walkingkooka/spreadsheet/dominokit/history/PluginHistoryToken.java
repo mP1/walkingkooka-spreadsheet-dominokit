@@ -43,8 +43,8 @@ public abstract class PluginHistoryToken extends HistoryToken {
 
     @Override
     public final UrlFragment urlFragment() {
-        // special-case PluginUploadSelectHistoryToken because it is not prefixed by #/plugin
-        return this instanceof PluginUploadSelectHistoryToken ?
+        // special-case PluginUploadHistoryToken because it is not prefixed by #/plugin
+        return this instanceof PluginUploadHistoryToken ?
                 this.pluginUrlFragment() :
                 UrlFragment.SLASH.append(
                         HistoryToken.PLUGIN
