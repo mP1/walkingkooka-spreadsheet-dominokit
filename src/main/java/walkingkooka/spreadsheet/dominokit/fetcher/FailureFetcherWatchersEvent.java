@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 
 /**
  * The event payload used by {@link FetcherWatcher#onFailure(HttpMethod, AbsoluteOrRelativeUrl, HttpStatus, Headers, String, AppContext)}.
+ * The {@link #status}, {@link #headers}, {@link #body} are from the fetch response.
  */
 final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
 
