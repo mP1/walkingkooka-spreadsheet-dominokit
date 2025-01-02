@@ -23,11 +23,13 @@ import walkingkooka.EmptyTextException;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.printer.TreePrintable;
 
 /**
  * Does not hold a native BrowserFile but supports sub-classes that can represent a file in various text forms.
  */
-public abstract class BrowserFile implements HasUrlFragment {
+public abstract class BrowserFile implements HasUrlFragment,
+        TreePrintable {
 
     /**
      * Currently only supports parsing text in {@link BrowserFileBase64} form.

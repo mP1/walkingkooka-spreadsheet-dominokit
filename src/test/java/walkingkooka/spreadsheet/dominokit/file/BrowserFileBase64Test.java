@@ -23,13 +23,15 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.text.printer.TreePrintableTesting;
 
 import static org.junit.Assert.assertThrows;
 
 public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBase64>,
         HashCodeEqualsDefinedTesting2<BrowserFileBase64>,
         ToStringTesting<BrowserFileBase64>,
-        HasUrlFragmentTesting {
+        HasUrlFragmentTesting,
+        TreePrintableTesting {
 
     private final static String NAME = "Filename123";
 
@@ -104,6 +106,17 @@ public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBas
                         ""
                 ),
                 "base64/Filename123"
+        );
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Test
+    public void testTreePrint() {
+        this.treePrintAndCheck(
+                this.createObject(),
+                "BrowserFileBase64\n" +
+                        "  \"Filename123\"\n"
         );
     }
 
