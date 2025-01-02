@@ -311,10 +311,7 @@ public class App implements EntryPoint,
 
         this.viewportComponent = SpreadsheetViewportComponent.empty(this);
 
-        AppSpreadsheetDialogComponents.register(
-                this.metadataFetcherWatchers,
-                this
-        );
+        AppSpreadsheetDialogComponents.register(this);
 
         this.layout = SpreadsheetAppLayout.prepare(
                 this.viewportComponent,
