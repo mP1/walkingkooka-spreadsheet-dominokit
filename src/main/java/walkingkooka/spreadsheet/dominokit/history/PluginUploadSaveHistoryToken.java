@@ -59,7 +59,7 @@ public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
     }
 
     //
-    // /plugin-upload
+    // /plugin-upload/save/base64/filename/filecontent
     //
     @Override
     UrlFragment pluginUploadUrlFragment() {
@@ -68,7 +68,7 @@ public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
         );
     }
 
-    // /plugin/Plugin123 -> /plugin
+    // /plugin-upload/
 
     @Override
     public HistoryToken clearAction() {
