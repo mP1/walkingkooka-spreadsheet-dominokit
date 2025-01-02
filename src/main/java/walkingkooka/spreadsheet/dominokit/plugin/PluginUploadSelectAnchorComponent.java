@@ -29,20 +29,20 @@ import java.util.Optional;
 /**
  * An anchor that when clicked displays a file browser to select a file to upload.
  */
-public final class PluginUploadAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, PluginUploadAnchorComponent>,
-        AnchorComponentLikeDelegator<PluginUploadAnchorComponent> {
+public final class PluginUploadSelectAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, PluginUploadSelectAnchorComponent>,
+        AnchorComponentLikeDelegator<PluginUploadSelectAnchorComponent> {
 
-    public static PluginUploadAnchorComponent empty() {
-        return new PluginUploadAnchorComponent();
+    public static PluginUploadSelectAnchorComponent empty() {
+        return new PluginUploadSelectAnchorComponent();
     }
 
-    private PluginUploadAnchorComponent() {
+    private PluginUploadSelectAnchorComponent() {
         this.component = HistoryTokenAnchorComponent.empty()
                 .setDisabled(true);
     }
 
     @Override
-    public PluginUploadAnchorComponent setDisabled(final boolean disabled) {
+    public PluginUploadSelectAnchorComponent setDisabled(final boolean disabled) {
         this.component.setHistoryToken(
                 Optional.ofNullable(
                         disabled ?

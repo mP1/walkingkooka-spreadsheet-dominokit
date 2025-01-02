@@ -79,8 +79,8 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
 
     // upload...........................................................................................................
 
-    private PluginUploadAnchorComponent uploadAnchor() {
-        return PluginUploadAnchorComponent.empty()
+    private PluginUploadSelectAnchorComponent uploadAnchor() {
+        return PluginUploadSelectAnchorComponent.empty()
                 .setId(ID_PREFIX + "upload" + SpreadsheetElementIds.LINK)
                 .setTextContent("Upload");
     }
@@ -89,7 +89,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
         this.uploadAnchor.setDisabled(false);
     }
 
-    private final PluginUploadAnchorComponent uploadAnchor;
+    private final PluginUploadSelectAnchorComponent uploadAnchor;
     
     // close............................................................................................................
 

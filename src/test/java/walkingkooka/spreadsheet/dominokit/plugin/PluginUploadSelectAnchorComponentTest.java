@@ -22,12 +22,12 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 
-public final class PluginUploadAnchorComponentTest implements HtmlElementComponentTesting<PluginUploadAnchorComponent, HTMLAnchorElement> {
+public final class PluginUploadSelectAnchorComponentTest implements HtmlElementComponentTesting<PluginUploadSelectAnchorComponent, HTMLAnchorElement> {
 
     @Test
     public void testSetIdSetTextContent() {
         this.treePrintAndCheck(
-                PluginUploadAnchorComponent.empty()
+                PluginUploadSelectAnchorComponent.empty()
                         .setId("Upload123")
                         .setTextContent("Upload123!"),
                 "\"Upload123!\" DISABLED id=Upload123"
@@ -37,7 +37,7 @@ public final class PluginUploadAnchorComponentTest implements HtmlElementCompone
     @Test
     public void testSetDisabledFalse() {
         this.treePrintAndCheck(
-                PluginUploadAnchorComponent.empty()
+                PluginUploadSelectAnchorComponent.empty()
                         .setId("Upload123")
                         .setTextContent("Upload123!")
                         .setDisabled(false),
@@ -48,7 +48,7 @@ public final class PluginUploadAnchorComponentTest implements HtmlElementCompone
     @Test
     public void testSetDisabledTrue() {
         this.treePrintAndCheck(
-                PluginUploadAnchorComponent.empty()
+                PluginUploadSelectAnchorComponent.empty()
                         .setId("Upload123")
                         .setTextContent("Upload123!")
                         .setDisabled(true),
@@ -59,8 +59,8 @@ public final class PluginUploadAnchorComponentTest implements HtmlElementCompone
     // class............................................................................................................
 
     @Override
-    public Class<PluginUploadAnchorComponent> type() {
-        return PluginUploadAnchorComponent.class;
+    public Class<PluginUploadSelectAnchorComponent> type() {
+        return PluginUploadSelectAnchorComponent.class;
     }
 
     @Override
