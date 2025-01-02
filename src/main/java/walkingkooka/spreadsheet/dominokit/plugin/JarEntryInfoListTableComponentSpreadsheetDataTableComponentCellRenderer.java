@@ -176,9 +176,9 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
         final PluginName pluginName = context.pluginName();
         final JarEntryInfoName filename = info.name();
 
-        final PluginDownloadAnchorComponent download = PluginDownloadAnchorComponent.empty()
-                .setId(this.id + "download" + SpreadsheetElementIds.LINK)
-                .setTextContent("Download")
+        final PluginDownloadAnchorComponent download = PluginDownloadAnchorComponent.empty(
+                this.id + "download" + SpreadsheetElementIds.LINK
+                ).setTextContent("Download")
                 .setValue(
                         Optional.of(
                                 PluginDownload.with(

@@ -58,9 +58,9 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
 
         this.textView = this.textView();
 
-        this.download = PluginDownloadAnchorComponent.empty()
-                .setTextContent("Download")
-                .setId("plugin-download" + SpreadsheetElementIds.LINK);
+        this.download = PluginDownloadAnchorComponent.empty(
+                        "plugin-download" + SpreadsheetElementIds.LINK
+                ).setTextContent("Download");
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate(context);
