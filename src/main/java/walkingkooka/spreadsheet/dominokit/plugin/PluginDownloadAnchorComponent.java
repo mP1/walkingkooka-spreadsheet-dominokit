@@ -36,8 +36,9 @@ import java.util.Optional;
 public final class PluginDownloadAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, PluginDownloadAnchorComponent>,
         AnchorComponentLikeDelegator<PluginDownloadAnchorComponent> {
 
-    public static PluginDownloadAnchorComponent empty() {
-        return new PluginDownloadAnchorComponent();
+    public static PluginDownloadAnchorComponent empty(final String id) {
+        return new PluginDownloadAnchorComponent()
+                .setId(id);
     }
 
     private PluginDownloadAnchorComponent() {

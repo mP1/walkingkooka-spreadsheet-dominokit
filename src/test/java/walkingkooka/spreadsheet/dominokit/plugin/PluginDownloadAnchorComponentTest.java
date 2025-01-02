@@ -31,8 +31,7 @@ public final class PluginDownloadAnchorComponentTest implements HtmlElementCompo
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-                PluginDownloadAnchorComponent.empty()
-                        .setId("Download123")
+                PluginDownloadAnchorComponent.empty("Download123")
                         .setTextContent("Download123!"),
                 "\"Download123!\" DISABLED id=Download123"
         );
@@ -41,8 +40,7 @@ public final class PluginDownloadAnchorComponentTest implements HtmlElementCompo
     @Test
     public void testSetValueMissingFilename() {
         this.treePrintAndCheck(
-                PluginDownloadAnchorComponent.empty()
-                        .setId("Download456")
+                PluginDownloadAnchorComponent.empty("Download456")
                         .setTextContent("Download456!")
                         .setValue(
                                 Optional.of(
@@ -59,8 +57,7 @@ public final class PluginDownloadAnchorComponentTest implements HtmlElementCompo
     @Test
     public void testSetValueWithFilename() {
         this.treePrintAndCheck(
-                PluginDownloadAnchorComponent.empty()
-                        .setId("Download789")
+                PluginDownloadAnchorComponent.empty("Download789")
                         .setTextContent("Download789!")
                         .setValue(
                                 Optional.of(
