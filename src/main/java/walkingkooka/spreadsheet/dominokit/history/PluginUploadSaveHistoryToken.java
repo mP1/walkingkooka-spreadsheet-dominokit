@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.text.cursor.TextCursor;
 
@@ -77,6 +78,10 @@ public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
-        // NOP
+        context.pluginFetcher()
+                .uploadPlugin(
+                        FetcherRequestBody.file(this.file)
+                );
+        context.pushHistoryToken(previous);
     }
 }
