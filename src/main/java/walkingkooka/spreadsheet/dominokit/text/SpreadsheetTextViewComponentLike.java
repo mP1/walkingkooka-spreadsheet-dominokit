@@ -31,10 +31,10 @@ import java.util.Optional;
 /**
  * A barebones component that may be used to display text. Many methods such as support for listeners etc all throw {@link UnsupportedOperationException}.
  */
-public interface TextViewComponentLike extends ValueComponent<HTMLDivElement, String, TextViewComponent> {
+public interface SpreadsheetTextViewComponentLike extends ValueComponent<HTMLDivElement, String, SpreadsheetTextViewComponent> {
 
     @Override
-    default TextViewComponent setLabel(final String label) {
+    default SpreadsheetTextViewComponent setLabel(final String label) {
         throw new UnsupportedOperationException();
     }
 
@@ -49,17 +49,17 @@ public interface TextViewComponentLike extends ValueComponent<HTMLDivElement, St
     }
 
     @Override
-    default TextViewComponent validate() {
-        return (TextViewComponent) this;
+    default SpreadsheetTextViewComponent validate() {
+        return (SpreadsheetTextViewComponent) this;
     }
 
     @Override
-    default TextViewComponent optional() {
+    default SpreadsheetTextViewComponent optional() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default TextViewComponent required() {
+    default SpreadsheetTextViewComponent required() {
         throw new UnsupportedOperationException();
     }
 
@@ -74,54 +74,54 @@ public interface TextViewComponentLike extends ValueComponent<HTMLDivElement, St
     }
 
     @Override
-    default TextViewComponent setDisabled(final boolean disabled) {
+    default SpreadsheetTextViewComponent setDisabled(final boolean disabled) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default TextViewComponent alwaysShowHelperText() {
+    default SpreadsheetTextViewComponent alwaysShowHelperText() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default TextViewComponent setHelperText(final Optional<String> text) {
+    default SpreadsheetTextViewComponent setHelperText(final Optional<String> text) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default TextViewComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
+    default SpreadsheetTextViewComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default TextViewComponent addFocusListener(final EventListener listener) {
+    default SpreadsheetTextViewComponent addFocusListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default TextViewComponent addKeydownListener(final EventListener listener) {
+    default SpreadsheetTextViewComponent addKeydownListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default TextViewComponent addKeyupListener(final EventListener listener) {
+    default SpreadsheetTextViewComponent addKeyupListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default TextViewComponent hideMarginBottom() {
-        return (TextViewComponent) this;
+    default SpreadsheetTextViewComponent hideMarginBottom() {
+        return (SpreadsheetTextViewComponent) this;
     }
 
     @Override
-    default TextViewComponent removeBorders() {
-        return (TextViewComponent) this;
+    default SpreadsheetTextViewComponent removeBorders() {
+        return (SpreadsheetTextViewComponent) this;
     }
 
     @Override
-    default TextViewComponent focus() {
+    default SpreadsheetTextViewComponent focus() {
         // ignored
-        return (TextViewComponent) this;
+        return (SpreadsheetTextViewComponent) this;
     }
 
     @Override
@@ -130,7 +130,7 @@ public interface TextViewComponentLike extends ValueComponent<HTMLDivElement, St
     }
 
     @Override
-    default TextViewComponent setErrors(final List<String> errors) {
+    default SpreadsheetTextViewComponent setErrors(final List<String> errors) {
         throw new UnsupportedOperationException();
     }
 
