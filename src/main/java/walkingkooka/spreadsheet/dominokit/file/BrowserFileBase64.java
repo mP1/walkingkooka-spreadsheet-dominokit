@@ -24,6 +24,7 @@ import walkingkooka.net.header.HttpHeaderName;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 
@@ -74,6 +75,20 @@ final class BrowserFileBase64 extends BrowserFile {
     }
 
     private final static UrlFragment BASE64_URLFRAGMENT = UrlFragment.with(BASE64);
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            printer.println(
+                    CharSequences.quoteAndEscape(this.name)
+            );
+        }
+        printer.outdent();
+    }
 
     // Object...........................................................................................................
 
