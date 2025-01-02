@@ -30,8 +30,7 @@ public final class PluginDeleteAnchorComponentTest implements HtmlElementCompone
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-                PluginDeleteAnchorComponent.empty()
-                        .setId("plugin-delete-anchor-id")
+                PluginDeleteAnchorComponent.empty("plugin-delete-anchor-id")
                         .setTextContent("View123!"),
                 "\"View123!\" DISABLED id=plugin-delete-anchor-id"
         );
@@ -42,8 +41,7 @@ public final class PluginDeleteAnchorComponentTest implements HtmlElementCompone
         final PluginName pluginName = PluginName.with("PluginName456");
 
         this.treePrintAndCheck(
-                PluginDeleteAnchorComponent.empty()
-                        .setId("plugin-delete-anchor-id")
+                PluginDeleteAnchorComponent.empty("plugin-delete-anchor-id")
                         .setTextContent("View456!")
                         .setValue(
                                 Optional.of(

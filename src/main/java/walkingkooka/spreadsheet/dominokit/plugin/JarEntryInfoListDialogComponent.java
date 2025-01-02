@@ -60,9 +60,9 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
 
         this.table = this.table();
 
-        this.delete = PluginDeleteAnchorComponent.empty()
-                .setTextContent("Delete")
-                .setId(ID_PREFIX + "delete" + SpreadsheetElementIds.LINK);
+        this.delete = PluginDeleteAnchorComponent.empty(
+                        ID_PREFIX + "delete" + SpreadsheetElementIds.LINK
+                ).setTextContent("Delete");
         this.download = PluginDownloadAnchorComponent.empty()
                 .setTextContent("Download")
                 .setId(ID_PREFIX + "download" + SpreadsheetElementIds.LINK);

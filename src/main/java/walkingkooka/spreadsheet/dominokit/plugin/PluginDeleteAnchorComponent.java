@@ -35,8 +35,9 @@ import java.util.Optional;
 public final class PluginDeleteAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, PluginDeleteAnchorComponent>,
         AnchorComponentLikeDelegator<PluginDeleteAnchorComponent> {
 
-    public static PluginDeleteAnchorComponent empty() {
-        return new PluginDeleteAnchorComponent();
+    public static PluginDeleteAnchorComponent empty(final String id) {
+        return new PluginDeleteAnchorComponent()
+                .setId(id);
     }
 
     private PluginDeleteAnchorComponent() {
