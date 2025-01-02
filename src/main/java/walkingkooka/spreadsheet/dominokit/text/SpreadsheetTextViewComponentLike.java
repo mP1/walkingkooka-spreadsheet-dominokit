@@ -31,111 +31,115 @@ import java.util.Optional;
 /**
  * A barebones component that may be used to display text. Many methods such as support for listeners etc all throw {@link UnsupportedOperationException}.
  */
-public interface SpreadsheetTextViewComponentLike extends ValueComponent<HTMLDivElement, String, SpreadsheetTextViewComponent> {
+abstract class SpreadsheetTextViewComponentLike implements ValueComponent<HTMLDivElement, String, SpreadsheetTextViewComponent> {
+
+    SpreadsheetTextViewComponentLike() {
+        super();
+    }
 
     @Override
-    default SpreadsheetTextViewComponent setLabel(final String label) {
+    public final SpreadsheetTextViewComponent setLabel(final String label) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default String label() {
+    public final String label() {
         return "";
     }
 
     @Override
-    default Optional<String> helperText() {
+    public final Optional<String> helperText() {
         return Optional.empty();
     }
 
     @Override
-    default SpreadsheetTextViewComponent validate() {
+    public final SpreadsheetTextViewComponent validate() {
         return (SpreadsheetTextViewComponent) this;
     }
 
     @Override
-    default SpreadsheetTextViewComponent optional() {
+    public final SpreadsheetTextViewComponent optional() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default SpreadsheetTextViewComponent required() {
+    public final SpreadsheetTextViewComponent required() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default boolean isRequired() {
+    public final boolean isRequired() {
         return false;
     }
 
     @Override
-    default boolean isDisabled() {
+    public final boolean isDisabled() {
         return false;
     }
 
     @Override
-    default SpreadsheetTextViewComponent setDisabled(final boolean disabled) {
+    public final SpreadsheetTextViewComponent setDisabled(final boolean disabled) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default SpreadsheetTextViewComponent alwaysShowHelperText() {
+    public final SpreadsheetTextViewComponent alwaysShowHelperText() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default SpreadsheetTextViewComponent setHelperText(final Optional<String> text) {
+    public final SpreadsheetTextViewComponent setHelperText(final Optional<String> text) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default SpreadsheetTextViewComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
+    public final SpreadsheetTextViewComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default SpreadsheetTextViewComponent addFocusListener(final EventListener listener) {
+    public final SpreadsheetTextViewComponent addFocusListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default SpreadsheetTextViewComponent addKeydownListener(final EventListener listener) {
+    public final SpreadsheetTextViewComponent addKeydownListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default SpreadsheetTextViewComponent addKeyupListener(final EventListener listener) {
+    public final SpreadsheetTextViewComponent addKeyupListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default SpreadsheetTextViewComponent hideMarginBottom() {
+    public final SpreadsheetTextViewComponent hideMarginBottom() {
         return (SpreadsheetTextViewComponent) this;
     }
 
     @Override
-    default SpreadsheetTextViewComponent removeBorders() {
+    public final SpreadsheetTextViewComponent removeBorders() {
         return (SpreadsheetTextViewComponent) this;
     }
 
     @Override
-    default SpreadsheetTextViewComponent focus() {
+    public final SpreadsheetTextViewComponent focus() {
         // ignored
         return (SpreadsheetTextViewComponent) this;
     }
 
     @Override
-    default List<String> errors() {
+    public final List<String> errors() {
         return Lists.empty();
     }
 
     @Override
-    default SpreadsheetTextViewComponent setErrors(final List<String> errors) {
+    public final SpreadsheetTextViewComponent setErrors(final List<String> errors) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default void printTree(final IndentingPrinter printer) {
+    public final void printTree(final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {

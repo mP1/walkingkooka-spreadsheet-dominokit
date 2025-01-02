@@ -25,7 +25,7 @@ import java.util.Optional;
 /**
  * A barebones component that may be used to display text. Many methods such as support for listeners etc all throw {@link UnsupportedOperationException}.
  */
-public final class SpreadsheetTextViewComponent implements SpreadsheetTextViewComponentLike {
+public final class SpreadsheetTextViewComponent extends SpreadsheetTextViewComponentLike {
 
     public static SpreadsheetTextViewComponent empty() {
         return new SpreadsheetTextViewComponent();
