@@ -135,9 +135,9 @@ final class PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer imp
                         )
                 );
 
-        final PluginSelectAnchorComponent view = PluginSelectAnchorComponent.empty()
-                .setId(this.id + "view" + SpreadsheetElementIds.LINK)
-                .setTextContent("View")
+        final PluginSelectAnchorComponent view = PluginSelectAnchorComponent.empty(
+                this.id + "view" + SpreadsheetElementIds.LINK
+                ).setTextContent("View")
                 .setValue(
                         Optional.of(pluginName)
                 );
