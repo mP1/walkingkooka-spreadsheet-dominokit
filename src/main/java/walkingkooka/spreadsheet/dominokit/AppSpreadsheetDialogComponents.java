@@ -34,6 +34,8 @@ import walkingkooka.spreadsheet.dominokit.plugin.PluginNameSetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.PluginNameSetDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.plugin.PluginSetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.PluginSetDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.plugin.PluginUploadDialogComponent;
+import walkingkooka.spreadsheet.dominokit.plugin.PluginUploadDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponent;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponent;
@@ -165,6 +167,9 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         );
         PluginFileViewDialogComponent.with(
                 PluginFileViewDialogComponentContexts.appContext(context)
+        );
+        PluginUploadDialogComponent.with(
+                PluginUploadDialogComponentContexts.appContext(context)
         );
     }
 
