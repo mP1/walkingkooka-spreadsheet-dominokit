@@ -32,8 +32,9 @@ import java.util.Optional;
 public final class PluginUploadSelectAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, PluginUploadSelectAnchorComponent>,
         AnchorComponentLikeDelegator<PluginUploadSelectAnchorComponent> {
 
-    public static PluginUploadSelectAnchorComponent empty() {
-        return new PluginUploadSelectAnchorComponent();
+    public static PluginUploadSelectAnchorComponent empty(final String id) {
+        return new PluginUploadSelectAnchorComponent()
+                .setId(id);
     }
 
     private PluginUploadSelectAnchorComponent() {
