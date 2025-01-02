@@ -35,6 +35,7 @@ import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
+import walkingkooka.spreadsheet.server.SpreadsheetServerMediaTypes;
 import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
@@ -141,6 +142,24 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
             )
     );
 
+    /**
+     * Uploads the request which is assumed to contain the file.
+     */
+    // POST /api/plugin/*/upload
+    public void uploadPlugin(final FetcherRequestBody<?> body) {
+        Objects.requireNonNull(body, "body");
+
+        this.fetch(
+                HttpMethod.POST,
+                pluginUploadUrl(),
+                Maps.of(
+                        HttpHeaderName.ACCEPT,
+                        SpreadsheetServerMediaTypes.BINARY
+                ),
+                Optional.of(body)
+        );
+    }
+
     static RelativeUrl plugin() {
         return Url.EMPTY_RELATIVE_URL.appendPath(
                 SpreadsheetHttpServer.API_PLUGIN
@@ -178,6 +197,16 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
 
         return url;
     }
+
+    // @VisibleForTesting
+    static RelativeUrl pluginUploadUrl() {
+        return Url.EMPTY_RELATIVE_URL.appendPath(
+                SpreadsheetHttpServer.API_PLUGIN.append(UrlPathName.WILDCARD)
+                        .append(UPLOAD)
+        );
+    }
+
+    private final static UrlPathName UPLOAD = UrlPathName.with("upload");
 
     // Fetcher..........................................................................................................
 
