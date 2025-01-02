@@ -116,7 +116,8 @@ public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBas
         this.treePrintAndCheck(
                 this.createObject(),
                 "BrowserFileBase64\n" +
-                        "  \"Filename123\"\n"
+                        "  \"Filename123\"\n" +
+                        "    Filecontent456\n"
         );
     }
 

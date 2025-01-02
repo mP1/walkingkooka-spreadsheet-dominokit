@@ -86,6 +86,11 @@ final class BrowserFileBase64 extends BrowserFile {
             printer.println(
                     CharSequences.quoteAndEscape(this.name)
             );
+            printer.indent();
+            {
+                printer.println(this.content);
+            }
+            printer.outdent();
         }
         printer.outdent();
     }
