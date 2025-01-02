@@ -54,7 +54,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                         "  SpreadsheetDialogComponent\n" +
                         "    /META-INF/MANIFEST.MF\n" +
                         "    id=plugin-file-view-Dialog includeClose=true\n" +
-                        "      TextViewComponent\n" +
+                        "      SpreadsheetTextViewComponent\n" +
                         "        \"\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
@@ -80,7 +80,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                         "  SpreadsheetDialogComponent\n" +
                         "    /empty-file.txt\n" +
                         "    id=plugin-file-view-Dialog includeClose=true\n" +
-                        "      TextViewComponent\n" +
+                        "      SpreadsheetTextViewComponent\n" +
                         "        \"\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
@@ -104,7 +104,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                         "  SpreadsheetDialogComponent\n" +
                         "    /non-empty-file.txt\n" +
                         "    id=plugin-file-view-Dialog includeClose=true\n" +
-                        "      TextViewComponent\n" +
+                        "      SpreadsheetTextViewComponent\n" +
                         "        \"Line1\\nLine2\\n\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
@@ -130,7 +130,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                         "  SpreadsheetDialogComponent\n" +
                         "    /empty-file.txt\n" +
                         "    id=plugin-file-view-Dialog includeClose=true\n" +
-                        "      TextViewComponent\n" +
+                        "      SpreadsheetTextViewComponent\n" +
                         "        \"\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +
@@ -152,7 +152,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                         "  SpreadsheetDialogComponent\n" +
                         "    /non-empty-file.txt\n" +
                         "    id=plugin-file-view-Dialog includeClose=true\n" +
-                        "      TextViewComponent\n" +
+                        "      SpreadsheetTextViewComponent\n" +
                         "        \"Line1\\nLine2\\n\"\n" +
                         "      SpreadsheetFlexLayout\n" +
                         "        ROW\n" +

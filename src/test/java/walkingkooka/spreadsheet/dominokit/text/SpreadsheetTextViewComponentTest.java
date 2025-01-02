@@ -24,14 +24,14 @@ import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
 import java.util.Optional;
 
-public final class TextViewComponentTest implements ValueComponentTesting<HTMLDivElement, String, TextViewComponent> {
+public final class SpreadsheetTextViewComponentTest implements ValueComponentTesting<HTMLDivElement, String, SpreadsheetTextViewComponent> {
 
     @Test
     public void testClearValueAndTreePrint() {
         this.treePrintAndCheck(
-                TextViewComponent.empty()
+                SpreadsheetTextViewComponent.empty()
                         .clearValue(),
-               "TextViewComponent\n" +
+               "SpreadsheetTextViewComponent\n" +
                        "  \"\"\n"
         );
     }
@@ -39,25 +39,25 @@ public final class TextViewComponentTest implements ValueComponentTesting<HTMLDi
     @Test
     public void testSetValueAndTreePrint() {
         this.treePrintAndCheck(
-                TextViewComponent.empty()
+                SpreadsheetTextViewComponent.empty()
                         .setValue(
                                 Optional.of("Hello123")
                         ),
-                "TextViewComponent\n" +
+                "SpreadsheetTextViewComponent\n" +
                         "  \"Hello123\"\n"
         );
     }
 
     @Override
-    public TextViewComponent createComponent() {
-        return TextViewComponent.empty();
+    public SpreadsheetTextViewComponent createComponent() {
+        return SpreadsheetTextViewComponent.empty();
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<TextViewComponent> type() {
-        return TextViewComponent.class;
+    public Class<SpreadsheetTextViewComponent> type() {
+        return SpreadsheetTextViewComponent.class;
     }
 
     @Override
