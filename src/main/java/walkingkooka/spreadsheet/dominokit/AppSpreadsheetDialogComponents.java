@@ -170,11 +170,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
     private static void sort(final AppContext context) {
         SpreadsheetSortDialogComponent.with(
-                SpreadsheetSortDialogComponentContexts.basic(
-                        context, // SpreadsheetComparatorProvider
-                        context, // HistoryTokenContext
-                        context // loggingContext
-                )
+                SpreadsheetSortDialogComponentContexts.appContext(context)
         );
     }
 

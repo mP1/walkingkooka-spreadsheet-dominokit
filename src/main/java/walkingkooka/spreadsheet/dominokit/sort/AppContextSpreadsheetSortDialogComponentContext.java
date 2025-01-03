@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.sort;
 
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviderDelegator;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
@@ -26,64 +27,48 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 
 import java.util.Objects;
 
-final class BasicSpreadsheetSortDialogComponentContext implements SpreadsheetSortDialogComponentContext,
+final class AppContextSpreadsheetSortDialogComponentContext implements SpreadsheetSortDialogComponentContext,
         HistoryTokenContextDelegator,
         LoggingContextDelegator,
         SpreadsheetComparatorProviderDelegator {
 
-    static BasicSpreadsheetSortDialogComponentContext with(final SpreadsheetComparatorProvider spreadsheetComparatorProvider,
-                                                           final HistoryTokenContext historyTokenContext,
-                                                           final LoggingContext loggingContext) {
-        Objects.requireNonNull(spreadsheetComparatorProvider, "spreadsheetComparatorProvider");
-        Objects.requireNonNull(historyTokenContext, "historyTokenContext");
-        Objects.requireNonNull(loggingContext, "loggingContext");
+    static AppContextSpreadsheetSortDialogComponentContext with(final AppContext context) {
+        Objects.requireNonNull(context, "context");
 
-        return new BasicSpreadsheetSortDialogComponentContext(
-                spreadsheetComparatorProvider,
-                historyTokenContext,
-                loggingContext
-        );
+        return new AppContextSpreadsheetSortDialogComponentContext(context);
     }
 
-    private BasicSpreadsheetSortDialogComponentContext(final SpreadsheetComparatorProvider spreadsheetComparatorProvider,
-                                                       final HistoryTokenContext historyTokenContext,
-                                                       final LoggingContext loggingContext) {
-        this.spreadsheetComparatorProvider = spreadsheetComparatorProvider;
-        this.historyTokenContext = historyTokenContext;
-        this.loggingContext = loggingContext;
+    private AppContextSpreadsheetSortDialogComponentContext(final AppContext context) {
+        this.context = context;
     }
 
     // SpreadsheetSortDialogComponentContext............................................................................
 
     @Override
     public SpreadsheetComparatorProvider spreadsheetComparatorProvider() {
-        return this.spreadsheetComparatorProvider;
+        return this.context;
     }
-
-    private final SpreadsheetComparatorProvider spreadsheetComparatorProvider;
 
     // SpreadsheetDialogComponentContextDelegator.......................................................................
 
     @Override
     public HistoryTokenContext historyTokenContext() {
-        return this.historyTokenContext;
+        return this.context;
     }
-
-    private final HistoryTokenContext historyTokenContext;
 
     // LoggingContext...................................................................................................
 
     @Override
     public LoggingContext loggingContext() {
-        return this.loggingContext;
+        return this.context;
     }
-
-    private final LoggingContext loggingContext;
 
     // Object...........................................................................................................
 
     @Override
     public String toString() {
-        return this.historyTokenContext.toString();
+        return this.context.toString();
     }
+
+    private final AppContext context;
 }
