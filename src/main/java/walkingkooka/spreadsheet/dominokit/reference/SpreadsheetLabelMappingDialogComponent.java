@@ -22,6 +22,7 @@ import walkingkooka.Context;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
@@ -247,7 +248,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         boolean loadLabel = false;
 
         try {
@@ -283,7 +284,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
      * Refreshes the widget, typically done when the label within the history token changes.
      */
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         this.refreshLinksAndLoadLabels();
     }
 

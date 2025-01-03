@@ -29,7 +29,7 @@ import walkingkooka.convert.ConverterContext;
 import walkingkooka.convert.Converters;
 import walkingkooka.convert.FakeConverterContext;
 import walkingkooka.datetime.DateTime;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -158,8 +158,8 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
     // ComponentRefreshable.............................................................................................
 
     @Override
-    public void refresh(final AppContext context) {
-        final Long metadataValue = context.spreadsheetMetadata()
+    public void refresh(final RefreshContext context) {
+        final Long metadataValue = this.context.spreadsheetMetadata()
                 .getIgnoringDefaults(PROPERTY_NAME)
                 .orElse(null);
 
@@ -198,7 +198,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
         this.refreshDefaultValue(
                 this.defaultValueAnchor,
-                context.spreadsheetMetadata()
+                this.context.spreadsheetMetadata()
                         .defaults()
                         .get(this.propertyName)
                         .map(this::formatValue)

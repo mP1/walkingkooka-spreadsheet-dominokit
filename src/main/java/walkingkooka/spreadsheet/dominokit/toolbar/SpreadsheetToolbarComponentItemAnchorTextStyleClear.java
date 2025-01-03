@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.tree.text.TextStyle;
@@ -76,7 +76,7 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends Spreadsh
      * Counts the number of cells with a non empty {@link TextStyle}.
      */
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         this.anchor.setChecked(true)
                 .setHistoryToken(
                 context.historyToken()

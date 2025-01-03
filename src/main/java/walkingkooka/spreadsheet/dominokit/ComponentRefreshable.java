@@ -25,5 +25,5 @@ public interface ComponentRefreshable {
     /**
      * The widget should refresh its visible appearance and state.
      */
-    void refresh(final AppContext context);
+    void refresh(final RefreshContext context);
 }

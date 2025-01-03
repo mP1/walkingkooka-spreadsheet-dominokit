@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.find;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.condition.SpreadsheetConditionRightParserTokenComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaMatchedCellsTableComponent;
@@ -430,8 +430,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      * disable it.
      */
     private void refreshLoadHighlightingQuery(final SpreadsheetCellFindHistoryToken token,
-                                              final AppContext context) {
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+                                              final RefreshContext context) {
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
         final SpreadsheetCellQuery highlightingQuery = metadata.get(SpreadsheetMetadataPropertyName.FIND_QUERY).orElse(null);
 
         this.loadHighlightingQuery.setHistoryToken(
@@ -511,7 +511,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         context.giveFocus(
                 this.cellRange::focus
         );
@@ -521,7 +521,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      * Refreshes the widget, typically done when the history token changes.
      */
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         final SpreadsheetCellFindHistoryToken token = context.historyToken()
                 .cast(SpreadsheetCellFindHistoryToken.class);
 

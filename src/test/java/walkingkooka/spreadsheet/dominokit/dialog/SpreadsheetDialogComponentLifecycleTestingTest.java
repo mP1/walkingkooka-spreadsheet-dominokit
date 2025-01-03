@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTestingTest.TestSpreadsheetDialogComponentLifecycleContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -192,7 +192,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         int dialogReset;
 
         @Override
-        public void openGiveFocus(final AppContext context) {
+        public void openGiveFocus(final RefreshContext context) {
             this.onGiveFocus.setValue(
                     Optional.of("onGiveFocus")
             );
@@ -211,7 +211,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         }
 
         @Override
-        public void refresh(final AppContext context) {
+        public void refresh(final RefreshContext context) {
             this.refreshed.setValue(
                     Optional.of("refreshed")
             );

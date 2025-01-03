@@ -18,19 +18,19 @@
 package walkingkooka.spreadsheet.dominokit.form;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 
 /**
  * A form holds form components such as text boxes, links etc. Note it does not receive {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher}
- * events, it instead receives events to prepare or {@link #openGiveFocus(AppContext)} and {@link #refresh(AppContext)}.
+ * events, it instead receives events to prepare or {@link #openGiveFocus(RefreshContext)} and {@link #refresh(RefreshContext)}.
  */
 public interface SpreadsheetFormComponentLifecycle<E extends HTMLElement, C extends SpreadsheetFormComponentLifecycle<E, C>> extends HtmlElementComponent<E, C>,
         ComponentLifecycle {
 
     @Override
-    default void refreshIfOpen(final AppContext context) {
+    default void refreshIfOpen(final RefreshContext context) {
         if (this.isOpen()) {
             this.refresh(context);
         }

@@ -20,8 +20,9 @@ package walkingkooka.spreadsheet.dominokit.meta;
 import elemental2.dom.HTMLUListElement;
 import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.forms.IntegerBox;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 /**
@@ -82,18 +83,18 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
     // ComponentRefreshable.............................................................................................
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+
         this.integerBox.setValue(
-                context.spreadsheetMetadata()
-                        .getIgnoringDefaults(this.propertyName)
+                metadata.getIgnoringDefaults(this.propertyName)
                         .orElse(null)
         );
 
         this.refreshDefaultValue(
                 this.defaultValueAnchor,
-                context.spreadsheetMetadata()
-                        .defaults()
-                        .get(propertyName)
+                metadata.defaults()
+                        .get(this.propertyName)
                         .map(Object::toString)
                         .orElse("")
         );

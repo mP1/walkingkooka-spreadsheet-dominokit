@@ -26,6 +26,7 @@ import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetStrings;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
@@ -291,7 +292,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         context.giveFocus(
                 this.textBox::focus
         );
@@ -315,7 +316,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
      * Refreshes ALL links except for RESET.
      */
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         this.refreshNonResetLinks();
     }
 

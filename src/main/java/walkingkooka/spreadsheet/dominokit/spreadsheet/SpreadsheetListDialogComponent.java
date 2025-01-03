@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
@@ -197,12 +198,12 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         // NOP
     }
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         final SpreadsheetListHistoryToken historyToken = context.historyToken()
                 .cast(SpreadsheetListHistoryToken.class);
 

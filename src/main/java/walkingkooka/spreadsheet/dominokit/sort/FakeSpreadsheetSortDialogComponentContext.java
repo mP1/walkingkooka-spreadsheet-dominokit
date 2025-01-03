@@ -23,11 +23,18 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeSpreadsheetDialogComponentContext;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 
 import java.util.List;
 
 public class FakeSpreadsheetSortDialogComponentContext extends FakeSpreadsheetDialogComponentContext
         implements SpreadsheetSortDialogComponentContext {
+
+    @Override
+    public SpreadsheetViewportCache spreadsheetViewportCache() {
+        throw new UnsupportedOperationException();
+    }
+
     @Override
     public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorSelector selector,
                                                           final ProviderContext context) {

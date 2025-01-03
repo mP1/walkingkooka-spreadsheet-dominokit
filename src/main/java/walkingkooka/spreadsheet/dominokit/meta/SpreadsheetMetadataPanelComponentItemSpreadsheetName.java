@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.meta;
 import elemental2.dom.HTMLUListElement;
 import org.dominokit.domino.ui.elements.UListElement;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -72,9 +72,9 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends Spreads
     // ComponentRefreshable.............................................................................................
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         this.spreadsheetNameComponent.setValue(
-                context.spreadsheetMetadata()
+                this.context.spreadsheetMetadata()
                         .get(this.propertyName)
         );
     }

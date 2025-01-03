@@ -24,6 +24,7 @@ import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetStrings;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
@@ -316,7 +317,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
      * Load the latest {@link SpreadsheetMetadata}, execute a remote {@link walkingkooka.plugin.store.PluginStore#filter(String, int, int)} and give focus to the {@link #textBox}.
      */
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         final PluginNameSetDialogComponentContext dialogContext = this.context;
 
         this.refreshReset(
@@ -358,7 +359,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
      * Refreshes ALL links except for RESET.
      */
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         this.refreshNonReset();
     }
 

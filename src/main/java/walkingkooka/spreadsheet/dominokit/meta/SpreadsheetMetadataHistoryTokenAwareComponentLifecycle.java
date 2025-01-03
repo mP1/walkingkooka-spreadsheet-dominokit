@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.form.SpreadsheetFormComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -74,12 +74,12 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
     }
 
     @Override
-    public void open(final AppContext context) {
+    public void open(final RefreshContext context) {
         this.form.open(context);
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         final HistoryToken token = context.historyToken();
         if (token instanceof SpreadsheetMetadataPropertySelectHistoryToken) {
             this.form.openGiveFocus(context);
@@ -87,12 +87,12 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
     }
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         this.form.refresh(context);
     }
 
     @Override
-    public void close(final AppContext context) {
+    public void close(final RefreshContext context) {
         this.form.close(context);
     }
 

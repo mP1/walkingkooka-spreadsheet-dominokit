@@ -89,6 +89,7 @@ public interface AppContext extends CanGiveFocus,
         SpreadsheetDialogComponentContext,
         HistoryTokenContext,
         LoggingContext,
+        RefreshContext,
         Context {
 
     /**

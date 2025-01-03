@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.VisibleHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
@@ -543,15 +544,14 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * Renders a drop down menu, provided the selection is in the current viewport TABLE.
      */
     private void renderContextMenu(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
-                                   final AppContext context) {
+                                   final RefreshContext context) {
         final AnchoredSpreadsheetSelection anchored = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchored.selection();
         final Optional<Element> maybeElement = this.findElement(
-                context.spreadsheetViewportCache()
+                this.context.spreadsheetViewportCache()
                         .resolveIfLabel(
                                 selection
-                        ).focused(anchored.anchor()),
-                context
+                        ).focused(anchored.anchor())
         );
 
         if (maybeElement.isPresent()) {
@@ -575,7 +575,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                             spreadsheetFormatterSelectorMenus,
                             this.recentParser.values(),
                             this.recentTextStyleProperties.values(),
-                            context
+                            this.context
                     )
             );
 
@@ -944,8 +944,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     // giveViewportSelectionFocus......................................................................................
 
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
-                                            final AppContext context) {
-        final SpreadsheetSelection nonLabelSelection = context.spreadsheetViewportCache()
+                                            final RefreshContext context) {
+        final SpreadsheetSelection nonLabelSelection = this.context.spreadsheetViewportCache()
                 .resolveIfLabel(
                         selection.selection()
                 );
@@ -953,8 +953,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 selection.anchor()
         );
         final Optional<Element> maybeElement = this.findElement(
-                spreadsheetSelection,
-                context
+                spreadsheetSelection
         );
         if (maybeElement.isPresent()) {
             Element element = maybeElement.get();
@@ -992,13 +991,13 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     }
 
     @Override
-    public void open(final AppContext context) {
+    public void open(final RefreshContext context) {
         this.open = true;
         this.setVisibility(true);
     }
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         final HistoryToken historyToken = context.historyToken();
         final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection = historyToken.anchoredSelectionOrEmpty();
 
@@ -1029,17 +1028,16 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     }
 
     private void refreshTable(final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection,
-                              final AppContext context) {
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
+                              final RefreshContext context) {
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+        final SpreadsheetViewportCache cache = this.context.spreadsheetViewportCache();
         final SpreadsheetViewportWindows windows = cache.windows();
 
         Predicate<SpreadsheetSelection> selected = Predicates.never();
 
         if (maybeAnchorSelection.isPresent()) {
             // special case for label
-            final SpreadsheetSelection selectionNotLabel = context.spreadsheetViewportCache()
-                    .resolveIfLabel(
+            final SpreadsheetSelection selectionNotLabel = cache.resolveIfLabel(
                             maybeAnchorSelection.get()
                                     .selection()
                     );
@@ -1072,12 +1070,12 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private SpreadsheetMetadata refreshMetadata;
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         // nop
     }
 
     @Override
-    public void close(final AppContext context) {
+    public void close(final RefreshContext context) {
         this.setVisibility(false);
         this.open = false;
 
@@ -1348,12 +1346,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     /**
      * Helper that finds the {@link Element} for the given {@link SpreadsheetSelection}
      */
-    private Optional<Element> findElement(final SpreadsheetSelection selection,
-                                          final AppContext context) {
+    private Optional<Element> findElement(final SpreadsheetSelection selection) {
         final Element element = DomGlobal.document
                 .getElementById(
                         SpreadsheetViewportComponent.id(
-                                context.spreadsheetViewportCache()
+                                this.context.spreadsheetViewportCache()
                                         .resolveIfLabel(selection)
                         )
                 );

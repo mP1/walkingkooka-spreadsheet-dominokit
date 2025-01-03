@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 
 import java.util.Objects;
 
@@ -40,6 +41,13 @@ final class AppContextSpreadsheetSortDialogComponentContext implements Spreadshe
 
     private AppContextSpreadsheetSortDialogComponentContext(final AppContext context) {
         this.context = context;
+    }
+
+    // SpreadsheetViewportCache.........................................................................................
+
+    @Override
+    public SpreadsheetViewportCache spreadsheetViewportCache() {
+        return this.context.spreadsheetViewportCache();
     }
 
     // SpreadsheetSortDialogComponentContext............................................................................

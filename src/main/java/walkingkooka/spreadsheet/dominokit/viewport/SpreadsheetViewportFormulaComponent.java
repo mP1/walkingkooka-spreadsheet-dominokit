@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
@@ -165,7 +166,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
     private boolean open;
 
     @Override
-    public void open(final AppContext context) {
+    public void open(final RefreshContext context) {
         this.open = true;
         this.previousHistoryToken = null;
     }
@@ -174,11 +175,11 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
      * Mostly contains logic about whether to refresh the formula text, error messages, enable/disable and whether to give focus.
      */
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         final SpreadsheetCellHistoryToken token = context.historyToken()
                 .cast(SpreadsheetCellHistoryToken.class);
         final SpreadsheetFormulaComponent formula = this.formula;
-        final SpreadsheetSelection notLabelSelection = context.spreadsheetViewportCache()
+        final SpreadsheetSelection notLabelSelection = this.context.spreadsheetViewportCache()
                 .resolveIfLabel(
                         token.anchoredSelection()
                                 .selection()
@@ -196,7 +197,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
                         context
                 );
             } else {
-                final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
+                final SpreadsheetViewportCache cache = this.context.spreadsheetViewportCache();
                 // refresh could have happened before label from selection has returned from server.
                 // remove try/catch and if != null when https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2575 implemented.
                 Optional<SpreadsheetCell> cell;
@@ -240,8 +241,8 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
      * Refreshes the {@link #formula} text and helper / error message.
      */
     private void refreshFormula(final SpreadsheetCellReference cellReference,
-                                final AppContext context) {
-        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
+                                final RefreshContext context) {
+        final SpreadsheetViewportCache cache = this.context.spreadsheetViewportCache();
 
         final Optional<SpreadsheetCell> cell = cache.cell(cellReference);
         final Optional<String> text = cell.map((c) -> c.formula().text());
@@ -262,12 +263,12 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         // nop
     }
 
     @Override
-    public void close(final AppContext context) {
+    public void close(final RefreshContext context) {
         this.open = false;
         this.formula.disabled()
                 .clearValue()

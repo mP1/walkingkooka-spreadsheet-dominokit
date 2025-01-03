@@ -23,6 +23,7 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -180,24 +181,24 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     }
 
     @Override
-    public void open(final AppContext context) {
+    public void open(final RefreshContext context) {
         this.open = true;
     }
 
     @Override
-    public void close(final AppContext context) {
+    public void close(final RefreshContext context) {
         this.open = false;
     }
 
     private boolean open;
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
 
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         // nop
     }
 

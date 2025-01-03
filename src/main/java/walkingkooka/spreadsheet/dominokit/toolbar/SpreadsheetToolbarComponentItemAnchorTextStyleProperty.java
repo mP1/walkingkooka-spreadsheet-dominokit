@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
 import org.dominokit.domino.ui.icons.Icon;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -93,8 +93,8 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
     }
 
     @Override
-    public void refresh(final AppContext context) {
-        final T saveValue = context.spreadsheetViewportCache()
+    public void refresh(final RefreshContext context) {
+        final T saveValue = this.context.spreadsheetViewportCache()
                 .selectionSummary()
                 .style()
                 .get(this.propertyName)
