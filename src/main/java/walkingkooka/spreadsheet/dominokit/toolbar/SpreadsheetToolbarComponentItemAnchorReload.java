@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 
 import java.util.Objects;
@@ -33,7 +32,7 @@ final class SpreadsheetToolbarComponentItemAnchorReload extends SpreadsheetToolb
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh {
 
-    static SpreadsheetToolbarComponentItemAnchorReload with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorReload with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorReload(
@@ -41,7 +40,7 @@ final class SpreadsheetToolbarComponentItemAnchorReload extends SpreadsheetToolb
         );
     }
 
-    private SpreadsheetToolbarComponentItemAnchorReload(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorReload(final SpreadsheetToolbarComponentContext context) {
         super(
                 SpreadsheetToolbarComponent.reloadId(),
                 Optional.of(

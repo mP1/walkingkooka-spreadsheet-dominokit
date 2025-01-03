@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -36,7 +35,7 @@ final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToo
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh {
 
-    static SpreadsheetToolbarComponentItemAnchorCellFind with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorCellFind with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorCellFind(
@@ -44,7 +43,7 @@ final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToo
         );
     }
 
-    private SpreadsheetToolbarComponentItemAnchorCellFind(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorCellFind(final SpreadsheetToolbarComponentContext context) {
         super(
                 SpreadsheetToolbarComponent.findCellsId(),
                 Optional.of(

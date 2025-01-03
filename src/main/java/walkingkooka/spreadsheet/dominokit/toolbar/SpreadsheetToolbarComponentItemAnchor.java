@@ -22,7 +22,6 @@ import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -37,7 +36,7 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
                                           final Optional<Icon<?>> icon,
                                           final String text,
                                           final String tooltipText,
-                                          final HistoryTokenContext context) {
+                                          final SpreadsheetToolbarComponentContext context) {
         final HistoryTokenAnchorComponent anchor = context.historyToken()
                 .link(id)
                 .setTextContent(text)
@@ -87,7 +86,7 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
 
     final SpreadsheetTooltipComponent tooltip;
 
-    final HistoryTokenContext context;
+    final SpreadsheetToolbarComponentContext context;
 
     @Override
     public final String toString() {
