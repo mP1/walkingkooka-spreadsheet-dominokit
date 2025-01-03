@@ -41,12 +41,12 @@ abstract class SpreadsheetUploadFileComponentLike implements ValueComponent<HTML
     }
 
     @Override
-    public String label() {
+    public final String label() {
         return "";
     }
 
     @Override
-    public Optional<String> helperText() {
+    public final Optional<String> helperText() {
         return Optional.empty();
     }
 
@@ -56,17 +56,17 @@ abstract class SpreadsheetUploadFileComponentLike implements ValueComponent<HTML
     }
 
     @Override
-    public SpreadsheetUploadFileComponent optional() {
+    public final SpreadsheetUploadFileComponent optional() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetUploadFileComponent required() {
+    public final SpreadsheetUploadFileComponent required() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean isRequired() {
+    public final boolean isRequired() {
         return false;
     }
 
