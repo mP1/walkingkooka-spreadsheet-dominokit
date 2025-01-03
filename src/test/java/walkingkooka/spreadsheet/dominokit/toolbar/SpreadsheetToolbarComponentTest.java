@@ -97,7 +97,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
 
         // toolbar shoould be empty (hidden)
         this.onHistoryTokenChangeAndCheck(
-                SpreadsheetToolbarComponent.with(context),
+                this.createComponent(context),
                 watchers,
                 context,
                 "SpreadsheetToolbarComponent\n" +
@@ -116,7 +116,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
         );
 
         this.onHistoryTokenChangeAndCheck(
-                SpreadsheetToolbarComponent.with(context),
+                this.createComponent(context),
                 watchers,
                 context,
                 "SpreadsheetToolbarComponent\n" +
@@ -210,7 +210,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
         );
 
         this.onHistoryTokenChangeAndCheck(
-                SpreadsheetToolbarComponent.with(context),
+                this.createComponent(context),
                 watchers,
                 context,
                 "SpreadsheetToolbarComponent\n" +
@@ -253,7 +253,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
         );
 
         this.onHistoryTokenChangeAndCheck(
-                SpreadsheetToolbarComponent.with(context),
+                this.createComponent(context),
                 watchers,
                 context,
                 "SpreadsheetToolbarComponent\n" +
@@ -286,9 +286,16 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
         );
     }
 
+    private SpreadsheetToolbarComponent createComponent(final AppContext context) {
+        return SpreadsheetToolbarComponent.with(
+                SpreadsheetToolbarComponentContexts.appContext(context)
+        );
+    }
+
     private AppContext appContext(final HistoryTokenWatchers watchers,
                                   final String historyToken) {
         return new FakeAppContext() {
+
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
                 return watchers.add(watcher);

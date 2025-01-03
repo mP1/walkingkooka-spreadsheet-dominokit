@@ -49,13 +49,13 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         NopEmptyResponseFetcherWatcher,
         SpreadsheetDeltaFetcherWatcher {
 
-    public static SpreadsheetToolbarComponent with(final AppContext context) {
+    public static SpreadsheetToolbarComponent with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponent(context);
     }
 
-    private SpreadsheetToolbarComponent(final AppContext context) {
+    private SpreadsheetToolbarComponent(final SpreadsheetToolbarComponentContext context) {
         this.flexLayout = this.createFlexLayout(context);
 
         context.addSpreadsheetDeltaFetcherWatcher(this);
@@ -83,7 +83,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     /**
      * Creates a {@link SpreadsheetFlexLayout} and populates it with the toolbar icons etc.
      */
-    private SpreadsheetFlexLayout createFlexLayout(final AppContext context) {
+    private SpreadsheetFlexLayout createFlexLayout(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetFlexLayout.row()
                 .displayBlock() // without this the toolbar rows have a undesirable line "height" instead of meeting.
                 .appendChildren(
@@ -105,7 +105,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
      *     <li>swagger (maybe remove later or hide)</li>
      * </ol>
      */
-    private static List<SpreadsheetToolbarComponentItem<?>> components(final AppContext context) {
+    private static List<SpreadsheetToolbarComponentItem<?>> components(final SpreadsheetToolbarComponentContext context) {
         return Lists.of(
                 // style
                 SpreadsheetToolbarComponentItem.bold(context),
@@ -170,7 +170,7 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
         return this.context.spreadsheetMetadata();
     }
 
-    private final AppContext context;
+    private final SpreadsheetToolbarComponentContext context;
 
     // HistoryTokenAwareComponentLifecycle..............................................................................................
 

@@ -33,7 +33,7 @@ import java.util.Optional;
  */
 final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extends SpreadsheetToolbarComponentItemAnchorMetadata<SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting> {
 
-    static SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting with(final AppContext context) {
+    static SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting(
@@ -41,7 +41,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extend
         );
     }
 
-    private SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting(final AppContext context) {
+    private SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting(final SpreadsheetToolbarComponentContext context) {
         super(
                 SpreadsheetToolbarComponent.findHighlightId(),
                 Optional.of(
@@ -51,7 +51,6 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extend
                 "Highlight", // let refresh load tooltip
                 context
         );
-        this.refresh(context);
     }
 
     // SpreadsheetToolbarComponentItemLink............................................................................
