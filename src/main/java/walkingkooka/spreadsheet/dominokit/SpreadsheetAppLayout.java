@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataHistoryTokenAw
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.toolbar.SpreadsheetToolbarComponent;
+import walkingkooka.spreadsheet.dominokit.toolbar.SpreadsheetToolbarComponentContexts;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -72,7 +73,9 @@ final class SpreadsheetAppLayout extends AppLayout implements
                         }
                 ).getBody()
                 .appendChild(
-                        SpreadsheetToolbarComponent.with(context)
+                        SpreadsheetToolbarComponent.with(
+                                SpreadsheetToolbarComponentContexts.appContext(context)
+                        )
                 );
 
         // right drawer.................................................................................................

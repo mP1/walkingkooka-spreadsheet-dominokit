@@ -33,7 +33,7 @@ import java.util.Optional;
  */
 final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends SpreadsheetToolbarComponentItemAnchorMetadata<SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues> {
 
-    static SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues with(final AppContext context) {
+    static SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues(
@@ -41,7 +41,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends 
         );
     }
 
-    private SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues(final AppContext context) {
+    private SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues(final SpreadsheetToolbarComponentContext context) {
         super(
                 SpreadsheetToolbarComponent.hideZeroValues(),
                 Optional.of(
@@ -51,7 +51,6 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends 
                 "Hide Zeros", // let refresh load tooltip
                 context
         );
-        this.refresh(context);
     }
 
     // SpreadsheetToolbarComponentItemLink............................................................................

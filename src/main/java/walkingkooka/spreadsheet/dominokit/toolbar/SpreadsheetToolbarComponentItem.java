@@ -83,7 +83,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     /**
      * {@see SpreadsheetToolbarComponentItemLinkMetadataHideZeroValues}
      */
-    static SpreadsheetToolbarComponentItem<?> hideZeroValues(final AppContext context) {
+    static SpreadsheetToolbarComponentItem<?> hideZeroValues(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues.with(
                 context
         );
@@ -92,7 +92,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     /**
      * {@see SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting}
      */
-    static SpreadsheetToolbarComponentItem<?> highlightCells(final AppContext context) {
+    static SpreadsheetToolbarComponentItem<?> highlightCells(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting.with(
                 context
         );

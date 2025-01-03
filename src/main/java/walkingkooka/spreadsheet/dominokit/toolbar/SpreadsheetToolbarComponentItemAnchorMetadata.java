@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import org.dominokit.domino.ui.icons.Icon;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetCellComponentLifecycle;
@@ -39,7 +38,7 @@ abstract class SpreadsheetToolbarComponentItemAnchorMetadata<T extends Spreadshe
                                                   final Optional<Icon<?>> icon,
                                                   final String text,
                                                   final String tooltipText,
-                                                  final AppContext context) {
+                                                  final SpreadsheetToolbarComponentContext context) {
         super(
                 id,
                 icon,
@@ -59,7 +58,7 @@ abstract class SpreadsheetToolbarComponentItemAnchorMetadata<T extends Spreadshe
     }
 
     /**
-     * Must be {@link AppContext} so sub-classes can get current {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}.
+     * Must be {@link SpreadsheetToolbarComponentContext} so sub-classes can get current {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata}.
      */
-    final AppContext context;
+    final SpreadsheetToolbarComponentContext context;
 }
