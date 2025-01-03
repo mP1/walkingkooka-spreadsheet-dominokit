@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.comparator;
 
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
@@ -215,7 +216,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         context.giveFocus(
                 this.textBox::focus
         );
@@ -225,7 +226,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
      * Refreshes the widget, typically done when the {@link SpreadsheetPatternKind} changes etc.
      */
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         final String undo = this.context.undo();
         this.setText(undo);
 

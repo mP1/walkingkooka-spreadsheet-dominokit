@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleRefresh;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetCellComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
@@ -70,7 +70,7 @@ final class SpreadsheetToolbarComponentItemAnchorFormatter extends SpreadsheetTo
 
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         this.anchor.setHistoryToken(
                 context.historyToken()
                         .anchoredSelectionHistoryTokenOrEmpty()

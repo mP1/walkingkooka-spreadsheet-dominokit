@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.HTMLElement;
 import walkingkooka.CanBeEmpty;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.VisibleHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -339,13 +339,13 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     }
 
     @Override
-    public final void open(final AppContext context) {
+    public final void open(final RefreshContext context) {
         this.setVisibility(true);
         this.open = true;
     }
 
     @Override
-    public final void close(final AppContext context) {
+    public final void close(final RefreshContext context) {
         this.setVisibility(false);
         this.open = false;
     }

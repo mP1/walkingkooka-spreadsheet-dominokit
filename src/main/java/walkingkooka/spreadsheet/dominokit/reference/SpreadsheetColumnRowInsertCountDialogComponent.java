@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
@@ -168,7 +168,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         this.count.setValue(Optional.empty()); // clear old value
         context.giveFocus(
                 this.count::focus
@@ -176,7 +176,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
     }
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         this.refreshGo();
         this.refreshClose();
     }

@@ -174,7 +174,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
     }
 
     @Override
-    public void open(final AppContext context) {
+    public void open(final RefreshContext context) {
         Doms.setVisibility(
                 this.element(),
                 true
@@ -182,17 +182,17 @@ final class SpreadsheetAppLayout extends AppLayout implements
     }
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         // do nothing only want AppLayout to be hidden when not SpreadsheetNameHistoryToken
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         // do nothing
     }
 
     @Override
-    public void close(final AppContext context) {
+    public void close(final RefreshContext context) {
         Doms.setVisibility(
                 this.element(),
                 false

@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.meta;
 import elemental2.dom.HTMLUListElement;
 import org.dominokit.domino.ui.elements.UListElement;
 import walkingkooka.collect.map.Maps;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -113,9 +113,9 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
     // ComponentRefreshable.............................................................................................
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
-        final T metadataValue = context.spreadsheetMetadata()
+        final T metadataValue = this.context.spreadsheetMetadata()
                 .getIgnoringDefaults(propertyName)
                 .orElse(null);
 
@@ -145,7 +145,7 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
 
         this.refreshDefaultValue(
                 this.defaultValueAnchor,
-                context.spreadsheetMetadata()
+                this.context.spreadsheetMetadata()
                         .defaults()
                         .get(propertyName)
                         .map(this::format)

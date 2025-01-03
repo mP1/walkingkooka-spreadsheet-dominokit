@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
 import walkingkooka.net.Url;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleRefresh;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -71,7 +71,7 @@ final class SpreadsheetToolbarComponentItemAnchorSwagger extends SpreadsheetTool
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         // NOP
     }
 

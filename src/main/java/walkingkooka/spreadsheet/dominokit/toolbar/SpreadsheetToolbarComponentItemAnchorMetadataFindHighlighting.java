@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.find.FindHighlighting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -63,8 +63,8 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extend
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
-    public void refresh(final AppContext context) {
-        final boolean enabled = FindHighlighting.isEnabled(context);
+    public void refresh(final RefreshContext context) {
+        final boolean enabled = FindHighlighting.isEnabled(this.context);
 
         this.setTooltipText(
                 FindHighlighting.label(false == enabled)

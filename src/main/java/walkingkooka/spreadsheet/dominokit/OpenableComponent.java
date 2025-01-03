@@ -30,10 +30,10 @@ public interface OpenableComponent {
     /**
      * The widget should open or show.
      */
-    void open(final AppContext context);
+    void open(final RefreshContext context);
 
     /**
      * The widget should close or hide.
      */
-    void close(final AppContext context);
+    void close(final RefreshContext context);
 }

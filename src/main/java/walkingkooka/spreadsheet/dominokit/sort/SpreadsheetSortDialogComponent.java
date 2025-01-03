@@ -23,7 +23,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
@@ -115,7 +115,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
      * from the history token and then give it focus.
      */
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         this.refreshColumnOrRowComparatorNamesList(context);
         this.columnOrRowComparatorNamesListHistoryTokenEdit = null;
         this.columnOrRowComparatorNamesList.focus();
@@ -124,7 +124,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     // refresh..........................................................................................................
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         this.refreshSelection(context);
         this.refreshColumnOrRowComparatorNamesList(context); // maybe sync from history token
         this.refreshColumnOrRowComparatorNamesList(); // sync everything from the namesList component
@@ -136,8 +136,8 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
      * Extract the {@link SpreadsheetSelection} from the current {@link HistoryToken}.
      * This will be used to validate any entered columns or rows.
      */
-    private void refreshSelection(final AppContext context) {
-        this.selectionNotLabel = context.spreadsheetViewportCache()
+    private void refreshSelection(final RefreshContext context) {
+        this.selectionNotLabel = this.context.spreadsheetViewportCache()
                 .resolveIfLabel(
                         context.historyToken()
                                 .cast(SpreadsheetAnchoredSelectionHistoryToken.class)
@@ -154,7 +154,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     /**
      * Only the {@link #columnOrRowComparatorNamesList} if the history token has changed since this dialog appeared.
      */
-    private void refreshColumnOrRowComparatorNamesList(final AppContext context) {
+    private void refreshColumnOrRowComparatorNamesList(final RefreshContext context) {
         final Optional<String> list = this.historyTokenComparatorNamesList(context.historyToken());
         if (false == list.equals(this.columnOrRowComparatorNamesListHistoryTokenEdit)) {
             this.columnOrRowComparatorNamesListHistoryTokenEdit = list;

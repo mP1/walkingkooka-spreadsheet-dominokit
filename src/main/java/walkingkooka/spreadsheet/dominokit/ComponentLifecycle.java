@@ -24,12 +24,12 @@ public interface ComponentLifecycle extends ComponentRefreshable,
         OpenableComponent {
 
     /**
-     * This is called after {@link #open(AppContext)} and {@link #refresh(AppContext)}
+     * This is called after {@link OpenableComponent#open(RefreshContext)} and {@link #refresh(RefreshContext)}
      */
-    void openGiveFocus(final AppContext context);
+    void openGiveFocus(final RefreshContext context);
 
     /**
-     * Conditionally calls {@link #refresh(AppContext)} if this ui is {@link #isOpen()}.
+     * Conditionally calls {@link #refresh(RefreshContext)} if this ui is {@link #isOpen()}.
      */
-    void refreshIfOpen(final AppContext context);
+    void refreshIfOpen(final RefreshContext context);
 }

@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.hidezerovalues.HideZeroValues;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -63,8 +63,8 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends 
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
     @Override
-    public void refresh(final AppContext context) {
-        final boolean hide = HideZeroValues.isHideZeroValues(context);
+    public void refresh(final RefreshContext context) {
+        final boolean hide = HideZeroValues.isHideZeroValues(this.context);
 
         this.setTooltipText(
                 HideZeroValues.label(false == hide)
@@ -78,7 +78,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends 
                                 .setMetadataPropertyName(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
                                 .save(
                                         Optional.of(
-                                                false == HideZeroValues.isHideZeroValues(context) // if hide=true then click makes hide=false
+                                                false == HideZeroValues.isHideZeroValues(this.context) // if hide=true then click makes hide=false
                                         )
                                 )
                 )

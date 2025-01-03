@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.spreadsheet;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
@@ -169,7 +170,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         final SpreadsheetNameDialogComponentContext dialogContext = this.context;
 
         final SpreadsheetId id = dialogContext.spreadsheetId();
@@ -182,7 +183,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
     }
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         final SpreadsheetNameDialogComponentContext dialogContext = this.context;
         final Optional<SpreadsheetName> name = dialogContext.spreadsheetName();
 

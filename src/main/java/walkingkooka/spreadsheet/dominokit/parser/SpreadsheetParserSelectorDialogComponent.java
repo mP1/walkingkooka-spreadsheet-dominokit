@@ -22,6 +22,7 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
@@ -385,7 +386,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         context.giveFocus(
                 this.textBox::focus
         );
@@ -395,7 +396,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
      * Refreshes the widget, typically done when the {@link SpreadsheetPatternKind} changes etc.
      */
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         // setText will trigger a refresh of table, appender, removeOrReplace
         final String undo = this.context.undo();
         this.setText(undo);

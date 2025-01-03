@@ -17,10 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-public interface NopComponentLifecycleRefresh extends ComponentLifecycle {
+import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
-    @Override
-    default void refresh(final RefreshContext context) {
-        // nop
-    }
+public interface RefreshContext extends CanGiveFocus,
+        HistoryTokenContext,
+        LoggingContext {
 }

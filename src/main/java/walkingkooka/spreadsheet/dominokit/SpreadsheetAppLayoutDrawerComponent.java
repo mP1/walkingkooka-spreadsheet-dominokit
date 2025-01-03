@@ -47,7 +47,7 @@ abstract class SpreadsheetAppLayoutDrawerComponent<E extends HTMLElement, T exte
     // SpreadsheetFormComponentLifecycle...............................................................................
 
     @Override
-    public final void open(final AppContext context) {
+    public final void open(final RefreshContext context) {
         this.showDrawer();
         this.form.open(context);
     }
@@ -55,17 +55,17 @@ abstract class SpreadsheetAppLayoutDrawerComponent<E extends HTMLElement, T exte
     abstract void showDrawer();
 
     @Override
-    public final void openGiveFocus(final AppContext context) {
+    public final void openGiveFocus(final RefreshContext context) {
         this.form.openGiveFocus(context);
     }
 
     @Override
-    public final void refresh(final AppContext context) {
+    public final void refresh(final RefreshContext context) {
         this.form.refresh(context);
     }
 
     @Override
-    public final void close(final AppContext context) {
+    public final void close(final RefreshContext context) {
         this.hideDrawer();
         this.form.close(context);
     }

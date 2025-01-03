@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.meta;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.utils.ElementsFactory;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -69,8 +69,8 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
     // ComponentRefreshable.............................................................................................
 
     @Override
-    public void refresh(final AppContext context) {
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+    public void refresh(final RefreshContext context) {
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
 
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
         final String text = metadata.get(propertyName)

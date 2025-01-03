@@ -22,9 +22,10 @@ import org.dominokit.domino.ui.elements.UListElement;
 import org.dominokit.domino.ui.forms.IntegerBox;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Map;
@@ -104,17 +105,17 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
     // ComponentRefreshable.............................................................................................
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+
         this.integerBox.setValue(
-                context.spreadsheetMetadata()
-                        .getIgnoringDefaults(this.propertyName)
+                metadata.getIgnoringDefaults(this.propertyName)
                         .orElse(null)
         );
 
         final SpreadsheetMetadataPropertyName<Integer> propertyName = SpreadsheetMetadataPropertyName.PRECISION;
 
-        final Integer metadataValue = context.spreadsheetMetadata()
-                .getIgnoringDefaults(propertyName)
+        final Integer metadataValue = metadata.getIgnoringDefaults(propertyName)
                 .orElse(null);
 
         final HistoryToken token = context.historyToken()
@@ -141,7 +142,7 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
 
         this.refreshDefaultValue(
                 this.defaultValueAnchor,
-                context.spreadsheetMetadata()
+                this.context.spreadsheetMetadata()
                         .defaults()
                         .get(propertyName)
                         .map(Object::toString)

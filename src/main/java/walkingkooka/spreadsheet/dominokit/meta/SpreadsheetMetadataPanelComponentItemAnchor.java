@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.HTMLAnchorElement;
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -73,7 +73,7 @@ final class SpreadsheetMetadataPanelComponentItemAnchor<T> extends SpreadsheetMe
     // ComponentRefreshable.............................................................................................
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         this.anchor.setHistoryToken(
                 Optional.of(
                         context.historyToken()

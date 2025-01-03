@@ -1571,6 +1571,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                     public SpreadsheetComparatorInfoSet spreadsheetComparatorInfos() {
                         return context.spreadsheetComparatorInfos();
                     }
+
+                    @Override
+                    public SpreadsheetViewportCache spreadsheetViewportCache() {
+                        return context.spreadsheetViewportCache();
+                    }
                 }
         );
     }

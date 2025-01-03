@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -543,19 +544,19 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     }
 
     @Override
-    public void open(final AppContext context) {
+    public void open(final RefreshContext context) {
         this.open = true;
     }
 
     @Override
-    public void close(final AppContext context) {
+    public void close(final RefreshContext context) {
         this.open = false;
     }
 
     private boolean open;
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         final HistoryToken token = context.historyToken();
         if (token instanceof SpreadsheetMetadataPropertySelectHistoryToken) {
             final SpreadsheetMetadataPropertyName<?> propertyName = token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
@@ -574,12 +575,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     }
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         // Before refreshing verify a loaded Metadata with LOCALE and other properties are present otherwise
         // rendering the panel will fail complaining LOCALE Is absent.
         //
         // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/1018
-        if (context.spreadsheetMetadata()
+        if (this.context.spreadsheetMetadata()
                 .get(SpreadsheetMetadataPropertyName.LOCALE)
                 .isPresent()) {
             this.items.forEach(i -> i.refresh(context));

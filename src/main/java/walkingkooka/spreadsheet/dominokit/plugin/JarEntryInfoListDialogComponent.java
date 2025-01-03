@@ -21,6 +21,7 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
@@ -216,7 +217,7 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         final PluginSelectHistoryToken select = context.historyToken()
                 .cast(PluginSelectHistoryToken.class);
         this.pluginName = select.name();
@@ -227,7 +228,7 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
     }
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         this.dialog.setTitle(
                 Optional.ofNullable(this.pluginName)
                         .map(PluginName::value)

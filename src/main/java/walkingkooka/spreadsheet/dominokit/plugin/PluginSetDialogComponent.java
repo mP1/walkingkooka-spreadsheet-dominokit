@@ -21,6 +21,7 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
@@ -192,7 +193,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
     }
 
     @Override
-    public void openGiveFocus(final AppContext context) {
+    public void openGiveFocus(final RefreshContext context) {
         final PluginListSelectHistoryToken select = context.historyToken()
                 .cast(PluginListSelectHistoryToken.class);
 
@@ -207,7 +208,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
     private final static int DEFAULT_COUNT = 20;
 
     @Override
-    public void refresh(final AppContext context) {
+    public void refresh(final RefreshContext context) {
         this.table.refresh(
                 context.historyToken()
                         .cast(PluginListSelectHistoryToken.class)

@@ -1622,6 +1622,11 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
 
         private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
 
+        @Override
+        public SpreadsheetMetadata spreadsheetMetadata() {
+            return this.context.spreadsheetMetadata();
+        }
+
         private final AppContext context;
 
         @Override

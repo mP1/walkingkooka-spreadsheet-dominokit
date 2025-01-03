@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.dialog;
 
 import org.dominokit.domino.ui.dialogs.Dialog;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -75,7 +75,7 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
     }
 
     @Override
-    default void open(final AppContext context) {
+    default void open(final RefreshContext context) {
         this.dialogReset();
         this.dialog()
                 .open();
@@ -85,7 +85,7 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
      * Closes or hides the {@link Dialog}.
      */
     @Override
-    default void close(final AppContext context) {
+    default void close(final RefreshContext context) {
         this.dialog()
                 .close();
         this.dialogReset();
