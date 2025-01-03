@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -37,7 +36,7 @@ final class SpreadsheetToolbarComponentItemAnchorSort extends SpreadsheetToolbar
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh {
 
-    static SpreadsheetToolbarComponentItemAnchorSort with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorSort with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorSort(
@@ -45,7 +44,7 @@ final class SpreadsheetToolbarComponentItemAnchorSort extends SpreadsheetToolbar
         );
     }
 
-    private SpreadsheetToolbarComponentItemAnchorSort(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorSort(final SpreadsheetToolbarComponentContext context) {
         super(
                 SpreadsheetToolbarComponent.sortId(),
                 Optional.of(

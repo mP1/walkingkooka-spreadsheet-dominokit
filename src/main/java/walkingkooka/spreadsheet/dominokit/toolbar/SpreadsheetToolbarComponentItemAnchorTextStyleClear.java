@@ -33,7 +33,7 @@ import java.util.Optional;
  */
 final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends SpreadsheetToolbarComponentItemAnchorTextStyle<SpreadsheetToolbarComponentItemAnchorTextStyleClear> {
 
-    static SpreadsheetToolbarComponentItemAnchorTextStyleClear with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorTextStyleClear with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorTextStyleClear(
@@ -41,7 +41,7 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends Spreadsh
         );
     }
 
-    private SpreadsheetToolbarComponentItemAnchorTextStyleClear(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorTextStyleClear(final SpreadsheetToolbarComponentContext context) {
         super(
                 SpreadsheetToolbarComponent.id(
                         PROPERTY,

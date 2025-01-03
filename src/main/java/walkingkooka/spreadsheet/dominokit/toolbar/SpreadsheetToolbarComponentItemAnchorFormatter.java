@@ -36,7 +36,7 @@ final class SpreadsheetToolbarComponentItemAnchorFormatter extends SpreadsheetTo
         NopComponentLifecycleRefresh,
         NopComponentLifecycleOpenGiveFocus {
 
-    static SpreadsheetToolbarComponentItemAnchorFormatter with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorFormatter with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorFormatter(
@@ -44,7 +44,7 @@ final class SpreadsheetToolbarComponentItemAnchorFormatter extends SpreadsheetTo
         );
     }
 
-    private SpreadsheetToolbarComponentItemAnchorFormatter(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorFormatter(final SpreadsheetToolbarComponentContext context) {
         super(
                 SpreadsheetToolbarComponent.formatterId(),
                 Optional.of(

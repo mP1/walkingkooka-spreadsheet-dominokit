@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.VisibleHtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
@@ -45,7 +44,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         VisibleHtmlElementComponent<HTMLElement, C>,
         CanBeEmpty {
 
-    static SpreadsheetToolbarComponentItem<?> bold(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> bold(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.FONT_WEIGHT,
                 FontWeight.BOLD,
@@ -58,7 +57,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
-    static SpreadsheetToolbarComponentItem<?> clearStyle(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> clearStyle(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleClear.with(
                 context
         );
@@ -67,7 +66,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     /**
      * {@see SpreadsheetToolbarComponentItemLinkCellFind}
      */
-    static SpreadsheetToolbarComponentItem<?> findCells(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> findCells(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorCellFind.with(
                 context
         );
@@ -76,7 +75,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     /**
      * {@link SpreadsheetToolbarComponentItemAnchorFormatter}
      */
-    static SpreadsheetToolbarComponentItem<?> formatPattern(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> formatPattern(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorFormatter.with(context);
     }
 
@@ -98,7 +97,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
-    static SpreadsheetToolbarComponentItem<?> italics(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> italics(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.FONT_STYLE,
                 FontStyle.ITALIC,
@@ -114,7 +113,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     /**
      * {@see SpreadsheetToolbarComponentItemLinkLabelCreate}
      */
-    static SpreadsheetToolbarComponentItem<?> labelCreate(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> labelCreate(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorLabelCreate.with(
                 context
         );
@@ -123,21 +122,21 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     /**
      * {@link SpreadsheetToolbarComponentItemAnchorParser}
      */
-    static SpreadsheetToolbarComponentItem<?> parsePattern(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> parsePattern(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorParser.with(context);
     }
 
     /**
      * {@link SpreadsheetToolbarComponentItemAnchorPlugin}
      */
-    static SpreadsheetToolbarComponentItem<?> plugin(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> plugin(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorPlugin.with(context);
     }
 
     /**
      * {@link SpreadsheetToolbarComponentItemAnchorReload}
      */
-    static SpreadsheetToolbarComponentItem<?> reload(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> reload(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorReload.with(context);
     }
 
@@ -145,11 +144,11 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     /**
      * {@link SpreadsheetToolbarComponentItemAnchorSort}
      */
-    static SpreadsheetToolbarComponentItem<?> sort(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> sort(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorSort.with(context);
     }
 
-    static SpreadsheetToolbarComponentItem<?> strikeThru(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> strikeThru(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.LINE_THROUGH,
@@ -165,11 +164,11 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
     /**
      * {@link SpreadsheetToolbarComponentItemAnchorSwagger}
      */
-    static SpreadsheetToolbarComponentItem<?> swagger(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> swagger(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorSwagger.with(context);
     }
 
-    static SpreadsheetToolbarComponentItem<?> textAlignLeft(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textAlignLeft(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.LEFT,
@@ -182,7 +181,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
-    static SpreadsheetToolbarComponentItem<?> textAlignCenter(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textAlignCenter(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.CENTER,
@@ -195,7 +194,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
-    static SpreadsheetToolbarComponentItem<?> textAlignRight(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textAlignRight(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.RIGHT,
@@ -208,7 +207,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
-    static SpreadsheetToolbarComponentItem<?> textAlignJustify(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textAlignJustify(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_ALIGN,
                 TextAlign.JUSTIFY,
@@ -221,7 +220,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
-    static SpreadsheetToolbarComponentItem<?> textCaseCapitalize(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textCaseCapitalize(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_TRANSFORM,
                 TextTransform.CAPITALIZE,
@@ -234,7 +233,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
-    static SpreadsheetToolbarComponentItem<?> textCaseLowercase(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textCaseLowercase(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_TRANSFORM,
                 TextTransform.LOWERCASE,
@@ -247,7 +246,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
-    static SpreadsheetToolbarComponentItem<?> textCaseUppercase(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> textCaseUppercase(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_TRANSFORM,
                 TextTransform.UPPERCASE,
@@ -260,7 +259,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
-    static SpreadsheetToolbarComponentItem<?> underline(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> underline(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.TEXT_DECORATION_LINE,
                 TextDecorationLine.UNDERLINE,
@@ -273,7 +272,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
-    static SpreadsheetToolbarComponentItem<?> verticalAlignTop(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> verticalAlignTop(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.TOP,
@@ -286,7 +285,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
-    static SpreadsheetToolbarComponentItem<?> verticalAlignMiddle(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> verticalAlignMiddle(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.MIDDLE,
@@ -299,7 +298,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
         );
     }
 
-    static SpreadsheetToolbarComponentItem<?> verticalAlignBottom(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItem<?> verticalAlignBottom(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
                 TextStylePropertyName.VERTICAL_ALIGN,
                 VerticalAlign.BOTTOM,

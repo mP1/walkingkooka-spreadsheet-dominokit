@@ -36,7 +36,7 @@ final class SpreadsheetToolbarComponentItemAnchorParser extends SpreadsheetToolb
         NopComponentLifecycleRefresh,
         NopComponentLifecycleOpenGiveFocus {
 
-    static SpreadsheetToolbarComponentItemAnchorParser with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorParser with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorParser(
@@ -44,7 +44,7 @@ final class SpreadsheetToolbarComponentItemAnchorParser extends SpreadsheetToolb
         );
     }
 
-    private SpreadsheetToolbarComponentItemAnchorParser(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorParser(final SpreadsheetToolbarComponentContext context) {
         super(
                 SpreadsheetToolbarComponent.parserId(),
                 Optional.of(

@@ -38,7 +38,7 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
                                                                               final Optional<Icon<?>> icon,
                                                                               final String text,
                                                                               final String tooltipText,
-                                                                              final HistoryTokenContext context) {
+                                                                              final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(propertyName, "propertyName");
         Objects.requireNonNull(propertyValue, "propertyValue");
         Objects.requireNonNull(icon, "icon");
@@ -61,7 +61,7 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
                                                                    final Optional<Icon<?>> icon,
                                                                    final String text,
                                                                    final String tooltipText,
-                                                                   final HistoryTokenContext context) {
+                                                                   final SpreadsheetToolbarComponentContext context) {
         super(
                 SpreadsheetToolbarComponent.id(
                         propertyName,

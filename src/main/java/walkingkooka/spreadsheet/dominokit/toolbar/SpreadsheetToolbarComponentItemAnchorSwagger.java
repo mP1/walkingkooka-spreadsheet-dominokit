@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -34,7 +33,7 @@ final class SpreadsheetToolbarComponentItemAnchorSwagger extends SpreadsheetTool
         implements NopComponentLifecycleOpenGiveFocus,
         NopComponentLifecycleRefresh {
 
-    static SpreadsheetToolbarComponentItemAnchorSwagger with(final HistoryTokenContext context) {
+    static SpreadsheetToolbarComponentItemAnchorSwagger with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorSwagger(
@@ -42,7 +41,7 @@ final class SpreadsheetToolbarComponentItemAnchorSwagger extends SpreadsheetTool
         );
     }
 
-    private SpreadsheetToolbarComponentItemAnchorSwagger(final HistoryTokenContext context) {
+    private SpreadsheetToolbarComponentItemAnchorSwagger(final SpreadsheetToolbarComponentContext context) {
         super(
                 SpreadsheetToolbarComponent.swaggerId(),
                 Optional.of(

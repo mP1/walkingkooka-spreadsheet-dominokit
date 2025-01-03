@@ -21,7 +21,6 @@ import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleOpenGiveFocus;
 import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetCellComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
@@ -39,7 +38,7 @@ abstract class SpreadsheetToolbarComponentItemAnchorTextStyle<C extends Spreadsh
                                                    final Optional<Icon<?>> icon,
                                                    final String text,
                                                    final String tooltipText,
-                                                   final HistoryTokenContext context) {
+                                                   final SpreadsheetToolbarComponentContext context) {
         super(
                 id,
                 icon,
