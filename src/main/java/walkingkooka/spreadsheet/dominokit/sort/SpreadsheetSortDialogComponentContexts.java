@@ -18,23 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.sort;
 
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
 public final class SpreadsheetSortDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see BasicSpreadsheetSortDialogComponentContext}
+     * {@see AppContextSpreadsheetSortDialogComponentContext}
      */
-    public static SpreadsheetSortDialogComponentContext basic(final SpreadsheetComparatorProvider spreadsheetComparatorProvider,
-                                                              final HistoryTokenContext historyTokenContext,
-                                                              final LoggingContext loggingContext) {
-        return BasicSpreadsheetSortDialogComponentContext.with(
-                spreadsheetComparatorProvider,
-                historyTokenContext,
-                loggingContext
-        );
+    public static SpreadsheetSortDialogComponentContext appContext(final AppContext context) {
+        return AppContextSpreadsheetSortDialogComponentContext.with(context);
     }
 
     /**
