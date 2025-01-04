@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.upload;
 
-import elemental2.dom.HTMLFieldSetElement;
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetUploadFileComponentTest implements ValueComponentTesting<HTMLFieldSetElement, BrowserFile, SpreadsheetUploadFileComponent> {
+public final class SpreadsheetUploadFileComponentTest implements ValueComponentTesting<HTMLDivElement, BrowserFile, SpreadsheetUploadFileComponent> {
 
     @Test
     public void testClearValueAndTreePrint() {
@@ -51,9 +51,34 @@ public final class SpreadsheetUploadFileComponentTest implements ValueComponentT
                         ),
                 "SpreadsheetUploadFileComponent\n" +
                         "  id=id456\n" +
-                        "  BrowserFileBase64\n" +
-                        "    \"FileName123\"\n" +
-                        "      FileContent456\n"
+                        "    BrowserFileBase64\n" +
+                        "      \"FileName123\"\n" +
+                        "        FileContent456\n"
+        );
+    }
+
+    @Test
+    public void testSetLabelSetHelperSetValueAndTreePrint() {
+        this.treePrintAndCheck(
+                SpreadsheetUploadFileComponent.empty("id456")
+                        .setLabel("Label123")
+                        .setHelperText(
+                                Optional.of("HelperText123")
+                        ).setValue(
+                                Optional.of(
+                                        BrowserFile.base64(
+                                                "FileName123",
+                                                "FileContent456"
+                                        )
+                                )
+                        ),
+                "SpreadsheetUploadFileComponent\n" +
+                        "  id=id456\n" +
+                        "  label=Label123\n" +
+                        "  helperText=HelperText123\n" +
+                        "    BrowserFileBase64\n" +
+                        "      \"FileName123\"\n" +
+                        "        FileContent456\n"
         );
     }
 
