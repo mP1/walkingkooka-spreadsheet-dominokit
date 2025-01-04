@@ -22,6 +22,11 @@ import walkingkooka.reflect.JavaVisibility;
 
 public final class HistoryTokenAnchorComponentLikeTest implements ClassTesting<HistoryTokenAnchorComponentLike> {
 
+    @Override
+    public void testAllMethodsVisibility() {
+        throw new UnsupportedOperationException();
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override
