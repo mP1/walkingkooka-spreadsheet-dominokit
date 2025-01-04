@@ -60,10 +60,10 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     private HistoryTokenAnchorComponent(final AnchorElement element) {
         super();
-        element.setMargin("5px");
 
         this.element = element;
         this.setCssText("");
+        this.setDisabled(true);
 
         this.tooltip = Optional.empty();
     }
