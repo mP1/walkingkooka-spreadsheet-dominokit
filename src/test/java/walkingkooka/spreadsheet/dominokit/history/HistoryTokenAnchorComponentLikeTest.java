@@ -20,11 +20,13 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class HistoryTokenAnchorComponentToStringTest implements ClassTesting<HistoryTokenAnchorComponentToString> {
+public final class HistoryTokenAnchorComponentLikeTest implements ClassTesting<HistoryTokenAnchorComponentLike> {
+
+    // ClassTesting.....................................................................................................
 
     @Override
-    public Class<HistoryTokenAnchorComponentToString> type() {
-        return HistoryTokenAnchorComponentToString.class;
+    public Class<HistoryTokenAnchorComponentLike> type() {
+        return HistoryTokenAnchorComponentLike.class;
     }
 
     @Override

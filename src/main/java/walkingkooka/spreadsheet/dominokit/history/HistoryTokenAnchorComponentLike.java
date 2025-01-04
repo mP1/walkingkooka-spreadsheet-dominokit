@@ -18,6 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import elemental2.dom.HTMLAnchorElement;
+import org.dominokit.domino.ui.icons.Icon;
+import walkingkooka.ToStringBuilder;
+import walkingkooka.ToStringBuilderOption;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
@@ -32,7 +35,7 @@ import java.util.Optional;
 /**
  * Defines the public methods for a {@link HistoryTokenAnchorComponent}.
  */
-public interface HistoryTokenAnchorComponentLike extends AnchorComponentLike<HistoryTokenAnchorComponent>,
+abstract class HistoryTokenAnchorComponentLike implements AnchorComponentLike<HistoryTokenAnchorComponent>,
         SpreadsheetContextMenuTarget<HTMLAnchorElement>,
         SpreadsheetTooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent>{
 
@@ -42,7 +45,7 @@ public interface HistoryTokenAnchorComponentLike extends AnchorComponentLike<His
      * If the HREF contains a url with a fragment it will be parsed into a {@link HistoryToken} otherwise
      * an {@link Optional#empty()} will be returned.
      */
-    default Optional<HistoryToken> historyToken() {
+    public final Optional<HistoryToken> historyToken() {
         final Url url = this.href();
 
         return Optional.ofNullable(
@@ -57,7 +60,7 @@ public interface HistoryTokenAnchorComponentLike extends AnchorComponentLike<His
     /**
      * Setter takes the given {@link HistoryToken} updating the HREF.
      */
-    default HistoryTokenAnchorComponent setHistoryToken(final Optional<HistoryToken> historyToken) {
+    public final HistoryTokenAnchorComponent setHistoryToken(final Optional<HistoryToken> historyToken) {
         final HistoryToken historyTokenOrNull = historyToken.orElse(null);
 
         return this.setHref(
@@ -72,7 +75,7 @@ public interface HistoryTokenAnchorComponentLike extends AnchorComponentLike<His
     /**
      * The {@link #historyToken()} will be pushed if this anchor is clicked or ENTER key downed.
      */
-    default HistoryTokenAnchorComponent addPushHistoryToken(final HistoryTokenContext context) {
+    public final HistoryTokenAnchorComponent addPushHistoryToken(final HistoryTokenContext context) {
         return this.addClickAndKeydownEnterListener(
                 (e) -> {
                     e.preventDefault();
@@ -90,12 +93,12 @@ public interface HistoryTokenAnchorComponentLike extends AnchorComponentLike<His
     /**
      * Retrieves any {@link SpreadsheetTooltipComponent}
      */
-    Optional<SpreadsheetTooltipComponent> spreadsheetTooltipComponent();
+    abstract Optional<SpreadsheetTooltipComponent> spreadsheetTooltipComponent();
 
     // TreePrintable....................................................................................................
 
     @Override
-    default void printTree(final IndentingPrinter printer) {
+    public final void printTree(final IndentingPrinter printer) {
         printer.print(this.toString());
 
         final Optional<SpreadsheetTooltipComponent> tooltip = this.spreadsheetTooltipComponent();
@@ -120,5 +123,41 @@ public interface HistoryTokenAnchorComponentLike extends AnchorComponentLike<His
             }
             printer.outdent();
         }
+    }
+
+    // Object...........................................................................................................
+
+    // "    test-clipboard-cut-formula-MenuItem \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula]\n" +
+
+    @Override
+    public final String toString() {
+        // cant use surround values because null href will become LEFT BRACKET NULL RIGHT BRACKET - [null]
+        Url href = this.href();
+
+        String hrefString = null;
+        if (null != href) {
+            hrefString = "[" + href + "]";
+        }
+
+        String disabled = "";
+        if (this.isDisabled()) {
+            disabled = "DISABLED";
+        }
+
+        return ToStringBuilder.empty()
+                .disable(ToStringBuilderOption.QUOTE)
+                .enable(ToStringBuilderOption.SKIP_IF_DEFAULT_VALUE)
+                .value(this.iconBefore().map(Icon::getName))
+                .enable(ToStringBuilderOption.QUOTE)
+                .value(this.textContent())
+                .disable(ToStringBuilderOption.QUOTE)
+                .value(disabled)
+                .value(hrefString)
+                .value(this.target())
+                .value(this.isChecked() ? "CHECKED" : "")
+                .value(this.iconAfter().map(Icon::getName))
+                .label("id")
+                .value(this.id())
+                .build();
     }
 }
