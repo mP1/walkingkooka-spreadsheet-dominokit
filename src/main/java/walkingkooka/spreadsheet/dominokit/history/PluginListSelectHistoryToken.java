@@ -68,6 +68,6 @@ public final class PluginListSelectHistoryToken extends PluginListHistoryToken {
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
-        // NOP
+        this.loadPlugins(context);
     }
 }

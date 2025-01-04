@@ -40,17 +40,6 @@ final class AppContextPluginSetDialogComponentContext implements PluginSetDialog
         this.context = context;
     }
 
-    @Override
-    public void loadPlugins(final int offset,
-                            final int count) {
-        this.context.pluginFetcher()
-                .filter(
-                        "*",
-                        offset,
-                        count
-                );
-    }
-
     // HasPluginFetcherWatchersDelegator................................................................................
 
     @Override
