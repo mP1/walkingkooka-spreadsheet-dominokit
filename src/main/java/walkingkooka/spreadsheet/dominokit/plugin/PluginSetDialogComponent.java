@@ -162,7 +162,10 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
     public void onPlugin(final PluginName name,
                          final Optional<Plugin> plugin,
                          final AppContext context) {
-        // ignore
+        if(this.isOpen()) {
+            this.loadPlugins();
+        }
+        this.refreshIfOpen(context);
     }
 
     @Override
@@ -184,9 +187,6 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
         return token instanceof PluginListSelectHistoryToken;
     }
 
-    /**
-     * Clear the JAR file listing
-     */
     @Override
     public void dialogReset() {
         this.table.setSet(PluginSet.EMPTY);
@@ -195,6 +195,10 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
 
     @Override
     public void openGiveFocus(final RefreshContext context) {
+        this.loadPlugins();
+    }
+
+    private void loadPlugins() {
         final PluginListSelectHistoryToken select = context.historyToken()
                 .cast(PluginListSelectHistoryToken.class);
 
