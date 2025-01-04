@@ -19,7 +19,14 @@ package walkingkooka.spreadsheet.dominokit.file;
 
 import elemental2.dom.Headers;
 import elemental2.dom.RequestInit;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.net.header.CharsetName;
+import walkingkooka.net.header.ContentDisposition;
+import walkingkooka.net.header.ContentDispositionFileName;
+import walkingkooka.net.header.ContentDispositionParameterName;
+import walkingkooka.net.header.ContentDispositionType;
+import walkingkooka.net.header.EncodedText;
 import walkingkooka.net.header.HttpHeaderName;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -56,6 +63,22 @@ final class BrowserFileBase64 extends BrowserFile {
         headers.set(
                 HttpHeaderName.CONTENT_TYPE.text(),
                 MediaType.TEXT_BASE64.value()
+        );
+        headers.set(
+                HttpHeaderName.CONTENT_DISPOSITION.text(),
+                ContentDisposition.with(ContentDispositionType.ATTACHMENT)
+                        .setParameters(
+                                Maps.of(
+                                        ContentDispositionParameterName.FILENAME_STAR,
+                                        ContentDispositionFileName.encoded(
+                                                EncodedText.with(
+                                                        CharsetName.UTF_8,
+                                                        EncodedText.NO_LANGUAGE, // optional language
+                                                        this.name
+                                                )
+                                        )
+                                )
+                        ).toHeaderText()
         );
         requestInit.setBody(this.content);
         doFetch.run();
