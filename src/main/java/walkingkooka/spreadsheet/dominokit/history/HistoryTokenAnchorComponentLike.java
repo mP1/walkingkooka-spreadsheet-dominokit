@@ -39,6 +39,10 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponentLike<Hi
         SpreadsheetContextMenuTarget<HTMLAnchorElement>,
         SpreadsheetTooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent>{
 
+    HistoryTokenAnchorComponentLike() {
+        super();
+    }
+
     // historyToken....................................................................................................
 
     /**
