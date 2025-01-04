@@ -18,41 +18,20 @@
 package walkingkooka.spreadsheet.dominokit.upload;
 
 import elemental2.dom.EventListener;
-import elemental2.dom.HTMLFieldSetElement;
+import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Base class that captures the common methods between the real and test implementation/sub-classes.
  */
-abstract class SpreadsheetUploadFileComponentLike implements ValueComponent<HTMLFieldSetElement, BrowserFile, SpreadsheetUploadFileComponent> {
+abstract class SpreadsheetUploadFileComponentLike implements ValueComponent<HTMLDivElement, BrowserFile, SpreadsheetUploadFileComponent> {
 
     SpreadsheetUploadFileComponentLike() {
         super();
-    }
-
-    @Override
-    public final SpreadsheetUploadFileComponent setLabel(final String label) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final String label() {
-        return "";
-    }
-
-    @Override
-    public final Optional<String> helperText() {
-        return Optional.empty();
-    }
-
-    @Override
-    public final SpreadsheetUploadFileComponent setHelperText(final Optional<String> text) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -120,8 +99,23 @@ abstract class SpreadsheetUploadFileComponentLike implements ValueComponent<HTML
                 printer.println("disabled");
             }
 
-            this.value()
-                    .ifPresent(value -> value.printTree(printer));
+            final String label = this.label();
+            if(false == label.isEmpty()) {
+                printer.println("label=" + label);
+            }
+
+            final String helperText = this.helperText()
+                            .orElse("");
+            if(false == helperText.isEmpty()) {
+                printer.println("helperText=" + helperText);
+            }
+
+            printer.indent();
+            {
+                this.value()
+                        .ifPresent(value -> value.printTree(printer));
+            }
+            printer.outdent();
         }
         printer.outdent();
     }

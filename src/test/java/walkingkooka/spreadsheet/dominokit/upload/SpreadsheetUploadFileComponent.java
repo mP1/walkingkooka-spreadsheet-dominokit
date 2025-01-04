@@ -18,11 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.upload;
 
 import elemental2.dom.EventListener;
-import elemental2.dom.HTMLFieldSetElement;
+import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.text.CharSequences;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -67,7 +68,33 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
 
     private Optional<BrowserFile> value = Optional.empty();
 
-    @Override 
+    @Override
+    public SpreadsheetUploadFileComponent setLabel(final String label) {
+        this.label = Objects.requireNonNull(label, "label");
+        return this;
+    }
+
+    @Override
+    public String label() {
+        return this.label;
+    }
+
+    private String label = "";
+
+    @Override
+    public Optional<String> helperText() {
+        return this.helperText;
+    }
+
+    @Override
+    public SpreadsheetUploadFileComponent setHelperText(final Optional<String> text) {
+        this.helperText = Objects.requireNonNull(text, "text");
+        return this;
+    }
+
+    private Optional<String> helperText = Optional.empty();
+
+    @Override
     public boolean isDisabled() {
         return this.disabled;
     }
@@ -101,7 +128,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override 
-    public HTMLFieldSetElement element() {
+    public HTMLDivElement element() {
         throw new UnsupportedOperationException();
     }
 }
