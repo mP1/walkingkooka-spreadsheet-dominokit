@@ -36,7 +36,7 @@ import java.util.Optional;
 /**
  * Abstraction for working with a HTML anchor.
  */
-public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComponentLike {
+public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorComponentLike {
 
     /**
      * Creates a new un-attached ANCHOR.
@@ -106,25 +106,6 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
         this.iconAfter = null;
 
         return this;
-    }
-
-    // historyToken....................................................................................................
-
-    /**
-     * The {@link #historyToken()} will be pushed if this anchor is clicked or ENTER key downed.
-     */
-    @Override
-    public HistoryTokenAnchorComponent addPushHistoryToken(final HistoryTokenContext context) {
-        return this.addClickAndKeydownEnterListener(
-                (e) -> {
-                    e.preventDefault();
-
-                    this.historyToken()
-                            .ifPresent(
-                                    context::pushHistoryToken
-                            );
-                }
-        );
     }
 
     // checked.........................................................................................................
@@ -369,13 +350,6 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
     }
 
     final AnchorElement element;
-
-    // Object...........................................................................................................
-
-    @Override
-    public String toString() {
-        return HistoryTokenAnchorComponentToString.toString(this);
-    }
 
     // SpreadsheetContextMenuTarget.....................................................................................
 

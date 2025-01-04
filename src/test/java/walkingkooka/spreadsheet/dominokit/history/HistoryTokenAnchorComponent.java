@@ -35,8 +35,8 @@ import java.util.Optional;
  * <br>
  * The goal of this class is to allow JVM unit-testing of more complex components such as a Card that has a row of {@link HistoryTokenAnchorComponent}.
  */
-public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComponentLike,
-        TestHtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent> {
+public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorComponentLike
+        implements TestHtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent> {
 
     public static HistoryTokenAnchorComponent empty() {
         return new HistoryTokenAnchorComponent();
@@ -263,16 +263,10 @@ public final class HistoryTokenAnchorComponent implements HistoryTokenAnchorComp
         this.tooltip = Optional.empty();
     }
 
-    @Override public Optional<SpreadsheetTooltipComponent> spreadsheetTooltipComponent() {
+    @Override
+    public Optional<SpreadsheetTooltipComponent> spreadsheetTooltipComponent() {
         return this.tooltip;
     }
 
     private Optional<SpreadsheetTooltipComponent> tooltip;
-
-    // Object...........................................................................................................
-
-    @Override
-    public String toString() {
-        return HistoryTokenAnchorComponentToString.toString(this);
-    }
 }
