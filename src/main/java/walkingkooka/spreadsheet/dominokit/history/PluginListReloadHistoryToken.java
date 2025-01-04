@@ -63,15 +63,12 @@ public final class PluginListReloadHistoryToken extends PluginListHistoryToken {
         );
     }
 
-    // HistoryToken.....................................................................................................
-
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.pushHistoryToken(
                 this.clearAction()
         );
-
-        // PluginListSelectHistoryToken#onHistoryTokenChange will do the actual reloading of data
+        this.loadPlugins(context);
     }
 }

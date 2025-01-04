@@ -43,10 +43,4 @@ public class FakePluginSetDialogComponentContext extends FakeHistoryTokenContext
     public Runnable addPluginFetcherWatcherOnce(final PluginFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
-
-    @Override
-    public void loadPlugins(final int offset,
-                            final int count) {
-        throw new UnsupportedOperationException();
-    }
 }

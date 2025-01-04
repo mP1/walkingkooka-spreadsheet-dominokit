@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcher;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.OptionalInt;
@@ -73,4 +74,19 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
 
         return historyToken;
     }
+
+    final void loadPlugins(final HasPluginFetcher fetcher) {
+        fetcher.pluginFetcher()
+                .filter(
+                        "*", // query
+                        this.count()
+                                .orElse(DEFAULT_OFFSET),
+                        this.count()
+                                .orElse(DEFAULT_COUNT)
+                );
+    }
+
+    private final static int DEFAULT_OFFSET = 0;
+
+    private final static int DEFAULT_COUNT = 20;
 }

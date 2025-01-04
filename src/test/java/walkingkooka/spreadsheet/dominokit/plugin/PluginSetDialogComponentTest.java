@@ -46,8 +46,14 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
 
     @Test
     public void testWithoutPlugins() {
+        final TestAppContext appContext = new TestAppContext("/plugin/*");
+
+        final PluginSetDialogComponentContext context =  PluginSetDialogComponentContexts.appContext(appContext);
+        final PluginSetDialogComponent dialog = PluginSetDialogComponent.with(context);
+
         this.onHistoryTokenChangeAndCheck(
-                new TestAppContext("/plugin/"),
+                dialog,
+                appContext,
                 "PluginSetDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Plugin\n" +
@@ -80,11 +86,53 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
 
     @Test
     public void testTableFullOfPlugins() {
-        final TestAppContext context = new TestAppContext("/plugin/*/count/3");
-        context.savePlugins(4);
+        final TestAppContext appContext = new TestAppContext("/plugin/*/count/3");
+        appContext.savePlugins(4);
+
+        final PluginSetDialogComponent dialog = PluginSetDialogComponent.with(
+                PluginSetDialogComponentContexts.appContext(appContext)
+        );
 
         this.onHistoryTokenChangeAndCheck(
-                context,
+                dialog,
+                appContext,
+                "PluginSetDialogComponent\n" +
+                        "  SpreadsheetDialogComponent\n" +
+                        "    Plugin\n" +
+                        "    id=pluginList-Dialog includeClose=true\n" +
+                        "      PluginSetTableComponent\n" +
+                        "        SpreadsheetCard\n" +
+                        "          Card\n" +
+                        "            SpreadsheetDataTableComponent\n" +
+                        "              id=pluginList-Table\n" +
+                        "              COLUMN(S)\n" +
+                        "                Name\n" +
+                        "                Filename\n" +
+                        "                User\n" +
+                        "                Timestamp\n" +
+                        "                Links\n" +
+                        "              ROW(S)\n" +
+                        "              CHILDREN\n" +
+                        "                SpreadsheetFlexLayout\n" +
+                        "                  ROW\n" +
+                        "                    mdi-arrow-left \"previous\" DISABLED id=pluginList-previous-Link\n" +
+                        "                    \"next\" DISABLED mdi-arrow-right id=pluginList-next-Link\n" +
+                        "              PLUGINS\n" +
+                        "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
+                        "      SpreadsheetFlexLayout\n" +
+                        "        ROW\n" +
+                        "          \"Upload\" [#/plugin-upload] id=pluginList-upload-Link\n" +
+                        "          \"Close\" [#/] id=pluginList-close-Link\n"
+        );
+
+        appContext.loadPlugins(
+                0,
+                3
+        );
+
+        this.onHistoryTokenChangeAndCheck(
+                dialog,
+                appContext,
                 "PluginSetDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Plugin\n" +
@@ -159,11 +207,21 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
 
     @Test
     public void testTableFullOfPluginsOffset1() {
-        final TestAppContext context = new TestAppContext("/plugin/*/offset/1/count/3");
-        context.savePlugins(1 + 3 + 1);
+        final TestAppContext appContext = new TestAppContext("/plugin/*/offset/1/count/3");
+        appContext.savePlugins(1 + 3 + 1);
+
+        final PluginSetDialogComponent dialog = PluginSetDialogComponent.with(
+                PluginSetDialogComponentContexts.appContext(appContext)
+        );
+
+        appContext.loadPlugins(
+                1,
+                3
+        );
 
         this.onHistoryTokenChangeAndCheck(
-                context,
+                dialog,
+                appContext,
                 "PluginSetDialogComponent\n" +
                         "  SpreadsheetDialogComponent\n" +
                         "    Plugin\n" +
@@ -180,53 +238,11 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                         "                Timestamp\n" +
                         "                Links\n" +
                         "              ROW(S)\n" +
-                        "                ROW 0\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"TestPluginName2\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"filename2.jar\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"user@example.com\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"31/12/99, 12:58 pm\"\n" +
-                        "                  SpreadsheetFlexLayout\n" +
-                        "                    ROW\n" +
-                        "                      \"Delete\" [#/plugin/TestPluginName2/delete] id=pluginList-delete-Link\n" +
-                        "                      \"Download\" [/api/plugin/TestPluginName2/download] id=pluginList-download-Link\n" +
-                        "                      \"View\" [#/plugin/TestPluginName2] id=pluginList-view-Link\n" +
-                        "                ROW 1\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"TestPluginName3\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"filename3.jar\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"user@example.com\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"31/12/99, 12:58 pm\"\n" +
-                        "                  SpreadsheetFlexLayout\n" +
-                        "                    ROW\n" +
-                        "                      \"Delete\" [#/plugin/TestPluginName3/delete] id=pluginList-delete-Link\n" +
-                        "                      \"Download\" [/api/plugin/TestPluginName3/download] id=pluginList-download-Link\n" +
-                        "                      \"View\" [#/plugin/TestPluginName3] id=pluginList-view-Link\n" +
-                        "                ROW 2\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"TestPluginName4\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"filename4.jar\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"user@example.com\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"31/12/99, 12:58 pm\"\n" +
-                        "                  SpreadsheetFlexLayout\n" +
-                        "                    ROW\n" +
-                        "                      \"Delete\" [#/plugin/TestPluginName4/delete] id=pluginList-delete-Link\n" +
-                        "                      \"Download\" [/api/plugin/TestPluginName4/download] id=pluginList-download-Link\n" +
-                        "                      \"View\" [#/plugin/TestPluginName4] id=pluginList-view-Link\n" +
                         "              CHILDREN\n" +
                         "                SpreadsheetFlexLayout\n" +
                         "                  ROW\n" +
                         "                    mdi-arrow-left \"previous\" [#/plugin/*/offset/0/count/3] id=pluginList-previous-Link\n" +
-                        "                    \"next\" [#/plugin/*/offset/3/count/3] mdi-arrow-right id=pluginList-next-Link\n" +
+                        "                    \"next\" DISABLED mdi-arrow-right id=pluginList-next-Link\n" +
                         "              PLUGINS\n" +
                         "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
                         "      SpreadsheetFlexLayout\n" +
@@ -292,61 +308,24 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
             }
         }
 
+        void loadPlugins(final int offset,
+                         final int count) {
+            this.pluginFetcherWatchers.onPluginSet(
+                    PluginSet.with(
+                            new TreeSet<>(
+                                    this.pluginStore()
+                                            .filter(
+                                                    "*", // query
+                                                    offset,
+                                                    count
+                                            )
+                            )
+                    ),
+                    this
+            );
+        }
+
         private final PluginStore pluginStore = PluginStores.treeMap();
-    }
-
-    private void onHistoryTokenChangeAndCheck(final TestAppContext context,
-                                              final String expected) {
-        this.onHistoryTokenChangeAndCheck(
-                this.dialog(
-                        this.pluginDialogComponentContext(context)
-                ),
-                context,
-                expected
-        );
-    }
-
-    private PluginSetDialogComponentContext pluginDialogComponentContext(final TestAppContext context) {
-        return new FakePluginSetDialogComponentContext() {
-
-            @Override
-            public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {
-                return context.addPluginFetcherWatcher(watcher);
-            }
-
-            @Override
-            public void loadPlugins(final int offset,
-                                    final int count) {
-                context.pluginFetcherWatchers.onPluginSet(
-                        PluginSet.with(
-                                new TreeSet<>(
-                                        context.pluginStore()
-                                                .filter(
-                                                        "*", // query
-                                                        offset,
-                                                        count
-                                                )
-                                )
-                        ),
-                        context
-                );
-            }
-
-            @Override
-            public HistoryToken historyToken() {
-                return context.historyToken();
-            }
-
-            @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                return context.addHistoryTokenWatcher(watcher);
-            }
-
-            @Override
-            public Locale locale() {
-                return context.locale();
-            }
-        };
     }
 
     private PluginSetDialogComponent dialog(final PluginSetDialogComponentContext context) {

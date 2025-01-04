@@ -162,9 +162,6 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
     public void onPlugin(final PluginName name,
                          final Optional<Plugin> plugin,
                          final AppContext context) {
-        if(this.isOpen()) {
-            this.loadPlugins();
-        }
         this.refreshIfOpen(context);
     }
 
@@ -195,22 +192,8 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
 
     @Override
     public void openGiveFocus(final RefreshContext context) {
-        this.loadPlugins();
+        // NOP
     }
-
-    private void loadPlugins() {
-        final PluginListSelectHistoryToken select = context.historyToken()
-                .cast(PluginListSelectHistoryToken.class);
-
-        this.context.loadPlugins(
-                select.offset()
-                        .orElse(0),
-                select.count()
-                        .orElse(DEFAULT_COUNT)
-        );
-    }
-
-    private final static int DEFAULT_COUNT = 20;
 
     @Override
     public void refresh(final RefreshContext context) {

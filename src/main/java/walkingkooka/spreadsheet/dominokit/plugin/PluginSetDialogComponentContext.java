@@ -21,7 +21,4 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 
 public interface PluginSetDialogComponentContext extends HasPluginFetcherWatchers,
         PluginSetTableComponentContext {
-
-    void loadPlugins(final int offset,
-                     final int count);
 }
