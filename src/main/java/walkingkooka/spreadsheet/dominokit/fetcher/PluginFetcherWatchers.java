@@ -27,8 +27,8 @@ import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import java.util.Optional;
 
 public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWatcher>
-        implements PluginFetcherWatcher,
-        HasPluginFetcherWatchers {
+    implements PluginFetcherWatcher,
+    HasPluginFetcherWatchers {
 
     private PluginFetcherWatchers() {
         super();
@@ -43,11 +43,11 @@ public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWa
                                    final Optional<JarEntryInfoList> list,
                                    final AppContext context) {
         this.fire(
-                PluginFetcherWatchersJarEntryInfoListEvent.with(
-                        name,
-                        list,
-                        context
-                )
+            PluginFetcherWatchersJarEntryInfoListEvent.with(
+                name,
+                list,
+                context
+            )
         );
     }
 
@@ -57,12 +57,12 @@ public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWa
                                    final Optional<String> body,
                                    final AppContext context) {
         this.fire(
-                PluginFetcherWatchersJarEntryInfoNameEvent.with(
-                        pluginName,
-                        filename,
-                        body,
-                        context
-                )
+            PluginFetcherWatchersJarEntryInfoNameEvent.with(
+                pluginName,
+                filename,
+                body,
+                context
+            )
         );
     }
 
@@ -72,11 +72,11 @@ public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWa
                          final Optional<Plugin> plugin,
                          final AppContext context) {
         this.fire(
-                PluginFetcherWatchersPluginEvent.with(
-                        name,
-                        plugin,
-                        context
-                )
+            PluginFetcherWatchersPluginEvent.with(
+                name,
+                plugin,
+                context
+            )
         );
     }
 
@@ -84,10 +84,10 @@ public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWa
     public void onPluginSet(final PluginSet plugins,
                             final AppContext context) {
         this.fire(
-                PluginFetcherWatchersPluginSetEvent.with(
-                        plugins,
-                        context
-                )
+            PluginFetcherWatchersPluginSetEvent.with(
+                plugins,
+                context
+            )
         );
     }
 

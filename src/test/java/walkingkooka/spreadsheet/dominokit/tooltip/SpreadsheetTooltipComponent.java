@@ -36,9 +36,9 @@ public final class SpreadsheetTooltipComponent implements SpreadsheetTooltipComp
         Objects.requireNonNull(direction, "direction");
 
         return new SpreadsheetTooltipComponent(
-                component,
-                text,
-                direction
+            component,
+            text,
+            direction
         );
     }
 

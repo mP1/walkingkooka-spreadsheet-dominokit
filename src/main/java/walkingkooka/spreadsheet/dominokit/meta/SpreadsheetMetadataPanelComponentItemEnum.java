@@ -46,9 +46,9 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
         checkContext(context);
 
         return new SpreadsheetMetadataPanelComponentItemEnum<>(
-                propertyName,
-                values,
-                context
+            propertyName,
+            values,
+            context
         );
     }
 
@@ -56,8 +56,8 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
                                                       final List<T> values,
                                                       final SpreadsheetMetadataPanelComponentContext context) {
         super(
-                propertyName,
-                context
+            propertyName,
+            context
         );
 
         this.list = this.uListElement();
@@ -70,10 +70,10 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
         for (final T value : values) {
             // anchor will be updated later with save value.
             final HistoryTokenAnchorComponent anchor = token
-                    .link(SpreadsheetMetadataPanelComponent.id(propertyName) + "-" + CaseKind.kebabEnumName(value))
-                    .setTabIndex(0)
-                    .addPushHistoryToken(context)
-                    .setTextContent(this.format(value));
+                .link(SpreadsheetMetadataPanelComponent.id(propertyName) + "-" + CaseKind.kebabEnumName(value))
+                .setTabIndex(0)
+                .addPushHistoryToken(context)
+                .setTextContent(this.format(value));
 
             valueToAnchors.put(value, anchor);
 
@@ -82,17 +82,17 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
             }
 
             this.list.appendChild(
-                    liElement()
-                            .appendChild(anchor)
+                liElement()
+                    .appendChild(anchor)
             );
         }
 
         final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         this.list.appendChild(
-                liElement()
-                        .appendChild(
-                                defaultValueAnchor
-                        )
+            liElement()
+                .appendChild(
+                    defaultValueAnchor
+                )
         );
         this.firstAnchor = firstAnchor;
         this.defaultValueAnchor = defaultValueAnchor;
@@ -116,40 +116,40 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
     public void refresh(final RefreshContext context) {
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
         final T metadataValue = this.context.spreadsheetMetadata()
-                .getIgnoringDefaults(propertyName)
-                .orElse(null);
+            .getIgnoringDefaults(propertyName)
+            .orElse(null);
 
         final HistoryToken token = context.historyToken()
-                .setMetadataPropertyName(propertyName);
+            .setMetadataPropertyName(propertyName);
 
         for (final Entry<T, HistoryTokenAnchorComponent> valueAndAnchor : this.valueToAnchors.entrySet()) {
             final T value = valueAndAnchor.getKey();
             final HistoryTokenAnchorComponent anchor = valueAndAnchor.getValue();
 
             anchor.setHistoryToken(
-                    Optional.of(
-                            token.save(
-                                    Optional.of(
-                                            valueAndAnchor.getKey()
-                                    )
-                            )
+                Optional.of(
+                    token.save(
+                        Optional.of(
+                            valueAndAnchor.getKey()
+                        )
                     )
+                )
             );
             anchor.setDisabled(
-                    Objects.equals(
-                            metadataValue,
-                            value
-                    )
+                Objects.equals(
+                    metadataValue,
+                    value
+                )
             );
         }
 
         this.refreshDefaultValue(
-                this.defaultValueAnchor,
-                this.context.spreadsheetMetadata()
-                        .defaults()
-                        .get(propertyName)
-                        .map(this::format)
-                        .orElse("")
+            this.defaultValueAnchor,
+            this.context.spreadsheetMetadata()
+                .defaults()
+                .get(propertyName)
+                .map(this::format)
+                .orElse("")
         );
     }
 
@@ -160,8 +160,8 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
 
     private String format(final Enum<?> value) {
         return CaseKind.SNAKE.change(
-                value.name(),
-                CaseKind.TITLE
+            value.name(),
+            CaseKind.TITLE
         );
     }
 

@@ -20,5 +20,5 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 
 public interface PluginSetDialogComponentContext extends HasPluginFetcherWatchers,
-        PluginSetTableComponentContext {
+    PluginSetTableComponentContext {
 }

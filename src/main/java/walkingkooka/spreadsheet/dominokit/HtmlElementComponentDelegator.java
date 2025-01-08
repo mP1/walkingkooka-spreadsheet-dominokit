@@ -24,14 +24,14 @@ public interface HtmlElementComponentDelegator<E extends HTMLElement, C extends 
     @Override
     default C setCssText(final String css) {
         this.htmlElementComponent()
-                .setCssText(css);
+            .setCssText(css);
         return (C) this;
     }
 
     @Override
     default E element() {
         return this.htmlElementComponent()
-                .element();
+            .element();
     }
 
     HtmlElementComponent<E, ?> htmlElementComponent();

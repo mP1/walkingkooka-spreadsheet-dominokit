@@ -38,8 +38,8 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
     public final void testAnchoredSelection() {
         final T token = this.createHistoryToken();
         this.checkEquals(
-                token.anchoredSelection(),
-                token.anchoredSelection()
+            token.anchoredSelection(),
+            token.anchoredSelection()
         );
     }
 
@@ -49,10 +49,10 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
     public final void testAnchoredSelectionOrEmpty() {
         final T token = this.createHistoryToken();
         this.checkEquals(
-                Optional.of(
-                        token.anchoredSelection()
-                ),
-                token.anchoredSelectionOrEmpty()
+            Optional.of(
+                token.anchoredSelection()
+            ),
+            token.anchoredSelectionOrEmpty()
         );
     }
 
@@ -60,33 +60,33 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
 
     final void freezeOrEmptyAndCheck(final AnchoredSpreadsheetSelection anchoredSelection) {
         this.freezeOrEmptyAndCheck(
-                anchoredSelection,
-                Optional.empty()
+            anchoredSelection,
+            Optional.empty()
         );
     }
 
     final void freezeOrEmptyAndCheck(final AnchoredSpreadsheetSelection anchoredSelection,
                                      final HistoryToken expected) {
         this.freezeOrEmptyAndCheck(
-                anchoredSelection,
-                Optional.of(
-                        expected
-                )
+            anchoredSelection,
+            Optional.of(
+                expected
+            )
         );
     }
 
     final void freezeOrEmptyAndCheck(final AnchoredSpreadsheetSelection anchoredSelection,
                                      final Optional<HistoryToken> expected) {
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
-                ID,
-                NAME,
-                anchoredSelection
+            ID,
+            NAME,
+            anchoredSelection
         );
 
         this.checkEquals(
-                expected,
-                historyToken.freezeOrEmpty(),
-                () -> historyToken + " freezeOrEmpty"
+            expected,
+            historyToken.freezeOrEmpty(),
+            () -> historyToken + " freezeOrEmpty"
         );
     }
 
@@ -96,13 +96,13 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
         final T token = this.createHistoryToken(anchoredSelection);
 
         this.setAnchoredSelectionAndCheck(
-                token,
-                anchoredSelection,
-                token.setAnchoredSelection(
-                        Optional.of(
-                                anchoredSelection
-                        )
+            token,
+            anchoredSelection,
+            token.setAnchoredSelection(
+                Optional.of(
+                    anchoredSelection
                 )
+            )
         );
     }
 
@@ -110,33 +110,33 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
 
     final void unfreezeOrEmptyAndCheck(final AnchoredSpreadsheetSelection anchoredSelection) {
         this.unfreezeOrEmptyAndCheck(
-                anchoredSelection,
-                Optional.empty()
+            anchoredSelection,
+            Optional.empty()
         );
     }
 
     final void unfreezeOrEmptyAndCheck(final AnchoredSpreadsheetSelection anchoredSelection,
                                        final HistoryToken expected) {
         this.unfreezeOrEmptyAndCheck(
-                anchoredSelection,
-                Optional.of(
-                        expected
-                )
+            anchoredSelection,
+            Optional.of(
+                expected
+            )
         );
     }
 
     final void unfreezeOrEmptyAndCheck(final AnchoredSpreadsheetSelection anchoredSelection,
                                        final Optional<HistoryToken> expected) {
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
-                ID,
-                NAME,
-                anchoredSelection
+            ID,
+            NAME,
+            anchoredSelection
         );
 
         this.checkEquals(
-                expected,
-                historyToken.unfreezeOrEmpty(),
-                () -> historyToken + " unfreezeOrEmpty"
+            expected,
+            historyToken.unfreezeOrEmpty(),
+            () -> historyToken + " unfreezeOrEmpty"
         );
     }
 
@@ -145,36 +145,36 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
     final void createHistoryTokenFails(final AnchoredSpreadsheetSelection anchoredSelection,
                                        final String expected) {
         final IllegalArgumentException thrown = assertThrows(
-                IllegalArgumentException.class,
-                () -> this.createHistoryToken(
-                        anchoredSelection
-                )
+            IllegalArgumentException.class,
+            () -> this.createHistoryToken(
+                anchoredSelection
+            )
         );
 
         this.checkEquals(
-                expected,
-                thrown.getMessage(),
-                () -> "" + anchoredSelection
+            expected,
+            thrown.getMessage(),
+            () -> "" + anchoredSelection
         );
     }
 
     final void urlFragmentAndCheck(final AnchoredSpreadsheetSelection anchoredSelection,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(
-                        ID,
-                        NAME,
-                        anchoredSelection
-                ),
-                expected
+            this.createHistoryToken(
+                ID,
+                NAME,
+                anchoredSelection
+            ),
+            expected
         );
     }
 
     final T createHistoryToken(final AnchoredSpreadsheetSelection anchoredSelection) {
         return this.createHistoryToken(
-                ID,
-                NAME,
-                anchoredSelection
+            ID,
+            NAME,
+            anchoredSelection
         );
     }
 

@@ -27,15 +27,15 @@ public interface HistoryTokenTesting extends Testing {
     default void historyTokenCloseDialogAndCheck(final HistoryToken opened,
                                                  final HistoryToken closed) {
         this.checkEquals(
-                closed,
-                opened.close(),
-                () -> opened + " close"
+            closed,
+            opened.close(),
+            () -> opened + " close"
         );
 
         this.checkNotEquals(
-                opened,
-                closed,
-                () -> "opened " + opened + " must be different from closed " + closed
+            opened,
+            closed,
+            () -> "opened " + opened + " must be different from closed " + closed
         );
     }
 
@@ -43,15 +43,15 @@ public interface HistoryTokenTesting extends Testing {
                                                final Optional<?> saveValue,
                                                final HistoryToken saved) {
         this.checkEquals(
-                saved,
-                selected.save(saveValue),
-                () -> selected + " save " + CharSequences.quoteIfChars(saveValue.orElse(null))
+            saved,
+            selected.save(saveValue),
+            () -> selected + " save " + CharSequences.quoteIfChars(saveValue.orElse(null))
         );
 
         this.checkNotEquals(
-                selected,
-                saved,
-                () -> "selected " + selected + " must be different from saved " + saved
+            selected,
+            saved,
+            () -> "selected " + selected + " must be different from saved " + saved
         );
     }
 
@@ -59,15 +59,15 @@ public interface HistoryTokenTesting extends Testing {
                                                  final Optional<?> removeValue,
                                                  final HistoryToken removed) {
         this.checkEquals(
-                removed,
-                selected.save(removeValue),
-                () -> selected + " remove " + CharSequences.quoteIfChars(removeValue.orElse(null))
+            removed,
+            selected.save(removeValue),
+            () -> selected + " remove " + CharSequences.quoteIfChars(removeValue.orElse(null))
         );
 
         this.checkNotEquals(
-                selected,
-                removed,
-                () -> "opened " + selected + " must be different from removed " + removed
+            selected,
+            removed,
+            () -> "opened " + selected + " must be different from removed " + removed
         );
     }
 }

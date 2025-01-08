@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 public interface PluginFileViewDialogComponentContext extends HasPluginFetcherWatchers,
-        HistoryTokenContext {
+    HistoryTokenContext {
 
     /**
      * Loads the text for a plugin archive file.

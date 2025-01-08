@@ -26,12 +26,12 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorSelector;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparatorsTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators,
-        SpreadsheetComparatorName,
-        SpreadsheetComparatorInfo,
-        SpreadsheetComparatorInfoSet,
-        SpreadsheetComparatorSelector,
-        SpreadsheetComparatorAlias,
-        SpreadsheetComparatorAliasSet> {
+    SpreadsheetComparatorName,
+    SpreadsheetComparatorInfo,
+    SpreadsheetComparatorInfoSet,
+    SpreadsheetComparatorSelector,
+    SpreadsheetComparatorAlias,
+    SpreadsheetComparatorAliasSet> {
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators.with(AppContexts.fake());

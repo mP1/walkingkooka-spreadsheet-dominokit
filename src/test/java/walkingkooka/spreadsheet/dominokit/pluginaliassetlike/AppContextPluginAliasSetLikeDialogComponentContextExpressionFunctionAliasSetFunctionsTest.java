@@ -26,12 +26,12 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
 public final class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFunctionsTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFunctions,
-        ExpressionFunctionName,
-        ExpressionFunctionInfo,
-        ExpressionFunctionInfoSet,
-        ExpressionFunctionSelector,
-        ExpressionFunctionAlias,
-        ExpressionFunctionAliasSet> {
+    ExpressionFunctionName,
+    ExpressionFunctionInfo,
+    ExpressionFunctionInfoSet,
+    ExpressionFunctionSelector,
+    ExpressionFunctionAlias,
+    ExpressionFunctionAliasSet> {
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFunctions createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFunctions.with(AppContexts.fake());

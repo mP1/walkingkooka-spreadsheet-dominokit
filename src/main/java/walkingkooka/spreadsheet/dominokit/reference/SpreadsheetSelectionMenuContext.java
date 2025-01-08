@@ -38,8 +38,8 @@ import java.util.Set;
  * A {@link Context} that provides answers when rendering a {@link SpreadsheetContextMenu}.
  */
 public interface SpreadsheetSelectionMenuContext extends Context,
-        HasSpreadsheetMetadata,
-        HistoryTokenContext {
+    HasSpreadsheetMetadata,
+    HistoryTokenContext {
 
     /**
      * Returns the names of {@link SpreadsheetComparatorName} that will appear in the SORT menus.
@@ -91,10 +91,10 @@ public interface SpreadsheetSelectionMenuContext extends Context,
         Objects.requireNonNull(value, "value");
 
         return value.equals(
-                this.selectionSummary()
-                        .style()
-                        .get(stylePropertyName)
-                        .orElse(null)
+            this.selectionSummary()
+                .style()
+                .get(stylePropertyName)
+                .orElse(null)
         );
     }
 }

@@ -29,7 +29,7 @@ public abstract class SpreadsheetRowSortHistoryTokenTestCase<T extends Spreadshe
     final static SpreadsheetColumnOrRowSpreadsheetComparatorNamesList COMPARATOR_NAMES_LIST = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(COMPARATOR_NAMES_LIST_STRING);
 
     final static AnchoredSpreadsheetSelection ANCHORED_ROW = SpreadsheetSelection.parseRowRange("1:3")
-            .setDefaultAnchor();
+        .setDefaultAnchor();
 
     final static String COMPARATOR_NAMES_LIST_STRING2 = "1=day-of-month UP;2=month-of-year UP;3=year DOWN";
 
@@ -42,12 +42,12 @@ public abstract class SpreadsheetRowSortHistoryTokenTestCase<T extends Spreadshe
     @Test
     public final void testClose() {
         this.closeAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            this.createHistoryToken(),
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 }

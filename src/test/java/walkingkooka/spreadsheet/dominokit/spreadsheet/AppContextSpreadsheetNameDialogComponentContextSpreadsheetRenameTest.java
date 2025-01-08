@@ -27,8 +27,8 @@ public final class AppContextSpreadsheetNameDialogComponentContextSpreadsheetRen
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename.with(null)
+            NullPointerException.class,
+            () -> AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename.with(null)
         );
     }
 

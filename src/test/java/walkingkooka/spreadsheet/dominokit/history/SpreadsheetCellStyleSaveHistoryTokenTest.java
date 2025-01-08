@@ -39,28 +39,28 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     @Test
     public void testWithNullPropertyValueFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetCellStyleSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        TextStylePropertyName.COLOR,
-                        null
-                )
+            NullPointerException.class,
+            () -> SpreadsheetCellStyleSaveHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.COLOR,
+                null
+            )
         );
     }
 
     @Test
     public void testUrlFragmentCellAll() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellStyleSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        TextStylePropertyName.ALL,
-                        Optional.empty()
-                ),
-                "/123/SpreadsheetName456/cell/A1/style/*/save/"
+            SpreadsheetCellStyleSaveHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.ALL,
+                Optional.empty()
+            ),
+            "/123/SpreadsheetName456/cell/A1/style/*/save/"
         );
     }
 
@@ -72,69 +72,69 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/style/color/save/#123456"
+            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/style/color/save/#123456"
         );
     }
 
     @Test
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/style/color/save/#123456"
+            SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/*/top-left/style/color/save/#123456"
         );
     }
 
     @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/cell/Label123/style/color/save/#123456"
+            LABEL,
+            "/123/SpreadsheetName456/cell/Label123/style/color/save/#123456"
         );
     }
 
     @Test
     public void testUrlFragmentTextStylePropertyBottomBorderStyle() {
         this.urlFragmentAndCheck(
-                TextStylePropertyName.BORDER_BOTTOM_STYLE,
-                BorderStyle.DASHED,
-                "/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED"
+            TextStylePropertyName.BORDER_BOTTOM_STYLE,
+            BorderStyle.DASHED,
+            "/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED"
         );
     }
 
     @Test
     public void testParseTextStylePropertyBottomBorderStyle() {
         this.parseAndCheck(
-                TextStylePropertyName.BORDER_BOTTOM_STYLE,
-                BorderStyle.DASHED,
-                "/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED"
+            TextStylePropertyName.BORDER_BOTTOM_STYLE,
+            BorderStyle.DASHED,
+            "/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED"
         );
     }
 
     @Test
     public void testUrlFragmentTextStylePropertyBottomBorderWidth() {
         this.urlFragmentAndCheck(
-                TextStylePropertyName.BORDER_BOTTOM_WIDTH,
-                Length.pixel(123.5),
-                "/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/123.5px"
+            TextStylePropertyName.BORDER_BOTTOM_WIDTH,
+            Length.pixel(123.5),
+            "/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/123.5px"
         );
     }
 
     @Test
     public void testParseTextStylePropertyBottomBorderWidth() {
         this.parseAndCheck(
-                TextStylePropertyName.BORDER_BOTTOM_WIDTH,
-                Length.pixel(123.5),
-                "/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/123.5px"
+            TextStylePropertyName.BORDER_BOTTOM_WIDTH,
+            Length.pixel(123.5),
+            "/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/123.5px"
         );
     }
 
     @Test
     public void testParseTextStylePropertyBottomBorderWidthNull() {
         this.parseAndCheck(
-                TextStylePropertyName.BORDER_BOTTOM_WIDTH,
-                null,
-                "/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/"
+            TextStylePropertyName.BORDER_BOTTOM_WIDTH,
+            null,
+            "/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/"
         );
     }
 
@@ -142,14 +142,14 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                                           final TT propertyValue,
                                           final String urlFragment) {
         this.urlFragmentAndCheck(
-                SpreadsheetCellStyleSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        propertyName,
-                        Optional.ofNullable(propertyValue)
-                ),
-                urlFragment
+            SpreadsheetCellStyleSaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                propertyName,
+                Optional.ofNullable(propertyValue)
+            ),
+            urlFragment
         );
     }
 
@@ -157,14 +157,14 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                                     final TT propertyValue,
                                     final String urlFragment) {
         this.parseAndCheck(
-                urlFragment,
-                SpreadsheetCellStyleSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        propertyName,
-                        Optional.ofNullable(propertyValue)
-                )
+            urlFragment,
+            SpreadsheetCellStyleSaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                propertyName,
+                Optional.ofNullable(propertyValue)
+            )
         );
     }
 
@@ -173,13 +173,13 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.cellStyle(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        PROPERTY_NAME
-                )
+            this.createHistoryToken(),
+            HistoryToken.cellStyle(
+                ID,
+                NAME,
+                SELECTION,
+                PROPERTY_NAME
+            )
         );
     }
 
@@ -189,11 +189,11 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                                                                    final AnchoredSpreadsheetSelection selection,
                                                                    final TextStylePropertyName<Color> propertyName) {
         return SpreadsheetCellStyleSaveHistoryToken.with(
-                id,
-                name,
-                selection,
-                propertyName,
-                Optional.of(PROPERTY_VALUE)
+            id,
+            name,
+            selection,
+            propertyName,
+            Optional.of(PROPERTY_VALUE)
         );
     }
 
@@ -203,24 +203,24 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     public void testTextStyleProperty() {
         final TextStylePropertyName<Color> name = TextStylePropertyName.COLOR;
         final Optional<Color> value = Optional.of(
-                Color.parse("#123456")
+            Color.parse("#123456")
         );
 
         final SpreadsheetCellStyleSaveHistoryToken<?> historyToken = SpreadsheetCellStyleSaveHistoryToken.with(
-                ID,
-                NAME,
-                SELECTION,
-                name,
-                value
+            ID,
+            NAME,
+            SELECTION,
+            name,
+            value
         );
 
         this.checkEquals(
-                TextStyleProperty.with(
-                        name,
-                        value
-                ),
-                historyToken.textStyleProperty(),
-                historyToken::toString
+            TextStyleProperty.with(
+                name,
+                value
+            ),
+            historyToken.textStyleProperty(),
+            historyToken::toString
         );
     }
 

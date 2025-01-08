@@ -25,8 +25,8 @@ public final class SpreadsheetContextMenuFactory {
     public static SpreadsheetContextMenu with(final Menu<Void> menu,
                                               final HistoryTokenContext context) {
         return SpreadsheetContextMenu.with(
-                menu,
-                context
+            menu,
+            context
         );
     }
 }

@@ -44,11 +44,11 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                                                             final TextStylePropertyName<T> propertyName,
                                                             final Optional<T> propertyValue) {
         return new SpreadsheetCellStyleSaveHistoryToken<>(
-                id,
-                name,
-                anchoredSelection,
-                propertyName,
-                propertyValue
+            id,
+            name,
+            anchoredSelection,
+            propertyName,
+            propertyValue
         );
     }
 
@@ -58,10 +58,10 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                                                  final TextStylePropertyName<T> propertyName,
                                                  final Optional<T> propertyValue) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                propertyName
+            id,
+            name,
+            anchoredSelection,
+            propertyName
         );
         this.propertyValue = Objects.requireNonNull(propertyValue, "propertyValue");
     }
@@ -82,13 +82,13 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         ).style(
-                this.propertyName()
+            this.propertyName()
         ).save(
-                this.propertyValue()
+            this.propertyValue()
         );
     }
 
@@ -103,19 +103,19 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
         context.pushHistoryToken(previous);
 
         context.spreadsheetDeltaFetcher()
-                .saveStyleProperty(
-                        this.id(),
-                        this.anchoredSelection()
-                                .selection(),
-                        this.propertyName(),
-                        this.propertyValue()
-                );
+            .saveStyleProperty(
+                this.id(),
+                this.anchoredSelection()
+                    .selection(),
+                this.propertyName(),
+                this.propertyValue()
+            );
     }
 
     public TextStyleProperty<T> textStyleProperty() {
         return TextStyleProperty.with(
-                this.propertyName(),
-                this.propertyValue()
+            this.propertyName(),
+            this.propertyValue()
         );
     }
 }

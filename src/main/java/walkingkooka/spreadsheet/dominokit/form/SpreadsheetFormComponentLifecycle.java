@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
  * events, it instead receives events to prepare or {@link #openGiveFocus(RefreshContext)} and {@link #refresh(RefreshContext)}.
  */
 public interface SpreadsheetFormComponentLifecycle<E extends HTMLElement, C extends SpreadsheetFormComponentLifecycle<E, C>> extends HtmlElementComponent<E, C>,
-        ComponentLifecycle {
+    ComponentLifecycle {
 
     @Override
     default void refreshIfOpen(final RefreshContext context) {

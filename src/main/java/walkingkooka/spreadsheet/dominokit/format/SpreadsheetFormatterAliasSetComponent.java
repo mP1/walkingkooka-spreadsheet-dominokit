@@ -29,8 +29,8 @@ public final class SpreadsheetFormatterAliasSetComponent implements ValueSpreads
 
     private SpreadsheetFormatterAliasSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetFormatterAliasSet::parse,
-                SpreadsheetFormatterAliasSet::text
+            SpreadsheetFormatterAliasSet::parse,
+            SpreadsheetFormatterAliasSet::text
         );
     }
 

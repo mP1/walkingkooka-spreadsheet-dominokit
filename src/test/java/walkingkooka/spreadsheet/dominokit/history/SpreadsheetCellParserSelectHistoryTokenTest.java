@@ -43,24 +43,24 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/parser"
+            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/parser"
         );
     }
 
     @Test
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/parser"
+            SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/*/top-left/parser"
         );
     }
 
     @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/cell/Label123/parser"
+            LABEL,
+            "/123/SpreadsheetName456/cell/Label123/parser"
         );
     }
 
@@ -76,11 +76,11 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
     @Test
     public void testClose() {
         this.closeAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SELECTION
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SELECTION
+            )
         );
     }
 
@@ -92,28 +92,28 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
         final SpreadsheetParserSelector selector = pattern.spreadsheetParserSelector();
 
         this.saveAndCheck(
-                this.createHistoryToken(),
-                selector.text(),
-                HistoryToken.cellParserSave(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        Optional.of(selector)
-                )
+            this.createHistoryToken(),
+            selector.text(),
+            HistoryToken.cellParserSave(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.of(selector)
+            )
         );
     }
 
     @Test
     public void testSaveEmpty() {
         this.saveAndCheck(
-                this.createHistoryToken(),
-                "",
-                HistoryToken.cellParserSave(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        Optional.empty()
-                )
+            this.createHistoryToken(),
+            "",
+            HistoryToken.cellParserSave(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.empty()
+            )
         );
     }
 
@@ -122,9 +122,9 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
                                                                final SpreadsheetName name,
                                                                final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellParserSelectHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

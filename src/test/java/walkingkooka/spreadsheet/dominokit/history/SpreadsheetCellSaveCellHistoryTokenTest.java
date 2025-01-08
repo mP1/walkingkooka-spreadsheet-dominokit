@@ -35,50 +35,50 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testWithSaveFormulasOutsideRangeFails() {
         final IllegalArgumentException thrown = assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetCellSaveCellHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Sets.of(
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY.setText("=1+2")
-                                        )
+            IllegalArgumentException.class,
+            () -> SpreadsheetCellSaveCellHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                Sets.of(
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY.setText("=1+2")
                         )
                 )
+            )
         );
 
         this.checkEquals(
-                "Save value includes cells A2 outside A1",
-                thrown.getMessage(),
-                "message"
+            "Save value includes cells A2 outside A1",
+            thrown.getMessage(),
+            "message"
         );
     }
 
     @Test
     public void testWithSaveFormulasOutsideRangeFails2() {
         final IllegalArgumentException thrown = assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetCellSaveCellHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A2:A3")
-                                .setDefaultAnchor(),
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
-                                SpreadsheetSelection.parseCell("A3")
-                                        .setFormula(SpreadsheetFormula.EMPTY),
-                                SpreadsheetSelection.parseCell("A4")
-                                        .setFormula(SpreadsheetFormula.EMPTY)
-                        )
+            IllegalArgumentException.class,
+            () -> SpreadsheetCellSaveCellHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A2:A3")
+                    .setDefaultAnchor(),
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
+                    SpreadsheetSelection.parseCell("A3")
+                        .setFormula(SpreadsheetFormula.EMPTY),
+                    SpreadsheetSelection.parseCell("A4")
+                        .setFormula(SpreadsheetFormula.EMPTY)
                 )
+            )
         );
 
         this.checkEquals(
-                "Save value includes cells A1, A4 outside A2:A3",
-                thrown.getMessage(),
-                "message"
+            "Save value includes cells A1, A4 outside A2:A3",
+            thrown.getMessage(),
+            "message"
         );
     }
 
@@ -87,117 +87,117 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/save/cell",
-                SpreadsheetCellSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/save/cell",
+            SpreadsheetCellSelectHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/save/cell/[{\"A1\":{\"formula\":{\"text\":\"\"}}}]",
-                SpreadsheetCellSaveCellHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                        )
+            "/123/SpreadsheetName456/cell/A1/save/cell/[{\"A1\":{\"formula\":{\"text\":\"\"}}}]",
+            SpreadsheetCellSaveCellHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 )
+            )
         );
     }
 
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1:A2/save/cell/[{\"A1\":{\"formula\":{\"text\":\"\"}}},{\"A2\":{\"formula\":{\"text\":\"=2\"}}}]",
-                SpreadsheetCellSaveCellHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:A2")
-                                .setDefaultAnchor(),
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY.setText("=2")
-                                        )
+            "/123/SpreadsheetName456/cell/A1:A2/save/cell/[{\"A1\":{\"formula\":{\"text\":\"\"}}},{\"A2\":{\"formula\":{\"text\":\"=2\"}}}]",
+            SpreadsheetCellSaveCellHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:A2")
+                    .setDefaultAnchor(),
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY.setText("=2")
                         )
                 )
+            )
         );
     }
 
     @Test
     public void testUrlFragment() {
         final Set<SpreadsheetCell> cells = Sets.of(
-                SpreadsheetSelection.A1.setFormula(
-                        SpreadsheetFormula.EMPTY.setText("'A")
-                )
+            SpreadsheetSelection.A1.setFormula(
+                SpreadsheetFormula.EMPTY.setText("'A")
+            )
         );
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveCellHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        cells
-                ),
-                "/123/SpreadsheetName456/cell/A1/save/cell/" + marshallCollection(cells)
+            SpreadsheetCellSaveCellHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                cells
+            ),
+            "/123/SpreadsheetName456/cell/A1/save/cell/" + marshallCollection(cells)
         );
     }
 
     @Test
     public void testUrlFragment2() {
         final Set<SpreadsheetCell> cells = Sets.of(
-                SpreadsheetSelection.A1.setFormula(
-                        SpreadsheetFormula.EMPTY.setText("=1+2")
-                )
+            SpreadsheetSelection.A1.setFormula(
+                SpreadsheetFormula.EMPTY.setText("=1+2")
+            )
         );
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveCellHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        cells
-                ),
-                "/123/SpreadsheetName456/cell/A1/save/cell/" + marshallCollection(cells)
+            SpreadsheetCellSaveCellHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                cells
+            ),
+            "/123/SpreadsheetName456/cell/A1/save/cell/" + marshallCollection(cells)
         );
     }
 
     @Test
     public void testUrlFragmentWithMultipleCells() {
         final Set<SpreadsheetCell> cells = Sets.of(
-                SpreadsheetSelection.A1.setFormula(
-                        SpreadsheetFormula.EMPTY.setText("=1")
+            SpreadsheetSelection.A1.setFormula(
+                SpreadsheetFormula.EMPTY.setText("=1")
+            ),
+            SpreadsheetSelection.parseCell("A2")
+                .setFormula(
+                    SpreadsheetFormula.EMPTY.setText("=22")
                 ),
-                SpreadsheetSelection.parseCell("A2")
-                        .setFormula(
-                                SpreadsheetFormula.EMPTY.setText("=22")
-                        ),
-                SpreadsheetSelection.parseCell("A3")
-                        .setFormula(
-                                SpreadsheetFormula.EMPTY.setText("=333")
-                        )
+            SpreadsheetSelection.parseCell("A3")
+                .setFormula(
+                    SpreadsheetFormula.EMPTY.setText("=333")
+                )
         );
 
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveCellHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:A3")
-                                .setDefaultAnchor(),
-                        cells
-                ),
-                "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/cell/" + marshallCollection(cells)
+            SpreadsheetCellSaveCellHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:A3")
+                    .setDefaultAnchor(),
+                cells
+            ),
+            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/cell/" + marshallCollection(cells)
         );
     }
 
     static String marshallCollection(final Set<SpreadsheetCell> cells) {
         return MARSHALL_CONTEXT.marshallCollection(
-                cells
+            cells
         ).toString();
     }
 
@@ -206,14 +206,14 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
                                                            final SpreadsheetName name,
                                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellSaveCellHistoryToken.with(
-                id,
-                name,
-                anchoredSelection,
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(
-                                SpreadsheetFormula.EMPTY.setText("=1+2")
-                        )
+            id,
+            name,
+            anchoredSelection,
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(
+                    SpreadsheetFormula.EMPTY.setText("=1+2")
                 )
+            )
         );
     }
 

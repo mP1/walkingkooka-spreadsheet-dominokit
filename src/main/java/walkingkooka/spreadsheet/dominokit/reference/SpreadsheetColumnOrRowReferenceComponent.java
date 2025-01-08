@@ -34,8 +34,8 @@ public final class SpreadsheetColumnOrRowReferenceComponent implements ValueSpre
 
     private SpreadsheetColumnOrRowReferenceComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetSelection::parseColumn,
-                HasText::text
+            SpreadsheetSelection::parseColumn,
+            HasText::text
         );
     }
 

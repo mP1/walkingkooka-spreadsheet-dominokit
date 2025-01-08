@@ -41,9 +41,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                                                   final SpreadsheetName name,
                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellSelectHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -51,9 +51,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                                               final SpreadsheetName name,
                                               final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -72,9 +72,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -101,54 +101,54 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
         switch (component) {
             case CELL_STRING:
                 result = cellSaveCell(
-                        this.id(),
-                        this.name(),
-                        this.anchoredSelection(),
-                        SpreadsheetCellSaveHistoryToken.parseCells(
-                                cursor
-                        )
+                    this.id(),
+                    this.name(),
+                    this.anchoredSelection(),
+                    SpreadsheetCellSaveHistoryToken.parseCells(
+                        cursor
+                    )
                 );
                 break;
             case FORMATTER_STRING:
                 result = cellSaveFormatter(
-                        this.id(),
-                        this.name(),
-                        this.anchoredSelection(),
-                        SpreadsheetCellSaveHistoryToken.parseMapWithNullableTypedValues(
-                                cursor
-                        )
+                    this.id(),
+                    this.name(),
+                    this.anchoredSelection(),
+                    SpreadsheetCellSaveHistoryToken.parseMapWithNullableTypedValues(
+                        cursor
+                    )
                 );
                 break;
             case FORMULA_STRING:
                 result = cellSaveFormula(
-                        this.id(),
-                        this.name(),
-                        this.anchoredSelection(),
-                        SpreadsheetCellSaveHistoryToken.parseMap(
-                                cursor,
-                                String.class
-                        )
+                    this.id(),
+                    this.name(),
+                    this.anchoredSelection(),
+                    SpreadsheetCellSaveHistoryToken.parseMap(
+                        cursor,
+                        String.class
+                    )
                 );
                 break;
             case PARSER_STRING:
                 result = cellSaveParser(
-                        this.id(),
-                        this.name(),
-                        this.anchoredSelection(),
-                        SpreadsheetCellSaveHistoryToken.parseMapWithNullableTypedValues(
-                                cursor
-                        )
+                    this.id(),
+                    this.name(),
+                    this.anchoredSelection(),
+                    SpreadsheetCellSaveHistoryToken.parseMapWithNullableTypedValues(
+                        cursor
+                    )
                 );
                 break;
             case STYLE_STRING:
                 result = cellSaveStyle(
-                        this.id(),
-                        this.name(),
-                        this.anchoredSelection(),
-                        SpreadsheetCellSaveHistoryToken.parseMap(
-                                cursor,
-                                TextStyle.class
-                        )
+                    this.id(),
+                    this.name(),
+                    this.anchoredSelection(),
+                    SpreadsheetCellSaveHistoryToken.parseMap(
+                        cursor,
+                        TextStyle.class
+                    )
                 );
                 break;
             default:

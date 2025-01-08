@@ -32,9 +32,9 @@ public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCe
                                                         final SpreadsheetName name,
                                                         final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellParserSelectHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -42,10 +42,10 @@ public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCe
                                                     final SpreadsheetName name,
                                                     final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                Optional.empty() // SpreadsheetParserSelector
+            id,
+            name,
+            anchoredSelection,
+            Optional.empty() // SpreadsheetParserSelector
         );
     }
 
@@ -59,23 +59,23 @@ public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCe
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellParserSelectHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
     @Override
     HistoryToken save0(final String value) {
         return HistoryToken.cellParserSave(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                Optional.ofNullable(
-                        value.isEmpty() ?
-                                null :
-                                SpreadsheetParserSelector.parse(value)
-                )
+            this.id(),
+            this.name(),
+            this.anchoredSelection(),
+            Optional.ofNullable(
+                value.isEmpty() ?
+                    null :
+                    SpreadsheetParserSelector.parse(value)
+            )
         );
     }
 

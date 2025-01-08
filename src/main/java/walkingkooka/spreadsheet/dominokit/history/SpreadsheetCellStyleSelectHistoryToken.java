@@ -39,10 +39,10 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
                                                               final AnchoredSpreadsheetSelection anchoredSelection,
                                                               final TextStylePropertyName<T> propertyName) {
         return new SpreadsheetCellStyleSelectHistoryToken<>(
-                id,
-                name,
-                anchoredSelection,
-                propertyName
+            id,
+            name,
+            anchoredSelection,
+            propertyName
         );
     }
 
@@ -51,10 +51,10 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final TextStylePropertyName<T> propertyName) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                propertyName
+            id,
+            name,
+            anchoredSelection,
+            propertyName
         );
     }
 
@@ -68,11 +68,11 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         ).style(
-                this.propertyName()
+            this.propertyName()
         );
     }
 
@@ -81,15 +81,15 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
         final TextStylePropertyName<T> propertyName = this.propertyName();
 
         return cellStyleSave(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                propertyName,
-                Optional.ofNullable(
-                        value.isEmpty() ?
-                                null :
-                                propertyName.parseValue(value)
-                )
+            this.id(),
+            this.name(),
+            this.anchoredSelection(),
+            propertyName,
+            Optional.ofNullable(
+                value.isEmpty() ?
+                    null :
+                    propertyName.parseValue(value)
+            )
         );
     }
 

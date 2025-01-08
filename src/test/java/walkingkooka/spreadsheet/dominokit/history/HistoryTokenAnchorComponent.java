@@ -36,7 +36,7 @@ import java.util.Optional;
  * The goal of this class is to allow JVM unit-testing of more complex components such as a Card that has a row of {@link HistoryTokenAnchorComponent}.
  */
 public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorComponentLike
-        implements TestHtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent> {
+    implements TestHtmlElementComponent<HTMLAnchorElement, HistoryTokenAnchorComponent> {
 
     public static HistoryTokenAnchorComponent empty() {
         return new HistoryTokenAnchorComponent();
@@ -62,7 +62,7 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     @Override
     public HistoryTokenAnchorComponent setDisabled(final boolean disabled) {
-        if(disabled){
+        if (disabled) {
             this.href = null;
         }
         return this;
@@ -89,16 +89,16 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     public Url href() {
         final String href = this.href;
         return CharSequences.isNullOrEmpty(href) ?
-                null :
-                Url.parseAbsoluteOrRelative(href);
+            null :
+            Url.parseAbsoluteOrRelative(href);
     }
 
     @Override
     public HistoryTokenAnchorComponent setHref(final Url url) {
         this.href =
-                null == url ?
-                        "" :
-                        url.toString();
+            null == url ?
+                "" :
+                url.toString();
         return this.setDisabled(null == url);
     }
 

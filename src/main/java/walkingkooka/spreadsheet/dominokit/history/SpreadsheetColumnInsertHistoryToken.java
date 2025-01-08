@@ -31,9 +31,9 @@ abstract class SpreadsheetColumnInsertHistoryToken extends SpreadsheetColumnHist
                                         final AnchoredSpreadsheetSelection anchoredSelection,
                                         final OptionalInt count) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
         this.count = checkCount(count);
     }
@@ -44,9 +44,9 @@ abstract class SpreadsheetColumnInsertHistoryToken extends SpreadsheetColumnHist
         final OptionalInt count = this.count();
 
         return count.isPresent() ?
-                UrlFragment.with(
-                        String.valueOf(count.getAsInt())
-                ) :
-                UrlFragment.EMPTY;
+            UrlFragment.with(
+                String.valueOf(count.getAsInt())
+            ) :
+            UrlFragment.EMPTY;
     }
 }

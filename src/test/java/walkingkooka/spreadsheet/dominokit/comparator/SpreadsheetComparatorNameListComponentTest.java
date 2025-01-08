@@ -30,42 +30,42 @@ public final class SpreadsheetComparatorNameListComponentTest implements ValueCo
     @Test
     public void testParseAndText() {
         final SpreadsheetComparatorNameList names = SpreadsheetComparatorNameList.with(
-                SpreadsheetComparatorNameList.parse("day-of-month, year")
+            SpreadsheetComparatorNameList.parse("day-of-month, year")
         );
 
         this.checkEquals(
-                names,
-                SpreadsheetComparatorNameList.parse(names.text())
+            names,
+            SpreadsheetComparatorNameList.parse(names.text())
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetComparatorNameListComponent.empty()
-                        .setStringValue(
-                                Optional.of("day-of-month, month-of-year")
-                        ),
-                "SpreadsheetComparatorNameListComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [day-of-month, month-of-year]\n"
+            SpreadsheetComparatorNameListComponent.empty()
+                .setStringValue(
+                    Optional.of("day-of-month, month-of-year")
+                ),
+            "SpreadsheetComparatorNameListComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [day-of-month, month-of-year]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetComparatorNameListComponent.empty()
-                        .setStringValue(
-                                Optional.of("day-of-month, !@#")
-                        ),
-                "SpreadsheetComparatorNameListComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [day-of-month, !@#]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 14\n"
+            SpreadsheetComparatorNameListComponent.empty()
+                .setStringValue(
+                    Optional.of("day-of-month, !@#")
+                ),
+            "SpreadsheetComparatorNameListComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [day-of-month, !@#]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 14\n"
         );
     }
 

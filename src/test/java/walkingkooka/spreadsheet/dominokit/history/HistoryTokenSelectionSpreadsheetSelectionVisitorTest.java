@@ -24,9 +24,9 @@ public final class HistoryTokenSelectionSpreadsheetSelectionVisitorTest implemen
     @Override
     public HistoryTokenSelectionSpreadsheetSelectionVisitor createVisitor() {
         return new HistoryTokenSelectionSpreadsheetSelectionVisitor(
-                null,
-                null,
-                null
+            null,
+            null,
+            null
         );
     }
 

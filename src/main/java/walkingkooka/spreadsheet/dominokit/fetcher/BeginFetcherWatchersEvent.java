@@ -33,10 +33,10 @@ final class BeginFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherW
                                                                         final Optional<FetcherRequestBody<?>> body,
                                                                         final AppContext context) {
         return new BeginFetcherWatchersEvent<>(
-                method,
-                url,
-                body,
-                context
+            method,
+            url,
+            body,
+            context
         );
     }
 
@@ -53,10 +53,10 @@ final class BeginFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherW
     @Override
     void fire(final W watcher) {
         watcher.onBegin(
-                this.method,
-                this.url,
-                this.body,
-                this.context
+            this.method,
+            this.url,
+            this.body,
+            this.context
         );
     }
 

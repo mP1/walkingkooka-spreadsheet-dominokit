@@ -34,9 +34,9 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
                                                  final SpreadsheetName name,
                                                  final TextStylePropertyName<T> stylePropertyName) {
         super(
-                id,
-                name,
-                SpreadsheetMetadataPropertyName.STYLE
+            id,
+            name,
+            SpreadsheetMetadataPropertyName.STYLE
         );
 
         this.stylePropertyName = Objects.requireNonNull(stylePropertyName, "stylePropertyName");
@@ -50,8 +50,8 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
 
     @Override final UrlFragment metadataPropertyUrlFragment() {
         return this.stylePropertyName()
-                        .urlFragment()
-                .appendSlashThen(this.styleUrlFragment());
+            .urlFragment()
+            .appendSlashThen(this.styleUrlFragment());
     }
 
     abstract UrlFragment styleUrlFragment();
@@ -66,14 +66,14 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
         final TextStylePropertyName<T> propertyName = this.stylePropertyName();
 
         return HistoryToken.metadataPropertyStyleSave(
-                this.id(),
-                this.name(),
-                propertyName,
-                Optional.ofNullable(
-                        value.isEmpty() ?
-                                null :
-                                propertyName.parseValue(value)
-                )
+            this.id(),
+            this.name(),
+            propertyName,
+            Optional.ofNullable(
+                value.isEmpty() ?
+                    null :
+                    propertyName.parseValue(value)
+            )
         );
     }
 }

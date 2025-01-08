@@ -32,8 +32,8 @@ final class LoggingClipboardContextWriteWatcher implements ClipboardContextWrite
         Objects.requireNonNull(context, "context");
 
         return new LoggingClipboardContextWriteWatcher(
-                clipboardTextItem,
-                context
+            clipboardTextItem,
+            context
         );
     }
 
@@ -47,8 +47,8 @@ final class LoggingClipboardContextWriteWatcher implements ClipboardContextWrite
         final ClipboardTextItem clipboardTextItem = this.clipboardTextItem;
 
         context.debug(
-                "Clipboard write success " + clipboardTextItem.types() + " to clipboard",
-                clipboardTextItem
+            "Clipboard write success " + clipboardTextItem.types() + " to clipboard",
+            clipboardTextItem
         );
     }
 
@@ -57,8 +57,8 @@ final class LoggingClipboardContextWriteWatcher implements ClipboardContextWrite
         final ClipboardTextItem clipboardTextItem = this.clipboardTextItem;
 
         this.context.error(
-                "Clipboard write failed " + clipboardTextItem.types() + " failed.",
-                cause
+            "Clipboard write failed " + clipboardTextItem.types() + " failed.",
+            cause
         );
     }
 

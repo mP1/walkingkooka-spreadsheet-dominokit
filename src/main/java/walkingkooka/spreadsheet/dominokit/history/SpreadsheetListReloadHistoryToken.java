@@ -34,16 +34,16 @@ public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHist
     static SpreadsheetListReloadHistoryToken with(final OptionalInt offset,
                                                   final OptionalInt count) {
         return new SpreadsheetListReloadHistoryToken(
-                checkOffset(offset),
-                count
+            checkOffset(offset),
+            count
         );
     }
 
     private SpreadsheetListReloadHistoryToken(final OptionalInt offset,
                                               final OptionalInt count) {
         super(
-                offset,
-                count
+            offset,
+            count
         );
     }
 
@@ -59,8 +59,8 @@ public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHist
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.spreadsheetListSelect(
-                this.offset(),
-                this.count()
+            this.offset(),
+            this.count()
         );
     }
 
@@ -70,7 +70,7 @@ public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHist
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.pushHistoryToken(
-                this.clearAction()
+            this.clearAction()
         );
 
         // SpreadsheetListSelectHistoryToken#onHistoryTokenChange will do the actual reloading of data

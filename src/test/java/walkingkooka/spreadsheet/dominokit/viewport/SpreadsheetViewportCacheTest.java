@@ -71,8 +71,8 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetViewportCacheTest implements IteratorTesting,
-        SpreadsheetLabelNameResolverTesting<SpreadsheetViewportCache>,
-        ClassTesting<SpreadsheetViewportCache> {
+    SpreadsheetLabelNameResolverTesting<SpreadsheetViewportCache>,
+    ClassTesting<SpreadsheetViewportCache> {
 
     private final static SpreadsheetCellReference A1 = SpreadsheetCellReference.A1;
     private final static SpreadsheetCellReference A2 = SpreadsheetSelection.parseCell("A2");
@@ -112,9 +112,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
     private final static SpreadsheetCellRangeReference WINDOW1 = SpreadsheetSelection.parseCellRange("A1:B3");
     private final static SpreadsheetViewportWindows WINDOW = SpreadsheetViewportWindows.with(
-            Sets.of(
-                    WINDOW1
-            )
+        Sets.of(
+            WINDOW1
+        )
     );
 
     private final static HttpMethod METHOD = HttpMethod.GET;
@@ -150,24 +150,24 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         this.checkCells(
-                cache
+            cache
         );
 
         this.checkMatchedCells(
-                cache
+            cache
         );
 
         this.checkColumns(
-                cache
+            cache
         );
 
         this.checkCellToLabels(
-                cache,
-                Maps.empty()
+            cache,
+            Maps.empty()
         );
 
         this.checkRows(
-                cache
+            cache
         );
     }
 
@@ -188,26 +188,26 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final double height = 200;
 
         cache.onSpreadsheetMetadata(
-                SpreadsheetMetadata.EMPTY
-                        .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID1)
-                        .set(
-                                SpreadsheetMetadataPropertyName.STYLE,
-                                TextStyle.EMPTY
-                                        .set(TextStylePropertyName.WIDTH, Length.pixel(width))
-                                        .set(TextStylePropertyName.HEIGHT, Length.pixel(height))
-                        ),
-                CONTEXT
+            SpreadsheetMetadata.EMPTY
+                .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID1)
+                .set(
+                    SpreadsheetMetadataPropertyName.STYLE,
+                    TextStyle.EMPTY
+                        .set(TextStylePropertyName.WIDTH, Length.pixel(width))
+                        .set(TextStylePropertyName.HEIGHT, Length.pixel(height))
+                ),
+            CONTEXT
         );
 
         this.checkEquals(
-                Length.pixel(width),
-                cache.defaultWidth,
-                "defaultWidth"
+            Length.pixel(width),
+            cache.defaultWidth,
+            "defaultWidth"
         );
         this.checkEquals(
-                Length.pixel(height),
-                cache.defaultHeight,
-                "defaultHeight"
+            Length.pixel(height),
+            cache.defaultHeight,
+            "defaultHeight"
         );
     }
 
@@ -218,70 +218,70 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         cache.clear();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL,
-                                        A2_CELL,
-                                        A3_CELL
-                                )
-                        ).setMatchedCells(
-                                Sets.of(
-                                        A1,
-                                        A2
-                                )
-                        ).setColumns(
-                                Sets.of(
-                                        COLUMN_A,
-                                        COLUMN_B
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGA1B,
-                                        LABEL_MAPPINGB3
-                                )
-                        ).setRows(
-                                Sets.of(
-                                        ROW_1,
-                                        ROW_2
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL,
+                        A2_CELL,
+                        A3_CELL
+                    )
+                ).setMatchedCells(
+                    Sets.of(
+                        A1,
+                        A2
+                    )
+                ).setColumns(
+                    Sets.of(
+                        COLUMN_A,
+                        COLUMN_B
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGA1B,
+                        LABEL_MAPPINGB3
+                    )
+                ).setRows(
+                    Sets.of(
+                        ROW_1,
+                        ROW_2
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A1_CELL,
-                A2_CELL,
-                A3_CELL
+            cache,
+            A1_CELL,
+            A2_CELL,
+            A3_CELL
         );
 
         this.checkMatchedCells(
-                cache,
-                A1,
-                A2
+            cache,
+            A1,
+            A2
         );
 
         this.checkColumns(
-                cache,
-                COLUMN_A,
-                COLUMN_B
+            cache,
+            COLUMN_A,
+            COLUMN_B
         );
 
         this.checkCellToLabels(
-                cache,
-                LABEL_MAPPINGA1A,
-                LABEL_MAPPINGA1B,
-                LABEL_MAPPINGB3
+            cache,
+            LABEL_MAPPINGA1A,
+            LABEL_MAPPINGA1B,
+            LABEL_MAPPINGB3
         );
 
         this.checkRows(
-                cache,
-                ROW_1,
-                ROW_2
+            cache,
+            ROW_1,
+            ROW_2
         );
 
         cache.clear();
@@ -302,26 +302,26 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetMetadata(
-                SpreadsheetMetadata.EMPTY
-                        .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID1)
-                        .set(
-                                SpreadsheetMetadataPropertyName.STYLE,
-                                TextStyle.EMPTY
-                                        .set(TextStylePropertyName.WIDTH, Length.pixel(width))
-                                        .set(TextStylePropertyName.HEIGHT, Length.pixel(height))
-                        ),
-                CONTEXT
+            SpreadsheetMetadata.EMPTY
+                .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID1)
+                .set(
+                    SpreadsheetMetadataPropertyName.STYLE,
+                    TextStyle.EMPTY
+                        .set(TextStylePropertyName.WIDTH, Length.pixel(width))
+                        .set(TextStylePropertyName.HEIGHT, Length.pixel(height))
+                ),
+            CONTEXT
         );
 
         this.checkEquals(
-                Length.pixel(width),
-                cache.defaultWidth,
-                "defaultWidth"
+            Length.pixel(width),
+            cache.defaultWidth,
+            "defaultWidth"
         );
         this.checkEquals(
-                Length.pixel(height),
-                cache.defaultHeight,
-                "defaultHeight"
+            Length.pixel(height),
+            cache.defaultHeight,
+            "defaultHeight"
         );
     }
 
@@ -330,50 +330,50 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY.setText("will be lost")
-                                )
-                        )
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText("will be lost")
+                    )
+                )
+            ),
+            CONTEXT
         );
 
         cache.onSpreadsheetMetadata(
-                SpreadsheetMetadata.EMPTY.set(
-                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                        ID2
-                ).set(
-                        SpreadsheetMetadataPropertyName.STYLE,
-                        TextStyle.EMPTY
-                                .set(TextStylePropertyName.WIDTH, Length.pixel(100.0))
-                                .set(TextStylePropertyName.HEIGHT, Length.pixel(200.0))
-                ),
-                CONTEXT
+            SpreadsheetMetadata.EMPTY.set(
+                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                ID2
+            ).set(
+                SpreadsheetMetadataPropertyName.STYLE,
+                TextStyle.EMPTY
+                    .set(TextStylePropertyName.WIDTH, Length.pixel(100.0))
+                    .set(TextStylePropertyName.HEIGHT, Length.pixel(200.0))
+            ),
+            CONTEXT
         );
 
         final SpreadsheetCell b2 = SpreadsheetSelection.parseCell("B2")
-                .setFormula(
-                        SpreadsheetFormula.EMPTY.setText("kept")
-                );
+            .setFormula(
+                SpreadsheetFormula.EMPTY.setText("kept")
+            );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID2,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                b2
-                        )
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID2,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    b2
+                )
+            ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                b2
+            cache,
+            b2
         );
     }
 
@@ -382,85 +382,85 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY.setText("will be lost")
-                                )
-                        )
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText("will be lost")
+                    )
+                )
+            ),
+            CONTEXT
         );
 
         cache.onSpreadsheetMetadata(
-                SpreadsheetMetadata.EMPTY.set(
-                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                        ID2
-                ).set(
-                        SpreadsheetMetadataPropertyName.STYLE,
-                        TextStyle.EMPTY
-                                .set(TextStylePropertyName.WIDTH, Length.pixel(100.0))
-                                .set(TextStylePropertyName.HEIGHT, Length.pixel(200.0))
-                ),
-                CONTEXT
+            SpreadsheetMetadata.EMPTY.set(
+                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                ID2
+            ).set(
+                SpreadsheetMetadataPropertyName.STYLE,
+                TextStyle.EMPTY
+                    .set(TextStylePropertyName.WIDTH, Length.pixel(100.0))
+                    .set(TextStylePropertyName.HEIGHT, Length.pixel(200.0))
+            ),
+            CONTEXT
         );
 
         final SpreadsheetCell b2 = SpreadsheetSelection.parseCell("B2")
-                .setFormula(
-                        SpreadsheetFormula.EMPTY.setText("will be lost")
-                );
+            .setFormula(
+                SpreadsheetFormula.EMPTY.setText("will be lost")
+            );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID2,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.parseCell("B2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY.setText("will be lost")
-                                        )
+            METHOD,
+            URL_ID2,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.parseCell("B2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY.setText("will be lost")
                         )
-                ),
-                CONTEXT
+                )
+            ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                b2
+            cache,
+            b2
         );
 
         cache.onSpreadsheetMetadata(
-                SpreadsheetMetadata.EMPTY.set(
-                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                        ID3
-                ).set(
-                        SpreadsheetMetadataPropertyName.STYLE,
-                        TextStyle.EMPTY
-                                .set(TextStylePropertyName.WIDTH, Length.pixel(100.0))
-                                .set(TextStylePropertyName.HEIGHT, Length.pixel(200.0))
-                ),
-                CONTEXT
+            SpreadsheetMetadata.EMPTY.set(
+                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                ID3
+            ).set(
+                SpreadsheetMetadataPropertyName.STYLE,
+                TextStyle.EMPTY
+                    .set(TextStylePropertyName.WIDTH, Length.pixel(100.0))
+                    .set(TextStylePropertyName.HEIGHT, Length.pixel(200.0))
+            ),
+            CONTEXT
         );
 
         final SpreadsheetCell c3 = SpreadsheetSelection.parseCell("c3")
-                .setFormula(
-                        SpreadsheetFormula.EMPTY.setText("kept!")
-                );
+            .setFormula(
+                SpreadsheetFormula.EMPTY.setText("kept!")
+            );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID3,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(c3)
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID3,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(c3)
+            ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                c3
+            cache,
+            c3
         );
     }
 
@@ -469,59 +469,59 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL,
-                                        A2_CELL,
-                                        A3_CELL
-                                )
-                        ).setColumns(
-                                Sets.of(
-                                        COLUMN_A,
-                                        COLUMN_B
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGA1B,
-                                        LABEL_MAPPINGB3
-                                )
-                        ).setRows(
-                                Sets.of(
-                                        ROW_1,
-                                        ROW_2
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL,
+                        A2_CELL,
+                        A3_CELL
+                    )
+                ).setColumns(
+                    Sets.of(
+                        COLUMN_A,
+                        COLUMN_B
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGA1B,
+                        LABEL_MAPPINGB3
+                    )
+                ).setRows(
+                    Sets.of(
+                        ROW_1,
+                        ROW_2
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A1_CELL,
-                A2_CELL,
-                A3_CELL
+            cache,
+            A1_CELL,
+            A2_CELL,
+            A3_CELL
         );
 
         this.checkColumns(
-                cache,
-                COLUMN_A,
-                COLUMN_B
+            cache,
+            COLUMN_A,
+            COLUMN_B
         );
 
         this.checkCellToLabels(
-                cache,
-                LABEL_MAPPINGA1A,
-                LABEL_MAPPINGA1B,
-                LABEL_MAPPINGB3
+            cache,
+            LABEL_MAPPINGA1A,
+            LABEL_MAPPINGA1B,
+            LABEL_MAPPINGB3
         );
 
         this.checkRows(
-                cache,
-                ROW_1,
-                ROW_2
+            cache,
+            ROW_1,
+            ROW_2
         );
     }
 
@@ -530,60 +530,60 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL,
-                                        A2_CELL,
-                                        A3_CELL
-                                )
-                        ).setColumns(
-                                Sets.of(
-                                        COLUMN_A,
-                                        COLUMN_B
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGA1B,
-                                        LABEL_MAPPINGB3
-                                )
-                        ).setRows(
-                                Sets.of(
-                                        ROW_1,
-                                        ROW_2
-                                )
-                        ).setWindow(WINDOW),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL,
+                        A2_CELL,
+                        A3_CELL
+                    )
+                ).setColumns(
+                    Sets.of(
+                        COLUMN_A,
+                        COLUMN_B
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGA1B,
+                        LABEL_MAPPINGB3
+                    )
+                ).setRows(
+                    Sets.of(
+                        ROW_1,
+                        ROW_2
+                    )
+                ).setWindow(WINDOW),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A1_CELL,
-                A2_CELL,
-                A3_CELL
+            cache,
+            A1_CELL,
+            A2_CELL,
+            A3_CELL
         );
 
         this.checkColumns(
-                cache,
-                COLUMN_A,
-                COLUMN_B
+            cache,
+            COLUMN_A,
+            COLUMN_B
         );
 
         this.checkCellToLabels(
-                cache,
-                LABEL_MAPPINGA1A,
-                LABEL_MAPPINGA1B,
-                LABEL_MAPPINGB3
+            cache,
+            LABEL_MAPPINGA1A,
+            LABEL_MAPPINGA1B,
+            LABEL_MAPPINGB3
         );
 
 
         this.checkRows(
-                cache,
-                ROW_1,
-                ROW_2
+            cache,
+            ROW_1,
+            ROW_2
         );
     }
 
@@ -592,30 +592,30 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL1.mapping(SpreadsheetSelection.parseCellRange("A1:A2"))
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL1.mapping(SpreadsheetSelection.parseCellRange("A1:A2"))
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A1_CELL
+            cache,
+            A1_CELL
         );
 
         this.checkCellToLabels(
-                cache,
-                LABEL1.mapping(A1),
-                LABEL1.mapping(A2)
+            cache,
+            LABEL1.mapping(A1),
+            LABEL1.mapping(A2)
         );
     }
 
@@ -626,36 +626,36 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportWindows windows = SpreadsheetViewportWindows.parse("A1:A2");
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL1.mapping(SpreadsheetSelection.parseCellRange("A1:A3"))
-                                )
-                        ).setWindow(windows),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL1.mapping(SpreadsheetSelection.parseCellRange("A1:A3"))
+                    )
+                ).setWindow(windows),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A1_CELL
+            cache,
+            A1_CELL
         );
 
         this.checkCellToLabels(
-                cache,
-                Maps.of(
-                        A1,
-                        Sets.of(LABEL1),
-                        A2,
-                        Sets.of(LABEL1),
-                        A3,
-                        Sets.of(LABEL1)
-                )
+            cache,
+            Maps.of(
+                A1,
+                Sets.of(LABEL1),
+                A2,
+                Sets.of(LABEL1),
+                A3,
+                Sets.of(LABEL1)
+            )
         );
     }
 
@@ -664,53 +664,53 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1.setFormula(SpreadsheetFormula.EMPTY.setText("Lost"))
-                                )
-                        ).setMatchedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1.setFormula(SpreadsheetFormula.EMPTY.setText("Lost"))
+                    )
+                ).setMatchedCells(
+                    Sets.of(
+                        A1
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A1_CELL
+            cache,
+            A1_CELL
         );
 
         this.checkMatchedCells(
-                cache,
-                A1
+            cache,
+            A1
         );
 
         this.isMatchedCellAndCheck(
-                cache,
-                A2,
-                false
+            cache,
+            A2,
+            false
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                A1,
-                A1
+            cache,
+            A1,
+            A1
         );
     }
 
@@ -719,40 +719,40 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setColumns(
-                                Sets.of(
-                                        COLUMN_A.setHidden(true),
-                                        COLUMN_B.setHidden(true)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setColumns(
+                    Sets.of(
+                        COLUMN_A.setHidden(true),
+                        COLUMN_B.setHidden(true)
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setColumns(
-                                Sets.of(
-                                        COLUMN_A.setHidden(false),
-                                        COLUMN_B.setHidden(false)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setColumns(
+                    Sets.of(
+                        COLUMN_A.setHidden(false),
+                        COLUMN_B.setHidden(false)
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkColumns(
-                cache,
-                COLUMN_A.setHidden(false),
-                COLUMN_B.setHidden(false)
+            cache,
+            COLUMN_A.setHidden(false),
+            COLUMN_B.setHidden(false)
         );
     }
 
@@ -761,39 +761,39 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setColumns(
-                                Sets.of(
-                                        COLUMN_A.setHidden(true),
-                                        COLUMN_B.setHidden(true)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setColumns(
+                    Sets.of(
+                        COLUMN_A.setHidden(true),
+                        COLUMN_B.setHidden(true)
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setColumns(
-                                Sets.of(
-                                        COLUMN_A.setHidden(false)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setColumns(
+                    Sets.of(
+                        COLUMN_A.setHidden(false)
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkColumns(
-                cache,
-                COLUMN_A.setHidden(false),
-                COLUMN_B.setHidden(true)
+            cache,
+            COLUMN_A.setHidden(false),
+            COLUMN_B.setHidden(true)
         );
     }
 
@@ -802,38 +802,38 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setColumns(
-                                Sets.of(
-                                        COLUMN_A,
-                                        COLUMN_B
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setColumns(
+                    Sets.of(
+                        COLUMN_A,
+                        COLUMN_B
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setDeletedColumns(
-                                Sets.of(
-                                        A
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setDeletedColumns(
+                    Sets.of(
+                        A
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkColumns(
-                cache,
-                COLUMN_B
+            cache,
+            COLUMN_B
         );
     }
 
@@ -842,43 +842,43 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1B
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1B
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCellToLabels(
-                cache,
-                LABEL_MAPPINGA1B
+            cache,
+            LABEL_MAPPINGA1B
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL_MAPPINGA1B.label(),
-                LABEL_MAPPINGA1B.target()
+            cache,
+            LABEL_MAPPINGA1B.label(),
+            LABEL_MAPPINGA1B.target()
         );
     }
 
@@ -887,39 +887,39 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setLabels(
-                                Sets.of(
-                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setLabels(
+                    Sets.of(
+                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGA1B
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGA1B
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCellToLabels(
-                cache,
-                LABEL_MAPPINGA1A,
-                LABEL_MAPPINGA1B
+            cache,
+            LABEL_MAPPINGA1A,
+            LABEL_MAPPINGA1B
         );
     }
 
@@ -928,46 +928,46 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1.setFormula(SpreadsheetFormula.EMPTY.setText("Lost")),
-                                        A2_CELL
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1.setFormula(SpreadsheetFormula.EMPTY.setText("Lost")),
+                        A2_CELL
+                    )
+                ).setLabels(
+                    Sets.of(
+                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A2_CELL
+            cache,
+            A2_CELL
         );
 
         this.checkCellToLabels(
-                cache,
-                LABEL_MAPPINGA1A
+            cache,
+            LABEL_MAPPINGA1A
         );
     }
 
@@ -976,61 +976,61 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL
-                                )
-                        ).setMatchedCells(
-                                Sets.of(A1)
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A
-                                )
-                        ).setWindow(WINDOW),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL
+                    )
+                ).setMatchedCells(
+                    Sets.of(A1)
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A
+                    )
+                ).setWindow(WINDOW),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A2_CELL
-                                )
-                        ).setMatchedCells(
-                                Sets.of(
-                                        A2
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGB3
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A2_CELL
+                    )
+                ).setMatchedCells(
+                    Sets.of(
+                        A2
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGB3
+                    )
+                ),
+            CONTEXT
         );
 
         // A1_CELL and LABEL_MAPPINGA1A not lost
 
         this.checkCells(
-                cache,
-                A1_CELL,
-                A2_CELL
+            cache,
+            A1_CELL,
+            A2_CELL
         );
 
         this.checkMatchedCells(
-                cache,
-                A1,
-                A2
+            cache,
+            A1,
+            A2
         );
 
         this.checkCellToLabels(
-                cache,
-                LABEL_MAPPINGA1A,
-                LABEL_MAPPINGB3
+            cache,
+            LABEL_MAPPINGA1A,
+            LABEL_MAPPINGB3
         );
     }
 
@@ -1039,46 +1039,46 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL
-                                )
-                        ).setMatchedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A
-                                )
-                        ).setWindow(WINDOW),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL
+                    )
+                ).setMatchedCells(
+                    Sets.of(
+                        A1
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A
+                    )
+                ).setWindow(WINDOW),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setWindow(WINDOW),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setWindow(WINDOW),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A1_CELL
+            cache,
+            A1_CELL
         );
 
         this.checkMatchedCells(
-                cache,
-                A1
+            cache,
+            A1
         );
 
         this.checkCellToLabels(
-                cache,
-                LABEL_MAPPINGA1A
+            cache,
+            LABEL_MAPPINGA1A
         );
     }
 
@@ -1087,54 +1087,54 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL,
-                                        A2_CELL
-                                )
-                        ).setMatchedCells(
-                                Sets.of(
-                                        A1,
-                                        A2
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGB3
-                                )
-                        ).setWindow(WINDOW),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL,
+                        A2_CELL
+                    )
+                ).setMatchedCells(
+                    Sets.of(
+                        A1,
+                        A2
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGB3
+                    )
+                ).setWindow(WINDOW),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setWindow(WINDOW),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setWindow(WINDOW),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A2_CELL
+            cache,
+            A2_CELL
         );
 
         this.checkMatchedCells(
-                cache,
-                A2
+            cache,
+            A2
         );
 
         this.checkCellToLabels(
-                cache,
-                LABEL_MAPPINGB3
+            cache,
+            LABEL_MAPPINGB3
         );
     }
 
@@ -1143,61 +1143,61 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL
-                                )
-                        ).setMatchedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A
-                                )
-                        ).setWindow(WINDOW),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL
+                    )
+                ).setMatchedCells(
+                    Sets.of(
+                        A1
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A
+                    )
+                ).setWindow(WINDOW),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A2_CELL
-                                )
-                        ).setMatchedCells(
-                                Sets.of(
-                                        A2
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGB3
-                                )
-                        ).setWindow(WINDOW),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A2_CELL
+                    )
+                ).setMatchedCells(
+                    Sets.of(
+                        A2
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGB3
+                    )
+                ).setWindow(WINDOW),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A1_CELL,
-                A2_CELL
+            cache,
+            A1_CELL,
+            A2_CELL
         );
 
         this.checkMatchedCells(
-                cache,
-                A1,
-                A2
+            cache,
+            A1,
+            A2
         );
 
         this.checkCellToLabels(
-                cache,
-                LABEL_MAPPINGA1A,
-                LABEL_MAPPINGB3
+            cache,
+            LABEL_MAPPINGA1A,
+            LABEL_MAPPINGB3
         );
     }
 
@@ -1207,40 +1207,40 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setRows(
-                                Sets.of(
-                                        ROW_1.setHidden(true),
-                                        ROW_2.setHidden(true)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setRows(
+                    Sets.of(
+                        ROW_1.setHidden(true),
+                        ROW_2.setHidden(true)
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setRows(
-                                Sets.of(
-                                        ROW_1.setHidden(false),
-                                        ROW_2.setHidden(false)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setRows(
+                    Sets.of(
+                        ROW_1.setHidden(false),
+                        ROW_2.setHidden(false)
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkRows(
-                cache,
-                ROW_1.setHidden(false),
-                ROW_2.setHidden(false)
+            cache,
+            ROW_1.setHidden(false),
+            ROW_2.setHidden(false)
         );
     }
 
@@ -1249,39 +1249,39 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setRows(
-                                Sets.of(
-                                        ROW_1.setHidden(true),
-                                        ROW_2.setHidden(true)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setRows(
+                    Sets.of(
+                        ROW_1.setHidden(true),
+                        ROW_2.setHidden(true)
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setRows(
-                                Sets.of(
-                                        ROW_1.setHidden(false)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setRows(
+                    Sets.of(
+                        ROW_1.setHidden(false)
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkRows(
-                cache,
-                ROW_1.setHidden(false),
-                ROW_2.setHidden(true)
+            cache,
+            ROW_1.setHidden(false),
+            ROW_2.setHidden(true)
         );
     }
 
@@ -1290,38 +1290,38 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setRows(
-                                Sets.of(
-                                        ROW_1,
-                                        ROW_2
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setRows(
+                    Sets.of(
+                        ROW_1,
+                        ROW_2
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setDeletedRows(
-                                Sets.of(
-                                        ROW_REF_1
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setDeletedRows(
+                    Sets.of(
+                        ROW_REF_1
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkRows(
-                cache,
-                ROW_2
+            cache,
+            ROW_2
         );
     }
 
@@ -1332,24 +1332,24 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setColumnWidths(
-                                Maps.of(
-                                        A, 10.0,
-                                        B, 20.0
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setColumnWidths(
+                    Maps.of(
+                        A, 10.0,
+                        B, 20.0
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkColumnsWidths(
-                cache,
-                Maps.of(
-                        A, 10.0,
-                        B, 20.0
-                )
+            cache,
+            Maps.of(
+                A, 10.0,
+                B, 20.0
+            )
         );
     }
 
@@ -1358,39 +1358,39 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setColumnWidths(
-                                Maps.of(
-                                        A, 10.0,
-                                        B, 20.0,
-                                        C, 30.0
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setColumnWidths(
+                    Maps.of(
+                        A, 10.0,
+                        B, 20.0,
+                        C, 30.0
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setColumnWidths(
-                                Maps.of(
-                                        A, 100.0,
-                                        B, 200.0
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setColumnWidths(
+                    Maps.of(
+                        A, 100.0,
+                        B, 200.0
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkColumnsWidths(
-                cache,
-                Maps.of(
-                        A, 100.0,
-                        B, 200.0,
-                        C, 30.0
-                )
+            cache,
+            Maps.of(
+                A, 100.0,
+                B, 200.0,
+                C, 30.0
+            )
         );
     }
 
@@ -1399,9 +1399,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testCellsWithNullFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.viewportCacheAndOpen()
-                        .cells(null)
+            NullPointerException.class,
+            () -> this.viewportCacheAndOpen()
+                .cells(null)
         );
     }
 
@@ -1410,56 +1410,56 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL,
-                                        A2_CELL,
-                                        A3_CELL
-                                )
-                        ).setColumns(
-                                Sets.of(
-                                        COLUMN_A,
-                                        COLUMN_B
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGA1B,
-                                        LABEL_MAPPINGB3
-                                )
-                        ).setRows(
-                                Sets.of(
-                                        ROW_1,
-                                        ROW_2
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL,
+                        A2_CELL,
+                        A3_CELL
+                    )
+                ).setColumns(
+                    Sets.of(
+                        COLUMN_A,
+                        COLUMN_B
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGA1B,
+                        LABEL_MAPPINGB3
+                    )
+                ).setRows(
+                    Sets.of(
+                        ROW_1,
+                        ROW_2
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A1_CELL,
-                A2_CELL,
-                A3_CELL
+            cache,
+            A1_CELL,
+            A2_CELL,
+            A3_CELL
         );
 
         this.iterateAndCheck(
-                cache.cells(
-                        SpreadsheetSelection.parseCellRange("A1:A2")
-                ),
-                A1_CELL,
-                A2_CELL
+            cache.cells(
+                SpreadsheetSelection.parseCellRange("A1:A2")
+            ),
+            A1_CELL,
+            A2_CELL
         );
 
         this.iterateAndCheck(
-                cache.cells(
-                        SpreadsheetSelection.parseCellRange("A2:A3")
-                ),
-                A2_CELL,
-                A3_CELL
+            cache.cells(
+                SpreadsheetSelection.parseCellRange("A2:A3")
+            ),
+            A2_CELL,
+            A3_CELL
         );
     }
 
@@ -1468,9 +1468,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testCellRangeWithNullFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.viewportCacheAndOpen()
-                        .cellRange(null)
+            NullPointerException.class,
+            () -> this.viewportCacheAndOpen()
+                .cellRange(null)
         );
     }
 
@@ -1479,53 +1479,53 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL,
-                                        A2_CELL,
-                                        A3_CELL
-                                )
-                        ).setColumns(
-                                Sets.of(
-                                        COLUMN_A,
-                                        COLUMN_B
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGA1B,
-                                        LABEL_MAPPINGB3
-                                )
-                        ).setRows(
-                                Sets.of(
-                                        ROW_1,
-                                        ROW_2
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL,
+                        A2_CELL,
+                        A3_CELL
+                    )
+                ).setColumns(
+                    Sets.of(
+                        COLUMN_A,
+                        COLUMN_B
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGA1B,
+                        LABEL_MAPPINGB3
+                    )
+                ).setRows(
+                    Sets.of(
+                        ROW_1,
+                        ROW_2
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A1_CELL,
-                A2_CELL,
-                A3_CELL
+            cache,
+            A1_CELL,
+            A2_CELL,
+            A3_CELL
         );
 
         final SpreadsheetCellRangeReference range = SpreadsheetSelection.parseCellRange("A1:A2");
 
         this.cellRangeAndCheck(
-                cache,
-                range,
-                range.setValue(
-                        Sets.of(
-                                A1_CELL,
-                                A2_CELL
-                        )
+            cache,
+            range,
+            range.setValue(
+                Sets.of(
+                    A1_CELL,
+                    A2_CELL
                 )
+            )
         );
     }
 
@@ -1534,54 +1534,54 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL,
-                                        A2_CELL,
-                                        A3_CELL
-                                )
-                        ).setColumns(
-                                Sets.of(
-                                        COLUMN_A,
-                                        COLUMN_B
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGA1B,
-                                        LABEL_MAPPINGB3
-                                )
-                        ).setRows(
-                                Sets.of(
-                                        ROW_1,
-                                        ROW_2
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL,
+                        A2_CELL,
+                        A3_CELL
+                    )
+                ).setColumns(
+                    Sets.of(
+                        COLUMN_A,
+                        COLUMN_B
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGA1B,
+                        LABEL_MAPPINGB3
+                    )
+                ).setRows(
+                    Sets.of(
+                        ROW_1,
+                        ROW_2
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A1_CELL,
-                A2_CELL,
-                A3_CELL
+            cache,
+            A1_CELL,
+            A2_CELL,
+            A3_CELL
         );
 
         final SpreadsheetCellRangeReference range = SpreadsheetSelection.parseCellRange("A1:A3");
 
         this.cellRangeAndCheck(
-                cache,
-                range,
-                range.setValue(
-                        Sets.of(
-                                A1_CELL,
-                                A2_CELL,
-                                A3_CELL
-                        )
+            cache,
+            range,
+            range.setValue(
+                Sets.of(
+                    A1_CELL,
+                    A2_CELL,
+                    A3_CELL
                 )
+            )
         );
     }
 
@@ -1590,52 +1590,52 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL,
-                                        A2_CELL,
-                                        A3_CELL
-                                )
-                        ).setColumns(
-                                Sets.of(
-                                        COLUMN_A,
-                                        COLUMN_B
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGA1B,
-                                        LABEL_MAPPINGB3
-                                )
-                        ).setRows(
-                                Sets.of(
-                                        ROW_1,
-                                        ROW_2
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL,
+                        A2_CELL,
+                        A3_CELL
+                    )
+                ).setColumns(
+                    Sets.of(
+                        COLUMN_A,
+                        COLUMN_B
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGA1B,
+                        LABEL_MAPPINGB3
+                    )
+                ).setRows(
+                    Sets.of(
+                        ROW_1,
+                        ROW_2
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A1_CELL,
-                A2_CELL,
-                A3_CELL
+            cache,
+            A1_CELL,
+            A2_CELL,
+            A3_CELL
         );
 
         final SpreadsheetCellRangeReference range = SpreadsheetSelection.parseCellRange("A2");
 
         this.cellRangeAndCheck(
-                cache,
-                range,
-                range.setValue(
-                        Sets.of(
-                                A2_CELL
-                        )
+            cache,
+            range,
+            range.setValue(
+                Sets.of(
+                    A2_CELL
                 )
+            )
         );
     }
 
@@ -1644,50 +1644,50 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1_CELL,
-                                        A2_CELL,
-                                        A3_CELL
-                                )
-                        ).setColumns(
-                                Sets.of(
-                                        COLUMN_A,
-                                        COLUMN_B
-                                )
-                        ).setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGA1B,
-                                        LABEL_MAPPINGB3
-                                )
-                        ).setRows(
-                                Sets.of(
-                                        ROW_1,
-                                        ROW_2
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL,
+                        A2_CELL,
+                        A3_CELL
+                    )
+                ).setColumns(
+                    Sets.of(
+                        COLUMN_A,
+                        COLUMN_B
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGA1B,
+                        LABEL_MAPPINGB3
+                    )
+                ).setRows(
+                    Sets.of(
+                        ROW_1,
+                        ROW_2
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A1_CELL,
-                A2_CELL,
-                A3_CELL
+            cache,
+            A1_CELL,
+            A2_CELL,
+            A3_CELL
         );
 
         final SpreadsheetCellRangeReference range = SpreadsheetSelection.parseCellRange("B1:Z99");
 
         this.cellRangeAndCheck(
-                cache,
-                range,
-                range.setValue(
-                        Sets.empty()
-                )
+            cache,
+            range,
+            range.setValue(
+                Sets.empty()
+            )
         );
     }
 
@@ -1695,9 +1695,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                    final SpreadsheetCellRangeReference range,
                                    final SpreadsheetCellRange expected) {
         this.checkEquals(
-                expected,
-                cache.cellRange(range),
-                () -> cache + " " + range
+            expected,
+            cache.cellRange(range),
+            () -> cache + " " + range
         );
     }
 
@@ -1706,9 +1706,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testColumnWidthNullFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.viewportCacheAndOpen()
-                        .columnWidth(null)
+            NullPointerException.class,
+            () -> this.viewportCacheAndOpen()
+                .columnWidth(null)
         );
     }
 
@@ -1717,43 +1717,43 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setColumnWidths(
-                                Maps.of(
-                                        A, 10.0,
-                                        B, 20.0
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setColumnWidths(
+                    Maps.of(
+                        A, 10.0,
+                        B, 20.0
+                    )
+                ),
+            CONTEXT
         );
 
         final double width = 10;
         final double height = 20;
 
         cache.onSpreadsheetMetadata(
-                SpreadsheetMetadata.EMPTY
-                        .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID1)
+            SpreadsheetMetadata.EMPTY
+                .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID1)
+                .set(
+                    SpreadsheetMetadataPropertyName.STYLE,
+                    TextStyle.EMPTY
                         .set(
-                                SpreadsheetMetadataPropertyName.STYLE,
-                                TextStyle.EMPTY
-                                        .set(
-                                                TextStylePropertyName.WIDTH,
-                                                Length.pixel(width)
-                                        )
-                                        .set(
-                                                TextStylePropertyName.HEIGHT,
-                                                Length.pixel(height)
-                                        )
-                        ),
-                CONTEXT
+                            TextStylePropertyName.WIDTH,
+                            Length.pixel(width)
+                        )
+                        .set(
+                            TextStylePropertyName.HEIGHT,
+                            Length.pixel(height)
+                        )
+                ),
+            CONTEXT
         );
 
         this.columnsWidthAndCheck(
-                cache,
-                SpreadsheetSelection.parseColumn("Z"),
-                width
+            cache,
+            SpreadsheetSelection.parseColumn("Z"),
+            width
         );
     }
 
@@ -1764,24 +1764,24 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGA1B,
-                                        LABEL_MAPPINGB3
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGA1B,
+                        LABEL_MAPPINGB3
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkLabelMappings(
-                cache,
-                LABEL_MAPPINGA1A,
-                LABEL_MAPPINGA1B,
-                LABEL_MAPPINGB3
+            cache,
+            LABEL_MAPPINGA1A,
+            LABEL_MAPPINGA1B,
+            LABEL_MAPPINGB3
         );
     }
 
@@ -1790,39 +1790,39 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkLabelMappings(
-                cache,
-                LABEL_MAPPINGA1A
+            cache,
+            LABEL_MAPPINGA1A
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1B,
-                                        LABEL_MAPPINGB3
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1B,
+                        LABEL_MAPPINGB3
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkLabelMappings(
-                cache,
-                LABEL_MAPPINGA1B,
-                LABEL_MAPPINGB3
+            cache,
+            LABEL_MAPPINGA1B,
+            LABEL_MAPPINGB3
         );
     }
 
@@ -1833,24 +1833,24 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setRowHeights(
-                                Maps.of(
-                                        ROW_REF_1, 10.0,
-                                        ROW_REF_2, 20.0
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setRowHeights(
+                    Maps.of(
+                        ROW_REF_1, 10.0,
+                        ROW_REF_2, 20.0
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkRowsHeights(
-                cache,
-                Maps.of(
-                        ROW_REF_1, 10.0,
-                        ROW_REF_2, 20.0
-                )
+            cache,
+            Maps.of(
+                ROW_REF_1, 10.0,
+                ROW_REF_2, 20.0
+            )
         );
     }
 
@@ -1859,48 +1859,48 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setRowHeights(
-                                Maps.of(
-                                        ROW_REF_1, 10.0,
-                                        ROW_REF_2, 20.0,
-                                        ROW_REF_3, 30.0
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setRowHeights(
+                    Maps.of(
+                        ROW_REF_1, 10.0,
+                        ROW_REF_2, 20.0,
+                        ROW_REF_3, 30.0
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setRowHeights(
-                                Maps.of(
-                                        ROW_REF_1, 100.0,
-                                        ROW_REF_2, 200.0
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setRowHeights(
+                    Maps.of(
+                        ROW_REF_1, 100.0,
+                        ROW_REF_2, 200.0
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkRowsHeights(
-                cache,
-                Maps.of(
-                        ROW_REF_1, 100.0,
-                        ROW_REF_2, 200.0,
-                        ROW_REF_3, 30.0
-                )
+            cache,
+            Maps.of(
+                ROW_REF_1, 100.0,
+                ROW_REF_2, 200.0,
+                ROW_REF_3, 30.0
+            )
         );
     }
 
     @Test
     public void testRowHeightNullFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.viewportCacheAndOpen()
-                        .rowHeight(null)
+            NullPointerException.class,
+            () -> this.viewportCacheAndOpen()
+                .rowHeight(null)
         );
     }
 
@@ -1909,42 +1909,42 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setRowHeights(
-                                Maps.of(
-                                        ROW_REF_1, 10.0,
-                                        ROW_REF_2, 20.0
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setRowHeights(
+                    Maps.of(
+                        ROW_REF_1, 10.0,
+                        ROW_REF_2, 20.0
+                    )
+                ),
+            CONTEXT
         );
 
         final double width = 10;
         final double height = 20;
 
         cache.onSpreadsheetMetadata(
-                SpreadsheetMetadata.EMPTY
-                        .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID1)
+            SpreadsheetMetadata.EMPTY
+                .set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID1)
+                .set(
+                    SpreadsheetMetadataPropertyName.STYLE,
+                    TextStyle.EMPTY
                         .set(
-                                SpreadsheetMetadataPropertyName.STYLE,
-                                TextStyle.EMPTY
-                                        .set(
-                                                TextStylePropertyName.WIDTH,
-                                                Length.pixel(width)
-                                        ).set(
-                                                TextStylePropertyName.HEIGHT,
-                                                Length.pixel(height)
-                                        )
-                        ),
-                CONTEXT
+                            TextStylePropertyName.WIDTH,
+                            Length.pixel(width)
+                        ).set(
+                            TextStylePropertyName.HEIGHT,
+                            Length.pixel(height)
+                        )
+                ),
+            CONTEXT
         );
 
         this.rowsHeightAndCheck(
-                cache,
-                SpreadsheetSelection.parseRow("99"),
-                height
+            cache,
+            SpreadsheetSelection.parseRow("99"),
+            height
         );
     }
 
@@ -1953,30 +1953,30 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setLabels(
-                        Sets.of(
-                                SpreadsheetSelection.labelName("LostLabel").mapping(A1)
-                        )
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setLabels(
+                Sets.of(
+                    SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                )
+            ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setDeletedCells(
-                        Sets.of(
-                                A1
-                        )
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setDeletedCells(
+                Sets.of(
+                    A1
+                )
+            ),
+            CONTEXT
         );
 
         this.resolveIfLabelFails(
-                cache,
-                LABEL999
+            cache,
+            LABEL999
         );
     }
 
@@ -1985,76 +1985,76 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setLabels(
-                        Sets.of(
-                                SpreadsheetSelection.labelName("LostLabel").mapping(A1)
-                        )
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setLabels(
+                Sets.of(
+                    SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                )
+            ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setDeletedCells(
-                        Sets.of(
-                                A1
-                        )
-                ).setLabels(
-                        Sets.of(
-                                LABEL_MAPPINGB3
-                        )
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setDeletedCells(
+                Sets.of(
+                    A1
+                )
+            ).setLabels(
+                Sets.of(
+                    LABEL_MAPPINGB3
+                )
+            ),
+            CONTEXT
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                A1,
-                A1
+            cache,
+            A1,
+            A1
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                A2,
-                A2
+            cache,
+            A2,
+            A2
         );
     }
 
     @Test
     public void testNonLabelSelectionCellRange() {
         this.testNonLabelSelectionCellRange(
-                SpreadsheetSelection.parseCellRange("A1:B2")
+            SpreadsheetSelection.parseCellRange("A1:B2")
         );
     }
 
     @Test
     public void testNonLabelSelectionColumn() {
         this.testNonLabelSelectionCellRange(
-                SpreadsheetSelection.parseColumn("A")
+            SpreadsheetSelection.parseColumn("A")
         );
     }
 
     @Test
     public void testNonLabelSelectionColumnRange() {
         this.testNonLabelSelectionCellRange(
-                SpreadsheetSelection.parseColumnRange("A:B")
+            SpreadsheetSelection.parseColumnRange("A:B")
         );
     }
 
     @Test
     public void testNonLabelSelectionRow() {
         this.testNonLabelSelectionCellRange(
-                SpreadsheetSelection.parseRow("1")
+            SpreadsheetSelection.parseRow("1")
         );
     }
 
     @Test
     public void testNonLabelSelectionRowRange() {
         this.testNonLabelSelectionCellRange(
-                SpreadsheetSelection.parseRowRange("2:3")
+            SpreadsheetSelection.parseRowRange("2:3")
         );
     }
 
@@ -2062,38 +2062,38 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setLabels(
-                                Sets.of(
-                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setLabels(
+                    Sets.of(
+                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGB3
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGB3
+                    )
+                ),
+            CONTEXT
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                nonLabel,
-                nonLabel
+            cache,
+            nonLabel,
+            nonLabel
         );
     }
 
@@ -2102,38 +2102,38 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setLabels(
-                                Sets.of(
-                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setLabels(
+                    Sets.of(
+                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGB3
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGB3
+                    )
+                ),
+            CONTEXT
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL3,
-                B3
+            cache,
+            LABEL3,
+            B3
         );
     }
 
@@ -2142,51 +2142,51 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setLabels(
-                                Sets.of(
-                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setLabels(
+                    Sets.of(
+                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGA1B
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGA1B
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCellToLabels(
-                cache,
-                LABEL_MAPPINGA1A,
-                LABEL_MAPPINGA1B
+            cache,
+            LABEL_MAPPINGA1A,
+            LABEL_MAPPINGA1B
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL1,
-                A1
+            cache,
+            LABEL1,
+            A1
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL2,
-                A1
+            cache,
+            LABEL2,
+            A1
         );
     }
 
@@ -2196,60 +2196,60 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setLabels(
-                                Sets.of(
-                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setLabels(
+                    Sets.of(
+                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                    )
+                ),
+            CONTEXT
         );
 
         final SpreadsheetCellRangeReference b3b4 = SpreadsheetSelection.parseCellRange("B3:B4");
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setLabels(
-                                Sets.of(
-                                        LABEL999.mapping(b3b4)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setLabels(
+                    Sets.of(
+                        LABEL999.mapping(b3b4)
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCellToLabels(
-                cache,
-                Maps.of(
-                        B3,
-                        Sets.of(
-                                LABEL999
-                        ),
-                        B4,
-                        Sets.of(
-                                LABEL999
-                        )
-                )
-        );
-
-        this.resolveIfLabelAndCheck(
-                cache,
-                LABEL999,
-                b3b4
-        );
-
-        this.resolveIfLabelAndCheck(
-                cache,
+            cache,
+            Maps.of(
                 B3,
-                B3
+                Sets.of(
+                    LABEL999
+                ),
+                B4,
+                Sets.of(
+                    LABEL999
+                )
+            )
+        );
+
+        this.resolveIfLabelAndCheck(
+            cache,
+            LABEL999,
+            b3b4
+        );
+
+        this.resolveIfLabelAndCheck(
+            cache,
+            B3,
+            B3
         );
     }
 
@@ -2258,51 +2258,51 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY,
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY,
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGB3,
-                                        LABEL999_LABEL_MAPPINGB3
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGB3,
+                        LABEL999_LABEL_MAPPINGB3
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCellToLabels(
-                cache,
-                Maps.of(
-                        B3,
-                        Sets.of(
-                                LABEL3,
-                                LABEL999
-                        )
+            cache,
+            Maps.of(
+                B3,
+                Sets.of(
+                    LABEL3,
+                    LABEL999
                 )
+            )
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL999,
-                B3
+            cache,
+            LABEL999,
+            B3
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL3,
-                B3
+            cache,
+            LABEL3,
+            B3
         );
     }
 
@@ -2311,58 +2311,58 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY,
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY,
+            CONTEXT
         );
 
         final SpreadsheetCellRangeReference b3b4 = SpreadsheetSelection.parseCellRange("B3:B4");
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setLabels(
-                                Sets.of(
-                                        LABEL3.mapping(b3b4),
-                                        LABEL999_LABEL_MAPPINGB3
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setLabels(
+                    Sets.of(
+                        LABEL3.mapping(b3b4),
+                        LABEL999_LABEL_MAPPINGB3
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCellToLabels(
-                cache,
-                Maps.of(
-                        B3,
-                        Sets.of(
-                                LABEL3,
-                                LABEL999
-                        ),
-                        B4,
-                        Sets.of(
-                                LABEL3,
-                                LABEL999
-                        )
+            cache,
+            Maps.of(
+                B3,
+                Sets.of(
+                    LABEL3,
+                    LABEL999
+                ),
+                B4,
+                Sets.of(
+                    LABEL3,
+                    LABEL999
                 )
+            )
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL999,
-                b3b4
+            cache,
+            LABEL999,
+            b3b4
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL3,
-                b3b4
+            cache,
+            LABEL3,
+            b3b4
         );
     }
 
@@ -2371,51 +2371,51 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY,
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY,
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setLabels(
-                                Sets.of(
-                                        LABEL999_LABEL_MAPPINGB3,
-                                        LABEL_MAPPINGB3
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setLabels(
+                    Sets.of(
+                        LABEL999_LABEL_MAPPINGB3,
+                        LABEL_MAPPINGB3
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCellToLabels(
-                cache,
-                Maps.of(
-                        B3,
-                        Sets.of(
-                                LABEL3,
-                                LABEL999
-                        )
+            cache,
+            Maps.of(
+                B3,
+                Sets.of(
+                    LABEL3,
+                    LABEL999
                 )
+            )
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL3,
-                B3
+            cache,
+            LABEL3,
+            B3
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL999,
-                B3
+            cache,
+            LABEL999,
+            B3
         );
     }
 
@@ -2424,75 +2424,75 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setLabels(
-                                Sets.of(
-                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setLabels(
+                    Sets.of(
+                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                    )
+                ),
+            CONTEXT
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGA1B,
-                                        LABEL_MAPPINGB3,
-                                        LABEL999_LABEL_MAPPINGB3
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGA1B,
+                        LABEL_MAPPINGB3,
+                        LABEL999_LABEL_MAPPINGB3
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCellToLabels(
-                cache,
-                Maps.of(
-                        A1,
-                        Sets.of(
-                                LABEL1,
-                                LABEL2
-                        ),
-                        B3,
-                        Sets.of(
-                                LABEL3,
-                                LABEL999
-                        )
+            cache,
+            Maps.of(
+                A1,
+                Sets.of(
+                    LABEL1,
+                    LABEL2
+                ),
+                B3,
+                Sets.of(
+                    LABEL3,
+                    LABEL999
                 )
+            )
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL1,
-                A1
+            cache,
+            LABEL1,
+            A1
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL2,
-                A1
+            cache,
+            LABEL2,
+            A1
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL3,
-                B3
+            cache,
+            LABEL3,
+            B3
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL999,
-                B3
+            cache,
+            LABEL999,
+            B3
         );
     }
 
@@ -2501,85 +2501,85 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setLabels(
-                                Sets.of(
-                                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setLabels(
+                    Sets.of(
+                        SpreadsheetSelection.labelName("LostLabel").mapping(A1)
+                    )
+                ),
+            CONTEXT
         );
 
         final SpreadsheetLabelName third = SpreadsheetSelection.labelName("LabelToLabel999");
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setDeletedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        )
-                        .setLabels(
-                                Sets.of(
-                                        LABEL_MAPPINGA1A,
-                                        LABEL_MAPPINGA1B,
-                                        LABEL_MAPPINGB3,
-                                        LABEL999_LABEL_MAPPINGB3,
-                                        third.mapping(LABEL999)
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setDeletedCells(
+                    Sets.of(
+                        A1
+                    )
+                )
+                .setLabels(
+                    Sets.of(
+                        LABEL_MAPPINGA1A,
+                        LABEL_MAPPINGA1B,
+                        LABEL_MAPPINGB3,
+                        LABEL999_LABEL_MAPPINGB3,
+                        third.mapping(LABEL999)
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCellToLabels(
-                cache,
-                Maps.of(
-                        A1,
-                        Sets.of(
-                                LABEL1,
-                                LABEL2
-                        ),
-                        B3,
-                        Sets.of(
-                                LABEL3,
-                                LABEL999,
-                                third
-                        )
+            cache,
+            Maps.of(
+                A1,
+                Sets.of(
+                    LABEL1,
+                    LABEL2
+                ),
+                B3,
+                Sets.of(
+                    LABEL3,
+                    LABEL999,
+                    third
                 )
+            )
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL1,
-                A1
+            cache,
+            LABEL1,
+            A1
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL2,
-                A1
+            cache,
+            LABEL2,
+            A1
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL3,
-                B3
+            cache,
+            LABEL3,
+            B3
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                LABEL999,
-                B3
+            cache,
+            LABEL999,
+            B3
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                third,
-                B3
+            cache,
+            third,
+            B3
         );
     }
 
@@ -2588,8 +2588,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testLabelMappingsEmpty() {
         this.labelMappingsAndCheck(
-                this.viewportCacheAndOpen(),
-                SpreadsheetSelection.A1
+            this.viewportCacheAndOpen(),
+            SpreadsheetSelection.A1
         );
     }
 
@@ -2598,19 +2598,19 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setLabels(
-                        Sets.of(
-                                LABEL_MAPPINGA1A
-                        )
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setLabels(
+                Sets.of(
+                    LABEL_MAPPINGA1A
+                )
+            ),
+            CONTEXT
         );
 
         this.labelMappingsAndCheck(
-                cache,
-                SpreadsheetSelection.parseCell("Z99")
+            cache,
+            SpreadsheetSelection.parseCell("Z99")
         );
     }
 
@@ -2619,22 +2619,22 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setLabels(
-                        Sets.of(
-                                LABEL_MAPPINGA1A,
-                                LABEL_MAPPINGA1B
-                        )
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setLabels(
+                Sets.of(
+                    LABEL_MAPPINGA1A,
+                    LABEL_MAPPINGA1B
+                )
+            ),
+            CONTEXT
         );
 
         this.labelMappingsAndCheck(
-                cache,
-                SpreadsheetSelection.A1,
-                LABEL_MAPPINGA1A,
-                LABEL_MAPPINGA1B
+            cache,
+            SpreadsheetSelection.A1,
+            LABEL_MAPPINGA1A,
+            LABEL_MAPPINGA1B
         );
     }
 
@@ -2643,23 +2643,23 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setLabels(
-                        Sets.of(
-                                LABEL_MAPPINGA1A,
-                                LABEL_MAPPINGA1B,
-                                LABEL_MAPPINGB3
-                        )
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setLabels(
+                Sets.of(
+                    LABEL_MAPPINGA1A,
+                    LABEL_MAPPINGA1B,
+                    LABEL_MAPPINGB3
+                )
+            ),
+            CONTEXT
         );
 
         this.labelMappingsAndCheck(
-                cache,
-                SpreadsheetSelection.parseCellRange("A1:B2"),
-                LABEL_MAPPINGA1A,
-                LABEL_MAPPINGA1B
+            cache,
+            SpreadsheetSelection.parseCellRange("A1:B2"),
+            LABEL_MAPPINGA1A,
+            LABEL_MAPPINGA1B
         );
     }
 
@@ -2668,20 +2668,20 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setLabels(
-                        Sets.of(
-                                LABEL_MAPPINGB3
-                        )
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setLabels(
+                Sets.of(
+                    LABEL_MAPPINGB3
+                )
+            ),
+            CONTEXT
         );
 
         this.labelMappingsAndCheck(
-                cache,
-                SpreadsheetSelection.parseCellRange("B2:C4"),
-                LABEL_MAPPINGB3
+            cache,
+            SpreadsheetSelection.parseCellRange("B2:C4"),
+            LABEL_MAPPINGB3
         );
     }
 
@@ -2690,28 +2690,28 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         final SpreadsheetLabelMapping labelToLabel = LABEL999.mapping(
-                LABEL_MAPPINGA1A.label()
+            LABEL_MAPPINGA1A.label()
         );
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setLabels(
-                        Sets.of(
-                                LABEL_MAPPINGA1A,
-                                LABEL_MAPPINGA1B,
-                                labelToLabel
-                        )
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setLabels(
+                Sets.of(
+                    LABEL_MAPPINGA1A,
+                    LABEL_MAPPINGA1B,
+                    labelToLabel
+                )
+            ),
+            CONTEXT
         );
 
         this.labelMappingsAndCheck(
-                cache,
-                LABEL999,
-                LABEL_MAPPINGA1A,
-                LABEL_MAPPINGA1B,
-                labelToLabel
+            cache,
+            LABEL999,
+            LABEL_MAPPINGA1A,
+            LABEL_MAPPINGA1B,
+            labelToLabel
         );
     }
 
@@ -2719,9 +2719,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                        final SpreadsheetSelection selection,
                                        final SpreadsheetLabelMapping... mappings) {
         this.labelMappingsAndCheck(
-                cache,
-                selection,
-                Sets.of(mappings)
+            cache,
+            selection,
+            Sets.of(mappings)
         );
     }
 
@@ -2729,9 +2729,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                        final SpreadsheetSelection selection,
                                        final Set<SpreadsheetLabelMapping> mappings) {
         this.checkEquals(
-                mappings,
-                cache.labelMappings(selection),
-                () -> cache + " labelMappings " + selection
+            mappings,
+            cache.labelMappings(selection),
+            () -> cache + " labelMappings " + selection
         );
     }
 
@@ -2743,8 +2743,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         this.selectionSummaryAndCheck(
-                cache,
-                SpreadsheetSelectionSummary.EMPTY
+            cache,
+            SpreadsheetSelectionSummary.EMPTY
         );
     }
 
@@ -2756,28 +2756,28 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-                HistoryToken.unknown(
-                        UrlFragment.with("/hello")
-                )
+            HistoryToken.unknown(
+                UrlFragment.with("/hello")
+            )
         );
 
         context.pushHistoryToken(
-                HistoryToken.cell(
-                        ID1,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID1,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
         );
 
         context.pushHistoryToken(
-                HistoryToken.unknown(
-                        UrlFragment.with("/hello")
-                )
+            HistoryToken.unknown(
+                UrlFragment.with("/hello")
+            )
         );
 
         this.selectionSummaryAndCheck(
-                cache,
-                SpreadsheetSelectionSummary.EMPTY
+            cache,
+            SpreadsheetSelectionSummary.EMPTY
         );
     }
 
@@ -2787,57 +2787,57 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-                HistoryToken.cell(
-                        ID1,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2")
-                                .setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID1,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                    .setDefaultAnchor()
+            )
         );
 
         final SpreadsheetFormatterSelector date = SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
         final SpreadsheetFormatterSelector text = SpreadsheetPattern.parseTextFormatPattern("@@@")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY
-                                ).setFormatter(
-                                        Optional.of(date)
-                                ),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setFormatter(
-                                                Optional.of(date)
-                                        ),
-                                SpreadsheetSelection.parseCell("B1")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ),
-                                SpreadsheetSelection.parseCell("C3")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setFormatter(
-                                                Optional.of(text)
-                                        )
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY
+                    ).setFormatter(
+                        Optional.of(date)
+                    ),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setFormatter(
+                            Optional.of(date)
+                        ),
+                    SpreadsheetSelection.parseCell("B1")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ),
+                    SpreadsheetSelection.parseCell("C3")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setFormatter(
+                            Optional.of(text)
                         )
-                ),
-                context
+                )
+            ),
+            context
         );
 
         this.selectionSummaryAndCheck(
-                cache,
-                SpreadsheetSelectionSummary.with(
-                        Optional.of(date), // format
-                        Optional.empty(), // parse
-                        TextStyle.EMPTY // style
-                )
+            cache,
+            SpreadsheetSelectionSummary.with(
+                Optional.of(date), // format
+                Optional.empty(), // parse
+                TextStyle.EMPTY // style
+            )
         );
     }
 
@@ -2847,47 +2847,47 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-                HistoryToken.cell(
-                        ID1,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2")
-                                .setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID1,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                    .setDefaultAnchor()
+            )
         );
 
         final SpreadsheetFormatterSelector date = SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
         final SpreadsheetFormatterSelector text = SpreadsheetPattern.parseTextFormatPattern("@@@")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY
-                                ).setFormatter(
-                                        Optional.of(date)
-                                ),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setFormatter(
-                                                Optional.of(text)
-                                        )
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY
+                    ).setFormatter(
+                        Optional.of(date)
+                    ),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setFormatter(
+                            Optional.of(text)
                         )
-                ),
-                context
+                )
+            ),
+            context
         );
 
         this.selectionSummaryAndCheck(
-                cache,
-                SpreadsheetSelectionSummary.with(
-                        Optional.empty(), // format
-                        Optional.empty(), // parse
-                        TextStyle.EMPTY // style
-                )
+            cache,
+            SpreadsheetSelectionSummary.with(
+                Optional.empty(), // format
+                Optional.empty(), // parse
+                TextStyle.EMPTY // style
+            )
         );
     }
 
@@ -2897,57 +2897,57 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-                HistoryToken.cell(
-                        ID1,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2")
-                                .setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID1,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                    .setDefaultAnchor()
+            )
         );
 
         final SpreadsheetParserSelector date = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd")
-                .spreadsheetParserSelector();
+            .spreadsheetParserSelector();
         final SpreadsheetParserSelector time = SpreadsheetPattern.parseTimeParsePattern("hh/mm/ss")
-                .spreadsheetParserSelector();
+            .spreadsheetParserSelector();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY
-                                ).setParser(
-                                        Optional.of(date)
-                                ),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setParser(
-                                                Optional.of(date)
-                                        ),
-                                SpreadsheetSelection.parseCell("B1")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ),
-                                SpreadsheetSelection.parseCell("C3")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setParser(
-                                                Optional.of(time)
-                                        )
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY
+                    ).setParser(
+                        Optional.of(date)
+                    ),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setParser(
+                            Optional.of(date)
+                        ),
+                    SpreadsheetSelection.parseCell("B1")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ),
+                    SpreadsheetSelection.parseCell("C3")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setParser(
+                            Optional.of(time)
                         )
-                ),
-                context
+                )
+            ),
+            context
         );
 
         this.selectionSummaryAndCheck(
-                cache,
-                SpreadsheetSelectionSummary.with(
-                        Optional.empty(), // format
-                        Optional.of(date), // parse
-                        TextStyle.EMPTY // style
-                )
+            cache,
+            SpreadsheetSelectionSummary.with(
+                Optional.empty(), // format
+                Optional.of(date), // parse
+                TextStyle.EMPTY // style
+            )
         );
     }
 
@@ -2957,47 +2957,47 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-                HistoryToken.cell(
-                        ID1,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2")
-                                .setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID1,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                    .setDefaultAnchor()
+            )
         );
 
         final SpreadsheetParserSelector date = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/dd")
-                .spreadsheetParserSelector();
+            .spreadsheetParserSelector();
         final SpreadsheetParserSelector time = SpreadsheetPattern.parseTimeParsePattern("hh/mm/ss")
-                .spreadsheetParserSelector();
+            .spreadsheetParserSelector();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY
-                                ).setParser(
-                                        Optional.of(date)
-                                ),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setParser(
-                                                Optional.of(time)
-                                        )
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY
+                    ).setParser(
+                        Optional.of(date)
+                    ),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setParser(
+                            Optional.of(time)
                         )
-                ),
-                context
+                )
+            ),
+            context
         );
 
         this.selectionSummaryAndCheck(
-                cache,
-                SpreadsheetSelectionSummary.with(
-                        Optional.empty(), // format
-                        Optional.empty(), // parse
-                        TextStyle.EMPTY // style
-                )
+            cache,
+            SpreadsheetSelectionSummary.with(
+                Optional.empty(), // format
+                Optional.empty(), // parse
+                TextStyle.EMPTY // style
+            )
         );
     }
 
@@ -3007,12 +3007,12 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-                HistoryToken.cell(
-                        ID1,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2")
-                                .setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID1,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                    .setDefaultAnchor()
+            )
         );
 
         final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
@@ -3024,54 +3024,54 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY
-                                ).setStyle(
-                                        TextStyle.EMPTY.set(colorName, color1)
-                                                .set(textAlign, align1)
-                                ),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setStyle(
-                                                TextStyle.EMPTY.set(colorName, color1)
-                                                        .set(textAlign, align1)
-                                        ),
-                                SpreadsheetSelection.parseCell("B1")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setStyle(
-                                                TextStyle.EMPTY
-                                        ),
-                                SpreadsheetSelection.parseCell("C3")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setStyle(
-                                                TextStyle.EMPTY.set(colorName, color2)
-                                                        .set(textAlign, align2)
-                                        )
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY
+                    ).setStyle(
+                        TextStyle.EMPTY.set(colorName, color1)
+                            .set(textAlign, align1)
+                    ),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setStyle(
+                            TextStyle.EMPTY.set(colorName, color1)
+                                .set(textAlign, align1)
+                        ),
+                    SpreadsheetSelection.parseCell("B1")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setStyle(
+                            TextStyle.EMPTY
+                        ),
+                    SpreadsheetSelection.parseCell("C3")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setStyle(
+                            TextStyle.EMPTY.set(colorName, color2)
+                                .set(textAlign, align2)
                         )
-                ),
-                context
+                )
+            ),
+            context
         );
 
         this.selectionSummaryAndCheck(
-                cache,
-                SpreadsheetSelectionSummary.with(
-                        Optional.empty(), // format
-                        Optional.empty(), // parse
-                        TextStyle.EMPTY.set(
-                                colorName,
-                                color1
-                        ).set(
-                                textAlign,
-                                align1
-                        ) // style
-                )
+            cache,
+            SpreadsheetSelectionSummary.with(
+                Optional.empty(), // format
+                Optional.empty(), // parse
+                TextStyle.EMPTY.set(
+                    colorName,
+                    color1
+                ).set(
+                    textAlign,
+                    align1
+                ) // style
+            )
         );
     }
 
@@ -3081,12 +3081,12 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-                HistoryToken.cell(
-                        ID1,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2")
-                                .setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID1,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                    .setDefaultAnchor()
+            )
         );
 
         final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
@@ -3098,35 +3098,35 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY
-                                ).setStyle(
-                                        TextStyle.EMPTY.set(colorName, color1)
-                                                .set(textAlign, align1)
-                                ),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setStyle(
-                                                TextStyle.EMPTY.set(colorName, color2)
-                                                        .set(textAlign, align2)
-                                        )
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY
+                    ).setStyle(
+                        TextStyle.EMPTY.set(colorName, color1)
+                            .set(textAlign, align1)
+                    ),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setStyle(
+                            TextStyle.EMPTY.set(colorName, color2)
+                                .set(textAlign, align2)
                         )
-                ),
-                context
+                )
+            ),
+            context
         );
 
         this.selectionSummaryAndCheck(
-                cache,
-                SpreadsheetSelectionSummary.with(
-                        Optional.empty(), // format
-                        Optional.empty(), // parse
-                        TextStyle.EMPTY // style
-                )
+            cache,
+            SpreadsheetSelectionSummary.with(
+                Optional.empty(), // format
+                Optional.empty(), // parse
+                TextStyle.EMPTY // style
+            )
         );
     }
 
@@ -3136,12 +3136,12 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-                HistoryToken.cell(
-                        ID1,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2")
-                                .setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID1,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                    .setDefaultAnchor()
+            )
         );
 
         final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
@@ -3152,38 +3152,38 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY
-                                ).setStyle(
-                                        TextStyle.EMPTY.set(colorName, color1)
-                                                .set(textAlign, align1)
-                                ),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setStyle(
-                                                TextStyle.EMPTY.set(colorName, color1)
-                                                        .set(textAlign, align2)
-                                        )
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY
+                    ).setStyle(
+                        TextStyle.EMPTY.set(colorName, color1)
+                            .set(textAlign, align1)
+                    ),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setStyle(
+                            TextStyle.EMPTY.set(colorName, color1)
+                                .set(textAlign, align2)
                         )
-                ),
-                context
+                )
+            ),
+            context
         );
 
         this.selectionSummaryAndCheck(
-                cache,
-                SpreadsheetSelectionSummary.with(
-                        Optional.empty(), // format
-                        Optional.empty(), // parse
-                        TextStyle.EMPTY.set(
-                                colorName,
-                                color1
-                        ) // style
-                )
+            cache,
+            SpreadsheetSelectionSummary.with(
+                Optional.empty(), // format
+                Optional.empty(), // parse
+                TextStyle.EMPTY.set(
+                    colorName,
+                    color1
+                ) // style
+            )
         );
     }
 
@@ -3193,18 +3193,18 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-                HistoryToken.cell(
-                        ID1,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2")
-                                .setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID1,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                    .setDefaultAnchor()
+            )
         );
 
         final SpreadsheetFormatterSelector formatter1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
         final SpreadsheetFormatterSelector formatter2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
         final Color color1 = Color.parse("#111");
@@ -3214,54 +3214,54 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY
-                                ).setFormatter(
-                                        Optional.of(formatter1)
-                                ).setStyle(
-                                        TextStyle.EMPTY.set(colorName, color1)
-                                                .set(textAlign, align1)
-                                ),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setFormatter(
-                                                Optional.of(formatter2)
-                                        ).setStyle(
-                                                TextStyle.EMPTY.set(colorName, color1)
-                                                        .set(textAlign, align2)
-                                        )
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY
+                    ).setFormatter(
+                        Optional.of(formatter1)
+                    ).setStyle(
+                        TextStyle.EMPTY.set(colorName, color1)
+                            .set(textAlign, align1)
+                    ),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setFormatter(
+                            Optional.of(formatter2)
+                        ).setStyle(
+                            TextStyle.EMPTY.set(colorName, color1)
+                                .set(textAlign, align2)
                         )
-                ),
-                context
+                )
+            ),
+            context
         );
 
         context.pushHistoryToken(
-                HistoryToken.cell(
-                        ID1,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A2:B2")
-                                .setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID1,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A2:B2")
+                    .setDefaultAnchor()
+            )
         );
 
         this.selectionSummaryAndCheck(
-                cache,
-                SpreadsheetSelectionSummary.with(
-                        Optional.of(formatter2), // format
-                        Optional.empty(), // parse
-                        TextStyle.EMPTY.set(
-                                colorName,
-                                color1
-                        ).set(
-                                textAlign,
-                                align2
-                        ) // style
-                )
+            cache,
+            SpreadsheetSelectionSummary.with(
+                Optional.of(formatter2), // format
+                Optional.empty(), // parse
+                TextStyle.EMPTY.set(
+                    colorName,
+                    color1
+                ).set(
+                    textAlign,
+                    align2
+                ) // style
+            )
         );
     }
 
@@ -3271,18 +3271,18 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-                HistoryToken.cell(
-                        ID1,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2")
-                                .setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID1,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                    .setDefaultAnchor()
+            )
         );
 
         final SpreadsheetFormatterSelector formatter1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
         final SpreadsheetFormatterSelector formatter2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
         final Color color1 = Color.parse("#111");
@@ -3292,45 +3292,45 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY
-                                ).setFormatter(
-                                        Optional.of(formatter1)
-                                ).setStyle(
-                                        TextStyle.EMPTY.set(colorName, color1)
-                                                .set(textAlign, align1)
-                                ),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setFormatter(
-                                                Optional.of(formatter2)
-                                        ).setStyle(
-                                                TextStyle.EMPTY.set(colorName, color1)
-                                                        .set(textAlign, align2)
-                                        )
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY
+                    ).setFormatter(
+                        Optional.of(formatter1)
+                    ).setStyle(
+                        TextStyle.EMPTY.set(colorName, color1)
+                            .set(textAlign, align1)
+                    ),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setFormatter(
+                            Optional.of(formatter2)
+                        ).setStyle(
+                            TextStyle.EMPTY.set(colorName, color1)
+                                .set(textAlign, align2)
                         )
-                ),
-                context
+                )
+            ),
+            context
         );
 
         context.pushHistoryToken(
-                HistoryToken.labelMapping(
-                        ID1,
-                        NAME,
-                        Optional.of(
-                                SpreadsheetSelection.labelName("Label123")
-                        )
+            HistoryToken.labelMapping(
+                ID1,
+                NAME,
+                Optional.of(
+                    SpreadsheetSelection.labelName("Label123")
                 )
+            )
         );
 
         this.selectionSummaryAndCheck(
-                cache,
-                SpreadsheetSelectionSummary.EMPTY
+            cache,
+            SpreadsheetSelectionSummary.EMPTY
         );
     }
 
@@ -3340,18 +3340,18 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-                HistoryToken.cell(
-                        ID1,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2")
-                                .setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID1,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                    .setDefaultAnchor()
+            )
         );
 
         final SpreadsheetFormatterSelector formatter1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
         final SpreadsheetFormatterSelector formatter2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
         final Color color1 = Color.parse("#111");
@@ -3360,69 +3360,69 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align1 = TextAlign.LEFT;
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY
-                                ).setFormatter(
-                                        Optional.of(formatter1)
-                                ).setStyle(
-                                        TextStyle.EMPTY.set(colorName, color1)
-                                                .set(textAlign, align1)
-                                ),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setFormatter(
-                                                Optional.of(formatter2)
-                                        ).setStyle(
-                                                TextStyle.EMPTY.set(colorName, color1)
-                                                        .set(textAlign, align1)
-                                        )
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY
+                    ).setFormatter(
+                        Optional.of(formatter1)
+                    ).setStyle(
+                        TextStyle.EMPTY.set(colorName, color1)
+                            .set(textAlign, align1)
+                    ),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setFormatter(
+                            Optional.of(formatter2)
+                        ).setStyle(
+                            TextStyle.EMPTY.set(colorName, color1)
+                                .set(textAlign, align1)
                         )
-                ),
-                context
+                )
+            ),
+            context
         );
 
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY
-                                ).setFormatter(
-                                        Optional.of(formatter1)
-                                ).setStyle(
-                                        TextStyle.EMPTY.set(colorName, color1)
-                                                .set(textAlign, align2)
-                                ),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setFormatter(
-                                                Optional.of(formatter2)
-                                        ).setStyle(
-                                                TextStyle.EMPTY.set(colorName, color1)
-                                                        .set(textAlign, align2)
-                                        )
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY
+                    ).setFormatter(
+                        Optional.of(formatter1)
+                    ).setStyle(
+                        TextStyle.EMPTY.set(colorName, color1)
+                            .set(textAlign, align2)
+                    ),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setFormatter(
+                            Optional.of(formatter2)
+                        ).setStyle(
+                            TextStyle.EMPTY.set(colorName, color1)
+                                .set(textAlign, align2)
                         )
-                ),
-                context
+                )
+            ),
+            context
         );
 
         this.selectionSummaryAndCheck(
-                cache,
-                SpreadsheetSelectionSummary.with(
-                        Optional.empty(), // format
-                        Optional.empty(), // parse
-                        TextStyle.EMPTY.set(colorName, color1)
-                                .set(textAlign, align2)
-                )
+            cache,
+            SpreadsheetSelectionSummary.with(
+                Optional.empty(), // format
+                Optional.empty(), // parse
+                TextStyle.EMPTY.set(colorName, color1)
+                    .set(textAlign, align2)
+            )
         );
     }
 
@@ -3433,18 +3433,18 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         cache.spreadsheetId = ID1;
 
         context.pushHistoryToken(
-                HistoryToken.cell(
-                        ID1,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2")
-                                .setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID1,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                    .setDefaultAnchor()
+            )
         );
 
         final SpreadsheetFormatterSelector formatter1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
         final SpreadsheetFormatterSelector formatter2 = SpreadsheetPattern.parseNumberFormatPattern("$0.00")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         final TextStylePropertyName<Color> colorName = TextStylePropertyName.COLOR;
         final Color color1 = Color.parse("#111");
@@ -3453,69 +3453,69 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final TextAlign align1 = TextAlign.LEFT;
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY
-                                ).setFormatter(
-                                        Optional.of(formatter1)
-                                ).setStyle(
-                                        TextStyle.EMPTY.set(colorName, color1)
-                                ),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setFormatter(
-                                                Optional.of(formatter2)
-                                        ).setStyle(
-                                                TextStyle.EMPTY.set(colorName, color1)
-                                                        .set(textAlign, align1)
-                                        )
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY
+                    ).setFormatter(
+                        Optional.of(formatter1)
+                    ).setStyle(
+                        TextStyle.EMPTY.set(colorName, color1)
+                    ),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setFormatter(
+                            Optional.of(formatter2)
+                        ).setStyle(
+                            TextStyle.EMPTY.set(colorName, color1)
+                                .set(textAlign, align1)
                         )
-                ),
-                context
+                )
+            ),
+            context
         );
 
         final TextAlign align2 = TextAlign.RIGHT;
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY
-                                        ).setFormatter(
-                                                Optional.of(formatter2)
-                                        ).setStyle(
-                                                TextStyle.EMPTY.set(colorName, color1)
-                                                        .set(textAlign, align2)
-                                        )
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY
+                        ).setFormatter(
+                            Optional.of(formatter2)
+                        ).setStyle(
+                            TextStyle.EMPTY.set(colorName, color1)
+                                .set(textAlign, align2)
                         )
-                ),
-                context
+                )
+            ),
+            context
         );
 
         this.selectionSummaryAndCheck(
-                cache,
-                SpreadsheetSelectionSummary.with(
-                        Optional.empty(), // format
-                        Optional.empty(), // parse
-                        TextStyle.EMPTY.set(colorName, color1)
-                                .set(textAlign, align2)
-                )
+            cache,
+            SpreadsheetSelectionSummary.with(
+                Optional.empty(), // format
+                Optional.empty(), // parse
+                TextStyle.EMPTY.set(colorName, color1)
+                    .set(textAlign, align2)
+            )
         );
     }
 
     private void selectionSummaryAndCheck(final SpreadsheetViewportCache cache,
                                           final SpreadsheetSelectionSummary expected) {
         this.checkEquals(
-                expected,
-                cache.selectionSummary(),
-                cache::toString
+            expected,
+            cache.selectionSummary(),
+            cache::toString
         );
     }
 
@@ -3523,7 +3523,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
     private SpreadsheetViewportCache viewportCache() {
         return this.context()
-                .spreadsheetViewportCache();
+            .spreadsheetViewportCache();
     }
 
     private SpreadsheetViewportCache viewportCacheAndOpen() {
@@ -3544,8 +3544,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             this.historyToken = token;
 
             this.historyTokenWatchers.onHistoryTokenChange(
-                    previous,
-                    this
+                previous,
+                this
             );
         }
 
@@ -3591,31 +3591,31 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final Map<SpreadsheetCellReference, SpreadsheetCell> expectedMaps = Maps.ordered();
         for (final SpreadsheetCell cell : expected) {
             expectedMaps.put(
-                    cell.reference(),
-                    cell
+                cell.reference(),
+                cell
             );
         }
 
         this.checkCells(
-                cache,
-                expectedMaps
+            cache,
+            expectedMaps
         );
     }
 
     private void checkCells(final SpreadsheetViewportCache cache,
                             final Map<SpreadsheetCellReference, SpreadsheetCell> expected) {
         this.checkEquals(
-                expected,
-                cache.cells,
-                "cells"
+            expected,
+            cache.cells,
+            "cells"
         );
 
         for (final Entry<SpreadsheetCellReference, SpreadsheetCell> entry : expected.entrySet()) {
             this.checkEquals(
-                    Optional.of(
-                            entry.getValue()
-                    ),
-                    cache.cell(entry.getKey())
+                Optional.of(
+                    entry.getValue()
+                ),
+                cache.cell(entry.getKey())
             );
         }
     }
@@ -3623,15 +3623,15 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     private void checkMatchedCells(final SpreadsheetViewportCache cache,
                                    final SpreadsheetCellReference... cells) {
         this.checkMatchedCells(
-                cache,
-                Sets.of(cells)
+            cache,
+            Sets.of(cells)
         );
 
-        for(final SpreadsheetCellReference cell : cells ) {
+        for (final SpreadsheetCellReference cell : cells) {
             this.isMatchedCellAndCheck(
-                    cache,
-                    cell,
-                    true
+                cache,
+                cell,
+                true
             );
         }
     }
@@ -3639,9 +3639,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     private void checkMatchedCells(final SpreadsheetViewportCache cache,
                                    final Set<SpreadsheetCellReference> matchedCells) {
         this.checkEquals(
-                matchedCells,
-                cache.matchedCells,
-                "matchedCells"
+            matchedCells,
+            cache.matchedCells,
+            "matchedCells"
         );
 
 
@@ -3650,9 +3650,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         cells.removeAll(cache.cells.keySet());
 
         this.checkEquals(
-                Sets.empty(),
-                cells,
-                "matchedCells should only include cells"
+            Sets.empty(),
+            cells,
+            "matchedCells should only include cells"
         );
     }
 
@@ -3660,9 +3660,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                        final SpreadsheetCellReference cell,
                                        final boolean expected) {
         this.checkEquals(
-                expected,
-                cache.isMatchedCell(cell),
-                () -> cache + " isMatchedCell " + cell
+            expected,
+            cache.isMatchedCell(cell),
+            () -> cache + " isMatchedCell " + cell
         );
     }
 
@@ -3671,31 +3671,31 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final Map<SpreadsheetColumnReference, SpreadsheetColumn> expectedMaps = Maps.ordered();
         for (final SpreadsheetColumn column : expected) {
             expectedMaps.put(
-                    column.reference(),
-                    column
+                column.reference(),
+                column
             );
         }
 
         this.checkColumns(
-                cache,
-                expectedMaps
+            cache,
+            expectedMaps
         );
     }
 
     private void checkColumns(final SpreadsheetViewportCache cache,
                               final Map<SpreadsheetColumnReference, SpreadsheetColumn> expected) {
         this.checkEquals(
-                expected,
-                cache.columns,
-                "columns"
+            expected,
+            cache.columns,
+            "columns"
         );
 
         for (final Entry<SpreadsheetColumnReference, SpreadsheetColumn> entry : expected.entrySet()) {
             this.checkEquals(
-                    Optional.of(
-                            entry.getValue()
-                    ),
-                    cache.column(entry.getKey())
+                Optional.of(
+                    entry.getValue()
+                ),
+                cache.column(entry.getKey())
             );
         }
     }
@@ -3705,22 +3705,22 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final Map<SpreadsheetColumnReference, Length<?>> expectedLengths = Maps.ordered();
         for (final Entry<SpreadsheetColumnReference, Double> widths : expected.entrySet()) {
             expectedLengths.put(
-                    widths.getKey(),
-                    Length.pixel(widths.getValue())
+                widths.getKey(),
+                Length.pixel(widths.getValue())
             );
         }
 
         this.checkEquals(
-                expectedLengths,
-                cache.columnWidths,
-                "columnWidths"
+            expectedLengths,
+            cache.columnWidths,
+            "columnWidths"
         );
 
         for (final Entry<SpreadsheetColumnReference, Double> entry : expected.entrySet()) {
             this.columnsWidthAndCheck(
-                    cache,
-                    entry.getKey(),
-                    entry.getValue()
+                cache,
+                entry.getKey(),
+                entry.getValue()
             );
         }
     }
@@ -3730,9 +3730,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                       final double expected) {
 
         this.columnsWidthAndCheck(
-                cache,
-                column,
-                Length.pixel(expected)
+            cache,
+            column,
+            Length.pixel(expected)
         );
     }
 
@@ -3741,26 +3741,26 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                       final Length<?> expected) {
 
         this.checkEquals(
-                expected,
-                cache.columnWidth(column),
-                () -> "columnWidth of " + column + " from " + cache
+            expected,
+            cache.columnWidth(column),
+            () -> "columnWidth of " + column + " from " + cache
         );
     }
 
     private void checkLabelMappings(final SpreadsheetViewportCache cache,
                                     final SpreadsheetLabelMapping... mappings) {
         this.checkLabelMappings(
-                cache,
-                Sets.of(mappings)
+            cache,
+            Sets.of(mappings)
         );
     }
 
     private void checkLabelMappings(final SpreadsheetViewportCache cache,
                                     final Set<SpreadsheetLabelMapping> mappings) {
         this.checkEquals(
-                mappings,
-                cache.labelMappings(),
-                () -> "cache: " + cache
+            mappings,
+            cache.labelMappings(),
+            () -> "cache: " + cache
         );
     }
 
@@ -3769,31 +3769,31 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final Map<SpreadsheetRowReference, SpreadsheetRow> expectedMaps = Maps.ordered();
         for (final SpreadsheetRow row : expected) {
             expectedMaps.put(
-                    row.reference(),
-                    row
+                row.reference(),
+                row
             );
         }
 
         this.checkRows(
-                cache,
-                expectedMaps
+            cache,
+            expectedMaps
         );
     }
 
     private void checkRows(final SpreadsheetViewportCache cache,
                            final Map<SpreadsheetRowReference, SpreadsheetRow> expected) {
         this.checkEquals(
-                expected,
-                cache.rows,
-                "rows"
+            expected,
+            cache.rows,
+            "rows"
         );
 
         for (final Entry<SpreadsheetRowReference, SpreadsheetRow> entry : expected.entrySet()) {
             this.checkEquals(
-                    Optional.of(
-                            entry.getValue()
-                    ),
-                    cache.row(entry.getKey())
+                Optional.of(
+                    entry.getValue()
+                ),
+                cache.row(entry.getKey())
             );
         }
     }
@@ -3803,22 +3803,22 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final Map<SpreadsheetRowReference, Length<?>> expectedLengths = Maps.ordered();
         for (final Entry<SpreadsheetRowReference, Double> widths : expected.entrySet()) {
             expectedLengths.put(
-                    widths.getKey(),
-                    Length.pixel(widths.getValue())
+                widths.getKey(),
+                Length.pixel(widths.getValue())
             );
         }
 
         this.checkEquals(
-                expectedLengths,
-                cache.rowHeights,
-                "rowHeights"
+            expectedLengths,
+            cache.rowHeights,
+            "rowHeights"
         );
 
         for (final Entry<SpreadsheetRowReference, Double> entry : expected.entrySet()) {
             this.rowsHeightAndCheck(
-                    cache,
-                    entry.getKey(),
-                    entry.getValue()
+                cache,
+                entry.getKey(),
+                entry.getValue()
             );
         }
     }
@@ -3828,9 +3828,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                     final double expected) {
 
         this.rowsHeightAndCheck(
-                cache,
-                row,
-                Length.pixel(expected)
+            cache,
+            row,
+            Length.pixel(expected)
         );
     }
 
@@ -3839,9 +3839,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                     final Length<?> expected) {
 
         this.checkEquals(
-                expected,
-                cache.rowHeight(row),
-                () -> "rowHeight of " + row + " from " + cache
+            expected,
+            cache.rowHeight(row),
+            () -> "rowHeight of " + row + " from " + cache
         );
     }
 
@@ -3854,33 +3854,33 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             if (null == labels) {
                 labels = Sets.ordered();
                 expectedMaps.put(
-                        cell,
-                        labels
+                    cell,
+                    labels
                 );
             }
             labels.add(mapping.label());
         }
 
         this.checkCellToLabels(
-                cache,
-                expectedMaps
+            cache,
+            expectedMaps
         );
     }
 
     private void checkCellToLabels(final SpreadsheetViewportCache cache,
                                    final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> expected) {
         this.checkEquals(
-                expected,
-                cache.cellToLabels,
-                "cellToLabels"
+            expected,
+            cache.cellToLabels,
+            "cellToLabels"
         );
 
         for (final Entry<SpreadsheetCellReference, Set<SpreadsheetLabelName>> entry : expected.entrySet()) {
             final SpreadsheetCellReference cell = entry.getKey();
 
             this.checkEquals(
-                    entry.getValue(),
-                    cache.labels(cell)
+                entry.getValue(),
+                cache.labels(cell)
             );
         }
     }
@@ -3890,9 +3890,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testIsColumnHiddenAbsent() {
         this.isColumnHiddenAndCheck(
-                this.viewportCacheAndOpen(),
-                A,
-                false
+            this.viewportCacheAndOpen(),
+            A,
+            false
         );
     }
 
@@ -3900,17 +3900,17 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     public void testIsColumnHiddenPresent() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setColumns(
-                        Sets.of(COLUMN_A)
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setColumns(
+                Sets.of(COLUMN_A)
+            ),
+            CONTEXT
         );
         this.isColumnHiddenAndCheck(
-                cache,
-                A,
-                false
+            cache,
+            A,
+            false
         );
     }
 
@@ -3918,17 +3918,17 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     public void testIsColumnHiddenPresentAndHidden() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setColumns(
-                        Sets.of(COLUMN_A.setHidden(true))
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setColumns(
+                Sets.of(COLUMN_A.setHidden(true))
+            ),
+            CONTEXT
         );
         this.isColumnHiddenAndCheck(
-                cache,
-                A,
-                true
+            cache,
+            A,
+            true
         );
     }
 
@@ -3936,9 +3936,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                         final SpreadsheetColumnReference column,
                                         final boolean expected) {
         this.checkEquals(
-                expected,
-                cache.isColumnHidden(column),
-                () -> "isHidden " + column
+            expected,
+            cache.isColumnHidden(column),
+            () -> "isHidden " + column
         );
     }
 
@@ -3947,9 +3947,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     @Test
     public void testIsRowHiddenAbsent() {
         this.isRowHiddenAndCheck(
-                this.viewportCacheAndOpen(),
-                ROW_REF_1,
-                false
+            this.viewportCacheAndOpen(),
+            ROW_REF_1,
+            false
         );
     }
 
@@ -3957,17 +3957,17 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     public void testIsRowHiddenPresent() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setRows(
-                        Sets.of(ROW_1)
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setRows(
+                Sets.of(ROW_1)
+            ),
+            CONTEXT
         );
         this.isRowHiddenAndCheck(
-                cache,
-                ROW_REF_1,
-                false
+            cache,
+            ROW_REF_1,
+            false
         );
     }
 
@@ -3975,17 +3975,17 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     public void testIsRowHiddenPresentAndHidden() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY.setRows(
-                        Sets.of(ROW_1.setHidden(true))
-                ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY.setRows(
+                Sets.of(ROW_1.setHidden(true))
+            ),
+            CONTEXT
         );
         this.isRowHiddenAndCheck(
-                cache,
-                ROW_REF_1,
-                true
+            cache,
+            ROW_REF_1,
+            true
         );
     }
 
@@ -3993,9 +3993,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                                      final SpreadsheetRowReference row,
                                      final boolean expected) {
         this.checkEquals(
-                expected,
-                cache.isRowHidden(row),
-                () -> "isHidden " + row
+            expected,
+            cache.isRowHidden(row),
+            () -> "isHidden " + row
         );
     }
 
@@ -4006,53 +4006,53 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
-                METHOD,
-                URL_ID1,
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A1.setFormula(SpreadsheetFormula.EMPTY.setText("Lost"))
-                                )
-                        ).setMatchedCells(
-                                Sets.of(
-                                        A1
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1.setFormula(SpreadsheetFormula.EMPTY.setText("Lost"))
+                    )
+                ).setMatchedCells(
+                    Sets.of(
+                        A1
+                    )
+                ),
+            CONTEXT
         );
 
         // cache should be cleared and A1 above lost.
         cache.onSpreadsheetDelta(
-                METHOD,
-                Url.parseAbsoluteOrRelative("https://server/api/spreadsheet/" + ID1 + "/cells/*"),
-                SpreadsheetDelta.EMPTY
-                        .setCells(
-                                Sets.of(
-                                        A2_CELL
-                                )
-                        ),
-                CONTEXT
+            METHOD,
+            Url.parseAbsoluteOrRelative("https://server/api/spreadsheet/" + ID1 + "/cells/*"),
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A2_CELL
+                    )
+                ),
+            CONTEXT
         );
 
         this.checkCells(
-                cache,
-                A2_CELL
+            cache,
+            A2_CELL
         );
 
         this.checkMatchedCells(
-                cache
+            cache
         );
 
         this.isMatchedCellAndCheck(
-                cache,
-                A2,
-                false
+            cache,
+            A2,
+            false
         );
 
         this.resolveIfLabelAndCheck(
-                cache,
-                A2,
-                A2
+            cache,
+            A2,
+            A2
         );
     }
 

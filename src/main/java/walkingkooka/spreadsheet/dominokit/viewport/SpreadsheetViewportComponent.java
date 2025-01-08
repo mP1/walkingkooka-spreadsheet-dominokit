@@ -109,15 +109,15 @@ import java.util.function.Supplier;
  * A ui that displays a table holding the cells and headers for the columns and rows.
  */
 public final class SpreadsheetViewportComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetViewportComponent>,
-        SpreadsheetDeltaFetcherWatcher,
-        SpreadsheetFormatterFetcherWatcher,
-        NopSpreadsheetFormatterInfoSetFetcherWatcher,
-        SpreadsheetMetadataFetcherWatcher,
-        HistoryTokenAwareComponentLifecycle,
-        SpreadsheetViewportComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired,
-        NopEmptyResponseFetcherWatcher,
-        VisibleHtmlElementComponent<HTMLDivElement, SpreadsheetViewportComponent> {
+    SpreadsheetDeltaFetcherWatcher,
+    SpreadsheetFormatterFetcherWatcher,
+    NopSpreadsheetFormatterInfoSetFetcherWatcher,
+    SpreadsheetMetadataFetcherWatcher,
+    HistoryTokenAwareComponentLifecycle,
+    SpreadsheetViewportComponentLifecycle,
+    LoadedSpreadsheetMetadataRequired,
+    NopEmptyResponseFetcherWatcher,
+    VisibleHtmlElementComponent<HTMLDivElement, SpreadsheetViewportComponent> {
 
     /**
      * The maximum number of recent format / parse pattern saves.
@@ -149,35 +149,35 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         this.root = this.root();
 
         this.recentFormatter = this.recentFormatterOrParserSaves(
-                historyToken -> Optional.ofNullable(
-                        historyToken instanceof SpreadsheetCellFormatterSaveHistoryToken ?
-                                historyToken.cast(SpreadsheetCellFormatterSaveHistoryToken.class).spreadsheetFormatterSelector()
-                                        .orElse(null) :
-                                null
-                ),
-                context
+            historyToken -> Optional.ofNullable(
+                historyToken instanceof SpreadsheetCellFormatterSaveHistoryToken ?
+                    historyToken.cast(SpreadsheetCellFormatterSaveHistoryToken.class).spreadsheetFormatterSelector()
+                        .orElse(null) :
+                    null
+            ),
+            context
         );
 
         this.spreadsheetFormatterSelectorMenus = null;
 
         this.recentParser = this.recentFormatterOrParserSaves(
-                historyToken -> Optional.ofNullable(
-                        historyToken instanceof SpreadsheetCellParserSaveHistoryToken ?
-                                historyToken.cast(SpreadsheetCellParserSaveHistoryToken.class).spreadsheetParserSelector()
-                                        .orElse(null) :
-                                null
-                ),
-                context
+            historyToken -> Optional.ofNullable(
+                historyToken instanceof SpreadsheetCellParserSaveHistoryToken ?
+                    historyToken.cast(SpreadsheetCellParserSaveHistoryToken.class).spreadsheetParserSelector()
+                        .orElse(null) :
+                    null
+            ),
+            context
         );
 
         this.recentTextStyleProperties = HistoryTokenRecorder.with(
-                (historyToken) -> Optional.ofNullable(
-                        historyToken instanceof SpreadsheetCellStyleSaveHistoryToken ?
-                                historyToken.cast(SpreadsheetCellStyleSaveHistoryToken.class)
-                                        .textStyleProperty() :
-                                null
-                ),
-                MAX_RECENT_COUNT
+            (historyToken) -> Optional.ofNullable(
+                historyToken instanceof SpreadsheetCellStyleSaveHistoryToken ?
+                    historyToken.cast(SpreadsheetCellStyleSaveHistoryToken.class)
+                        .textStyleProperty() :
+                    null
+            ),
+            MAX_RECENT_COUNT
         );
         context.addHistoryTokenWatcher(this.recentTextStyleProperties);
 
@@ -197,8 +197,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private <T> HistoryTokenRecorder<T> recentFormatterOrParserSaves(final Function<HistoryToken, Optional<T>> mapper,
                                                                      final HistoryTokenContext context) {
         final HistoryTokenRecorder<T> recorder = HistoryTokenRecorder.with(
-                mapper,
-                MAX_RECENT_COUNT
+            mapper,
+            MAX_RECENT_COUNT
         );
         context.addHistoryTokenWatcher(recorder);
         return recorder;
@@ -216,24 +216,24 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         root.appendChild(this.tableContainer);
 
         root.addEventListener(
-                EventType.mouseover.getName(),
-                e -> this.onMouseEvent(
-                        Js.cast(e)
-                )
+            EventType.mouseover.getName(),
+            e -> this.onMouseEvent(
+                Js.cast(e)
+            )
         );
 
         root.addEventListener(
-                EventType.keydown.getName(),
-                e -> this.onKeyEvent(
-                        Js.cast(e)
-                )
+            EventType.keydown.getName(),
+            e -> this.onKeyEvent(
+                Js.cast(e)
+            )
         );
 
         root.addEventListener(
-                EventType.keyup.getName(),
-                e -> this.onKeyEvent(
-                        Js.cast(e)
-                )
+            EventType.keyup.getName(),
+            e -> this.onKeyEvent(
+                Js.cast(e)
+            )
         );
 
         return root;
@@ -337,8 +337,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     private void addFocusInEventListener(final Element element) {
         element.addEventListener(
-                "focusin",
-                (event) -> this.focused = true
+            "focusin",
+            (event) -> this.focused = true
         );
     }
 
@@ -347,8 +347,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     private void addFocusOutEventListener(final Element element) {
         element.addEventListener(
-                "focusout",
-                (event) -> this.focused = false
+            "focusout",
+            (event) -> this.focused = false
         );
     }
 
@@ -364,10 +364,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     private void addClickEventListener(final Element element) {
         element.addEventListener(
-                EventType.click.getName(),
-                (event) -> onClickEvent(
-                        Js.cast(event)
-                )
+            EventType.click.getName(),
+            (event) -> onClickEvent(
+                Js.cast(event)
+            )
         );
     }
 
@@ -377,8 +377,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         final EventTarget eventTarget = event.target;
         if (eventTarget instanceof Element) {
             this.findSelectionAndNavigate(
-                    Js.cast(eventTarget),
-                    event.shiftKey
+                Js.cast(eventTarget),
+                event.shiftKey
             );
         }
     }
@@ -403,14 +403,14 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                     final SpreadsheetCellReference cell = selection.toCell();
 
                     this.onNavigation(
-                            shiftKeyDown ?
-                                    SpreadsheetViewportNavigation.extendCell(
-                                            cell
-                                    ) :
-                                    SpreadsheetViewportNavigation.cell(
-                                            cell
-                                    ),
-                            context
+                        shiftKeyDown ?
+                            SpreadsheetViewportNavigation.extendCell(
+                                cell
+                            ) :
+                            SpreadsheetViewportNavigation.cell(
+                                cell
+                            ),
+                        context
                     );
                     break;
                 }
@@ -427,10 +427,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     private void addKeyDownEventListener(final Element element) {
         element.addEventListener(
-                EventType.keydown.getName(),
-                (event) -> onKeyDownEvent(
-                        Js.cast(event)
-                )
+            EventType.keydown.getName(),
+            (event) -> onKeyDownEvent(
+                Js.cast(event)
+            )
         );
     }
 
@@ -447,37 +447,37 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         switch (Key.fromEvent(event)) {
             case ArrowLeft:
                 navigation = shifted ?
-                        SpreadsheetViewportNavigation.extendLeftColumn() :
-                        SpreadsheetViewportNavigation.leftColumn();
+                    SpreadsheetViewportNavigation.extendLeftColumn() :
+                    SpreadsheetViewportNavigation.leftColumn();
                 break;
             case ArrowUp:
                 navigation = shifted ?
-                        SpreadsheetViewportNavigation.extendUpRow() :
-                        SpreadsheetViewportNavigation.upRow();
+                    SpreadsheetViewportNavigation.extendUpRow() :
+                    SpreadsheetViewportNavigation.upRow();
                 break;
             case ArrowRight:
                 navigation = shifted ?
-                        SpreadsheetViewportNavigation.extendRightColumn() :
-                        SpreadsheetViewportNavigation.rightColumn();
+                    SpreadsheetViewportNavigation.extendRightColumn() :
+                    SpreadsheetViewportNavigation.rightColumn();
                 break;
             case ArrowDown:
                 navigation = shifted ?
-                        SpreadsheetViewportNavigation.extendDownRow() :
-                        SpreadsheetViewportNavigation.downRow();
+                    SpreadsheetViewportNavigation.extendDownRow() :
+                    SpreadsheetViewportNavigation.downRow();
                 break;
             case Enter:
                 // if cell then edit formula
                 this.focused = false;
                 context.pushHistoryToken(
-                        context.historyToken()
-                                .formula()
+                    context.historyToken()
+                        .formula()
                 );
                 break;
             case Escape:
                 // clear any selection
                 context.pushHistoryToken(
-                        context.historyToken()
-                                .clearSelection()
+                    context.historyToken()
+                        .clearSelection()
                 );
                 break;
             default:
@@ -487,8 +487,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         if (null != navigation) {
             this.onNavigation(
-                    navigation,
-                    context
+                navigation,
+                context
             );
         }
     }
@@ -497,8 +497,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     private void addContextMenuEventListener(final Element element) {
         element.addEventListener(
-                EventType.contextmenu.getName(),
-                this::onContextMenu
+            EventType.contextmenu.getName(),
+            this::onContextMenu
         );
     }
 
@@ -525,11 +525,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                     final AppContext context = this.context;
 
                     context.pushHistoryToken(
-                            context.historyToken()
-                                    .menu(
-                                            Optional.of(selection),
-                                            context.spreadsheetViewportCache()
-                                    )
+                        context.historyToken()
+                            .menu(
+                                Optional.of(selection),
+                                context.spreadsheetViewportCache()
+                            )
                     );
                     break;
                 }
@@ -548,18 +548,18 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         final AnchoredSpreadsheetSelection anchored = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchored.selection();
         final Optional<Element> maybeElement = this.findElement(
-                this.context.spreadsheetViewportCache()
-                        .resolveIfLabel(
-                                selection
-                        ).focused(anchored.anchor())
+            this.context.spreadsheetViewportCache()
+                .resolveIfLabel(
+                    selection
+                ).focused(anchored.anchor())
         );
 
         if (maybeElement.isPresent()) {
             final SpreadsheetContextMenu menu = SpreadsheetContextMenu.wrap(
-                    SpreadsheetContextMenuTargets.element(
-                            maybeElement.get()
-                    ),
-                    context
+                SpreadsheetContextMenuTargets.element(
+                    maybeElement.get()
+                ),
+                context
             );
 
             List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorMenus = this.spreadsheetFormatterSelectorMenus;
@@ -568,15 +568,15 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             }
 
             SpreadsheetSelectionMenu.build(
-                    historyToken,
-                    menu,
-                    SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
-                            this.recentFormatter.values(),
-                            spreadsheetFormatterSelectorMenus,
-                            this.recentParser.values(),
-                            this.recentTextStyleProperties.values(),
-                            this.context
-                    )
+                historyToken,
+                menu,
+                SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
+                    this.recentFormatter.values(),
+                    spreadsheetFormatterSelectorMenus,
+                    this.recentParser.values(),
+                    this.recentTextStyleProperties.values(),
+                    this.context
+                )
             );
 
             menu.focus();
@@ -616,10 +616,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     private DivElement horizontalScrollbar() {
         return this.scrollbar(
-                "h-scrollbar",
-                "left: 0px; bottom: 0px; width: calc(100% - " + (SCROLLBAR_LENGTH + BUTTON_LENGTH * 2 - 5) + "px);height:" + SCROLLBAR_LENGTH + "px; flex-flow: row; border-radius: 0 10px 10px 0;",
-                this.horizontalScrollbarThumb,
-                this::horizontalScrollbarOnClick
+            "h-scrollbar",
+            "left: 0px; bottom: 0px; width: calc(100% - " + (SCROLLBAR_LENGTH + BUTTON_LENGTH * 2 - 5) + "px);height:" + SCROLLBAR_LENGTH + "px; flex-flow: row; border-radius: 0 10px 10px 0;",
+            this.horizontalScrollbarThumb,
+            this::horizontalScrollbarOnClick
         );
     }
 
@@ -627,10 +627,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     private DivElement verticalScrollbar() {
         return this.scrollbar(
-                "v-scrollbar",
-                "top: 0px; right: 0px; height: calc(100% - " + (SCROLLBAR_LENGTH + BUTTON_LENGTH * 2 - 5) + "px); width: " + SCROLLBAR_LENGTH + "px; flex-flow: column; border-radius: 0 0 10px 10px;",
-                this.verticalScrollbarThumb,
-                this::verticalScrollbarOnClick
+            "v-scrollbar",
+            "top: 0px; right: 0px; height: calc(100% - " + (SCROLLBAR_LENGTH + BUTTON_LENGTH * 2 - 5) + "px); width: " + SCROLLBAR_LENGTH + "px; flex-flow: column; border-radius: 0 0 10px 10px;",
+            this.verticalScrollbarThumb,
+            this::verticalScrollbarOnClick
         );
     }
 
@@ -646,28 +646,28 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         scrollbar.style("position: absolute; display: flex;" + cssText + "border-width: 2px;border-color: black;border-style: solid;padding: 2px;background-color: #aaa;");
 
         return scrollbar.appendChild(thumb)
-                .addClickListener(
-                        e -> click.accept((MouseEvent) e)
-                );
+            .addClickListener(
+                e -> click.accept((MouseEvent) e)
+            );
     }
 
     private void horizontalScrollbarOnClick(final MouseEvent event) {
         event.preventDefault();
 
         final int width = this.horizontalScrollbar.element()
-                .offsetWidth;
+            .offsetWidth;
 
         final double clientX = event.clientX;
         final double leftClientX = this.horizontalScrollbarThumbLeft * width * 0.01;
         final SpreadsheetViewportNavigation navigation = clientX < leftClientX ?
-                SpreadsheetViewportNavigation.leftPixel(width) :
-                SpreadsheetViewportNavigation.rightPixel(width);
+            SpreadsheetViewportNavigation.leftPixel(width) :
+            SpreadsheetViewportNavigation.rightPixel(width);
 
         this.context.debug("SpreadsheetViewportComponent.horizontalScrollbarOnClick clientX: " + clientX + "< " + leftClientX + " " + navigation);
 
         this.onNavigation(
-                navigation,
-                this.context
+            navigation,
+            this.context
         );
     }
 
@@ -675,27 +675,27 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         event.preventDefault();
 
         final int height = this.horizontalScrollbar.element()
-                .offsetHeight;
+            .offsetHeight;
 
         final double clientY = event.clientY;
         final double topClientY = this.verticalScrollbarThumbTop * height * 0.01;
         final SpreadsheetViewportNavigation navigation = clientY < topClientY ?
-                SpreadsheetViewportNavigation.upPixel(height) :
-                SpreadsheetViewportNavigation.downPixel(height);
+            SpreadsheetViewportNavigation.upPixel(height) :
+            SpreadsheetViewportNavigation.downPixel(height);
 
         this.context.debug("SpreadsheetViewportComponent.horizontalScrollbarOnClick clientY: " + clientY + "< " + topClientY + " " + navigation);
 
         this.onNavigation(
-                navigation,
-                this.context
+            navigation,
+            this.context
         );
     }
 
     private DivElement horizontalScrollbarThumb() {
         return scrollbarThumb(
-                "h-scrollbar-thumb",
-                "0%",
-                "90%"
+            "h-scrollbar-thumb",
+            "0%",
+            "90%"
         );
     }
 
@@ -703,9 +703,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     private DivElement verticalScrollbarThumb() {
         return scrollbarThumb(
-                "v-scrollbar-thumb",
-                "90%",
-                "0%"
+            "v-scrollbar-thumb",
+            "90%",
+            "0%"
         );
     }
 
@@ -722,37 +722,37 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     private HTMLElement horizontalScrollbarLeft() {
         return scrollbarArrow(
-                "h-scrollbar-left",
-                SpreadsheetIcons.arrowLeft(),
-                "right: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 8) + "px; bottom: -10px;",
-                () -> SpreadsheetViewportNavigation.leftPixel(this.tableCellsWidth() - 1)
+            "h-scrollbar-left",
+            SpreadsheetIcons.arrowLeft(),
+            "right: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 8) + "px; bottom: -10px;",
+            () -> SpreadsheetViewportNavigation.leftPixel(this.tableCellsWidth() - 1)
         );
     }
 
     private HTMLElement verticalScrollbarUp() {
         return scrollbarArrow(
-                "v-scrollbar-up",
-                SpreadsheetIcons.arrowUp(),
-                "bottom: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 3) + "px; right: -16px;",
-                () -> SpreadsheetViewportNavigation.upPixel(this.tableCellsHeight() - 1)
+            "v-scrollbar-up",
+            SpreadsheetIcons.arrowUp(),
+            "bottom: " + (SCROLLBAR_LENGTH + BUTTON_LENGTH - 3) + "px; right: -16px;",
+            () -> SpreadsheetViewportNavigation.upPixel(this.tableCellsHeight() - 1)
         );
     }
 
     private HTMLElement horizontalScrollbarRight() {
         return scrollbarArrow(
-                "h-scrollbar-right",
-                SpreadsheetIcons.arrowRight(),
-                "right: " + (SCROLLBAR_LENGTH - 8) + "px; bottom: -10px;",
-                () -> SpreadsheetViewportNavigation.rightPixel(this.tableCellsWidth() - 1)
+            "h-scrollbar-right",
+            SpreadsheetIcons.arrowRight(),
+            "right: " + (SCROLLBAR_LENGTH - 8) + "px; bottom: -10px;",
+            () -> SpreadsheetViewportNavigation.rightPixel(this.tableCellsWidth() - 1)
         );
     }
 
     private HTMLElement verticalScrollbarDown() {
         return scrollbarArrow(
-                "v-scrollbar-down",
-                SpreadsheetIcons.arrowDown(),
-                "bottom: " + (SCROLLBAR_LENGTH - 3) + "px; right: -16px;",
-                () -> SpreadsheetViewportNavigation.downPixel(this.tableCellsHeight() - 1)
+            "v-scrollbar-down",
+            SpreadsheetIcons.arrowDown(),
+            "bottom: " + (SCROLLBAR_LENGTH - 3) + "px; right: -16px;",
+            () -> SpreadsheetViewportNavigation.downPixel(this.tableCellsHeight() - 1)
         );
     }
 
@@ -761,7 +761,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                                        final String css,
                                        final Supplier<SpreadsheetViewportNavigation> navigation) {
         final Button button = Button.create(icon)
-                .circle();
+            .circle();
 
         final HTMLElement element = button.element();
         element.id = ID_PREFIX + idSuffix;
@@ -770,10 +770,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         element.style.cssText = "position: absolute;" + css + "width: " + BUTTON_LENGTH + "px; height: " + BUTTON_LENGTH + "px";
 
         button.addClickListener(
-                (e) -> this.onNavigation(
-                        navigation.get(),
-                        this.context
-                )
+            (e) -> this.onNavigation(
+                navigation.get(),
+                this.context
+            )
         );
 
         return element;
@@ -787,7 +787,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         final AppContext context = this.context;
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
         final Optional<SpreadsheetCellRangeReference> maybeLast = cache.windows()
-                .last();
+            .last();
         final OptionalInt maybeColumnCount = cache.columnCount();
         final OptionalInt maybeRowCount = cache.rowCount();
 
@@ -799,41 +799,41 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             final SpreadsheetCellReference topLeft = last.begin();
 
             final int left = topLeft.column()
-                    .value();
+                .value();
             final int top = topLeft.row()
-                    .value();
+                .value();
 
             final int columnCount = maybeColumnCount.getAsInt();
             final int rowCount = maybeRowCount.getAsInt();
 
             final SpreadsheetViewportComponentThumbnails thumbnails = SpreadsheetViewportComponentThumbnails.compute(
-                    last,
-                    columnCount,
-                    rowCount
+                last,
+                columnCount,
+                rowCount
             );
 
             final float hLeft = thumbnails.left;
             final float hWidth = thumbnails.width;
 
             horizontalScrollbarThumb
-                    .setDisplay("visible")
-                    .setLeft(
-                            hLeft + "%"
-                    )
-                    .setWidth(
-                            hWidth + "%"
-                    );
+                .setDisplay("visible")
+                .setLeft(
+                    hLeft + "%"
+                )
+                .setWidth(
+                    hWidth + "%"
+                );
 
             final float vTop = thumbnails.top;
             final float vHeight = thumbnails.height;
 
             verticalScrollbarThumb.setDisplay("visible")
-                    .setTop(
-                            vTop + "%"
-                    )
-                    .setHeight(
-                            vHeight + "%"
-                    );
+                .setTop(
+                    vTop + "%"
+                )
+                .setHeight(
+                    vHeight + "%"
+                );
 
             this.horizontalScrollbarThumbLeft = hLeft;
             this.verticalScrollbarThumbTop = vTop;
@@ -873,7 +873,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         this.reload = reload;
 
         this.tableContainer.element()
-                .style.cssText = "width: " + this.width() + "px; height: " + this.height() + "px; overflow: hidden; position: relative;";
+            .style.cssText = "width: " + this.width() + "px; height: " + this.height() + "px; overflow: hidden; position: relative;";
 
         this.table.setWidth(this.tableWidth());
         this.table.setHeight(this.tableHeight());
@@ -884,14 +884,14 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> anchoredSelection,
                                         final AppContext context) {
         final SpreadsheetCellReference home = context.spreadsheetMetadata()
-                .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT)
-                .rectangle()
-                .home();
+            .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT)
+            .rectangle()
+            .home();
         return home.viewportRectangle(
-                        this.tableCellsWidth(),
-                        this.tableCellsHeight()
-                ).viewport()
-                .setAnchoredSelection(anchoredSelection);
+                this.tableCellsWidth(),
+                this.tableCellsHeight()
+            ).viewport()
+            .setAnchoredSelection(anchoredSelection);
     }
 
     private int width() {
@@ -904,23 +904,23 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     private int tableCellsWidth() {
         return this.tableWidth() -
-                (int) ROW_WIDTH.pixelValue() -
-                SCROLLBAR_LENGTH;
+            (int) ROW_WIDTH.pixelValue() -
+            SCROLLBAR_LENGTH;
     }
 
     private int height() {
         return this.height - this.formulaComponent.element()
-                .offsetHeight;
+            .offsetHeight;
     }
 
     private int tableHeight() {
         return this.height() -
-                SCROLLBAR_LENGTH;
+            SCROLLBAR_LENGTH;
     }
 
     private int tableCellsHeight() {
         return this.tableHeight() -
-                (int) COLUMN_HEIGHT.pixelValue();
+            (int) COLUMN_HEIGHT.pixelValue();
     }
 
     final static Length<?> COLUMN_HEIGHT = Length.pixel(30.0);
@@ -946,14 +946,14 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final RefreshContext context) {
         final SpreadsheetSelection nonLabelSelection = this.context.spreadsheetViewportCache()
-                .resolveIfLabel(
-                        selection.selection()
-                );
+            .resolveIfLabel(
+                selection.selection()
+            );
         final SpreadsheetSelection spreadsheetSelection = nonLabelSelection.focused(
-                selection.anchor()
+            selection.anchor()
         );
         final Optional<Element> maybeElement = this.findElement(
-                spreadsheetSelection
+            spreadsheetSelection
         );
         if (maybeElement.isPresent()) {
             Element element = maybeElement.get();
@@ -964,8 +964,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             if (null != active) {
                 // verify active element belongs to the same selection. if it does it must have focus so no need to focus again
                 give = false == Doms.isOrHasChild(
-                        element,
-                        active
+                    element,
+                    active
                 );
             }
 
@@ -1002,25 +1002,25 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection = historyToken.anchoredSelectionOrEmpty();
 
         this.refreshTable(
-                maybeAnchorSelection,
-                context
+            maybeAnchorSelection,
+            context
         );
 
         if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
-                historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
-                historyToken instanceof SpreadsheetRowSelectHistoryToken) {
+            historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
+            historyToken instanceof SpreadsheetRowSelectHistoryToken) {
             this.giveViewportSelectionFocus(
-                    maybeAnchorSelection.get(),
-                    context
+                maybeAnchorSelection.get(),
+                context
             );
         }
 
         if (historyToken instanceof SpreadsheetCellMenuHistoryToken ||
-                historyToken instanceof SpreadsheetColumnMenuHistoryToken ||
-                historyToken instanceof SpreadsheetRowMenuHistoryToken) {
+            historyToken instanceof SpreadsheetColumnMenuHistoryToken ||
+            historyToken instanceof SpreadsheetRowMenuHistoryToken) {
             this.renderContextMenu(
-                    historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
-                    context
+                historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
+                context
             );
         }
 
@@ -1038,31 +1038,31 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         if (maybeAnchorSelection.isPresent()) {
             // special case for label
             final SpreadsheetSelection selectionNotLabel = cache.resolveIfLabel(
-                            maybeAnchorSelection.get()
-                                    .selection()
-                    );
+                maybeAnchorSelection.get()
+                    .selection()
+            );
 
             // is not cell-range required otherwise select-all-component will always be rendered as anchorSelection.
             selected = (s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
-                    (false == s.isCellRangeReference() && selectionNotLabel.test(s));
+                (false == s.isCellRangeReference() && selectionNotLabel.test(s));
         }
 
         this.table.refresh(
-                metadata.id().get(),
-                metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME),
-                windows,
-                selected,
-                BasicSpreadsheetViewportComponentTableContext.with(
-                        context,
-                        cache,
-                        metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES),
-                        metadata.effectiveStyle()
-                                .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE),
-                        metadata.shouldViewRefresh(this.refreshMetadata),
-                        this.shiftKeyDown,
-                        this.spreadsheetViewport(),
-                        context
-                )
+            metadata.id().get(),
+            metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME),
+            windows,
+            selected,
+            BasicSpreadsheetViewportComponentTableContext.with(
+                context,
+                cache,
+                metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES),
+                metadata.effectiveStyle()
+                    .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE),
+                metadata.shouldViewRefresh(this.refreshMetadata),
+                this.shiftKeyDown,
+                this.spreadsheetViewport(),
+                context
+            )
         );
         this.refreshMetadata = metadata;
     }
@@ -1148,10 +1148,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         Objects.requireNonNull(delta, "delta");
 
         final Optional<SpreadsheetViewport> maybeSpreadsheetViewport = delta.viewport();
-        if(maybeSpreadsheetViewport.isPresent()) {
+        if (maybeSpreadsheetViewport.isPresent()) {
             this.synchronizeHistoryToken(
-                    maybeSpreadsheetViewport.get(),
-                    context
+                maybeSpreadsheetViewport.get(),
+                context
             );
         }
         this.componentLifecycleHistoryTokenQuery(context);
@@ -1170,15 +1170,15 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             final HistoryToken historyToken = context.historyToken();
 
             final HistoryToken withSelection = historyToken
-                    .clearSelection()
-                    .setAnchoredSelection(
-                            viewport.anchoredSelection()
-                    );
+                .clearSelection()
+                .setAnchoredSelection(
+                    viewport.anchoredSelection()
+                );
 
             context.debug(
-                    this.getClass().getSimpleName() +
-                            ".synchronizeHistoryToken different selection from history token @" +
-                            withSelection
+                this.getClass().getSimpleName() +
+                    ".synchronizeHistoryToken different selection from history token @" +
+                    withSelection
             );
             context.pushHistoryToken(withSelection);
         }
@@ -1244,10 +1244,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         if (fetchSpreadsheetFormatterSelectorsMenu) {
             context.spreadsheetFormatterFetcher()
-                    .menu(
-                            metadata.id()
-                                    .get()
-                    );
+                .menu(
+                    metadata.id()
+                        .get()
+                );
         }
     }
 
@@ -1283,10 +1283,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     public void loadViewportCells(final AppContext context) {
         final SpreadsheetId id = context.spreadsheetMetadata()
-                .getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
+            .getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
 
         final SpreadsheetViewport viewport = this.spreadsheetViewport()
-                .setNavigations(this.navigations);
+            .setNavigations(this.navigations);
 
         context.debug("SpreadsheetViewportComponent.loadViewportCells id: " + id + " viewport: " + viewport);
 
@@ -1294,10 +1294,10 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         this.navigations = SpreadsheetViewportNavigationList.EMPTY;
 
         context.spreadsheetDeltaFetcher()
-                .loadCells(
-                        id,
-                        viewport
-                );
+            .loadCells(
+                id,
+                viewport
+            );
     }
 
     /**
@@ -1305,14 +1305,14 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     private SpreadsheetViewport spreadsheetViewport() {
         SpreadsheetViewport viewport = this.context.spreadsheetMetadata()
-                .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT);
+            .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT);
         final SpreadsheetViewportRectangle rectangle = viewport.rectangle();
         return viewport.setRectangle(
-                rectangle.setWidth(
-                        this.tableCellsWidth()
-                ).setHeight(
-                        this.tableCellsHeight()
-                )
+            rectangle.setWidth(
+                this.tableCellsWidth()
+            ).setHeight(
+                this.tableCellsHeight()
+            )
         );
     }
 
@@ -1348,12 +1348,12 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     private Optional<Element> findElement(final SpreadsheetSelection selection) {
         final Element element = DomGlobal.document
-                .getElementById(
-                        SpreadsheetViewportComponent.id(
-                                this.context.spreadsheetViewportCache()
-                                        .resolveIfLabel(selection)
-                        )
-                );
+            .getElementById(
+                SpreadsheetViewportComponent.id(
+                    this.context.spreadsheetViewportCache()
+                        .resolveIfLabel(selection)
+                )
+            );
 
         return Optional.ofNullable(element);
     }
@@ -1365,9 +1365,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     // viewport-column-A
     public static String id(final SpreadsheetSelection selection) {
         return ID_PREFIX +
-                selection.textLabel().toLowerCase() +
-                "-" +
-                selection.toString().toUpperCase();
+            selection.textLabel().toLowerCase() +
+            "-" +
+            selection.toString().toUpperCase();
     }
 
     /**
@@ -1402,7 +1402,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 if (null != parser) {
                     try {
                         selection = parser.apply(
-                                selectionTypeAndSelection.substring(dash + 1)
+                            selectionTypeAndSelection.substring(dash + 1)
                         );
                     } catch (final RuntimeException ignore) {
                         // nop

@@ -46,8 +46,8 @@ final class JarEntryInfoListTableComponent implements HtmlElementComponent<HTMLD
     static JarEntryInfoListTableComponent empty(final String id,
                                                 final JarEntryInfoListTableComponentContext context) {
         return new JarEntryInfoListTableComponent(
-                Objects.requireNonNull(id, "id"),
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(id, "id"),
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -57,59 +57,59 @@ final class JarEntryInfoListTableComponent implements HtmlElementComponent<HTMLD
         this.card = SpreadsheetCard.empty();
 
         this.table = SpreadsheetDataTableComponent.with(
+            id,
+            columnConfigs(),
+            JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRenderer.with(
                 id,
-                columnConfigs(),
-                JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRenderer.with(
-                        id,
-                        context
-                )
+                context
+            )
         ).emptyStatePlugin(
-                SpreadsheetIcons.spreadsheetListTableEmpty(),
-                "empty JAR file"
+            SpreadsheetIcons.spreadsheetListTableEmpty(),
+            "empty JAR file"
         );
 
         this.card.appendChild(
-                this.table
+            this.table
         );
     }
 
     private List<ColumnConfig<JarEntryInfo>> columnConfigs() {
         return Lists.of(
-                columnConfig(
-                        "Name",
-                        "name",
-                        TextAlign.LEFT
-                ),
-                columnConfig(
-                        "Size(Compressed)",
-                        "size",
-                        TextAlign.RIGHT
-                ),
-                columnConfig(
-                        "Method",
-                        "method",
-                        TextAlign.RIGHT
-                ),
-                columnConfig(
-                        "CRC",
-                        "crc",
-                        TextAlign.RIGHT
-                ),
-                columnConfig(
-                        "Created",
-                        "create-date-time",
-                        TextAlign.LEFT
-                ),
-                columnConfig(
-                        "Last modified by",
-                        "last-modified-by",
-                        TextAlign.LEFT
-                ),
-                columnConfig(
-                        "Links",
-                        "links",
-                        TextAlign.LEFT
-                )
+            columnConfig(
+                "Name",
+                "name",
+                TextAlign.LEFT
+            ),
+            columnConfig(
+                "Size(Compressed)",
+                "size",
+                TextAlign.RIGHT
+            ),
+            columnConfig(
+                "Method",
+                "method",
+                TextAlign.RIGHT
+            ),
+            columnConfig(
+                "CRC",
+                "crc",
+                TextAlign.RIGHT
+            ),
+            columnConfig(
+                "Created",
+                "create-date-time",
+                TextAlign.LEFT
+            ),
+            columnConfig(
+                "Last modified by",
+                "last-modified-by",
+                TextAlign.LEFT
+            ),
+            columnConfig(
+                "Links",
+                "links",
+                TextAlign.LEFT
+            )
         );
     }
 
@@ -117,22 +117,22 @@ final class JarEntryInfoListTableComponent implements HtmlElementComponent<HTMLD
                                                            final String columnName,
                                                            final TextAlign textAlign) {
         return ColumnConfig.<JarEntryInfo>create(columnName)
-                .setTitle(title)
-                .setFixed(true)
-                .setTextAlign(
-                        CellTextAlign.valueOf(
-                                textAlign.name()
-                        )
-                );
+            .setTitle(title)
+            .setFixed(true)
+            .setTextAlign(
+                CellTextAlign.valueOf(
+                    textAlign.name()
+                )
+            );
     }
 
     private final SpreadsheetDataTableComponent<JarEntryInfo> table;
 
     JarEntryInfoListTableComponent setList(final JarEntryInfoList list) {
         this.table.setValue(
-                Optional.of(
-                        list
-                )
+            Optional.of(
+                list
+            )
         );
         return this;
     }

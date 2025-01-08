@@ -45,7 +45,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
  * An IntegerBox that adds a few extras that should be common to all text boxes.
  */
 public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox>,
-        SpreadsheetTextBoxTreePrintable<SpreadsheetIntegerBox, Integer> {
+    SpreadsheetTextBoxTreePrintable<SpreadsheetIntegerBox, Integer> {
 
     public static SpreadsheetIntegerBox empty() {
         return new SpreadsheetIntegerBox();
@@ -60,22 +60,22 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
 
     public SpreadsheetIntegerBox max(final int value) {
         this.integerBox.getInputElement()
-                .element()
-                .max = String.valueOf(value);
+            .element()
+            .max = String.valueOf(value);
         return this;
     }
 
     public SpreadsheetIntegerBox min(final int value) {
         this.integerBox.getInputElement()
-                .element()
-                .min = String.valueOf(value);
+            .element()
+            .min = String.valueOf(value);
         return this;
     }
 
     @Override
     public SpreadsheetIntegerBox addChangeListener(final ChangeListener<Optional<Integer>> listener) {
         this.integerBox.addChangeListener(
-                SpreadsheetIntegerBoxChangeListener.with(listener)
+            SpreadsheetIntegerBoxChangeListener.with(listener)
         );
         return this;
     }
@@ -84,10 +84,10 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     public SpreadsheetIntegerBox addFocusListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
         this.integerBox.getInputElement()
-                .addEventListener(
-                        EventType.focus,
-                        listener::handleEvent
-                );
+            .addEventListener(
+                EventType.focus,
+                listener::handleEvent
+            );
         return this;
     }
 
@@ -96,8 +96,8 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
         Objects.requireNonNull(listener, "listener");
 
         this.integerBox.addEventListener(
-                EventType.keydown,
-                listener
+            EventType.keydown,
+            listener
         );
         return this;
     }
@@ -107,23 +107,23 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
         Objects.requireNonNull(listener, "listener");
 
         this.integerBox.addEventListener(
-                EventType.keyup,
-                listener
+            EventType.keyup,
+            listener
         );
         return this;
     }
 
     public SpreadsheetIntegerBox clearIcon() {
         this.integerBox.apply(
-                self -> self.appendChild(
-                        PostfixAddOn.of(
-                                SpreadsheetIcons.textBoxClear()
-                                        .clickable()
-                                        .addClickListener(
-                                                event -> this.integerBox.clear()
-                                        )
+            self -> self.appendChild(
+                PostfixAddOn.of(
+                    SpreadsheetIcons.textBoxClear()
+                        .clickable()
+                        .addClickListener(
+                            event -> this.integerBox.clear()
                         )
                 )
+            )
         );
         return this;
     }
@@ -138,22 +138,22 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
         final IntegerBox integerBox = this.integerBox;
 
         integerBox.addEventListener(
-                EventType.keydown.getName(),
-                (final Event event) -> {
-                    final KeyboardEvent keyboardEvent = Js.cast(event);
-                    switch (Key.fromEvent(keyboardEvent)) {
-                        case Enter:
-                            event.preventDefault();
-                            integerBox.triggerChangeListeners(
-                                    integerBox.getValue(), // old ???
-                                    integerBox.getValue()// new
-                            );
-                            break;
-                        default:
-                            // ignore other keys
-                            break;
-                    }
+            EventType.keydown.getName(),
+            (final Event event) -> {
+                final KeyboardEvent keyboardEvent = Js.cast(event);
+                switch (Key.fromEvent(keyboardEvent)) {
+                    case Enter:
+                        event.preventDefault();
+                        integerBox.triggerChangeListeners(
+                            integerBox.getValue(), // old ???
+                            integerBox.getValue()// new
+                        );
+                        break;
+                    default:
+                        // ignore other keys
+                        break;
                 }
+            }
         );
         return this;
     }
@@ -161,8 +161,8 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     @Override
     public SpreadsheetIntegerBox alwaysShowHelperText() {
         final DominoElement<Element> element = elements.elementOf(
-                this.integerBox.element()
-                        .firstElementChild
+            this.integerBox.element()
+                .firstElementChild
         );
         element.setHeight(HELPER_TEXT_HEIGHT);
         return this;
@@ -173,7 +173,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
         Objects.requireNonNull(text, "text");
 
         this.integerBox.setHelperText(
-                text.orElse(null)
+            text.orElse(null)
         );
         return this;
     }
@@ -181,7 +181,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     @Override
     public Optional<String> helperText() {
         return Optional.ofNullable(
-                this.integerBox.getHelperText()
+            this.integerBox.getHelperText()
         );
     }
 
@@ -194,23 +194,23 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     @Override
     public SpreadsheetIntegerBox removeBorders() {
         this.integerBox.getInputElement()
-                .parent()
-                .setBorder("0")
-                .setCssProperty("border-radius", 0);
+            .parent()
+            .setBorder("0")
+            .setCssProperty("border-radius", 0);
         return this;
     }
 
     @Override
     public SpreadsheetIntegerBox setId(final String id) {
         this.integerBox.getInputElement()
-                .setId(id);
+            .setId(id);
         return this;
     }
 
     @Override
     public String id() {
         return this.integerBox.getInputElement()
-                .getId();
+            .getId();
     }
 
     @Override
@@ -229,7 +229,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
         integerBox.setAutoValidation(true);
         integerBox.getValidators().clear();
         integerBox.addValidator(
-                SpreadsheetIntegerBoxValidator.with(validator)
+            SpreadsheetIntegerBoxValidator.with(validator)
         );
         return this;
     }
@@ -248,7 +248,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
         Objects.requireNonNull(value, "value");
 
         this.integerBox.setValue(
-                value.orElse(null)
+            value.orElse(null)
         );
         return this;
     }
@@ -256,7 +256,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     @Override //
     public Optional<Integer> value() {
         return Optional.ofNullable(
-                this.integerBox.getValue()
+            this.integerBox.getValue()
         );
     }
 
@@ -277,7 +277,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     public SpreadsheetIntegerBox required() {
         this.required = true;
         return this.setValidator(
-                new RequiredValidator<>(this.integerBox)
+            new RequiredValidator<>(this.integerBox)
         );
     }
 
@@ -301,7 +301,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
     @Override
     public List<String> errors() {
         return Lists.readOnly(
-                this.integerBox.getErrors()
+            this.integerBox.getErrors()
         );
     }
 
@@ -310,7 +310,7 @@ public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetE
         Objects.requireNonNull(errors, "errors");
 
         this.integerBox.invalidate(
-                Lists.immutable(errors)
+            Lists.immutable(errors)
         );
         return this;
     }

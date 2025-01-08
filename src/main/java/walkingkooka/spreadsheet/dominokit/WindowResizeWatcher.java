@@ -34,11 +34,11 @@ public interface WindowResizeWatcher {
      */
     default void addWindowResizeListener(final BiConsumer<Integer, Integer> listener) {
         DomGlobal.window.addEventListener(
-                EventType.resize.getName(),
-                (e) -> listener.accept(
-                        DomGlobal.window.innerWidth,
-                        DomGlobal.window.innerHeight
-                )
+            EventType.resize.getName(),
+            (e) -> listener.accept(
+                DomGlobal.window.innerWidth,
+                DomGlobal.window.innerHeight
+            )
         );
     }
 
@@ -47,16 +47,16 @@ public interface WindowResizeWatcher {
      */
     default void fireWindowSizeLater(final BiConsumer<Integer, Integer> listener) {
         Scheduler.get()
-                .scheduleDeferred(
-                        new ScheduledCommand() {
-                            @Override
-                            public void execute() {
-                                listener.accept(
-                                        DomGlobal.window.innerWidth,
-                                        DomGlobal.window.innerHeight
-                                );
-                            }
-                        }
-                );
+            .scheduleDeferred(
+                new ScheduledCommand() {
+                    @Override
+                    public void execute() {
+                        listener.accept(
+                            DomGlobal.window.innerWidth,
+                            DomGlobal.window.innerHeight
+                        );
+                    }
+                }
+            );
     }
 }

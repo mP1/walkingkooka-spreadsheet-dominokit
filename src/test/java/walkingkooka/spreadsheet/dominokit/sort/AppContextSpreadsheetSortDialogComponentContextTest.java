@@ -27,10 +27,10 @@ public final class AppContextSpreadsheetSortDialogComponentContextTest implement
     @Test
     public void testWithNullContextFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> AppContextSpreadsheetSortDialogComponentContext.with(
-                        null
-                )
+            NullPointerException.class,
+            () -> AppContextSpreadsheetSortDialogComponentContext.with(
+                null
+            )
         );
     }
 
@@ -39,7 +39,7 @@ public final class AppContextSpreadsheetSortDialogComponentContextTest implement
     @Override
     public AppContextSpreadsheetSortDialogComponentContext createContext() {
         return AppContextSpreadsheetSortDialogComponentContext.with(
-                AppContexts.fake()
+            AppContexts.fake()
         );
     }
 

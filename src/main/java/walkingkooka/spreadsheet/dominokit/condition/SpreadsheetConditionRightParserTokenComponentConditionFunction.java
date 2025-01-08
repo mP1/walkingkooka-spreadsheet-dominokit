@@ -43,10 +43,10 @@ final class SpreadsheetConditionRightParserTokenComponentConditionFunction imple
     @Override
     public SpreadsheetConditionRightParserToken apply(final String text) {
         return SpreadsheetParsers.conditionRight(
-                SpreadsheetParsers.expression()
+            SpreadsheetParsers.expression()
         ).parseText(
-                text,
-                this.context.get()
+            text,
+            this.context.get()
         ).cast(SpreadsheetConditionRightParserToken.class);
     }
 

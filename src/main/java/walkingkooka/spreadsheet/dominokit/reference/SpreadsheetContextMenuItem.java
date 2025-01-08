@@ -39,23 +39,23 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
         CharSequences.failIfNullOrEmpty(id, "id");
         if (false == id.endsWith(SpreadsheetElementIds.MENU_ITEM)) {
             throw new IllegalArgumentException(
-                    "Invalid menu item id " +
-                            CharSequences.quote(id) +
-                            " missing " +
-                            CharSequences.quote(SpreadsheetElementIds.MENU_ITEM)
+                "Invalid menu item id " +
+                    CharSequences.quote(id) +
+                    " missing " +
+                    CharSequences.quote(SpreadsheetElementIds.MENU_ITEM)
             );
         }
         CharSequences.failIfNullOrEmpty(text, "text");
 
         return new SpreadsheetContextMenuItem(
-                id,
-                text,
-                Optional.empty(), // badge
-                Optional.empty(), // historyToken
-                Optional.empty(), // icon
-                "", // key
-                false, // checked
-                true // enabled
+            id,
+            text,
+            Optional.empty(), // badge
+            Optional.empty(), // historyToken
+            Optional.empty(), // icon
+            "", // key
+            false, // checked
+            true // enabled
         );
     }
 
@@ -85,17 +85,17 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
         Objects.requireNonNull(badge, "badge");
 
         return this.badge.equals(badge) ?
-                this :
-                new SpreadsheetContextMenuItem(
-                        this.id,
-                        this.text,
-                        badge,
-                        this.historyToken,
-                        this.icon,
-                        this.key,
-                        this.checked,
-                        this.enabled
-                );
+            this :
+            new SpreadsheetContextMenuItem(
+                this.id,
+                this.text,
+                badge,
+                this.historyToken,
+                this.icon,
+                this.key,
+                this.checked,
+                this.enabled
+            );
     }
 
     final Optional<String> badge;
@@ -104,17 +104,17 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
         Objects.requireNonNull(historyToken, "historyToken");
 
         return this.historyToken.equals(historyToken) ?
-                this :
-                new SpreadsheetContextMenuItem(
-                        this.id,
-                        this.text,
-                        this.badge,
-                        historyToken,
-                        this.icon,
-                        this.key,
-                        this.checked,
-                        this.enabled
-                );
+            this :
+            new SpreadsheetContextMenuItem(
+                this.id,
+                this.text,
+                this.badge,
+                historyToken,
+                this.icon,
+                this.key,
+                this.checked,
+                this.enabled
+            );
     }
 
     final Optional<HistoryToken> historyToken;
@@ -123,17 +123,17 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
         Objects.requireNonNull(icon, "icon");
 
         return this.icon.equals(icon) ?
-                this :
-                new SpreadsheetContextMenuItem(
-                        this.id,
-                        this.text,
-                        this.badge,
-                        this.historyToken,
-                        icon,
-                        this.key,
-                        this.checked,
-                        this.enabled
-                );
+            this :
+            new SpreadsheetContextMenuItem(
+                this.id,
+                this.text,
+                this.badge,
+                this.historyToken,
+                icon,
+                this.key,
+                this.checked,
+                this.enabled
+            );
     }
 
     final Optional<Icon<?>> icon;
@@ -142,17 +142,17 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
         Objects.requireNonNull(key, "key");
 
         return this.key.equals(key) ?
-                this :
-                new SpreadsheetContextMenuItem(
-                        this.id,
-                        this.text,
-                        this.badge,
-                        this.historyToken,
-                        this.icon,
-                        key,
-                        this.checked,
-                        this.enabled
-                );
+            this :
+            new SpreadsheetContextMenuItem(
+                this.id,
+                this.text,
+                this.badge,
+                this.historyToken,
+                this.icon,
+                key,
+                this.checked,
+                this.enabled
+            );
     }
 
     final String key;
@@ -160,17 +160,17 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
     public SpreadsheetContextMenuItem checked(final boolean checked) {
 
         return this.checked == checked ?
-                this :
-                new SpreadsheetContextMenuItem(
-                        this.id,
-                        this.text,
-                        this.badge,
-                        this.historyToken,
-                        this.icon,
-                        this.key,
-                        checked,
-                        this.enabled
-                );
+            this :
+            new SpreadsheetContextMenuItem(
+                this.id,
+                this.text,
+                this.badge,
+                this.historyToken,
+                this.icon,
+                this.key,
+                checked,
+                this.enabled
+            );
     }
 
     final boolean checked;
@@ -180,17 +180,17 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
      */
     public SpreadsheetContextMenuItem enabled(final boolean enabled) {
         return this.enabled == enabled ?
-                this :
-                new SpreadsheetContextMenuItem(
-                        this.id,
-                        this.text,
-                        this.badge,
-                        this.historyToken,
-                        this.icon,
-                        this.key,
-                        this.checked,
-                        enabled
-                );
+            this :
+            new SpreadsheetContextMenuItem(
+                this.id,
+                this.text,
+                this.badge,
+                this.historyToken,
+                this.icon,
+                this.key,
+                this.checked,
+                enabled
+            );
     }
 
     final boolean enabled;
@@ -200,22 +200,22 @@ public final class SpreadsheetContextMenuItem implements TreePrintable {
     @Override
     public String toString() {
         return ToStringBuilder.empty()
-                .disable(ToStringBuilderOption.QUOTE)
-                .value(this.id)
-                .enable(ToStringBuilderOption.QUOTE)
-                .value(this.key)
-                .enable(ToStringBuilderOption.QUOTE)
-                .value(this.text)
-                .disable(ToStringBuilderOption.QUOTE)
-                .value(this.badge)
-                .value(this.historyToken)
-                .value(this.icon.map(Icon::getName))
-                .enable(ToStringBuilderOption.SKIP_IF_DEFAULT_VALUE)
-                .label("disabled")
-                .value(false == this.enabled)
-                .label("checked")
-                .value(this.checked)
-                .build();
+            .disable(ToStringBuilderOption.QUOTE)
+            .value(this.id)
+            .enable(ToStringBuilderOption.QUOTE)
+            .value(this.key)
+            .enable(ToStringBuilderOption.QUOTE)
+            .value(this.text)
+            .disable(ToStringBuilderOption.QUOTE)
+            .value(this.badge)
+            .value(this.historyToken)
+            .value(this.icon.map(Icon::getName))
+            .enable(ToStringBuilderOption.SKIP_IF_DEFAULT_VALUE)
+            .label("disabled")
+            .value(false == this.enabled)
+            .label("checked")
+            .value(this.checked)
+            .build();
     }
 
     // TreePrintable...................................................................................................

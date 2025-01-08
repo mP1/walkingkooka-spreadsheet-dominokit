@@ -41,7 +41,7 @@ final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetCompara
     @Override
     public SpreadsheetComparatorAliasSet providerAliasSetLike() {
         return this.context.systemSpreadsheetProvider()
-                .spreadsheetComparatorInfos()
-                .aliasSet();
+            .spreadsheetComparatorInfos()
+            .aliasSet();
     }
 }

@@ -56,43 +56,43 @@ final class ElementalClipboardContext implements ClipboardContext {
         Objects.requireNonNull(watcher, "watcher");
 
         this.clipboard.read()
-                .then(
-                        items -> {
-                            for (int i = 0; i < items.length; i++) {
-                                final ElementalClipboardItem item = items.getAt(i);
-                                final JsArray<String> types = item.types();
+            .then(
+                items -> {
+                    for (int i = 0; i < items.length; i++) {
+                        final ElementalClipboardItem item = items.getAt(i);
+                        final JsArray<String> types = item.types();
 
-                                for (int j = 0; j < types.length; j++) {
-                                    final String type = types.getAt(j);
-                                    final MediaType mediaType = MediaType.parse(type);
+                        for (int j = 0; j < types.length; j++) {
+                            final String type = types.getAt(j);
+                            final MediaType mediaType = MediaType.parse(type);
 
-                                    if (filter.test(mediaType)) {
-                                        return item.getType(type)
-                                                .then(Blob::text)
-                                                .then(blobText -> {
-                                                    watcher.onSuccess(
-                                                            Lists.of(
-                                                                    ClipboardTextItem.with(
-                                                                            Lists.of(
-                                                                                    mediaType
-                                                                            ),
-                                                                            blobText
-                                                                    )
-                                                            )
-                                                    );
-                                                    return null;
-                                                });
-                                    }
-                                }
+                            if (filter.test(mediaType)) {
+                                return item.getType(type)
+                                    .then(Blob::text)
+                                    .then(blobText -> {
+                                        watcher.onSuccess(
+                                            Lists.of(
+                                                ClipboardTextItem.with(
+                                                    Lists.of(
+                                                        mediaType
+                                                    ),
+                                                    blobText
+                                                )
+                                            )
+                                        );
+                                        return null;
+                                    });
                             }
-                            throw new RuntimeException("Unhandled ClipboardItems");
                         }
-                ).catch_(
-                        (rejected) -> {
-                            watcher.onFailure(rejected);
-                            return null;
-                        }
-                );
+                    }
+                    throw new RuntimeException("Unhandled ClipboardItems");
+                }
+            ).catch_(
+                (rejected) -> {
+                    watcher.onFailure(rejected);
+                    return null;
+                }
+            );
     }
 
     @Override
@@ -110,40 +110,40 @@ final class ElementalClipboardContext implements ClipboardContext {
             options.setType(type);
 
             final Blob blob = new Blob(
-                    JsArray.of(
-                            ConstructorBlobPartsArrayUnionType.of(
-                                    item.text()
-                            )
-                    ),
-                    options
+                JsArray.of(
+                    ConstructorBlobPartsArrayUnionType.of(
+                        item.text()
+                    )
+                ),
+                options
             );
 
             clipboardItems.push(
-                    new ElementalClipboardItem(
-                            Js.uncheckedCast(
-                                    JsPropertyMap.of(
-                                            type,
-                                            blob
-                                    )
-                            )
+                new ElementalClipboardItem(
+                    Js.uncheckedCast(
+                        JsPropertyMap.of(
+                            type,
+                            blob
+                        )
                     )
+                )
             );
 
             break; // since only text/plain is the only type written to the clipboard ignore others.
         }
 
         this.clipboard.write(
-                clipboardItems
+            clipboardItems
         ).then(
-                (ignored) -> {
-                    watcher.onSuccess();
-                    return Promise.resolve(0);
-                }
+            (ignored) -> {
+                watcher.onSuccess();
+                return Promise.resolve(0);
+            }
         ).catch_(
-                (rejected) -> {
-                    watcher.onFailure(rejected);
-                    return null;
-                }
+            (rejected) -> {
+                watcher.onFailure(rejected);
+                return null;
+            }
         );
     }
 

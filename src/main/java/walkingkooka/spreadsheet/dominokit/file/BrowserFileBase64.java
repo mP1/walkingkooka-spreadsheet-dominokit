@@ -41,9 +41,9 @@ final class BrowserFileBase64 extends BrowserFile {
     static BrowserFileBase64 with(final String name,
                                   final String content) {
         return new BrowserFileBase64(
-                CharSequences.failIfNullOrEmpty(name, "name")
-                        .replace(HistoryToken.SEPARATOR.string(), ""), // remove slash
-                Objects.requireNonNull(content, "content")
+            CharSequences.failIfNullOrEmpty(name, "name")
+                .replace(HistoryToken.SEPARATOR.string(), ""), // remove slash
+            Objects.requireNonNull(content, "content")
         );
     }
 
@@ -58,21 +58,21 @@ final class BrowserFileBase64 extends BrowserFile {
                             final RequestInit requestInit,
                             final Runnable doFetch) {
         headers.set(
-                HttpHeaderName.CONTENT_TYPE.text(),
-                MediaType.TEXT_BASE64.value()
+            HttpHeaderName.CONTENT_TYPE.text(),
+            MediaType.TEXT_BASE64.value()
         );
 
         headers.set(
-                HttpHeaderName.CONTENT_DISPOSITION.text(),
-                ContentDispositionType.ATTACHMENT.setFilename(
-                        ContentDispositionFileName.encoded(
-                                EncodedText.with(
-                                        CharsetName.UTF_8,
-                                        EncodedText.NO_LANGUAGE, // optional language
-                                        this.name
-                                )
-                        ).toNotEncodedIfPossible()
-                ).toHeaderText()
+            HttpHeaderName.CONTENT_DISPOSITION.text(),
+            ContentDispositionType.ATTACHMENT.setFilename(
+                ContentDispositionFileName.encoded(
+                    EncodedText.with(
+                        CharsetName.UTF_8,
+                        EncodedText.NO_LANGUAGE, // optional language
+                        this.name
+                    )
+                ).toNotEncodedIfPossible()
+            ).toHeaderText()
         );
 
         requestInit.setBody(this.content);
@@ -85,11 +85,11 @@ final class BrowserFileBase64 extends BrowserFile {
     @Override
     public UrlFragment urlFragment() {
         return BASE64_URLFRAGMENT.appendSlashThen(
-                        UrlFragment.with(this.name)
-                )
-                .appendSlashThen(
-                        UrlFragment.with(this.content)
-                );
+                UrlFragment.with(this.name)
+            )
+            .appendSlashThen(
+                UrlFragment.with(this.content)
+            );
     }
 
     private final static UrlFragment BASE64_URLFRAGMENT = UrlFragment.with(BASE64);
@@ -102,7 +102,7 @@ final class BrowserFileBase64 extends BrowserFile {
         printer.indent();
         {
             printer.println(
-                    CharSequences.quoteAndEscape(this.name)
+                CharSequences.quoteAndEscape(this.name)
             );
             printer.indent();
             {
@@ -118,8 +118,8 @@ final class BrowserFileBase64 extends BrowserFile {
     @Override
     public int hashCode() {
         return Objects.hash(
-                this.name,
-                this.content
+            this.name,
+            this.content
         );
     }
 
@@ -130,7 +130,7 @@ final class BrowserFileBase64 extends BrowserFile {
 
     private boolean equals0(final BrowserFileBase64 other) {
         return this.name.equals(other.name) &&
-                this.content.equals(other.content);
+            this.content.equals(other.content);
     }
 
     @Override

@@ -25,7 +25,7 @@ import org.dominokit.domino.ui.IsElement;
  * A {@link Component} that adds a few helpers relating to {@link HTMLElement} and {@link Node}.
  */
 public interface HtmlElementComponent<E extends HTMLElement, C extends HtmlElementComponent<E, C>> extends Component,
-        IsElement<E> {
+    IsElement<E> {
 
     // setCssText.......................................................................................................
 

@@ -32,12 +32,12 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetFindDialogComponent}.
  */
 public interface SpreadsheetFindDialogComponentContext extends HistoryTokenContext,
-        HasSpreadsheetDeltaFetcherWatchers,
-        HasSpreadsheetMetadata,
-        HasNow,
-        SpreadsheetDialogComponentContext,
-        SpreadsheetParserProvider,
-        ProviderContext {
+    HasSpreadsheetDeltaFetcherWatchers,
+    HasSpreadsheetMetadata,
+    HasNow,
+    SpreadsheetDialogComponentContext,
+    SpreadsheetParserProvider,
+    ProviderContext {
 
     /**
      * {@see SpeadsheetDeltaFetcher#findCells}

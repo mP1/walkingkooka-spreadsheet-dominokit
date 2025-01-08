@@ -25,6 +25,6 @@ import walkingkooka.spreadsheet.dominokit.viewport.HasSpreadsheetViewportCache;
  * The context that belongs to a SORT DIALOG.
  */
 public interface SpreadsheetSortDialogComponentContext extends SpreadsheetDialogComponentContext,
-        SpreadsheetComparatorProvider,
-        HasSpreadsheetViewportCache {
+    SpreadsheetComparatorProvider,
+    HasSpreadsheetViewportCache {
 }

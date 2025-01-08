@@ -25,13 +25,13 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import java.util.Optional;
 
 final class SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext implements SpreadsheetLinkListComponentContext,
-        HistoryTokenContextDelegator {
+    HistoryTokenContextDelegator {
 
     static SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext with(final Optional<SpreadsheetParserName> name,
                                                                                           final HistoryTokenContext context) {
         return new SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext(
-                name,
-                context
+            name,
+            context
         );
     }
 
@@ -46,11 +46,11 @@ final class SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentCo
         Optional<SpreadsheetParserName> name = this.name;
 
         return name.isPresent() &&
-                SpreadsheetParserName.CASE_SENSITIVITY.equals(
-                        name.map(SpreadsheetParserName::value)
-                                .orElse(null),
-                        text
-                );
+            SpreadsheetParserName.CASE_SENSITIVITY.equals(
+                name.map(SpreadsheetParserName::value)
+                    .orElse(null),
+                text
+            );
     }
 
     private final Optional<SpreadsheetParserName> name;

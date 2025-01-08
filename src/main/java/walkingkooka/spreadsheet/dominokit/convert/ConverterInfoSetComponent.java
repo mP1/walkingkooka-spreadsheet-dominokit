@@ -29,8 +29,8 @@ public final class ConverterInfoSetComponent implements ValueSpreadsheetTextBoxW
 
     private ConverterInfoSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                ConverterInfoSet::parse,
-                ConverterInfoSet::text
+            ConverterInfoSet::parse,
+            ConverterInfoSet::text
         );
     }
 

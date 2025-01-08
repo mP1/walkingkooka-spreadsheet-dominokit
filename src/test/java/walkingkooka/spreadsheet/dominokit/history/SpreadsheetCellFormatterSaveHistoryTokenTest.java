@@ -38,13 +38,13 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
     @Test
     public void testWithNullSpreadsheetFormatterSelectorFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetCellFormatterSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        null
-                )
+            NullPointerException.class,
+            () -> SpreadsheetCellFormatterSaveHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                null
+            )
         );
     }
 
@@ -58,37 +58,37 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
     @Test
     public void testUrlFragmentCellEmptySave() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellFormatterSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        Optional.empty()
-                ),
-                "/123/SpreadsheetName456/cell/A1/formatter/save/"
+            SpreadsheetCellFormatterSaveHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            ),
+            "/123/SpreadsheetName456/cell/A1/formatter/save/"
         );
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/formatter/save/date-format-pattern yyyy-mm-dd"
+            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/formatter/save/date-format-pattern yyyy-mm-dd"
         );
     }
 
     @Test
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/formatter/save/date-format-pattern yyyy-mm-dd"
+            SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/*/top-left/formatter/save/date-format-pattern yyyy-mm-dd"
         );
     }
 
     @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/cell/Label123/formatter/save/date-format-pattern yyyy-mm-dd"
+            LABEL,
+            "/123/SpreadsheetName456/cell/Label123/formatter/save/date-format-pattern yyyy-mm-dd"
         );
     }
 
@@ -97,12 +97,12 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.cellFormatterSelect(
-                        ID,
-                        NAME,
-                        SELECTION
-                )
+            this.createHistoryToken(),
+            HistoryToken.cellFormatterSelect(
+                ID,
+                NAME,
+                SELECTION
+            )
         );
     }
 
@@ -113,17 +113,17 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
         final SpreadsheetFormatPattern formatPattern = SpreadsheetPattern.parseTextFormatPattern("@");
 
         this.closeAndCheck(
-                HistoryToken.cellFormatterSave(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        Optional.of(formatPattern.spreadsheetFormatterSelector())
-                ),
-                HistoryToken.cellFormatterSelect(
-                        ID,
-                        NAME,
-                        SELECTION
-                )
+            HistoryToken.cellFormatterSave(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.of(formatPattern.spreadsheetFormatterSelector())
+            ),
+            HistoryToken.cellFormatterSelect(
+                ID,
+                NAME,
+                SELECTION
+            )
         );
     }
 
@@ -135,28 +135,28 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
         final SpreadsheetFormatterSelector selector = pattern.spreadsheetFormatterSelector();
 
         this.saveAndCheck(
-                this.createHistoryToken(),
-                selector.text(),
-                HistoryToken.cellFormatterSave(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        Optional.of(selector)
-                )
+            this.createHistoryToken(),
+            selector.text(),
+            HistoryToken.cellFormatterSave(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.of(selector)
+            )
         );
     }
 
     @Test
     public void testSaveEmpty() {
         this.saveAndCheck(
-                this.createHistoryToken(),
-                "",
-                HistoryToken.cellFormatterSave(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        Optional.empty()
-                )
+            this.createHistoryToken(),
+            "",
+            HistoryToken.cellFormatterSave(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.empty()
+            )
         );
     }
 
@@ -165,13 +165,13 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
                                                                 final SpreadsheetName name,
                                                                 final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellFormatterSaveHistoryToken.with(
-                id,
-                name,
-                selection,
-                Optional.of(
-                        PATTERN.toFormat()
-                                .spreadsheetFormatterSelector()
-                )
+            id,
+            name,
+            selection,
+            Optional.of(
+                PATTERN.toFormat()
+                    .spreadsheetFormatterSelector()
+            )
         );
     }
 

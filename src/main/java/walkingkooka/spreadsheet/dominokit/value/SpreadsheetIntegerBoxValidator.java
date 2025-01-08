@@ -37,7 +37,7 @@ final class SpreadsheetIntegerBoxValidator implements Validator<IntegerBox> {
     @Override
     public ValidationResult isValid(final IntegerBox component) {
         return this.validator.isValid(
-                component.getValue()
+            component.getValue()
         );
     }
 

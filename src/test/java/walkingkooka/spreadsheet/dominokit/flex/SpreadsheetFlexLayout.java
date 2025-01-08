@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Objects;
 
 public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike,
-        TestHtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout> {
+    TestHtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout> {
 
     public static SpreadsheetFlexLayout column() {
         return new SpreadsheetFlexLayout(true);
@@ -83,7 +83,7 @@ public final class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike,
     @Override
     public List<IsElement<?>> children() {
         return Lists.immutable(
-                this.children
+            this.children
         );
     }
 

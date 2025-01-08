@@ -44,8 +44,8 @@ import java.util.stream.Collectors;
  * A {@link SpreadsheetSelectionMenuContext} used by a {@link SpreadsheetViewportComponent}.
  */
 final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implements SpreadsheetSelectionMenuContext,
-        SpreadsheetComparatorProviderDelegator,
-        HistoryTokenContextDelegator {
+    SpreadsheetComparatorProviderDelegator,
+    HistoryTokenContextDelegator {
 
     static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                                             final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus,
@@ -53,11 +53,11 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
                                                                             final List<TextStyleProperty<?>> recentTextStyleProperties,
                                                                             final AppContext context) {
         return new SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(
-                recentSpreadsheetFormatterSelectors,
-                spreadsheetFormatterSelectorsMenus,
-                recentSpreadsheetParserSelectors,
-                recentTextStyleProperties,
-                context
+            recentSpreadsheetFormatterSelectors,
+            spreadsheetFormatterSelectorsMenus,
+            recentSpreadsheetParserSelectors,
+            recentTextStyleProperties,
+            context
         );
     }
 
@@ -81,22 +81,22 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
 
         final SpreadsheetComparatorNameList sortComparators = metadata.get(SpreadsheetMetadataPropertyName.SORT_COMPARATORS)
-                .orElse(SpreadsheetComparatorNameList.EMPTY);
+            .orElse(SpreadsheetComparatorNameList.EMPTY);
 
         return SpreadsheetComparatorNameList.with(
-                metadata.get(SpreadsheetMetadataPropertyName.COMPARATORS)
-                        .orElse(SpreadsheetComparatorAliasSet.EMPTY)
-                        .stream()
-                        .map(SpreadsheetComparatorAlias::name)
-                        .filter(sortComparators::contains)
-                        .collect(Collectors.toList())
+            metadata.get(SpreadsheetMetadataPropertyName.COMPARATORS)
+                .orElse(SpreadsheetComparatorAliasSet.EMPTY)
+                .stream()
+                .map(SpreadsheetComparatorAlias::name)
+                .filter(sortComparators::contains)
+                .collect(Collectors.toList())
         );
     }
 
     @Override
     public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
         return this.context.spreadsheetViewportCache()
-                .labelMappings(selection);
+            .labelMappings(selection);
     }
 
     @Override
@@ -142,7 +142,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     @Override
     public SpreadsheetSelectionSummary selectionSummary() {
         return this.context.spreadsheetViewportCache()
-                .selectionSummary();
+            .selectionSummary();
     }
 
     // SpreadsheetComparatorProvider....................................................................................

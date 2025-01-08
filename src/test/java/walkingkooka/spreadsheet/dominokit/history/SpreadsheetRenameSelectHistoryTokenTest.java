@@ -28,12 +28,12 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
     @Test
     public void testWithNullValueFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetRenameSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        null
-                )
+            NullPointerException.class,
+            () -> SpreadsheetRenameSaveHistoryToken.with(
+                ID,
+                NAME,
+                null
+            )
         );
     }
 
@@ -50,11 +50,11 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
     @Test
     public void testClose() {
         this.closeAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                )
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            )
         );
     }
 
@@ -63,13 +63,13 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
         final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
 
         this.saveAndCheck(
-                this.createHistoryToken(),
-                renameTo.toString(),
-                HistoryToken.spreadsheetRenameSave(
-                        ID,
-                        NAME,
-                        renameTo
-                )
+            this.createHistoryToken(),
+            renameTo.toString(),
+            HistoryToken.spreadsheetRenameSave(
+                ID,
+                NAME,
+                renameTo
+            )
         );
     }
 
@@ -77,8 +77,8 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
     SpreadsheetRenameSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name) {
         return SpreadsheetRenameSelectHistoryToken.with(
-                id,
-                name
+            id,
+            name
         );
     }
 

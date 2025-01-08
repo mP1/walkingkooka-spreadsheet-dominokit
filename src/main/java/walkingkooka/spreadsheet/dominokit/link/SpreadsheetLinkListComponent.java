@@ -41,9 +41,9 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
                                                     final String title,
                                                     final Function<String, String> labelMaker) {
         return new SpreadsheetLinkListComponent(
-                CharSequences.failIfNullOrEmpty(id, "id"),
-                Objects.requireNonNull(title, "title"),
-                Objects.requireNonNull(labelMaker, "labelMaker")
+            CharSequences.failIfNullOrEmpty(id, "id"),
+            Objects.requireNonNull(title, "title"),
+            Objects.requireNonNull(labelMaker, "labelMaker")
         );
     }
 
@@ -54,8 +54,8 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
 
         this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle(title)
-                .appendChild(this.flex);
+            .setTitle(title)
+            .appendChild(this.flex);
 
         this.labelMaker = labelMaker;
     }
@@ -66,10 +66,10 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
     public void refresh(final List<String> texts,
                         final SpreadsheetLinkListComponentContext context) {
         this.refresh0(
-                Lists.immutable(
-                        Objects.requireNonNull(texts, "texts")
-                ),
-                Objects.requireNonNull(context, "context")
+            Lists.immutable(
+                Objects.requireNonNull(texts, "texts")
+            ),
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -82,11 +82,11 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
         int i = 0;
         for (final String text : texts) {
             flex.appendChild(
-                    this.anchor(
-                            text,
-                            i,
-                            context
-                    )
+                this.anchor(
+                    text,
+                    i,
+                    context
+                )
             );
             i++;
         }
@@ -105,10 +105,10 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
         final HistoryToken historyToken = context.historyToken();
 
         return historyToken.saveLink(
-                this.id + index,
-                this.labelMaker.apply(text),
-                context.saveText(text)
-                ).setDisabled(context.isDisabled(text));
+            this.id + index,
+            this.labelMaker.apply(text),
+            context.saveText(text)
+        ).setDisabled(context.isDisabled(text));
     }
 
     private final Function<String, String> labelMaker;

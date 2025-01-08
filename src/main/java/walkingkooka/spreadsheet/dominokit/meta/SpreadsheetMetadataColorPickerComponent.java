@@ -46,9 +46,9 @@ import java.util.function.Function;
  * Each cell will have a link with a {@link HistoryToken} that saves its {@link Color}.
  */
 public final class SpreadsheetMetadataColorPickerComponent implements SpreadsheetMetadataFetcherWatcher,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher,
-        IsElement<HTMLTableElement> {
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher,
+    IsElement<HTMLTableElement> {
 
     private final static String ID = "color-picker";
 
@@ -72,11 +72,11 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
         final HistoryTokenAnchorComponent[] anchors = new HistoryTokenAnchorComponent[COLOR_COUNT];
 
         // 8x7
-        for(int y = 0; y < ROWS; y++) {
+        for (int y = 0; y < ROWS; y++) {
             final TableRowElement tr = ElementsFactory.elements.tr();
             tbody.appendChild(tr);
 
-            for(int x = 0; x < COLUMNS; x++) {
+            for (int x = 0; x < COLUMNS; x++) {
                 final TDElement td = ElementsFactory.elements.td();
                 td.style("width: 64px; height: 32px; border-color: black; border-width: 2px; border-style: solid; text-align: center;");
                 tr.appendChild(td);
@@ -141,27 +141,27 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
                 cells[i].setBackgroundColor(color.toString());
 
                 final String text = numberToColorNames.apply(colorNumber)
-                        .map(SpreadsheetColorName::toString)
-                        .orElse("color " + colorNumber);
+                    .map(SpreadsheetColorName::toString)
+                    .orElse("color " + colorNumber);
 
                 // update the link that when clicked will save the selected color
                 final HistoryTokenAnchorComponent anchor = anchors[i];
                 anchor.setTextContent(text);
                 anchor.setHistoryToken(
-                        Optional.of(
-                                token.save(
-                                        Optional.of(color
-                                        )
-                                )
+                    Optional.of(
+                        token.save(
+                            Optional.of(color
+                            )
                         )
+                    )
                 );
             }
         }
 
         this.clearAnchor.setHistoryToken(
-                Optional.of(
-                        token.clearSave()
-                )
+            Optional.of(
+                token.clearSave()
+            )
         );
     }
 
@@ -186,8 +186,8 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
         this.refreshAll(
-                this.historyToken,
-                metadata
+            this.historyToken,
+            metadata
         );
     }
 

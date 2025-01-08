@@ -34,50 +34,50 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
     @Test
     public void testLabel() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
-                        .setLabel("Label123"),
-                "SpreadsheetTextBox\n" +
-                        "  Label123 []\n"
+            SpreadsheetTextBox.empty()
+                .setLabel("Label123"),
+            "SpreadsheetTextBox\n" +
+                "  Label123 []\n"
         );
     }
 
     @Test
     public void testLabelAndValue() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
-                        .setLabel("Label123")
-                        .setValue(Optional.of("Value456")),
-                "SpreadsheetTextBox\n" +
-                        "  Label123 [Value456]\n"
+            SpreadsheetTextBox.empty()
+                .setLabel("Label123")
+                .setValue(Optional.of("Value456")),
+            "SpreadsheetTextBox\n" +
+                "  Label123 [Value456]\n"
         );
     }
 
     @Test
     public void testValue() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
-                        .setValue(Optional.of("Value456")),
-                "SpreadsheetTextBox\n" +
-                        "  [Value456]\n"
+            SpreadsheetTextBox.empty()
+                .setValue(Optional.of("Value456")),
+            "SpreadsheetTextBox\n" +
+                "  [Value456]\n"
         );
     }
 
     @Test
     public void testSetCssText() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
-                        .setValue(Optional.of("Value456"))
-                        .setCssText("background-color: lavender;"),
-                "SpreadsheetTextBox\n" +
-                        "  [Value456]\n"
+            SpreadsheetTextBox.empty()
+                .setValue(Optional.of("Value456"))
+                .setCssText("background-color: lavender;"),
+            "SpreadsheetTextBox\n" +
+                "  [Value456]\n"
         );
     }
 
     @Test
     public void testTreePrintAlternateValuesAndErrors() {
         class TestValueComponent implements ValueComponent<HTMLFieldSetElement, String, TestValueComponent>,
-                SpreadsheetTextBoxTreePrintable<TestValueComponent, String>,
-                TestHtmlElementComponent<HTMLFieldSetElement, TestValueComponent> {
+            SpreadsheetTextBoxTreePrintable<TestValueComponent, String>,
+            TestHtmlElementComponent<HTMLFieldSetElement, TestValueComponent> {
             @Override
             public TestValueComponent setId(String id) {
                 throw new UnsupportedOperationException();
@@ -131,8 +131,8 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
             @Override
             public List<String> errors() {
                 return Lists.of(
-                        "Error1a",
-                        "Error2b"
+                    "Error1a",
+                    "Error2b"
                 );
             }
 
@@ -219,31 +219,31 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
         }
 
         this.treePrintAndCheck(
-                new TestValueComponent(),
-                "TestValueComponent\n" +
-                        "  Label123 [Value123] id=id123 helperText=\"HelperText123\" DISABLED REQUIRED\n" +
-                        "    Value1a\n" +
-                        "    Value2b\n" +
-                        "    Value3c\n" +
-                        "  Errors\n" +
-                        "    Error1a\n" +
-                        "    Error2b\n"
+            new TestValueComponent(),
+            "TestValueComponent\n" +
+                "  Label123 [Value123] id=id123 helperText=\"HelperText123\" DISABLED REQUIRED\n" +
+                "    Value1a\n" +
+                "    Value2b\n" +
+                "    Value3c\n" +
+                "  Errors\n" +
+                "    Error1a\n" +
+                "    Error2b\n"
         );
     }
 
     @Test
     public void testLabelValueIdDisabledRequiredHelperText() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
-                        .setLabel("Label123")
-                        .setValue(Optional.of("Value456"))
-                        .setId("id987")
-                        .disabled()
-                        .required()
-                        .setHelperText(Optional.of("HelperText789"))
-                ,
-                "SpreadsheetTextBox\n" +
-                        "  Label123 [Value456] id=id987 helperText=\"HelperText789\" DISABLED REQUIRED\n"
+            SpreadsheetTextBox.empty()
+                .setLabel("Label123")
+                .setValue(Optional.of("Value456"))
+                .setId("id987")
+                .disabled()
+                .required()
+                .setHelperText(Optional.of("HelperText789"))
+            ,
+            "SpreadsheetTextBox\n" +
+                "  Label123 [Value456] id=id987 helperText=\"HelperText789\" DISABLED REQUIRED\n"
         );
     }
 }

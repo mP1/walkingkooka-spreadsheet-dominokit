@@ -31,83 +31,83 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements ValueComp
     @Test
     public void testParseAndText() {
         final SpreadsheetFormatterInfoSet infos = SpreadsheetFormatterProviders.spreadsheetFormatPattern()
-                .spreadsheetFormatterInfos();
+            .spreadsheetFormatterInfos();
 
         this.checkEquals(
-                infos,
-                SpreadsheetFormatterInfoSet.parse(infos.text())
+            infos,
+            SpreadsheetFormatterInfoSet.parse(infos.text())
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetFormatterInfoSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        SpreadsheetFormatterProviders.spreadsheetFormatPattern()
-                                                .spreadsheetFormatterInfos()
-                                                .text()
-                                )
-                        ),
-                "SpreadsheetFormatterInfoSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/automatic automatic,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date-format-pattern date-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date-time-format-pattern date-time-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/general general,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/number-format-pattern number-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/spreadsheet-pattern-collection spreadsheet-pattern-collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/text-format-pattern text-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/time-format-pattern time-format-pattern]\n"
+            SpreadsheetFormatterInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        SpreadsheetFormatterProviders.spreadsheetFormatPattern()
+                            .spreadsheetFormatterInfos()
+                            .text()
+                    )
+                ),
+            "SpreadsheetFormatterInfoSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/automatic automatic,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date-format-pattern date-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date-time-format-pattern date-time-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/general general,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/number-format-pattern number-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/spreadsheet-pattern-collection spreadsheet-pattern-collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/text-format-pattern text-format-pattern,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/time-format-pattern time-format-pattern]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetFormatterInfoSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "https://www.example.com/Hello !"
-                                )
-                        ),
-                "SpreadsheetFormatterInfoSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [https://www.example.com/Hello !]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 30\n"
+            SpreadsheetFormatterInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "https://www.example.com/Hello !"
+                    )
+                ),
+            "SpreadsheetFormatterInfoSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [https://www.example.com/Hello !]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 30\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalidSecondUrl() {
         this.treePrintAndCheck(
-                SpreadsheetFormatterInfoSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "https://www.example.com/Hello Hello, bad://www.example.com Hello2"
-                                )
-                        ),
-                "SpreadsheetFormatterInfoSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [https://www.example.com/Hello Hello, bad://www.example.com Hello2]\n" +
-                        "      Errors\n" +
-                        "        unknown protocol: bad\n"
+            SpreadsheetFormatterInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "https://www.example.com/Hello Hello, bad://www.example.com Hello2"
+                    )
+                ),
+            "SpreadsheetFormatterInfoSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [https://www.example.com/Hello Hello, bad://www.example.com Hello2]\n" +
+                "      Errors\n" +
+                "        unknown protocol: bad\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalidSecondSpreadsheetFormatterName() {
         this.treePrintAndCheck(
-                SpreadsheetFormatterInfoSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "https://www.example.com/Hello Good, https://www.example.com Bad!"
-                                )
-                        ),
-                "SpreadsheetFormatterInfoSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [https://www.example.com/Hello Good, https://www.example.com Bad!]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 63\n"
+            SpreadsheetFormatterInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "https://www.example.com/Hello Good, https://www.example.com Bad!"
+                    )
+                ),
+            "SpreadsheetFormatterInfoSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [https://www.example.com/Hello Good, https://www.example.com Bad!]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 63\n"
         );
     }
 

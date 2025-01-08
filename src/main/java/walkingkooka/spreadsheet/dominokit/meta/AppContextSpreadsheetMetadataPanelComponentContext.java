@@ -29,8 +29,8 @@ import java.util.Locale;
 import java.util.Objects;
 
 final class AppContextSpreadsheetMetadataPanelComponentContext implements SpreadsheetMetadataPanelComponentContext,
-        HistoryTokenContextDelegator,
-        LoggingContextDelegator {
+    HistoryTokenContextDelegator,
+    LoggingContextDelegator {
 
     static AppContextSpreadsheetMetadataPanelComponentContext with(final AppContext context) {
         Objects.requireNonNull(context, "context");

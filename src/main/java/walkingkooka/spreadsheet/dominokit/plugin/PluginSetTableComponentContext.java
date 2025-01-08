@@ -21,5 +21,5 @@ import walkingkooka.spreadsheet.dominokit.UiFormattingContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
 public interface PluginSetTableComponentContext extends HistoryTokenContext,
-        UiFormattingContext {
+    UiFormattingContext {
 }

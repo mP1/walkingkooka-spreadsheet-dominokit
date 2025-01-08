@@ -23,8 +23,8 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
 public final class SpreadsheetDeltaFetcherWatchers extends FetcherWatchers<SpreadsheetDeltaFetcherWatcher>
-        implements SpreadsheetDeltaFetcherWatcher,
-        HasSpreadsheetDeltaFetcherWatchers {
+    implements SpreadsheetDeltaFetcherWatcher,
+    HasSpreadsheetDeltaFetcherWatchers {
 
     public static SpreadsheetDeltaFetcherWatchers empty() {
         return new SpreadsheetDeltaFetcherWatchers();
@@ -40,12 +40,12 @@ public final class SpreadsheetDeltaFetcherWatchers extends FetcherWatchers<Sprea
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
         this.fire(
-                SpreadsheetDeltaFetcherWatchersEvent.with(
-                        method,
-                        url,
-                        delta,
-                        context
-                )
+            SpreadsheetDeltaFetcherWatchersEvent.with(
+                method,
+                url,
+                delta,
+                context
+            )
         );
     }
 

@@ -35,16 +35,16 @@ public final class SpreadsheetCellFormulaSaveHistoryTokenTest extends Spreadshee
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/formula/save/=12+3"
+            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/formula/save/=12+3"
         );
     }
 
     @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/cell/Label123/formula/save/=12+3"
+            LABEL,
+            "/123/SpreadsheetName456/cell/Label123/formula/save/=12+3"
         );
     }
 
@@ -53,12 +53,12 @@ public final class SpreadsheetCellFormulaSaveHistoryTokenTest extends Spreadshee
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.cellFormula(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            this.createHistoryToken(),
+            HistoryToken.cellFormula(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
@@ -69,10 +69,10 @@ public final class SpreadsheetCellFormulaSaveHistoryTokenTest extends Spreadshee
                                                               final SpreadsheetName name,
                                                               final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellFormulaSaveHistoryToken.with(
-                id,
-                name,
-                selection,
-                FORMULA
+            id,
+            name,
+            selection,
+            FORMULA
         );
     }
 

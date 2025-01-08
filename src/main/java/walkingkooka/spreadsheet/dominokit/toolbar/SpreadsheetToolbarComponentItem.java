@@ -39,27 +39,27 @@ import java.util.Optional;
  * A ui such as an icon within a {@link SpreadsheetToolbarComponent}.
  */
 abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarComponentItem<C>> implements HtmlElementComponent<HTMLElement, C>,
-        HistoryTokenAwareComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired,
-        VisibleHtmlElementComponent<HTMLElement, C>,
-        CanBeEmpty {
+    HistoryTokenAwareComponentLifecycle,
+    LoadedSpreadsheetMetadataRequired,
+    VisibleHtmlElementComponent<HTMLElement, C>,
+    CanBeEmpty {
 
     static SpreadsheetToolbarComponentItem<?> bold(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.FONT_WEIGHT,
-                FontWeight.BOLD,
-                Optional.of(
-                        SpreadsheetIcons.bold()
-                ),
-                "Bold",
-                "Bold",
-                context
+            TextStylePropertyName.FONT_WEIGHT,
+            FontWeight.BOLD,
+            Optional.of(
+                SpreadsheetIcons.bold()
+            ),
+            "Bold",
+            "Bold",
+            context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> clearStyle(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleClear.with(
-                context
+            context
         );
     }
 
@@ -68,7 +68,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
      */
     static SpreadsheetToolbarComponentItem<?> findCells(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorCellFind.with(
-                context
+            context
         );
     }
 
@@ -84,7 +84,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
      */
     static SpreadsheetToolbarComponentItem<?> hideZeroValues(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues.with(
-                context
+            context
         );
     }
 
@@ -93,20 +93,20 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
      */
     static SpreadsheetToolbarComponentItem<?> highlightCells(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting.with(
-                context
+            context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> italics(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.FONT_STYLE,
-                FontStyle.ITALIC,
-                Optional.of(
-                        SpreadsheetIcons.italics()
-                ),
-                "Italics",
-                "Italics",
-                context
+            TextStylePropertyName.FONT_STYLE,
+            FontStyle.ITALIC,
+            Optional.of(
+                SpreadsheetIcons.italics()
+            ),
+            "Italics",
+            "Italics",
+            context
         );
     }
 
@@ -115,7 +115,7 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
      */
     static SpreadsheetToolbarComponentItem<?> labelCreate(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorLabelCreate.with(
-                context
+            context
         );
     }
 
@@ -150,14 +150,14 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
 
     static SpreadsheetToolbarComponentItem<?> strikeThru(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.TEXT_DECORATION_LINE,
-                TextDecorationLine.LINE_THROUGH,
-                Optional.of(
-                        SpreadsheetIcons.strikethrough()
-                ),
-                "Strike",
-                "Strike-thru",
-                context
+            TextStylePropertyName.TEXT_DECORATION_LINE,
+            TextDecorationLine.LINE_THROUGH,
+            Optional.of(
+                SpreadsheetIcons.strikethrough()
+            ),
+            "Strike",
+            "Strike-thru",
+            context
         );
     }
 
@@ -170,144 +170,144 @@ abstract class SpreadsheetToolbarComponentItem<C extends SpreadsheetToolbarCompo
 
     static SpreadsheetToolbarComponentItem<?> textAlignLeft(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.LEFT,
-                Optional.of(
-                        SpreadsheetIcons.alignLeft()
-                ),
-                "Left",
-                "Left align",
-                context
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.LEFT,
+            Optional.of(
+                SpreadsheetIcons.alignLeft()
+            ),
+            "Left",
+            "Left align",
+            context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> textAlignCenter(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.CENTER,
-                Optional.of(
-                        SpreadsheetIcons.alignCenter()
-                ),
-                "Center",
-                "Center align",
-                context
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.CENTER,
+            Optional.of(
+                SpreadsheetIcons.alignCenter()
+            ),
+            "Center",
+            "Center align",
+            context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> textAlignRight(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.RIGHT,
-                Optional.of(
-                        SpreadsheetIcons.alignRight()
-                ),
-                "Right",
-                "Right align",
-                context
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.RIGHT,
+            Optional.of(
+                SpreadsheetIcons.alignRight()
+            ),
+            "Right",
+            "Right align",
+            context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> textAlignJustify(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.JUSTIFY,
-                Optional.of(
-                        SpreadsheetIcons.alignJustify()
-                ),
-                "Justify",
-                "Justify",
-                context
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.JUSTIFY,
+            Optional.of(
+                SpreadsheetIcons.alignJustify()
+            ),
+            "Justify",
+            "Justify",
+            context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> textCaseCapitalize(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.TEXT_TRANSFORM,
-                TextTransform.CAPITALIZE,
-                Optional.of(
-                        SpreadsheetIcons.textCaseCapitalize()
-                ),
-                "Capitalize",
-                "Capitalize text",
-                context
+            TextStylePropertyName.TEXT_TRANSFORM,
+            TextTransform.CAPITALIZE,
+            Optional.of(
+                SpreadsheetIcons.textCaseCapitalize()
+            ),
+            "Capitalize",
+            "Capitalize text",
+            context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> textCaseLowercase(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.TEXT_TRANSFORM,
-                TextTransform.LOWERCASE,
-                Optional.of(
-                        SpreadsheetIcons.textCaseLower()
-                ),
-                "Lower-case",
-                "Lower-case text",
-                context
+            TextStylePropertyName.TEXT_TRANSFORM,
+            TextTransform.LOWERCASE,
+            Optional.of(
+                SpreadsheetIcons.textCaseLower()
+            ),
+            "Lower-case",
+            "Lower-case text",
+            context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> textCaseUppercase(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.TEXT_TRANSFORM,
-                TextTransform.UPPERCASE,
-                Optional.of(
-                        SpreadsheetIcons.textCaseLower()
-                ),
-                "Upper-case",
-                "Upper-case text",
-                context
+            TextStylePropertyName.TEXT_TRANSFORM,
+            TextTransform.UPPERCASE,
+            Optional.of(
+                SpreadsheetIcons.textCaseLower()
+            ),
+            "Upper-case",
+            "Upper-case text",
+            context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> underline(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.TEXT_DECORATION_LINE,
-                TextDecorationLine.UNDERLINE,
-                Optional.of(
-                        SpreadsheetIcons.underline()
-                ),
-                "Underline",
-                "Underline",
-                context
+            TextStylePropertyName.TEXT_DECORATION_LINE,
+            TextDecorationLine.UNDERLINE,
+            Optional.of(
+                SpreadsheetIcons.underline()
+            ),
+            "Underline",
+            "Underline",
+            context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> verticalAlignTop(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.VERTICAL_ALIGN,
-                VerticalAlign.TOP,
-                Optional.of(
-                        SpreadsheetIcons.verticalAlignTop()
-                ),
-                "Top",
-                "Align top",
-                context
+            TextStylePropertyName.VERTICAL_ALIGN,
+            VerticalAlign.TOP,
+            Optional.of(
+                SpreadsheetIcons.verticalAlignTop()
+            ),
+            "Top",
+            "Align top",
+            context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> verticalAlignMiddle(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.VERTICAL_ALIGN,
-                VerticalAlign.MIDDLE,
-                Optional.of(
-                        SpreadsheetIcons.verticalAlignMiddle()
-                ),
-                "Middle",
-                "Align middle",
-                context
+            TextStylePropertyName.VERTICAL_ALIGN,
+            VerticalAlign.MIDDLE,
+            Optional.of(
+                SpreadsheetIcons.verticalAlignMiddle()
+            ),
+            "Middle",
+            "Align middle",
+            context
         );
     }
 
     static SpreadsheetToolbarComponentItem<?> verticalAlignBottom(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetToolbarComponentItemAnchorTextStyleProperty.with(
-                TextStylePropertyName.VERTICAL_ALIGN,
-                VerticalAlign.BOTTOM,
-                Optional.of(
-                        SpreadsheetIcons.verticalAlignBottom()
-                ),
-                "Bottom",
-                "Align bottom",
-                context
+            TextStylePropertyName.VERTICAL_ALIGN,
+            VerticalAlign.BOTTOM,
+            Optional.of(
+                SpreadsheetIcons.verticalAlignBottom()
+            ),
+            "Bottom",
+            "Align bottom",
+            context
         );
     }
 

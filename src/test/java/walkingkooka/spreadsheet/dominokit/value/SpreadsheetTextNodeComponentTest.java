@@ -28,27 +28,27 @@ public final class SpreadsheetTextNodeComponentTest implements TreePrintableTest
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                SpreadsheetTextNodeComponent.with(
-                        Optional.of(
-                                TextNode.text("Hello123")
-                        )
-                ),
-                "SpreadsheetTextNodeComponent\n" +
-                        "  Hello123\n"
+            SpreadsheetTextNodeComponent.with(
+                Optional.of(
+                    TextNode.text("Hello123")
+                )
+            ),
+            "SpreadsheetTextNodeComponent\n" +
+                "  Hello123\n"
         );
     }
 
     @Test
     public void testTreePrint2() {
         this.treePrintAndCheck(
-                SpreadsheetTextNodeComponent.with(
-                        Optional.of(
-                                TextNode.text("Hello123\nZebra567")
-                        )
-                ),
-                "SpreadsheetTextNodeComponent\n" +
-                        "  Hello123\n" +
-                        "  Zebra567\n"
+            SpreadsheetTextNodeComponent.with(
+                Optional.of(
+                    TextNode.text("Hello123\nZebra567")
+                )
+            ),
+            "SpreadsheetTextNodeComponent\n" +
+                "  Hello123\n" +
+                "  Zebra567\n"
         );
     }
 }

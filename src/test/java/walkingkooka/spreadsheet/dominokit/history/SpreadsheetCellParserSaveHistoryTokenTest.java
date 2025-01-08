@@ -38,13 +38,13 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     @Test
     public void testWithNullSpreadsheetParserSelectorFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetCellParserSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        null
-                )
+            NullPointerException.class,
+            () -> SpreadsheetCellParserSaveHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                null
+            )
         );
     }
 
@@ -58,37 +58,37 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     @Test
     public void testUrlFragmentCellEmptySave() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellParserSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        Optional.empty()
-                ),
-                "/123/SpreadsheetName456/cell/A1/parser/save/"
+            SpreadsheetCellParserSaveHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            ),
+            "/123/SpreadsheetName456/cell/A1/parser/save/"
         );
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/parser/save/date-parse-pattern yyyy-mm-dd"
+            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/parser/save/date-parse-pattern yyyy-mm-dd"
         );
     }
 
     @Test
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/parser/save/date-parse-pattern yyyy-mm-dd"
+            SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/*/top-left/parser/save/date-parse-pattern yyyy-mm-dd"
         );
     }
 
     @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/cell/Label123/parser/save/date-parse-pattern yyyy-mm-dd"
+            LABEL,
+            "/123/SpreadsheetName456/cell/Label123/parser/save/date-parse-pattern yyyy-mm-dd"
         );
     }
 
@@ -97,12 +97,12 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.cellParserSelect(
-                        ID,
-                        NAME,
-                        SELECTION
-                )
+            this.createHistoryToken(),
+            HistoryToken.cellParserSelect(
+                ID,
+                NAME,
+                SELECTION
+            )
         );
     }
 
@@ -113,17 +113,17 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseDateParsePattern("yyyy/mm/ddd");
 
         this.closeAndCheck(
-                HistoryToken.cellParserSave(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        Optional.of(pattern.spreadsheetParserSelector())
-                ),
-                HistoryToken.cellParserSelect(
-                        ID,
-                        NAME,
-                        SELECTION
-                )
+            HistoryToken.cellParserSave(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.of(pattern.spreadsheetParserSelector())
+            ),
+            HistoryToken.cellParserSelect(
+                ID,
+                NAME,
+                SELECTION
+            )
         );
     }
 
@@ -135,28 +135,28 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
         final SpreadsheetParserSelector selector = pattern.spreadsheetParserSelector();
 
         this.saveAndCheck(
-                this.createHistoryToken(),
-                selector.text(),
-                HistoryToken.cellParserSave(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        Optional.of(selector)
-                )
+            this.createHistoryToken(),
+            selector.text(),
+            HistoryToken.cellParserSave(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.of(selector)
+            )
         );
     }
 
     @Test
     public void testSaveEmpty() {
         this.saveAndCheck(
-                this.createHistoryToken(),
-                "",
-                HistoryToken.cellParserSave(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        Optional.empty()
-                )
+            this.createHistoryToken(),
+            "",
+            HistoryToken.cellParserSave(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.empty()
+            )
         );
     }
 
@@ -165,12 +165,12 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
                                                              final SpreadsheetName name,
                                                              final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellParserSaveHistoryToken.with(
-                id,
-                name,
-                selection,
-                Optional.of(
-                        PATTERN.spreadsheetParserSelector()
-                )
+            id,
+            name,
+            selection,
+            Optional.of(
+                PATTERN.spreadsheetParserSelector()
+            )
         );
     }
 

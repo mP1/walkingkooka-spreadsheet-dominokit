@@ -24,70 +24,70 @@ import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public final class ComponentWithChildrenTest implements TreePrintableTesting,
-        CanBeEmptyTesting {
+    CanBeEmptyTesting {
 
     @Test
     public void testCanBeEmptyWithNoChildren() {
         this.isEmptyAndCheck(
-                SpreadsheetCard.empty(),
-                true
+            SpreadsheetCard.empty(),
+            true
         );
     }
 
     @Test
     public void testCanBeEmptyWithOnlyEmptyChildren() {
         this.isEmptyAndCheck(
-                SpreadsheetCard.empty()
-                        .appendChild(
-                                SpreadsheetCard.empty()
-                        ).appendChild(
-                                SpreadsheetCard.empty()
-                        ),
-                true
+            SpreadsheetCard.empty()
+                .appendChild(
+                    SpreadsheetCard.empty()
+                ).appendChild(
+                    SpreadsheetCard.empty()
+                ),
+            true
         );
     }
 
     @Test
     public void testCanBeEmptyWithMixture() {
         this.isEmptyAndCheck(
-                SpreadsheetCard.empty()
-                        .appendChild(
-                                SpreadsheetCard.empty()
-                        ).appendChild(
-                                SpreadsheetCard.empty()
-                        ).appendChild(
-                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
-                        ),
-                false
+            SpreadsheetCard.empty()
+                .appendChild(
+                    SpreadsheetCard.empty()
+                ).appendChild(
+                    SpreadsheetCard.empty()
+                ).appendChild(
+                    walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
+                ),
+            false
         );
     }
 
     @Test
     public void testCanBeEmptyWithNonEmpty() {
         this.isEmptyAndCheck(
-                SpreadsheetCard.empty()
+            SpreadsheetCard.empty()
+                .appendChild(
+                    SpreadsheetCard.empty()
                         .appendChild(
-                                SpreadsheetCard.empty()
-                                        .appendChild(
-                                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
-                                        )
-                        ),
-                false
+                            walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
+                        )
+                ),
+            false
         );
     }
 
     @Test
     public void testCanBeEmptyWithNonEmpty2() {
         this.isEmptyAndCheck(
-                SpreadsheetCard.empty()
-                        .appendChild(
-                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
-                        ).appendChild(
-                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
-                        ).appendChild(
-                                SpreadsheetTextBox.empty()
-                        ),
-                false
+            SpreadsheetCard.empty()
+                .appendChild(
+                    walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
+                ).appendChild(
+                    walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
+                ).appendChild(
+                    SpreadsheetTextBox.empty()
+                ),
+            false
         );
     }
 }

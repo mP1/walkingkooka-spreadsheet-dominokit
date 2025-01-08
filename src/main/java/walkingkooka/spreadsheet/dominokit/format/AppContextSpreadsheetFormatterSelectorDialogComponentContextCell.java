@@ -58,17 +58,17 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextCell ext
         String text = "";
 
         final Optional<SpreadsheetCell> maybeCell = this.context.spreadsheetViewportCache()
-                .cell(
-                        this.historyToken()
-                                .cast(SpreadsheetAnchoredSelectionHistoryToken.class)
-                                .anchoredSelection()
-                                .selection()
-                );
+            .cell(
+                this.historyToken()
+                    .cast(SpreadsheetAnchoredSelectionHistoryToken.class)
+                    .anchoredSelection()
+                    .selection()
+            );
         if (maybeCell.isPresent()) {
             text = maybeCell.get()
-                    .formatter()
-                    .map(SpreadsheetFormatterSelector::toString)
-                    .orElse("");
+                .formatter()
+                .map(SpreadsheetFormatterSelector::toString)
+                .orElse("");
         }
 
         return text;

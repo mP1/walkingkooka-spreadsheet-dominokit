@@ -21,7 +21,7 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 
 public interface JarEntryInfoListDialogComponentContext extends HasPluginFetcherWatchers,
-        JarEntryInfoListTableComponentContext {
+    JarEntryInfoListTableComponentContext {
 
     /**
      * Gets all {@link walkingkooka.spreadsheet.server.plugin.JarEntryInfoList} for a given {@link PluginName}.

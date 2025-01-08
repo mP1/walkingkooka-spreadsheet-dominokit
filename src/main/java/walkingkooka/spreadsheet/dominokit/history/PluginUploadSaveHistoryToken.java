@@ -35,7 +35,7 @@ public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
      */
     static PluginUploadSaveHistoryToken with(final BrowserFile file) {
         return new PluginUploadSaveHistoryToken(
-                Objects.requireNonNull(file, "file")
+            Objects.requireNonNull(file, "file")
         );
     }
 
@@ -64,7 +64,7 @@ public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
     @Override
     UrlFragment pluginUploadUrlFragment() {
         return SAVE.appendSlashThen(
-                this.file.urlFragment()
+            this.file.urlFragment()
         );
     }
 
@@ -79,9 +79,9 @@ public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.pluginFetcher()
-                .uploadPlugin(
-                        FetcherRequestBody.file(this.file)
-                );
+            .uploadPlugin(
+                FetcherRequestBody.file(this.file)
+            );
         context.pushHistoryToken(previous);
     }
 }

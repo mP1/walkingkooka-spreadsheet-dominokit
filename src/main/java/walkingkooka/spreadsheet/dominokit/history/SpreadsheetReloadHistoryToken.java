@@ -38,16 +38,16 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     static SpreadsheetReloadHistoryToken with(final SpreadsheetId id,
                                               final SpreadsheetName name) {
         return new SpreadsheetReloadHistoryToken(
-                id,
-                name
+            id,
+            name
         );
     }
 
     private SpreadsheetReloadHistoryToken(final SpreadsheetId id,
                                           final SpreadsheetName name) {
         super(
-                id,
-                name
+            id,
+            name
         );
     }
 
@@ -60,8 +60,8 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     @Override //
     public HistoryToken clearAction() {
         return spreadsheetSelect(
-                this.id(),
-                this.name()
+            this.id(),
+            this.name()
         );
     }
 
@@ -70,8 +70,8 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return new SpreadsheetReloadHistoryToken(
-                id,
-                name
+            id,
+            name
         );
     }
 
@@ -94,7 +94,7 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         context.pushHistoryToken(
-                previous
+            previous
         );
         context.reload();
     }

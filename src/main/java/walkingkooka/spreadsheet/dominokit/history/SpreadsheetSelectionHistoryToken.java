@@ -29,8 +29,8 @@ abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHi
     SpreadsheetSelectionHistoryToken(final SpreadsheetId id,
                                      final SpreadsheetName name) {
         super(
-                id,
-                name
+            id,
+            name
         );
     }
 

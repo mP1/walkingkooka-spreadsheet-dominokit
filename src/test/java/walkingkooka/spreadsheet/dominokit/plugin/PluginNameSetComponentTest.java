@@ -32,42 +32,42 @@ public final class PluginNameSetComponentTest implements ValueComponentTesting<H
         final PluginNameSet alias = PluginNameSet.parse("plugin1, plugin2");
 
         this.checkEquals(
-                alias,
-                PluginNameSet.parse(alias.text())
+            alias,
+            PluginNameSet.parse(alias.text())
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                PluginNameSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "plugin1, plugin2"
-                                )
-                        ),
-                "PluginNameSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [plugin1, plugin2]\n"
+            PluginNameSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "plugin1, plugin2"
+                    )
+                ),
+            "PluginNameSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [plugin1, plugin2]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                PluginNameSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "plugin111, 9"
-                                )
-                        ),
-                "PluginNameSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [plugin111, 9]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '9' at 11\n"
+            PluginNameSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "plugin111, 9"
+                    )
+                ),
+            "PluginNameSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [plugin111, 9]\n" +
+                "      Errors\n" +
+                "        Invalid character '9' at 11\n"
         );
     }
 

@@ -28,11 +28,11 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
     @Test
     public void testParseMissingName() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/rename/save",
-                HistoryToken.spreadsheetRenameSelect(
-                        ID,
-                        NAME
-                )
+            "/123/SpreadsheetName456/rename/save",
+            HistoryToken.spreadsheetRenameSelect(
+                ID,
+                NAME
+            )
         );
     }
 
@@ -44,11 +44,11 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.spreadsheetRenameSelect(
-                        ID,
-                        NAME
-                )
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetRenameSelect(
+                ID,
+                NAME
+            )
         );
     }
 
@@ -56,9 +56,9 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
     SpreadsheetRenameSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                          final SpreadsheetName name) {
         return SpreadsheetRenameSaveHistoryToken.with(
-                id,
-                name,
-                RENAME_TO
+            id,
+            name,
+            RENAME_TO
         );
     }
 

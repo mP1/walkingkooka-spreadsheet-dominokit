@@ -40,10 +40,10 @@ public final class SpreadsheetRowSortSaveHistoryToken extends SpreadsheetRowSort
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         return new SpreadsheetRowSortSaveHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                comparatorNames
+            id,
+            name,
+            anchoredSelection,
+            comparatorNames
         );
     }
 
@@ -52,16 +52,16 @@ public final class SpreadsheetRowSortSaveHistoryToken extends SpreadsheetRowSort
                                                final AnchoredSpreadsheetSelection anchoredSelection,
                                                final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
 
 
         final SpreadsheetSelection selection = anchoredSelection.selection();
         if (false == selection.isLabelName()) {
             selection.toRowRange()
-                    .comparatorNamesBoundsCheck(comparatorNames);
+                .comparatorNamesBoundsCheck(comparatorNames);
         }
 
         this.comparatorNames = comparatorNames;
@@ -83,10 +83,10 @@ public final class SpreadsheetRowSortSaveHistoryToken extends SpreadsheetRowSort
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowSortSaveHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                this.comparatorNames
+            id,
+            name,
+            anchoredSelection,
+            this.comparatorNames
         );
     }
 
@@ -96,12 +96,12 @@ public final class SpreadsheetRowSortSaveHistoryToken extends SpreadsheetRowSort
         context.pushHistoryToken(previous.clearAction());
 
         context.spreadsheetDeltaFetcher()
-                .sortCells(
-                        this.id(),
-                        this.anchoredSelection()
-                                .selection()
-                                .toCellRange(),
-                        this.comparatorNames
-                );
+            .sortCells(
+                this.id(),
+                this.anchoredSelection()
+                    .selection()
+                    .toCellRange(),
+                this.comparatorNames
+            );
     }
 }

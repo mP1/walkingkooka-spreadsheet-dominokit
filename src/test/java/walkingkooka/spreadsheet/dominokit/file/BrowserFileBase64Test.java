@@ -28,10 +28,10 @@ import walkingkooka.text.printer.TreePrintableTesting;
 import static org.junit.Assert.assertThrows;
 
 public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBase64>,
-        HashCodeEqualsDefinedTesting2<BrowserFileBase64>,
-        ToStringTesting<BrowserFileBase64>,
-        HasUrlFragmentTesting,
-        TreePrintableTesting {
+    HashCodeEqualsDefinedTesting2<BrowserFileBase64>,
+    ToStringTesting<BrowserFileBase64>,
+    HasUrlFragmentTesting,
+    TreePrintableTesting {
 
     private final static String NAME = "Filename123";
 
@@ -42,33 +42,33 @@ public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBas
     @Test
     public void testWithNullNameFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> BrowserFileBase64.with(
-                        null,
-                        CONTENT
-                )
+            NullPointerException.class,
+            () -> BrowserFileBase64.with(
+                null,
+                CONTENT
+            )
         );
     }
 
     @Test
     public void testWithEmptyNameFails() {
         assertThrows(
-                IllegalArgumentException.class,
-                () -> BrowserFileBase64.with(
-                        "",
-                        CONTENT
-                )
+            IllegalArgumentException.class,
+            () -> BrowserFileBase64.with(
+                "",
+                CONTENT
+            )
         );
     }
 
     @Test
     public void testWithNullContentFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> BrowserFileBase64.with(
-                        NAME,
-                        null
-                )
+            NullPointerException.class,
+            () -> BrowserFileBase64.with(
+                NAME,
+                null
+            )
         );
     }
 
@@ -77,8 +77,8 @@ public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBas
         final String content = "";
 
         final BrowserFileBase64 fileBase64 = BrowserFileBase64.with(
-                NAME,
-                content
+            NAME,
+            content
         );
 
         this.checkEquals(NAME, fileBase64.name);
@@ -90,22 +90,22 @@ public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBas
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-                BrowserFileBase64.with(
-                        NAME,
-                        CONTENT
-                ),
-                "base64/Filename123/Filecontent456"
+            BrowserFileBase64.with(
+                NAME,
+                CONTENT
+            ),
+            "base64/Filename123/Filecontent456"
         );
     }
 
     @Test
     public void testUrlFragmentWithEmptyContent() {
         this.urlFragmentAndCheck(
-                BrowserFileBase64.with(
-                        NAME,
-                        ""
-                ),
-                "base64/Filename123"
+            BrowserFileBase64.with(
+                NAME,
+                ""
+            ),
+            "base64/Filename123"
         );
     }
 
@@ -114,10 +114,10 @@ public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBas
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                this.createObject(),
-                "BrowserFileBase64\n" +
-                        "  \"Filename123\"\n" +
-                        "    Filecontent456\n"
+            this.createObject(),
+            "BrowserFileBase64\n" +
+                "  \"Filename123\"\n" +
+                "    Filecontent456\n"
         );
     }
 
@@ -126,28 +126,28 @@ public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBas
     @Test
     public void testEqualsDifferentName() {
         this.checkNotEquals(
-                BrowserFileBase64.with(
-                        "different-name",
-                        CONTENT
-                )
+            BrowserFileBase64.with(
+                "different-name",
+                CONTENT
+            )
         );
     }
 
     @Test
     public void testEqualsDifferentContent() {
         this.checkNotEquals(
-                BrowserFileBase64.with(
-                        NAME,
-                        "different-content"
-                )
+            BrowserFileBase64.with(
+                NAME,
+                "different-content"
+            )
         );
     }
 
     @Override
     public BrowserFileBase64 createObject() {
         return BrowserFileBase64.with(
-                NAME,
-                CONTENT
+            NAME,
+            CONTENT
         );
     }
 
@@ -156,8 +156,8 @@ public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBas
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createObject(),
-                "base64/Filename123/Filecontent456"
+            this.createObject(),
+            "base64/Filename123/Filecontent456"
         );
     }
 

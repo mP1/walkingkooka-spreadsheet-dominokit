@@ -36,9 +36,9 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
                                                          final SpreadsheetName name,
                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormulaSelectHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -46,9 +46,9 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
                                                      final SpreadsheetName name,
                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -67,19 +67,19 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return cell(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         ).formula();
     }
 
     @Override
     HistoryToken save0(final String formulaText) {
         return cellFormulaSave(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                formulaText
+            this.id(),
+            this.name(),
+            this.anchoredSelection(),
+            formulaText
         );
     }
 

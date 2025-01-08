@@ -26,8 +26,8 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
  * Dont forget to register this {@link HistoryTokenWatcher}.
  */
 public interface HistoryTokenAwareComponentLifecycle extends HistoryTokenWatcher,
-        ComponentLifecycleMatcher,
-        ComponentLifecycle {
+    ComponentLifecycleMatcher,
+    ComponentLifecycle {
 
     /**
      * Conditionally calls {@link #refresh(RefreshContext)} if this ui is {@link #isOpen()}.
@@ -64,7 +64,7 @@ public interface HistoryTokenAwareComponentLifecycle extends HistoryTokenWatcher
     default void componentLifecycleHistoryTokenQuery(final AppContext context) {
         final HistoryToken token = context.historyToken();
         final String prefix = this.getClass().getSimpleName();
-        
+
         if (this.shouldIgnore(token)) {
             if (this.shouldLogLifecycleChanges()) {
                 context.debug(prefix + ".ignored");

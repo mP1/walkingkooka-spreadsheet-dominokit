@@ -45,30 +45,30 @@ public final class SpreadsheetImporterFetcher extends Fetcher<SpreadsheetImporte
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetImporterFetcher(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     private SpreadsheetImporterFetcher(final SpreadsheetImporterFetcherWatcher watcher,
                                        final AppContext context) {
         super(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     static RelativeUrl importer(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPathName(
-                        SpreadsheetImporterName.HATEOS_RESOURCE_NAME.toUrlPathName()
-                );
+            .appendPathName(
+                SpreadsheetImporterName.HATEOS_RESOURCE_NAME.toUrlPathName()
+            );
     }
 
     // GET /api/spreadsheet/SpreadsheetId/importer/*
     public void infoSet(final SpreadsheetId id) {
         this.get(
-                importer(id)
+            importer(id)
         );
     }
 
@@ -86,13 +86,13 @@ public final class SpreadsheetImporterFetcher extends Fetcher<SpreadsheetImporte
             case "SpreadsheetImporterInfoSet":
                 // GET http://server/api/spreadsheet/1/importer
                 this.watcher.onSpreadsheetImporterInfoSet(
-                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(), // the request url
-                        this.parse(
-                                body.orElse(""),
-                                SpreadsheetImporterInfoSet.class
-                        ), // edit
-                        context
+                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                        .get(), // the request url
+                    this.parse(
+                        body.orElse(""),
+                        SpreadsheetImporterInfoSet.class
+                    ), // edit
+                    context
                 );
                 break;
             default:

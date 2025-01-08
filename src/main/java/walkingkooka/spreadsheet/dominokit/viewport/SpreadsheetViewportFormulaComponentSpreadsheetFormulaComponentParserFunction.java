@@ -58,36 +58,36 @@ final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParser
         final SpreadsheetViewportCache viewportCache = context.spreadsheetViewportCache();
 
         final Optional<SpreadsheetCell> maybeCell = viewportCache.cell(
-                context.historyToken()
-                        .cast(SpreadsheetCellHistoryToken.class)
-                        .anchoredSelection()
-                        .selection()
+            context.historyToken()
+                .cast(SpreadsheetCellHistoryToken.class)
+                .anchoredSelection()
+                .selection()
         );
         if (maybeCell.isPresent()) {
             final SpreadsheetCell cell = maybeCell.get();
             parser = cell.parser()
-                    .map(p -> context.spreadsheetParser(
-                                    p,
-                                    context
-                            )
-                    ).orElse(null);
+                .map(p -> context.spreadsheetParser(
+                        p,
+                        context
+                    )
+                ).orElse(null);
         }
 
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
         if (null == parser) {
             parser = SpreadsheetParsers.valueOrExpression(
-                    metadata.spreadsheetParser(
-                            context, // SpreadsheetParserProvider
-                            context // ProviderContext
-                    )
+                metadata.spreadsheetParser(
+                    context, // SpreadsheetParserProvider
+                    context // ProviderContext
+                )
             );
         }
         final SpreadsheetParserContext parserContext = metadata.spreadsheetParserContext(context);
 
         return SpreadsheetFormula.parse(
-                TextCursors.charSequence(text),
-                parser,
-                parserContext
+            TextCursors.charSequence(text),
+            parser,
+            parserContext
         );
     }
 

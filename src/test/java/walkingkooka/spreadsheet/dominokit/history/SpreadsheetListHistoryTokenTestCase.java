@@ -30,16 +30,16 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
 
     final static OptionalInt COUNT = OptionalInt.of(23);
 
-    SpreadsheetListHistoryTokenTestCase(){
+    SpreadsheetListHistoryTokenTestCase() {
         super();
     }
 
     @Test
     public final void testSetIdName() {
         this.setIdAndNameAndCheck(
-                ID,
-                NAME,
-                HistoryToken.spreadsheetSelect(ID, NAME)
+            ID,
+            NAME,
+            HistoryToken.spreadsheetSelect(ID, NAME)
         );
     }
 
@@ -48,9 +48,9 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
         final SpreadsheetId differentId = SpreadsheetId.with(9999);
 
         this.setIdAndNameAndCheck(
-                differentId,
-                NAME,
-                HistoryToken.spreadsheetSelect(differentId, NAME)
+            differentId,
+            NAME,
+            HistoryToken.spreadsheetSelect(differentId, NAME)
         );
     }
 
@@ -59,30 +59,30 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
         final SpreadsheetName differentName = SpreadsheetName.with("Different");
 
         this.setIdAndNameAndCheck(
-                ID,
-                differentName,
-                HistoryToken.spreadsheetSelect(ID, differentName)
+            ID,
+            differentName,
+            HistoryToken.spreadsheetSelect(ID, differentName)
         );
     }
 
     @Test
     public final void testSetMetadataPropertyName() {
         this.setMetadataPropertyNameAndCheck(
-                SpreadsheetMetadataPropertyName.LOCALE
+            SpreadsheetMetadataPropertyName.LOCALE
         );
     }
 
     @Test
     public final void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 
     @Override final T createHistoryToken() {
         return this.createHistoryToken(
-                OFFSET,
-                COUNT
+            OFFSET,
+            COUNT
         );
     }
 

@@ -42,27 +42,27 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
         checkContext(context);
 
         return new SpreadsheetMetadataPanelComponentItemPrecision(
-                context
+            context
         );
     }
 
     private SpreadsheetMetadataPanelComponentItemPrecision(final SpreadsheetMetadataPanelComponentContext context) {
         super(
-                SpreadsheetMetadataPropertyName.PRECISION,
-                context
+            SpreadsheetMetadataPropertyName.PRECISION,
+            context
         );
 
         final UListElement list = this.uListElement();
 
         final IntegerBox integerBox = this.integerBox()
-                .setMinValue(0)
-                .setMaxValue(128)
-                .setStep(1);
+            .setMinValue(0)
+            .setMaxValue(128)
+            .setStep(1);
         this.integerBox = integerBox;
 
         list.appendChild(
-                liElement()
-                        .appendChild(integerBox)
+            liElement()
+                .appendChild(integerBox)
         );
 
         // build links for 0 | 32 | 64 | 128
@@ -71,23 +71,23 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
 
         for (final int value : Lists.of(0, 32, 64, 128)) {
             final HistoryTokenAnchorComponent anchor = token
-                    .link(SpreadsheetMetadataPanelComponent.id(SpreadsheetMetadataPropertyName.PRECISION) + "-" + value)
-                    .setTabIndex(0)
-                    .addPushHistoryToken(context)
-                    .setTextContent(0 == value ? "Unlimited" : String.valueOf(value));
+                .link(SpreadsheetMetadataPanelComponent.id(SpreadsheetMetadataPropertyName.PRECISION) + "-" + value)
+                .setTabIndex(0)
+                .addPushHistoryToken(context)
+                .setTextContent(0 == value ? "Unlimited" : String.valueOf(value));
 
             valueToAnchors.put(value, anchor);
 
             list.appendChild(
-                    liElement()
-                            .appendChild(anchor)
+                liElement()
+                    .appendChild(anchor)
             );
         }
 
         final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         list.appendChild(
-                liElement()
-                        .appendChild(defaultValueAnchor)
+            liElement()
+                .appendChild(defaultValueAnchor)
         );
         this.defaultValueAnchor = defaultValueAnchor;
 
@@ -109,44 +109,44 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
 
         this.integerBox.setValue(
-                metadata.getIgnoringDefaults(this.propertyName)
-                        .orElse(null)
+            metadata.getIgnoringDefaults(this.propertyName)
+                .orElse(null)
         );
 
         final SpreadsheetMetadataPropertyName<Integer> propertyName = SpreadsheetMetadataPropertyName.PRECISION;
 
         final Integer metadataValue = metadata.getIgnoringDefaults(propertyName)
-                .orElse(null);
+            .orElse(null);
 
         final HistoryToken token = context.historyToken()
-                .setMetadataPropertyName(propertyName);
+            .setMetadataPropertyName(propertyName);
 
         for (final Entry<Integer, HistoryTokenAnchorComponent> valueAndAnchor : this.valueToAnchors.entrySet()) {
             final Integer value = valueAndAnchor.getKey();
             final HistoryTokenAnchorComponent anchor = valueAndAnchor.getValue();
 
             anchor.setHistoryToken(
-                    Optional.of(
-                            token.save(
-                                    Optional.of(value)
-                            )
+                Optional.of(
+                    token.save(
+                        Optional.of(value)
                     )
+                )
             );
             anchor.setDisabled(
-                    Objects.equals(
-                            metadataValue,
-                            value
-                    )
+                Objects.equals(
+                    metadataValue,
+                    value
+                )
             );
         }
 
         this.refreshDefaultValue(
-                this.defaultValueAnchor,
-                this.context.spreadsheetMetadata()
-                        .defaults()
-                        .get(propertyName)
-                        .map(Object::toString)
-                        .orElse("")
+            this.defaultValueAnchor,
+            this.context.spreadsheetMetadata()
+                .defaults()
+                .get(propertyName)
+                .map(Object::toString)
+                .orElse("")
         );
     }
 

@@ -43,10 +43,10 @@ public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnI
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final OptionalInt count) {
         return new SpreadsheetColumnInsertAfterHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                count
+            id,
+            name,
+            anchoredSelection,
+            count
         );
     }
 
@@ -55,17 +55,17 @@ public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnI
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final OptionalInt count) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                count
+            id,
+            name,
+            anchoredSelection,
+            count
         );
     }
 
     @Override
     UrlFragment columnUrlFragment() {
         return INSERT_AFTER.appendSlashThen(
-                this.countUrlFragment()
+            this.countUrlFragment()
         );
     }
 
@@ -74,11 +74,11 @@ public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnI
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         ).insertAfter(
-                this.count()
+            this.count()
         );
     }
 
@@ -91,11 +91,11 @@ public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnI
             final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
             context.spreadsheetDeltaFetcher()
-                    .insertAfterColumn(
-                            this.id(),
-                            selection,
-                            count.getAsInt()
-                    );
+                .insertAfterColumn(
+                    this.id(),
+                    selection,
+                    count.getAsInt()
+                );
 
             context.pushHistoryToken(previous);
         }

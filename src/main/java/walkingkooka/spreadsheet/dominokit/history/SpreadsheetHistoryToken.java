@@ -33,7 +33,7 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
     @Override
     public final UrlFragment urlFragment() {
         return UrlFragment.SLASH.append(
-                this.spreadsheetUrlFragment()
+            this.spreadsheetUrlFragment()
         );
     }
 

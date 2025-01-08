@@ -36,9 +36,9 @@ import java.util.Optional;
  * {@link SpreadsheetTextBox}.
  */
 public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
-        SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String>,
-        TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetTextBox>,
-        ValidatorHelper {
+    SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String>,
+    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetTextBox>,
+    ValidatorHelper {
 
     public static SpreadsheetTextBox empty() {
         return new SpreadsheetTextBox();
@@ -119,10 +119,10 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     @Override
     public SpreadsheetTextBox validate() {
         this.setErrors(
-                this.validateAndGetErrors(
-                        value,
-                        Optional.ofNullable(this.validator)
-                )
+            this.validateAndGetErrors(
+                value,
+                Optional.ofNullable(this.validator)
+            )
         );
         return this;
     }

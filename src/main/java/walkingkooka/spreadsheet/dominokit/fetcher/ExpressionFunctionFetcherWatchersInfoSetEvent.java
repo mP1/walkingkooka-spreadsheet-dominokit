@@ -41,18 +41,18 @@ final class ExpressionFunctionFetcherWatchersInfoSetEvent extends FetcherWatcher
                                                               final ExpressionFunctionInfoSet infos,
                                                               final AppContext context) {
         return new ExpressionFunctionFetcherWatchersInfoSetEvent(
-                id,
-                infos,
-                context
+            id,
+            infos,
+            context
         );
     }
 
     @Override
     void fire(final ExpressionFunctionFetcherWatcher watcher) {
         watcher.onExpressionFunctionInfoSet(
-                this.id,
-                this.infos,
-                this.context
+            this.id,
+            this.infos,
+            this.context
         );
     }
 

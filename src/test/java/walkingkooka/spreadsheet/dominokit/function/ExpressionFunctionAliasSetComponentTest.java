@@ -30,34 +30,34 @@ public final class ExpressionFunctionAliasSetComponentTest implements ValueCompo
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                ExpressionFunctionAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "alias1 function1, function2"
-                                )
-                        ),
-                "ExpressionFunctionAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [alias1 function1, function2]\n"
+            ExpressionFunctionAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "alias1 function1, function2"
+                    )
+                ),
+            "ExpressionFunctionAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [alias1 function1, function2]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                ExpressionFunctionAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "alias1 function1, 9"
-                                )
-                        ),
-                "ExpressionFunctionAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [alias1 function1, 9]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '9' at 18\n"
+            ExpressionFunctionAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "alias1 function1, 9"
+                    )
+                ),
+            "ExpressionFunctionAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [alias1 function1, 9]\n" +
+                "      Errors\n" +
+                "        Invalid character '9' at 18\n"
         );
     }
 

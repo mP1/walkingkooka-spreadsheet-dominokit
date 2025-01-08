@@ -33,16 +33,16 @@ public final class HistoryTokenWatchersTest implements ClassTesting<HistoryToken
 
         final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
         watchers.add(
-                new HistoryTokenWatcher() {
-                    @Override
-                    public void onHistoryTokenChange(final HistoryToken previous,
-                                                     final AppContext context) {
-                        HistoryTokenWatchersTest.this.checkEquals(historyToken, previous);
-                        HistoryTokenWatchersTest.this.checkEquals(appContext, context);
+            new HistoryTokenWatcher() {
+                @Override
+                public void onHistoryTokenChange(final HistoryToken previous,
+                                                 final AppContext context) {
+                    HistoryTokenWatchersTest.this.checkEquals(historyToken, previous);
+                    HistoryTokenWatchersTest.this.checkEquals(appContext, context);
 
-                        HistoryTokenWatchersTest.this.fired = true;
-                    }
-                });
+                    HistoryTokenWatchersTest.this.fired = true;
+                }
+            });
         watchers.onHistoryTokenChange(historyToken, appContext);
 
         this.checkEquals(true, this.fired);

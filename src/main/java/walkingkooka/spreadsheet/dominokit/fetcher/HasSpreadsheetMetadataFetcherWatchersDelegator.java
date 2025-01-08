@@ -17,18 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-public interface HasSpreadsheetMetadataFetcherWatchersDelegator extends HasSpreadsheetMetadataFetcherWatchers{
+public interface HasSpreadsheetMetadataFetcherWatchersDelegator extends HasSpreadsheetMetadataFetcherWatchers {
 
     @Override
     default Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.hasSpreadsheetMetadataFetcherWatchers()
-                .addSpreadsheetMetadataFetcherWatcher(watcher);
+            .addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
     @Override
     default Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.hasSpreadsheetMetadataFetcherWatchers()
-                .addSpreadsheetMetadataFetcherWatcherOnce(watcher);
+            .addSpreadsheetMetadataFetcherWatcherOnce(watcher);
     }
 
     HasSpreadsheetMetadataFetcherWatchers hasSpreadsheetMetadataFetcherWatchers();

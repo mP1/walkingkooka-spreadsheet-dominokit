@@ -24,5 +24,5 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
  * Base class for all {@link walkingkooka.Context} that accompanies a {@link SpreadsheetDialogComponent}
  */
 public interface SpreadsheetDialogComponentContext extends HistoryTokenContext,
-        LoggingContext {
+    LoggingContext {
 }

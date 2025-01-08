@@ -34,24 +34,24 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/delete"
+            SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/*/top-left/delete"
         );
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/delete"
+            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/delete"
         );
     }
 
     @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/cell/Label123/delete"
+            LABEL,
+            "/123/SpreadsheetName456/cell/Label123/delete"
         );
     }
 
@@ -60,12 +60,12 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            this.createHistoryToken(),
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
@@ -81,7 +81,7 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 
@@ -90,9 +90,9 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
                                                          final SpreadsheetName name,
                                                          final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellDeleteHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

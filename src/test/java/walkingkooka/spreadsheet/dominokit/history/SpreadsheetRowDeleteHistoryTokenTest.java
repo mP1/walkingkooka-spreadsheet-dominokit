@@ -29,24 +29,24 @@ public final class SpreadsheetRowDeleteHistoryTokenTest extends SpreadsheetRowHi
     @Test
     public void testUrlFragmentRow() {
         this.urlFragmentAndCheck(
-                ROW,
-                "/123/SpreadsheetName456/row/1/delete"
+            ROW,
+            "/123/SpreadsheetName456/row/1/delete"
         );
     }
 
     @Test
     public void testUrlFragmentRowRange() {
         this.urlFragmentAndCheck(
-                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-                "/123/SpreadsheetName456/row/2:3/bottom/delete"
+            ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
+            "/123/SpreadsheetName456/row/2:3/bottom/delete"
         );
     }
 
     @Test
     public void testUrlFragmentRowRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_ROWS.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-                "/123/SpreadsheetName456/row/*/bottom/delete"
+            SpreadsheetSelection.ALL_ROWS.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
+            "/123/SpreadsheetName456/row/*/bottom/delete"
         );
     }
 
@@ -55,9 +55,9 @@ public final class SpreadsheetRowDeleteHistoryTokenTest extends SpreadsheetRowHi
                                                         final SpreadsheetName name,
                                                         final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetRowDeleteHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

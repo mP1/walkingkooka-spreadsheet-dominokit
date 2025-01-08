@@ -41,8 +41,8 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
     static SpreadsheetViewportComponentTableRowCells empty(final SpreadsheetRowReference row,
                                                            final SpreadsheetViewportComponentTableContext context) {
         return new SpreadsheetViewportComponentTableRowCells(
-                row,
-                context
+            row,
+            context
         );
     }
 
@@ -50,8 +50,8 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
                                                       final SpreadsheetViewportComponentTableContext context) {
         this.element = ElementsFactory.elements.tr();
         this.rowHeader = SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow.empty(
-                row,
-                context
+            row,
+            context
         );
         this.columnToCells = Maps.sorted();
     }
@@ -61,7 +61,7 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
                       final SpreadsheetName name) {
         this.rowHeader.setIdAndName(id, name);
         this.columnToCells.values()
-                .forEach(c -> c.setIdAndName(id, name));
+            .forEach(c -> c.setIdAndName(id, name));
     }
 
     @Override
@@ -88,8 +88,8 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
                 SpreadsheetViewportComponentTableCellSpreadsheetCell columnTableCell = oldColumnToCells.get(column);
                 if (null == columnTableCell) {
                     columnTableCell = SpreadsheetViewportComponentTableCellSpreadsheetCell.empty(
-                            column.setRow(row),
-                            context
+                        column.setRow(row),
+                        context
                     );
                 }
                 newColumnToCells.put(column, columnTableCell);
@@ -100,17 +100,17 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
         }
 
         this.rowHeader.refresh(
-                selected,
-                context
+            selected,
+            context
         );
 
         // refresh cells & selection here
         this.columnToCells.values()
-                .forEach(c -> c.refresh(
-                                selected,
-                                context
-                        )
-                );
+            .forEach(c -> c.refresh(
+                    selected,
+                    context
+                )
+            );
     }
 
     private Set<SpreadsheetColumnReference> columns;

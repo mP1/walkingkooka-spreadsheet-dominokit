@@ -29,90 +29,90 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
     @Test
     public void testToDateToLongToDate1900() {
         this.toDateToLongToDateAndCheck(
-                new Date(
-                        Date.UTC(
-                                1900 - 1900,
-                                Calendar.JANUARY,
-                                1,
-                                0,
-                                0,
-                                0
-                        )
+            new Date(
+                Date.UTC(
+                    1900 - 1900,
+                    Calendar.JANUARY,
+                    1,
+                    0,
+                    0,
+                    0
                 )
+            )
         );
     }
 
     @Test
     public void testToDateToLongToDate1901() {
         this.toDateToLongToDateAndCheck(
-                new Date(
-                        Date.UTC(
-                                1901 - 1900,
-                                Calendar.JANUARY,
-                                1,
-                                0,
-                                0,
-                                0
-                        )
+            new Date(
+                Date.UTC(
+                    1901 - 1900,
+                    Calendar.JANUARY,
+                    1,
+                    0,
+                    0,
+                    0
                 )
+            )
         );
     }
 
     @Test
     public void testToDateToLongToDate1903() {
         this.toDateToLongToDateAndCheck(
-                new Date(
-                        Date.UTC(
-                                1903 - 1900,
-                                Calendar.JANUARY,
-                                1,
-                                0,
-                                0,
-                                0
-                        )
+            new Date(
+                Date.UTC(
+                    1903 - 1900,
+                    Calendar.JANUARY,
+                    1,
+                    0,
+                    0,
+                    0
                 )
+            )
         );
     }
 
     @Test
     public void testToDateToLongToDate1999() {
         this.toDateToLongToDateAndCheck(
-                new Date(
-                        Date.UTC(
-                                1999 - 1900,
-                                Calendar.DECEMBER,
-                                31,
-                                0,
-                                0,
-                                0
-                        )
+            new Date(
+                Date.UTC(
+                    1999 - 1900,
+                    Calendar.DECEMBER,
+                    31,
+                    0,
+                    0,
+                    0
                 )
+            )
         );
     }
 
     @Test
     public void testToDateToLongToDate2023() {
         this.toDateToLongToDateAndCheck(
-                new Date(
-                        Date.UTC(
-                                2023 - 1900,
-                                Calendar.AUGUST,
-                                29,
-                                0,
-                                0,
-                                0
-                        )
+            new Date(
+                Date.UTC(
+                    2023 - 1900,
+                    Calendar.AUGUST,
+                    29,
+                    0,
+                    0,
+                    0
                 )
+            )
         );
     }
 
     private void toDateToLongToDateAndCheck(final Date date) {
         this.checkEquals(
-                date,
-                SpreadsheetMetadataPanelComponentItemDateTimeOffset.toDate(
-                        SpreadsheetMetadataPanelComponentItemDateTimeOffset.toLong(date)
-                ),
-                date::toString
+            date,
+            SpreadsheetMetadataPanelComponentItemDateTimeOffset.toDate(
+                SpreadsheetMetadataPanelComponentItemDateTimeOffset.toLong(date)
+            ),
+            date::toString
         );
     }
 
@@ -121,19 +121,19 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
     @Test
     public void testToLong() {
         this.checkEquals(
-                2L,
-                SpreadsheetMetadataPanelComponentItemDateTimeOffset.toLong(
-                        new Date(
-                                Date.UTC(
-                                        1970 - 1900,
-                                        Calendar.JANUARY,
-                                        3,
-                                        0,
-                                        0,
-                                        0
-                                )
-                        )
+            2L,
+            SpreadsheetMetadataPanelComponentItemDateTimeOffset.toLong(
+                new Date(
+                    Date.UTC(
+                        1970 - 1900,
+                        Calendar.JANUARY,
+                        3,
+                        0,
+                        0,
+                        0
+                    )
                 )
+            )
         );
     }
 

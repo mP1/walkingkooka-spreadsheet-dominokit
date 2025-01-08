@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
  * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetComparatorNameListDialogComponent} provided various inputs.
  */
 public interface SpreadsheetComparatorNameListDialogComponentContext extends ComponentLifecycleMatcher,
-        SpreadsheetDialogComponentContext {
+    SpreadsheetDialogComponentContext {
 
     /**
      * Logic to provide the dialog title.

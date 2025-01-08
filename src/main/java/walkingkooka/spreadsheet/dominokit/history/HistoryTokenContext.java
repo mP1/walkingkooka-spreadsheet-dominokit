@@ -64,16 +64,16 @@ public interface HistoryTokenContext extends Context {
         Objects.requireNonNull(historyToken, "historyToken");
 
         final HistoryTokenMenuItem menu = new HistoryTokenMenuItem(
-                HistoryTokenAnchorComponent.empty()
-                        .setId(id)
-                        .setHistoryToken(historyToken)
-                        .setTextContent(text)
+            HistoryTokenAnchorComponent.empty()
+                .setId(id)
+                .setHistoryToken(historyToken)
+                .setTextContent(text)
         );
 
         menu.addSelectionHandler(
-                (ignored) -> this.pushHistoryToken(
-                        historyToken.get()
-                )
+            (ignored) -> this.pushHistoryToken(
+                historyToken.get()
+            )
         );
 
         return menu;

@@ -27,38 +27,38 @@ final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow extends Sp
     static SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow empty(final SpreadsheetRowReference row,
                                                                            final SpreadsheetViewportComponentTableContext context) {
         return new SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow(
-                row,
-                context
+            row,
+            context
         );
     }
 
     private SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow(final SpreadsheetRowReference row,
                                                                       final SpreadsheetViewportComponentTableContext context) {
         super(
-                SpreadsheetViewportComponent.id(row), // id
-                css(
-                        HEADER_STYLE,
-                        SpreadsheetViewportComponent.ROW_WIDTH,
-                        context.spreadsheetViewportCache()
-                                .rowHeight(row)
-                ), // css
-                row, // selection
-                row.toString()
-                        .toUpperCase(), // link text
-                context
+            SpreadsheetViewportComponent.id(row), // id
+            css(
+                HEADER_STYLE,
+                SpreadsheetViewportComponent.ROW_WIDTH,
+                context.spreadsheetViewportCache()
+                    .rowHeight(row)
+            ), // css
+            row, // selection
+            row.toString()
+                .toUpperCase(), // link text
+            context
         );
     }
 
     @Override void refreshNonExtendLink(final SpreadsheetViewportComponentTableContext context) {
         this.setAnchoredSpreadsheetSelection(
-                this.selection.setDefaultAnchor()
+            this.selection.setDefaultAnchor()
         );
     }
 
     @Override
     void refreshExtendLink(final SpreadsheetViewportComponentTableContext context) {
         this.setAnchoredSpreadsheetSelection(
-                context.extendRow(this.selection)
+            context.extendRow(this.selection)
         );
     }
 }

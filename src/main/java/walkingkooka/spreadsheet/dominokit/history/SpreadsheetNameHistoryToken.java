@@ -46,8 +46,8 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
     final HistoryToken replaceName(final SpreadsheetName name) {
         return this.replaceIdAndName(
-                this.id(),
-                name
+            this.id(),
+            name
         );
     }
 
@@ -66,9 +66,9 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         final Optional<String> style = parseComponent(cursor);
         if (style.isPresent()) {
             result = this.style(
-                    TextStylePropertyName.with(
-                            style.get()
-                    )
+                TextStylePropertyName.with(
+                    style.get()
+                )
             );
         }
         return result;
@@ -78,12 +78,12 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
     @Override final UrlFragment spreadsheetUrlFragment() {
         return this.id()
-                .urlFragment()
-                .appendSlashThen(
-                        this.name.urlFragment()
-                ).appendSlashThen(
-                        this.spreadsheetNameUrlFragment()
-                );
+            .urlFragment()
+            .appendSlashThen(
+                this.name.urlFragment()
+            ).appendSlashThen(
+                this.spreadsheetNameUrlFragment()
+            );
     }
 
     abstract UrlFragment spreadsheetNameUrlFragment();
@@ -101,25 +101,25 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         final SpreadsheetId id = this.id();
 
         final SpreadsheetId previousId = context.spreadsheetMetadata()
-                .id()
-                .orElse(null);
+            .id()
+            .orElse(null);
         if (false == id.equals(previousId)) {
             context.debug(
-                    this.getClass().getSimpleName() +
-                            ".onHistoryTokenChange token " +
-                            id +
-                            " and context metadata " +
-                            previousId +
-                            " have different ids, load SpreadsheetId and then fire current history token"
+                this.getClass().getSimpleName() +
+                    ".onHistoryTokenChange token " +
+                    id +
+                    " and context metadata " +
+                    previousId +
+                    " have different ids, load SpreadsheetId and then fire current history token"
             );
             context.loadSpreadsheetMetadataAndPushPreviousIfFails(
-                    this.id(),
-                    previous
+                this.id(),
+                previous
             );
         } else {
             this.onHistoryTokenChange0(
-                    previous,
-                    context
+                previous,
+                context
             );
         }
     }

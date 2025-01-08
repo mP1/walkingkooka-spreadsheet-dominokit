@@ -34,7 +34,7 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
     @Test
     public final void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 }

@@ -47,8 +47,8 @@ final class PluginSetTableComponent implements HtmlElementComponent<HTMLDivEleme
     static PluginSetTableComponent empty(final String id,
                                          final PluginSetTableComponentContext context) {
         return new PluginSetTableComponent(
-                Objects.requireNonNull(id, "id"),
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(id, "id"),
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -57,49 +57,49 @@ final class PluginSetTableComponent implements HtmlElementComponent<HTMLDivEleme
         this.card = SpreadsheetCard.empty();
 
         this.table = SpreadsheetDataTableComponent.with(
+            id,
+            columnConfigs(),
+            PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer.with(
                 id,
-                columnConfigs(),
-                PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer.with(
-                        id,
-                        context
-                )
+                context
+            )
         ).emptyStatePlugin(
-                SpreadsheetIcons.spreadsheetListTableEmpty(),
-                "No plugins available"
+            SpreadsheetIcons.spreadsheetListTableEmpty(),
+            "No plugins available"
         );
 
         this.card.appendChild(
-                this.table.previousNextLinks(id)
+            this.table.previousNextLinks(id)
         );
     }
 
     private List<ColumnConfig<Plugin>> columnConfigs() {
         return Lists.of(
-                columnConfig(
-                        "Name",
-                        "name",
-                        TextAlign.LEFT
-                ),
-                columnConfig(
-                        "Filename",
-                        "filename",
-                        TextAlign.LEFT
-                ),
-                columnConfig(
-                        "User",
-                        "user",
-                        TextAlign.LEFT
-                ),
-                columnConfig(
-                        "Timestamp",
-                        "timestamp",
-                        TextAlign.LEFT
-                ),
-                columnConfig(
-                        "Links",
-                        "links",
-                        TextAlign.LEFT
-                )
+            columnConfig(
+                "Name",
+                "name",
+                TextAlign.LEFT
+            ),
+            columnConfig(
+                "Filename",
+                "filename",
+                TextAlign.LEFT
+            ),
+            columnConfig(
+                "User",
+                "user",
+                TextAlign.LEFT
+            ),
+            columnConfig(
+                "Timestamp",
+                "timestamp",
+                TextAlign.LEFT
+            ),
+            columnConfig(
+                "Links",
+                "links",
+                TextAlign.LEFT
+            )
         );
     }
 
@@ -107,30 +107,30 @@ final class PluginSetTableComponent implements HtmlElementComponent<HTMLDivEleme
                                                      final String columnName,
                                                      final TextAlign textAlign) {
         return ColumnConfig.<Plugin>create(columnName)
-                .setTitle(title)
-                .setFixed(true)
-                .setTextAlign(
-                        CellTextAlign.valueOf(
-                                textAlign.name()
-                        )
-                );
+            .setTitle(title)
+            .setFixed(true)
+            .setTextAlign(
+                CellTextAlign.valueOf(
+                    textAlign.name()
+                )
+            );
     }
 
     private final SpreadsheetDataTableComponent<Plugin> table;
 
     PluginSetTableComponent setSet(final PluginSet set) {
         this.table.setValue(
-                Optional.of(
-                        new ArrayList<>(set)
-                )
+            Optional.of(
+                new ArrayList<>(set)
+            )
         );
         return this;
     }
 
     PluginSetTableComponent refresh(final PluginListHistoryToken historyToken) {
         this.table.refreshPreviousNextLinks(
-                historyToken,
-                DEFAULT_COUNT
+            historyToken,
+            DEFAULT_COUNT
         );
         return this;
     }

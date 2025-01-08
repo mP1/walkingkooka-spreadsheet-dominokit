@@ -37,7 +37,7 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
     private final static AbsoluteOrRelativeUrl URL = Url.parseRelative("/something");
 
     private final static Optional<FetcherRequestBody<?>> BODY = Optional.of(
-            FetcherRequestBody.string("*BODY*")
+        FetcherRequestBody.string("*BODY*")
     );
 
     // addOnce..........................................................................................................
@@ -133,9 +133,9 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
 
         public void onSuccess(final AppContext context) {
             this.fire(
-                    new TestSuccessFetcherWatcherEvent(
-                            context
-                    )
+                new TestSuccessFetcherWatcherEvent(
+                    context
+                )
             );
         }
     }
@@ -192,7 +192,7 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         @Override
         void fire(final TestFetcherWatcher watcher) {
             watcher.onSuccess(
-                    this.context
+                this.context
             );
         }
 
@@ -231,9 +231,9 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
 
         public void onSuccess(final AppContext context) {
             this.fire(
-                    new TestSuccessFetcherWatcherEvent2(
-                            context
-                    )
+                new TestSuccessFetcherWatcherEvent2(
+                    context
+                )
             );
         }
     }
@@ -297,7 +297,7 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         @Override
         void fire(final TestFetcherWatcher2 watcher) {
             watcher.onSuccess(
-                    this.context
+                this.context
             );
         }
 

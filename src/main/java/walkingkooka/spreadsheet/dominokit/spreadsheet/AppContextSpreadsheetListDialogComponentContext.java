@@ -27,12 +27,12 @@ import java.util.Locale;
 import java.util.Objects;
 
 public final class AppContextSpreadsheetListDialogComponentContext implements SpreadsheetListDialogComponentContext,
-        HistoryTokenContextDelegator,
-        HasSpreadsheetMetadataFetcherWatchersDelegator {
+    HistoryTokenContextDelegator,
+    HasSpreadsheetMetadataFetcherWatchersDelegator {
 
     static AppContextSpreadsheetListDialogComponentContext with(final AppContext context) {
         return new AppContextSpreadsheetListDialogComponentContext(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 

@@ -40,10 +40,10 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         return new SpreadsheetColumnSortSaveHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                comparatorNames
+            id,
+            name,
+            anchoredSelection,
+            comparatorNames
         );
     }
 
@@ -52,9 +52,9 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
 
 
@@ -82,10 +82,10 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetColumnSortSaveHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                this.comparatorNames
+            id,
+            name,
+            anchoredSelection,
+            this.comparatorNames
         );
     }
 
@@ -95,12 +95,12 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
         context.pushHistoryToken(previous.clearAction());
 
         context.spreadsheetDeltaFetcher()
-                .sortCells(
-                        this.id(),
-                        this.anchoredSelection()
-                                .selection()
-                                .toCellRange(),
-                        this.comparatorNames
-                );
+            .sortCells(
+                this.id(),
+                this.anchoredSelection()
+                    .selection()
+                    .toCellRange(),
+                this.comparatorNames
+            );
     }
 }

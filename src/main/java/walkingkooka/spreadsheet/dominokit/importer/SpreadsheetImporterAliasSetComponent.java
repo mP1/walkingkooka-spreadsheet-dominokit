@@ -29,8 +29,8 @@ public final class SpreadsheetImporterAliasSetComponent implements ValueSpreadsh
 
     private SpreadsheetImporterAliasSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetImporterAliasSet::parse,
-                SpreadsheetImporterAliasSet::text
+            SpreadsheetImporterAliasSet::parse,
+            SpreadsheetImporterAliasSet::text
         );
     }
 

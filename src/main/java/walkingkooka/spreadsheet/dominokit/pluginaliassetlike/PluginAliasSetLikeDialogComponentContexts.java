@@ -79,23 +79,23 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     public static PluginAliasSetLikeDialogComponentContext<SpreadsheetComparatorName, SpreadsheetComparatorInfo, SpreadsheetComparatorInfoSet, SpreadsheetComparatorSelector, SpreadsheetComparatorAlias, SpreadsheetComparatorAliasSet> comparators(final AppContext context) {
         return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetComparatorAliasSetComparators.with(context);
     }
-    
+
     /**
      * {@see AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters}
      */
     public static PluginAliasSetLikeDialogComponentContext<ConverterName, ConverterInfo, ConverterInfoSet, ConverterSelector, ConverterAlias, ConverterAliasSet> converters(final AppContext context) {
         return AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters.with(context);
     }
-    
+
     /**
      * {@see FakePluginAliasSetLikeDialogComponentContext}
      */
     public static <N extends Name & Comparable<N>,
-            I extends PluginInfoLike<I, N>,
-            IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
-            S extends PluginSelectorLike<N>,
-            A extends PluginAliasLike<N, S, A>,
-            AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
+        I extends PluginInfoLike<I, N>,
+        IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
+        S extends PluginSelectorLike<N>,
+        A extends PluginAliasLike<N, S, A>,
+        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
     PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> fake() {
         return new FakePluginAliasSetLikeDialogComponentContext<>();
     }
@@ -106,7 +106,7 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     public static PluginAliasSetLikeDialogComponentContext<SpreadsheetExporterName, SpreadsheetExporterInfo, SpreadsheetExporterInfoSet, SpreadsheetExporterSelector, SpreadsheetExporterAlias, SpreadsheetExporterAliasSet> exporters(final AppContext context) {
         return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetExporterAliasSetExporters.with(context);
     }
-    
+
     /**
      * {@see AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSet}
      */
@@ -120,7 +120,7 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     public static PluginAliasSetLikeDialogComponentContext<SpreadsheetFormatterName, SpreadsheetFormatterInfo, SpreadsheetFormatterInfoSet, SpreadsheetFormatterSelector, SpreadsheetFormatterAlias, SpreadsheetFormatterAliasSet> formatters(final AppContext context) {
         return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSetFormatters.with(context);
     }
-    
+
     /**
      * {@see AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFormulaFunctions}
      */
@@ -148,7 +148,7 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
     public static PluginAliasSetLikeDialogComponentContext<SpreadsheetParserName, SpreadsheetParserInfo, SpreadsheetParserInfoSet, SpreadsheetParserSelector, SpreadsheetParserAlias, SpreadsheetParserAliasSet> parsers(final AppContext context) {
         return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSetParsers.with(context);
     }
-    
+
     /**
      * Stop creation
      */

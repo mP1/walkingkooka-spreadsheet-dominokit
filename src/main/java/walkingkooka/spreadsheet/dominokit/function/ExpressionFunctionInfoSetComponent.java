@@ -30,8 +30,8 @@ public final class ExpressionFunctionInfoSetComponent implements ValueSpreadshee
 
     private ExpressionFunctionInfoSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                ExpressionFunctionInfoSet::parse,
-                ExpressionFunctionInfoSet::text
+            ExpressionFunctionInfoSet::parse,
+            ExpressionFunctionInfoSet::text
         );
     }
 

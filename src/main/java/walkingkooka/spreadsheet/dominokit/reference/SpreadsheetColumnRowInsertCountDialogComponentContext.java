@@ -24,8 +24,8 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentConte
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingDialogComponent}.
  */
 public interface SpreadsheetColumnRowInsertCountDialogComponentContext extends
-        SpreadsheetDialogComponentContext,
-        ComponentLifecycleMatcher {
+    SpreadsheetDialogComponentContext,
+    ComponentLifecycleMatcher {
 
     /**
      * A label which is used for the title of the dialog box.

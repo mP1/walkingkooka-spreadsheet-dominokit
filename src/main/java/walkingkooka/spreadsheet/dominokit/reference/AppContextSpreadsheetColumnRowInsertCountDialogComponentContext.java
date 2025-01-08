@@ -29,11 +29,11 @@ import java.util.Optional;
 import java.util.OptionalInt;
 
 final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext implements SpreadsheetColumnRowInsertCountDialogComponentContext,
-        SpreadsheetDialogComponentContextDelegator {
+    SpreadsheetDialogComponentContextDelegator {
 
     static AppContextSpreadsheetColumnRowInsertCountDialogComponentContext with(final AppContext context) {
         return new AppContextSpreadsheetColumnRowInsertCountDialogComponentContext(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -49,8 +49,8 @@ final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext impl
     @Override
     public boolean isMatch(final HistoryToken token) {
         return COUNT.equals(
-                token.setCount(COUNT)
-                        .count()
+            token.setCount(COUNT)
+                .count()
         ) && false == token.count().isPresent();
     }
 
@@ -62,34 +62,34 @@ final class AppContextSpreadsheetColumnRowInsertCountDialogComponentContext impl
 
         final HistoryToken token = this.historyToken();
         final Optional<SpreadsheetSelection> maybeSelection = token.anchoredSelectionOrEmpty()
-                .map(AnchoredSpreadsheetSelection::selection);
+            .map(AnchoredSpreadsheetSelection::selection);
         if (maybeSelection.isPresent()) {
             final SpreadsheetSelection selection = maybeSelection.get();
             final String text = selection.cellColumnOrRowText();
 
             title = "Insert " +
-                    (
-                            token.getClass().getSimpleName().contains("After") ?
-                                    "after" :
-                                    "before"
-                    ) +
-                    " " +
-                    text +
-                    " " +
-                    selection.toStringMaybeStar();
+                (
+                    token.getClass().getSimpleName().contains("After") ?
+                        "after" :
+                        "before"
+                ) +
+                " " +
+                text +
+                " " +
+                selection.toStringMaybeStar();
         }
 
         return null != title ?
-                title :
-                "Insert";
+            title :
+            "Insert";
     }
 
     @Override
     public void save(final int count) {
         this.pushHistoryToken(
-                this.historyToken().setCount(
-                        OptionalInt.of(count)
-                )
+            this.historyToken().setCount(
+                OptionalInt.of(count)
+            )
         );
     }
 

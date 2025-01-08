@@ -30,32 +30,32 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
     @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/label/Label123/save/A1"
+            LABEL,
+            "/123/SpreadsheetName456/label/Label123/save/A1"
         );
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                SpreadsheetLabelMappingSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        LABEL.mapping(SpreadsheetSelection.parseCellRange("B2:C3"))
-                ),
-                "/123/SpreadsheetName456/label/Label123/save/B2:C3"
+            SpreadsheetLabelMappingSaveHistoryToken.with(
+                ID,
+                NAME,
+                LABEL.mapping(SpreadsheetSelection.parseCellRange("B2:C3"))
+            ),
+            "/123/SpreadsheetName456/label/Label123/save/B2:C3"
         );
     }
 
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.labelMapping(
-                        ID,
-                        NAME,
-                        Optional.of(LABEL)
-                )
+            this.createHistoryToken(),
+            HistoryToken.labelMapping(
+                ID,
+                NAME,
+                Optional.of(LABEL)
+            )
         );
     }
 
@@ -64,9 +64,9 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
                                                                final SpreadsheetName name,
                                                                final SpreadsheetLabelName label) {
         return SpreadsheetLabelMappingSaveHistoryToken.with(
-                id,
-                name,
-                label.mapping(CELL)
+            id,
+            name,
+            label.mapping(CELL)
         );
     }
 

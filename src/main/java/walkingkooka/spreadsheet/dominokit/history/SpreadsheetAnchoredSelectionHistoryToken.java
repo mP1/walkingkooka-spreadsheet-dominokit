@@ -35,8 +35,8 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
                                              final SpreadsheetName name,
                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name
+            id,
+            name
         );
         this.anchoredSelection = Objects.requireNonNull(anchoredSelection, "anchoredSelection");
     }
@@ -51,9 +51,9 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     final HistoryToken replaceIdAndName(final SpreadsheetId id,
                                         final SpreadsheetName name) {
         return this.replaceIdNameAnchoredSelection(
-                id,
-                name,
-                this.anchoredSelection
+            id,
+            name,
+            this.anchoredSelection
         );
     }
 
@@ -64,9 +64,9 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     @Override //
     final UrlFragment selectionUrlFragment() {
         return this.anchoredSelection.urlFragment()
-                .appendSlashThen(
-                        this.anchoredSelectionUrlFragment()
-                );
+            .appendSlashThen(
+                this.anchoredSelectionUrlFragment()
+            );
     }
 
     abstract UrlFragment anchoredSelectionUrlFragment();
@@ -86,14 +86,14 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
         switch (component) {
             case EDIT_STRING:
                 historyToken = this.setSortEdit(
-                        parseComponentOrEmpty(cursor)
+                    parseComponentOrEmpty(cursor)
                 );
                 break;
             case SAVE_STRING:
                 historyToken = this.setSortSave(
-                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(
-                                parseComponentOrEmpty(cursor)
-                        )
+                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(
+                        parseComponentOrEmpty(cursor)
+                    )
                 );
                 break;
             default:
@@ -108,13 +108,13 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
 
     final HistoryToken selectionSelect() {
         final HistoryToken selection = HistoryToken.selection(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
+            this.id(),
+            this.name(),
+            this.anchoredSelection()
         );
         return this.equals(selection) ?
-                this :
-                selection;
+            this :
+            selection;
     }
 
     final void deltaClearSelectionAndPushViewportHistoryToken(final AppContext context) {
@@ -127,10 +127,10 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
      */
     final void deltaClearSelection(final AppContext context) {
         context.spreadsheetDeltaFetcher()
-                .clear(
-                        this.id(),
-                        this.anchoredSelection().selection()
-                );
+            .clear(
+                this.id(),
+                this.anchoredSelection().selection()
+            );
 
         pushSelectionHistoryToken(context);
     }
@@ -141,11 +141,11 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
                                                                   final T2 propertyValue2,
                                                                   final AppContext context) {
         this.patchMetadata(
-                propertyName1,
-                propertyValue1,
-                propertyName2,
-                propertyValue2,
-                context
+            propertyName1,
+            propertyValue1,
+            propertyName2,
+            propertyValue2,
+            context
         );
 
         this.pushSelectionHistoryToken(context);
@@ -157,26 +157,26 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
                                       final T2 propertyValue2,
                                       final AppContext context) {
         context.spreadsheetMetadataFetcher()
-                .patchMetadata(
-                        this.id(),
-                        SpreadsheetMetadata.EMPTY
-                                .set(
-                                        propertyName1,
-                                        propertyValue1
-                                ).set(
-                                        propertyName2,
-                                        propertyValue2
-                                )
-                );
+            .patchMetadata(
+                this.id(),
+                SpreadsheetMetadata.EMPTY
+                    .set(
+                        propertyName1,
+                        propertyValue1
+                    ).set(
+                        propertyName2,
+                        propertyValue2
+                    )
+            );
     }
 
     final <T> void patchMetadataAndPushSelectionHistoryToken(final SpreadsheetMetadataPropertyName<T> propertyName,
                                                              final T propertyValue,
                                                              final AppContext context) {
         this.patchMetadata(
-                propertyName,
-                propertyValue,
-                context
+            propertyName,
+            propertyValue,
+            context
         );
 
         this.pushSelectionHistoryToken(context);
@@ -187,15 +187,15 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
                                  final AppContext context) {
         // POST metadata with frozen row=row range = null
         context.spreadsheetMetadataFetcher()
-                .patchMetadata(
-                        this.id(),
-                        propertyName,
-                        propertyValue
-                );
+            .patchMetadata(
+                this.id(),
+                propertyName,
+                propertyValue
+            );
     }
 
     final void pushSelectionHistoryToken(final AppContext context) {
         this.anchoredSelectionHistoryTokenOrEmpty()
-                .ifPresent(context::pushHistoryToken);
+            .ifPresent(context::pushHistoryToken);
     }
 }

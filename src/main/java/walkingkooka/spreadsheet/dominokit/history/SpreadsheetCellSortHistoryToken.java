@@ -31,9 +31,9 @@ public abstract class SpreadsheetCellSortHistoryToken extends SpreadsheetCellHis
                                     final SpreadsheetName name,
                                     final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -47,18 +47,18 @@ public abstract class SpreadsheetCellSortHistoryToken extends SpreadsheetCellHis
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cell(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
+            this.id(),
+            this.name(),
+            this.anchoredSelection()
         );
     }
 
     @Override final HistoryToken save0(final String value) {
         return HistoryToken.cellSortSave(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
+            this.id(),
+            this.name(),
+            this.anchoredSelection(),
+            SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
         );
     }
 }

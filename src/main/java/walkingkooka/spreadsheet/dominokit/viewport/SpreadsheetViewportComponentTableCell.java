@@ -54,68 +54,68 @@ abstract class SpreadsheetViewportComponentTableCell {
                       final Length<?> width,
                       final Length<?> height) {
         return style.setValues(
-                Maps.of(
-                        TextStylePropertyName.MIN_WIDTH,
-                        width,
-                        TextStylePropertyName.WIDTH,
-                        width,
-                        TextStylePropertyName.MIN_HEIGHT,
-                        height,
-                        TextStylePropertyName.HEIGHT,
-                        height
-                )
+            Maps.of(
+                TextStylePropertyName.MIN_WIDTH,
+                width,
+                TextStylePropertyName.WIDTH,
+                width,
+                TextStylePropertyName.MIN_HEIGHT,
+                height,
+                TextStylePropertyName.HEIGHT,
+                height
+            )
         ).text() + "box-sizing: border-box;";
     }
 
     private final static TextStyle STYLE = TextStyle.EMPTY
-            .set(
-                    TextStylePropertyName.MARGIN,
-                    Length.none()
-            ).setBorder(
-                    BORDER_COLOR,
-                    BORDER_STYLE,
-                    BORDER_LENGTH
+        .set(
+            TextStylePropertyName.MARGIN,
+            Length.none()
+        ).setBorder(
+            BORDER_COLOR,
+            BORDER_STYLE,
+            BORDER_LENGTH
 
-            ).set(
-                    TextStylePropertyName.PADDING,
-                    Length.none()
-            ).set(
-                    TextStylePropertyName.FONT_SIZE,
-                    FontSize.with(11)
-            ).set(
-                    TextStylePropertyName.FONT_STYLE,
-                    FontStyle.NORMAL
-            ).set(
-                    TextStylePropertyName.FONT_WEIGHT,
-                    FontWeight.NORMAL
-            ).set(
-                    TextStylePropertyName.FONT_VARIANT,
-                    FontVariant.NORMAL
-            ).set(
-                    TextStylePropertyName.HYPHENS,
-                    Hyphens.NONE
-            ).set(
-                    TextStylePropertyName.WORD_BREAK,
-                    WordBreak.NORMAL
-            );
+        ).set(
+            TextStylePropertyName.PADDING,
+            Length.none()
+        ).set(
+            TextStylePropertyName.FONT_SIZE,
+            FontSize.with(11)
+        ).set(
+            TextStylePropertyName.FONT_STYLE,
+            FontStyle.NORMAL
+        ).set(
+            TextStylePropertyName.FONT_WEIGHT,
+            FontWeight.NORMAL
+        ).set(
+            TextStylePropertyName.FONT_VARIANT,
+            FontVariant.NORMAL
+        ).set(
+            TextStylePropertyName.HYPHENS,
+            Hyphens.NONE
+        ).set(
+            TextStylePropertyName.WORD_BREAK,
+            WordBreak.NORMAL
+        );
 
     final static TextStyle CELL_STYLE = STYLE
-            .set(
-                    TextStylePropertyName.TEXT_ALIGN,
-                    TextAlign.LEFT
-            ).set(
-                    TextStylePropertyName.VERTICAL_ALIGN,
-                    VerticalAlign.TOP
-            );
+        .set(
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.LEFT
+        ).set(
+            TextStylePropertyName.VERTICAL_ALIGN,
+            VerticalAlign.TOP
+        );
 
     final static TextStyle HEADER_STYLE = STYLE
-            .set(
-                    TextStylePropertyName.TEXT_ALIGN,
-                    TextAlign.CENTER
-            ).set(
-                    TextStylePropertyName.VERTICAL_ALIGN,
-                    VerticalAlign.MIDDLE
-            );
+        .set(
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.CENTER
+        ).set(
+            TextStylePropertyName.VERTICAL_ALIGN,
+            VerticalAlign.MIDDLE
+        );
 
     abstract void setIdAndName(final SpreadsheetId id,
                                final SpreadsheetName name);

@@ -29,80 +29,80 @@ public final class SpreadsheetCellClipboardCutHistoryTokenTest extends Spreadshe
     @Test
     public void testParseUnknownKind() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/cut/?unknown",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/cut/?unknown",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseCell() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/cut/cell",
-                this.createHistoryToken()
+            "/123/SpreadsheetName456/cell/A1/cut/cell",
+            this.createHistoryToken()
         );
     }
 
     @Test
     public void testParseCell2() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1:B2/cut/cell",
-                this.createHistoryToken(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor(),
-                        SpreadsheetCellClipboardKind.CELL
-                )
+            "/123/SpreadsheetName456/cell/A1:B2/cut/cell",
+            this.createHistoryToken(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor(),
+                SpreadsheetCellClipboardKind.CELL
+            )
         );
     }
 
     @Test
     public void testParseFormula() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/cut/formula",
-                this.createHistoryToken(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardKind.FORMULA
-                )
+            "/123/SpreadsheetName456/cell/A1/cut/formula",
+            this.createHistoryToken(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetCellClipboardKind.FORMULA
+            )
         );
     }
 
     @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(),
-                "/123/SpreadsheetName456/cell/A1/cut/cell"
+            this.createHistoryToken(),
+            "/123/SpreadsheetName456/cell/A1/cut/cell"
         );
     }
 
     @Test
     public void testUrlFragmentFormula() {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardKind.FORMULA
-                ),
-                "/123/SpreadsheetName456/cell/A1/cut/formula"
+            this.createHistoryToken(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetCellClipboardKind.FORMULA
+            ),
+            "/123/SpreadsheetName456/cell/A1/cut/formula"
         );
     }
 
     @Test
     public void testUrlFragmentFormatter() {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardKind.FORMATTER
-                ),
-                "/123/SpreadsheetName456/cell/A1/cut/formatter"
+            this.createHistoryToken(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetCellClipboardKind.FORMATTER
+            ),
+            "/123/SpreadsheetName456/cell/A1/cut/formatter"
         );
     }
 
@@ -112,10 +112,10 @@ public final class SpreadsheetCellClipboardCutHistoryTokenTest extends Spreadshe
                                                                final AnchoredSpreadsheetSelection anchoredSelection,
                                                                final SpreadsheetCellClipboardKind kind) {
         return SpreadsheetCellClipboardCutHistoryToken.with(
-                id,
-                name,
-                anchoredSelection,
-                kind
+            id,
+            name,
+            anchoredSelection,
+            kind
         );
     }
 

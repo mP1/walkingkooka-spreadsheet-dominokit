@@ -34,18 +34,18 @@ import java.util.Optional;
  * An anchor that uses given {@link PluginName} and {@link JarEntryInfoName} to set the HREF to download the plugin archive or a file within.
  */
 public final class PluginDownloadAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, PluginDownloadAnchorComponent>,
-        AnchorComponentLikeDelegator<PluginDownloadAnchorComponent> {
+    AnchorComponentLikeDelegator<PluginDownloadAnchorComponent> {
 
     public static PluginDownloadAnchorComponent empty(final String id) {
         return new PluginDownloadAnchorComponent()
-                .setId(id);
+            .setId(id);
     }
 
     private PluginDownloadAnchorComponent() {
         this.component = ValueHistoryTokenAnchorComponent.with(
-                HistoryTokenAnchorComponent.empty(),
-                this::getter,
-                this::setter
+            HistoryTokenAnchorComponent.empty(),
+            this::getter,
+            this::setter
         );
     }
 
@@ -56,24 +56,24 @@ public final class PluginDownloadAnchorComponent implements HtmlElementComponent
         final RelativeUrl url = (RelativeUrl) anchor.href();
 
         return Optional.ofNullable(
-                null != url ?
-                        null :
-                        PluginDownload.extract(
-                                url.path()
-                        )
+            null != url ?
+                null :
+                PluginDownload.extract(
+                    url.path()
+                )
         );
     }
 
     private void setter(final Optional<PluginDownload> value,
                         final HistoryTokenAnchorComponent anchor) {
-            anchor.setHref(
-                    value.map(
-                            pd -> PluginFetcher.pluginDownloadUrl(
-                                    pd.pluginName(),
-                                    pd.filename()
-                            )
-                    ).orElse(null)
-            );
+        anchor.setHref(
+            value.map(
+                pd -> PluginFetcher.pluginDownloadUrl(
+                    pd.pluginName(),
+                    pd.filename()
+                )
+            ).orElse(null)
+        );
     }
 
     // AnchorComponentLikeDelegator......................................................................................

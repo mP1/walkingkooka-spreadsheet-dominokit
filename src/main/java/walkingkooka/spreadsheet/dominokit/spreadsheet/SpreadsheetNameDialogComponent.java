@@ -41,12 +41,12 @@ import java.util.Set;
  * for the selected {@link walkingkooka.spreadsheet.SpreadsheetId}.
  */
 public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        SpreadsheetMetadataFetcherWatcher,
-        NopFetcherWatcher {
+    SpreadsheetMetadataFetcherWatcher,
+    NopFetcherWatcher {
 
     public static SpreadsheetNameDialogComponent with(final SpreadsheetNameDialogComponentContext context) {
         return new SpreadsheetNameDialogComponent(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -76,17 +76,17 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
      */
     private SpreadsheetDialogComponent dialogCreate() {
         return SpreadsheetDialogComponent.with(
-                        ID + SpreadsheetElementIds.DIALOG,
-                        "Spreadsheet Name",
-                        true, // includeClose
-                        this.context
-                ).appendChild(this.name)
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(this.save)
-                                .appendChild(this.undo)
-                                .appendChild(this.close)
-                );
+                ID + SpreadsheetElementIds.DIALOG,
+                "Spreadsheet Name",
+                true, // includeClose
+                this.context
+            ).appendChild(this.name)
+            .appendChild(
+                SpreadsheetFlexLayout.row()
+                    .appendChild(this.save)
+                    .appendChild(this.undo)
+                    .appendChild(this.close)
+            );
     }
 
     @Override public SpreadsheetDialogComponent dialog() {
@@ -110,17 +110,17 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetNameComponent name() {
         return SpreadsheetNameComponent.empty()
-                .setId(ID_PREFIX + "TextBox") // SpreadsheetElementIds.TEXT_BOX
-                .addKeyupListener(
-                        (e) -> this.onNameChange(this.name.value())
-                ).addChangeListener(
-                        (oldValue, newValue) -> this.onNameChange(newValue)
-                );
+            .setId(ID_PREFIX + "TextBox") // SpreadsheetElementIds.TEXT_BOX
+            .addKeyupListener(
+                (e) -> this.onNameChange(this.name.value())
+            ).addChangeListener(
+                (oldValue, newValue) -> this.onNameChange(newValue)
+            );
     }
 
     private void onNameChange(final Optional<SpreadsheetName> name) {
         this.refreshSave(
-                name.map(SpreadsheetName::value).orElse(null)
+            name.map(SpreadsheetName::value).orElse(null)
         );
     }
 
@@ -128,7 +128,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
         if (name.isPresent()) {
             this.name.setValue(name);
             this.lastSave = name.map(SpreadsheetName::value)
-                    .orElse(null);
+                .orElse(null);
         }
     }
 
@@ -189,8 +189,8 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
 
         if (name.isPresent()) {
             this.refreshSave(
-                    name.get()
-                            .value()
+                name.get()
+                    .value()
             );
         }
 
@@ -201,21 +201,21 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
 
     private void refreshClose() {
         this.close.setHistoryToken(
-                Optional.of(
-                        this.context.historyToken()
-                                .close()
-                )
+            Optional.of(
+                this.context.historyToken()
+                    .close()
+            )
         );
     }
 
     private void refreshSave(final String name) {
         this.save.setHistoryToken(
-                Optional.ofNullable(
-                        CharSequences.isNullOrEmpty(name) ?
-                                null :
-                                this.context.historyToken()
-                                        .save(name)
-                )
+            Optional.ofNullable(
+                CharSequences.isNullOrEmpty(name) ?
+                    null :
+                    this.context.historyToken()
+                        .save(name)
+            )
         );
     }
 
@@ -223,12 +223,12 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
         final String lastSave = this.lastSave;
 
         this.undo.setHistoryToken(
-                Optional.ofNullable(
-                        CharSequences.isNullOrEmpty(lastSave) ?
-                                null :
-                                this.context.historyToken()
-                                        .save(lastSave)
-                )
+            Optional.ofNullable(
+                CharSequences.isNullOrEmpty(lastSave) ?
+                    null :
+                    this.context.historyToken()
+                        .save(lastSave)
+            )
         );
     }
 
@@ -248,10 +248,10 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
                                       final AppContext context) {
         if (this.isOpen()) {
             if (Objects.equals(
-                    metadata.id().orElse(null),
-                    this.spreadsheetId)) {
+                metadata.id().orElse(null),
+                this.spreadsheetId)) {
                 this.setName(
-                        metadata.name()
+                    metadata.name()
                 );
             }
         } else {

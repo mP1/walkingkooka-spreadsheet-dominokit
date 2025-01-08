@@ -43,10 +43,10 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
                                                           final AnchoredSpreadsheetSelection anchoredSelection,
                                                           final OptionalInt count) {
         return new SpreadsheetColumnInsertBeforeHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                count
+            id,
+            name,
+            anchoredSelection,
+            count
         );
     }
 
@@ -55,17 +55,17 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final OptionalInt count) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                count
+            id,
+            name,
+            anchoredSelection,
+            count
         );
     }
 
     @Override
     UrlFragment columnUrlFragment() {
         return INSERT_BEFORE.appendSlashThen(
-                this.countUrlFragment()
+            this.countUrlFragment()
         );
     }
 
@@ -74,11 +74,11 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         ).insertBefore(
-                this.count()
+            this.count()
         );
     }
 
@@ -88,9 +88,9 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
         final OptionalInt count = this.count();
         if (count.isPresent()) {
             this.callServer(
-                    count.getAsInt(),
-                    previous,
-                    context
+                count.getAsInt(),
+                previous,
+                context
             );
         }
     }
@@ -102,22 +102,22 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
         context.spreadsheetDeltaFetcher()
-                .insertBeforeColumn(
-                        this.id(),
-                        selection,
-                        count
-                );
+            .insertBeforeColumn(
+                this.id(),
+                selection,
+                count
+            );
         context.pushHistoryToken(
-                previous.setAnchoredSelection(
-                                previous.anchoredSelectionOrEmpty()
-                                        .map(
-                                                a -> a.selection()
-                                                        .addSaturated(
-                                                                count,
-                                                                0
-                                                        ).setAnchor(a.anchor())
-                                        )
-                        )
+            previous.setAnchoredSelection(
+                previous.anchoredSelectionOrEmpty()
+                    .map(
+                        a -> a.selection()
+                            .addSaturated(
+                                count,
+                                0
+                            ).setAnchor(a.anchor())
+                    )
+            )
         );
     }
 }

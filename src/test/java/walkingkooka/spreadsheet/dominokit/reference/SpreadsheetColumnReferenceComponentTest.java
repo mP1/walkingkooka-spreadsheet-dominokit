@@ -30,34 +30,34 @@ public final class SpreadsheetColumnReferenceComponentTest implements ValueCompo
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetColumnReferenceComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "AB"
-                                )
-                        ),
-                "SpreadsheetColumnReferenceComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [AB]\n"
+            SpreadsheetColumnReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "AB"
+                    )
+                ),
+            "SpreadsheetColumnReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [AB]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetColumnReferenceComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "Invalid123!"
-                                )
-                        ),
-                "SpreadsheetColumnReferenceComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Invalid123!]\n" +
-                        "      Errors\n" +
-                        "        Invalid column \"Invalid\" not between \"A\" and \"XFE\"\n"
+            SpreadsheetColumnReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "Invalid123!"
+                    )
+                ),
+            "SpreadsheetColumnReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Invalid123!]\n" +
+                "      Errors\n" +
+                "        Invalid column \"Invalid\" not between \"A\" and \"XFE\"\n"
         );
     }
 

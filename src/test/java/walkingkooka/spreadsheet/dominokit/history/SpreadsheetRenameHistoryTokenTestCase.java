@@ -31,27 +31,27 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
         final T token = this.createHistoryToken();
 
         this.setAnchoredSelectionAndCheck(
-                token,
-                token
+            token,
+            token
         );
     }
 
     @Test
     public final void testSetMetadataPropertyName() {
         this.setMetadataPropertyNameAndCheck(
-                SpreadsheetMetadataPropertyName.LOCALE,
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.LOCALE
-                )
+            SpreadsheetMetadataPropertyName.LOCALE,
+            HistoryToken.metadataPropertySelect(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.LOCALE
+            )
         );
     }
 
     @Test
     public final void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 }

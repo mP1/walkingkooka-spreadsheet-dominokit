@@ -32,42 +32,42 @@ public final class SpreadsheetImporterAliasSetComponentTest implements ValueComp
         final SpreadsheetImporterAliasSet alias = SpreadsheetImporterAliasSet.parse("alias1 plugin1, plugin2");
 
         this.checkEquals(
-                alias,
-                SpreadsheetImporterAliasSet.parse(alias.text())
+            alias,
+            SpreadsheetImporterAliasSet.parse(alias.text())
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetImporterAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "alias1 importer1, importer2"
-                                )
-                        ),
-                "SpreadsheetImporterAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [alias1 importer1, importer2]\n"
+            SpreadsheetImporterAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "alias1 importer1, importer2"
+                    )
+                ),
+            "SpreadsheetImporterAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [alias1 importer1, importer2]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetImporterAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "alias1 importer1, 9"
-                                )
-                        ),
-                "SpreadsheetImporterAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [alias1 importer1, 9]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '9' at 18\n"
+            SpreadsheetImporterAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "alias1 importer1, 9"
+                    )
+                ),
+            "SpreadsheetImporterAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [alias1 importer1, 9]\n" +
+                "      Errors\n" +
+                "        Invalid character '9' at 18\n"
         );
     }
 

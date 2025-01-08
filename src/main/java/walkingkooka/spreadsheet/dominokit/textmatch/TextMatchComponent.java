@@ -39,8 +39,8 @@ public final class TextMatchComponent implements ValueSpreadsheetTextBoxWrapper<
 
     private TextMatchComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                TextMatch::parse,
-                Object::toString
+            TextMatch::parse,
+            Object::toString
         );
     }
     // ValueSpreadsheetTextBoxWrapper..................................................................................

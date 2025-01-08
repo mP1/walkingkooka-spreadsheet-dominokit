@@ -28,13 +28,13 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import java.util.Objects;
 
 public final class AppContextPluginUploadDialogComponentContext implements PluginUploadDialogComponentContext,
-        HasPluginFetcherWatchersDelegator,
-        HistoryTokenContextDelegator,
-        LoggingContextDelegator {
+    HasPluginFetcherWatchersDelegator,
+    HistoryTokenContextDelegator,
+    LoggingContextDelegator {
 
     public static AppContextPluginUploadDialogComponentContext with(final AppContext context) {
         return new AppContextPluginUploadDialogComponentContext(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 

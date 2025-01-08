@@ -36,12 +36,12 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
                                                                           final String body,
                                                                           final AppContext context) {
         return new FailureFetcherWatchersEvent<>(
-                method,
-                url,
-                status,
-                headers,
-                body,
-                context
+            method,
+            url,
+            status,
+            headers,
+            body,
+            context
         );
     }
 
@@ -56,19 +56,19 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
         this.method = method;
         this.url = url;
         this.status = status;
-        this.headers =headers;
+        this.headers = headers;
         this.body = body;
     }
 
     @Override
     void fire(final W watcher) {
         watcher.onFailure(
-                this.method,
-                this.url,
-                this.status,
-                this.headers,
-                this.body,
-                this.context
+            this.method,
+            this.url,
+            this.status,
+            this.headers,
+            this.body,
+            this.context
         );
     }
 

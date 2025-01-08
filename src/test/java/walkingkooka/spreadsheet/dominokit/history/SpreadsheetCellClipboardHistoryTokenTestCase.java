@@ -37,13 +37,13 @@ public abstract class SpreadsheetCellClipboardHistoryTokenTestCase<T extends Spr
     @Test
     public final void testWithNullKindFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        null
-                )
+            NullPointerException.class,
+            () -> this.createHistoryToken(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                null
+            )
         );
     }
 
@@ -52,10 +52,10 @@ public abstract class SpreadsheetCellClipboardHistoryTokenTestCase<T extends Spr
                                final SpreadsheetName name,
                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return this.createHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                KIND
+            id,
+            name,
+            anchoredSelection,
+            KIND
         );
     }
 

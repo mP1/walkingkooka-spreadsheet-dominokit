@@ -21,7 +21,7 @@ import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 
 public class FakeSpreadsheetFormatterTableComponentContext extends FakeHistoryTokenContext
-        implements SpreadsheetFormatterTableComponentContext {
+    implements SpreadsheetFormatterTableComponentContext {
     @Override
     public String formatterTableHistoryTokenSave(final SpreadsheetFormatterSelector selector) {
         throw new UnsupportedOperationException();

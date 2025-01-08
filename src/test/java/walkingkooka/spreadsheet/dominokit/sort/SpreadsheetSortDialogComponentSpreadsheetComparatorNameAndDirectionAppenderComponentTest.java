@@ -46,31 +46,31 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     @Test
     public void testCellMissingColumnOrRow() {
         this.refreshAndCheck(
-                0, // index within namesList
-                "", // columnOrRow
-                "", // namesList
-                "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
-                ""
+            0, // index within namesList
+            "", // columnOrRow
+            "", // namesList
+            "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
+            ""
         );
     }
 
     @Test
     public void testCell2() {
         this.refreshAndCheck(
-                0, // index within namesList
-                "A", // columnOrRow
-                "", // namesList
-                "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
-                (names) -> HistoryToken.parseString("/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text," + names),
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Append comparator(s)\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text,A=comparator-1] id=sort-comparator-0-append-0-Link\n" +
-                        "            \"comparator-2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text,A=comparator-2] id=sort-comparator-0-append-1-Link\n" +
-                        "            \"comparator-3\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text,A=comparator-3] id=sort-comparator-0-append-2-Link\n"
+            0, // index within namesList
+            "A", // columnOrRow
+            "", // namesList
+            "/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/", // historyToken
+            (names) -> HistoryToken.parseString("/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text," + names),
+            "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Append comparator(s)\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"comparator-1\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text,A=comparator-1] id=sort-comparator-0-append-0-Link\n" +
+                "            \"comparator-2\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text,A=comparator-2] id=sort-comparator-0-append-1-Link\n" +
+                "            \"comparator-3\" [#/1/spreadsheetName23/cell/A1:B2/bottom-right/sort/edit/B=text,A=comparator-3] id=sort-comparator-0-append-2-Link\n"
         );
     }
 
@@ -79,18 +79,18 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     @Test
     public void testColumn() {
         this.refreshAndCheck(
-                1, // index within namesList
-                "C", // columnOrRow
-                "comparator-3", // namesList
-                "/1/spreadsheetName23/column/B:C/right/sort/edit/", // historyToken
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Append comparator(s)\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"comparator-1\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/C=comparator-3,comparator-1] id=sort-comparator-1-append-0-Link\n" +
-                        "            \"comparator-2\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/C=comparator-3,comparator-2] id=sort-comparator-1-append-1-Link\n"
+            1, // index within namesList
+            "C", // columnOrRow
+            "comparator-3", // namesList
+            "/1/spreadsheetName23/column/B:C/right/sort/edit/", // historyToken
+            "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Append comparator(s)\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"comparator-1\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/C=comparator-3,comparator-1] id=sort-comparator-1-append-0-Link\n" +
+                "            \"comparator-2\" [#/1/spreadsheetName23/column/B:C/right/sort/edit/C=comparator-3,comparator-2] id=sort-comparator-1-append-1-Link\n"
         );
     }
 
@@ -99,18 +99,18 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
     @Test
     public void testRow() {
         this.refreshAndCheck(
-                1, // index within namesList
-                "3", // columnOrRow
-                "comparator-3", // namesList
-                "/1/spreadsheetName23/row/2:3/bottom/sort/edit/", // historyToken
-                "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Append comparator(s)\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"comparator-1\" [#/1/spreadsheetName23/row/2:3/bottom/sort/edit/3=comparator-3,comparator-1] id=sort-comparator-1-append-0-Link\n" +
-                        "            \"comparator-2\" [#/1/spreadsheetName23/row/2:3/bottom/sort/edit/3=comparator-3,comparator-2] id=sort-comparator-1-append-1-Link\n"
+            1, // index within namesList
+            "3", // columnOrRow
+            "comparator-3", // namesList
+            "/1/spreadsheetName23/row/2:3/bottom/sort/edit/", // historyToken
+            "SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Append comparator(s)\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"comparator-1\" [#/1/spreadsheetName23/row/2:3/bottom/sort/edit/3=comparator-3,comparator-1] id=sort-comparator-1-append-0-Link\n" +
+                "            \"comparator-2\" [#/1/spreadsheetName23/row/2:3/bottom/sort/edit/3=comparator-3,comparator-2] id=sort-comparator-1-append-1-Link\n"
         );
     }
 
@@ -122,12 +122,12 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                                  final String historyToken,
                                  final String expected) {
         this.refreshAndCheck(
-                index,
-                columnOrRow,
-                setter,
-                historyToken,
-                (names) -> HistoryToken.parseString(historyToken + names),
-                expected
+            index,
+            columnOrRow,
+            setter,
+            historyToken,
+            (names) -> HistoryToken.parseString(historyToken + names),
+            expected
         );
     }
 
@@ -138,46 +138,46 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                                  final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> columnOrRowSpreadsheetComparatorNamesToHistoryToken,
                                  final String expected) {
         this.refreshAndCheck(
-                index,
-                columnOrRow.isEmpty() ?
-                        Optional.empty() :
-                        Optional.of(
-                                SpreadsheetSelection.parseColumnOrRow(columnOrRow)
-                        ),
-                setter.isEmpty() ?
-                        Lists.empty() :
-                        Arrays.stream(setter.split(","))
-                                .map(SpreadsheetComparatorNameAndDirection::parse)
-                                .collect(Collectors.toList()),
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken,
-                new FakeSpreadsheetSortDialogComponentContext() {
+            index,
+            columnOrRow.isEmpty() ?
+                Optional.empty() :
+                Optional.of(
+                    SpreadsheetSelection.parseColumnOrRow(columnOrRow)
+                ),
+            setter.isEmpty() ?
+                Lists.empty() :
+                Arrays.stream(setter.split(","))
+                    .map(SpreadsheetComparatorNameAndDirection::parse)
+                    .collect(Collectors.toList()),
+            columnOrRowSpreadsheetComparatorNamesToHistoryToken,
+            new FakeSpreadsheetSortDialogComponentContext() {
 
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString(historyToken);
-                    }
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.parseString(historyToken);
+                }
 
-                    @Override
-                    public SpreadsheetComparatorInfoSet spreadsheetComparatorInfos() {
-                        return SpreadsheetComparatorInfoSet.with(
-                                Sets.of(
-                                        SpreadsheetComparatorInfo.with(
-                                                Url.parseAbsolute("https://example.com/comparator-1"),
-                                                SpreadsheetComparatorName.with("comparator-1")
-                                        ),
-                                        SpreadsheetComparatorInfo.with(
-                                                Url.parseAbsolute("https://example.com/comparator-2"),
-                                                SpreadsheetComparatorName.with("comparator-2")
-                                        ),
-                                        SpreadsheetComparatorInfo.with(
-                                                Url.parseAbsolute("https://example.com/comparator-3"),
-                                                SpreadsheetComparatorName.with("comparator-3")
-                                        )
-                                )
-                        );
-                    }
-                },
-                expected
+                @Override
+                public SpreadsheetComparatorInfoSet spreadsheetComparatorInfos() {
+                    return SpreadsheetComparatorInfoSet.with(
+                        Sets.of(
+                            SpreadsheetComparatorInfo.with(
+                                Url.parseAbsolute("https://example.com/comparator-1"),
+                                SpreadsheetComparatorName.with("comparator-1")
+                            ),
+                            SpreadsheetComparatorInfo.with(
+                                Url.parseAbsolute("https://example.com/comparator-2"),
+                                SpreadsheetComparatorName.with("comparator-2")
+                            ),
+                            SpreadsheetComparatorInfo.with(
+                                Url.parseAbsolute("https://example.com/comparator-3"),
+                                SpreadsheetComparatorName.with("comparator-3")
+                            )
+                        )
+                    );
+                }
+            },
+            expected
         );
     }
 
@@ -188,19 +188,19 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
                                  final SpreadsheetSortDialogComponentContext context,
                                  final String expected) {
         final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent.empty(
-                "sort-comparator-" + index + "-",
-                columnOrRowSpreadsheetComparatorNamesToHistoryToken
+            "sort-comparator-" + index + "-",
+            columnOrRowSpreadsheetComparatorNamesToHistoryToken
         );
 
         appender.refresh(
-                columnOrRow,
-                setter,
-                context
+            columnOrRow,
+            setter,
+            context
         );
 
         this.treePrintAndCheck(
-                appender,
-                expected
+            appender,
+            expected
         );
     }
 

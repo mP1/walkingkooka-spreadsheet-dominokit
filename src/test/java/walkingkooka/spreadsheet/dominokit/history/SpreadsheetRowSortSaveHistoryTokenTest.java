@@ -31,66 +31,66 @@ public final class SpreadsheetRowSortSaveHistoryTokenTest extends SpreadsheetRow
     @Test
     public void testWithNullComparatorNamesFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetRowSortSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        null
-                )
+            NullPointerException.class,
+            () -> SpreadsheetRowSortSaveHistoryToken.with(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                null
+            )
         );
     }
 
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(),
-                "/123/SpreadsheetName456/row/1/sort/save/" + COMPARATOR_NAMES_LIST_STRING
+            this.createHistoryToken(),
+            "/123/SpreadsheetName456/row/1/sort/save/" + COMPARATOR_NAMES_LIST_STRING
         );
     }
 
     @Test
     public void testParseInvalidComparator() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/row/1/sort/save/!invalid",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/1/sort/save/!invalid",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseInvalidComparatorRow() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/row/1/sort/save/99=text",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/1/sort/save/99=text",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParse2() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/row/1/sort/save/" + COMPARATOR_NAMES_LIST_STRING,
-                this.createHistoryToken()
+            "/123/SpreadsheetName456/row/1/sort/save/" + COMPARATOR_NAMES_LIST_STRING,
+            this.createHistoryToken()
         );
     }
 
     @Test
     public void testParseRowRange() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/row/1:3/bottom/sort/save/" + COMPARATOR_NAMES_LIST_STRING2,
-                SpreadsheetRowSortSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseRowRange("1:3").setDefaultAnchor(),
-                        COMPARATOR_NAMES_LIST2
-                )
+            "/123/SpreadsheetName456/row/1:3/bottom/sort/save/" + COMPARATOR_NAMES_LIST_STRING2,
+            SpreadsheetRowSortSaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRowRange("1:3").setDefaultAnchor(),
+                COMPARATOR_NAMES_LIST2
+            )
         );
     }
 
@@ -99,14 +99,14 @@ public final class SpreadsheetRowSortSaveHistoryTokenTest extends SpreadsheetRow
         final String saveText = "A=text";
 
         this.saveAndCheck(
-                this.createHistoryToken(),
-                saveText,
-                SpreadsheetRowSortSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(saveText)
-                )
+            this.createHistoryToken(),
+            saveText,
+            SpreadsheetRowSortSaveHistoryToken.with(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(saveText)
+            )
         );
     }
 
@@ -115,10 +115,10 @@ public final class SpreadsheetRowSortSaveHistoryTokenTest extends SpreadsheetRow
                                                           final SpreadsheetName name,
                                                           final AnchoredSpreadsheetSelection anchoredSelection) {
         return this.createHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                COMPARATOR_NAMES_LIST
+            id,
+            name,
+            anchoredSelection,
+            COMPARATOR_NAMES_LIST
         );
     }
 
@@ -127,10 +127,10 @@ public final class SpreadsheetRowSortSaveHistoryTokenTest extends SpreadsheetRow
                                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                                   final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         return SpreadsheetRowSortSaveHistoryToken.with(
-                id,
-                name,
-                anchoredSelection,
-                comparatorNames
+            id,
+            name,
+            anchoredSelection,
+            comparatorNames
         );
     }
 

@@ -32,13 +32,13 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdi
  * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetFormatterSelectorDialogComponent} provided various inputs.
  */
 public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanGiveFocus,
-        ComponentLifecycleMatcher,
-        HasSpreadsheetFormatterFetcherWatchers,
-        SpreadsheetDialogComponentContext,
-        SpreadsheetFormatterProvider,
-        SpreadsheetPatternKindTabsComponentContext,
-        SpreadsheetFormatterSelectorEditContext,
-        SpreadsheetFormatterTableComponentContext {
+    ComponentLifecycleMatcher,
+    HasSpreadsheetFormatterFetcherWatchers,
+    SpreadsheetDialogComponentContext,
+    SpreadsheetFormatterProvider,
+    SpreadsheetPatternKindTabsComponentContext,
+    SpreadsheetFormatterSelectorEditContext,
+    SpreadsheetFormatterTableComponentContext {
 
     /**
      * Logic to provide the dialog title. In some cases the title might not be currently enabled as it is extracted from

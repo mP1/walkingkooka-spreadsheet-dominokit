@@ -50,74 +50,74 @@ public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentT
     @Test
     public void testOptionalValidationPass() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setLabel("Label123")
-                        .optional(),
-                "SpreadsheetSuggestBoxComponent\n" +
-                        "  Label123 []\n"
+            this.createComponent()
+                .setLabel("Label123")
+                .optional(),
+            "SpreadsheetSuggestBoxComponent\n" +
+                "  Label123 []\n"
         );
     }
 
     @Test
     public void testOptionalEmptyValueValidationPass() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setLabel("Label123")
-                        .optional()
-                        .setValue(Optional.empty()),
-                "SpreadsheetSuggestBoxComponent\n" +
-                        "  Label123 []\n"
+            this.createComponent()
+                .setLabel("Label123")
+                .optional()
+                .setValue(Optional.empty()),
+            "SpreadsheetSuggestBoxComponent\n" +
+                "  Label123 []\n"
         );
     }
 
     @Test
     public void testValidationPass() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setLabel("Label123")
-                        .setValue(Optional.of(SpreadsheetSelection.A1)),
-                "SpreadsheetSuggestBoxComponent\n" +
-                        "  Label123 [A1] REQUIRED\n"
+            this.createComponent()
+                .setLabel("Label123")
+                .setValue(Optional.of(SpreadsheetSelection.A1)),
+            "SpreadsheetSuggestBoxComponent\n" +
+                "  Label123 [A1] REQUIRED\n"
         );
     }
 
     @Test
     public void testValidationFailureInvalidCharacterException() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setLabel("Label123")
-                        .setStringValue(Optional.of("Not-a-cell")),
-                "SpreadsheetSuggestBoxComponent\n" +
-                        "  Label123 [] REQUIRED\n" +
-                        "  Errors\n" +
-                        "    Invalid character '-' at 3\n"
+            this.createComponent()
+                .setLabel("Label123")
+                .setStringValue(Optional.of("Not-a-cell")),
+            "SpreadsheetSuggestBoxComponent\n" +
+                "  Label123 [] REQUIRED\n" +
+                "  Errors\n" +
+                "    Invalid character '-' at 3\n"
         );
     }
 
     @Test
     public void testOptionalValidationFailure() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setLabel("Label123")
-                        .optional()
-                        .setStringValue(Optional.of("AAAAA")),
-                "SpreadsheetSuggestBoxComponent\n" +
-                        "  Label123 []\n" +
-                        "  Errors\n" +
-                        "    Invalid column \"AAAAA\" not between \"A\" and \"XFE\"\n"
+            this.createComponent()
+                .setLabel("Label123")
+                .optional()
+                .setStringValue(Optional.of("AAAAA")),
+            "SpreadsheetSuggestBoxComponent\n" +
+                "  Label123 []\n" +
+                "  Errors\n" +
+                "    Invalid column \"AAAAA\" not between \"A\" and \"XFE\"\n"
         );
     }
 
     @Test
     public void testValidationFailure() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setLabel("Label123")
-                        .setStringValue(Optional.of("AAAAA")),
-                "SpreadsheetSuggestBoxComponent\n" +
-                        "  Label123 [] REQUIRED\n" +
-                        "  Errors\n" +
-                        "    Invalid column \"AAAAA\" not between \"A\" and \"XFE\"\n"
+            this.createComponent()
+                .setLabel("Label123")
+                .setStringValue(Optional.of("AAAAA")),
+            "SpreadsheetSuggestBoxComponent\n" +
+                "  Label123 [] REQUIRED\n" +
+                "  Errors\n" +
+                "    Invalid column \"AAAAA\" not between \"A\" and \"XFE\"\n"
         );
     }
 
@@ -126,11 +126,11 @@ public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentT
     @Override
     public SpreadsheetSuggestBoxComponent<SpreadsheetCellReference> createComponent() {
         return SpreadsheetSuggestBoxComponent.with(
-                SpreadsheetSelection::parseCell,
-                SUGGESTIONS_STORE
+            SpreadsheetSelection::parseCell,
+            SUGGESTIONS_STORE
         );
     }
-    
+
     // ClassTesting.....................................................................................................
 
     @Override

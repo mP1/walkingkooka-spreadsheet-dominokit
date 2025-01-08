@@ -46,7 +46,7 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
     static void refresh(final SpreadsheetParserToken query,
                         final SpreadsheetFindDialogComponent wizard) {
         new SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor(wizard)
-                .accept(query);
+            .accept(query);
     }
 
     SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor(final SpreadsheetFindDialogComponent wizard) {
@@ -68,19 +68,19 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
 
     private void tryRefreshTextMatch(final SpreadsheetNamedFunctionParserToken token) {
         final ExpressionFunctionName functionName = token.functionName()
-                .toExpressionFunctionName();
+            .toExpressionFunctionName();
 
         if (SpreadsheetExpressionFunctions.TEXT_MATCH.equals(functionName)) {
             final List<ParserToken> parameters = token.parameters()
-                    .parameters();
+                .parameters();
 
             switch (parameters.size()) {
                 case 2:
                     this.textMatchFunctionParameters(
-                            parameters.get(0)
-                                    .cast(SpreadsheetParserToken.class),
-                            parameters.get(1)
-                                    .cast(SpreadsheetParserToken.class)
+                        parameters.get(0)
+                            .cast(SpreadsheetParserToken.class),
+                        parameters.get(1)
+                            .cast(SpreadsheetParserToken.class)
                     );
                     break;
                 default:
@@ -120,15 +120,15 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
                                              final ExpressionFunctionName functionName,
                                              final TextMatchComponent component) {
         return this.isCellGetterAndTextMatch0(
-                left,
-                right,
-                functionName,
-                component
+            left,
+            right,
+            functionName,
+            component
         ) || this.isCellGetterAndTextMatch0(
-                right,
-                left,
-                functionName,
-                component
+            right,
+            left,
+            functionName,
+            component
         );
     }
 
@@ -142,7 +142,7 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
             final Optional<String> stringLiteral = this.stringLiteral(right);
             if (stringLiteral.isPresent()) {
                 component.setStringValue(
-                        stringLiteral
+                    stringLiteral
                 );
 
                 updated = true;
@@ -157,7 +157,7 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
 
         if (token.isText()) {
             string = token.cast(SpreadsheetTextParserToken.class)
-                    .textValue();
+                .textValue();
         }
 
         return Optional.ofNullable(string);
@@ -198,9 +198,9 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
     private Visiting condition(final SpreadsheetConditionParserToken token) {
         if (this.isCellGetterFunction(token.left(), SpreadsheetExpressionFunctions.CELL_VALUE)) {
             this.wizard.value.setValue(
-                    Optional.of(
-                            token.toSpreadsheetConditionRightParserToken()
-                    )
+                Optional.of(
+                    token.toSpreadsheetConditionRightParserToken()
+                )
             );
         }
         return Visiting.SKIP; // no need to visit child tokens within SpreadsheetConditionParserToken
@@ -216,7 +216,7 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
         if (token.isNamedFunction()) {
             final SpreadsheetNamedFunctionParserToken namedFunction = (SpreadsheetNamedFunctionParserToken) token;
             final ExpressionFunctionName functionName = namedFunction.functionName()
-                    .toExpressionFunctionName();
+                .toExpressionFunctionName();
 
             // callFormula()
             // callFormatter()
@@ -225,7 +225,7 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
             // callFormattedValue()
             if (getter.equals(functionName)) {
                 final List<ParserToken> parameters = namedFunction.parameters()
-                        .parameters();
+                    .parameters();
                 switch (parameters.size()) {
                     case 0:
                         test = true;

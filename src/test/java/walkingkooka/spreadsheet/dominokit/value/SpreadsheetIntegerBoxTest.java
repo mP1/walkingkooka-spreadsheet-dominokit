@@ -28,15 +28,15 @@ public final class SpreadsheetIntegerBoxTest implements ValueComponentTesting<HT
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                SpreadsheetIntegerBox.empty()
-                        .setId("id123")
-                        .setValue(
-                                Optional.of(
-                                        123
-                                )
-                        ),
-                "SpreadsheetIntegerBox\n" +
-                        "  [123] id=id123\n"
+            SpreadsheetIntegerBox.empty()
+                .setId("id123")
+                .setValue(
+                    Optional.of(
+                        123
+                    )
+                ),
+            "SpreadsheetIntegerBox\n" +
+                "  [123] id=id123\n"
         );
     }
 

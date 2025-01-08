@@ -29,23 +29,23 @@ public final class SpreadsheetColumnSelectHistoryTokenTest extends SpreadsheetCo
     @Test
     public void testUrlFragmentColumn() {
         this.urlFragmentAndCheck(
-                COLUMN,
-                "/123/SpreadsheetName456/column/A");
+            COLUMN,
+            "/123/SpreadsheetName456/column/A");
     }
 
     @Test
     public void testUrlFragmentColumnRange() {
         this.urlFragmentAndCheck(
-                COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT),
-                "/123/SpreadsheetName456/column/B:C/right"
+            COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT),
+            "/123/SpreadsheetName456/column/B:C/right"
         );
     }
 
     @Test
     public void testUrlFragmentColumnRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_COLUMNS.setAnchor(SpreadsheetViewportAnchor.RIGHT),
-                "/123/SpreadsheetName456/column/*/right"
+            SpreadsheetSelection.ALL_COLUMNS.setAnchor(SpreadsheetViewportAnchor.RIGHT),
+            "/123/SpreadsheetName456/column/*/right"
         );
     }
 
@@ -54,16 +54,16 @@ public final class SpreadsheetColumnSelectHistoryTokenTest extends SpreadsheetCo
     @Test
     public void testFreezeOrEmptyColumnInvalid() {
         this.freezeOrEmptyAndCheck(
-                SpreadsheetSelection.parseColumn("B")
-                        .setDefaultAnchor()
+            SpreadsheetSelection.parseColumn("B")
+                .setDefaultAnchor()
         );
     }
 
     @Test
     public void testFreezeOrEmptyColumnRangeInvalid() {
         this.freezeOrEmptyAndCheck(
-                SpreadsheetSelection.parseColumnRange("C:D")
-                        .setAnchor(SpreadsheetViewportAnchor.RIGHT)
+            SpreadsheetSelection.parseColumnRange("C:D")
+                .setAnchor(SpreadsheetViewportAnchor.RIGHT)
         );
     }
 
@@ -72,16 +72,16 @@ public final class SpreadsheetColumnSelectHistoryTokenTest extends SpreadsheetCo
     @Test
     public void testUnfreezeOrEmptyColumnInvalid() {
         this.unfreezeOrEmptyAndCheck(
-                SpreadsheetSelection.parseColumn("B")
-                        .setDefaultAnchor()
+            SpreadsheetSelection.parseColumn("B")
+                .setDefaultAnchor()
         );
     }
 
     @Test
     public void testUnfreezeOrEmptyColumnRangeInvalid() {
         this.unfreezeOrEmptyAndCheck(
-                SpreadsheetSelection.parseColumnRange("C:D")
-                        .setAnchor(SpreadsheetViewportAnchor.RIGHT)
+            SpreadsheetSelection.parseColumnRange("C:D")
+                .setAnchor(SpreadsheetViewportAnchor.RIGHT)
         );
     }
 
@@ -90,9 +90,9 @@ public final class SpreadsheetColumnSelectHistoryTokenTest extends SpreadsheetCo
                                                            final SpreadsheetName name,
                                                            final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetColumnSelectHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 import java.util.Locale;
 
 public class FakeSpreadsheetListDialogComponentContext extends FakeHistoryTokenContext
-        implements SpreadsheetListDialogComponentContext {
+    implements SpreadsheetListDialogComponentContext {
 
     @Override
     public Locale locale() {

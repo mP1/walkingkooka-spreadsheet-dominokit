@@ -30,9 +30,9 @@ final class SpreadsheetParserFetcherWatchersEvent extends FetcherWatchersEvent<S
                                                       final SpreadsheetParserSelectorEdit edit,
                                                       final AppContext context) {
         return new SpreadsheetParserFetcherWatchersEvent(
-                id,
-                edit,
-                context
+            id,
+            edit,
+            context
         );
     }
 
@@ -47,9 +47,9 @@ final class SpreadsheetParserFetcherWatchersEvent extends FetcherWatchersEvent<S
     @Override
     void fire(final SpreadsheetParserFetcherWatcher watcher) {
         watcher.onSpreadsheetParserSelectorEdit(
-                this.id,
-                this.edit,
-                this.context
+            this.id,
+            this.edit,
+            this.context
         );
     }
 

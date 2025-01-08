@@ -43,25 +43,25 @@ import java.util.function.Predicate;
  * A component that contains a card filled with links of {@link PluginAliasLike}.
  */
 public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>,
-        I extends PluginInfoLike<I, N>,
-        IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
-        S extends PluginSelectorLike<N>,
-        A extends PluginAliasLike<N, S, A>,
-        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
-        implements HtmlElementComponent<HTMLDivElement, AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS>> {
+    I extends PluginInfoLike<I, N>,
+    IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
+    S extends PluginSelectorLike<N>,
+    A extends PluginAliasLike<N, S, A>,
+    AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
+    implements HtmlElementComponent<HTMLDivElement, AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS>> {
 
     /**
      * Creates an empty {@link AddPluginAliasSetLikeComponent}.
      */
     public static <N extends Name & Comparable<N>,
-            I extends PluginInfoLike<I, N>,
-            IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
-            S extends PluginSelectorLike<N>,
-            A extends PluginAliasLike<N, S, A>,
-            AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
+        I extends PluginInfoLike<I, N>,
+        IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
+        S extends PluginSelectorLike<N>,
+        A extends PluginAliasLike<N, S, A>,
+        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
     AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS> empty(final String id) {
         return new AddPluginAliasSetLikeComponent<>(
-                CharSequences.failIfNullOrEmpty(id, "id")
+            CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
 
@@ -70,8 +70,8 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
 
         this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle("Add")
-                .appendChild(this.flex);
+            .setTitle("Add")
+            .appendChild(this.flex);
     }
 
     AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS> setFilterValueChangeListener(final ChangeListener<Optional<String>> listener) {
@@ -118,12 +118,12 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
 
         // addAll
         flex.appendChild(
-                this.anchor(
-                        "*",
-                        filtered,
-                        i,
-                        context
-                )
+            this.anchor(
+                "*",
+                filtered,
+                i,
+                context
+            )
         );
 
         i++;
@@ -134,12 +134,12 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
 
             if (false == aliases.containsAliasOrName(name)) {
                 flex.appendChild(
-                        this.anchor(
-                                providerAlias,
-                                aliases.concat(providerAlias),
-                                i,
-                                context
-                        )
+                    this.anchor(
+                        providerAlias,
+                        aliases.concat(providerAlias),
+                        i,
+                        context
+                    )
                 );
 
                 i++;
@@ -162,13 +162,13 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
                                                final int index,
                                                final AddPluginAliasSetLikeComponentContext context) {
         return this.anchor(
-                CaseKind.kebabToTitle(
-                        add.name()
-                                .value()
-                ),
-                aliases,
-                index,
-                context
+            CaseKind.kebabToTitle(
+                add.name()
+                    .value()
+            ),
+            aliases,
+            index,
+            context
         );
     }
 
@@ -180,11 +180,11 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
                                                final int index,
                                                final AddPluginAliasSetLikeComponentContext context) {
         return context.historyToken()
-                .saveLink(
-                        this.id + index,
-                        title,
-                        aliases.text()
-                );
+            .saveLink(
+                this.id + index,
+                title,
+                aliases.text()
+            );
     }
 
     /**

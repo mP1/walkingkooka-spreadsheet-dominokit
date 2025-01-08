@@ -34,15 +34,15 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableComponentLike<T>,
-        TestHtmlElementComponent<HTMLDivElement, SpreadsheetDataTableComponent<T>> {
+    TestHtmlElementComponent<HTMLDivElement, SpreadsheetDataTableComponent<T>> {
 
     public static <T> SpreadsheetDataTableComponent<T> with(final String id,
                                                             final List<ColumnConfig<T>> columnConfigs,
                                                             final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
         return new SpreadsheetDataTableComponent<>(
-                id,
-                columnConfigs,
-                cellRenderer
+            id,
+            columnConfigs,
+            cellRenderer
         );
     }
 
@@ -128,7 +128,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     @Override
     public List<IsElement<?>> children() {
         return Lists.immutable(
-                this.children
+            this.children
         );
     }
 
@@ -150,9 +150,9 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
         this.next.setCssText("float=right");
 
         this.appendChild(
-                SpreadsheetFlexLayout.row()
-                        .appendChild(this.previous)
-                        .appendChild(this.next)
+            SpreadsheetFlexLayout.row()
+                .appendChild(this.previous)
+                .appendChild(this.next)
         );
 
         return this;
@@ -193,7 +193,7 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     @Override
     public SpreadsheetDataTableComponent<T> bodyScrollPlugin() {
         this.plugins.add(
-                SpreadsheetDataTableComponentLike.bodyScrollPluginText()
+            SpreadsheetDataTableComponentLike.bodyScrollPluginText()
         );
         return this;
     }
@@ -202,10 +202,10 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     public SpreadsheetDataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
                                                              final String title) {
         this.plugins.add(
-                SpreadsheetDataTableComponentLike.emptyStatePluginText(
-                        icon,
-                        title
-                )
+            SpreadsheetDataTableComponentLike.emptyStatePluginText(
+                icon,
+                title
+            )
         );
         return this;
     }
@@ -217,11 +217,11 @@ public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableCom
     @Override
     public void printTree(final IndentingPrinter printer) {
         this.printTreeTable(
-                this.columnConfigs,
-                this.headersHidden,
-                this.cellRenderer,
-                this.plugins,
-                printer
+            this.columnConfigs,
+            this.headersHidden,
+            this.cellRenderer,
+            this.plugins,
+            printer
         );
     }
 

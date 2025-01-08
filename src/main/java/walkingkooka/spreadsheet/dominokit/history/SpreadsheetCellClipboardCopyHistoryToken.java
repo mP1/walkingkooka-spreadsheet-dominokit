@@ -41,10 +41,10 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final SpreadsheetCellClipboardKind kind) {
         return new SpreadsheetCellClipboardCopyHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                kind
+            id,
+            name,
+            anchoredSelection,
+            kind
         );
     }
 
@@ -53,10 +53,10 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final SpreadsheetCellClipboardKind kind) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                kind
+            id,
+            name,
+            anchoredSelection,
+            kind
         );
     }
 
@@ -65,10 +65,10 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellClipboardCopyHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                this.kind()
+            id,
+            name,
+            anchoredSelection,
+            this.kind()
         );
     }
 
@@ -81,24 +81,24 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
     void onHistoryTokenChangeClipboard(final AppContext context) {
         final SpreadsheetCellClipboardKind kind = this.kind();
         final SpreadsheetCellRangeReference range = context.spreadsheetViewportCache()
-                .resolveIfLabel(
-                        this.anchoredSelection()
-                                .selection()
-                ).toCellRange();
+            .resolveIfLabel(
+                this.anchoredSelection()
+                    .selection()
+            ).toCellRange();
 
         final ClipboardTextItem clipboardTextItem = ClipboardTextItem.toJson(
-                context.spreadsheetViewportCache()
-                        .cellRange(range),
-                kind,
-                context
+            context.spreadsheetViewportCache()
+                .cellRange(range),
+            kind,
+            context
         );
 
         context.writeClipboardItem(
+            clipboardTextItem,
+            ClipboardContextWriteWatchers.logging(
                 clipboardTextItem,
-                ClipboardContextWriteWatchers.logging(
-                        clipboardTextItem,
-                        context
-                )
+                context
+            )
         );
     }
 }

@@ -64,28 +64,28 @@ import java.util.function.Predicate;
  * </pre>
  */
 public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable<N>,
-        I extends PluginInfoLike<I, N>,
-        IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
-        S extends PluginSelectorLike<N>,
-        A extends PluginAliasLike<N, S, A>,
-        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> implements SpreadsheetDialogComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher,
-        SpreadsheetMetadataFetcherWatcher {
+    I extends PluginInfoLike<I, N>,
+    IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
+    S extends PluginSelectorLike<N>,
+    A extends PluginAliasLike<N, S, A>,
+    AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> implements SpreadsheetDialogComponentLifecycle,
+    LoadedSpreadsheetMetadataRequired,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher,
+    SpreadsheetMetadataFetcherWatcher {
 
     /**
      * Creates a new {@link PluginAliasSetLikeDialogComponent}.
      */
     public static <N extends Name & Comparable<N>,
-            I extends PluginInfoLike<I, N>,
-            IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
-            S extends PluginSelectorLike<N>,
-            A extends PluginAliasLike<N, S, A>,
-            AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
+        I extends PluginInfoLike<I, N>,
+        IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
+        S extends PluginSelectorLike<N>,
+        A extends PluginAliasLike<N, S, A>,
+        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
     PluginAliasSetLikeDialogComponent<N, I, IS, S, A, AS> with(final PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> context) {
         return new PluginAliasSetLikeDialogComponent<>(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -101,12 +101,12 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         this.remove = RemovePluginAliasSetLikeComponent.empty(ID + "-remove-");
 
         this.textBox = context.textBox()
-                .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-                .addKeyupListener(
-                        (e) -> this.onTextBox(this.text())
-                ).addChangeListener(
-                        (oldValue, newValue) -> this.onTextBox(this.text())
-                );
+            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
+            .addKeyupListener(
+                (e) -> this.onTextBox(this.text())
+            ).addChangeListener(
+                (oldValue, newValue) -> this.onTextBox(this.text())
+            );
 
         this.save = this.anchor("Save");
         this.reset = this.anchor("Reset");
@@ -139,21 +139,21 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         final PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> context = this.context;
 
         return SpreadsheetDialogComponent.with(
-                        ID + SpreadsheetElementIds.DIALOG,
-                        context.dialogTitle(),
-                        true, // includeClose
-                        context
-                ).setTitle(
-                        context.dialogTitle()
-                ).appendChild(this.add.setFilterValueChangeListener(this::addFilterOnValueChange))
-                .appendChild(this.remove.setFilterValueChangeListener(this::removeFilterOnValueChange))
-                .appendChild(this.textBox)
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(this.save)
-                                .appendChild(this.reset)
-                                .appendChild(this.close)
-                );
+                ID + SpreadsheetElementIds.DIALOG,
+                context.dialogTitle(),
+                true, // includeClose
+                context
+            ).setTitle(
+                context.dialogTitle()
+            ).appendChild(this.add.setFilterValueChangeListener(this::addFilterOnValueChange))
+            .appendChild(this.remove.setFilterValueChangeListener(this::removeFilterOnValueChange))
+            .appendChild(this.textBox)
+            .appendChild(
+                SpreadsheetFlexLayout.row()
+                    .appendChild(this.save)
+                    .appendChild(this.reset)
+                    .appendChild(this.close)
+            );
     }
 
     @Override
@@ -168,9 +168,9 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     private void addFilterOnValueChange(final Optional<String> oldValue,
                                         final Optional<String> newValue) {
         this.add.setFilter(
-                this.predicate(
-                        newValue.orElse(null)
-                )
+            this.predicate(
+                newValue.orElse(null)
+            )
         );
         this.refreshNonResetLinks();
     }
@@ -182,25 +182,25 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     private void removeFilterOnValueChange(final Optional<String> oldValue,
                                            final Optional<String> newValue) {
         this.remove.setFilter(
-                this.predicate(
-                        newValue.orElse(null)
-                )
+            this.predicate(
+                newValue.orElse(null)
+            )
         );
         this.refreshNonResetLinks();
     }
-    
+
     private final RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS> remove;
 
     private Predicate<CharSequence> predicate(final String filterText) {
         return CharSequences.isNullOrEmpty(filterText) ?
-                null :
-                predicateNotEmptyFilterText(filterText);
+            null :
+            predicateNotEmptyFilterText(filterText);
     }
 
     private Predicate<CharSequence> predicateNotEmptyFilterText(final String text) {
         return Predicates.globPatterns(
-                text,
-                SpreadsheetStrings.CASE_SENSITIVITY
+            text,
+            SpreadsheetStrings.CASE_SENSITIVITY
         );
     }
 
@@ -212,7 +212,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     private void onTextBox(final String text) {
         try {
             this.refreshNonResetLinks(
-                    this.context.parseAliasSetLike(text)
+                this.context.parseAliasSetLike(text)
             );
         } catch (final RuntimeException parseFailed) {
             // ignore
@@ -224,13 +224,13 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
      */
     private String text() {
         return this.textBox.stringValue()
-                .orElse("");
+            .orElse("");
     }
 
     // @VisibleForTesting
     void setText(final String text) {
         this.textBox.setStringValue(
-                Optional.of(text)
+            Optional.of(text)
         );
         this.onTextBox(text);
     }
@@ -262,8 +262,8 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
                                       final AppContext context) {
         this.setText(
-                this.context.metadataAliasSetLike()
-                        .text()
+            this.context.metadataAliasSetLike()
+                .text()
         );
     }
 
@@ -294,7 +294,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     @Override
     public void openGiveFocus(final RefreshContext context) {
         context.giveFocus(
-                this.textBox::focus
+            this.textBox::focus
         );
 
         this.refreshReset(this.context.providerAliasSetLike());
@@ -305,10 +305,10 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
     private void refreshReset(final AS aliases) {
         this.reset.setHistoryToken(
-                Optional.of(
-                        this.context.historyToken()
-                                .save(aliases.text())
-                )
+            Optional.of(
+                this.context.historyToken()
+                    .save(aliases.text())
+            )
         );
     }
 
@@ -323,7 +323,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     private void refreshNonResetLinks() {
         final Optional<AS> metadataAliases = this.textBox.value();
         this.refreshNonResetLinks(
-                metadataAliases.orElse(this.context.emptyAliasSetLike())
+            metadataAliases.orElse(this.context.emptyAliasSetLike())
         );
     }
 
@@ -335,29 +335,29 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         final AS providerAliases = context.providerAliasSetLike();
 
         this.add.refresh(
-                metadataAliases,
-                providerAliases,
-                context
+            metadataAliases,
+            providerAliases,
+            context
         );
 
         this.remove.refresh(
-                metadataAliases,
-                providerAliases,
-                context
+            metadataAliases,
+            providerAliases,
+            context
         );
 
         this.save.setHistoryToken(
-                Optional.of(
-                        historyToken.save(
-                                metadataAliases.text()
-                        )
+            Optional.of(
+                historyToken.save(
+                    metadataAliases.text()
                 )
+            )
         );
 
         this.close.setHistoryToken(
-                Optional.of(
-                        historyToken.close()
-                )
+            Optional.of(
+                historyToken.close()
+            )
         );
     }
 

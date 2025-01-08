@@ -60,12 +60,12 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
         final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.DATE_FORMATTER;
 
         this.setMetadataPropertyNameAndCheck(
-                propertyName,
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        propertyName
-                )
+            propertyName,
+            HistoryToken.metadataPropertySelect(
+                ID,
+                NAME,
+                propertyName
+            )
         );
     }
 
@@ -74,7 +74,7 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
     @Test
     public void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 
@@ -84,8 +84,8 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
     SpreadsheetSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name) {
         return SpreadsheetSelectHistoryToken.with(
-                id,
-                name
+            id,
+            name
         );
     }
 

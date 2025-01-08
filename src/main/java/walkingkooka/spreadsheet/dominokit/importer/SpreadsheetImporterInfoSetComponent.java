@@ -29,8 +29,8 @@ public final class SpreadsheetImporterInfoSetComponent implements ValueSpreadshe
 
     private SpreadsheetImporterInfoSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetImporterInfoSet::parse,
-                SpreadsheetImporterInfoSet::text
+            SpreadsheetImporterInfoSet::parse,
+            SpreadsheetImporterInfoSet::text
         );
     }
 

@@ -26,15 +26,15 @@ public abstract class PluginNameHistoryTokenTestCase<T extends PluginNameHistory
 
     final PluginName PLUGIN_NAME = PluginName.with("TestPluginName123");
 
-    PluginNameHistoryTokenTestCase(){
+    PluginNameHistoryTokenTestCase() {
         super();
     }
 
     @Test
     public final void testWithNullNameFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken(null)
+            NullPointerException.class,
+            () -> this.createHistoryToken(null)
         );
     }
 
@@ -43,17 +43,16 @@ public abstract class PluginNameHistoryTokenTestCase<T extends PluginNameHistory
         final String value = "save-value-456";
 
         this.saveAndCheck(
-                this.createHistoryToken(),
-                value,
-                PluginSaveHistoryToken.with(
-                        PLUGIN_NAME,
-                        value
-                )
+            this.createHistoryToken(),
+            value,
+            PluginSaveHistoryToken.with(
+                PLUGIN_NAME,
+                value
+            )
         );
     }
 
-    @Override
-    final T createHistoryToken() {
+    @Override final T createHistoryToken() {
         return this.createHistoryToken(PLUGIN_NAME);
     }
 

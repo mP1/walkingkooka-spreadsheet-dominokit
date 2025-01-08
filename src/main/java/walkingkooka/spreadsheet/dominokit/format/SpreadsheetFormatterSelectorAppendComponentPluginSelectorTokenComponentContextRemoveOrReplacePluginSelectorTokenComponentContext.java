@@ -24,14 +24,14 @@ import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelector
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 
 final class SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext implements AppendPluginSelectorTokenComponentContext,
-        RemoveOrReplacePluginSelectorTokenComponentContext,
-        HistoryTokenContextDelegator {
+    RemoveOrReplacePluginSelectorTokenComponentContext,
+    HistoryTokenContextDelegator {
 
     static SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext with(final SpreadsheetFormatterName name,
                                                                                                                                                  final HistoryTokenContext context) {
         return new SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext(
-                name,
-                context
+            name,
+            context
         );
     }
 
@@ -46,9 +46,9 @@ final class SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenCompon
         final SpreadsheetFormatterName name = this.name;
 
         return null == name ?
-                text :
-                name.setValueText(text)
-                        .toString();
+            text :
+            name.setValueText(text)
+                .toString();
     }
 
     private final SpreadsheetFormatterName name;

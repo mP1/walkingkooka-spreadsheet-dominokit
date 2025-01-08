@@ -56,7 +56,7 @@ final class SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserT
                 final SpreadsheetConditionParserToken condition = (SpreadsheetConditionParserToken) spreadsheetParserToken;
 
                 test = this.isCellValueFunction(
-                        condition.left()
+                    condition.left()
                 );
             }
         }
@@ -70,11 +70,11 @@ final class SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserT
         if (token.isNamedFunction()) {
             final SpreadsheetNamedFunctionParserToken namedFunction = (SpreadsheetNamedFunctionParserToken) token;
             final ExpressionFunctionName functionName = namedFunction.functionName()
-                    .toExpressionFunctionName();
+                .toExpressionFunctionName();
 
             if (SpreadsheetExpressionFunctions.CELL_VALUE.equals(functionName)) {
                 final List<ParserToken> parameters = namedFunction.parameters()
-                        .parameters();
+                    .parameters();
 
                 switch (parameters.size()) {
                     case 0:

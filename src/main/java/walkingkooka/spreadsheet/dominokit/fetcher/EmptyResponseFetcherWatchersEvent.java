@@ -35,7 +35,7 @@ final class EmptyResponseFetcherWatchersEvent<W extends FetcherWatcher> extends 
     @Override
     void fire(final W watcher) {
         watcher.onEmptyResponse(
-                this.context
+            this.context
         );
     }
 

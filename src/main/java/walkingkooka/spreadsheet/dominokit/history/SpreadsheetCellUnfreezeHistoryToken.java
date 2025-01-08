@@ -40,9 +40,9 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
                                                     final SpreadsheetName name,
                                                     final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellUnfreezeHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -50,20 +50,20 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
 
         final SpreadsheetSelection selection = anchoredSelection.selection();
 
         if (false == selection.isLabelName()) {
             SpreadsheetMetadata.EMPTY.set(
-                    SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
-                    selection.toColumnRange()
+                SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
+                selection.toColumnRange()
             ).set(
-                    SpreadsheetMetadataPropertyName.FROZEN_ROWS,
-                    selection.toRowRange()
+                SpreadsheetMetadataPropertyName.FROZEN_ROWS,
+                selection.toRowRange()
             );
         }
     }
@@ -83,9 +83,9 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         ).unfreeze();
     }
 
@@ -98,11 +98,11 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         this.patchMetadataAndPushSelectionHistoryToken(
-                SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
-                null,
-                SpreadsheetMetadataPropertyName.FROZEN_ROWS,
-                null,
-                context
+            SpreadsheetMetadataPropertyName.FROZEN_COLUMNS,
+            null,
+            SpreadsheetMetadataPropertyName.FROZEN_ROWS,
+            null,
+            context
         );
     }
 }

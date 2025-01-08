@@ -37,60 +37,60 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
     @Test
     public void testWithSaveFormulasOutsideRangeFails() {
         final IllegalArgumentException thrown = assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetCellSaveParserHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.parseCell("A2"),
-                                Optional.of(
-                                        SpreadsheetPattern.parseNumberParsePattern("#.#")
-                                                .spreadsheetParserSelector()
-                                )
-                        )
+            IllegalArgumentException.class,
+            () -> SpreadsheetCellSaveParserHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.parseCell("A2"),
+                    Optional.of(
+                        SpreadsheetPattern.parseNumberParsePattern("#.#")
+                            .spreadsheetParserSelector()
+                    )
                 )
+            )
         );
 
         this.checkEquals(
-                "Save value includes cells A2 outside A1",
-                thrown.getMessage(),
-                "message"
+            "Save value includes cells A2 outside A1",
+            thrown.getMessage(),
+            "message"
         );
     }
 
     @Test
     public void testWithSaveFormulasOutsideRangeFails2() {
         final IllegalArgumentException thrown = assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetCellSaveParserHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A2:A3").setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                Optional.of(
-                                        SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
-                                                .spreadsheetParserSelector()
-                                ),
-                                SpreadsheetSelection.parseCell("A3"),
-                                Optional.of(
-                                        SpreadsheetPattern.parseDateTimeParsePattern("dd/mm/yyyy hh:mm")
-                                                .spreadsheetParserSelector()
-                                ),
-                                SpreadsheetSelection.parseCell("A4"),
-                                Optional.of(
-                                        SpreadsheetPattern.parseTimeParsePattern("hh:mm")
-                                                .spreadsheetParserSelector()
-                                )
-                        )
+            IllegalArgumentException.class,
+            () -> SpreadsheetCellSaveParserHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A2:A3").setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.A1,
+                    Optional.of(
+                        SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+                            .spreadsheetParserSelector()
+                    ),
+                    SpreadsheetSelection.parseCell("A3"),
+                    Optional.of(
+                        SpreadsheetPattern.parseDateTimeParsePattern("dd/mm/yyyy hh:mm")
+                            .spreadsheetParserSelector()
+                    ),
+                    SpreadsheetSelection.parseCell("A4"),
+                    Optional.of(
+                        SpreadsheetPattern.parseTimeParsePattern("hh:mm")
+                            .spreadsheetParserSelector()
+                    )
                 )
+            )
         );
 
         this.checkEquals(
-                "Save value includes cells A1, A4 outside A2:A3",
-                thrown.getMessage(),
-                "message"
+            "Save value includes cells A1, A4 outside A2:A3",
+            thrown.getMessage(),
+            "message"
         );
     }
 
@@ -99,12 +99,12 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/save/parser",
-                SpreadsheetCellSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/save/parser",
+            SpreadsheetCellSelectHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
         );
     }
 
@@ -114,19 +114,19 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/save/parser/%7B%20%22A1%22%3A%20%22number-parse-pattern%200.00%22%20%7D",
-                SpreadsheetCellSaveParserHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                Optional.of(
-                                        SpreadsheetPattern.parseNumberParsePattern("0.00")
-                                                .spreadsheetParserSelector()
-                                )
-                        )
+            "/123/SpreadsheetName456/cell/A1/save/parser/%7B%20%22A1%22%3A%20%22number-parse-pattern%200.00%22%20%7D",
+            SpreadsheetCellSaveParserHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.A1,
+                    Optional.of(
+                        SpreadsheetPattern.parseNumberParsePattern("0.00")
+                            .spreadsheetParserSelector()
+                    )
                 )
+            )
         );
     }
 
@@ -137,25 +137,25 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/parser/%7B%20%22A1%22%3A%20%22date-parse-pattern%20dd%2Fmm%2Fyyyy%22%2C%20%22A2%22%3A%20%22time-parse-pattern%20hh%3Amm%22%20%7D",
-                SpreadsheetCellSaveParserHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:A2")
-                                .setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                Optional.of(
-                                        SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
-                                                .spreadsheetParserSelector()
-                                ),
-                                SpreadsheetSelection.parseCell("A2"),
-                                Optional.of(
-                                        SpreadsheetPattern.parseTimeParsePattern("hh:mm")
-                                                .spreadsheetParserSelector()
-                                )
-                        )
+            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/parser/%7B%20%22A1%22%3A%20%22date-parse-pattern%20dd%2Fmm%2Fyyyy%22%2C%20%22A2%22%3A%20%22time-parse-pattern%20hh%3Amm%22%20%7D",
+            SpreadsheetCellSaveParserHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:A2")
+                    .setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.A1,
+                    Optional.of(
+                        SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+                            .spreadsheetParserSelector()
+                    ),
+                    SpreadsheetSelection.parseCell("A2"),
+                    Optional.of(
+                        SpreadsheetPattern.parseTimeParsePattern("hh:mm")
+                            .spreadsheetParserSelector()
+                    )
                 )
+            )
         );
     }
 
@@ -165,17 +165,17 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseCellWithoutParser() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/parser/%7B%22A1%22%3Anull%7D",
-                SpreadsheetCellSaveParserHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:A2")
-                                .setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                Optional.empty()
-                        )
+            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/parser/%7B%22A1%22%3Anull%7D",
+            SpreadsheetCellSaveParserHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:A2")
+                    .setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.A1,
+                    Optional.empty()
                 )
+            )
         );
     }
 
@@ -185,96 +185,96 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
     @Test
     public void testUrlFragment() {
         final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> cellToParser = Maps.of(
-                SpreadsheetSelection.A1,
-                Optional.of(
-                        SpreadsheetPattern.parseNumberParsePattern("#.##")
-                                .spreadsheetParserSelector()
-                )
+            SpreadsheetSelection.A1,
+            Optional.of(
+                SpreadsheetPattern.parseNumberParsePattern("#.##")
+                    .spreadsheetParserSelector()
+            )
         );
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveParserHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        cellToParser
-                ),
-                "/123/SpreadsheetName456/cell/A1/save/parser/" +
-                        marshallMapWithOptionalValues(cellToParser)
+            SpreadsheetCellSaveParserHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                cellToParser
+            ),
+            "/123/SpreadsheetName456/cell/A1/save/parser/" +
+                marshallMapWithOptionalValues(cellToParser)
         );
     }
 
     @Test
     public void testUrlFragment2() {
         final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> cellToParser = Maps.of(
-                SpreadsheetSelection.A1,
-                Optional.of(
-                        SpreadsheetPattern.parseNumberParsePattern("$0.00")
-                                .spreadsheetParserSelector()
-                )
+            SpreadsheetSelection.A1,
+            Optional.of(
+                SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                    .spreadsheetParserSelector()
+            )
         );
 
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveParserHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        cellToParser
-                ),
-                "/123/SpreadsheetName456/cell/A1/save/parser/" +
-                        marshallMapWithOptionalValues(cellToParser)
+            SpreadsheetCellSaveParserHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                cellToParser
+            ),
+            "/123/SpreadsheetName456/cell/A1/save/parser/" +
+                marshallMapWithOptionalValues(cellToParser)
         );
     }
 
     @Test
     public void testUrlFragmentWithMultipleCells() {
         final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> cellToFormulaText = Maps.of(
-                SpreadsheetSelection.A1,
-                Optional.of(
-                        SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
-                                .spreadsheetParserSelector()
-                ),
-                SpreadsheetSelection.parseCell("A2"),
-                Optional.of(
-                        SpreadsheetPattern.parseDateTimeParsePattern("dd/mm/yyyy hh:mm")
-                                .spreadsheetParserSelector()
-                ),
-                SpreadsheetSelection.parseCell("A3"),
-                Optional.of(
-                        SpreadsheetPattern.parseTimeParsePattern("hh:mm")
-                                .spreadsheetParserSelector()
-                )
+            SpreadsheetSelection.A1,
+            Optional.of(
+                SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+                    .spreadsheetParserSelector()
+            ),
+            SpreadsheetSelection.parseCell("A2"),
+            Optional.of(
+                SpreadsheetPattern.parseDateTimeParsePattern("dd/mm/yyyy hh:mm")
+                    .spreadsheetParserSelector()
+            ),
+            SpreadsheetSelection.parseCell("A3"),
+            Optional.of(
+                SpreadsheetPattern.parseTimeParsePattern("hh:mm")
+                    .spreadsheetParserSelector()
+            )
         );
 
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveParserHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:A3")
-                                .setDefaultAnchor(),
-                        cellToFormulaText
-                ),
-                "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/parser/" +
-                        marshallMapWithOptionalValues(cellToFormulaText)
+            SpreadsheetCellSaveParserHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:A3")
+                    .setDefaultAnchor(),
+                cellToFormulaText
+            ),
+            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/parser/" +
+                marshallMapWithOptionalValues(cellToFormulaText)
         );
     }
 
     @Test
     public void testUrlFragmentWithMissingParser() {
         final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> cellToFormulaText = Maps.of(
-                SpreadsheetSelection.A1,
-                Optional.empty()
+            SpreadsheetSelection.A1,
+            Optional.empty()
         );
 
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveParserHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:A3")
-                                .setDefaultAnchor(),
-                        cellToFormulaText
-                ),
-                "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/parser/" +
-                        marshallMapWithOptionalValues(cellToFormulaText)
+            SpreadsheetCellSaveParserHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:A3")
+                    .setDefaultAnchor(),
+                cellToFormulaText
+            ),
+            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/parser/" +
+                marshallMapWithOptionalValues(cellToFormulaText)
         );
     }
 
@@ -283,16 +283,16 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
                                                              final SpreadsheetName name,
                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellSaveParserHistoryToken.with(
-                id,
-                name,
-                anchoredSelection,
-                Maps.of(
-                        SpreadsheetSelection.A1,
-                        Optional.of(
-                                SpreadsheetPattern.parseNumberParsePattern("0.00")
-                                        .spreadsheetParserSelector()
-                        )
+            id,
+            name,
+            anchoredSelection,
+            Maps.of(
+                SpreadsheetSelection.A1,
+                Optional.of(
+                    SpreadsheetPattern.parseNumberParsePattern("0.00")
+                        .spreadsheetParserSelector()
                 )
+            )
         );
     }
 

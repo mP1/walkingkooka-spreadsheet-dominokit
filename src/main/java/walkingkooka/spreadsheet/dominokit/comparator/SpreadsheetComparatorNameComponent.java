@@ -33,8 +33,8 @@ public final class SpreadsheetComparatorNameComponent implements ValueSpreadshee
 
     private SpreadsheetComparatorNameComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetComparatorName::with,
-                SpreadsheetComparatorName::toString
+            SpreadsheetComparatorName::with,
+            SpreadsheetComparatorName::toString
         );
     }
 

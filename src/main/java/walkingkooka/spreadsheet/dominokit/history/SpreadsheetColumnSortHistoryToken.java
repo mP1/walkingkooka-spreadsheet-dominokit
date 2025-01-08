@@ -30,9 +30,9 @@ public abstract class SpreadsheetColumnSortHistoryToken extends SpreadsheetColum
                                       final SpreadsheetName name,
                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 

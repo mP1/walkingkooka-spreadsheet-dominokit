@@ -32,9 +32,9 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                      final TextStylePropertyName<T> propertyName) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
 
         this.propertyName = Objects.requireNonNull(propertyName, "propertyName");
@@ -48,7 +48,7 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
 
     @Override final UrlFragment cellUrlFragment() {
         return STYLE.appendSlashThen(
-                this.propertyName().urlFragment()
+            this.propertyName().urlFragment()
         ).appendSlashThen(this.styleUrlFragment());
     }
 

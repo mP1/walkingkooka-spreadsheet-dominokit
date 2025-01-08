@@ -35,12 +35,12 @@ public interface ValidatorHelper {
 
         if (validator.isPresent()) {
             message = validator.get()
-                    .isValid(value)
-                    .getErrorMessage();
+                .isValid(value)
+                .getErrorMessage();
         }
 
         return CharSequences.isNullOrEmpty(message) ?
-                Lists.empty() :
-                Lists.of(message);
+            Lists.empty() :
+            Lists.of(message);
     }
 }

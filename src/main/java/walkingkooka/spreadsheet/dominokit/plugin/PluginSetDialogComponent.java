@@ -44,9 +44,9 @@ import java.util.Optional;
  * A dialog that includes a table showing all the entries for a JAR file, along with delete, download and close links.
  */
 public final class PluginSetDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        PluginFetcherWatcher,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher {
+    PluginFetcherWatcher,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher {
 
     public static PluginSetDialogComponent with(final PluginSetDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
@@ -72,8 +72,8 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
 
     private PluginSetTableComponent table() {
         return PluginSetTableComponent.empty(
-                ID_PREFIX,
-                this.context
+            ID_PREFIX,
+            this.context
         );
     }
 
@@ -83,7 +83,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
 
     private PluginUploadSelectAnchorComponent uploadAnchor() {
         return PluginUploadSelectAnchorComponent.empty(
-                ID_PREFIX + "upload" + SpreadsheetElementIds.LINK
+            ID_PREFIX + "upload" + SpreadsheetElementIds.LINK
         ).setTextContent("Upload");
     }
 
@@ -92,14 +92,14 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
     }
 
     private final PluginUploadSelectAnchorComponent uploadAnchor;
-    
+
     // close............................................................................................................
 
     private void refreshClose(final HistoryTokenContext context) {
         this.close.setHistoryToken(
-                Optional.of(
-                        context.historyToken().close()
-                )
+            Optional.of(
+                context.historyToken().close()
+            )
         );
     }
 
@@ -109,16 +109,16 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
 
     private SpreadsheetDialogComponent dialogCreate(final PluginSetDialogComponentContext context) {
         return SpreadsheetDialogComponent.with(
-                        ID + SpreadsheetElementIds.DIALOG, // id
-                        "Plugin", // title
-                        true, // includeClose
-                        context
-                ).appendChild(this.table)
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(this.uploadAnchor)
-                                .appendChild(this.close)
-                );
+                ID + SpreadsheetElementIds.DIALOG, // id
+                "Plugin", // title
+                true, // includeClose
+                context
+            ).appendChild(this.table)
+            .appendChild(
+                SpreadsheetFlexLayout.row()
+                    .appendChild(this.uploadAnchor)
+                    .appendChild(this.close)
+            );
     }
 
     @Override
@@ -198,8 +198,8 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
     @Override
     public void refresh(final RefreshContext context) {
         this.table.refresh(
-                context.historyToken()
-                        .cast(PluginListSelectHistoryToken.class)
+            context.historyToken()
+                .cast(PluginListSelectHistoryToken.class)
         );
         this.refreshUploadAnchor(context);
         this.refreshClose(context);

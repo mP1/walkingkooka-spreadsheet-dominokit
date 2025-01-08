@@ -30,9 +30,9 @@ final class SpreadsheetComparatorFetcherWatchersInfoSetEvent extends FetcherWatc
                                                                  final SpreadsheetComparatorInfoSet infos,
                                                                  final AppContext context) {
         return new SpreadsheetComparatorFetcherWatchersInfoSetEvent(
-                id,
-                infos,
-                context
+            id,
+            infos,
+            context
         );
     }
 
@@ -47,9 +47,9 @@ final class SpreadsheetComparatorFetcherWatchersInfoSetEvent extends FetcherWatc
     @Override
     void fire(final SpreadsheetComparatorFetcherWatcher watcher) {
         watcher.onSpreadsheetComparatorInfoSet(
-                this.id,
-                this.infos,
-                this.context
+            this.id,
+            this.infos,
+            this.context
         );
     }
 

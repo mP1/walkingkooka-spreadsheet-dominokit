@@ -46,15 +46,15 @@ final class SpreadsheetSuggestBoxComponentValidator implements Validator<Suggest
     @Override
     public ValidationResult isValid(final SuggestBox<String, SpanElement, SuggestOption<String>> component) {
         final String text = component.getInputElement()
-                .element()
-                .value;
+            .element()
+            .value;
 
         return this.validator.isValid(
-                Optional.ofNullable(
-                        CharSequences.isNullOrEmpty(text) ?
-                                null :
-                                text
-                )
+            Optional.ofNullable(
+                CharSequences.isNullOrEmpty(text) ?
+                    null :
+                    text
+            )
         );
     }
 

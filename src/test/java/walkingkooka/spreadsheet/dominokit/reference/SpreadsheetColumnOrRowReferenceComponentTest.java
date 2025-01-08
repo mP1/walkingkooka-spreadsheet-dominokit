@@ -30,34 +30,34 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetColumnOrRowReferenceComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "AB"
-                                )
-                        ),
-                "SpreadsheetColumnOrRowReferenceComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [AB]\n"
+            SpreadsheetColumnOrRowReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "AB"
+                    )
+                ),
+            "SpreadsheetColumnOrRowReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [AB]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetColumnOrRowReferenceComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "A1!"
-                                )
-                        ),
-                "SpreadsheetColumnOrRowReferenceComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [A1!]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '1' at 1\n"
+            SpreadsheetColumnOrRowReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "A1!"
+                    )
+                ),
+            "SpreadsheetColumnOrRowReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [A1!]\n" +
+                "      Errors\n" +
+                "        Invalid character '1' at 1\n"
         );
     }
 
@@ -69,7 +69,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
     }
 
     // class............................................................................................................
-    
+
     @Override
     public Class<SpreadsheetColumnOrRowReferenceComponent> type() {
         return SpreadsheetColumnOrRowReferenceComponent.class;

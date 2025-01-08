@@ -46,28 +46,28 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
 
         final SpreadsheetId id = SpreadsheetId.with(1);
         final ConverterInfoSet infos = ConverterProviders.empty()
-                .converterInfos();
+            .converterInfos();
         final AppContext context = AppContexts.fake();
 
         final ConverterFetcherWatchers watchers = ConverterFetcherWatchers.empty();
         watchers.add(
-                new FakeConverterFetcherWatcher() {
+            new FakeConverterFetcherWatcher() {
 
-                    @Override
-                    public void onConverterInfoSet(final SpreadsheetId i,
-                                                   final ConverterInfoSet is,
-                                                   final AppContext ac) {
-                        ConverterFetcherWatchersTest.this.checkEquals(i, id);
-                        ConverterFetcherWatchersTest.this.checkEquals(is, infos);
-                        ConverterFetcherWatchersTest.this.checkEquals(ac, context);
+                @Override
+                public void onConverterInfoSet(final SpreadsheetId i,
+                                               final ConverterInfoSet is,
+                                               final AppContext ac) {
+                    ConverterFetcherWatchersTest.this.checkEquals(i, id);
+                    ConverterFetcherWatchersTest.this.checkEquals(is, infos);
+                    ConverterFetcherWatchersTest.this.checkEquals(ac, context);
 
-                        ConverterFetcherWatchersTest.this.fired++;
-                    }
-                });
+                    ConverterFetcherWatchersTest.this.fired++;
+                }
+            });
         watchers.onConverterInfoSet(
-                id,
-                infos,
-                context
+            id,
+            infos,
+            context
         );
         this.checkEquals(1, this.fired);
     }
@@ -82,30 +82,30 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
 
         final ConverterFetcherWatchers watchers = ConverterFetcherWatchers.empty();
         watchers.addOnce(
-                new FakeConverterFetcherWatcher() {
+            new FakeConverterFetcherWatcher() {
 
-                    @Override
-                    public void onConverterInfoSet(final SpreadsheetId i,
-                                                   final ConverterInfoSet is,
-                                                   final AppContext ac) {
-                        ConverterFetcherWatchersTest.this.checkEquals(i, id);
-                        ConverterFetcherWatchersTest.this.checkEquals(is, infos);
-                        ConverterFetcherWatchersTest.this.checkEquals(ac, context);
+                @Override
+                public void onConverterInfoSet(final SpreadsheetId i,
+                                               final ConverterInfoSet is,
+                                               final AppContext ac) {
+                    ConverterFetcherWatchersTest.this.checkEquals(i, id);
+                    ConverterFetcherWatchersTest.this.checkEquals(is, infos);
+                    ConverterFetcherWatchersTest.this.checkEquals(ac, context);
 
-                        ConverterFetcherWatchersTest.this.fired++;
-                    }
-                });
+                    ConverterFetcherWatchersTest.this.fired++;
+                }
+            });
         watchers.onConverterInfoSet(
-                id,
-                infos,
-                context
+            id,
+            infos,
+            context
         );
         this.checkEquals(1, this.fired);
 
         watchers.onConverterInfoSet(
-                id,
-                infos,
-                context
+            id,
+            infos,
+            context
         );
         this.checkEquals(1, this.fired);
     }
@@ -117,27 +117,27 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
         final HttpMethod method = HttpMethod.with("CustomHttpMethod");
         final Url url = Url.parseAbsolute("https://example/");
         final Optional<FetcherRequestBody<?>> body = Optional.of(
-                FetcherRequestBody.string("Body123")
+            FetcherRequestBody.string("Body123")
         );
         final AppContext appContext = AppContexts.fake();
 
         final ConverterFetcherWatchers watchers = ConverterFetcherWatchers.empty();
         watchers.add(
-                new FakeConverterFetcherWatcher() {
+            new FakeConverterFetcherWatcher() {
 
-                    @Override
-                    public void onBegin(final HttpMethod m,
-                                        final Url u,
-                                        final Optional<FetcherRequestBody<?>> b,
-                                        final AppContext context) {
-                        ConverterFetcherWatchersTest.this.checkEquals(method, m);
-                        ConverterFetcherWatchersTest.this.checkEquals(u, u);
-                        ConverterFetcherWatchersTest.this.checkEquals(b, b);
-                        ConverterFetcherWatchersTest.this.checkEquals(appContext, context);
+                @Override
+                public void onBegin(final HttpMethod m,
+                                    final Url u,
+                                    final Optional<FetcherRequestBody<?>> b,
+                                    final AppContext context) {
+                    ConverterFetcherWatchersTest.this.checkEquals(method, m);
+                    ConverterFetcherWatchersTest.this.checkEquals(u, u);
+                    ConverterFetcherWatchersTest.this.checkEquals(b, b);
+                    ConverterFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        ConverterFetcherWatchersTest.this.fired++;
-                    }
-                });
+                    ConverterFetcherWatchersTest.this.fired++;
+                }
+            });
         watchers.onBegin(method, url, body, appContext);
         this.checkEquals(1, this.fired);
 
@@ -157,16 +157,16 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
 
         final ConverterFetcherWatchers watchers = ConverterFetcherWatchers.empty();
         watchers.add(
-                new FakeConverterFetcherWatcher() {
-                    @Override
-                    public void onError(final Object c,
-                                        final AppContext context) {
-                        ConverterFetcherWatchersTest.this.checkEquals(cause, c);
-                        ConverterFetcherWatchersTest.this.checkEquals(appContext, context);
+            new FakeConverterFetcherWatcher() {
+                @Override
+                public void onError(final Object c,
+                                    final AppContext context) {
+                    ConverterFetcherWatchersTest.this.checkEquals(cause, c);
+                    ConverterFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        ConverterFetcherWatchersTest.this.fired++;
-                    }
-                });
+                    ConverterFetcherWatchersTest.this.fired++;
+                }
+            });
         watchers.onError(cause, appContext);
         this.checkEquals(1, this.fired);
 
@@ -190,25 +190,25 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
 
         final ConverterFetcherWatchers watchers = ConverterFetcherWatchers.empty();
         watchers.add(
-                new FakeConverterFetcherWatcher() {
+            new FakeConverterFetcherWatcher() {
 
-                    @Override
-                    public void onFailure(final HttpMethod m,
-                                          final AbsoluteOrRelativeUrl u,
-                                          final HttpStatus s,
-                                          final Headers h,
-                                          final String b,
-                                          final AppContext context) {
-                        ConverterFetcherWatchersTest.this.checkEquals(method, m);
-                        ConverterFetcherWatchersTest.this.checkEquals(url, u);
-                        ConverterFetcherWatchersTest.this.checkEquals(status, s);
-                        ConverterFetcherWatchersTest.this.checkEquals(headers, h);
-                        ConverterFetcherWatchersTest.this.checkEquals(body, b);
-                        ConverterFetcherWatchersTest.this.checkEquals(appContext, context);
+                @Override
+                public void onFailure(final HttpMethod m,
+                                      final AbsoluteOrRelativeUrl u,
+                                      final HttpStatus s,
+                                      final Headers h,
+                                      final String b,
+                                      final AppContext context) {
+                    ConverterFetcherWatchersTest.this.checkEquals(method, m);
+                    ConverterFetcherWatchersTest.this.checkEquals(url, u);
+                    ConverterFetcherWatchersTest.this.checkEquals(status, s);
+                    ConverterFetcherWatchersTest.this.checkEquals(headers, h);
+                    ConverterFetcherWatchersTest.this.checkEquals(body, b);
+                    ConverterFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        ConverterFetcherWatchersTest.this.fired++;
-                    }
-                });
+                    ConverterFetcherWatchersTest.this.fired++;
+                }
+            });
         watchers.onFailure(method, url, status, headers, body, appContext);
         this.checkEquals(1, this.fired);
 

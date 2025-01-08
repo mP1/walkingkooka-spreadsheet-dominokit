@@ -38,10 +38,10 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
         checkContext(context);
 
         return new SpreadsheetMetadataPanelComponentItemNumber(
-                propertyName,
-                min,
-                max,
-                context
+            propertyName,
+            min,
+            max,
+            context
         );
     }
 
@@ -50,27 +50,27 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
                                                         final int max,
                                                         final SpreadsheetMetadataPanelComponentContext context) {
         super(
-                propertyName,
-                context
+            propertyName,
+            context
         );
 
 
         this.list = this.uListElement();
 
         this.integerBox = this.integerBox()
-                .setPattern("#")
-                .setMinValue(min)
-                .setMaxValue(max)
-                .setStep(1);
+            .setPattern("#")
+            .setMinValue(min)
+            .setMaxValue(max)
+            .setStep(1);
         this.list.appendChild(
-                liElement()
-                        .appendChild(this.integerBox)
+            liElement()
+                .appendChild(this.integerBox)
         );
 
         final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         this.list.appendChild(
-                liElement()
-                        .appendChild(defaultValueAnchor)
+            liElement()
+                .appendChild(defaultValueAnchor)
         );
         this.defaultValueAnchor = defaultValueAnchor;
     }
@@ -87,16 +87,16 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
 
         this.integerBox.setValue(
-                metadata.getIgnoringDefaults(this.propertyName)
-                        .orElse(null)
+            metadata.getIgnoringDefaults(this.propertyName)
+                .orElse(null)
         );
 
         this.refreshDefaultValue(
-                this.defaultValueAnchor,
-                metadata.defaults()
-                        .get(this.propertyName)
-                        .map(Object::toString)
-                        .orElse("")
+            this.defaultValueAnchor,
+            metadata.defaults()
+                .get(this.propertyName)
+                .map(Object::toString)
+                .orElse("")
         );
     }
 

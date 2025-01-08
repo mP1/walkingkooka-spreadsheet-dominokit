@@ -35,8 +35,8 @@ import java.util.Optional;
  * {@link SpreadsheetIntegerBox}.
  */
 public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox>,
-        SpreadsheetTextBoxTreePrintable<SpreadsheetIntegerBox, Integer>,
-        TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetIntegerBox> {
+    SpreadsheetTextBoxTreePrintable<SpreadsheetIntegerBox, Integer>,
+    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetIntegerBox> {
 
     public static SpreadsheetIntegerBox empty() {
         return new SpreadsheetIntegerBox();

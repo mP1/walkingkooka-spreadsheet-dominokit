@@ -36,9 +36,9 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                          final SpreadsheetCellClipboardKind kind) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
         this.kind = Objects.requireNonNull(kind, "kind");
     }
@@ -52,9 +52,9 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
     @Override
     public final HistoryToken clearAction() {
         return cell(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
+            this.id(),
+            this.name(),
+            this.anchoredSelection()
         );
     }
 
@@ -69,9 +69,9 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
     @Override //
     final UrlFragment cellUrlFragment() {
         return this.clipboardUrlFragment()
-                .appendSlashThen(
-                        this.kind.urlFragment()
-                );
+            .appendSlashThen(
+                this.kind.urlFragment()
+            );
     }
 
     // cut | copy | paste SLASH kind SLASH serialized-value
@@ -83,7 +83,7 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
     final void onHistoryTokenChange0(final HistoryToken previous,
                                      final AppContext context) {
         context.pushHistoryToken(
-                previous
+            previous
         );
         this.onHistoryTokenChangeClipboard(context);
     }

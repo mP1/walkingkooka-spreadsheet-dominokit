@@ -29,7 +29,7 @@ import java.util.Collection;
 final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDialogComponentGridLayoutLike {
 
     private final static CompositeCssClass dui_grid_section = CompositeCssClass.of(
-            Domino.dui_text_center
+        Domino.dui_text_center
     );
 
     static SpreadsheetFindDialogComponentGridLayout empty() {
@@ -38,51 +38,53 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
 
     private SpreadsheetFindDialogComponentGridLayout() {
         this.gridLayout = GridLayout.create()
-                .setPadding("5px")
-                .setHeight("100%");
+            .setPadding("5px")
+            .setHeight("100%");
     }
 
     @Override SpreadsheetFindDialogComponentGridLayout setLeft(final Collection<HtmlElementComponent<?, ?>> children) {
         this.gridLayout.withLeftPanel(
-                (parent, content) ->
-                {
-                    content.addCss(dui_grid_section);
+            (parent, content) ->
+            {
+                content.addCss(dui_grid_section);
 //                    parent.setLeftSpan(
 //                        SectionSpan._5,
 //                        true,
 //                        true
 //                    );
-                    for (final HtmlElementComponent<?, ?> child : children) {
-                        content.appendChild(child);
-                    }
+                for (final HtmlElementComponent<?, ?> child : children) {
+                    content.appendChild(child);
                 }
+            }
         );
         return this;
     }
 
-    @Override SpreadsheetFindDialogComponentGridLayout setContent(final Collection<HtmlElementComponent<?, ?>> children) {
+    @Override
+    SpreadsheetFindDialogComponentGridLayout setContent(final Collection<HtmlElementComponent<?, ?>> children) {
         this.gridLayout.withContent(
-                (parent, content) ->
-                {
-                    content.addCss(dui_grid_section);
-                    for (final HtmlElementComponent<?, ?> child : children) {
-                        content.appendChild(child);
-                    }
+            (parent, content) ->
+            {
+                content.addCss(dui_grid_section);
+                for (final HtmlElementComponent<?, ?> child : children) {
+                    content.appendChild(child);
                 }
+            }
         );
 
         return this;
     }
 
-    @Override SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<HtmlElementComponent<?, ?>> children) {
+    @Override
+    SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<HtmlElementComponent<?, ?>> children) {
         this.gridLayout.withFooter(
-                (parent, content) ->
-                {
-                    content.addCss(dui_grid_section);
-                    for (final HtmlElementComponent<?, ?> child : children) {
-                        content.appendChild(child);
-                    }
+            (parent, content) ->
+            {
+                content.addCss(dui_grid_section);
+                for (final HtmlElementComponent<?, ?> child : children) {
+                    content.appendChild(child);
                 }
+            }
         );
 
         return this;

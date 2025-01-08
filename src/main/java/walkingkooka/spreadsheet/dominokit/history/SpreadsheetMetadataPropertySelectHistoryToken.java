@@ -32,9 +32,9 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
                                                                      final SpreadsheetName name,
                                                                      final SpreadsheetMetadataPropertyName<T> propertyName) {
         return new SpreadsheetMetadataPropertySelectHistoryToken<>(
-                id,
-                name,
-                propertyName
+            id,
+            name,
+            propertyName
         );
     }
 
@@ -42,9 +42,9 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
                                                           final SpreadsheetName name,
                                                           final SpreadsheetMetadataPropertyName<T> propertyName) {
         super(
-                id,
-                name,
-                propertyName
+            id,
+            name,
+            propertyName
         );
     }
 
@@ -63,9 +63,9 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return with(
-                id,
-                name,
-                this.propertyName()
+            id,
+            name,
+            this.propertyName()
         );
     }
 
@@ -74,16 +74,16 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
         final SpreadsheetName name = this.name();
 
         return patternKind.isPresent() ?
-                new SpreadsheetMetadataPropertySelectHistoryToken<>(
-                        id,
-                        name,
-                        patternKind.get()
-                                .spreadsheetMetadataPropertyName()
-                ) :
-                HistoryToken.metadataSelect(
-                        id,
-                        name
-                );
+            new SpreadsheetMetadataPropertySelectHistoryToken<>(
+                id,
+                name,
+                patternKind.get()
+                    .spreadsheetMetadataPropertyName()
+            ) :
+            HistoryToken.metadataSelect(
+                id,
+                name
+            );
     }
 
     @Override
@@ -91,14 +91,14 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName();
 
         return HistoryToken.metadataPropertySave(
-                this.id(),
-                this.name(),
-                propertyName,
-                Optional.ofNullable(
-                        value.isEmpty() ?
-                                null :
-                                propertyName.parseUrlFragmentSaveValue(value)
-                )
+            this.id(),
+            this.name(),
+            propertyName,
+            Optional.ofNullable(
+                value.isEmpty() ?
+                    null :
+                    propertyName.parseUrlFragmentSaveValue(value)
+            )
         );
     }
 

@@ -29,15 +29,15 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
     SpreadsheetRenameHistoryToken(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         super(
-                id,
-                name
+            id,
+            name
         );
     }
 
     @Override //
     final UrlFragment spreadsheetNameUrlFragment() {
         return RENAME.appendSlashThen(
-                this.spreadsheetRenameUrlFragment()
+            this.spreadsheetRenameUrlFragment()
         );
     }
 

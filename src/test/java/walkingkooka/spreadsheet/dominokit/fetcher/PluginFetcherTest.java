@@ -36,20 +36,20 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
     @Test
     public void testPluginNameUrlWithNullFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> PluginFetcher.pluginNameUrl(
-                        null
-                )
+            NullPointerException.class,
+            () -> PluginFetcher.pluginNameUrl(
+                null
+            )
         );
     }
 
     @Test
     public void testPluginNameUrl() {
         this.checkEquals(
-                Url.parseRelative("/api/plugin/TestPluginName123"),
-                PluginFetcher.pluginNameUrl(
-                        PluginName.with("TestPluginName123")
-                )
+            Url.parseRelative("/api/plugin/TestPluginName123"),
+            PluginFetcher.pluginNameUrl(
+                PluginName.with("TestPluginName123")
+            )
         );
     }
 
@@ -58,53 +58,53 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
     @Test
     public void testPluginDownloadUrlWithNullPluginNameFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> PluginFetcher.pluginDownloadUrl(
-                        null,
-                        Optional.empty()
-                )
+            NullPointerException.class,
+            () -> PluginFetcher.pluginDownloadUrl(
+                null,
+                Optional.empty()
+            )
         );
     }
 
     @Test
     public void testPluginDownloadUrlWithNullFileNameFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> PluginFetcher.pluginDownloadUrl(
-                        PluginName.with("TestPlugin123"),
-                        null
-                )
+            NullPointerException.class,
+            () -> PluginFetcher.pluginDownloadUrl(
+                PluginName.with("TestPlugin123"),
+                null
+            )
         );
     }
 
     @Test
     public void testPluginDownloadUrlMissingFile() {
         this.pluginDownloadUrlAndCheck(
-                "TestPluginName123",
-                Optional.empty(),
-                "/api/plugin/TestPluginName123/download"
+            "TestPluginName123",
+            Optional.empty(),
+            "/api/plugin/TestPluginName123/download"
         );
     }
 
     @Test
     public void testPluginDownloadUrlWithFilename() {
         this.pluginDownloadUrlAndCheck(
-                "TestPluginName123",
-                Optional.of(
-                        JarEntryInfoName.MANIFEST_MF
-                ),
-                "/api/plugin/TestPluginName123/download/META-INF/MANIFEST.MF"
+            "TestPluginName123",
+            Optional.of(
+                JarEntryInfoName.MANIFEST_MF
+            ),
+            "/api/plugin/TestPluginName123/download/META-INF/MANIFEST.MF"
         );
     }
 
     @Test
     public void testPluginDownloadUrlWithFilename2() {
         this.pluginDownloadUrlAndCheck(
-                "TestPluginName123",
-                Optional.of(
-                        JarEntryInfoName.with("/dir111/file222.txt")
-                ),
-                "/api/plugin/TestPluginName123/download/dir111/file222.txt"
+            "TestPluginName123",
+            Optional.of(
+                JarEntryInfoName.with("/dir111/file222.txt")
+            ),
+            "/api/plugin/TestPluginName123/download/dir111/file222.txt"
         );
     }
 
@@ -112,9 +112,9 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
                                            final Optional<JarEntryInfoName> file,
                                            final String expected) {
         this.pluginDownloadUrlAndCheck(
-                PluginName.with(pluginName),
-                file,
-                Url.parseRelative(expected)
+            PluginName.with(pluginName),
+            file,
+            Url.parseRelative(expected)
         );
     }
 
@@ -122,12 +122,12 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
                                            final Optional<JarEntryInfoName> file,
                                            final RelativeUrl expected) {
         this.checkEquals(
-                expected,
-                PluginFetcher.pluginDownloadUrl(
-                        pluginName,
-                        file
-                ),
-                () -> "pluginDownloadUrl " + pluginName + " " + file
+            expected,
+            PluginFetcher.pluginDownloadUrl(
+                pluginName,
+                file
+            ),
+            () -> "pluginDownloadUrl " + pluginName + " " + file
         );
     }
 
@@ -136,8 +136,8 @@ public final class PluginFetcherTest implements ClassTesting<PluginFetcher> {
     @Test
     public void testPluginUploadUrl() {
         this.checkEquals(
-                Url.parseRelative("/api/plugin/*/upload"),
-                PluginFetcher.pluginUploadUrl()
+            Url.parseRelative("/api/plugin/*/upload"),
+            PluginFetcher.pluginUploadUrl()
         );
     }
 

@@ -29,20 +29,20 @@ public final class SpreadsheetLabelMappingDeleteHistoryTokenTest extends Spreads
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/label/Label123/delete"
+            LABEL,
+            "/123/SpreadsheetName456/label/Label123/delete"
         );
     }
 
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.labelMapping(
-                        ID,
-                        NAME,
-                        Optional.of(LABEL)
-                )
+            this.createHistoryToken(),
+            HistoryToken.labelMapping(
+                ID,
+                NAME,
+                Optional.of(LABEL)
+            )
         );
     }
 
@@ -51,9 +51,9 @@ public final class SpreadsheetLabelMappingDeleteHistoryTokenTest extends Spreads
                                                                  final SpreadsheetName name,
                                                                  final SpreadsheetLabelName label) {
         return SpreadsheetLabelMappingDeleteHistoryToken.with(
-                id,
-                name,
-                label
+            id,
+            name,
+            label
         );
     }
 

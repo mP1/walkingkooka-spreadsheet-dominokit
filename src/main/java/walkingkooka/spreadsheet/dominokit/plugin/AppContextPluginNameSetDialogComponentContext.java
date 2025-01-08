@@ -30,15 +30,16 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import java.util.Objects;
 
 final class AppContextPluginNameSetDialogComponentContext implements PluginNameSetDialogComponentContext,
-        HasPluginFetcherWatchersDelegator,
-        HasSpreadsheetMetadataFetcherWatchersDelegator,
-        SpreadsheetDialogComponentContextDelegator {
+    HasPluginFetcherWatchersDelegator,
+    HasSpreadsheetMetadataFetcherWatchersDelegator,
+    SpreadsheetDialogComponentContextDelegator {
 
     static AppContextPluginNameSetDialogComponentContext with(final AppContext context) {
         return new AppContextPluginNameSetDialogComponentContext(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
+
     private AppContextPluginNameSetDialogComponentContext(final AppContext context) {
         this.context = context;
     }
@@ -55,11 +56,11 @@ final class AppContextPluginNameSetDialogComponentContext implements PluginNameS
                              final int offset,
                              final int count) {
         this.context.pluginFetcher()
-                .filter(
-                        query,
-                        offset,
-                        count
-                );
+            .filter(
+                query,
+                offset,
+                count
+            );
     }
 
     @Override
@@ -72,7 +73,7 @@ final class AppContextPluginNameSetDialogComponentContext implements PluginNameS
     @Override
     public void loadSpreadsheetMetadata(final SpreadsheetId id) {
         this.context.spreadsheetMetadataFetcher()
-                .loadSpreadsheetMetadata(id);
+            .loadSpreadsheetMetadata(id);
     }
 
     @Override

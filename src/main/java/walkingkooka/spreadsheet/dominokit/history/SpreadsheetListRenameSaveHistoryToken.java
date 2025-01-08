@@ -38,15 +38,15 @@ public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetList
     static SpreadsheetListRenameSaveHistoryToken with(final SpreadsheetId id,
                                                       final SpreadsheetName value) {
         return new SpreadsheetListRenameSaveHistoryToken(
-                id,
-                value
+            id,
+            value
         );
     }
 
     private SpreadsheetListRenameSaveHistoryToken(final SpreadsheetId id,
                                                   final SpreadsheetName value) {
         super(
-                id
+            id
         );
         this.value = Objects.requireNonNull(value, "value");
     }
@@ -60,11 +60,11 @@ public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetList
         Objects.requireNonNull(name, "name");
 
         return this.value.equals(name) ?
-                this :
-                new SpreadsheetListRenameSaveHistoryToken(
-                        this.id(),
-                        name
-                );
+            this :
+            new SpreadsheetListRenameSaveHistoryToken(
+                this.id(),
+                name
+            );
     }
 
     private final SpreadsheetName value;
@@ -77,14 +77,14 @@ public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetList
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.spreadsheetListRenameSelect(
-                this.id()
+            this.id()
         );
     }
 
     @Override
     HistoryToken save0(final String value) {
         return this.setValue(
-                SpreadsheetName.with(value)
+            SpreadsheetName.with(value)
         );
     }
 
@@ -99,11 +99,11 @@ public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetList
                                      final AppContext context) {
         context.pushHistoryToken(previous);
         context.spreadsheetMetadataFetcher()
-                .patchMetadata(
-                        this.id(),
-                        SpreadsheetMetadataPropertyName.SPREADSHEET_NAME.patch(
-                                this.value()
-                        )
-                );
+            .patchMetadata(
+                this.id(),
+                SpreadsheetMetadataPropertyName.SPREADSHEET_NAME.patch(
+                    this.value()
+                )
+            );
     }
 }

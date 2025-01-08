@@ -37,31 +37,31 @@ final class SpreadsheetMetadataPanelComponentItemAnchor<T> extends SpreadsheetMe
         checkContext(context);
 
         return new SpreadsheetMetadataPanelComponentItemAnchor<>(
-                propertyName,
-                context
+            propertyName,
+            context
         );
     }
 
     private SpreadsheetMetadataPanelComponentItemAnchor(final SpreadsheetMetadataPropertyName<T> propertyName,
                                                         final SpreadsheetMetadataPanelComponentContext context) {
         super(
-                propertyName,
-                context
+            propertyName,
+            context
         );
 
         final HistoryToken historyToken = context.historyToken();
 
         this.anchor = historyToken.link(
-                CaseKind.KEBAB.change(
-                        propertyName.value(),
-                        CaseKind.CAMEL
-                )
+            CaseKind.KEBAB.change(
+                propertyName.value(),
+                CaseKind.CAMEL
+            )
         ).setTextContent(
-                propertyName.text()
+            propertyName.text()
         ).setHistoryToken(
-                Optional.of(
-                        historyToken.setMetadataPropertyName(propertyName)
-                )
+            Optional.of(
+                historyToken.setMetadataPropertyName(propertyName)
+            )
         );
     }
 
@@ -75,10 +75,10 @@ final class SpreadsheetMetadataPanelComponentItemAnchor<T> extends SpreadsheetMe
     @Override
     public void refresh(final RefreshContext context) {
         this.anchor.setHistoryToken(
-                Optional.of(
-                        context.historyToken()
-                                .setMetadataPropertyName(this.propertyName)
-                )
+            Optional.of(
+                context.historyToken()
+                    .setMetadataPropertyName(this.propertyName)
+            )
         );
     }
 

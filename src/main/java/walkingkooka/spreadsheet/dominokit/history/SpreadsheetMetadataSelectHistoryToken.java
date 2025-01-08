@@ -30,16 +30,16 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
     static SpreadsheetMetadataSelectHistoryToken with(final SpreadsheetId id,
                                                       final SpreadsheetName name) {
         return new SpreadsheetMetadataSelectHistoryToken(
-                id,
-                name
+            id,
+            name
         );
     }
 
     private SpreadsheetMetadataSelectHistoryToken(final SpreadsheetId id,
                                                   final SpreadsheetName name) {
         super(
-                id,
-                name
+            id,
+            name
         );
     }
 
@@ -58,19 +58,19 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return with(
-                id,
-                name
+            id,
+            name
         );
     }
 
     @Override //
     HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return patternKind.map(
-                k -> HistoryToken.metadataPropertySelect(
-                        this.id(),
-                        this.name(),
-                        k.spreadsheetMetadataPropertyName()
-                ).cast(HistoryToken.class)
+            k -> HistoryToken.metadataPropertySelect(
+                this.id(),
+                this.name(),
+                k.spreadsheetMetadataPropertyName()
+            ).cast(HistoryToken.class)
         ).orElse(this);
     }
 

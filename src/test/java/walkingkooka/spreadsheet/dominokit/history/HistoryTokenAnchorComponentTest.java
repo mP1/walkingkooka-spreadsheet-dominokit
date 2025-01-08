@@ -38,8 +38,8 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
     @Test
     public void testSetHistoryTokenEmpty() {
         this.treePrintAndCheck(
-                HistoryTokenAnchorComponent.empty(),
-                "DISABLED"
+            HistoryTokenAnchorComponent.empty(),
+            "DISABLED"
         );
     }
 
@@ -48,13 +48,13 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
         final String href = "/1/SpreadsheetName234/cell/A1";
 
         this.treePrintAndCheck(
-                HistoryTokenAnchorComponent.empty()
-                        .setHistoryToken(
-                                Optional.of(
-                                        HistoryToken.parseString(href)
-                                )
-                        ),
-                "[#/1/SpreadsheetName234/cell/A1]"
+            HistoryTokenAnchorComponent.empty()
+                .setHistoryToken(
+                    Optional.of(
+                        HistoryToken.parseString(href)
+                    )
+                ),
+            "[#/1/SpreadsheetName234/cell/A1]"
         );
     }
 
@@ -63,9 +63,9 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
     @Test
     public void testSetHrefNull() {
         this.treePrintAndCheck(
-                HistoryTokenAnchorComponent.empty()
-                        .setHref(null),
-                "DISABLED"
+            HistoryTokenAnchorComponent.empty()
+                .setHref(null),
+            "DISABLED"
         );
     }
 
@@ -74,11 +74,11 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
         final String href = "#/1/SpreadsheetName234/cell/A1";
 
         this.treePrintAndCheck(
-                HistoryTokenAnchorComponent.empty()
-                        .setHref(
-                                Url.parseAbsoluteOrRelative(href)
-                        ),
-                "[" + href + "]"
+            HistoryTokenAnchorComponent.empty()
+                .setHref(
+                    Url.parseAbsoluteOrRelative(href)
+                ),
+            "[" + href + "]"
         );
     }
 
@@ -87,16 +87,16 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
     @Test
     public void testSetIconAfter() {
         this.treePrintAndCheck(
-                HistoryTokenAnchorComponent.empty()
-                        .setIconAfter(
-                                Optional.of(
-                                        new Icon<>("Icon123")
-                                )
-                        )
-                        .setHref(
-                                Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
-                        ),
-                "[#/1/SpreadsheetName234/cell/A1] Icon123"
+            HistoryTokenAnchorComponent.empty()
+                .setIconAfter(
+                    Optional.of(
+                        new Icon<>("Icon123")
+                    )
+                )
+                .setHref(
+                    Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                ),
+            "[#/1/SpreadsheetName234/cell/A1] Icon123"
         );
     }
 
@@ -105,16 +105,16 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
     @Test
     public void testSetIconBefore() {
         this.treePrintAndCheck(
-                HistoryTokenAnchorComponent.empty()
-                        .setIconBefore(
-                                Optional.of(
-                                        new Icon<>("Icon123")
-                                )
-                        )
-                        .setHref(
-                                Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
-                        ),
-                "Icon123 [#/1/SpreadsheetName234/cell/A1]"
+            HistoryTokenAnchorComponent.empty()
+                .setIconBefore(
+                    Optional.of(
+                        new Icon<>("Icon123")
+                    )
+                )
+                .setHref(
+                    Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                ),
+            "Icon123 [#/1/SpreadsheetName234/cell/A1]"
         );
     }
 
@@ -123,14 +123,14 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
     @Test
     public void testSetTextContent() {
         this.treePrintAndCheck(
-                HistoryTokenAnchorComponent.empty()
-                        .setTextContent(
-                                "Text123"
-                        )
-                        .setHref(
-                                Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
-                        ),
-                "\"Text123\" [#/1/SpreadsheetName234/cell/A1]"
+            HistoryTokenAnchorComponent.empty()
+                .setTextContent(
+                    "Text123"
+                )
+                .setHref(
+                    Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                ),
+            "\"Text123\" [#/1/SpreadsheetName234/cell/A1]"
         );
     }
 
@@ -139,45 +139,45 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
     @Test
     public void testPrintTreeAll() {
         this.treePrintAndCheck(
-                HistoryTokenAnchorComponent.empty()
-                        .setChecked(true)
-                        .setIconAfter(
-                                Optional.of(
-                                        new Icon<>("IconAfter123")
-                                )
-                        ).setIconBefore(
-                                Optional.of(
-                                        new Icon<>("IconBefore456")
-                                )
-                        ).setTextContent(
-                                "Text789"
-                        ).setHref(
-                                Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
-                        ).setId("id789"),
-                "IconBefore456 \"Text789\" [#/1/SpreadsheetName234/cell/A1] CHECKED IconAfter123 id=id789"
+            HistoryTokenAnchorComponent.empty()
+                .setChecked(true)
+                .setIconAfter(
+                    Optional.of(
+                        new Icon<>("IconAfter123")
+                    )
+                ).setIconBefore(
+                    Optional.of(
+                        new Icon<>("IconBefore456")
+                    )
+                ).setTextContent(
+                    "Text789"
+                ).setHref(
+                    Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                ).setId("id789"),
+            "IconBefore456 \"Text789\" [#/1/SpreadsheetName234/cell/A1] CHECKED IconAfter123 id=id789"
         );
     }
 
     @Test
     public void testPrintTreeAllDisabled() {
         this.treePrintAndCheck(
-                HistoryTokenAnchorComponent.empty()
-                        .setChecked(true)
-                        .setIconAfter(
-                                Optional.of(
-                                        new Icon<>("IconAfter123")
-                                )
-                        ).setIconBefore(
-                                Optional.of(
-                                        new Icon<>("IconBefore456")
-                                )
-                        ).setTextContent(
-                                "Text789"
-                        )
-                        .setHref(
-                                Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
-                        ).setDisabled(true),
-                "IconBefore456 \"Text789\" DISABLED CHECKED IconAfter123"
+            HistoryTokenAnchorComponent.empty()
+                .setChecked(true)
+                .setIconAfter(
+                    Optional.of(
+                        new Icon<>("IconAfter123")
+                    )
+                ).setIconBefore(
+                    Optional.of(
+                        new Icon<>("IconBefore456")
+                    )
+                ).setTextContent(
+                    "Text789"
+                )
+                .setHref(
+                    Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                ).setDisabled(true),
+            "IconBefore456 \"Text789\" DISABLED CHECKED IconAfter123"
         );
     }
 
@@ -186,38 +186,38 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
     @Test
     public void testSetSpreadsheetContextMenu() {
         final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
-                .setTextContent("Hello")
-                .setHref(
-                        Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
-                );
+            .setTextContent("Hello")
+            .setHref(
+                Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+            );
         final SpreadsheetContextMenu menu = SpreadsheetContextMenu.wrap(
-                anchor,
-                HistoryTokenContexts.fake()
+            anchor,
+            HistoryTokenContexts.fake()
         ).item(
-                SpreadsheetContextMenuItem.with(
-                        "menu-item-1" + SpreadsheetElementIds.MENU_ITEM,
-                        "Item 1"
-                )
+            SpreadsheetContextMenuItem.with(
+                "menu-item-1" + SpreadsheetElementIds.MENU_ITEM,
+                "Item 1"
+            )
         ).item(
-                SpreadsheetContextMenuItem.with(
-                        "menu-item-2" + SpreadsheetElementIds.MENU_ITEM,
-                        "Item 2"
-                )
+            SpreadsheetContextMenuItem.with(
+                "menu-item-2" + SpreadsheetElementIds.MENU_ITEM,
+                "Item 2"
+            )
         ).item(
-                SpreadsheetContextMenuItem.with(
-                        "menu-item-3" + SpreadsheetElementIds.MENU_ITEM,
-                        "Item 3"
-                )
+            SpreadsheetContextMenuItem.with(
+                "menu-item-3" + SpreadsheetElementIds.MENU_ITEM,
+                "Item 3"
+            )
         );
 
         anchor.setSpreadsheetContextMenu(menu);
 
         this.treePrintAndCheck(
-                anchor,
-                "\"Hello\" [#/1/SpreadsheetName234/cell/A1]\n" +
-                        "    \"Item 1\" id=menu-item-1-MenuItem\n" +
-                        "    \"Item 2\" id=menu-item-2-MenuItem\n" +
-                        "    \"Item 3\" id=menu-item-3-MenuItem\n"
+            anchor,
+            "\"Hello\" [#/1/SpreadsheetName234/cell/A1]\n" +
+                "    \"Item 1\" id=menu-item-1-MenuItem\n" +
+                "    \"Item 2\" id=menu-item-2-MenuItem\n" +
+                "    \"Item 3\" id=menu-item-3-MenuItem\n"
         );
     }
 
@@ -226,21 +226,21 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
     @Test
     public void testSpreadsheetTooltipComponent() {
         final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
-                .setTextContent("Hello")
-                .setHref(
-                        Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
-                );
+            .setTextContent("Hello")
+            .setHref(
+                Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+            );
         final SpreadsheetTooltipComponent tooltip = SpreadsheetTooltipComponent.attach(
-                anchor,
-                "Tooltip123",
-                DropDirection.BOTTOM_MIDDLE
+            anchor,
+            "Tooltip123",
+            DropDirection.BOTTOM_MIDDLE
         );
 
         this.treePrintAndCheck(
-                anchor,
-                "\"Hello\" [#/1/SpreadsheetName234/cell/A1]\n" +
-                        "  SpreadsheetTooltipComponent\n" +
-                        "    \"Tooltip123\"\n"
+            anchor,
+            "\"Hello\" [#/1/SpreadsheetName234/cell/A1]\n" +
+                "  SpreadsheetTooltipComponent\n" +
+                "    \"Tooltip123\"\n"
         );
     }
 

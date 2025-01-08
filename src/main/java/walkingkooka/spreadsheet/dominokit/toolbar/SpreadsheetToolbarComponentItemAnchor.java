@@ -38,17 +38,17 @@ abstract class SpreadsheetToolbarComponentItemAnchor<C extends SpreadsheetToolba
                                           final String tooltipText,
                                           final SpreadsheetToolbarComponentContext context) {
         final HistoryTokenAnchorComponent anchor = context.historyToken()
-                .link(id)
-                .setTextContent(text)
-                .setIconBefore(icon)
-                .addFocusListener(this::onFocus);
+            .link(id)
+            .setTextContent(text)
+            .setIconBefore(icon)
+            .addFocusListener(this::onFocus);
 
         this.anchor = anchor;
 
         this.tooltip = SpreadsheetTooltipComponent.attach(
-                anchor,
-                tooltipText,
-                DropDirection.BOTTOM_MIDDLE
+            anchor,
+            tooltipText,
+            DropDirection.BOTTOM_MIDDLE
         );
 
         context.addHistoryTokenWatcher(this);

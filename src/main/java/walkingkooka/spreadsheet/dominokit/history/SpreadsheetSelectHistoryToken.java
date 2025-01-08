@@ -43,16 +43,16 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     static SpreadsheetSelectHistoryToken with(final SpreadsheetId id,
                                               final SpreadsheetName name) {
         return new SpreadsheetSelectHistoryToken(
-                id,
-                name
+            id,
+            name
         );
     }
 
     private SpreadsheetSelectHistoryToken(final SpreadsheetId id,
                                           final SpreadsheetName name) {
         super(
-                id,
-                name
+            id,
+            name
         );
     }
 
@@ -66,7 +66,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                         final TextCursor cursor) {
         HistoryToken result = this;
 
-        switch(component) {
+        switch (component) {
             case CELL_STRING:
                 result = this.parseCell(cursor);
                 break;
@@ -101,22 +101,22 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     private HistoryToken parseCell(final TextCursor cursor) {
         return parseCellColumnOrRow(
-                cursor,
-                SpreadsheetSelection::parseExpressionReference
+            cursor,
+            SpreadsheetSelection::parseExpressionReference
         );
     }
 
     private HistoryToken parseColumn(final TextCursor cursor) {
         return parseCellColumnOrRow(
-                cursor,
-                SpreadsheetSelection::parseColumnOrColumnRange
+            cursor,
+            SpreadsheetSelection::parseColumnOrColumnRange
         );
     }
 
     private HistoryToken parseRow(final TextCursor cursor) {
         return parseCellColumnOrRow(
-                cursor,
-                SpreadsheetSelection::parseRowOrRowRange
+            cursor,
+            SpreadsheetSelection::parseRowOrRowRange
         );
     }
 
@@ -127,13 +127,13 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         final Optional<String> maybeSelection = parseComponent(cursor);
         if (maybeSelection.isPresent()) {
             final SpreadsheetSelection selection = parser.apply(
-                    maybeSelection.get()
+                maybeSelection.get()
             );
 
             result = this.setAnchoredSelection(
-                    Optional.of(
-                            selection.setDefaultAnchor()
-                    )
+                Optional.of(
+                    selection.setDefaultAnchor()
+                )
             );
 
             final TextCursorSavePoint beforeAnchor = cursor.save();
@@ -150,9 +150,9 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                     if (possible.kebabText().equals(possibleAnchor)) {
                         try {
                             result = result.setAnchoredSelection(
-                                    Optional.of(
-                                            selection.setAnchor(possible)
-                                    )
+                                Optional.of(
+                                    selection.setAnchor(possible)
+                                )
                             );
                             restoreCursor = false;
                         } catch (final IllegalArgumentException ignore) {
@@ -174,7 +174,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     private HistoryToken parseLabel(final TextCursor cursor) {
         final Optional<String> label = parseComponent(cursor);
         return this.setLabelName(
-                label.map(SpreadsheetSelection::labelName)
+            label.map(SpreadsheetSelection::labelName)
         );
     }
 
@@ -196,9 +196,9 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                         break;
                     default:
                         result = metadataPropertySelect(
-                                this.id(),
-                                this.name(),
-                                SpreadsheetMetadataPropertyName.with(next)
+                            this.id(),
+                            this.name(),
+                            SpreadsheetMetadataPropertyName.with(next)
                         );
                         break;
                 }
@@ -209,8 +209,8 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
         if (null == result) {
             result = metadataSelect(
-                    this.id(),
-                    this.name()
+                this.id(),
+                this.name()
             );
         }
 
@@ -234,8 +234,8 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return spreadsheetSelect(
-                id,
-                name
+            id,
+            name
         );
     }
 
@@ -243,10 +243,10 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     @Override
     HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return metadataPropertySelect(
-                this.id(),
-                this.name(),
-                patternKind.get()
-                        .spreadsheetMetadataPropertyName()
+            this.id(),
+            this.name(),
+            patternKind.get()
+                .spreadsheetMetadataPropertyName()
         );
     }
 

@@ -43,7 +43,7 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
      */
     public static <T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> AppendPluginSelectorTokenComponent<T, A> empty(final String id) {
         return new AppendPluginSelectorTokenComponent<>(
-                CharSequences.failIfNullOrEmpty(id, "id")
+            CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
 
@@ -52,21 +52,21 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
 
         this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle("Append component(s)")
-                .appendChild(this.flex);
+            .setTitle("Append component(s)")
+            .appendChild(this.flex);
     }
 
     public void refresh(final List<T> tokens,
                         final List<A> alternatives,
                         final AppendPluginSelectorTokenComponentContext context) {
         this.refresh0(
-                Lists.immutable(
-                        Objects.requireNonNull(tokens, "tokens")
-                ),
-                Lists.immutable(
-                        Objects.requireNonNull(alternatives, "alternatives")
-                ),
-                Objects.requireNonNull(context, "context")
+            Lists.immutable(
+                Objects.requireNonNull(tokens, "tokens")
+            ),
+            Lists.immutable(
+                Objects.requireNonNull(alternatives, "alternatives")
+            ),
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -77,18 +77,18 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
 
         final String baseTextComponent = tokens.stream()
-                .map(PluginSelectorTokenLike::text)
-                .collect(Collectors.joining());
+            .map(PluginSelectorTokenLike::text)
+            .collect(Collectors.joining());
 
         int i = 0;
         for (final A alternative : alternatives) {
             flex.appendChild(
-                    this.anchor(
-                            baseTextComponent,
-                            alternative,
-                            i,
-                            context
-                    )
+                this.anchor(
+                    baseTextComponent,
+                    alternative,
+                    i,
+                    context
+                )
             );
             i++;
         }
@@ -103,13 +103,13 @@ public final class AppendPluginSelectorTokenComponent<T extends PluginSelectorTo
                                                final int index,
                                                final AppendPluginSelectorTokenComponentContext context) {
         return context.historyToken()
-                .saveLink(
-                        this.id + "append-" + index,
-                        alternative.label(),
-                        context.saveText(
-                                token + alternative.text()
-                        )
-                );
+            .saveLink(
+                this.id + "append-" + index,
+                alternative.label(),
+                context.saveText(
+                    token + alternative.text()
+                )
+            );
     }
 
     /**

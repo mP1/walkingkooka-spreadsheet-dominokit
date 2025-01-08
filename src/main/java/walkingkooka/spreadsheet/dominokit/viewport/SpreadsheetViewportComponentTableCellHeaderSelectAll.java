@@ -32,15 +32,15 @@ final class SpreadsheetViewportComponentTableCellHeaderSelectAll extends Spreads
 
     private SpreadsheetViewportComponentTableCellHeaderSelectAll(final HistoryTokenContext context) {
         super(
-                SpreadsheetViewportComponent.ID_PREFIX + "select-all-cells", // id
-                css(
-                        HEADER_STYLE,
-                        SpreadsheetViewportComponent.ROW_WIDTH,
-                        SpreadsheetViewportComponent.COLUMN_HEIGHT
-                ), // css
-                SpreadsheetSelection.ALL_CELLS, // selection
-                "All", // link text
-                context
+            SpreadsheetViewportComponent.ID_PREFIX + "select-all-cells", // id
+            css(
+                HEADER_STYLE,
+                SpreadsheetViewportComponent.ROW_WIDTH,
+                SpreadsheetViewportComponent.COLUMN_HEIGHT
+            ), // css
+            SpreadsheetSelection.ALL_CELLS, // selection
+            "All", // link text
+            context
         );
     }
 

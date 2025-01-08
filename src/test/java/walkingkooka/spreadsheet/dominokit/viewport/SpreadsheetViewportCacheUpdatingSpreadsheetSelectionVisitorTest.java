@@ -28,10 +28,10 @@ public final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitorTe
     @Override
     public SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor createVisitor() {
         return SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.accept(
-                Collections.emptyList(),
-                Maps.empty(),
-                Collections.emptyMap(),
-                SpreadsheetViewportWindows.parse("A1:Z99")
+            Collections.emptyList(),
+            Maps.empty(),
+            Collections.emptyMap(),
+            SpreadsheetViewportWindows.parse("A1:Z99")
         );
     }
 

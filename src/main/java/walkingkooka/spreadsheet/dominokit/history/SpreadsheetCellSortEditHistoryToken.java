@@ -41,10 +41,10 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final String comparatorNames) {
         return new SpreadsheetCellSortEditHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                comparatorNames
+            id,
+            name,
+            anchoredSelection,
+            comparatorNames
         );
     }
 
@@ -53,9 +53,9 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final String comparatorNames) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
 
         this.comparatorNames = Objects.requireNonNull(comparatorNames, "comparatorNames");
@@ -72,12 +72,12 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
         final String comparatorNames = this.comparatorNames;
 
         return comparatorNames.isEmpty() ?
-                EDIT :
-                EDIT.append(
-                        UrlFragment.SLASH.append(
-                                UrlFragment.with(comparatorNames)
-                        )
-                );
+            EDIT :
+            EDIT.append(
+                UrlFragment.SLASH.append(
+                    UrlFragment.with(comparatorNames)
+                )
+            );
     }
 
     @Override
@@ -85,10 +85,10 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellSortEditHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                this.comparatorNames
+            id,
+            name,
+            anchoredSelection,
+            this.comparatorNames
         );
     }
 

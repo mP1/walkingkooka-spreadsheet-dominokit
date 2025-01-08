@@ -37,13 +37,13 @@ import java.util.Objects;
  * A wrapper component that watches {@link HistoryToken} and fires lifecycle events to a given {@link SpreadsheetFormComponentLifecycle}.
  */
 public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E extends HTMLElement> implements HistoryTokenAwareComponentLifecycle,
-        HtmlElementComponent<E, SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E>> {
+    HtmlElementComponent<E, SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E>> {
 
     public static <E extends HTMLElement> SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E> with(final SpreadsheetFormComponentLifecycle<E, ?> form,
                                                                                                          final HistoryTokenContext context) {
         return new SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<>(
-                Objects.requireNonNull(form, "form"),
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(form, "form"),
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -58,14 +58,14 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
         return token instanceof SpreadsheetMetadataPropertySaveHistoryToken ||
-                token instanceof SpreadsheetMetadataPropertyStyleSaveHistoryToken;
+            token instanceof SpreadsheetMetadataPropertyStyleSaveHistoryToken;
     }
 
     @Override
     public boolean isMatch(final HistoryToken token) {
         // isAnyOpen test because a dialog belonging to the viewing/editing of a SpreadsheetMetadata property.
         return token instanceof SpreadsheetMetadataHistoryToken &&
-                false == SpreadsheetDialogComponent.isAnyOpen();
+            false == SpreadsheetDialogComponent.isAnyOpen();
     }
 
     @Override

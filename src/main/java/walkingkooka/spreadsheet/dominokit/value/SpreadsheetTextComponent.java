@@ -188,7 +188,7 @@ public final class SpreadsheetTextComponent implements ValueComponent<HTMLDivEle
         // would be better to do create the TextNode in setValue but that would cause failures in test/SpreadsheetTextBox.setValue
         if (null == this.node) {
             this.node = Doms.textNode(
-                    this.value.orElse("")
+                this.value.orElse("")
             );
         }
         return node;
@@ -204,9 +204,9 @@ public final class SpreadsheetTextComponent implements ValueComponent<HTMLDivEle
         printer.indent();
         {
             printer.println(
-                    CharSequences.quoteAndEscape(
-                            this.value.orElse("")
-                    )
+                CharSequences.quoteAndEscape(
+                    this.value.orElse("")
+                )
             );
         }
         printer.outdent();
@@ -216,7 +216,7 @@ public final class SpreadsheetTextComponent implements ValueComponent<HTMLDivEle
 
     public String toString() {
         return CharSequences.quoteAndEscape(
-                this.value.orElse("")
+            this.value.orElse("")
         ).toString();
     }
 }

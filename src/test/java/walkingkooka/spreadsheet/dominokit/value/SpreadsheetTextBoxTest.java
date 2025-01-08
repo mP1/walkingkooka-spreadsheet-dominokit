@@ -31,111 +31,111 @@ public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLF
     @Test
     public void testOptionalValidationPass() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
-                        .setLabel("Label123")
-                        .setValidator(
-                                SpreadsheetValidators.optional(
-                                        SpreadsheetValidators.fake()
-                                )
-                        ),
-                "SpreadsheetTextBox\n" +
-                        "  Label123 []\n"
+            SpreadsheetTextBox.empty()
+                .setLabel("Label123")
+                .setValidator(
+                    SpreadsheetValidators.optional(
+                        SpreadsheetValidators.fake()
+                    )
+                ),
+            "SpreadsheetTextBox\n" +
+                "  Label123 []\n"
         );
     }
 
     @Test
     public void testOptionalEmptyValueValidationPass() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
-                        .setLabel("Label123")
-                        .setValue(
-                                Optional.of("!")
-                        )
-                        .setValidator(
-                                SpreadsheetValidators.optional(
-                                        SpreadsheetValidators.fake()
-                                )
-                        ).setValue(Optional.empty()),
-                "SpreadsheetTextBox\n" +
-                        "  Label123 []\n"
+            SpreadsheetTextBox.empty()
+                .setLabel("Label123")
+                .setValue(
+                    Optional.of("!")
+                )
+                .setValidator(
+                    SpreadsheetValidators.optional(
+                        SpreadsheetValidators.fake()
+                    )
+                ).setValue(Optional.empty()),
+            "SpreadsheetTextBox\n" +
+                "  Label123 []\n"
         );
     }
 
     @Test
     public void testValidationPass() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
-                        .setLabel("Label123")
-                        .setValidator(
-                                new Validator<Optional<String>>() {
-                                    @Override
-                                    public ValidationResult isValid(final Optional<String> component) {
-                                        return ValidationResult.valid();
-                                    }
-                                }
-                        ).setValue(Optional.of("Value456")),
-                "SpreadsheetTextBox\n" +
-                        "  Label123 [Value456]\n"
+            SpreadsheetTextBox.empty()
+                .setLabel("Label123")
+                .setValidator(
+                    new Validator<Optional<String>>() {
+                        @Override
+                        public ValidationResult isValid(final Optional<String> component) {
+                            return ValidationResult.valid();
+                        }
+                    }
+                ).setValue(Optional.of("Value456")),
+            "SpreadsheetTextBox\n" +
+                "  Label123 [Value456]\n"
         );
     }
 
     @Test
     public void testValidationFailureInvalidCharacterException() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
-                        .setLabel("Label123")
-                        .setValidator(
-                                SpreadsheetValidators.tryCatch(
-                                        (s) -> {
-                                            throw new InvalidCharacterException(s, 2);
-                                        }
-                                )
-                        ).setValue(Optional.of("Value456")),
-                "SpreadsheetTextBox\n" +
-                        "  Label123 [Value456]\n" +
-                        "  Errors\n" +
-                        "    Invalid character 'l' at 2\n"
+            SpreadsheetTextBox.empty()
+                .setLabel("Label123")
+                .setValidator(
+                    SpreadsheetValidators.tryCatch(
+                        (s) -> {
+                            throw new InvalidCharacterException(s, 2);
+                        }
+                    )
+                ).setValue(Optional.of("Value456")),
+            "SpreadsheetTextBox\n" +
+                "  Label123 [Value456]\n" +
+                "  Errors\n" +
+                "    Invalid character 'l' at 2\n"
         );
     }
 
     @Test
     public void testValidationFailure() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
-                        .setLabel("Label123")
-                        .setValidator(
-                                new Validator<Optional<String>>() {
-                                    @Override
-                                    public ValidationResult isValid(final Optional<String> component) {
-                                        return ValidationResult.invalid("Error message 123");
-                                    }
-                                }
-                        ).setValue(Optional.of("Value456")),
-                "SpreadsheetTextBox\n" +
-                        "  Label123 [Value456]\n" +
-                        "  Errors\n" +
-                        "    Error message 123\n"
+            SpreadsheetTextBox.empty()
+                .setLabel("Label123")
+                .setValidator(
+                    new Validator<Optional<String>>() {
+                        @Override
+                        public ValidationResult isValid(final Optional<String> component) {
+                            return ValidationResult.invalid("Error message 123");
+                        }
+                    }
+                ).setValue(Optional.of("Value456")),
+            "SpreadsheetTextBox\n" +
+                "  Label123 [Value456]\n" +
+                "  Errors\n" +
+                "    Error message 123\n"
         );
     }
 
     @Test
     public void testLabelAndValueWithoutValidator() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
-                        .setLabel("Label123")
-                        .setValue(Optional.of("Value456")),
-                "SpreadsheetTextBox\n" +
-                        "  Label123 [Value456]\n"
+            SpreadsheetTextBox.empty()
+                .setLabel("Label123")
+                .setValue(Optional.of("Value456")),
+            "SpreadsheetTextBox\n" +
+                "  Label123 [Value456]\n"
         );
     }
 
     @Test
     public void testMagnifyingGlass() {
         this.treePrintAndCheck(
-                SpreadsheetTextBox.empty()
-                        .magnifyingGlassIcon(),
-                "SpreadsheetTextBox\n" +
-                        "  []\n"
+            SpreadsheetTextBox.empty()
+                .magnifyingGlassIcon(),
+            "SpreadsheetTextBox\n" +
+                "  []\n"
         );
     }
 

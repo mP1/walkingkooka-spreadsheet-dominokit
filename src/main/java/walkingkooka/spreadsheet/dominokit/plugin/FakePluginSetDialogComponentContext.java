@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 import java.util.Locale;
 
 public class FakePluginSetDialogComponentContext extends FakeHistoryTokenContext
-        implements PluginSetDialogComponentContext {
+    implements PluginSetDialogComponentContext {
 
     public FakePluginSetDialogComponentContext() {
         super();

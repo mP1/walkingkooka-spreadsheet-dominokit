@@ -41,7 +41,7 @@ final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserA
     @Override
     public SpreadsheetParserAliasSet providerAliasSetLike() {
         return this.context.systemSpreadsheetProvider()
-                .spreadsheetParserInfos()
-                .aliasSet();
+            .spreadsheetParserInfos()
+            .aliasSet();
     }
 }

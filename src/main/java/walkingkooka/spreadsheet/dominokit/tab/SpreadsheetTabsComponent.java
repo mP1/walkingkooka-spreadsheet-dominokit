@@ -60,14 +60,14 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
         this.tabs.add(tab);
 
         final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.with(
-                        (HTMLAnchorElement)
-                                tab.getTab()
-                                        .element()
-                                        .firstElementChild
-                ).setId(id)
-                .setTextContent(title)
-                .setDisabled(true)
-                .addPushHistoryToken(this.context);
+                (HTMLAnchorElement)
+                    tab.getTab()
+                        .element()
+                        .firstElementChild
+            ).setId(id)
+            .setTextContent(title)
+            .setDisabled(true)
+            .addPushHistoryToken(this.context);
 
         this.tabsPanel.appendChild(tab);
         this.anchors.add(anchor);

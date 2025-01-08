@@ -43,18 +43,18 @@ final class AppContextSpreadsheetParserSelectorDialogComponentContextMetadata ex
     @Override
     public String dialogTitle() {
         return this.historyToken()
-                .patternKind()
-                .map(this::prepareTitle)
-                .orElse("");
+            .patternKind()
+            .map(this::prepareTitle)
+            .orElse("");
     }
 
     private String prepareTitle(final SpreadsheetPatternKind kind) {
         return CaseKind.SNAKE.change(
-                        kind.name(),
-                        CaseKind.TITLE
-                ).replace("Pattern", "")
-                .replace("Parse", "parser")
-                .trim();
+                kind.name(),
+                CaseKind.TITLE
+            ).replace("Pattern", "")
+            .replace("Parse", "parser")
+            .trim();
     }
 
     @Override
@@ -69,13 +69,13 @@ final class AppContextSpreadsheetParserSelectorDialogComponentContextMetadata ex
     @Override
     public String undo() {
         return this.context.spreadsheetMetadata()
-                .getIgnoringDefaults(
-                        this.historyToken()
-                                .patternKind()
-                                .get()
-                                .spreadsheetMetadataPropertyName()
-                ).map(Object::toString)
-                .orElse("");
+            .getIgnoringDefaults(
+                this.historyToken()
+                    .patternKind()
+                    .get()
+                    .spreadsheetMetadataPropertyName()
+            ).map(Object::toString)
+            .orElse("");
     }
 
     // ComponentLifecycleMatcher........................................................................................

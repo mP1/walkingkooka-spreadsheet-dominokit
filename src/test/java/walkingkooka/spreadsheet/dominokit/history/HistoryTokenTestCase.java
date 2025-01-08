@@ -41,9 +41,9 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class HistoryTokenTestCase<T extends HistoryToken> implements ClassTesting<T>,
-        HashCodeEqualsDefinedTesting2<T>,
-        HasUrlFragmentTesting,
-        ToStringTesting<T> {
+    HashCodeEqualsDefinedTesting2<T>,
+    HasUrlFragmentTesting,
+    ToStringTesting<T> {
 
     final static SpreadsheetId ID = SpreadsheetId.with(0x123);
 
@@ -56,12 +56,12 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     @Test
     public final void testWithNotPublic() {
         this.checkEquals(
-                Lists.empty(),
-                Arrays.stream(
-                                this.type().getMethods()
-                        ).filter(MethodAttributes.STATIC::is)
-                        .filter(m -> m.getName().startsWith("with"))
-                        .collect(Collectors.toList())
+            Lists.empty(),
+            Arrays.stream(
+                    this.type().getMethods()
+                ).filter(MethodAttributes.STATIC::is)
+                .filter(m -> m.getName().startsWith("with"))
+                .collect(Collectors.toList())
         );
     }
 
@@ -71,17 +71,17 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         final HistoryToken token = this.createHistoryToken();
 
         assertSame(
-                token,
-                token.clearAction()
+            token,
+            token.clearAction()
         );
     }
 
     final void clearActionAndCheck(final HistoryToken token,
                                    final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.clearAction(),
-                () -> token + " clearAction"
+            expected,
+            token.clearAction(),
+            () -> token + " clearAction"
         );
     }
 
@@ -90,20 +90,20 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     @Test
     public final void setAnchoredSelectionWithNullFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken()
-                        .setAnchoredSelection(
-                                null
-                        )
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setAnchoredSelection(
+                    null
+                )
         );
     }
 
     final void setAnchoredSelectionAndCheck(final T token,
                                             final HistoryToken expected) {
         this.setAnchoredSelectionAndCheck(
-                token,
-                Optional.empty(),
-                expected
+            token,
+            Optional.empty(),
+            expected
         );
     }
 
@@ -111,9 +111,9 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                                             final AnchoredSpreadsheetSelection anchoredSelection,
                                             final HistoryToken expected) {
         this.setAnchoredSelectionAndCheck(
-                token,
-                Optional.of(anchoredSelection),
-                expected
+            token,
+            Optional.of(anchoredSelection),
+            expected
         );
     }
 
@@ -121,11 +121,11 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                                             final Optional<AnchoredSpreadsheetSelection> anchoredSelection,
                                             final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.setAnchoredSelection(
-                        anchoredSelection
-                ),
-                () -> token + " setAnchoredSelection " + anchoredSelection
+            expected,
+            token.setAnchoredSelection(
+                anchoredSelection
+            ),
+            () -> token + " setAnchoredSelection " + anchoredSelection
         );
     }
 
@@ -135,24 +135,24 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         final HistoryToken token = this.createHistoryToken();
 
         assertSame(
-                token,
-                token.close()
+            token,
+            token.close()
         );
     }
 
     final void closeAndCheck(final HistoryToken expected) {
         this.closeAndCheck(
-                this.createHistoryToken(),
-                expected
+            this.createHistoryToken(),
+            expected
         );
     }
 
     final void closeAndCheck(final HistoryToken token,
                              final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.close(),
-                () -> token + " close"
+            expected,
+            token.close(),
+            () -> token + " close"
         );
     }
 
@@ -161,21 +161,21 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     final void deleteAndCheck(final HistoryToken token,
                               final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.delete(),
-                () -> token + " delete"
+            expected,
+            token.delete(),
+            () -> token + " delete"
         );
     }
-    
+
     // setFind..........................................................................................................
 
     final void setFindAndCheck(final HistoryToken token,
                                final SpreadsheetCellFindQuery find,
                                final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.setQuery(find),
-                () -> token + " setFind " + find
+            expected,
+            token.setQuery(find),
+            () -> token + " setFind " + find
         );
     }
 
@@ -184,24 +184,24 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     @Test
     public final void testSetIdAndNameNullIdFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken()
-                        .setIdAndName(
-                                null,
-                                NAME
-                        )
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setIdAndName(
+                    null,
+                    NAME
+                )
         );
     }
 
     @Test
     public final void testSetIdAndNameNullNameFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken()
-                        .setIdAndName(
-                                ID,
-                                null
-                        )
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setIdAndName(
+                    ID,
+                    null
+                )
         );
     }
 
@@ -209,10 +209,10 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                                     final SpreadsheetName name,
                                     final HistoryToken expected) {
         this.setIdAndNameAndCheck(
-                this.createHistoryToken(),
-                id,
-                name,
-                expected
+            this.createHistoryToken(),
+            id,
+            name,
+            expected
         );
     }
 
@@ -221,12 +221,12 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                                     final SpreadsheetName name,
                                     final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.setIdAndName(
-                        id,
-                        name
-                ),
-                () -> token + " id=" + id + " name=" + name
+            expected,
+            token.setIdAndName(
+                id,
+                name
+            ),
+            () -> token + " id=" + id + " name=" + name
         );
     }
 
@@ -235,44 +235,44 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     final void formatterAndCheck(final HistoryToken token,
                                  final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.formatter(),
-                () -> token + " formatter"
+            expected,
+            token.formatter(),
+            () -> token + " formatter"
         );
     }
-    
+
     // setMetadataPropertyName..........................................................................................
 
     @Test
     public final void testSetMetadataPropertyNameWithNullFails() {
         final T token = this.createHistoryToken();
         assertThrows(
-                NullPointerException.class,
-                () -> token.setMetadataPropertyName(null)
+            NullPointerException.class,
+            () -> token.setMetadataPropertyName(null)
         );
     }
 
     final void setMetadataPropertyNameAndCheck(final SpreadsheetMetadataPropertyName<?> propertyName) {
         this.setMetadataPropertyNameAndCheck(
-                this.createHistoryToken(),
-                propertyName
+            this.createHistoryToken(),
+            propertyName
         );
     }
 
     final void setMetadataPropertyNameAndCheck(final HistoryToken token,
                                                final SpreadsheetMetadataPropertyName<?> propertyName) {
         assertSame(
-                token,
-                token.setMetadataPropertyName(propertyName)
+            token,
+            token.setMetadataPropertyName(propertyName)
         );
     }
 
     final void setMetadataPropertyNameAndCheck(final SpreadsheetMetadataPropertyName<?> propertyName,
                                                final HistoryToken expected) {
         this.setMetadataPropertyNameAndCheck(
-                this.createHistoryToken(),
-                propertyName,
-                expected
+            this.createHistoryToken(),
+            propertyName,
+            expected
         );
     }
 
@@ -280,9 +280,9 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                                                final SpreadsheetMetadataPropertyName<?> propertyName,
                                                final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.setMetadataPropertyName(propertyName),
-                () -> token + " setMetadataPropertyName " + propertyName
+            expected,
+            token.setMetadataPropertyName(propertyName),
+            () -> token + " setMetadataPropertyName " + propertyName
         );
     }
 
@@ -291,20 +291,20 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     @Test
     public final void testSetNameNullNameFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken()
-                        .setName(
-                                null
-                        )
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setName(
+                    null
+                )
         );
     }
 
     final void setNameAndCheck(final SpreadsheetName name,
                                final HistoryToken expected) {
         this.setNameAndCheck(
-                this.createHistoryToken(),
-                name,
-                expected
+            this.createHistoryToken(),
+            name,
+            expected
         );
     }
 
@@ -312,11 +312,11 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                                final SpreadsheetName name,
                                final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.setName(
-                        name
-                ),
-                () -> token + " name=" + name
+            expected,
+            token.setName(
+                name
+            ),
+            () -> token + " name=" + name
         );
     }
 
@@ -324,25 +324,25 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
 
     final void patternKindAndCheck(final HistoryToken token) {
         this.patternKindAndCheck(
-                token,
-                Optional.empty()
+            token,
+            Optional.empty()
         );
     }
 
     final void patternKindAndCheck(final HistoryToken token,
                                    final SpreadsheetPatternKind expected) {
         this.patternKindAndCheck(
-                token,
-                Optional.of(expected)
+            token,
+            Optional.of(expected)
         );
     }
 
     final void patternKindAndCheck(final HistoryToken token,
                                    final Optional<SpreadsheetPatternKind> expected) {
         this.checkEquals(
-                expected,
-                token.patternKind(),
-                token::toString
+            expected,
+            token.patternKind(),
+            token::toString
         );
     }
 
@@ -352,35 +352,35 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     public final void testSetPatternKindNullFails() {
         final T token = this.createHistoryToken();
         assertThrows(
-                NullPointerException.class,
-                () -> token.setPatternKind(null)
+            NullPointerException.class,
+            () -> token.setPatternKind(null)
         );
     }
 
     final void setPatternKindAndCheck(final HistoryToken token,
                                       final HistoryToken expected) {
         this.setPatternKindAndCheck(
-                token,
-                Optional.empty(),
-                expected
+            token,
+            Optional.empty(),
+            expected
         );
     }
 
     final void setPatternKindAndCheck(final SpreadsheetPatternKind patternKind) {
         this.setPatternKindAndCheck(
-                this.createHistoryToken(),
-                patternKind
+            this.createHistoryToken(),
+            patternKind
         );
     }
 
     final void setPatternKindAndCheck(final HistoryToken token,
                                       final SpreadsheetPatternKind patternKind) {
         assertSame(
-                token,
-                token.setPatternKind(
-                        Optional.of(patternKind)
-                ),
-                () -> token + " setPatternKind " + patternKind
+            token,
+            token.setPatternKind(
+                Optional.of(patternKind)
+            ),
+            () -> token + " setPatternKind " + patternKind
         );
     }
 
@@ -388,9 +388,9 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                                       final SpreadsheetPatternKind patternKind,
                                       final HistoryToken expected) {
         this.setPatternKindAndCheck(
-                token,
-                Optional.of(patternKind),
-                expected
+            token,
+            Optional.of(patternKind),
+            expected
         );
     }
 
@@ -398,9 +398,9 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                                       final Optional<SpreadsheetPatternKind> patternKind,
                                       final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.setPatternKind(patternKind),
-                () -> token + " setPatternKind " + patternKind
+            expected,
+            token.setPatternKind(patternKind),
+            () -> token + " setPatternKind " + patternKind
         );
     }
 
@@ -409,9 +409,9 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     final void reloadAndCheck(final HistoryToken token,
                               final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.reload(),
-                token::toString
+            expected,
+            token.reload(),
+            token::toString
         );
     }
 
@@ -421,24 +421,24 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     public final void testSaveNullFails() {
         final T token = this.createHistoryToken();
         assertThrows(
-                NullPointerException.class,
-                () -> token.save((String) null)
+            NullPointerException.class,
+            () -> token.save((String) null)
         );
     }
 
     final void saveAndCheck(final String save) {
         this.saveAndCheck(
-                this.createHistoryToken(),
-                save
+            this.createHistoryToken(),
+            save
         );
     }
 
     final void saveAndCheck(final HistoryToken token,
                             final String save) {
         this.saveAndCheck(
-                token,
-                save,
-                token
+            token,
+            save,
+            token
         );
     }
 
@@ -446,9 +446,9 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                             final String save,
                             final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.save(save),
-                () -> token + " save " + save
+            expected,
+            token.save(save),
+            () -> token + " save " + save
         );
     }
 
@@ -457,12 +457,12 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     @Test
     public final void testEqualsDifferentHistoryTokenType() {
         this.checkNotEquals(
-                new FakeHistoryToken() {
-                    @Override
-                    public UrlFragment urlFragment() {
-                        return UrlFragment.SLASH;
-                    }
+            new FakeHistoryToken() {
+                @Override
+                public UrlFragment urlFragment() {
+                    return UrlFragment.SLASH;
                 }
+            }
         );
     }
 
@@ -471,20 +471,20 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         final T token = this.createHistoryToken();
 
         this.checkNotEquals(
-                token,
-                new FakeHistoryToken() {
-                    @Override
-                    public UrlFragment urlFragment() {
-                        return token.urlFragment();
-                    }
+            token,
+            new FakeHistoryToken() {
+                @Override
+                public UrlFragment urlFragment() {
+                    return token.urlFragment();
                 }
+            }
         );
     }
 
     final void urlFragmentAndCheck(final String expected) {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(),
-                expected
+            this.createHistoryToken(),
+            expected
         );
     }
 

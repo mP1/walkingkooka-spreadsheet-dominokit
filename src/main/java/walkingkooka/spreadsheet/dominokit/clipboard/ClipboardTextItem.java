@@ -136,7 +136,7 @@ import java.util.stream.Collectors;
  * </pre>
  */
 public final class ClipboardTextItem implements HasText,
-        TreePrintable {
+    TreePrintable {
 
     /**
      * Extracts part or all of the cell using the {@link SpreadsheetCellClipboardKind} to JSON.
@@ -158,34 +158,34 @@ public final class ClipboardTextItem implements HasText,
             if (rangeReference.testCell(reference)) {
 
                 value.add(
-                        kind.marshall(
-                                cell,
-                                context
-                        )
+                    kind.marshall(
+                        cell,
+                        context
+                    )
                 );
             }
         }
 
         final JsonObject envelope = JsonNode.object()
-                .set(
-                        MEDIA_TYPE_PROPERTY_NAME,
-                        JsonNode.string(
-                                mediaType.value()
-                        )
-                ).set(
-                        CELL_RANGE_PROPERTY_NAME,
-                        JsonNode.string(
-                                rangeReference.toStringMaybeStar()
-                        )
-                ).set(
-                        VALUE_PROPERTY_NAME,
-                        JsonNode.object()
-                                .setChildren(value)
-                );
+            .set(
+                MEDIA_TYPE_PROPERTY_NAME,
+                JsonNode.string(
+                    mediaType.value()
+                )
+            ).set(
+                CELL_RANGE_PROPERTY_NAME,
+                JsonNode.string(
+                    rangeReference.toStringMaybeStar()
+                )
+            ).set(
+                VALUE_PROPERTY_NAME,
+                JsonNode.object()
+                    .setChildren(value)
+            );
 
         return ClipboardTextItem.with(
-                Lists.of(MEDIA_TYPE),
-                envelope.toString()
+            Lists.of(MEDIA_TYPE),
+            envelope.toString()
         );
     }
 
@@ -210,8 +210,8 @@ public final class ClipboardTextItem implements HasText,
         Objects.requireNonNull(text, "text");
 
         return new ClipboardTextItem(
-                Lists.immutable(types),
-                text
+            Lists.immutable(types),
+            text
         );
     }
 
@@ -230,11 +230,11 @@ public final class ClipboardTextItem implements HasText,
 
         final List<MediaType> copy = Lists.immutable(types);
         return this.types.equals(copy) ?
-                this :
-                new ClipboardTextItem(
-                        copy,
-                        this.text
-                );
+            this :
+            new ClipboardTextItem(
+                copy,
+                this.text
+            );
     }
 
     private final List<MediaType> types;
@@ -248,11 +248,11 @@ public final class ClipboardTextItem implements HasText,
         Objects.requireNonNull(text, "text");
 
         return this.text.equals(text) ?
-                this :
-                new ClipboardTextItem(
-                        this.types,
-                        text
-                );
+            this :
+            new ClipboardTextItem(
+                this.types,
+                text
+            );
     }
 
     private final String text;
@@ -269,47 +269,47 @@ public final class ClipboardTextItem implements HasText,
         final JsonObject json = this.readJson();
 
         final SpreadsheetCellClipboardKind kind = SpreadsheetCellClipboardKind.fromMediaType(
-                MediaType.parse(
-                        json.getOrFail(MEDIA_TYPE_PROPERTY_NAME)
-                                .stringOrFail()
-                )
+            MediaType.parse(
+                json.getOrFail(MEDIA_TYPE_PROPERTY_NAME)
+                    .stringOrFail()
+            )
         );
 
         final SpreadsheetCellRangeReference range = SpreadsheetSelection.parseCellRange(
-                json.getOrFail(CELL_RANGE_PROPERTY_NAME)
-                        .stringOrFail()
+            json.getOrFail(CELL_RANGE_PROPERTY_NAME)
+                .stringOrFail()
         );
 
         final Set<SpreadsheetCell> values = SortedSets.tree();
 
         for (final JsonNode value : json.getOrFail(VALUE_PROPERTY_NAME)
-                .objectOrFail()
-                .children()) {
+            .objectOrFail()
+            .children()) {
             values.add(
-                    kind.unmarshall(
-                            value,
-                            context
-                    )
+                kind.unmarshall(
+                    value,
+                    context
+                )
             );
         }
 
         return SpreadsheetCellRange.with(
-                range,
-                values
+            range,
+            values
         );
     }
 
     private void checkMediaType() {
         final List<MediaType> types = this.types;
         if (types.stream()
-                .noneMatch(MEDIA_TYPE::equals)) {
+            .noneMatch(MEDIA_TYPE::equals)) {
             throw new IllegalArgumentException(
-                    "Unsupported clipboard media type " +
-                            types.stream()
-                                    .map(Object::toString)
-                                    .collect(Collectors.joining(", ")) +
-                            " expected " +
-                            MEDIA_TYPE
+                "Unsupported clipboard media type " +
+                    types.stream()
+                        .map(Object::toString)
+                        .collect(Collectors.joining(", ")) +
+                    " expected " +
+                    MEDIA_TYPE
             );
         }
     }
@@ -317,7 +317,7 @@ public final class ClipboardTextItem implements HasText,
     private JsonObject readJson() {
         try {
             return JsonNode.parse(this.text())
-                    .objectOrFail();
+                .objectOrFail();
         } catch (final RuntimeException cause) {
             throw new IllegalArgumentException("Invalid json: " + cause.getMessage(), cause);
         }
@@ -327,8 +327,8 @@ public final class ClipboardTextItem implements HasText,
 
     public int hashCode() {
         return Objects.hash(
-                this.types,
-                this.text
+            this.types,
+            this.text
         );
     }
 
@@ -338,15 +338,15 @@ public final class ClipboardTextItem implements HasText,
 
     private boolean equals0(final ClipboardTextItem other) {
         return this.types.equals(other.types) &&
-                this.text.equals(other.text);
+            this.text.equals(other.text);
     }
 
     @Override
     public String toString() {
         return ToStringBuilder.empty()
-                .value(this.types)
-                .value(this.text)
-                .build();
+            .value(this.types)
+            .value(this.text)
+            .build();
     }
 
     // TreePrintable....................................................................................................

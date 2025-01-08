@@ -30,33 +30,33 @@ import java.util.Objects;
 import java.util.Optional;
 
 final class SpreadsheetToolbarComponentItemAnchorSwagger extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorSwagger>
-        implements NopComponentLifecycleOpenGiveFocus,
-        NopComponentLifecycleRefresh {
+    implements NopComponentLifecycleOpenGiveFocus,
+    NopComponentLifecycleRefresh {
 
     static SpreadsheetToolbarComponentItemAnchorSwagger with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorSwagger(
-                context
+            context
         );
     }
 
     private SpreadsheetToolbarComponentItemAnchorSwagger(final SpreadsheetToolbarComponentContext context) {
         super(
-                SpreadsheetToolbarComponent.swaggerId(),
-                Optional.of(
-                        SpreadsheetIcons.swagger()
-                ),
-                "Swagger",
-                "Click to open swagger html client",
-                context
+            SpreadsheetToolbarComponent.swaggerId(),
+            Optional.of(
+                SpreadsheetIcons.swagger()
+            ),
+            "Swagger",
+            "Click to open swagger html client",
+            context
         );
 
         final HistoryTokenAnchorComponent anchor = this.anchor;
 
         anchor.iconBefore()
-                .get()
-                .cssText("position: relative; left: -1px; top: 4px; max-width: 18px; max-height: 18px;");
+            .get()
+            .cssText("position: relative; left: -1px; top: 4px; max-width: 18px; max-height: 18px;");
         anchor.setHref(Url.parseRelative("/api-doc/index.html"));
         anchor.setTarget("_blank");
     }

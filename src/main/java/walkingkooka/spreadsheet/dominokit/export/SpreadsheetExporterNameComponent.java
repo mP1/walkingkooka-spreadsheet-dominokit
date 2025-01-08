@@ -34,8 +34,8 @@ public final class SpreadsheetExporterNameComponent implements ValueSpreadsheetT
 
     private SpreadsheetExporterNameComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetExporterName::with,
-                SpreadsheetExporterName::toString
+            SpreadsheetExporterName::with,
+            SpreadsheetExporterName::toString
         );
     }
 

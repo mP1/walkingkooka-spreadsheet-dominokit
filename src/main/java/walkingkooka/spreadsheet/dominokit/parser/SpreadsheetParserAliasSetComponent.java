@@ -29,8 +29,8 @@ public final class SpreadsheetParserAliasSetComponent implements ValueSpreadshee
 
     private SpreadsheetParserAliasSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetParserAliasSet::parse,
-                SpreadsheetParserAliasSet::text
+            SpreadsheetParserAliasSet::parse,
+            SpreadsheetParserAliasSet::text
         );
     }
 

@@ -31,83 +31,83 @@ public final class SpreadsheetExporterInfoSetComponentTest implements ValueCompo
     @Test
     public void testParseAndText() {
         final SpreadsheetExporterInfoSet infos = SpreadsheetExporterProviders.spreadsheetExport()
-                .spreadsheetExporterInfos();
+            .spreadsheetExporterInfos();
 
         this.checkEquals(
-                infos,
-                SpreadsheetExporterInfoSet.parse(infos.text())
+            infos,
+            SpreadsheetExporterInfoSet.parse(infos.text())
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetExporterInfoSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        SpreadsheetExporterProviders.spreadsheetExport()
-                                                .spreadsheetExporterInfos()
-                                                .text()
-                                )
-                        ),
-                "SpreadsheetExporterInfoSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/empty empty,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/json json]\n"
+            SpreadsheetExporterInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        SpreadsheetExporterProviders.spreadsheetExport()
+                            .spreadsheetExporterInfos()
+                            .text()
+                    )
+                ),
+            "SpreadsheetExporterInfoSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/empty empty,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/json json]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetExporterInfoSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "https://www.example.com/Hello !"
-                                )
-                        ),
-                "SpreadsheetExporterInfoSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [https://www.example.com/Hello !]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 30\n"
+            SpreadsheetExporterInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "https://www.example.com/Hello !"
+                    )
+                ),
+            "SpreadsheetExporterInfoSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [https://www.example.com/Hello !]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 30\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalidSecondUrl() {
         this.treePrintAndCheck(
-                SpreadsheetExporterInfoSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "https://www.example.com/1 Hello, bad:// Hello2"
-                                )
-                        ),
-                "SpreadsheetExporterInfoSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [https://www.example.com/1 Hello, bad:// Hello2]\n" +
-                        "      Errors\n" +
-                        "        unknown protocol: bad\n"
+            SpreadsheetExporterInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "https://www.example.com/1 Hello, bad:// Hello2"
+                    )
+                ),
+            "SpreadsheetExporterInfoSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [https://www.example.com/1 Hello, bad:// Hello2]\n" +
+                "      Errors\n" +
+                "        unknown protocol: bad\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalidSecondSpreadsheetExporterName() {
         this.treePrintAndCheck(
-                SpreadsheetExporterInfoSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "https://www.example.com/1 Hello, https://example.com/2 Bad!"
-                                )
-                        ),
-                "SpreadsheetExporterInfoSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [https://www.example.com/1 Hello, https://example.com/2 Bad!]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 58\n"
+            SpreadsheetExporterInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "https://www.example.com/1 Hello, https://example.com/2 Bad!"
+                    )
+                ),
+            "SpreadsheetExporterInfoSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [https://www.example.com/1 Hello, https://example.com/2 Bad!]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 58\n"
         );
     }
 
@@ -119,7 +119,7 @@ public final class SpreadsheetExporterInfoSetComponentTest implements ValueCompo
     }
 
     // class............................................................................................................
- 
+
     @Override
     public Class<SpreadsheetExporterInfoSetComponent> type() {
         return SpreadsheetExporterInfoSetComponent.class;

@@ -59,8 +59,8 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return spreadsheetSelect(
-                id,
-                name
+            id,
+            name
         );
     }
 
@@ -68,6 +68,6 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.spreadsheetMetadataFetcher()
-                .createSpreadsheetMetadata();
+            .createSpreadsheetMetadata();
     }
 }

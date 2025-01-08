@@ -42,8 +42,8 @@ final class DomsNodeTextNodeVisitor extends TextNodeVisitor {
 
     static Node toNode(final TextNode textNode) {
         return textNode.isText() ?
-                DomGlobal.document.createTextNode(textNode.text()) :
-                toNode0(textNode);
+            DomGlobal.document.createTextNode(textNode.text()) :
+            toNode0(textNode);
     }
 
     private static Node toNode0(final TextNode textNode) {
@@ -54,7 +54,7 @@ final class DomsNodeTextNodeVisitor extends TextNodeVisitor {
 
     private static HTMLElement createSpan() {
         return Js.cast(
-                DomGlobal.document.createElement("SPAN")
+            DomGlobal.document.createElement("SPAN")
         );
     }
 
@@ -86,18 +86,18 @@ final class DomsNodeTextNodeVisitor extends TextNodeVisitor {
     @Override
     protected void visit(final TextPlaceholderNode node) {
         throw new UnsupportedOperationException(
-                node.getClass().getSimpleName() +
-                        " not supported=" +
-                        node
+            node.getClass().getSimpleName() +
+                " not supported=" +
+                node
         );
     }
 
     @Override
     protected Visiting startVisit(final TextStyleNameNode node) {
         throw new UnsupportedOperationException(
-                node.getClass().getSimpleName() +
-                        " not supported=" +
-                        node
+            node.getClass().getSimpleName() +
+                " not supported=" +
+                node
         );
     }
 
@@ -107,9 +107,9 @@ final class DomsNodeTextNodeVisitor extends TextNodeVisitor {
     @Override
     protected void visit(final Text node) {
         this.parent.appendChild(
-                DomGlobal.document.createTextNode(
-                        node.text()
-                )
+            DomGlobal.document.createTextNode(
+                node.text()
+            )
         );
     }
 

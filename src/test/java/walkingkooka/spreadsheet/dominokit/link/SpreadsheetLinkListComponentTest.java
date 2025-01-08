@@ -47,48 +47,48 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
     @Test
     public void testWithNullIdFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetLinkListComponent.with(
-                        null,
-                        TITLE,
-                        LABEL_MAKER
-                )
+            NullPointerException.class,
+            () -> SpreadsheetLinkListComponent.with(
+                null,
+                TITLE,
+                LABEL_MAKER
+            )
         );
     }
 
     @Test
     public void testWithEmptyIdFails() {
         assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetLinkListComponent.with(
-                        "",
-                        TITLE,
-                        LABEL_MAKER
-                )
+            IllegalArgumentException.class,
+            () -> SpreadsheetLinkListComponent.with(
+                "",
+                TITLE,
+                LABEL_MAKER
+            )
         );
     }
 
     @Test
     public void testWithNullTitleFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetLinkListComponent.with(
-                        ID,
-                        null,
-                        LABEL_MAKER
-                )
+            NullPointerException.class,
+            () -> SpreadsheetLinkListComponent.with(
+                ID,
+                null,
+                LABEL_MAKER
+            )
         );
     }
 
     @Test
     public void testWithNullLabelMakerFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetLinkListComponent.with(
-                        ID,
-                        TITLE,
-                        null
-                )
+            NullPointerException.class,
+            () -> SpreadsheetLinkListComponent.with(
+                ID,
+                TITLE,
+                null
+            )
         );
     }
 
@@ -97,53 +97,53 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
     @Test
     public void testRefreshWhenEmpty() {
         this.refreshAndCheck(
-                Lists.empty(),
-                Optional.empty(), // no selection
-                "SpreadsheetLinkListComponent\n"
+            Lists.empty(),
+            Optional.empty(), // no selection
+            "SpreadsheetLinkListComponent\n"
         );
     }
 
     @Test
     public void testRefreshWithSelectionAndWhenNotEmpty() {
         this.refreshAndCheck(
-                Lists.of(
-                        "apple1",
-                        "banana2",
-                        "carrot3"
-                ),
-                Optional.of(
-                        SpreadsheetFormatterName.with("banana2")
-                ),
-                "SpreadsheetLinkListComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Title123\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"Label-apple1\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20apple1] id=LinkList123-0-Link\n" +
-                        "            \"Label-banana2\" DISABLED id=LinkList123-1-Link\n" +
-                        "            \"Label-carrot3\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20carrot3] id=LinkList123-2-Link\n"
+            Lists.of(
+                "apple1",
+                "banana2",
+                "carrot3"
+            ),
+            Optional.of(
+                SpreadsheetFormatterName.with("banana2")
+            ),
+            "SpreadsheetLinkListComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Title123\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Label-apple1\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20apple1] id=LinkList123-0-Link\n" +
+                "            \"Label-banana2\" DISABLED id=LinkList123-1-Link\n" +
+                "            \"Label-carrot3\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20carrot3] id=LinkList123-2-Link\n"
         );
     }
 
     @Test
     public void testRefreshWhenNotEmpty() {
         this.refreshAndCheck(
-                Lists.of(
-                        "apple1",
-                        "banana2",
-                        "carrot3"
-                ),
-                Optional.empty(),
-                "SpreadsheetLinkListComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Title123\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"Label-apple1\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20apple1] id=LinkList123-0-Link\n" +
-                        "            \"Label-banana2\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20banana2] id=LinkList123-1-Link\n" +
-                        "            \"Label-carrot3\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20carrot3] id=LinkList123-2-Link\n"
+            Lists.of(
+                "apple1",
+                "banana2",
+                "carrot3"
+            ),
+            Optional.empty(),
+            "SpreadsheetLinkListComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Title123\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Label-apple1\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20apple1] id=LinkList123-0-Link\n" +
+                "            \"Label-banana2\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20banana2] id=LinkList123-1-Link\n" +
+                "            \"Label-carrot3\" [#/1/Spreadsheet123/cell/A1/formatter/save/save%20carrot3] id=LinkList123-2-Link\n"
         );
     }
 
@@ -151,40 +151,40 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
                                  final Optional<SpreadsheetFormatterName> selected,
                                  final String expected) {
         final SpreadsheetLinkListComponent list = SpreadsheetLinkListComponent.with(
-                ID,
-                TITLE,
-                LABEL_MAKER
+            ID,
+            TITLE,
+            LABEL_MAKER
         );
 
         list.refresh(
-                texts,
-                new FakeSpreadsheetLinkListComponentContext() {
+            texts,
+            new FakeSpreadsheetLinkListComponentContext() {
 
-                    @Override
-                    public boolean isDisabled(final String text) {
-                        return selected.map(SpreadsheetFormatterName::value)
-                                .equals(Optional.of(text));
-                    }
-
-                    @Override
-                    public String saveText(final String text) {
-                        return "save " + text;
-                    }
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.cellFormatterSelect(
-                                SpreadsheetId.with(1),
-                                SpreadsheetName.with("Spreadsheet123"),
-                                SpreadsheetSelection.A1.setDefaultAnchor()
-                        );
-                    }
+                @Override
+                public boolean isDisabled(final String text) {
+                    return selected.map(SpreadsheetFormatterName::value)
+                        .equals(Optional.of(text));
                 }
+
+                @Override
+                public String saveText(final String text) {
+                    return "save " + text;
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellFormatterSelect(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("Spreadsheet123"),
+                        SpreadsheetSelection.A1.setDefaultAnchor()
+                    );
+                }
+            }
         );
 
         this.treePrintAndCheck(
-                list,
-                expected
+            list,
+            expected
         );
     }
 

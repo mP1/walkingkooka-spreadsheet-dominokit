@@ -72,18 +72,18 @@ import java.util.stream.Collectors;
  * for the cells in the spreadsheet viewport TABLE.
  */
 public final class SpreadsheetViewportCache implements NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher,
-        HistoryTokenWatcher,
-        SpreadsheetDeltaFetcherWatcher,
-        SpreadsheetMetadataFetcherWatcher,
-        SpreadsheetLabelNameResolver {
+    NopEmptyResponseFetcherWatcher,
+    HistoryTokenWatcher,
+    SpreadsheetDeltaFetcherWatcher,
+    SpreadsheetMetadataFetcherWatcher,
+    SpreadsheetLabelNameResolver {
 
     /**
      * Creates a new cache with no cells or labels present.
      */
     public static SpreadsheetViewportCache empty(final AppContext context) {
         return new SpreadsheetViewportCache(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -125,13 +125,13 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
     public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
         return this.cell(
-                this.resolveIfLabel(selection).toCell()
+            this.resolveIfLabel(selection).toCell()
         );
     }
 
     public Optional<SpreadsheetCell> cell(final SpreadsheetCellReference cell) {
         return Optional.ofNullable(
-                this.cells.get(cell)
+            this.cells.get(cell)
         );
     }
 
@@ -167,8 +167,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
     Set<SpreadsheetLabelName> labels(final SpreadsheetCellReference cell) {
         return this.cellToLabels.getOrDefault(
-                cell,
-                Sets.empty()
+            cell,
+            Sets.empty()
         );
     }
 
@@ -183,13 +183,13 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         final SpreadsheetSelection nonLabelSelection = this.resolveIfLabel(selection);
 
         return this.labelMappings()
-                .stream()
-                .filter(
-                        m -> this.resolveIfLabel(
-                                m.target()
-                        ).test(nonLabelSelection)
-                )
-                .collect(Collectors.toCollection(SortedSets::tree));
+            .stream()
+            .filter(
+                m -> this.resolveIfLabel(
+                    m.target()
+                ).test(nonLabelSelection)
+            )
+            .collect(Collectors.toCollection(SortedSets::tree));
     }
 
     /**
@@ -264,7 +264,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
         while (iterator.hasNext()) {
             cells.add(
-                    iterator.next()
+                iterator.next()
             );
         }
 
@@ -356,25 +356,25 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                             if (null == values) {
                                 values = Sets.hash();
                                 styleNameToValues.put(
-                                        styleName,
-                                        values
+                                    styleName,
+                                    values
                                 );
                             }
 
                             values.add(
-                                    styleNameAndValue.getValue()
+                                styleNameAndValue.getValue()
                             );
                         }
                     }
                 }
 
                 final SpreadsheetFormatterSelector formatter = formatters.size() == 1 ?
-                        formatters.iterator().next() :
-                        null;
+                    formatters.iterator().next() :
+                    null;
 
                 final SpreadsheetParserSelector parser = parsers.size() == 1 ?
-                        parsers.iterator().next() :
-                        null;
+                    parsers.iterator().next() :
+                    null;
 
                 final Map<TextStylePropertyName<?>, Object> styleNameToValue = Maps.sorted();
                 for (final Entry<TextStylePropertyName<?>, Set<Object>> styleNameAndValue : styleNameToValues.entrySet()) {
@@ -382,17 +382,17 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
                     if (values.size() == 1) {
                         styleNameToValue.put(
-                                styleNameAndValue.getKey(),
-                                values.iterator().next()
+                            styleNameAndValue.getKey(),
+                            values.iterator().next()
                         );
                     }
                 }
 
                 if (formatters.size() + parsers.size() + styleNameToValues.size() > 0) {
                     selectionSummary = SpreadsheetSelectionSummary.with(
-                            Optional.ofNullable(formatter), // format
-                            Optional.ofNullable(parser), // parse
-                            TextStyle.EMPTY.setValues(styleNameToValue) // style
+                        Optional.ofNullable(formatter), // format
+                        Optional.ofNullable(parser), // parse
+                        TextStyle.EMPTY.setValues(styleNameToValue) // style
                     );
                 }
             }
@@ -403,9 +403,9 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     }
 
     private SpreadsheetSelectionSummary selectionSummary = SpreadsheetSelectionSummary.with(
-            Optional.empty(),
-            Optional.empty(),
-            TextStyle.EMPTY
+        Optional.empty(),
+        Optional.empty(),
+        TextStyle.EMPTY
     );
 
     /**
@@ -471,17 +471,17 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                     this.clear();
 
                     context.debug(
-                            "SpreadsheetViewportCache.onHistoryTokenChange id changed from " +
-                                    currentId +
-                                    " to " +
-                                    newId
+                        "SpreadsheetViewportCache.onHistoryTokenChange id changed from " +
+                            currentId +
+                            " to " +
+                            newId
                     );
                 }
 
                 final Optional<SpreadsheetSelection> maybeSelectionNotLabel = historyToken.anchoredSelectionOrEmpty()
-                        .map(AnchoredSpreadsheetSelection::selection)
-                        .filter(s -> false == s.isLabelName() || false == this.labelMappings.isEmpty())
-                        .map(this::resolveIfLabel);
+                    .map(AnchoredSpreadsheetSelection::selection)
+                    .filter(s -> false == s.isLabelName() || false == this.labelMappings.isEmpty())
+                    .map(this::resolveIfLabel);
 
                 // clear the cached #selectionSummary if there is no active selection or it changed.
                 if (maybeSelectionNotLabel.isPresent()) {
@@ -542,7 +542,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
     @Override
     public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                          final AppContext context) {
+                                         final AppContext context) {
         // ignore
     }
 
@@ -560,8 +560,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                                    final AppContext context) {
         final Optional<SpreadsheetId> maybeSpreadsheetId = SpreadsheetMetadataFetcher.extractSpreadsheetId(url);
         if (maybeSpreadsheetId.isPresent() &&
-                maybeSpreadsheetId.get()
-                        .equals(this.spreadsheetId)) {
+            maybeSpreadsheetId.get()
+                .equals(this.spreadsheetId)) {
 
             // GET https://server/api/spreadsheet/1/cell/*
             if (SpreadsheetDeltaFetcher.isGetAllCells(method, url)) {
@@ -589,8 +589,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 for (final SpreadsheetCell cell : delta.cells()) {
                     final SpreadsheetCellReference cellReference = cell.reference();
                     cells.put(
-                            cellReference,
-                            cell
+                        cellReference,
+                        cell
                     );
                     cellToLabels.remove(cellReference);
                 }
@@ -599,16 +599,16 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
                 this.labelMappings.clear();
                 this.labelMappings.addAll(
-                        delta.labels()
+                    delta.labels()
                 );
 
                 // expands a Map holding cells to labels, the visitor is mostly used to add cell -> labels for all cells in a range,
                 // as well as handling multiple label to label mappings eventually to cells.
                 SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.accept(
-                        delta.labels(),
-                        cellToLabels,
-                        labelToNonLabel,
-                        this.windows
+                    delta.labels(),
+                    cellToLabels,
+                    labelToNonLabel,
+                    this.windows
                 );
             }
 
@@ -624,15 +624,15 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
                 for (final SpreadsheetColumn column : delta.columns()) {
                     columns.put(
-                            column.reference(),
-                            column
+                        column.reference(),
+                        column
                     );
                 }
 
                 for (final Entry<SpreadsheetColumnReference, Double> width : delta.columnWidths().entrySet()) {
                     columnWidths.put(
-                            width.getKey(),
-                            Length.pixel(width.getValue())
+                        width.getKey(),
+                        Length.pixel(width.getValue())
                     );
                 }
 
@@ -654,15 +654,15 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
             for (final SpreadsheetRow row : delta.rows()) {
                 rows.put(
-                        row.reference(),
-                        row
+                    row.reference(),
+                    row
                 );
             }
 
             for (final Entry<SpreadsheetRowReference, Double> height : delta.rowHeights().entrySet()) {
                 rowHeights.put(
-                        height.getKey(),
-                        Length.pixel(height.getValue())
+                    height.getKey(),
+                    Length.pixel(height.getValue())
                 );
             }
 
@@ -680,15 +680,15 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     @Override
     public String toString() {
         return ToStringBuilder.empty()
-                .value(this.cells)
-                .value(this.matchedCells)
-                .value(this.columns)
-                .value(this.columnWidths)
-                .value(this.cellToLabels)
-                .value(this.labelMappings)
-                .value(this.rows)
-                .value(this.rowHeights)
-                .value(this.windows)
-                .build();
+            .value(this.cells)
+            .value(this.matchedCells)
+            .value(this.columns)
+            .value(this.columnWidths)
+            .value(this.cellToLabels)
+            .value(this.labelMappings)
+            .value(this.rows)
+            .value(this.rowHeights)
+            .value(this.windows)
+            .build();
     }
 }

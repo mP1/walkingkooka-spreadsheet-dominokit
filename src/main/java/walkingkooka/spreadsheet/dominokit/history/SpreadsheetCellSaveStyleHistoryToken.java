@@ -45,10 +45,10 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final Map<SpreadsheetCellReference, TextStyle> value) {
         return new SpreadsheetCellSaveStyleHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                Maps.immutable(value)
+            id,
+            name,
+            anchoredSelection,
+            Maps.immutable(value)
         );
     }
 
@@ -57,18 +57,18 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final Map<SpreadsheetCellReference, TextStyle> value) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                value
+            id,
+            name,
+            anchoredSelection,
+            value
         );
     }
 
     @Override
     Map<SpreadsheetCellReference, TextStyle> parseSaveValue(final TextCursor cursor) {
         return parseMap(
-                cursor,
-                TextStyle.class
+            cursor,
+            TextStyle.class
         );
     }
 
@@ -78,10 +78,10 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final Map<SpreadsheetCellReference, TextStyle> value) {
         return new SpreadsheetCellSaveStyleHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                value
+            id,
+            name,
+            anchoredSelection,
+            value
         );
     }
 
@@ -103,11 +103,11 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
-                .patchCellsStyle(
-                        this.id(),
-                        this.anchoredSelection().selection(),
-                        this.value()
-                );
+            .patchCellsStyle(
+                this.id(),
+                this.anchoredSelection().selection(),
+                this.value()
+            );
         context.pushHistoryToken(previous);
     }
 }

@@ -29,8 +29,8 @@ public final class ConverterAliasSetComponent implements ValueSpreadsheetTextBox
 
     private ConverterAliasSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                ConverterAliasSet::parse,
-                ConverterAliasSet::text
+            ConverterAliasSet::parse,
+            ConverterAliasSet::text
         );
     }
 

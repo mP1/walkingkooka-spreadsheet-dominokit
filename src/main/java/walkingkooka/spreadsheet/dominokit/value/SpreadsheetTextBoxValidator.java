@@ -41,11 +41,11 @@ final class SpreadsheetTextBoxValidator implements Validator<TextBox> {
         final String value = component.getValue();
 
         return this.validator.isValid(
-                Optional.ofNullable(
-                        CharSequences.isNullOrEmpty(value) ?
-                                null :
-                                value
-                )
+            Optional.ofNullable(
+                CharSequences.isNullOrEmpty(value) ?
+                    null :
+                    value
+            )
         );
     }
 

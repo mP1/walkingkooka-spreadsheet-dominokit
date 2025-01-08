@@ -45,10 +45,10 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                        final Map<SpreadsheetCellReference, String> value) {
         return new SpreadsheetCellSaveFormulaHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                Maps.immutable(value)
+            id,
+            name,
+            anchoredSelection,
+            Maps.immutable(value)
         );
     }
 
@@ -57,18 +57,18 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final Map<SpreadsheetCellReference, String> value) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                value
+            id,
+            name,
+            anchoredSelection,
+            value
         );
     }
 
     @Override
     Map<SpreadsheetCellReference, String> parseSaveValue(final TextCursor cursor) {
         return parseMapWithNullableValues(
-                cursor,
-                String.class
+            cursor,
+            String.class
         );
     }
 
@@ -78,10 +78,10 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final Map<SpreadsheetCellReference, String> value) {
         return new SpreadsheetCellSaveFormulaHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                value
+            id,
+            name,
+            anchoredSelection,
+            value
         );
     }
 
@@ -105,18 +105,18 @@ public final class SpreadsheetCellSaveFormulaHistoryToken extends SpreadsheetCel
         final Map<SpreadsheetCellReference, SpreadsheetFormula> cellToFormula = Maps.sorted();
 
         this.value().forEach(
-                (cell, formulaString) -> cellToFormula.put(
-                        cell,
-                        SpreadsheetFormula.EMPTY.setText(formulaString)
-                )
+            (cell, formulaString) -> cellToFormula.put(
+                cell,
+                SpreadsheetFormula.EMPTY.setText(formulaString)
+            )
         );
 
         context.spreadsheetDeltaFetcher()
-                .patchCellsFormula(
-                        this.id(),
-                        this.anchoredSelection().selection(),
-                        cellToFormula
-                );
+            .patchCellsFormula(
+                this.id(),
+                this.anchoredSelection().selection(),
+                cellToFormula
+            );
         context.pushHistoryToken(previous);
     }
 }

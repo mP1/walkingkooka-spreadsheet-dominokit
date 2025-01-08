@@ -42,12 +42,12 @@ import java.time.LocalDateTime;
  * A mostly complete {@link SpreadsheetParserSelectorDialogComponent}.
  */
 abstract class AppContextSpreadsheetParserSelectorDialogComponentContext implements SpreadsheetParserSelectorDialogComponentContext,
-        SpreadsheetDialogComponentContextDelegator,
-        SpreadsheetFormatterContextDelegator,
-        SpreadsheetFormatterProviderDelegator,
-        SpreadsheetParserProviderDelegator,
-        HasSpreadsheetParserFetcherWatchersDelegator,
-        ProviderContextDelegator {
+    SpreadsheetDialogComponentContextDelegator,
+    SpreadsheetFormatterContextDelegator,
+    SpreadsheetFormatterProviderDelegator,
+    SpreadsheetParserProviderDelegator,
+    HasSpreadsheetParserFetcherWatchersDelegator,
+    ProviderContextDelegator {
 
     AppContextSpreadsheetParserSelectorDialogComponentContext(final AppContext context) {
         super();
@@ -121,13 +121,13 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
     @Override
     public final void loadSpreadsheetParsersEdit(final String text) {
         this.throttler.add(
-                () -> this.context.spreadsheetParserFetcher()
-                        .edit(
-                                this.context.historyToken()
-                                        .cast(SpreadsheetIdHistoryToken.class)
-                                        .id(), // id
-                                text
-                        )
+            () -> this.context.spreadsheetParserFetcher()
+                .edit(
+                    this.context.historyToken()
+                        .cast(SpreadsheetIdHistoryToken.class)
+                        .id(), // id
+                    text
+                )
         );
     }
 

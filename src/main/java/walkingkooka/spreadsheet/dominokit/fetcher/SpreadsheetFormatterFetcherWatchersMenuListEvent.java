@@ -30,9 +30,9 @@ final class SpreadsheetFormatterFetcherWatchersMenuListEvent extends FetcherWatc
                                                                  final SpreadsheetFormatterSelectorMenuList menuList,
                                                                  final AppContext context) {
         return new SpreadsheetFormatterFetcherWatchersMenuListEvent(
-                id,
-                menuList,
-                context
+            id,
+            menuList,
+            context
         );
     }
 
@@ -47,9 +47,9 @@ final class SpreadsheetFormatterFetcherWatchersMenuListEvent extends FetcherWatc
     @Override
     void fire(final SpreadsheetFormatterFetcherWatcher watcher) {
         watcher.onSpreadsheetFormatterSelectorMenuList(
-                this.id,
-                this.menuList,
-                this.context
+            this.id,
+            this.menuList,
+            this.context
         );
     }
 

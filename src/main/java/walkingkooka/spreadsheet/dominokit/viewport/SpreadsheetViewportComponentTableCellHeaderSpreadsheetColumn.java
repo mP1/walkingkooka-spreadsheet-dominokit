@@ -27,39 +27,39 @@ final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn extends
     static SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn empty(final SpreadsheetColumnReference column,
                                                                               final SpreadsheetViewportComponentTableContext context) {
         return new SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn(
-                column,
-                context
+            column,
+            context
         );
     }
 
     private SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn(final SpreadsheetColumnReference column,
                                                                          final SpreadsheetViewportComponentTableContext context) {
         super(
-                SpreadsheetViewportComponent.id(column), // id
-                css(
-                        SpreadsheetViewportComponentTableCell.HEADER_STYLE,
-                        context.spreadsheetViewportCache()
-                                .columnWidth(column),
-                        SpreadsheetViewportComponent.COLUMN_HEIGHT
-                ), // css
-                column, // selection
-                column.toString()
-                        .toUpperCase(), // link text
-                context
+            SpreadsheetViewportComponent.id(column), // id
+            css(
+                SpreadsheetViewportComponentTableCell.HEADER_STYLE,
+                context.spreadsheetViewportCache()
+                    .columnWidth(column),
+                SpreadsheetViewportComponent.COLUMN_HEIGHT
+            ), // css
+            column, // selection
+            column.toString()
+                .toUpperCase(), // link text
+            context
         );
     }
 
     @Override
     void refreshNonExtendLink(final SpreadsheetViewportComponentTableContext context) {
         this.setAnchoredSpreadsheetSelection(
-                this.selection.setDefaultAnchor()
+            this.selection.setDefaultAnchor()
         );
     }
 
     @Override
     void refreshExtendLink(final SpreadsheetViewportComponentTableContext context) {
         this.setAnchoredSpreadsheetSelection(
-                context.extendColumn(this.selection)
+            context.extendColumn(this.selection)
         );
     }
 }

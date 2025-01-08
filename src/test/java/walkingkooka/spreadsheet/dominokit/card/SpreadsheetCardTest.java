@@ -30,44 +30,44 @@ public final class SpreadsheetCardTest implements HtmlElementComponentTesting<Sp
     @Test
     public void testTreePrintWhenEmpty() {
         this.treePrintAndCheck(
-                SpreadsheetCard.empty(),
-                ""
+            SpreadsheetCard.empty(),
+            ""
         );
     }
 
     @Test
     public void testTreePrintWithoutTitle() {
         this.treePrintAndCheck(
-                SpreadsheetCard.empty()
-                        .appendChild(
-                                walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
-                                        .setValue(
-                                                Optional.of("Value123")
-                                        )
-                        ),
-                "SpreadsheetCard\n" +
-                        "  Card\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Value123]\n"
+            SpreadsheetCard.empty()
+                .appendChild(
+                    walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox.empty()
+                        .setValue(
+                            Optional.of("Value123")
+                        )
+                ),
+            "SpreadsheetCard\n" +
+                "  Card\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Value123]\n"
         );
     }
 
     @Test
     public void testTreePrintWithTitle() {
         this.treePrintAndCheck(
-                SpreadsheetCard.empty()
-                        .setTitle("CardTitle123")
-                        .appendChild(
-                                SpreadsheetTextBox.empty()
-                                        .setValue(
-                                                Optional.of("Value123")
-                                        )
-                        ),
-                "SpreadsheetCard\n" +
-                        "  Card\n" +
-                        "    CardTitle123\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        [Value123]\n"
+            SpreadsheetCard.empty()
+                .setTitle("CardTitle123")
+                .appendChild(
+                    SpreadsheetTextBox.empty()
+                        .setValue(
+                            Optional.of("Value123")
+                        )
+                ),
+            "SpreadsheetCard\n" +
+                "  Card\n" +
+                "    CardTitle123\n" +
+                "      SpreadsheetTextBox\n" +
+                "        [Value123]\n"
         );
     }
 

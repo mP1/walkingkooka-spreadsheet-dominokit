@@ -30,80 +30,80 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
     @Test
     public void testStringStringMissingEqualsValidationFailure() {
         this.treePrintAndCheck(
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
-                        .setStringValue(
-                                Optional.of("A")
-                        ),
-                "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [A]\n" +
-                        "      Errors\n" +
-                        "        Missing '='\n"
+            SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
+                .setStringValue(
+                    Optional.of("A")
+                ),
+            "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [A]\n" +
+                "      Errors\n" +
+                "        Missing '='\n"
         );
     }
 
     @Test
     public void testSetStringMissingComparatorNamesValidationFailure() {
         this.treePrintAndCheck(
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
-                        .setStringValue(
-                                Optional.of("A=")
-                        ),
-                "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [A=]\n" +
-                        "      Errors\n" +
-                        "        Missing comparator name\n"
+            SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
+                .setStringValue(
+                    Optional.of("A=")
+                ),
+            "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [A=]\n" +
+                "      Errors\n" +
+                "        Missing comparator name\n"
         );
     }
 
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
-                        .setValue(
-                                Optional.of(
-                                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text;B=text-case-insensitive")
-                                )
-                        ),
-                "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [A=text;B=text-case-insensitive]\n"
+            SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
+                .setValue(
+                    Optional.of(
+                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text;B=text-case-insensitive")
+                    )
+                ),
+            "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [A=text;B=text-case-insensitive]\n"
         );
     }
 
     @Test
     public void testSetStringValueInvalidSecondColumn() {
         this.treePrintAndCheck(
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
-                        .setStringValue(
-                                Optional.of("A=GOOD;!B=BAD")
-                        ),
-                "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [A=GOOD;!B=BAD]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 7\n"
+            SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
+                .setStringValue(
+                    Optional.of("A=GOOD;!B=BAD")
+                ),
+            "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [A=GOOD;!B=BAD]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 7\n"
         );
     }
 
     @Test
     public void testSetStringValueInvalidSecondSpreadsheetComparatorName() {
         this.treePrintAndCheck(
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
-                        .setStringValue(
-                                Optional.of("A=GOOD;B=BAD!")
-                        ),
-                "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [A=GOOD;B=BAD!]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 12\n"
+            SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent.empty()
+                .setStringValue(
+                    Optional.of("A=GOOD;B=BAD!")
+                ),
+            "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [A=GOOD;B=BAD!]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 12\n"
         );
     }
 

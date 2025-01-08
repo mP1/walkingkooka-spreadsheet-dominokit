@@ -42,15 +42,15 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
     static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent empty(final String id,
                                                                                                      final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
         return new SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent(
-                id,
-                setter
+            id,
+            setter
         );
     }
 
     private SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent(final String id,
                                                                                                 final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
         this.root = SpreadsheetCard.empty()
-                .setTitle("Remove comparator(s)");
+            .setTitle("Remove comparator(s)");
 
         this.id = id;
         this.setter = setter;
@@ -64,13 +64,13 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
                  final SpreadsheetSortDialogComponentContext context) {
         final SpreadsheetCard root = this.root;
         root.removeAllChildren()
-                .hide();
+            .hide();
 
         if (columnOrRow.isPresent()) {
             this.refresh0(
-                    columnOrRow.get(),
-                    spreadsheetComparatorNameAndDirections,
-                    context
+                columnOrRow.get(),
+                spreadsheetComparatorNameAndDirections,
+                context
             );
         }
     }
@@ -90,26 +90,26 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
             final List<SpreadsheetComparatorNameAndDirection> removed = Lists.array();
             removed.addAll(spreadsheetComparatorNameAndDirections);
             final String text = removed.remove(i)
-                    .name()
-                    .text();
+                .name()
+                .text();
 
             root.appendChild(
-                    historyToken.link(idPrefix + "remove-" + i)
-                            .setTextContent(text)
-                            .setHistoryToken(
-                                    Optional.of(
-                                            this.setter.apply(
-                                                    Optional.ofNullable(
-                                                            removed.isEmpty() ?
-                                                                    null :
-                                                                    SpreadsheetColumnOrRowSpreadsheetComparatorNames.with(
-                                                                            columnOrRow,
-                                                                            removed
-                                                                    )
-                                                    )
-                                            )
-                                    )
+                historyToken.link(idPrefix + "remove-" + i)
+                    .setTextContent(text)
+                    .setHistoryToken(
+                        Optional.of(
+                            this.setter.apply(
+                                Optional.ofNullable(
+                                    removed.isEmpty() ?
+                                        null :
+                                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.with(
+                                            columnOrRow,
+                                            removed
+                                        )
+                                )
                             )
+                        )
+                    )
             );
         }
 

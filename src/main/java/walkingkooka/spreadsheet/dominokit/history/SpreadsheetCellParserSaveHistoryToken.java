@@ -33,10 +33,10 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final Optional<SpreadsheetParserSelector> spreadsheetParserSelector) {
         return new SpreadsheetCellParserSaveHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                spreadsheetParserSelector
+            id,
+            name,
+            anchoredSelection,
+            spreadsheetParserSelector
         );
     }
 
@@ -45,19 +45,19 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final Optional<SpreadsheetParserSelector> spreadsheetParserSelector) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                spreadsheetParserSelector
+            id,
+            name,
+            anchoredSelection,
+            spreadsheetParserSelector
         );
     }
 
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellParserSelect(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
+            this.id(),
+            this.name(),
+            this.anchoredSelection()
         );
     }
 
@@ -66,24 +66,24 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellParserSaveHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                this.spreadsheetParserSelector
+            id,
+            name,
+            anchoredSelection,
+            this.spreadsheetParserSelector
         );
     }
 
     @Override
     HistoryToken save0(final String value) {
         return new SpreadsheetCellParserSaveHistoryToken(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                Optional.ofNullable(
-                        value.isEmpty() ?
-                                null :
-                                SpreadsheetParserSelector.parse(value)
-                )
+            this.id(),
+            this.name(),
+            this.anchoredSelection(),
+            Optional.ofNullable(
+                value.isEmpty() ?
+                    null :
+                    SpreadsheetParserSelector.parse(value)
+            )
         );
     }
 
@@ -99,10 +99,10 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
         context.pushHistoryToken(previous);
 
         context.spreadsheetDeltaFetcher()
-                .saveParser(
-                        this.id(),
-                        this.anchoredSelection().selection(),
-                        this.spreadsheetParserSelector
-                );
+            .saveParser(
+                this.id(),
+                this.anchoredSelection().selection(),
+                this.spreadsheetParserSelector
+            );
     }
 }

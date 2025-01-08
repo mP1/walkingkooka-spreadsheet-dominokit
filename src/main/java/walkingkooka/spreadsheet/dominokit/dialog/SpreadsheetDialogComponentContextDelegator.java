@@ -23,8 +23,8 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 
 public interface SpreadsheetDialogComponentContextDelegator extends SpreadsheetDialogComponentContext,
-        HistoryTokenContextDelegator,
-        LoggingContextDelegator {
+    HistoryTokenContextDelegator,
+    LoggingContextDelegator {
 
     @Override
     default HistoryTokenContext historyTokenContext() {

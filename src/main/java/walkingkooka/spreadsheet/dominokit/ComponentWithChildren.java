@@ -54,7 +54,7 @@ public interface ComponentWithChildren<C extends HtmlElementComponent<E, C>, E e
      */
     default IsElement<?> child(final int index) {
         return this.children()
-                .get(index);
+            .get(index);
     }
 
     /**
@@ -67,7 +67,7 @@ public interface ComponentWithChildren<C extends HtmlElementComponent<E, C>, E e
      */
     default C removeAllChildren() {
         final int count = this.children()
-                .size();
+            .size();
         for (int i = 0; i < count; i++) {
             this.removeChild(0);
         }
@@ -85,7 +85,7 @@ public interface ComponentWithChildren<C extends HtmlElementComponent<E, C>, E e
      */
     default boolean isEmptyIfChildrenAreEmpty() {
         boolean hide = true;
-        
+
         for (final IsElement<?> child : this.children()) {
             if (child instanceof CanBeEmpty) {
                 final CanBeEmpty canBeEmpty = (CanBeEmpty) child;
@@ -108,7 +108,7 @@ public interface ComponentWithChildren<C extends HtmlElementComponent<E, C>, E e
         for (final IsElement<?> component : this.children()) {
             final HistoryTokenAwareComponentLifecycle componentLifecycle = (HistoryTokenAwareComponentLifecycle) component;
             componentLifecycle.refreshIfOpen(
-                    context
+                context
             );
         }
     }
@@ -131,8 +131,8 @@ public interface ComponentWithChildren<C extends HtmlElementComponent<E, C>, E e
                 }
 
                 TreePrintable.printTreeOrToString(
-                        child,
-                        printer
+                    child,
+                    printer
                 );
                 printer.lineStart();
             }

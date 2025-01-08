@@ -29,8 +29,8 @@ public final class SpreadsheetExporterInfoSetComponent implements ValueSpreadshe
 
     private SpreadsheetExporterInfoSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetExporterInfoSet::parse,
-                SpreadsheetExporterInfoSet::text
+            SpreadsheetExporterInfoSet::parse,
+            SpreadsheetExporterInfoSet::text
         );
     }
 

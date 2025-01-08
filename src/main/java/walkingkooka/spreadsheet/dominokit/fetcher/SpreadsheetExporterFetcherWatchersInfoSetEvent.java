@@ -41,18 +41,18 @@ final class SpreadsheetExporterFetcherWatchersInfoSetEvent extends FetcherWatche
                                                                final SpreadsheetExporterInfoSet infos,
                                                                final AppContext context) {
         return new SpreadsheetExporterFetcherWatchersInfoSetEvent(
-                id,
-                infos,
-                context
+            id,
+            infos,
+            context
         );
     }
 
     @Override
     void fire(final SpreadsheetExporterFetcherWatcher watcher) {
         watcher.onSpreadsheetExporterInfoSet(
-                this.id,
-                this.infos,
-                this.context
+            this.id,
+            this.infos,
+            this.context
         );
     }
 

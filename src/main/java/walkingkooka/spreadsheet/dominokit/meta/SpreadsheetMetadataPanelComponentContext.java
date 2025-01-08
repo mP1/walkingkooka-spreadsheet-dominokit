@@ -30,34 +30,34 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public interface SpreadsheetMetadataPanelComponentContext extends HistoryTokenContext,
-        HasLocale,
-        HasSpreadsheetMetadata,
-        UiFormattingContext,
-        LoggingContext {
+    HasLocale,
+    HasSpreadsheetMetadata,
+    UiFormattingContext,
+    LoggingContext {
 
     Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 
     default String datePattern() {
         final SimpleDateFormat simpleDateFormat = (SimpleDateFormat)
-                DateFormat.getDateInstance(
-                        DateFormat.MEDIUM,
-                        this.locale()
-                );
+            DateFormat.getDateInstance(
+                DateFormat.MEDIUM,
+                this.locale()
+            );
         return simpleDateFormat.toPattern();
     }
 
     default void save(final SpreadsheetMetadataPropertyName<?> propertyName,
                       final String saveText) {
         this.debug(
-                this.getClass().getSimpleName() +
-                        ".save " +
-                        CharSequences.quoteAndEscape(saveText)
+            this.getClass().getSimpleName() +
+                ".save " +
+                CharSequences.quoteAndEscape(saveText)
         );
 
         this.pushHistoryToken(
-                this.historyToken()
-                        .setMetadataPropertyName(propertyName)
-                        .save(saveText)
+            this.historyToken()
+                .setMetadataPropertyName(propertyName)
+                .save(saveText)
         );
     }
 }

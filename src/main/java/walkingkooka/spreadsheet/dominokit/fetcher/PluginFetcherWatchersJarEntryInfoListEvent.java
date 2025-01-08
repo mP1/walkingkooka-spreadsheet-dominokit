@@ -32,9 +32,9 @@ final class PluginFetcherWatchersJarEntryInfoListEvent extends FetcherWatchersEv
                                                            final Optional<JarEntryInfoList> list,
                                                            final AppContext context) {
         return new PluginFetcherWatchersJarEntryInfoListEvent(
-                name,
-                list,
-                context
+            name,
+            list,
+            context
         );
     }
 
@@ -49,9 +49,9 @@ final class PluginFetcherWatchersJarEntryInfoListEvent extends FetcherWatchersEv
     @Override
     void fire(final PluginFetcherWatcher watcher) {
         watcher.onJarEntryInfoList(
-                this.name,
-                this.list,
-                this.context
+            this.name,
+            this.list,
+            this.context
         );
     }
 

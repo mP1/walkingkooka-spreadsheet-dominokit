@@ -29,7 +29,7 @@ final class FetcherRequestBodyString extends FetcherRequestBody<String> {
 
     static FetcherRequestBodyString with(final String value) {
         return new FetcherRequestBodyString(
-                Objects.requireNonNull(value, "value")
+            Objects.requireNonNull(value, "value")
         );
     }
 
@@ -65,7 +65,7 @@ final class FetcherRequestBodyString extends FetcherRequestBody<String> {
     @Override
     public boolean equals(final Object other) {
         return this == other ||
-                (other instanceof FetcherRequestBodyString && this.equals0((FetcherRequestBodyString) other));
+            (other instanceof FetcherRequestBodyString && this.equals0((FetcherRequestBodyString) other));
     }
 
     private boolean equals0(final FetcherRequestBodyString other) {

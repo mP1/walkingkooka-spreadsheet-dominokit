@@ -38,7 +38,7 @@ import java.util.Optional;
  * A {@link Card} that auto hides when empty.
  */
 public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElement, SpreadsheetCard>,
-        ComponentWithChildren<SpreadsheetCard, HTMLDivElement> {
+    ComponentWithChildren<SpreadsheetCard, HTMLDivElement> {
 
     public static SpreadsheetCard empty() {
         return new SpreadsheetCard();
@@ -76,7 +76,7 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
         Objects.requireNonNull(css, "css");
 
         this.card.style()
-                .cssText(css);
+            .cssText(css);
         return this;
     }
 
@@ -91,12 +91,12 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
 
         if (null == this.filter) {
             this.filter = SpreadsheetTextBox.empty()
-                    .clearIcon();
+                .clearIcon();
             this.card.withHeader(
-                    (card, header) -> header.appendChild(
-                            PostfixAddOn.of(
-                                    this.filter.setCssText("display: inline-block; width: 33%; background-color: "))
-                    )
+                (card, header) -> header.appendChild(
+                    PostfixAddOn.of(
+                        this.filter.setCssText("display: inline-block; width: 33%; background-color: "))
+                )
             );
         }
         this.filter.addChangeListener(changeListener);
@@ -134,7 +134,7 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
     public SpreadsheetCard removeChild(final int index) {
         final IsElement<?> child = this.children.remove(index);
         this.card.getAppendTarget()
-                .removeChild(child.element());
+            .removeChild(child.element());
         return this;
     }
 
@@ -144,7 +144,7 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
     @Override
     public List<IsElement<?>> children() {
         return Lists.immutable(
-                this.children
+            this.children
         );
     }
 
@@ -187,8 +187,8 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
             printer.indent();
             {
                 TreePrintable.printTreeOrToString(
-                        this.card,
-                        printer
+                    this.card,
+                    printer
                 );
             }
             printer.outdent();

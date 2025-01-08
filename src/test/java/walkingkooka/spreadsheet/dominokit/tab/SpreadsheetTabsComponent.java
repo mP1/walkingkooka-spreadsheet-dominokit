@@ -54,10 +54,10 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
         CharSequences.failIfNullOrEmpty(title, "title");
 
         final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
-                .setId(id)
-                .setTextContent(title)
-                .setDisabled(true)
-                .addPushHistoryToken(this.context);
+            .setId(id)
+            .setTextContent(title)
+            .setDisabled(true)
+            .addPushHistoryToken(this.context);
 
         this.anchors.add(anchor);
         return this;

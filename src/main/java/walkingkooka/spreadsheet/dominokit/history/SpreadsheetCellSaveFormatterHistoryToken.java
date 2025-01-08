@@ -46,10 +46,10 @@ public final class SpreadsheetCellSaveFormatterHistoryToken extends SpreadsheetC
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> value) {
         return new SpreadsheetCellSaveFormatterHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                Maps.immutable(value)
+            id,
+            name,
+            anchoredSelection,
+            Maps.immutable(value)
         );
     }
 
@@ -58,10 +58,10 @@ public final class SpreadsheetCellSaveFormatterHistoryToken extends SpreadsheetC
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> value) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                value
+            id,
+            name,
+            anchoredSelection,
+            value
         );
     }
 
@@ -71,18 +71,18 @@ public final class SpreadsheetCellSaveFormatterHistoryToken extends SpreadsheetC
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> value) {
         return new SpreadsheetCellSaveFormatterHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                value
+            id,
+            name,
+            anchoredSelection,
+            value
         );
     }
 
     @Override
     Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> parseSaveValue(final TextCursor cursor) {
         return parseMapWithOptionalValues(
-                cursor,
-                SpreadsheetFormatterSelector.class
+            cursor,
+            SpreadsheetFormatterSelector.class
         );
     }
 
@@ -96,7 +96,7 @@ public final class SpreadsheetCellSaveFormatterHistoryToken extends SpreadsheetC
     @Override
     JsonNode saveValueUrlFragmentValueToJson(final Optional<SpreadsheetFormatterSelector> value) {
         return MARSHALL_CONTEXT.marshall(
-                value.orElse(null)
+            value.orElse(null)
         );
     }
 
@@ -106,11 +106,11 @@ public final class SpreadsheetCellSaveFormatterHistoryToken extends SpreadsheetC
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
-                .patchCellsFormatter(
-                        this.id(),
-                        this.anchoredSelection().selection(),
-                        this.value()
-                );
+            .patchCellsFormatter(
+                this.id(),
+                this.anchoredSelection().selection(),
+                this.value()
+            );
         context.pushHistoryToken(previous);
     }
 }

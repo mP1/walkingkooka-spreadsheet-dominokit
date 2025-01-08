@@ -37,8 +37,8 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
     static SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer with(final String id,
                                                                                        final SpreadsheetListDialogComponentContext context) {
         return new SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer(
-                id,
-                context
+            id,
+            context
         );
     }
 
@@ -59,26 +59,26 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
                 break;
             case 1: // created by
                 component = hasText(
-                        SpreadsheetMetadataPropertyName.CREATOR,
-                        metadata
+                    SpreadsheetMetadataPropertyName.CREATOR,
+                    metadata
                 );
                 break;
             case 2: // create-date-time
                 component = dateTime(
-                        SpreadsheetMetadataPropertyName.CREATE_DATE_TIME,
-                        metadata
+                    SpreadsheetMetadataPropertyName.CREATE_DATE_TIME,
+                    metadata
                 );
                 break;
             case 3: // lastmod by
                 component = hasText(
-                        SpreadsheetMetadataPropertyName.MODIFIED_BY,
-                        metadata
+                    SpreadsheetMetadataPropertyName.MODIFIED_BY,
+                    metadata
                 );
                 break;
             case 4: // create-date-time
                 component = dateTime(
-                        SpreadsheetMetadataPropertyName.MODIFIED_DATE_TIME,
-                        metadata
+                    SpreadsheetMetadataPropertyName.MODIFIED_DATE_TIME,
+                    metadata
                 );
                 break;
             case 5: // links
@@ -94,31 +94,31 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
 
     private HtmlElementComponent<?, ?> spreadsheetName(final SpreadsheetMetadata metadata) {
         final SpreadsheetId spreadsheetId = metadata.id()
-                .orElse(null);
+            .orElse(null);
 
         return HistoryToken.spreadsheetLoad(spreadsheetId)
-                .link(
-                        this.id + spreadsheetId.toString()
-                ).setTextContent(
-                        metadata.name()
-                                .orElse(null)
-                                .toString()
-                );
+            .link(
+                this.id + spreadsheetId.toString()
+            ).setTextContent(
+                metadata.name()
+                    .orElse(null)
+                    .toString()
+            );
     }
 
     private <TT extends Value<String>> SpreadsheetTextComponent hasText(final SpreadsheetMetadataPropertyName<TT> propertyName,
                                                                         final SpreadsheetMetadata metadata) {
         return text(
-                metadata.get(propertyName)
-                        .map(Value::value)
+            metadata.get(propertyName)
+                .map(Value::value)
         );
     }
 
     private SpreadsheetTextComponent dateTime(final SpreadsheetMetadataPropertyName<LocalDateTime> propertyName,
                                               final SpreadsheetMetadata metadata) {
         return text(
-                metadata.get(propertyName)
-                        .map(this.context::formatDateTime)
+            metadata.get(propertyName)
+                .map(this.context::formatDateTime)
         );
     }
 
@@ -129,21 +129,21 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
     private SpreadsheetFlexLayout links(final SpreadsheetMetadata metadata) {
         final String id = this.id;
         final SpreadsheetId spreadsheetId = metadata.id()
-                .orElse(null);
+            .orElse(null);
 
         final HistoryTokenAnchorComponent rename = HistoryToken.spreadsheetListRenameSelect(
-                        spreadsheetId
-                ).link(id + spreadsheetId + "-rename")
-                .setTextContent("Rename");
+                spreadsheetId
+            ).link(id + spreadsheetId + "-rename")
+            .setTextContent("Rename");
 
         final HistoryTokenAnchorComponent delete = HistoryToken.spreadsheetListDelete(
-                        spreadsheetId
-                ).link(id + spreadsheetId + "-delete")
-                .setTextContent("Delete");
+                spreadsheetId
+            ).link(id + spreadsheetId + "-delete")
+            .setTextContent("Delete");
 
         return SpreadsheetFlexLayout.row()
-                .appendChild(rename)
-                .appendChild(delete);
+            .appendChild(rename)
+            .appendChild(delete);
     }
 
     private final String id;

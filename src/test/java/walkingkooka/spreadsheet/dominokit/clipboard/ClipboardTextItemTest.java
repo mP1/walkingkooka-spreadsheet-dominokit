@@ -59,55 +59,55 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextItem>,
-        HashCodeEqualsDefinedTesting2<ClipboardTextItem>,
-        HasTextTesting,
-        SpreadsheetMetadataTesting,
-        ToStringTesting<ClipboardTextItem>,
-        TreePrintableTesting {
+    HashCodeEqualsDefinedTesting2<ClipboardTextItem>,
+    HasTextTesting,
+    SpreadsheetMetadataTesting,
+    ToStringTesting<ClipboardTextItem>,
+    TreePrintableTesting {
 
     private static final List<MediaType> TYPES = Lists.of(
-            MediaType.TEXT_PLAIN
+        MediaType.TEXT_PLAIN
     );
     private static final String TEXT = "Text123";
 
     @Test
     public void testWithNullMediaTypeFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> ClipboardTextItem.with(
-                        null,
-                        TEXT
-                )
+            NullPointerException.class,
+            () -> ClipboardTextItem.with(
+                null,
+                TEXT
+            )
         );
     }
 
     @Test
     public void testWithEmptyMediaTypeFails() {
         assertThrows(
-                IllegalArgumentException.class,
-                () -> ClipboardTextItem.with(
-                        Lists.empty(),
-                        TEXT
-                )
+            IllegalArgumentException.class,
+            () -> ClipboardTextItem.with(
+                Lists.empty(),
+                TEXT
+            )
         );
     }
 
     @Test
     public void testWithNullTextFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> ClipboardTextItem.with(
-                        TYPES,
-                        null
-                )
+            NullPointerException.class,
+            () -> ClipboardTextItem.with(
+                TYPES,
+                null
+            )
         );
     }
 
     @Test
     public void testWith() {
         final ClipboardTextItem clipboardTextItem = ClipboardTextItem.with(
-                TYPES,
-                TEXT
+            TYPES,
+            TEXT
         );
         this.checkTypes(clipboardTextItem);
         this.checkText(clipboardTextItem);
@@ -118,8 +118,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testSetTypesWithNullFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.createObject().setTypes(null)
+            NullPointerException.class,
+            () -> this.createObject().setTypes(null)
         );
     }
 
@@ -127,8 +127,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     public void testSetTypesWithSame() {
         final ClipboardTextItem clipboard = this.createObject();
         assertSame(
-                clipboard,
-                clipboard.setTypes(TYPES)
+            clipboard,
+            clipboard.setTypes(TYPES)
         );
     }
 
@@ -137,13 +137,13 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         final ClipboardTextItem clipboard = this.createObject();
 
         final List<MediaType> differentTypes = Lists.of(
-                MediaType.ANY_TEXT
+            MediaType.ANY_TEXT
         );
         final ClipboardTextItem different = clipboard.setTypes(differentTypes);
 
         assertNotSame(
-                clipboard,
-                different
+            clipboard,
+            different
         );
 
         this.checkTypes(clipboard);
@@ -158,8 +158,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testSetTextsWithNullFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.createObject().setText(null)
+            NullPointerException.class,
+            () -> this.createObject().setText(null)
         );
     }
 
@@ -167,8 +167,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     public void testSetTextsWithSame() {
         final ClipboardTextItem clipboard = this.createObject();
         assertSame(
-                clipboard,
-                clipboard.setText(TEXT)
+            clipboard,
+            clipboard.setText(TEXT)
         );
     }
 
@@ -180,8 +180,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         final ClipboardTextItem different = clipboard.setText(differentText);
 
         assertNotSame(
-                clipboard,
-                different
+            clipboard,
+            different
         );
 
         this.checkTypes(clipboard);
@@ -196,601 +196,601 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testToJsonWithNullRangeFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> ClipboardTextItem.toJson(
-                        null, // cell-range
-                        SpreadsheetCellClipboardKind.CELL,
-                        JsonNodeMarshallContexts.fake()
-                )
+            NullPointerException.class,
+            () -> ClipboardTextItem.toJson(
+                null, // cell-range
+                SpreadsheetCellClipboardKind.CELL,
+                JsonNodeMarshallContexts.fake()
+            )
         );
     }
 
     @Test
     public void testToJsonWithNullKindFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> ClipboardTextItem.toJson(
-                        SpreadsheetSelection.ALL_CELLS.setValue(Sets.empty()),
-                        null,
-                        JsonNodeMarshallContexts.fake()
-                )
+            NullPointerException.class,
+            () -> ClipboardTextItem.toJson(
+                SpreadsheetSelection.ALL_CELLS.setValue(Sets.empty()),
+                null,
+                JsonNodeMarshallContexts.fake()
+            )
         );
     }
 
     @Test
     public void testToJsonWithNullJsonNodeMarshallContextFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> ClipboardTextItem.toJson(
-                        SpreadsheetSelection.ALL_CELLS.setValue(Sets.empty()),
-                        SpreadsheetCellClipboardKind.CELL,
-                        null
-                )
+            NullPointerException.class,
+            () -> ClipboardTextItem.toJson(
+                SpreadsheetSelection.ALL_CELLS.setValue(Sets.empty()),
+                SpreadsheetCellClipboardKind.CELL,
+                null
+            )
         );
     }
 
     @Test
     public void testToJsonCellsWithCellsNone() {
         this.toJsonAndCheck(
-                "A1",
-                Sets.empty(),
-                SpreadsheetCellClipboardKind.CELL,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
-                                "  \"cell-range\": \"A1\",\n" +
-                                "  \"value\": {}\n" +
-                                "}"
-                )
+            "A1",
+            Sets.empty(),
+            SpreadsheetCellClipboardKind.CELL,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                    "  \"cell-range\": \"A1\",\n" +
+                    "  \"value\": {}\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsWithCellsOne() {
         this.toJsonAndCheck(
-                "A1",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(
-                                SpreadsheetFormula.EMPTY.setText("=1")
-                        ).setStyle(
-                                TextStyle.EMPTY.set(
-                                        TextStylePropertyName.TEXT_ALIGN,
-                                        TextAlign.CENTER
-                                )
-                        )
-                ),
-                SpreadsheetCellClipboardKind.CELL,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
-                                "  \"cell-range\": \"A1\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": {\n" +
-                                "      \"formula\": {\n" +
-                                "        \"text\": \"=1\"\n" +
-                                "      },\n" +
-                                "      \"style\": {\n" +
-                                "        \"text-align\": \"CENTER\"\n" +
-                                "      }\n" +
-                                "    }\n" +
-                                "  }\n" +
-                                "}"
+            "A1",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(
+                    SpreadsheetFormula.EMPTY.setText("=1")
+                ).setStyle(
+                    TextStyle.EMPTY.set(
+                        TextStylePropertyName.TEXT_ALIGN,
+                        TextAlign.CENTER
+                    )
                 )
+            ),
+            SpreadsheetCellClipboardKind.CELL,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                    "  \"cell-range\": \"A1\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": {\n" +
+                    "      \"formula\": {\n" +
+                    "        \"text\": \"=1\"\n" +
+                    "      },\n" +
+                    "      \"style\": {\n" +
+                    "        \"text-align\": \"CENTER\"\n" +
+                    "      }\n" +
+                    "    }\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsWithCellsSeveral() {
         this.toJsonAndCheck(
-                "A1:B2",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(
-                                SpreadsheetFormula.EMPTY.setText("=1")
-                        ).setStyle(
-                                TextStyle.EMPTY.set(
-                                        TextStylePropertyName.TEXT_ALIGN,
-                                        TextAlign.CENTER
-                                )
-                        ),
-                        SpreadsheetSelection.parseCell("B2")
-                                .setFormula(
-                                        SpreadsheetFormula.EMPTY.setText("=22")
-                                ).setFormatter(
-                                        Optional.of(
-                                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
-                                        )
-                                )
+            "A1:B2",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(
+                    SpreadsheetFormula.EMPTY.setText("=1")
+                ).setStyle(
+                    TextStyle.EMPTY.set(
+                        TextStylePropertyName.TEXT_ALIGN,
+                        TextAlign.CENTER
+                    )
                 ),
-                SpreadsheetCellClipboardKind.CELL,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
-                                "  \"cell-range\": \"A1:B2\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": {\n" +
-                                "      \"formula\": {\n" +
-                                "        \"text\": \"=1\"\n" +
-                                "      },\n" +
-                                "      \"style\": {\n" +
-                                "        \"text-align\": \"CENTER\"\n" +
-                                "      }\n" +
-                                "    },\n" +
-                                "    \"B2\": {\n" +
-                                "      \"formula\": {\n" +
-                                "        \"text\": \"=22\"\n" +
-                                "      },\n" +
-                                "      \"formatter\": \"text-format-pattern @\"\n" +
-                                "    }\n" +
-                                "  }\n" +
-                                "}"
-                )
+                SpreadsheetSelection.parseCell("B2")
+                    .setFormula(
+                        SpreadsheetFormula.EMPTY.setText("=22")
+                    ).setFormatter(
+                        Optional.of(
+                            SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
+                        )
+                    )
+            ),
+            SpreadsheetCellClipboardKind.CELL,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": {\n" +
+                    "      \"formula\": {\n" +
+                    "        \"text\": \"=1\"\n" +
+                    "      },\n" +
+                    "      \"style\": {\n" +
+                    "        \"text-align\": \"CENTER\"\n" +
+                    "      }\n" +
+                    "    },\n" +
+                    "    \"B2\": {\n" +
+                    "      \"formula\": {\n" +
+                    "        \"text\": \"=22\"\n" +
+                    "      },\n" +
+                    "      \"formatter\": \"text-format-pattern @\"\n" +
+                    "    }\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsFormulaNone() {
         this.toJsonAndCheck(
-                "A1",
-                Sets.of(),
-                SpreadsheetCellClipboardKind.FORMULA,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
-                                "  \"cell-range\": \"A1\",\n" +
-                                "  \"value\": {}\n" +
-                                "}"
-                )
+            "A1",
+            Sets.of(),
+            SpreadsheetCellClipboardKind.FORMULA,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
+                    "  \"cell-range\": \"A1\",\n" +
+                    "  \"value\": {}\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsFormulaSeveral() {
         this.toJsonAndCheck(
-                "A1:B2",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(
-                                SpreadsheetFormula.EMPTY.setText("=1")
-                        ),
-                        SpreadsheetSelection.parseCell("B2")
-                                .setFormula(
-                                        SpreadsheetFormula.EMPTY.setText("=22")
-                                )
+            "A1:B2",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(
+                    SpreadsheetFormula.EMPTY.setText("=1")
                 ),
-                SpreadsheetCellClipboardKind.FORMULA,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
-                                "  \"cell-range\": \"A1:B2\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": \"=1\",\n" +
-                                "    \"B2\": \"=22\"\n" +
-                                "  }\n" +
-                                "}"
-                )
+                SpreadsheetSelection.parseCell("B2")
+                    .setFormula(
+                        SpreadsheetFormula.EMPTY.setText("=22")
+                    )
+            ),
+            SpreadsheetCellClipboardKind.FORMULA,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": \"=1\",\n" +
+                    "    \"B2\": \"=22\"\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsFormulaEmpty() {
         this.toJsonAndCheck(
-                "A1",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                ),
-                SpreadsheetCellClipboardKind.FORMULA,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
-                                "  \"cell-range\": \"A1\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": \"\"\n" +
-                                "  }\n" +
-                                "}"
-                )
+            "A1",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+            ),
+            SpreadsheetCellClipboardKind.FORMULA,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
+                    "  \"cell-range\": \"A1\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": \"\"\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsFormatterNone() {
         this.toJsonAndCheck(
-                "A1",
-                Sets.of(),
-                SpreadsheetCellClipboardKind.FORMATTER,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
-                                "  \"cell-range\": \"A1\",\n" +
-                                "  \"value\": {}\n" +
-                                "}"
-                )
+            "A1",
+            Sets.of(),
+            SpreadsheetCellClipboardKind.FORMATTER,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
+                    "  \"cell-range\": \"A1\",\n" +
+                    "  \"value\": {}\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsFormatterMissing() {
         this.toJsonAndCheck(
-                "A1:B2",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                ),
-                SpreadsheetCellClipboardKind.FORMATTER,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
-                                "  \"cell-range\": \"A1:B2\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": null\n" +
-                                "  }\n" +
-                                "}"
-                )
+            "A1:B2",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+            ),
+            SpreadsheetCellClipboardKind.FORMATTER,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": null\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsFormatterSomeMissing() {
         this.toJsonAndCheck(
-                "A1:B2",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
-                        SpreadsheetSelection.parseCell("B2")
-                                .setFormula(SpreadsheetFormula.EMPTY)
-                                .setFormatter(
-                                        Optional.of(
-                                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
-                                        )
-                                )
-                ),
-                SpreadsheetCellClipboardKind.FORMATTER,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
-                                "  \"cell-range\": \"A1:B2\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": null,\n" +
-                                "    \"B2\": \"text-format-pattern @\"\n" +
-                                "  }\n" +
-                                "}"
-                )
+            "A1:B2",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
+                SpreadsheetSelection.parseCell("B2")
+                    .setFormula(SpreadsheetFormula.EMPTY)
+                    .setFormatter(
+                        Optional.of(
+                            SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
+                        )
+                    )
+            ),
+            SpreadsheetCellClipboardKind.FORMATTER,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": null,\n" +
+                    "    \"B2\": \"text-format-pattern @\"\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsFormatter() {
         this.toJsonAndCheck(
-                "A1:B2",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                                .setFormatter(
-                                        Optional.of(
-                                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
-                                        )
-                                ),
-                        SpreadsheetSelection.parseCell("B2")
-                                .setFormula(SpreadsheetFormula.EMPTY)
-                                .setFormatter(
-                                        Optional.of(
-                                                SpreadsheetPattern.parseNumberFormatPattern("$0.00")
-                                                        .spreadsheetFormatterSelector()
-                                        )
-                                )
-                ),
-                SpreadsheetCellClipboardKind.FORMATTER,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
-                                "  \"cell-range\": \"A1:B2\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": \"text-format-pattern @\",\n" +
-                                "    \"B2\": \"number-format-pattern $0.00\"\n" +
-                                "  }\n" +
-                                "}"
-                )
+            "A1:B2",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                    .setFormatter(
+                        Optional.of(
+                            SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
+                        )
+                    ),
+                SpreadsheetSelection.parseCell("B2")
+                    .setFormula(SpreadsheetFormula.EMPTY)
+                    .setFormatter(
+                        Optional.of(
+                            SpreadsheetPattern.parseNumberFormatPattern("$0.00")
+                                .spreadsheetFormatterSelector()
+                        )
+                    )
+            ),
+            SpreadsheetCellClipboardKind.FORMATTER,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": \"text-format-pattern @\",\n" +
+                    "    \"B2\": \"number-format-pattern $0.00\"\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsParserNone() {
         this.toJsonAndCheck(
-                "A1:B2",
-                Sets.of(),
-                SpreadsheetCellClipboardKind.PARSER,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.parser.SpreadsheetParserSelector\",\n" +
-                                "  \"cell-range\": \"A1:B2\",\n" +
-                                "  \"value\": {}\n" +
-                                "}"
-                )
+            "A1:B2",
+            Sets.of(),
+            SpreadsheetCellClipboardKind.PARSER,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.parser.SpreadsheetParserSelector\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {}\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsParserMissing() {
         this.toJsonAndCheck(
-                "A1:B2",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                ),
-                SpreadsheetCellClipboardKind.PARSER,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.parser.SpreadsheetParserSelector\",\n" +
-                                "  \"cell-range\": \"A1:B2\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": null\n" +
-                                "  }\n" +
-                                "}"
-                )
+            "A1:B2",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+            ),
+            SpreadsheetCellClipboardKind.PARSER,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.parser.SpreadsheetParserSelector\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": null\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsParserSomeMissing() {
         this.toJsonAndCheck(
-                "A1:B2",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
-                        SpreadsheetSelection.parseCell("B2")
-                                .setFormula(SpreadsheetFormula.EMPTY)
-                                .setParser(
-                                        Optional.of(
-                                                SpreadsheetPattern.parseNumberParsePattern("$0.00")
-                                                        .spreadsheetParserSelector()
-                                        )
-                                )
-                ),
-                SpreadsheetCellClipboardKind.PARSER,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.parser.SpreadsheetParserSelector\",\n" +
-                                "  \"cell-range\": \"A1:B2\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": null,\n" +
-                                "    \"B2\": \"number-parse-pattern $0.00\"\n" +
-                                "  }\n" +
-                                "}"
-                )
+            "A1:B2",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
+                SpreadsheetSelection.parseCell("B2")
+                    .setFormula(SpreadsheetFormula.EMPTY)
+                    .setParser(
+                        Optional.of(
+                            SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                                .spreadsheetParserSelector()
+                        )
+                    )
+            ),
+            SpreadsheetCellClipboardKind.PARSER,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.parser.SpreadsheetParserSelector\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": null,\n" +
+                    "    \"B2\": \"number-parse-pattern $0.00\"\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsParser() {
         this.toJsonAndCheck(
-                "A1:B2",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                                .setParser(
-                                        Optional.of(
-                                                SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
-                                                        .spreadsheetParserSelector()
-                                        )
-                                ),
-                        SpreadsheetSelection.parseCell("B2")
-                                .setFormula(SpreadsheetFormula.EMPTY)
-                                .setParser(
-                                        Optional.of(
-                                                SpreadsheetPattern.parseNumberParsePattern("$0.00")
-                                                        .spreadsheetParserSelector()
-                                        )
-                                )
-                ),
-                SpreadsheetCellClipboardKind.PARSER,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.parser.SpreadsheetParserSelector\",\n" +
-                                "  \"cell-range\": \"A1:B2\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": \"date-parse-pattern dd/mm/yyyy\",\n" +
-                                "    \"B2\": \"number-parse-pattern $0.00\"\n" +
-                                "  }\n" +
-                                "}"
-                )
+            "A1:B2",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                    .setParser(
+                        Optional.of(
+                            SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+                                .spreadsheetParserSelector()
+                        )
+                    ),
+                SpreadsheetSelection.parseCell("B2")
+                    .setFormula(SpreadsheetFormula.EMPTY)
+                    .setParser(
+                        Optional.of(
+                            SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                                .spreadsheetParserSelector()
+                        )
+                    )
+            ),
+            SpreadsheetCellClipboardKind.PARSER,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.parser.SpreadsheetParserSelector\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": \"date-parse-pattern dd/mm/yyyy\",\n" +
+                    "    \"B2\": \"number-parse-pattern $0.00\"\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsStyleNone() {
         this.toJsonAndCheck(
-                "A1:B2",
-                Sets.of(),
-                SpreadsheetCellClipboardKind.STYLE,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
-                                "  \"cell-range\": \"A1:B2\",\n" +
-                                "  \"value\": {}\n" +
-                                "}"
-                )
+            "A1:B2",
+            Sets.of(),
+            SpreadsheetCellClipboardKind.STYLE,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {}\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsStyleEmpty() {
         this.toJsonAndCheck(
-                "A1:C3",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                ),
-                SpreadsheetCellClipboardKind.STYLE,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
-                                "  \"cell-range\": \"A1:C3\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": {}\n" +
-                                "  }\n" +
-                                "}"
-                )
+            "A1:C3",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+            ),
+            SpreadsheetCellClipboardKind.STYLE,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
+                    "  \"cell-range\": \"A1:C3\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": {}\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsStyleSomeEmpty() {
         this.toJsonAndCheck(
-                "A1:B2",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
-                        SpreadsheetSelection.parseCell("B2")
-                                .setFormula(SpreadsheetFormula.EMPTY)
-                                .setStyle(
-                                        TextStyle.EMPTY.set(
-                                                TextStylePropertyName.TEXT_ALIGN,
-                                                TextAlign.CENTER
-                                        )
-                                )
-                ),
-                SpreadsheetCellClipboardKind.STYLE,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
-                                "  \"cell-range\": \"A1:B2\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": {},\n" +
-                                "    \"B2\": {\n" +
-                                "      \"text-align\": \"CENTER\"\n" +
-                                "    }\n" +
-                                "  }\n" +
-                                "}"
-                )
+            "A1:B2",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
+                SpreadsheetSelection.parseCell("B2")
+                    .setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_ALIGN,
+                            TextAlign.CENTER
+                        )
+                    )
+            ),
+            SpreadsheetCellClipboardKind.STYLE,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": {},\n" +
+                    "    \"B2\": {\n" +
+                    "      \"text-align\": \"CENTER\"\n" +
+                    "    }\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsStyle() {
         this.toJsonAndCheck(
-                "A1:B2",
-                Sets.of(
-                        SpreadsheetSelection.A1
-                                .setFormula(SpreadsheetFormula.EMPTY)
-                                .setStyle(
-                                        TextStyle.EMPTY.set(
-                                                TextStylePropertyName.FONT_STYLE,
-                                                FontStyle.ITALIC
-                                        )
-                                ),
-                        SpreadsheetSelection.parseCell("B2")
-                                .setFormula(SpreadsheetFormula.EMPTY)
-                                .setStyle(
-                                        TextStyle.EMPTY.set(
-                                                TextStylePropertyName.TEXT_ALIGN,
-                                                TextAlign.CENTER
-                                        )
-                                )
-                ),
-                SpreadsheetCellClipboardKind.STYLE,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
-                                "  \"cell-range\": \"A1:B2\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": {\n" +
-                                "      \"font-style\": \"ITALIC\"\n" +
-                                "    },\n" +
-                                "    \"B2\": {\n" +
-                                "      \"text-align\": \"CENTER\"\n" +
-                                "    }\n" +
-                                "  }\n" +
-                                "}"
-                )
+            "A1:B2",
+            Sets.of(
+                SpreadsheetSelection.A1
+                    .setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.FONT_STYLE,
+                            FontStyle.ITALIC
+                        )
+                    ),
+                SpreadsheetSelection.parseCell("B2")
+                    .setFormula(SpreadsheetFormula.EMPTY)
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_ALIGN,
+                            TextAlign.CENTER
+                        )
+                    )
+            ),
+            SpreadsheetCellClipboardKind.STYLE,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": {\n" +
+                    "      \"font-style\": \"ITALIC\"\n" +
+                    "    },\n" +
+                    "    \"B2\": {\n" +
+                    "      \"text-align\": \"CENTER\"\n" +
+                    "    }\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsFormattedNone() {
         this.toJsonAndCheck(
-                "*",
-                Sets.of(
-                ),
-                SpreadsheetCellClipboardKind.FORMATTED_VALUE,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
-                                "  \"cell-range\": \"*\",\n" +
-                                "  \"value\": {}\n" +
-                                "}"
-                )
+            "*",
+            Sets.of(
+            ),
+            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
+                    "  \"cell-range\": \"*\",\n" +
+                    "  \"value\": {}\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsFormattedSeveral() {
         this.toJsonAndCheck(
-                "A1:B2",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(
-                                SpreadsheetFormula.EMPTY.setText("=1")
-                        ).setFormattedValue(
-                                Optional.of(
-                                        TextNode.text("111")
-                                )
-                        ),
-                        SpreadsheetSelection.parseCell("B2")
-                                .setFormula(
-                                        SpreadsheetFormula.EMPTY.setText("=2")
-                                ).setFormattedValue(
-                                        Optional.of(
-                                                TextNode.text("222")
-                                        )
-                                )
+            "A1:B2",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(
+                    SpreadsheetFormula.EMPTY.setText("=1")
+                ).setFormattedValue(
+                    Optional.of(
+                        TextNode.text("111")
+                    )
                 ),
-                SpreadsheetCellClipboardKind.FORMATTED_VALUE,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
-                                "  \"cell-range\": \"A1:B2\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": {\n" +
-                                "      \"type\": \"text\",\n" +
-                                "      \"value\": \"111\"\n" +
-                                "    },\n" +
-                                "    \"B2\": {\n" +
-                                "      \"type\": \"text\",\n" +
-                                "      \"value\": \"222\"\n" +
-                                "    }\n" +
-                                "  }\n" +
-                                "}"
-                )
+                SpreadsheetSelection.parseCell("B2")
+                    .setFormula(
+                        SpreadsheetFormula.EMPTY.setText("=2")
+                    ).setFormattedValue(
+                        Optional.of(
+                            TextNode.text("222")
+                        )
+                    )
+            ),
+            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": {\n" +
+                    "      \"type\": \"text\",\n" +
+                    "      \"value\": \"111\"\n" +
+                    "    },\n" +
+                    "    \"B2\": {\n" +
+                    "      \"type\": \"text\",\n" +
+                    "      \"value\": \"222\"\n" +
+                    "    }\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
     @Test
     public void testToJsonCellsFormattedMissing() {
         this.toJsonAndCheck(
-                "A1",
-                Sets.of(
-                        SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                ),
-                SpreadsheetCellClipboardKind.FORMATTED_VALUE,
-                ClipboardTextItem.with(
-                        TYPES,
-                        "{\n" +
-                                "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
-                                "  \"cell-range\": \"A1\",\n" +
-                                "  \"value\": {\n" +
-                                "    \"A1\": null\n" +
-                                "  }\n" +
-                                "}"
-                )
+            "A1",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+            ),
+            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
+                    "  \"cell-range\": \"A1\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": null\n" +
+                    "  }\n" +
+                    "}"
+            )
         );
     }
 
@@ -799,11 +799,11 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                 final SpreadsheetCellClipboardKind kind,
                                 final ClipboardTextItem expected) {
         this.toJsonAndCheck(
-                SpreadsheetSelection.parseCellRange(range)
-                        .setValue(cells),
-                kind,
-                JsonNodeMarshallContexts.basic(),
-                expected
+            SpreadsheetSelection.parseCellRange(range)
+                .setValue(cells),
+            kind,
+            JsonNodeMarshallContexts.basic(),
+            expected
         );
     }
 
@@ -812,12 +812,12 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                                 final JsonNodeMarshallContext context,
                                 final ClipboardTextItem expected) {
         this.checkEquals(
-                expected,
-                ClipboardTextItem.toJson(
-                        range,
-                        kind,
-                        context
-                )
+            expected,
+            ClipboardTextItem.toJson(
+                range,
+                kind,
+                context
+            )
         );
     }
 
@@ -826,37 +826,37 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testToSpreadsheetCellRangeNullContextFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.createObject().toSpreadsheetCellRange(null)
+            NullPointerException.class,
+            () -> this.createObject().toSpreadsheetCellRange(null)
         );
     }
 
     @Test
     public void testToSpreadsheetCellRangeInvalidMediaType() {
         final IllegalArgumentException thrown = assertThrows(
-                IllegalArgumentException.class,
-                () -> ClipboardTextItem.with(
-                                Lists.of(
-                                        MediaType.IMAGE_BMP
-                                ),
-                                "{\n" +
-                                        "  \"mediaType\": \"text/invalid123\",\n" +
-                                        "  \"cell-range\": \"A1:B2\",\n" +
-                                        "  \"value\": true\n" +
-                                        "}"
-                        )
-                        .toSpreadsheetCellRange(
-                                new FakeAppContext() {
-                                    @Override
-                                    public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
-                                        return METADATA_EN_AU.jsonNodeUnmarshallContext();
-                                    }
-                                })
+            IllegalArgumentException.class,
+            () -> ClipboardTextItem.with(
+                    Lists.of(
+                        MediaType.IMAGE_BMP
+                    ),
+                    "{\n" +
+                        "  \"mediaType\": \"text/invalid123\",\n" +
+                        "  \"cell-range\": \"A1:B2\",\n" +
+                        "  \"value\": true\n" +
+                        "}"
+                )
+                .toSpreadsheetCellRange(
+                    new FakeAppContext() {
+                        @Override
+                        public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
+                            return METADATA_EN_AU.jsonNodeUnmarshallContext();
+                        }
+                    })
         );
 
         this.checkEquals(
-                "Unsupported clipboard media type image/bmp expected text/plain",
-                thrown.getMessage()
+            "Unsupported clipboard media type image/bmp expected text/plain",
+            thrown.getMessage()
         );
     }
 
@@ -865,112 +865,112 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testToSpreadsheetCellRange() {
         this.toSpreadsheetCellRangeAndCheck(
-                "{\n" +
-                        "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
-                        "  \"cell-range\": \"A1:B2\",\n" +
-                        "  \"value\": {\n" +
-                        "    \"A1\": {\n" +
-                        "      \"formula\": {\n" +
-                        "        \"text\": \"=1\"\n" +
-                        "      },\n" +
-                        "      \"style\": {\n" +
-                        "        \"text-align\": \"CENTER\"\n" +
-                        "      }\n" +
-                        "    }\n" +
-                        "  }\n" +
-                        "}",
-                SpreadsheetSelection.parseCellRange("A1:B2")
-                        .setValue(
-                                Sets.of(
-                                        SpreadsheetSelection.A1.setFormula(
-                                                SpreadsheetMetadataTesting.parseFormula("=1")
-                                        ).setStyle(
-                                                TextStyle.EMPTY.set(
-                                                        TextStylePropertyName.TEXT_ALIGN,
-                                                        TextAlign.CENTER
-                                                )
-                                        )
-                                )
+            "{\n" +
+                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                "  \"cell-range\": \"A1:B2\",\n" +
+                "  \"value\": {\n" +
+                "    \"A1\": {\n" +
+                "      \"formula\": {\n" +
+                "        \"text\": \"=1\"\n" +
+                "      },\n" +
+                "      \"style\": {\n" +
+                "        \"text-align\": \"CENTER\"\n" +
+                "      }\n" +
+                "    }\n" +
+                "  }\n" +
+                "}",
+            SpreadsheetSelection.parseCellRange("A1:B2")
+                .setValue(
+                    Sets.of(
+                        SpreadsheetSelection.A1.setFormula(
+                            SpreadsheetMetadataTesting.parseFormula("=1")
+                        ).setStyle(
+                            TextStyle.EMPTY.set(
+                                TextStylePropertyName.TEXT_ALIGN,
+                                TextAlign.CENTER
+                            )
                         )
+                    )
+                )
         );
     }
 
     @Test
     public void testToSpreadsheetCellRange2() {
         this.toSpreadsheetCellRangeAndCheck(
-                "{\n" +
-                        "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
-                        "  \"cell-range\": \"A1:B2\",\n" +
-                        "  \"value\": {\n" +
-                        "    \"A1\": {\n" +
-                        "      \"formula\": {\n" +
-                        "        \"text\": \"=1\"\n" +
-                        "      },\n" +
-                        "      \"style\": {\n" +
-                        "        \"text-align\": \"CENTER\"\n" +
-                        "      }\n" +
-                        "    },\n" +
-                        "    \"B2\": {\n" +
-                        "      \"formula\": {\n" +
-                        "        \"text\": \"=22\"\n" +
-                        "      },\n" +
-                        "      \"formatter\": \"text-format-pattern @\"\n" +
-                        "    }\n" +
-                        "  }\n" +
-                        "}",
-                SpreadsheetSelection.parseCellRange("A1:B2")
-                        .setValue(
-                                Sets.of(
-                                        SpreadsheetSelection.A1.setFormula(
-                                                SpreadsheetMetadataTesting.parseFormula("=1")
-                                        ).setStyle(
-                                                TextStyle.EMPTY.set(
-                                                        TextStylePropertyName.TEXT_ALIGN,
-                                                        TextAlign.CENTER
-                                                )
-                                        ),
-                                        B2.setFormula(
-                                                SpreadsheetMetadataTesting.parseFormula("=22")
-                                        ).setFormatter(
-                                                Optional.of(
-                                                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
-                                                )
-                                        )
-                                )
+            "{\n" +
+                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                "  \"cell-range\": \"A1:B2\",\n" +
+                "  \"value\": {\n" +
+                "    \"A1\": {\n" +
+                "      \"formula\": {\n" +
+                "        \"text\": \"=1\"\n" +
+                "      },\n" +
+                "      \"style\": {\n" +
+                "        \"text-align\": \"CENTER\"\n" +
+                "      }\n" +
+                "    },\n" +
+                "    \"B2\": {\n" +
+                "      \"formula\": {\n" +
+                "        \"text\": \"=22\"\n" +
+                "      },\n" +
+                "      \"formatter\": \"text-format-pattern @\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}",
+            SpreadsheetSelection.parseCellRange("A1:B2")
+                .setValue(
+                    Sets.of(
+                        SpreadsheetSelection.A1.setFormula(
+                            SpreadsheetMetadataTesting.parseFormula("=1")
+                        ).setStyle(
+                            TextStyle.EMPTY.set(
+                                TextStylePropertyName.TEXT_ALIGN,
+                                TextAlign.CENTER
+                            )
+                        ),
+                        B2.setFormula(
+                            SpreadsheetMetadataTesting.parseFormula("=22")
+                        ).setFormatter(
+                            Optional.of(
+                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
+                            )
                         )
+                    )
+                )
         );
     }
 
     private void toSpreadsheetCellRangeAndCheck(final String text,
                                                 final SpreadsheetCellRange expected) {
         this.checkEquals(
-                expected,
-                ClipboardTextItem.with(
-                                Lists.of(ClipboardTextItem.MEDIA_TYPE),
-                                text
-                        )
-                        .toSpreadsheetCellRange(
-                                new FakeAppContext() {
-                                    @Override
-                                    public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
-                                        return METADATA_EN_AU.jsonNodeUnmarshallContext();
-                                    }
+            expected,
+            ClipboardTextItem.with(
+                    Lists.of(ClipboardTextItem.MEDIA_TYPE),
+                    text
+                )
+                .toSpreadsheetCellRange(
+                    new FakeAppContext() {
+                        @Override
+                        public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
+                            return METADATA_EN_AU.jsonNodeUnmarshallContext();
+                        }
 
-                                    @Override
-                                    public SpreadsheetMetadata spreadsheetMetadata() {
-                                        return METADATA_EN_AU;
-                                    }
+                        @Override
+                        public SpreadsheetMetadata spreadsheetMetadata() {
+                            return METADATA_EN_AU;
+                        }
 
-                                    @Override
-                                    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
-                                                                               final ProviderContext context) {
-                                        return SpreadsheetParserProviders.spreadsheetParsePattern(SpreadsheetFormatterProviders.fake())
-                                                .spreadsheetParser(
-                                                        selector,
-                                                        context
-                                                );
-                                    }
-                                })
+                        @Override
+                        public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
+                                                                   final ProviderContext context) {
+                            return SpreadsheetParserProviders.spreadsheetParsePattern(SpreadsheetFormatterProviders.fake())
+                                .spreadsheetParser(
+                                    selector,
+                                    context
+                                );
+                        }
+                    })
         );
     }
 
@@ -979,22 +979,22 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testEqualsDifferentTypes() {
         this.checkNotEquals(
-                ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.parse("text/different")
-                        ),
-                        TEXT
-                )
+            ClipboardTextItem.with(
+                Lists.of(
+                    MediaType.parse("text/different")
+                ),
+                TEXT
+            )
         );
     }
 
     @Test
     public void testEqualsDifferentText() {
         this.checkNotEquals(
-                ClipboardTextItem.with(
-                        TYPES,
-                        "different"
-                )
+            ClipboardTextItem.with(
+                TYPES,
+                "different"
+            )
         );
     }
 
@@ -1004,11 +1004,11 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
         final String text = "abc123";
 
         this.toStringAndCheck(
-                ClipboardTextItem.with(
-                        Lists.of(type),
-                        text
-                ),
-                type + " \"" + text + "\""
+            ClipboardTextItem.with(
+                Lists.of(type),
+                text
+            ),
+            type + " \"" + text + "\""
         );
     }
 
@@ -1017,32 +1017,32 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                ClipboardTextItem.with(
-                        TYPES,
-                        "123"
-                ),
-                "types\n" +
-                        "  text/plain\n" +
-                        "text\n" +
-                        "  123\n"
+            ClipboardTextItem.with(
+                TYPES,
+                "123"
+            ),
+            "types\n" +
+                "  text/plain\n" +
+                "text\n" +
+                "  123\n"
         );
     }
 
     @Test
     public void testTreePrintSeveralMediaTypes() {
         this.treePrintAndCheck(
-                ClipboardTextItem.with(
-                        Lists.of(
-                                MediaType.TEXT_PLAIN,
-                                MediaType.APPLICATION_JSON
-                        ),
-                        "123"
+            ClipboardTextItem.with(
+                Lists.of(
+                    MediaType.TEXT_PLAIN,
+                    MediaType.APPLICATION_JSON
                 ),
-                "types\n" +
-                        "  text/plain\n" +
-                        "  application/json\n" +
-                        "text\n" +
-                        "  123\n"
+                "123"
+            ),
+            "types\n" +
+                "  text/plain\n" +
+                "  application/json\n" +
+                "text\n" +
+                "  123\n"
         );
     }
 
@@ -1063,40 +1063,40 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Override
     public ClipboardTextItem createObject() {
         return ClipboardTextItem.with(
-                TYPES,
-                TEXT
+            TYPES,
+            TEXT
         );
     }
 
     private void checkTypes(final ClipboardTextItem clipboardTextItem) {
         this.checkTypes(
-                clipboardTextItem,
-                TYPES
+            clipboardTextItem,
+            TYPES
         );
     }
 
     private void checkTypes(final ClipboardTextItem clipboardTextItem,
                             final List<MediaType> expected) {
         this.checkEquals(
-                expected,
-                clipboardTextItem.types(),
-                "types"
+            expected,
+            clipboardTextItem.types(),
+            "types"
         );
     }
 
     private void checkText(final ClipboardTextItem clipboardTextItem) {
         this.checkText(
-                clipboardTextItem,
-                TEXT
+            clipboardTextItem,
+            TEXT
         );
     }
 
     private void checkText(final ClipboardTextItem clipboardTextItem,
                            final String expected) {
         this.checkEquals(
-                expected,
-                clipboardTextItem.text(),
-                "text"
+            expected,
+            clipboardTextItem.text(),
+            "text"
         );
     }
 }

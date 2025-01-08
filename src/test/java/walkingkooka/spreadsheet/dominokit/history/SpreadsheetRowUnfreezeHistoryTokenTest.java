@@ -32,26 +32,26 @@ public final class SpreadsheetRowUnfreezeHistoryTokenTest extends SpreadsheetRow
     @Test
     public void testUrlFragmentRow() {
         this.urlFragmentAndCheck(
-                ROW,
-                "/123/SpreadsheetName456/row/1/unfreeze"
+            ROW,
+            "/123/SpreadsheetName456/row/1/unfreeze"
         );
     }
 
     @Test
     public void testUrlFragmentRowRange() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.parseRowRange("1:2").setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-                "/123/SpreadsheetName456/row/1:2/bottom/unfreeze"
+            SpreadsheetSelection.parseRowRange("1:2").setAnchor(SpreadsheetViewportAnchor.BOTTOM),
+            "/123/SpreadsheetName456/row/1:2/bottom/unfreeze"
         );
     }
 
     @Test
     public void testUrlFragmentRowRangeInvalidFails() {
         assertThrows(
-                SpreadsheetMetadataPropertyValueException.class,
-                () -> this.createHistoryToken(
-                        SpreadsheetSelection.parseRowRange("2:3").setAnchor(SpreadsheetViewportAnchor.BOTTOM)
-                )
+            SpreadsheetMetadataPropertyValueException.class,
+            () -> this.createHistoryToken(
+                SpreadsheetSelection.parseRowRange("2:3").setAnchor(SpreadsheetViewportAnchor.BOTTOM)
+            )
         );
     }
 
@@ -60,9 +60,9 @@ public final class SpreadsheetRowUnfreezeHistoryTokenTest extends SpreadsheetRow
                                                           final SpreadsheetName name,
                                                           final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetRowUnfreezeHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

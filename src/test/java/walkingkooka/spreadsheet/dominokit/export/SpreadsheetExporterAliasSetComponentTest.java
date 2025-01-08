@@ -32,42 +32,42 @@ public final class SpreadsheetExporterAliasSetComponentTest implements ValueComp
         final SpreadsheetExporterAliasSet alias = SpreadsheetExporterAliasSet.parse("alias1 plugin1, plugin2");
 
         this.checkEquals(
-                alias,
-                SpreadsheetExporterAliasSet.parse(alias.text())
+            alias,
+            SpreadsheetExporterAliasSet.parse(alias.text())
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetExporterAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                       "alias1 exporter1, exporter2"
-                                )
-                        ),
-                "SpreadsheetExporterAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [alias1 exporter1, exporter2]\n"
+            SpreadsheetExporterAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "alias1 exporter1, exporter2"
+                    )
+                ),
+            "SpreadsheetExporterAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [alias1 exporter1, exporter2]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetExporterAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "alias1 exporter1, 9"
-                                )
-                        ),
-                "SpreadsheetExporterAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [alias1 exporter1, 9]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '9' at 18\n"
+            SpreadsheetExporterAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "alias1 exporter1, 9"
+                    )
+                ),
+            "SpreadsheetExporterAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [alias1 exporter1, 9]\n" +
+                "      Errors\n" +
+                "        Invalid character '9' at 18\n"
         );
     }
 

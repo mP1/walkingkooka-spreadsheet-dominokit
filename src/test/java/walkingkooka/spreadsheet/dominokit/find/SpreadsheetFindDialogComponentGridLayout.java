@@ -44,14 +44,16 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
 
     private final List<HtmlElementComponent<?, ?>> left;
 
-    @Override SpreadsheetFindDialogComponentGridLayout setContent(final Collection<HtmlElementComponent<?, ?>> children) {
+    @Override
+    SpreadsheetFindDialogComponentGridLayout setContent(final Collection<HtmlElementComponent<?, ?>> children) {
         this.content.addAll(children);
         return this;
     }
 
     private final List<HtmlElementComponent<?, ?>> content;
 
-    @Override SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<HtmlElementComponent<?, ?>> children) {
+    @Override
+    SpreadsheetFindDialogComponentGridLayout setFooter(final Collection<HtmlElementComponent<?, ?>> children) {
         this.footer.addAll(children);
         return this;
     }
@@ -77,21 +79,21 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
         printer.indent();
         {
             this.printTree0(
-                    "Left",
-                    this.left,
-                    printer
+                "Left",
+                this.left,
+                printer
             );
 
             this.printTree0(
-                    "Content",
-                    this.content,
-                    printer
+                "Content",
+                this.content,
+                printer
             );
 
             this.printTree0(
-                    "Footer",
-                    this.footer,
-                    printer
+                "Footer",
+                this.footer,
+                printer
             );
         }
         printer.outdent();

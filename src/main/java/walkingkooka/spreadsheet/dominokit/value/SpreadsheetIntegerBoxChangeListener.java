@@ -37,8 +37,8 @@ final class SpreadsheetIntegerBoxChangeListener implements ChangeListener<Intege
     public void onValueChanged(final Integer oldValue,
                                final Integer newValue) {
         this.listener.onValueChanged(
-                Optional.ofNullable(oldValue),
-                Optional.ofNullable(newValue)
+            Optional.ofNullable(oldValue),
+            Optional.ofNullable(newValue)
         );
     }
 

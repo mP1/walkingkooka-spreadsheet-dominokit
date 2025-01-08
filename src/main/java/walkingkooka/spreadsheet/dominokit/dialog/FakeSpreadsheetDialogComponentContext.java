@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 
 public class FakeSpreadsheetDialogComponentContext extends FakeHistoryTokenContext
-        implements SpreadsheetDialogComponentContext {
+    implements SpreadsheetDialogComponentContext {
 
     @Override
     public void debug(final Object... values) {

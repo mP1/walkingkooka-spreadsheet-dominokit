@@ -42,30 +42,30 @@ import java.util.Locale;
 import java.util.Optional;
 
 public final class PluginUploadDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginUploadDialogComponent,
-        SpreadsheetComparatorNameListDialogComponentContext>,
-        SpreadsheetMetadataTesting {
+    SpreadsheetComparatorNameListDialogComponentContext>,
+    SpreadsheetMetadataTesting {
 
     @Test
     public void testBeforeSelectingFile() {
         final TestAppContext context = new TestAppContext("/plugin-upload/");
         final PluginUploadDialogComponent dialog = PluginUploadDialogComponent.with(
-                this.pluginDialogComponentContext(context)
+            this.pluginDialogComponentContext(context)
         );
 
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "PluginUploadDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    Upload Plugin\n" +
-                        "    id=pluginUpload-Dialog includeClose=true\n" +
-                        "      SpreadsheetUploadFileComponent\n" +
-                        "        id=pluginUpload-UploadFile\n" +
-                        "        label=Drop files here or click to upload.\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
-                        "          \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
+            dialog,
+            context,
+            "PluginUploadDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Upload Plugin\n" +
+                "    id=pluginUpload-Dialog includeClose=true\n" +
+                "      SpreadsheetUploadFileComponent\n" +
+                "        id=pluginUpload-UploadFile\n" +
+                "        label=Drop files here or click to upload.\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
+                "          \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
         );
     }
 
@@ -75,55 +75,55 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
         context.savePlugins(4);
 
         final PluginUploadDialogComponent dialog = PluginUploadDialogComponent.with(
-                this.pluginDialogComponentContext(context)
+            this.pluginDialogComponentContext(context)
         );
 
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "PluginUploadDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    Upload Plugin\n" +
-                        "    id=pluginUpload-Dialog includeClose=true\n" +
-                        "      SpreadsheetUploadFileComponent\n" +
-                        "        id=pluginUpload-UploadFile\n" +
-                        "        label=Drop files here or click to upload.\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
-                        "          \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
+            dialog,
+            context,
+            "PluginUploadDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Upload Plugin\n" +
+                "    id=pluginUpload-Dialog includeClose=true\n" +
+                "      SpreadsheetUploadFileComponent\n" +
+                "        id=pluginUpload-UploadFile\n" +
+                "        label=Drop files here or click to upload.\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
+                "          \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
         );
 
         dialog.uploadFile.setValue(
-                Optional.of(
-                        BrowserFile.base64(
-                                "TestPluginName" + 0,
-                                Base64.getEncoder()
-                                        .encodeToString(
-                                                pluginBinary()
-                                                        .value()
-                                        )
+            Optional.of(
+                BrowserFile.base64(
+                    "TestPluginName" + 0,
+                    Base64.getEncoder()
+                        .encodeToString(
+                            pluginBinary()
+                                .value()
                         )
                 )
+            )
         );
 
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "PluginUploadDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    Upload Plugin\n" +
-                        "    id=pluginUpload-Dialog includeClose=true\n" +
-                        "      SpreadsheetUploadFileComponent\n" +
-                        "        id=pluginUpload-UploadFile\n" +
-                        "        label=Drop files here or click to upload.\n" +
-                        "          BrowserFileBase64\n" +
-                        "            \"TestPluginName0\"\n" +
-                        "              UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Upload\" [#/plugin-upload/save/base64/TestPluginName0/UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA] id=pluginUpload-upload-Link\n" +
-                        "          \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
+            dialog,
+            context,
+            "PluginUploadDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Upload Plugin\n" +
+                "    id=pluginUpload-Dialog includeClose=true\n" +
+                "      SpreadsheetUploadFileComponent\n" +
+                "        id=pluginUpload-UploadFile\n" +
+                "        label=Drop files here or click to upload.\n" +
+                "          BrowserFileBase64\n" +
+                "            \"TestPluginName0\"\n" +
+                "              UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Upload\" [#/plugin-upload/save/base64/TestPluginName0/UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA] id=pluginUpload-upload-Link\n" +
+                "          \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
         );
     }
 
@@ -131,7 +131,7 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
 
         TestAppContext(final String historyToken) {
             this.historyToken = HistoryToken.parseString(historyToken)
-                    .cast(PluginUploadSelectHistoryToken.class);
+                .cast(PluginUploadSelectHistoryToken.class);
         }
 
         @Override
@@ -166,7 +166,7 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
         void savePlugins(final int count) {
             for (int i = 0; i < count; i++) {
                 this.pluginStore.save(
-                        plugin(i+1)
+                    plugin(i + 1)
                 );
             }
         }
@@ -176,20 +176,20 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
 
     private static Plugin plugin(final int i) {
         return Plugin.with(
-                PluginName.with("TestPluginName" + i),
-                "filename" + i + ".jar",
-                pluginBinary(),
-                USER,
-                NOW.now()
+            PluginName.with("TestPluginName" + i),
+            "filename" + i + ".jar",
+            pluginBinary(),
+            USER,
+            NOW.now()
         );
     }
 
     private static Binary pluginBinary() {
         return Binary.with(
-                JarFileTesting.jarFile(
-                        "ManifestVersion: 1.0\r\n",
-                        Maps.empty()
-                )
+            JarFileTesting.jarFile(
+                "ManifestVersion: 1.0\r\n",
+                Maps.empty()
+            )
         );
     }
 

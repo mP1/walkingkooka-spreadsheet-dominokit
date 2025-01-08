@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 
 public final class SpreadsheetExporterFetcherWatchers extends FetcherWatchers<SpreadsheetExporterFetcherWatcher>
-        implements SpreadsheetExporterFetcherWatcher {
+    implements SpreadsheetExporterFetcherWatcher {
 
     private SpreadsheetExporterFetcherWatchers() {
         super();
@@ -37,11 +37,11 @@ public final class SpreadsheetExporterFetcherWatchers extends FetcherWatchers<Sp
                                              final SpreadsheetExporterInfoSet infos,
                                              final AppContext context) {
         this.fire(
-                SpreadsheetExporterFetcherWatchersInfoSetEvent.with(
-                        id,
-                        infos,
-                        context
-                )
+            SpreadsheetExporterFetcherWatchersInfoSetEvent.with(
+                id,
+                infos,
+                context
+            )
         );
     }
 }

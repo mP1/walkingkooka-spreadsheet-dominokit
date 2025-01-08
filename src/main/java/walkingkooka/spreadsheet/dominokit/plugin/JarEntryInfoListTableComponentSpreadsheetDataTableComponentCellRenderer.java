@@ -40,8 +40,8 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
     static JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRenderer with(final String id,
                                                                                         final JarEntryInfoListTableComponentContext context) {
         return new JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRenderer(
-                CharSequences.failIfNullOrEmpty(id, "id"),
-                Objects.requireNonNull(context, "context")
+            CharSequences.failIfNullOrEmpty(id, "id"),
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -71,12 +71,12 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
                 break;
             case 4: // create-date-time
                 component = this.dateTime(
-                        info.create()
+                    info.create()
                 );
                 break;
             case 5: // lastmod
                 component = this.dateTime(
-                        info.lastModified()
+                    info.lastModified()
                 );
                 break;
             case 6: // links
@@ -92,8 +92,8 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
 
     private SpreadsheetTextComponent name(final JarEntryInfo info) {
         return this.text(
-                info.name()
-                        .value()
+            info.name()
+                .value()
         );
     }
 
@@ -120,11 +120,11 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
         }
 
         return this.text(
-                Optional.ofNullable(
-                        b.length() > 0 ?
-                                b.toString() :
-                                null
-                )
+            Optional.ofNullable(
+                b.length() > 0 ?
+                    b.toString() :
+                    null
+            )
         );
     }
 
@@ -132,11 +132,11 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
         final OptionalInt method = info.method();
 
         return this.text(
-                Optional.ofNullable(
-                        method.isPresent() ?
-                                String.valueOf(method.getAsInt()) :
-                                null
-                )
+            Optional.ofNullable(
+                method.isPresent() ?
+                    String.valueOf(method.getAsInt()) :
+                    null
+            )
         );
     }
 
@@ -145,26 +145,26 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
         final OptionalLong crc = info.crc();
 
         return this.text(
-                Optional.ofNullable(
-                        crc.isPresent() ?
-                                Long.toHexString(crc.getAsLong()) :
-                                null
-                )
+            Optional.ofNullable(
+                crc.isPresent() ?
+                    Long.toHexString(crc.getAsLong()) :
+                    null
+            )
         );
     }
 
 
     private SpreadsheetTextComponent dateTime(final Optional<LocalDateTime> dateTime) {
         return text(
-                dateTime.map(
-                        this.context::formatDateTime
-                )
+            dateTime.map(
+                this.context::formatDateTime
+            )
         );
     }
 
     private SpreadsheetTextComponent text(final String text) {
         return this.text(
-                Optional.of(text)
+            Optional.of(text)
         );
     }
 
@@ -178,25 +178,25 @@ final class JarEntryInfoListTableComponentSpreadsheetDataTableComponentCellRende
 
         final PluginDownloadAnchorComponent download = PluginDownloadAnchorComponent.empty(
                 this.id + "download" + SpreadsheetElementIds.LINK
-                ).setTextContent("Download")
-                .setValue(
-                        Optional.of(
-                                PluginDownload.with(
-                                        pluginName,
-                                        Optional.of(filename)
-                                )
-                        )
-                );
-
-        final HistoryTokenAnchorComponent view = HistoryToken.pluginFileView(
+            ).setTextContent("Download")
+            .setValue(
+                Optional.of(
+                    PluginDownload.with(
                         pluginName,
                         Optional.of(filename)
-                ).link(this.id + "view")
-                .setTextContent("View");
+                    )
+                )
+            );
+
+        final HistoryTokenAnchorComponent view = HistoryToken.pluginFileView(
+                pluginName,
+                Optional.of(filename)
+            ).link(this.id + "view")
+            .setTextContent("View");
 
         return SpreadsheetFlexLayout.row()
-                .appendChild(download)
-                .appendChild(view);
+            .appendChild(download)
+            .appendChild(view);
     }
 
     private SpreadsheetTextComponent text(final Optional<String> text) {

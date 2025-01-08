@@ -30,36 +30,36 @@ import java.util.Optional;
 import java.util.OptionalInt;
 
 final class SpreadsheetToolbarComponentItemAnchorPlugin extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorPlugin>
-        implements NopComponentLifecycleOpenGiveFocus,
-        NopComponentLifecycleRefresh {
+    implements NopComponentLifecycleOpenGiveFocus,
+    NopComponentLifecycleRefresh {
 
     static SpreadsheetToolbarComponentItemAnchorPlugin with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorPlugin(
-                context
+            context
         );
     }
 
     private SpreadsheetToolbarComponentItemAnchorPlugin(final SpreadsheetToolbarComponentContext context) {
         super(
-                SpreadsheetToolbarComponent.pluginId(),
-                Optional.of(
-                        SpreadsheetIcons.plugin()
-                ),
-                "Plugin",
-                "Manage system plugin(s)",
-                context
+            SpreadsheetToolbarComponent.pluginId(),
+            Optional.of(
+                SpreadsheetIcons.plugin()
+            ),
+            "Plugin",
+            "Manage system plugin(s)",
+            context
         );
 
         final HistoryTokenAnchorComponent anchor = this.anchor;
         anchor.setHistoryToken(
-                Optional.of(
-                        HistoryToken.pluginListSelect(
-                                OptionalInt.empty(), // offset
-                                OptionalInt.empty() // count
-                        ).cast(HistoryToken.class)
-                )
+            Optional.of(
+                HistoryToken.pluginListSelect(
+                    OptionalInt.empty(), // offset
+                    OptionalInt.empty() // count
+                ).cast(HistoryToken.class)
+            )
         );
     }
 

@@ -34,9 +34,9 @@ public final class Doms implements PublicStaticHelper {
     public static boolean isOrHasChild(final Element parent,
                                        final Element child) {
         return toOldElement(parent)
-                .isOrHasChild(
-                        toOldElement(child)
-                );
+            .isOrHasChild(
+                toOldElement(child)
+            );
     }
 
     private static com.google.gwt.dom.client.Element toOldElement(final Element element) {
@@ -67,8 +67,8 @@ public final class Doms implements PublicStaticHelper {
         Objects.requireNonNull(element, "element");
 
         return HIDDEN.equals(
-                element.style
-                        .getPropertyValue(VISIBILITY)
+            element.style
+                .getPropertyValue(VISIBILITY)
         );
     }
 
@@ -77,10 +77,10 @@ public final class Doms implements PublicStaticHelper {
         Objects.requireNonNull(element, "element");
 
         element.style.set(
-                VISIBILITY,
-                visibility ?
-                        VISIBLE :
-                        HIDDEN
+            VISIBILITY,
+            visibility ?
+                VISIBLE :
+                HIDDEN
         );
     }
 

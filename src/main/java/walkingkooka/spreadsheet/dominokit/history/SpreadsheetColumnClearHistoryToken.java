@@ -37,9 +37,9 @@ public class SpreadsheetColumnClearHistoryToken extends SpreadsheetColumnHistory
                                                    final SpreadsheetName name,
                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetColumnClearHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -47,9 +47,9 @@ public class SpreadsheetColumnClearHistoryToken extends SpreadsheetColumnHistory
                                                final SpreadsheetName name,
                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -63,9 +63,9 @@ public class SpreadsheetColumnClearHistoryToken extends SpreadsheetColumnHistory
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         ).clear();
     }
 

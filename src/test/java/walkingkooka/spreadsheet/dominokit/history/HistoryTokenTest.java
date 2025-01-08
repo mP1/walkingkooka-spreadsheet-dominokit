@@ -65,16 +65,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");
 
     private static final SpreadsheetSelectHistoryToken SPREADSHEET_ID_SPREADSHEET_NAME_HHT = HistoryToken.spreadsheetSelect(
-            ID,
-            NAME
+        ID,
+        NAME
     );
 
     private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 
     private static final SpreadsheetCellSelectHistoryToken CELL_HHT = HistoryToken.cell(
-            ID,
-            NAME,
-            CELL.setDefaultAnchor()
+        ID,
+        NAME,
+        CELL.setDefaultAnchor()
     );
 
     private final static SpreadsheetCellRangeReference CELL_RANGE = SpreadsheetSelection.parseCellRange("B2:C3");
@@ -82,9 +82,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     private final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
 
     private static final SpreadsheetLabelMappingSelectHistoryToken LABEL_MAPPING_HHT = HistoryToken.labelMapping(
-            ID,
-            NAME,
-            Optional.of(LABEL)
+        ID,
+        NAME,
+        Optional.of(LABEL)
     );
 
     private final static SpreadsheetColumnReference COLUMN = SpreadsheetSelection.parseColumn("AA");
@@ -100,22 +100,22 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testSetCountOnSpreadsheetLoad() {
         this.setCountAndCheck(
-                HistoryToken.spreadsheetLoad(
-                        ID
-                ),
-                OptionalInt.of(1)
+            HistoryToken.spreadsheetLoad(
+                ID
+            ),
+            OptionalInt.of(1)
         );
     }
 
     @Test
     public void testSetCountOnSpreadsheetCellSelect() {
         this.setCountAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                ),
-                OptionalInt.of(1)
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            ),
+            OptionalInt.of(1)
         );
     }
 
@@ -124,13 +124,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final OptionalInt count = OptionalInt.of(123);
 
         this.setCountAndCheck(
-                HistoryToken.columnInsertAfter(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        count
-                ),
+            HistoryToken.columnInsertAfter(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
                 count
+            ),
+            count
         );
     }
 
@@ -139,19 +139,19 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final OptionalInt count = OptionalInt.of(123);
 
         this.setCountAndCheck(
-                HistoryToken.columnInsertAfter(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        OptionalInt.empty()
-                ),
-                count,
-                HistoryToken.columnInsertAfter(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        count
-                )
+            HistoryToken.columnInsertAfter(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                OptionalInt.empty()
+            ),
+            count,
+            HistoryToken.columnInsertAfter(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                count
+            )
         );
     }
 
@@ -160,13 +160,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final OptionalInt count = OptionalInt.of(123);
 
         this.setCountAndCheck(
-                HistoryToken.columnInsertBefore(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        count
-                ),
+            HistoryToken.columnInsertBefore(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
                 count
+            ),
+            count
         );
     }
 
@@ -175,19 +175,19 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final OptionalInt count = OptionalInt.of(123);
 
         this.setCountAndCheck(
-                HistoryToken.columnInsertBefore(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        OptionalInt.empty()
-                ),
-                count,
-                HistoryToken.columnInsertBefore(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        count
-                )
+            HistoryToken.columnInsertBefore(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                OptionalInt.empty()
+            ),
+            count,
+            HistoryToken.columnInsertBefore(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                count
+            )
         );
     }
 
@@ -196,13 +196,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final OptionalInt count = OptionalInt.of(123);
 
         this.setCountAndCheck(
-                HistoryToken.rowInsertAfter(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        count
-                ),
+            HistoryToken.rowInsertAfter(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
                 count
+            ),
+            count
         );
     }
 
@@ -211,19 +211,19 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final OptionalInt count = OptionalInt.of(123);
 
         this.setCountAndCheck(
-                HistoryToken.rowInsertAfter(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        OptionalInt.empty()
-                ),
-                count,
-                HistoryToken.rowInsertAfter(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        count
-                )
+            HistoryToken.rowInsertAfter(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.empty()
+            ),
+            count,
+            HistoryToken.rowInsertAfter(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                count
+            )
         );
     }
 
@@ -232,13 +232,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final OptionalInt count = OptionalInt.of(123);
 
         this.setCountAndCheck(
-                HistoryToken.rowInsertBefore(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        count
-                ),
+            HistoryToken.rowInsertBefore(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
                 count
+            ),
+            count
         );
     }
 
@@ -247,28 +247,28 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final OptionalInt count = OptionalInt.of(123);
 
         this.setCountAndCheck(
-                HistoryToken.rowInsertBefore(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        OptionalInt.empty()
-                ),
-                count,
-                HistoryToken.rowInsertBefore(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        count
-                )
+            HistoryToken.rowInsertBefore(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.empty()
+            ),
+            count,
+            HistoryToken.rowInsertBefore(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                count
+            )
         );
     }
 
     private void setCountAndCheck(final HistoryToken token,
                                   final OptionalInt count) {
         assertSame(
-                token,
-                token.setCount(count),
-                () -> "setCount " + count
+            token,
+            token.setCount(count),
+            () -> "setCount " + count
         );
     }
 
@@ -277,9 +277,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                                   final OptionalInt count,
                                   final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.setCount(count),
-                () -> "setCount " + count
+            expected,
+            token.setCount(count),
+            () -> "setCount " + count
         );
     }
 
@@ -290,22 +290,22 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.clear(),
-                historyToken
+            historyToken.clear(),
+            historyToken
         );
     }
 
     @Test
     public void testClearCell() {
         final HistoryToken historyToken = HistoryToken.cell(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
+            ID,
+            NAME,
+            CELL.setDefaultAnchor()
         );
 
         assertSame(
-                historyToken.clear(),
-                historyToken
+            historyToken.clear(),
+            historyToken
         );
     }
 
@@ -315,12 +315,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, selection);
 
         this.checkEquals(
-                historyToken.clear(),
-                HistoryToken.columnClear(
-                        ID,
-                        NAME,
-                        selection
-                )
+            historyToken.clear(),
+            HistoryToken.columnClear(
+                ID,
+                NAME,
+                selection
+            )
         );
     }
 
@@ -330,12 +330,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, selection);
 
         this.checkEquals(
-                historyToken.clear(),
-                HistoryToken.rowClear(
-                        ID,
-                        NAME,
-                        selection
-                )
+            historyToken.clear(),
+            HistoryToken.rowClear(
+                ID,
+                NAME,
+                selection
+            )
         );
     }
 
@@ -344,8 +344,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testSetCellCopyWithNullKindFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> HistoryToken.unknown(UrlFragment.SLASH).setCellCopy(null)
+            NullPointerException.class,
+            () -> HistoryToken.unknown(UrlFragment.SLASH).setCellCopy(null)
         );
     }
 
@@ -354,50 +354,50 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
-                historyToken
+            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
+            historyToken
         );
     }
 
     @Test
     public void testSetCellCopyWithCellHistoryToken() {
         final HistoryToken historyToken = HistoryToken.cell(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
+            ID,
+            NAME,
+            CELL.setDefaultAnchor()
         );
 
         this.checkEquals(
-                HistoryToken.cellClipboardCopy(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardKind.CELL
-                ),
-                historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL)
+            HistoryToken.cellClipboardCopy(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetCellClipboardKind.CELL
+            ),
+            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL)
         );
     }
 
     @Test
     public void testSetCellCopyWithCellHistoryToken2() {
         final AnchoredSpreadsheetSelection cell = SpreadsheetSelection.parseCellRange("A1:B2")
-                .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
+            .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
 
         final HistoryToken historyToken = HistoryToken.cell(
-                ID,
-                NAME,
-                cell
+            ID,
+            NAME,
+            cell
         );
 
         for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
             this.checkEquals(
-                    HistoryToken.cellClipboardCopy(
-                            ID,
-                            NAME,
-                            cell,
-                            kind
-                    ),
-                    historyToken.setCellCopy(kind)
+                HistoryToken.cellClipboardCopy(
+                    ID,
+                    NAME,
+                    cell,
+                    kind
+                ),
+                historyToken.setCellCopy(kind)
             );
         }
     }
@@ -405,28 +405,28 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testSetCellCopyWithColumnHistoryToken() {
         final HistoryToken historyToken = HistoryToken.column(
-                ID,
-                NAME,
-                COLUMN.setDefaultAnchor()
+            ID,
+            NAME,
+            COLUMN.setDefaultAnchor()
         );
 
         assertSame(
-                historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
-                historyToken
+            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
+            historyToken
         );
     }
 
     @Test
     public void testSetCellCopyWithRowHistoryToken() {
         final HistoryToken historyToken = HistoryToken.row(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
+            ID,
+            NAME,
+            ROW.setDefaultAnchor()
         );
 
         assertSame(
-                historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
-                historyToken
+            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
+            historyToken
         );
     }
 
@@ -435,8 +435,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testSetCellCutWithNullKindFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> HistoryToken.unknown(UrlFragment.SLASH).setCellCut(null)
+            NullPointerException.class,
+            () -> HistoryToken.unknown(UrlFragment.SLASH).setCellCut(null)
         );
     }
 
@@ -445,50 +445,50 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
-                historyToken
+            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
+            historyToken
         );
     }
 
     @Test
     public void testSetCellCutWithCellHistoryToken() {
         final HistoryToken historyToken = HistoryToken.cell(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
+            ID,
+            NAME,
+            CELL.setDefaultAnchor()
         );
 
         this.checkEquals(
-                HistoryToken.cellClipboardCut(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardKind.CELL
-                ),
-                historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL)
+            HistoryToken.cellClipboardCut(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetCellClipboardKind.CELL
+            ),
+            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL)
         );
     }
 
     @Test
     public void testSetCellCutWithCellHistoryToken2() {
         final AnchoredSpreadsheetSelection cell = SpreadsheetSelection.parseCellRange("A1:B2")
-                .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
+            .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
 
         final HistoryToken historyToken = HistoryToken.cell(
-                ID,
-                NAME,
-                cell
+            ID,
+            NAME,
+            cell
         );
 
         for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
             this.checkEquals(
-                    HistoryToken.cellClipboardCut(
-                            ID,
-                            NAME,
-                            cell,
-                            kind
-                    ),
-                    historyToken.setCellCut(kind)
+                HistoryToken.cellClipboardCut(
+                    ID,
+                    NAME,
+                    cell,
+                    kind
+                ),
+                historyToken.setCellCut(kind)
             );
         }
     }
@@ -496,28 +496,28 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testSetCellCutWithColumnHistoryToken() {
         final HistoryToken historyToken = HistoryToken.column(
-                ID,
-                NAME,
-                COLUMN.setDefaultAnchor()
+            ID,
+            NAME,
+            COLUMN.setDefaultAnchor()
         );
 
         assertSame(
-                historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
-                historyToken
+            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
+            historyToken
         );
     }
 
     @Test
     public void testSetCellCutWithRowHistoryToken() {
         final HistoryToken historyToken = HistoryToken.row(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
+            ID,
+            NAME,
+            ROW.setDefaultAnchor()
         );
 
         assertSame(
-                historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
-                historyToken
+            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
+            historyToken
         );
     }
 
@@ -526,8 +526,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testSetCellPasteWithNullKindFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> HistoryToken.unknown(UrlFragment.SLASH).setCellPaste(null)
+            NullPointerException.class,
+            () -> HistoryToken.unknown(UrlFragment.SLASH).setCellPaste(null)
         );
     }
 
@@ -536,50 +536,50 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
-                historyToken
+            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
+            historyToken
         );
     }
 
     @Test
     public void testSetCellPasteWithCellHistoryToken() {
         final HistoryToken historyToken = HistoryToken.cell(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
+            ID,
+            NAME,
+            CELL.setDefaultAnchor()
         );
 
         this.checkEquals(
-                HistoryToken.cellClipboardPaste(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetCellClipboardKind.CELL
-                ),
-                historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL)
+            HistoryToken.cellClipboardPaste(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetCellClipboardKind.CELL
+            ),
+            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL)
         );
     }
 
     @Test
     public void testSetCellPasteWithCellHistoryToken2() {
         final AnchoredSpreadsheetSelection cell = SpreadsheetSelection.parseCellRange("A1:B2")
-                .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
+            .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
 
         final HistoryToken historyToken = HistoryToken.cell(
-                ID,
-                NAME,
-                cell
+            ID,
+            NAME,
+            cell
         );
 
         for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
             this.checkEquals(
-                    HistoryToken.cellClipboardPaste(
-                            ID,
-                            NAME,
-                            cell,
-                            kind
-                    ),
-                    historyToken.setCellPaste(kind)
+                HistoryToken.cellClipboardPaste(
+                    ID,
+                    NAME,
+                    cell,
+                    kind
+                ),
+                historyToken.setCellPaste(kind)
             );
         }
     }
@@ -587,28 +587,28 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testSetCellPasteWithColumnHistoryToken() {
         final HistoryToken historyToken = HistoryToken.column(
-                ID,
-                NAME,
-                COLUMN.setDefaultAnchor()
+            ID,
+            NAME,
+            COLUMN.setDefaultAnchor()
         );
 
         assertSame(
-                historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
-                historyToken
+            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
+            historyToken
         );
     }
 
     @Test
     public void testSetCellPasteWithRowHistoryToken() {
         final HistoryToken historyToken = HistoryToken.row(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
+            ID,
+            NAME,
+            ROW.setDefaultAnchor()
         );
 
         assertSame(
-                historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
-                historyToken
+            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
+            historyToken
         );
     }
 
@@ -619,8 +619,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.delete(),
-                historyToken
+            historyToken.delete(),
+            historyToken
         );
     }
 
@@ -630,12 +630,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.delete(),
-                HistoryToken.cellDelete(
-                        ID,
-                        NAME,
-                        viewport
-                )
+            historyToken.delete(),
+            HistoryToken.cellDelete(
+                ID,
+                NAME,
+                viewport
+            )
         );
     }
 
@@ -645,12 +645,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.delete(),
-                HistoryToken.columnDelete(
-                        ID,
-                        NAME,
-                        viewport
-                )
+            historyToken.delete(),
+            HistoryToken.columnDelete(
+                ID,
+                NAME,
+                viewport
+            )
         );
     }
 
@@ -660,12 +660,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.delete(),
-                HistoryToken.rowDelete(
-                        ID,
-                        NAME,
-                        viewport
-                )
+            historyToken.delete(),
+            HistoryToken.rowDelete(
+                ID,
+                NAME,
+                viewport
+            )
         );
     }
 
@@ -676,8 +676,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.freeze(),
-                historyToken
+            historyToken.freeze(),
+            historyToken
         );
     }
 
@@ -687,44 +687,44 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.freeze(),
-                HistoryToken.cellFreeze(
-                        ID,
-                        NAME,
-                        viewport
-                )
+            historyToken.freeze(),
+            HistoryToken.cellFreeze(
+                ID,
+                NAME,
+                viewport
+            )
         );
     }
 
     @Test
     public void testFreezeColumn() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseColumn("A")
-                .setDefaultAnchor();
+            .setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.freeze(),
-                HistoryToken.columnFreeze(
-                        ID,
-                        NAME,
-                        viewport
-                )
+            historyToken.freeze(),
+            HistoryToken.columnFreeze(
+                ID,
+                NAME,
+                viewport
+            )
         );
     }
 
     @Test
     public void testFreezeRow() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseRow("1")
-                .setDefaultAnchor();
+            .setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.freeze(),
-                HistoryToken.rowFreeze(
-                        ID,
-                        NAME,
-                        viewport
-                )
+            historyToken.freeze(),
+            HistoryToken.rowFreeze(
+                ID,
+                NAME,
+                viewport
+            )
         );
     }
 
@@ -735,10 +735,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setLabelName(
-                        Optional.of(LABEL)
-                ),
-                historyToken
+            historyToken.setLabelName(
+                Optional.of(LABEL)
+            ),
+            historyToken
         );
     }
 
@@ -747,14 +747,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.spreadsheetSelect(ID, NAME);
 
         this.checkEquals(
-                historyToken.setLabelName(
-                        Optional.of(LABEL)
-                ),
-                HistoryToken.labelMapping(
-                        ID,
-                        NAME,
-                        Optional.of(LABEL)
-                )
+            historyToken.setLabelName(
+                Optional.of(LABEL)
+            ),
+            HistoryToken.labelMapping(
+                ID,
+                NAME,
+                Optional.of(LABEL)
+            )
         );
     }
 
@@ -763,15 +763,15 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testClearSelection() {
         this.checkEquals(
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                ),
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor()
-                ).clearSelection()
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            ),
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ).clearSelection()
         );
     }
 
@@ -780,24 +780,24 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testMenuWithNullSelectionFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> HistoryToken.unknown(UrlFragment.EMPTY)
-                        .menu(
-                                null,
-                                SpreadsheetLabelNameResolvers.fake()
-                        )
+            NullPointerException.class,
+            () -> HistoryToken.unknown(UrlFragment.EMPTY)
+                .menu(
+                    null,
+                    SpreadsheetLabelNameResolvers.fake()
+                )
         );
     }
 
     @Test
     public void testMenuWithNullLabelNameResolverFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> HistoryToken.unknown(UrlFragment.EMPTY)
-                        .menu(
-                                Optional.of(SpreadsheetSelection.A1),
-                                null
-                        )
+            NullPointerException.class,
+            () -> HistoryToken.unknown(UrlFragment.EMPTY)
+                .menu(
+                    Optional.of(SpreadsheetSelection.A1),
+                    null
+                )
         );
     }
 
@@ -808,16 +808,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection cell = CELL.setDefaultAnchor();
 
         this.menuAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        cell
-                ),
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        cell
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                cell
+            ),
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                cell
+            )
         );
     }
 
@@ -826,16 +826,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection range = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
 
         this.menuAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        range
-                ),
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        range
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                range
+            ),
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                range
+            )
         );
     }
 
@@ -844,16 +844,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection range = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         this.menuAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        range
-                ),
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        range
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                range
+            ),
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                range
+            )
         );
     }
 
@@ -862,16 +862,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection cell = LABEL.setDefaultAnchor();
 
         this.menuAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        cell
-                ),
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        cell
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                cell
+            ),
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                cell
+            )
         );
     }
 
@@ -880,16 +880,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection column = COLUMN.setDefaultAnchor();
 
         this.menuAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        column
-                ),
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        column
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                column
+            ),
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                column
+            )
         );
     }
 
@@ -898,16 +898,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection range = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT);
 
         this.menuAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        range
-                ),
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        range
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                range
+            ),
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                range
+            )
         );
     }
 
@@ -916,16 +916,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection range = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
         this.menuAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        range
-                ),
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        range
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                range
+            ),
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                range
+            )
         );
     }
 
@@ -934,16 +934,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection row = ROW.setDefaultAnchor();
 
         this.menuAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        row
-                ),
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        row
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                row
+            ),
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                row
+            )
         );
     }
 
@@ -952,16 +952,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection range = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP);
 
         this.menuAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        range
-                ),
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        range
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                range
+            ),
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                range
+            )
         );
     }
 
@@ -970,25 +970,25 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection range = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
         this.menuAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        range
-                ),
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        range
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                range
+            ),
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                range
+            )
         );
     }
 
     private void menuAndCheck(final HistoryToken token,
-                                 final HistoryToken expected) {
+                              final HistoryToken expected) {
         this.menuAndCheck(
-                token,
-                Optional.empty(),
-                expected
+            token,
+            Optional.empty(),
+            expected
         );
     }
 
@@ -997,66 +997,66 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testMenuWithMissingSelection() {
         this.menuAndCheck(
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                ),
-                CELL,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            ),
+            CELL,
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testMenuWithoutCellSelectAndCellSelection() {
         this.menuAndCheck(
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                ),
-                CELL,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            ),
+            CELL,
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testMenuWithColumnRangeSelectAndCellSelection() {
         this.menuAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
-                ),
-                CELL,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
+            ),
+            CELL,
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testMenuWithCellSelectAndSameCellSelection() {
         this.menuAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                ),
-                CELL,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            ),
+            CELL,
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
@@ -1065,37 +1065,37 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetCellReference differentCell = SpreadsheetSelection.parseCell("B2");
 
         this.menuAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                ),
-                differentCell,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        differentCell.setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            ),
+            differentCell,
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                differentCell.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testMenuWithCellRangeSelectAndInsideCellSelection() {
         final AnchoredSpreadsheetSelection range = SpreadsheetSelection.parseCellRange("A1:C3")
-                .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
+            .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         this.menuAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        range
-                ),
-                SpreadsheetSelection.A1,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        range
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                range
+            ),
+            SpreadsheetSelection.A1,
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                range
+            )
         );
     }
 
@@ -1104,17 +1104,17 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetCellReference differentCell = SpreadsheetSelection.parseCell("C3");
 
         this.menuAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor()
-                ),
-                differentCell,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        differentCell.setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor()
+            ),
+            differentCell,
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                differentCell.setDefaultAnchor()
+            )
         );
     }
 
@@ -1123,50 +1123,50 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testMenuWithoutColumnSelectAndColumnSelection() {
         this.menuAndCheck(
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                ),
-                COLUMN,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            ),
+            COLUMN,
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testMenuWithRowRangeSelectAndColumnSelection() {
         this.menuAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
-                ),
-                COLUMN,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
+            ),
+            COLUMN,
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testMenuWithColumnSelectAndSameColumnSelection() {
         this.menuAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                ),
-                COLUMN,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            ),
+            COLUMN,
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
@@ -1175,37 +1175,37 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetColumnReference differentColumn = SpreadsheetSelection.parseColumn("B");
 
         this.menuAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                ),
-                differentColumn,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        differentColumn.setDefaultAnchor()
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            ),
+            differentColumn,
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                differentColumn.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testMenuWithColumnRangeSelectAndInsideColumnSelection() {
         final AnchoredSpreadsheetSelection range = SpreadsheetSelection.parseColumnRange("A:C")
-                .setAnchor(SpreadsheetViewportAnchor.RIGHT);
+            .setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
         this.menuAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        range
-                ),
-                SpreadsheetSelection.A1,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        range
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                range
+            ),
+            SpreadsheetSelection.A1,
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                range
+            )
         );
     }
 
@@ -1214,17 +1214,17 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetColumnReference differentColumn = SpreadsheetSelection.parseColumn("C");
 
         this.menuAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseColumnRange("A:B").setDefaultAnchor()
-                ),
-                differentColumn,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        differentColumn.setDefaultAnchor()
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseColumnRange("A:B").setDefaultAnchor()
+            ),
+            differentColumn,
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                differentColumn.setDefaultAnchor()
+            )
         );
     }
 
@@ -1233,50 +1233,50 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testMenuWithoutRowSelectAndRowSelection() {
         this.menuAndCheck(
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                ),
-                ROW,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            ),
+            ROW,
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testMenuWithCellSelectAndRowSelection() {
         this.menuAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                ),
-                ROW,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            ),
+            ROW,
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testMenuWithRowSelectAndSameRowSelection() {
         this.menuAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                ),
-                ROW,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            ),
+            ROW,
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
@@ -1285,37 +1285,37 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetRowReference differentRow = SpreadsheetSelection.parseRow("2");
 
         this.menuAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                ),
-                differentRow,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        differentRow.setDefaultAnchor()
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            ),
+            differentRow,
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                differentRow.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testMenuWithRowRangeSelectAndInsideRowSelection() {
         final AnchoredSpreadsheetSelection range = SpreadsheetSelection.parseRowRange("1:3")
-                .setAnchor(SpreadsheetViewportAnchor.BOTTOM);
+            .setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
         this.menuAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        range
-                ),
-                SpreadsheetSelection.A1,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        range
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                range
+            ),
+            SpreadsheetSelection.A1,
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                range
+            )
         );
     }
 
@@ -1324,17 +1324,17 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetRowReference differentRow = SpreadsheetSelection.parseRow("3");
 
         this.menuAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor()
-                ),
-                differentRow,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        differentRow.setDefaultAnchor()
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor()
+            ),
+            differentRow,
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                differentRow.setDefaultAnchor()
+            )
         );
     }
 
@@ -1342,9 +1342,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                               final SpreadsheetSelection selection,
                               final HistoryToken expected) {
         this.menuAndCheck(
-                token,
-                Optional.of(selection),
-                expected
+            token,
+            Optional.of(selection),
+            expected
         );
     }
 
@@ -1352,12 +1352,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                               final Optional<SpreadsheetSelection> selection,
                               final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                token.menu(
-                        selection,
-                        SpreadsheetLabelNameResolvers.fake()
-                ),
-                () -> token + " menu " + selection
+            expected,
+            token.menu(
+                selection,
+                SpreadsheetLabelNameResolvers.fake()
+            ),
+            () -> token + " menu " + selection
         );
     }
 
@@ -1368,16 +1368,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetMetadataPropertyName<?> metadataProperty = SpreadsheetMetadataPropertyName.GROUP_SEPARATOR;
 
         this.checkEquals(
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        metadataProperty
-                ),
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                ).setMetadataPropertyName(metadataProperty)
+            HistoryToken.metadataPropertySelect(
+                ID,
+                NAME,
+                metadataProperty
+            ),
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            ).setMetadataPropertyName(metadataProperty)
         );
     }
 
@@ -1386,24 +1386,24 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testPatternKindWithSpreadsheetCreateHistoryToken() {
         this.patternKindAndCheck(
-                HistoryToken.spreadsheetCreate()
+            HistoryToken.spreadsheetCreate()
         );
     }
 
     @Test
     public void testPatternKindWithSpreadsheetLoadHistoryToken() {
         this.patternKindAndCheck(
-                HistoryToken.spreadsheetLoad(
-                        SpreadsheetId.with(1)
-                )
+            HistoryToken.spreadsheetLoad(
+                SpreadsheetId.with(1)
+            )
         );
     }
 
     private void patternKindAndCheck(final HistoryToken token) {
         this.checkEquals(
-                Optional.empty(),
-                token.patternKind(),
-                token::toString
+            Optional.empty(),
+            token.patternKind(),
+            token::toString
         );
     }
 
@@ -1414,11 +1414,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.setPatternKind(
-                        Optional.of(
-                                SpreadsheetPatternKind.TIME_PARSE_PATTERN)
-                ),
-                historyToken
+            historyToken.setPatternKind(
+                Optional.of(
+                    SpreadsheetPatternKind.TIME_PARSE_PATTERN)
+            ),
+            historyToken
         );
     }
 
@@ -1429,10 +1429,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
         assertSame(
-                historyToken,
-                historyToken.setPatternKind(
-                        Optional.of(kind)
-                )
+            historyToken,
+            historyToken.setPatternKind(
+                Optional.of(kind)
+            )
         );
     }
 
@@ -1445,24 +1445,24 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.reload(),
-                historyToken
+            historyToken.reload(),
+            historyToken
         );
     }
 
     @Test
     public void testReloadWithSpreadsheetNameHistoryToken() {
         final HistoryToken historyToken = HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
+            ID,
+            NAME
         );
 
         this.checkEquals(
-                historyToken.reload(),
-                HistoryToken.spreadsheetReload(
-                        ID,
-                        NAME
-                )
+            historyToken.reload(),
+            HistoryToken.spreadsheetReload(
+                ID,
+                NAME
+            )
         );
     }
 
@@ -1473,8 +1473,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.save("save-value"),
-                historyToken
+            historyToken.save("save-value"),
+            historyToken
         );
     }
 
@@ -1487,8 +1487,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken load = HistoryToken.spreadsheetLoad(ID);
 
         assertSame(
-                load,
-                load.setSortEdit(comparatorNames)
+            load,
+            load.setSortEdit(comparatorNames)
         );
     }
 
@@ -1497,18 +1497,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final String comparatorNames = "A=text UP";
 
         this.setSortEdit(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                ),
-                comparatorNames,
-                HistoryToken.cellSortEdit(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        comparatorNames
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            ),
+            comparatorNames,
+            HistoryToken.cellSortEdit(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                comparatorNames
+            )
         );
     }
 
@@ -1517,18 +1517,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final String comparatorNames = "A=text UP";
 
         this.setSortEdit(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL_RANGE.setDefaultAnchor()
-                ),
-                comparatorNames,
-                HistoryToken.cellSortEdit(
-                        ID,
-                        NAME,
-                        CELL_RANGE.setDefaultAnchor(),
-                        comparatorNames
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL_RANGE.setDefaultAnchor()
+            ),
+            comparatorNames,
+            HistoryToken.cellSortEdit(
+                ID,
+                NAME,
+                CELL_RANGE.setDefaultAnchor(),
+                comparatorNames
+            )
         );
     }
 
@@ -1537,18 +1537,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final String comparatorNames = "A=text UP";
 
         this.setSortEdit(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                ),
-                comparatorNames,
-                HistoryToken.columnSortEdit(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        comparatorNames
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            ),
+            comparatorNames,
+            HistoryToken.columnSortEdit(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                comparatorNames
+            )
         );
     }
 
@@ -1557,18 +1557,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final String comparatorNames = "A=text UP";
 
         this.setSortEdit(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN_RANGE.setDefaultAnchor()
-                ),
-                comparatorNames,
-                HistoryToken.columnSortEdit(
-                        ID,
-                        NAME,
-                        COLUMN_RANGE.setDefaultAnchor(),
-                        comparatorNames
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN_RANGE.setDefaultAnchor()
+            ),
+            comparatorNames,
+            HistoryToken.columnSortEdit(
+                ID,
+                NAME,
+                COLUMN_RANGE.setDefaultAnchor(),
+                comparatorNames
+            )
         );
     }
 
@@ -1577,18 +1577,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final String comparatorNames = "1=text UP";
 
         this.setSortEdit(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                ),
-                comparatorNames,
-                HistoryToken.rowSortEdit(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        comparatorNames
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            ),
+            comparatorNames,
+            HistoryToken.rowSortEdit(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                comparatorNames
+            )
         );
     }
 
@@ -1597,18 +1597,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final String comparatorNames = "2=text UP";
 
         this.setSortEdit(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW_RANGE.setDefaultAnchor()
-                ),
-                comparatorNames,
-                HistoryToken.rowSortEdit(
-                        ID,
-                        NAME,
-                        ROW_RANGE.setDefaultAnchor(),
-                        comparatorNames
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW_RANGE.setDefaultAnchor()
+            ),
+            comparatorNames,
+            HistoryToken.rowSortEdit(
+                ID,
+                NAME,
+                ROW_RANGE.setDefaultAnchor(),
+                comparatorNames
+            )
         );
     }
 
@@ -1616,9 +1616,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                              final String comparatorNames,
                              final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                historyToken.setSortEdit(comparatorNames),
-                () -> historyToken + " setSortEdit " + comparatorNames
+            expected,
+            historyToken.setSortEdit(comparatorNames),
+            () -> historyToken + " setSortEdit " + comparatorNames
         );
     }
 
@@ -1631,8 +1631,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken load = HistoryToken.spreadsheetLoad(ID);
 
         assertSame(
-                load,
-                load.setSortSave(comparatorNames)
+            load,
+            load.setSortSave(comparatorNames)
         );
     }
 
@@ -1641,18 +1641,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text UP");
 
         this.setSortSave(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                ),
-                comparatorNames,
-                HistoryToken.cellSortSave(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        comparatorNames
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            ),
+            comparatorNames,
+            HistoryToken.cellSortSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                comparatorNames
+            )
         );
     }
 
@@ -1661,18 +1661,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("B=text UP;C=text DOWN");
 
         this.setSortSave(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL_RANGE.setDefaultAnchor()
-                ),
-                comparatorNames,
-                HistoryToken.cellSortSave(
-                        ID,
-                        NAME,
-                        CELL_RANGE.setDefaultAnchor(),
-                        comparatorNames
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL_RANGE.setDefaultAnchor()
+            ),
+            comparatorNames,
+            HistoryToken.cellSortSave(
+                ID,
+                NAME,
+                CELL_RANGE.setDefaultAnchor(),
+                comparatorNames
+            )
         );
     }
 
@@ -1681,18 +1681,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("AA=text UP");
 
         this.setSortSave(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                ),
-                comparatorNames,
-                HistoryToken.columnSortSave(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        comparatorNames
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            ),
+            comparatorNames,
+            HistoryToken.columnSortSave(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                comparatorNames
+            )
         );
     }
 
@@ -1701,18 +1701,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("BB=text UP;CC=text DOWN");
 
         this.setSortSave(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN_RANGE.setDefaultAnchor()
-                ),
-                comparatorNames,
-                HistoryToken.columnSortSave(
-                        ID,
-                        NAME,
-                        COLUMN_RANGE.setDefaultAnchor(),
-                        comparatorNames
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN_RANGE.setDefaultAnchor()
+            ),
+            comparatorNames,
+            HistoryToken.columnSortSave(
+                ID,
+                NAME,
+                COLUMN_RANGE.setDefaultAnchor(),
+                comparatorNames
+            )
         );
     }
 
@@ -1721,18 +1721,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("11=text UP");
 
         this.setSortSave(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                ),
-                comparatorNames,
-                HistoryToken.rowSortSave(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        comparatorNames
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            ),
+            comparatorNames,
+            HistoryToken.rowSortSave(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                comparatorNames
+            )
         );
     }
 
@@ -1741,18 +1741,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("22=text UP;33=text DOWN");
 
         this.setSortSave(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW_RANGE.setDefaultAnchor()
-                ),
-                comparatorNames,
-                HistoryToken.rowSortSave(
-                        ID,
-                        NAME,
-                        ROW_RANGE.setDefaultAnchor(),
-                        comparatorNames
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW_RANGE.setDefaultAnchor()
+            ),
+            comparatorNames,
+            HistoryToken.rowSortSave(
+                ID,
+                NAME,
+                ROW_RANGE.setDefaultAnchor(),
+                comparatorNames
+            )
         );
     }
 
@@ -1760,9 +1760,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                              final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames,
                              final HistoryToken expected) {
         this.checkEquals(
-                expected,
-                historyToken.setSortSave(comparatorNames),
-                () -> historyToken + " setSortSave " + comparatorNames
+            expected,
+            historyToken.setSortSave(comparatorNames),
+            () -> historyToken + " setSortSave " + comparatorNames
         );
     }
 
@@ -1773,8 +1773,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.style(TextStylePropertyName.COLOR),
-                historyToken
+            historyToken.style(TextStylePropertyName.COLOR),
+            historyToken
         );
     }
 
@@ -1785,13 +1785,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.style(property),
-                HistoryToken.cellStyle(
-                        ID,
-                        NAME,
-                        viewport,
-                        property
-                )
+            historyToken.style(property),
+            HistoryToken.cellStyle(
+                ID,
+                NAME,
+                viewport,
+                property
+            )
         );
     }
 
@@ -1802,13 +1802,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.style(property),
-                HistoryToken.cellStyle(
-                        ID,
-                        NAME,
-                        viewport,
-                        property
-                )
+            historyToken.style(property),
+            HistoryToken.cellStyle(
+                ID,
+                NAME,
+                viewport,
+                property
+            )
         );
     }
 
@@ -1819,8 +1819,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
 
         assertSame(
-                historyToken.style(property),
-                historyToken
+            historyToken.style(property),
+            historyToken
         );
     }
 
@@ -1831,8 +1831,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
 
         assertSame(
-                historyToken.style(property),
-                historyToken
+            historyToken.style(property),
+            historyToken
         );
     }
 
@@ -1843,8 +1843,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-                historyToken.unfreeze(),
-                historyToken
+            historyToken.unfreeze(),
+            historyToken
         );
     }
 
@@ -1854,44 +1854,44 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.unfreeze(),
-                HistoryToken.cellUnfreeze(
-                        ID,
-                        NAME,
-                        viewport
-                )
+            historyToken.unfreeze(),
+            HistoryToken.cellUnfreeze(
+                ID,
+                NAME,
+                viewport
+            )
         );
     }
 
     @Test
     public void testUnfreezeColumn() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseColumn("A")
-                .setDefaultAnchor();
+            .setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.column(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.unfreeze(),
-                HistoryToken.columnUnfreeze(
-                        ID,
-                        NAME,
-                        viewport
-                )
+            historyToken.unfreeze(),
+            HistoryToken.columnUnfreeze(
+                ID,
+                NAME,
+                viewport
+            )
         );
     }
 
     @Test
     public void testUnfreezeRow() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseRow("1")
-                .setDefaultAnchor();
+            .setDefaultAnchor();
         final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
 
         this.checkEquals(
-                historyToken.unfreeze(),
-                HistoryToken.rowUnfreeze(
-                        ID,
-                        NAME,
-                        viewport
-                )
+            historyToken.unfreeze(),
+            HistoryToken.rowUnfreeze(
+                ID,
+                NAME,
+                viewport
+            )
         );
     }
 
@@ -1902,18 +1902,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection cell = CELL.setDefaultAnchor();
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
-                ID,
-                NAME,
-                cell
+            ID,
+            NAME,
+            cell
         );
 
         this.checkEquals(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        cell
-                ),
-                historyToken
+            HistoryToken.cell(
+                ID,
+                NAME,
+                cell
+            ),
+            historyToken
         );
     }
 
@@ -1922,18 +1922,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection cell = CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
-                ID,
-                NAME,
-                cell
+            ID,
+            NAME,
+            cell
         );
 
         this.checkEquals(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        cell
-                ),
-                historyToken
+            HistoryToken.cell(
+                ID,
+                NAME,
+                cell
+            ),
+            historyToken
         );
     }
 
@@ -1942,18 +1942,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection cell = LABEL.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
-                ID,
-                NAME,
-                cell
+            ID,
+            NAME,
+            cell
         );
 
         this.checkEquals(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        cell
-                ),
-                historyToken
+            HistoryToken.cell(
+                ID,
+                NAME,
+                cell
+            ),
+            historyToken
         );
     }
 
@@ -1962,18 +1962,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection column = COLUMN.setDefaultAnchor();
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
-                ID,
-                NAME,
-                column
+            ID,
+            NAME,
+            column
         );
 
         this.checkEquals(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        column
-                ),
-                historyToken
+            HistoryToken.column(
+                ID,
+                NAME,
+                column
+            ),
+            historyToken
         );
     }
 
@@ -1982,18 +1982,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection column = COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
-                ID,
-                NAME,
-                column
+            ID,
+            NAME,
+            column
         );
 
         this.checkEquals(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        column
-                ),
-                historyToken
+            HistoryToken.column(
+                ID,
+                NAME,
+                column
+            ),
+            historyToken
         );
     }
 
@@ -2002,18 +2002,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection row = ROW.setDefaultAnchor();
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
-                ID,
-                NAME,
-                row
+            ID,
+            NAME,
+            row
         );
 
         this.checkEquals(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        row
-                ),
-                historyToken
+            HistoryToken.row(
+                ID,
+                NAME,
+                row
+            ),
+            historyToken
         );
     }
 
@@ -2022,18 +2022,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection row = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
-                ID,
-                NAME,
-                row
+            ID,
+            NAME,
+            row
         );
 
         this.checkEquals(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        row
-                ),
-                historyToken
+            HistoryToken.row(
+                ID,
+                NAME,
+                row
+            ),
+            historyToken
         );
     }
 
@@ -2042,41 +2042,41 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testAnchoredSelectionHistoryTokenOrEmptyNot() {
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-                HistoryToken.unknown(UrlFragment.parse("/something-else")),
-                Optional.empty()
+            HistoryToken.unknown(UrlFragment.parse("/something-else")),
+            Optional.empty()
         );
     }
 
     @Test
     public void testAnchoredSelectionHistoryTokenOrEmptyCell() {
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testAnchoredSelectionHistoryTokenOrEmptyCellRange() {
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
+            )
         );
     }
 
     @Test
     public void testAnchoredSelectionHistoryTokenOrEmptyLabel() {
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        LABEL.setDefaultAnchor()
-                )
+            HistoryToken.cell(
+                ID,
+                NAME,
+                LABEL.setDefaultAnchor()
+            )
         );
     }
 
@@ -2085,28 +2085,28 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
 
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-                HistoryToken.cellFormulaSave(
-                        ID,
-                        NAME,
-                        viewport,
-                        "=1"
-                ),
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        viewport
-                )
+            HistoryToken.cellFormulaSave(
+                ID,
+                NAME,
+                viewport,
+                "=1"
+            ),
+            HistoryToken.cell(
+                ID,
+                NAME,
+                viewport
+            )
         );
     }
 
     @Test
     public void testAnchoredSelectionHistoryTokenOrEmptyColumn() {
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
@@ -2115,38 +2115,38 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
 
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-                HistoryToken.columnClear(
-                        ID,
-                        NAME,
-                        viewport
-                ),
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        viewport
-                )
+            HistoryToken.columnClear(
+                ID,
+                NAME,
+                viewport
+            ),
+            HistoryToken.column(
+                ID,
+                NAME,
+                viewport
+            )
         );
     }
 
     @Test
     public void testAnchoredSelectionHistoryTokenOrEmptyColumnRange() {
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN_RANGE.setDefaultAnchor()
-                )
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN_RANGE.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testAnchoredSelectionHistoryTokenOrEmptyRow() {
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
@@ -2155,53 +2155,53 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
 
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-                HistoryToken.rowClear(
-                        ID,
-                        NAME,
-                        viewport
-                ),
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        viewport
-                )
+            HistoryToken.rowClear(
+                ID,
+                NAME,
+                viewport
+            ),
+            HistoryToken.row(
+                ID,
+                NAME,
+                viewport
+            )
         );
     }
 
     @Test
     public void testAnchoredSelectionHistoryTokenOrEmptyRowRange() {
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW_RANGE.setDefaultAnchor()
-                )
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW_RANGE.setDefaultAnchor()
+            )
         );
     }
 
     private void anchoredSelectionHistoryTokenOrEmptyAndCheck(final HistoryToken token) {
         assertSame(
-                token,
-                token.anchoredSelectionHistoryTokenOrEmpty()
-                        .orElse(null),
-                () -> token + " anchoredSelectionHistoryTokenOrEmpty"
+            token,
+            token.anchoredSelectionHistoryTokenOrEmpty()
+                .orElse(null),
+            () -> token + " anchoredSelectionHistoryTokenOrEmpty"
         );
     }
 
     private void anchoredSelectionHistoryTokenOrEmptyAndCheck(final HistoryToken token,
                                                               final HistoryToken expected) {
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-                token,
-                Optional.of(expected)
+            token,
+            Optional.of(expected)
         );
     }
 
     private void anchoredSelectionHistoryTokenOrEmptyAndCheck(final HistoryToken token,
                                                               final Optional<HistoryToken> expected) {
         this.checkEquals(
-                expected,
-                token.anchoredSelectionHistoryTokenOrEmpty(),
-                () -> token + " anchoredSelectionHistoryTokenOrEmpty"
+            expected,
+            token.anchoredSelectionHistoryTokenOrEmpty(),
+            () -> token + " anchoredSelectionHistoryTokenOrEmpty"
         );
     }
 
@@ -2210,33 +2210,33 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseUnknown() {
         this.parseStringAndCheck(
-                "hello",
-                HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "hello",
+            HistoryToken.spreadsheetListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParseEmpty() {
         this.parseStringAndCheck(
-                "",
-                HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "",
+            HistoryToken.spreadsheetListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParseSlash() {
         this.parseStringAndCheck(
-                "/",
-                HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "/",
+            HistoryToken.spreadsheetListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
@@ -2248,11 +2248,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseInvalidSpreadsheetId() {
         this.parseStringAndCheck(
-                "/XYZ",
-                HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "/XYZ",
+            HistoryToken.spreadsheetListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
@@ -2261,22 +2261,22 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParsePlugin() {
         this.parseStringAndCheck(
-                "/plugin",
-                HistoryToken.pluginListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "/plugin",
+            HistoryToken.pluginListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParsePluginOffset() {
         this.parseStringAndCheck(
-                "/plugin/*/offset/123",
-                HistoryToken.pluginListSelect(
-                        OptionalInt.of(123), // offset
-                        OptionalInt.empty() // count
-                )
+            "/plugin/*/offset/123",
+            HistoryToken.pluginListSelect(
+                OptionalInt.of(123), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
@@ -2284,85 +2284,85 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParsePluginCount() {
         this.parseStringAndCheck(
-                "/plugin/*/count/456",
-                HistoryToken.pluginListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.of(456) // count
-                )
+            "/plugin/*/count/456",
+            HistoryToken.pluginListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.of(456) // count
+            )
         );
     }
 
     @Test
     public void testParsePluginReload() {
         this.parseStringAndCheck(
-                "/plugin/reload",
-                HistoryToken.pluginSelect(
-                        PluginName.with("reload")
-                )
+            "/plugin/reload",
+            HistoryToken.pluginSelect(
+                PluginName.with("reload")
+            )
         );
     }
 
     @Test
     public void testParsePluginStarReload() {
         this.parseStringAndCheck(
-                "/plugin/*/reload",
-                HistoryToken.pluginListReload(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "/plugin/*/reload",
+            HistoryToken.pluginListReload(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParsePluginStarOffsetReload() {
         this.parseStringAndCheck(
-                "/plugin/*/offset/123/reload",
-                HistoryToken.pluginListReload(
-                        OptionalInt.of(123), // offset
-                        OptionalInt.empty() // count
-                )
+            "/plugin/*/offset/123/reload",
+            HistoryToken.pluginListReload(
+                OptionalInt.of(123), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParsePluginPluginNameSave() {
         this.parseStringAndCheck(
-                "/plugin/TestPluginName123/save/text123",
-                HistoryToken.pluginSave(
-                        PluginName.with("TestPluginName123"),
-                        "text123"
-                )
+            "/plugin/TestPluginName123/save/text123",
+            HistoryToken.pluginSave(
+                PluginName.with("TestPluginName123"),
+                "text123"
+            )
         );
     }
 
     @Test
     public void testParsePluginSlashUpload() {
         this.parseStringAndCheck(
-                "/plugin/upload",
-                HistoryToken.pluginSelect(
-                        PluginName.with("upload")
-                )
+            "/plugin/upload",
+            HistoryToken.pluginSelect(
+                PluginName.with("upload")
+            )
         );
     }
 
     @Test
     public void testParsePluginUploadSelect() {
         this.parseStringAndCheck(
-                "/plugin-upload",
-                HistoryToken.pluginUploadSelect()
+            "/plugin-upload",
+            HistoryToken.pluginUploadSelect()
         );
     }
 
     @Test
     public void testParsePluginUploadSave() {
         this.parseStringAndCheck(
-                "/plugin-upload/save/base64/Filename123/FileContent456",
-                HistoryToken.pluginUploadSave(
-                        BrowserFile.base64(
-                                "Filename123",
-                                "FileContent456"
-                        )
+            "/plugin-upload/save/base64/Filename123/FileContent456",
+            HistoryToken.pluginUploadSave(
+                BrowserFile.base64(
+                    "Filename123",
+                    "FileContent456"
                 )
+            )
         );
     }
 
@@ -2371,21 +2371,21 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParsePluginNameInvalid() {
         this.parseStringAndCheck(
-                "/plugin/!TestPluginName123",
-                HistoryToken.pluginListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "/plugin/!TestPluginName123",
+            HistoryToken.pluginListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParsePluginName() {
         this.parseStringAndCheck(
-                "/plugin/TestPluginName123",
-                HistoryToken.pluginSelect(
-                        PluginName.with("TestPluginName123")
-                )
+            "/plugin/TestPluginName123",
+            HistoryToken.pluginSelect(
+                PluginName.with("TestPluginName123")
+            )
         );
     }
 
@@ -2394,58 +2394,58 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseDeleteSpreadsheetId() {
         this.parseStringAndCheck(
-                "/delete/123",
-                HistoryToken.spreadsheetListDelete(
-                        ID
-                )
+            "/delete/123",
+            HistoryToken.spreadsheetListDelete(
+                ID
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetId() {
         this.parseStringAndCheck(
-                "/123",
-                HistoryToken.spreadsheetLoad(
-                        ID
-                )
+            "/123",
+            HistoryToken.spreadsheetLoad(
+                ID
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetName() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456",
-                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            "/123/SpreadsheetName456",
+            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameReload() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/reload",
-                HistoryToken.spreadsheetReload(
-                        ID,
-                        NAME
-                )
+            "/123/SpreadsheetName456/reload",
+            HistoryToken.spreadsheetReload(
+                ID,
+                NAME
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameReloadSave() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/reload/save",
-                HistoryToken.spreadsheetReload(
-                        ID,
-                        NAME
-                )
+            "/123/SpreadsheetName456/reload/save",
+            HistoryToken.spreadsheetReload(
+                ID,
+                NAME
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameUnknown() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/Unknown",
-                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            "/123/SpreadsheetName456/Unknown",
+            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
         );
     }
 
@@ -2454,352 +2454,353 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellMissingReference() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell",
-                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            "/123/SpreadsheetName456/cell",
+            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellInvalidReference() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/!!!",
-                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            "/123/SpreadsheetName456/cell/!!!",
+            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellInvalidReference2() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/!!!/cell/A1",
-                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            "/123/SpreadsheetName456/cell/!!!/cell/A1",
+            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellCellReference() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1",
-                CELL_HHT
+            "/123/SpreadsheetName456/cell/A1",
+            CELL_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellInvalidAnchor() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/bottom-left",
-                CELL_HHT
+            "/123/SpreadsheetName456/cell/A1/bottom-left",
+            CELL_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellLabel() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/Label123",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        LABEL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/Label123",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                LABEL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeMissingAnchor() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/B2:C3",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
-                )
+            "/123/SpreadsheetName456/cell/B2:C3",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeTopLeft() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/B2:C3/top-left",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT)
-                )
+            "/123/SpreadsheetName456/cell/B2:C3/top-left",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeTopRight() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/B2:C3/top-right",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
-                )
+            "/123/SpreadsheetName456/cell/B2:C3/top-right",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeInvalidAnchor() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/B2:C3/left",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
-                )
+            "/123/SpreadsheetName456/cell/B2:C3/left",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellInvalidAction() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/!invalid",
-                CELL_HHT
+            "/123/SpreadsheetName456/cell/A1/!invalid",
+            CELL_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellClear() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/clear",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/clear",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellDelete() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/delete",
-                HistoryToken.cellDelete(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/delete",
+            HistoryToken.cellDelete(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellFreezeInvalidColumnFails() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/B1/freeze",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCell("B1").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/B1/freeze",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCell("B1").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellFreezeInvalidRowFails() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A2/freeze",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCell("A2").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A2/freeze",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCell("A2").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellFreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/freeze",
-                HistoryToken.cellFreeze(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/freeze",
+            HistoryToken.cellFreeze(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeFreezeInvalidColumnFails() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/B1:C3/freeze",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("B1:C3").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/B1:C3/freeze",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("B1:C3").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeFreezeInvalidRowFails() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A2:C3/freeze",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A2:C3").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A2:C3/freeze",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A2:C3").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeFreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1:B2/freeze",
-                HistoryToken.cellFreeze(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1:B2/freeze",
+            HistoryToken.cellFreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellMenu() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/menu",
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/menu",
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellSort() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/sort",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/sort",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellSortInvalid() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/sort/invalid",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/sort/invalid",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
+
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeUnfreezeInvalidColumn() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/B2:C3/unfreeze",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("B2:C3")
-                                .setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/B2:C3/unfreeze",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("B2:C3")
+                    .setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeUnfreezeInvalidRow() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A2:C3/unfreeze",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A2:C3")
-                                .setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A2:C3/unfreeze",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A2:C3")
+                    .setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeUnfreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1:B2/unfreeze",
-                HistoryToken.cellUnfreeze(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:B2")
-                                .setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1:B2/unfreeze",
+            HistoryToken.cellUnfreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:B2")
+                    .setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellUnfreezeInvalidColumn() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/B2/unfreeze",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCell("B2")
-                                .setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/B2/unfreeze",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCell("B2")
+                    .setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellUnfreezeInvalidRow() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A2/unfreeze",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCell("A2")
-                                .setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A2/unfreeze",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCell("A2")
+                    .setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellUnfreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/unfreeze",
-                HistoryToken.cellUnfreeze(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/unfreeze",
+            HistoryToken.cellUnfreeze(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellUnfreezeExtra() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/unfreeze/extra",
-                HistoryToken.cellUnfreeze(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/unfreeze/extra",
+            HistoryToken.cellUnfreeze(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeClear() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/B2:C3/clear",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
-                )
+            "/123/SpreadsheetName456/cell/B2:C3/clear",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeAnchorClear() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/B2:C3/top-right/clear",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
-                )
+            "/123/SpreadsheetName456/cell/B2:C3/top-right/clear",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
+            )
         );
     }
 
@@ -2808,25 +2809,25 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellFormula() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/formula",
-                HistoryToken.cellFormula(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/formula",
+            HistoryToken.cellFormula(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellFormulaSave() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/formula/save/=1+2",
-                HistoryToken.cellFormulaSave(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        "=1+2"
-                )
+            "/123/SpreadsheetName456/cell/A1/formula/save/=1+2",
+            HistoryToken.cellFormulaSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                "=1+2"
+            )
         );
     }
 
@@ -2835,93 +2836,93 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellFormatter() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/formatter",
-                HistoryToken.cellFormatterSelect(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/formatter",
+            HistoryToken.cellFormatterSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellFormatterToolbar() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/formatter/toolbar",
-                HistoryToken.cellFormatterUnselect(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/formatter/toolbar",
+            HistoryToken.cellFormatterUnselect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellFormatterSaveEmptyDateFormat() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/formatter/save/",
-                HistoryToken.cellFormatterSave(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        Optional.empty()
-                )
+            "/123/SpreadsheetName456/cell/A1/formatter/save/",
+            HistoryToken.cellFormatterSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellFormatterSaveTimeFormat() {
         final SpreadsheetFormatterSelector selector = SpreadsheetPattern.parseTimeFormatPattern("hh:mm:ss")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/formatter/save/" + selector,
-                HistoryToken.cellFormatterSave(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        Optional.of(selector)
-                )
+            "/123/SpreadsheetName456/cell/A1/formatter/save/" + selector,
+            HistoryToken.cellFormatterSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(selector)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellParser() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/parser",
-                HistoryToken.cellParserSelect(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/parser",
+            HistoryToken.cellParserSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellParserToolbar() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/parser/toolbar",
-                HistoryToken.cellParserUnselect(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/parser/toolbar",
+            HistoryToken.cellParserUnselect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellParserSaveTimeParsePattern() {
         final SpreadsheetParserSelector selector = SpreadsheetPattern.parseTimeParsePattern("hh:mm:ss")
-                .spreadsheetParserSelector();
+            .spreadsheetParserSelector();
 
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/parser/save/" + selector,
-                HistoryToken.cellParserSave(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        Optional.of(selector)
-                )
+            "/123/SpreadsheetName456/cell/A1/parser/save/" + selector,
+            HistoryToken.cellParserSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(selector)
+            )
         );
     }
 
@@ -2930,59 +2931,59 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellStyleMissingStyleProperty() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/style",
-                CELL_HHT
+            "/123/SpreadsheetName456/cell/A1/style",
+            CELL_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellStyleInvalidPropertyName() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/style/!invalid",
-                CELL_HHT
+            "/123/SpreadsheetName456/cell/A1/style/!invalid",
+            CELL_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellStyleStylePropertyName() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/style/color",
-                HistoryToken.cellStyle(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        TextStylePropertyName.COLOR
-                )
+            "/123/SpreadsheetName456/cell/A1/style/color",
+            HistoryToken.cellStyle(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.COLOR
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellStyleSavWithoutValue() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/style/color/save/",
-                HistoryToken.cellStyleSave(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        TextStylePropertyName.COLOR,
-                        Optional.empty()
-                )
+            "/123/SpreadsheetName456/cell/A1/style/color/save/",
+            HistoryToken.cellStyleSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.COLOR,
+                Optional.empty()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellStyleSave() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/cell/A1/style/color/save/#123456",
-                HistoryToken.cellStyleSave(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        TextStylePropertyName.COLOR,
-                        Optional.of(
-                                Color.parse("#123456")
-                        )
+            "/123/SpreadsheetName456/cell/A1/style/color/save/#123456",
+            HistoryToken.cellStyleSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.COLOR,
+                Optional.of(
+                    Color.parse("#123456")
                 )
+            )
         );
     }
 
@@ -2991,350 +2992,350 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnMissingReference() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column",
-                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            "/123/SpreadsheetName456/column",
+            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnInvalidReference() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/!invalid",
-                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            "/123/SpreadsheetName456/column/!invalid",
+            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnInvalidReference2() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/!invalid/column/A",
-                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            "/123/SpreadsheetName456/column/!invalid/column/A",
+            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnColumnReference() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/AA",
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnInvalidAnchor() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/bottom-left",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/AA/bottom-left",
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnRangeMissingAnchor() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/BB:CC",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
-                )
+            "/123/SpreadsheetName456/column/BB:CC",
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnRangeLeft() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/BB:CC/left",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT)
-                )
+            "/123/SpreadsheetName456/column/BB:CC/left",
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnRangeRight() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/BB:CC/right",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
-                )
+            "/123/SpreadsheetName456/column/BB:CC/right",
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnRangeInvalidAnchor() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/BB:CC/top-left",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
-                )
+            "/123/SpreadsheetName456/column/BB:CC/top-left",
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnInvalidAction() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/!invalid",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/AA/!invalid",
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnClear() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/clear",
-                HistoryToken.columnClear(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/AA/clear",
+            HistoryToken.columnClear(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnDelete() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/delete",
-                HistoryToken.columnDelete(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/AA/delete",
+            HistoryToken.columnDelete(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnFreezeInvalidRemoved() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/freeze",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/AA/freeze",
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnFreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/A/freeze",
-                HistoryToken.columnFreeze(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseColumn("A")
-                                .setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/A/freeze",
+            HistoryToken.columnFreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseColumn("A")
+                    .setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnRangeFreezeInvalidRemoved() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA:BB/freeze",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseColumnRange("AA:BB")
-                                .setAnchor(SpreadsheetViewportAnchor.RIGHT)
-                )
+            "/123/SpreadsheetName456/column/AA:BB/freeze",
+            HistoryToken.column(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseColumnRange("AA:BB")
+                    .setAnchor(SpreadsheetViewportAnchor.RIGHT)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnRangeFreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/A:B/freeze",
-                HistoryToken.columnFreeze(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseColumnRange("A:B")
-                                .setAnchor(SpreadsheetViewportAnchor.RIGHT)
-                )
+            "/123/SpreadsheetName456/column/A:B/freeze",
+            HistoryToken.columnFreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseColumnRange("A:B")
+                    .setAnchor(SpreadsheetViewportAnchor.RIGHT)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnInsertAfterMissingCount() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/insertAfter",
-                HistoryToken.columnInsertAfter(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        OptionalInt.empty()
-                )
+            "/123/SpreadsheetName456/column/AA/insertAfter",
+            HistoryToken.columnInsertAfter(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnInsertAfterEmptyCount() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/insertAfter/",
-                HistoryToken.columnInsertAfter(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        OptionalInt.empty()
-                )
+            "/123/SpreadsheetName456/column/AA/insertAfter/",
+            HistoryToken.columnInsertAfter(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnInsertAfter123() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/insertAfter/123",
-                HistoryToken.columnInsertAfter(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        OptionalInt.of(
-                                123
-                        )
+            "/123/SpreadsheetName456/column/AA/insertAfter/123",
+            HistoryToken.columnInsertAfter(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                OptionalInt.of(
+                    123
                 )
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnInsertBeforeMissingCount() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/insertBefore",
-                HistoryToken.columnInsertBefore(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        OptionalInt.empty()
-                )
+            "/123/SpreadsheetName456/column/AA/insertBefore",
+            HistoryToken.columnInsertBefore(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnInsertBeforeEmptyCount() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/insertBefore/",
-                HistoryToken.columnInsertBefore(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        OptionalInt.empty()
-                )
+            "/123/SpreadsheetName456/column/AA/insertBefore/",
+            HistoryToken.columnInsertBefore(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnInsertBefore123() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/insertBefore/123",
-                HistoryToken.columnInsertBefore(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        OptionalInt.of(
-                                123
-                        )
+            "/123/SpreadsheetName456/column/AA/insertBefore/123",
+            HistoryToken.columnInsertBefore(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                OptionalInt.of(
+                    123
                 )
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnMenu() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/menu",
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/AA/menu",
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnUnfreezeInvalidFails() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/B/unfreeze",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseColumn("B").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/B/unfreeze",
+            HistoryToken.column(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseColumn("B").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnUnfreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/A/unfreeze",
-                HistoryToken.columnUnfreeze(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseColumn("A").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/A/unfreeze",
+            HistoryToken.columnUnfreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseColumn("A").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnUnfreezeExtra() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/A/unfreeze/extra",
-                HistoryToken.columnUnfreeze(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseColumn("A")
-                                .setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/A/unfreeze/extra",
+            HistoryToken.columnUnfreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseColumn("A")
+                    .setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnFormula() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/AA",
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnPattern() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/formatter/yymmdd",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/AA/formatter/yymmdd",
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnStyle() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/column/AA/style",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/AA/style",
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
@@ -3343,206 +3344,206 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowMissingReference() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row",
-                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            "/123/SpreadsheetName456/row",
+            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowInvalidReference() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/A1",
-                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            "/123/SpreadsheetName456/row/A1",
+            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowInvalidReference2() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/123456789/row/1",
-                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            "/123/SpreadsheetName456/row/123456789/row/1",
+            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowRowReference() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/11",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowInvalidAnchor() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/bottom-left",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/11/bottom-left",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeMissingAnchor() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/22:33",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
-                )
+            "/123/SpreadsheetName456/row/22:33",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeTop() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/22:33/top",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP)
-                )
+            "/123/SpreadsheetName456/row/22:33/top",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeBottom() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/22:33/bottom",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
-                )
+            "/123/SpreadsheetName456/row/22:33/bottom",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeInvalidAnchor() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/22:33/top-left",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
-                )
+            "/123/SpreadsheetName456/row/22:33/top-left",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowInvalidAction() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/!invalid",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/11/!invalid",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowClear() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/clear",
-                HistoryToken.rowClear(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/11/clear",
+            HistoryToken.rowClear(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowDelete() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/delete",
-                HistoryToken.rowDelete(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/11/delete",
+            HistoryToken.rowDelete(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowFreezeInvalidFails() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/freeze",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/11/freeze",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowFreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/1/freeze",
-                HistoryToken.rowFreeze(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseRow("1").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/1/freeze",
+            HistoryToken.rowFreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRow("1").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeFreezeInvalidFails() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/22:33/freeze",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW_RANGE.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/22:33/freeze",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW_RANGE.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeFreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/1:2/freeze",
-                HistoryToken.rowFreeze(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/1:2/freeze",
+            HistoryToken.rowFreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowInsertAfterMissingCount() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/insertAfter",
-                HistoryToken.rowInsertAfter(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        OptionalInt.empty()
-                )
+            "/123/SpreadsheetName456/row/11/insertAfter",
+            HistoryToken.rowInsertAfter(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowInsertAfterEmptyCount() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/insertAfter/",
-                HistoryToken.rowInsertAfter(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        OptionalInt.empty()
-                )
+            "/123/SpreadsheetName456/row/11/insertAfter/",
+            HistoryToken.rowInsertAfter(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
         );
     }
 
@@ -3550,164 +3551,164 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowInsertAfter123() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/insertAfter/123",
-                HistoryToken.rowInsertAfter(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        OptionalInt.of(
-                                123
-                        )
+            "/123/SpreadsheetName456/row/11/insertAfter/123",
+            HistoryToken.rowInsertAfter(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.of(
+                    123
                 )
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowInsertBeforeMissingCount() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/insertBefore",
-                HistoryToken.rowInsertBefore(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        OptionalInt.empty()
-                )
+            "/123/SpreadsheetName456/row/11/insertBefore",
+            HistoryToken.rowInsertBefore(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowInsertBeforeEmptyCount() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/insertBefore/",
-                HistoryToken.rowInsertBefore(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        OptionalInt.empty()
-                )
+            "/123/SpreadsheetName456/row/11/insertBefore/",
+            HistoryToken.rowInsertBefore(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowInsertBefore123() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/insertBefore/123",
-                HistoryToken.rowInsertBefore(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor(),
-                        OptionalInt.of(
-                                123
-                        )
+            "/123/SpreadsheetName456/row/11/insertBefore/123",
+            HistoryToken.rowInsertBefore(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.of(
+                    123
                 )
+            )
         );
     }
-    
+
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowMenu() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/menu",
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/11/menu",
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowUnfreezeInvalid() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/unfreeze",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/11/unfreeze",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowUnfreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/1/unfreeze",
-                HistoryToken.rowUnfreeze(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseRow("1").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/1/unfreeze",
+            HistoryToken.rowUnfreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRow("1").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeUnfreezeInvalid() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/22:33/unfreeze",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW_RANGE.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/22:33/unfreeze",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW_RANGE.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeUnfreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/1/unfreeze",
-                HistoryToken.rowUnfreeze(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseRow("1").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/1/unfreeze",
+            HistoryToken.rowUnfreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRow("1").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowUnfreezeExtra() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/1/unfreeze/extra",
-                HistoryToken.rowUnfreeze(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseRow("1").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/1/unfreeze/extra",
+            HistoryToken.rowUnfreeze(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRow("1").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowFormula() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/11",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowPattern() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/formatter/yymmdd",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/11/formatter/yymmdd",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameRowStyle() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/row/11/style",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/11/style",
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
@@ -3716,178 +3717,178 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelMissingName() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label",
-                HistoryToken.labelMapping(
-                        ID,
-                        NAME,
-                        Optional.empty()
-                )
+            "/123/SpreadsheetName456/label",
+            HistoryToken.labelMapping(
+                ID,
+                NAME,
+                Optional.empty()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelInvalid() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/!!/cell/A1",
-                SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            "/123/SpreadsheetName456/label/!!/cell/A1",
+            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelLabelReference() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123",
-                LABEL_MAPPING_HHT
+            "/123/SpreadsheetName456/label/Label123",
+            LABEL_MAPPING_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelInvalidAction() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/!invalid",
-                LABEL_MAPPING_HHT
+            "/123/SpreadsheetName456/label/Label123/!invalid",
+            LABEL_MAPPING_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelClear() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/clear",
-                LABEL_MAPPING_HHT
+            "/123/SpreadsheetName456/label/Label123/clear",
+            LABEL_MAPPING_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelDelete() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/delete",
-                HistoryToken.labelMappingDelete(
-                        ID,
-                        NAME,
-                        LABEL
-                )
+            "/123/SpreadsheetName456/label/Label123/delete",
+            HistoryToken.labelMappingDelete(
+                ID,
+                NAME,
+                LABEL
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelFreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/freeze",
-                LABEL_MAPPING_HHT
+            "/123/SpreadsheetName456/label/Label123/freeze",
+            LABEL_MAPPING_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelMenu() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/menu",
-                LABEL_MAPPING_HHT
+            "/123/SpreadsheetName456/label/Label123/menu",
+            LABEL_MAPPING_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelUnfreeze() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/unfreeze",
-                LABEL_MAPPING_HHT
+            "/123/SpreadsheetName456/label/Label123/unfreeze",
+            LABEL_MAPPING_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelDeleteExtra() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/delete/extra",
-                HistoryToken.labelMappingDelete(
-                        ID,
-                        NAME,
-                        LABEL
-                )
+            "/123/SpreadsheetName456/label/Label123/delete/extra",
+            HistoryToken.labelMappingDelete(
+                ID,
+                NAME,
+                LABEL
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelSaveMissingReference() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/save",
-                HistoryToken.labelMapping(
-                        ID,
-                        NAME,
-                        Optional.of(LABEL)
-                )
+            "/123/SpreadsheetName456/label/Label123/save",
+            HistoryToken.labelMapping(
+                ID,
+                NAME,
+                Optional.of(LABEL)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelSaveInvalidReference() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/save/!invalid",
-                HistoryToken.labelMapping(
-                        ID,
-                        NAME,
-                        Optional.of(LABEL)
-                )
+            "/123/SpreadsheetName456/label/Label123/save/!invalid",
+            HistoryToken.labelMapping(
+                ID,
+                NAME,
+                Optional.of(LABEL)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelSaveCell() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/save/A1",
-                HistoryToken.labelMappingSave(
-                        ID,
-                        NAME,
-                        LABEL.mapping(CELL)
-                )
+            "/123/SpreadsheetName456/label/Label123/save/A1",
+            HistoryToken.labelMappingSave(
+                ID,
+                NAME,
+                LABEL.mapping(CELL)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelSaveCellRange() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/save/B2:C3",
-                HistoryToken.labelMappingSave(
-                        ID,
-                        NAME,
-                        LABEL.mapping(CELL_RANGE)
-                )
+            "/123/SpreadsheetName456/label/Label123/save/B2:C3",
+            HistoryToken.labelMappingSave(
+                ID,
+                NAME,
+                LABEL.mapping(CELL_RANGE)
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelSaveLabel() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/save/Label456",
-                HistoryToken.labelMappingSave(
-                        ID,
-                        NAME,
-                        LABEL.mapping(
-                                SpreadsheetSelection.labelName("Label456")
-                        )
+            "/123/SpreadsheetName456/label/Label123/save/Label456",
+            HistoryToken.labelMappingSave(
+                ID,
+                NAME,
+                LABEL.mapping(
+                    SpreadsheetSelection.labelName("Label456")
                 )
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelFormula() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123",
-                LABEL_MAPPING_HHT
+            "/123/SpreadsheetName456/label/Label123",
+            LABEL_MAPPING_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelPattern() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/formatter/yymmdd",
-                LABEL_MAPPING_HHT
+            "/123/SpreadsheetName456/label/Label123/formatter/yymmdd",
+            LABEL_MAPPING_HHT
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelStyle() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/label/Label123/style",
-                LABEL_MAPPING_HHT
+            "/123/SpreadsheetName456/label/Label123/style",
+            LABEL_MAPPING_HHT
         );
     }
 
@@ -3896,125 +3897,125 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameSpreadsheet() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/spreadsheet",
-                HistoryToken.metadataSelect(
-                        ID,
-                        NAME
-                )
+            "/123/SpreadsheetName456/spreadsheet",
+            HistoryToken.metadataSelect(
+                ID,
+                NAME
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameInvalid() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/!invalid",
-                HistoryToken.metadataSelect(
-                        ID,
-                        NAME
-                )
+            "/123/SpreadsheetName456/spreadsheet/!invalid",
+            HistoryToken.metadataSelect(
+                ID,
+                NAME
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyName() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/decimal-separator",
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR
-                )
+            "/123/SpreadsheetName456/spreadsheet/decimal-separator",
+            HistoryToken.metadataPropertySelect(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameSaveInvalid() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/decimal-separator/save/123",
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR
-                )
+            "/123/SpreadsheetName456/spreadsheet/decimal-separator/save/123",
+            HistoryToken.metadataPropertySelect(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameSaveWithoutValue() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/decimal-separator/save/",
-                HistoryToken.metadataPropertySave(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
-                        Optional.empty()
-                )
+            "/123/SpreadsheetName456/spreadsheet/decimal-separator/save/",
+            HistoryToken.metadataPropertySave(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
+                Optional.empty()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataPropertyNameSave() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/decimal-separator/save/.",
-                HistoryToken.metadataPropertySave(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
-                        Optional.of(
-                                '.'
-                        )
+            "/123/SpreadsheetName456/spreadsheet/decimal-separator/save/.",
+            HistoryToken.metadataPropertySave(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DECIMAL_SEPARATOR,
+                Optional.of(
+                    '.'
                 )
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyNameInvalid() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/style/!invalid",
-                HistoryToken.metadataSelect(
-                        ID,
-                        NAME
-                )
+            "/123/SpreadsheetName456/spreadsheet/style/!invalid",
+            HistoryToken.metadataSelect(
+                ID,
+                NAME
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyName() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/style/color",
-                HistoryToken.metadataPropertyStyle(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.COLOR
-                )
+            "/123/SpreadsheetName456/spreadsheet/style/color",
+            HistoryToken.metadataPropertyStyle(
+                ID,
+                NAME,
+                TextStylePropertyName.COLOR
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyNameSaveWithoutValue() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/style/color/save/",
-                HistoryToken.metadataPropertyStyleSave(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.COLOR,
-                        Optional.empty()
-                )
+            "/123/SpreadsheetName456/spreadsheet/style/color/save/",
+            HistoryToken.metadataPropertyStyleSave(
+                ID,
+                NAME,
+                TextStylePropertyName.COLOR,
+                Optional.empty()
+            )
         );
     }
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyNameSave() {
         this.parseStringAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/style/color/save/#123456",
-                HistoryToken.metadataPropertyStyleSave(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.COLOR,
-                        Optional.of(
-                                Color.parse("#123456")
-                        )
+            "/123/SpreadsheetName456/spreadsheet/style/color/save/#123456",
+            HistoryToken.metadataPropertyStyleSave(
+                ID,
+                NAME,
+                TextStylePropertyName.COLOR,
+                Optional.of(
+                    Color.parse("#123456")
                 )
+            )
         );
     }
 
@@ -4074,8 +4075,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
+                    ID,
+                    NAME
                 );
             }
 

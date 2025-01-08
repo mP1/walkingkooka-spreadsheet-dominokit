@@ -33,23 +33,23 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class AppendPluginSelectorTokenComponentTest implements HtmlElementComponentTesting<AppendPluginSelectorTokenComponent<
-        SpreadsheetFormatterSelectorToken,
-        SpreadsheetFormatterSelectorTokenAlternative>,
-        HTMLDivElement> {
+    SpreadsheetFormatterSelectorToken,
+    SpreadsheetFormatterSelectorTokenAlternative>,
+    HTMLDivElement> {
 
     @Test
     public void testEmptyWithNullPrefixFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> AppendPluginSelectorTokenComponent.empty(null)
+            NullPointerException.class,
+            () -> AppendPluginSelectorTokenComponent.empty(null)
         );
     }
 
     @Test
     public void testEmptyWithEmptyPrefixFails() {
         assertThrows(
-                IllegalArgumentException.class,
-                () -> AppendPluginSelectorTokenComponent.empty("")
+            IllegalArgumentException.class,
+            () -> AppendPluginSelectorTokenComponent.empty("")
         );
     }
 
@@ -58,218 +58,218 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlElement
     @Test
     public void testRefreshNoTextComponentsNoAlternatives() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter",
-                SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
-                Lists.empty(), // textComponents
-                Lists.empty(), // append
-                "AppendPluginSelectorTokenComponent\n" // expected
+            "/1/Untitled/cell/A1/formatter",
+            SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
+            Lists.empty(), // textComponents
+            Lists.empty(), // append
+            "AppendPluginSelectorTokenComponent\n" // expected
         );
     }
 
     @Test
     public void testRefreshDateFormatEmptyTextComponents() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter",
-                SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
-                Lists.empty(), // textComponents
-                Lists.of(
-                        SpreadsheetFormatterSelectorTokenAlternative.with(
-                                "d",
-                                "d"
-                        ),
-                        SpreadsheetFormatterSelectorTokenAlternative.with(
-                                "m",
-                                "m"
-                        )
+            "/1/Untitled/cell/A1/formatter",
+            SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
+            Lists.empty(), // textComponents
+            Lists.of(
+                SpreadsheetFormatterSelectorTokenAlternative.with(
+                    "d",
+                    "d"
                 ),
-                "AppendPluginSelectorTokenComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Append component(s)\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20d] id=id123-append-0-Link\n" +
-                        "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20m] id=id123-append-1-Link\n" // expected
+                SpreadsheetFormatterSelectorTokenAlternative.with(
+                    "m",
+                    "m"
+                )
+            ),
+            "AppendPluginSelectorTokenComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Append component(s)\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20d] id=id123-append-0-Link\n" +
+                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20m] id=id123-append-1-Link\n" // expected
         );
     }
 
     @Test
     public void testRefreshDateFormatTextComponentsAndAlternatives() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter",
-                SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
-                Lists.of(
-                        SpreadsheetFormatterSelectorToken.with(
-                                "d",
-                                "d",
-                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
-                        ),
-                        SpreadsheetFormatterSelectorToken.with(
-                                "m",
-                                "m",
-                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
-                        ),
-                        SpreadsheetFormatterSelectorToken.with(
-                                "yy",
-                                "yy",
-                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
-                        )
-                ), // textComponents
-                Lists.of(
-                        SpreadsheetFormatterSelectorTokenAlternative.with(
-                                "d",
-                                "d"
-                        ),
-                        SpreadsheetFormatterSelectorTokenAlternative.with(
-                                "m",
-                                "m"
-                        )
+            "/1/Untitled/cell/A1/formatter",
+            SpreadsheetFormatterName.DATE_FORMAT_PATTERN,
+            Lists.of(
+                SpreadsheetFormatterSelectorToken.with(
+                    "d",
+                    "d",
+                    SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                 ),
-                "AppendPluginSelectorTokenComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Append component(s)\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmyyd] id=id123-append-0-Link\n" +
-                        "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmyym] id=id123-append-1-Link\n" // expected
+                SpreadsheetFormatterSelectorToken.with(
+                    "m",
+                    "m",
+                    SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
+                ),
+                SpreadsheetFormatterSelectorToken.with(
+                    "yy",
+                    "yy",
+                    SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
+                )
+            ), // textComponents
+            Lists.of(
+                SpreadsheetFormatterSelectorTokenAlternative.with(
+                    "d",
+                    "d"
+                ),
+                SpreadsheetFormatterSelectorTokenAlternative.with(
+                    "m",
+                    "m"
+                )
+            ),
+            "AppendPluginSelectorTokenComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Append component(s)\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmyyd] id=id123-append-0-Link\n" +
+                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-format-pattern%20dmyym] id=id123-append-1-Link\n" // expected
         );
     }
 
     @Test
     public void testRefreshDateTimeFormat() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter",
-                SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN,
-                Lists.of(
-                        SpreadsheetFormatterSelectorToken.with(
-                                "d",
-                                "d",
-                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
-                        ),
-                        SpreadsheetFormatterSelectorToken.with(
-                                "m",
-                                "m",
-                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
-                        ),
-                        SpreadsheetFormatterSelectorToken.with(
-                                "yy",
-                                "yy",
-                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
-                        )
-                ), // textComponents
-                Lists.of(
-                        SpreadsheetFormatterSelectorTokenAlternative.with(
-                                "d",
-                                "d"
-                        ),
-                        SpreadsheetFormatterSelectorTokenAlternative.with(
-                                "m",
-                                "m"
-                        )
+            "/1/Untitled/cell/A1/formatter",
+            SpreadsheetFormatterName.DATE_TIME_FORMAT_PATTERN,
+            Lists.of(
+                SpreadsheetFormatterSelectorToken.with(
+                    "d",
+                    "d",
+                    SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
                 ),
-                "AppendPluginSelectorTokenComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Append component(s)\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20dmyyd] id=id123-append-0-Link\n" +
-                        "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20dmyym] id=id123-append-1-Link\n" // expected
+                SpreadsheetFormatterSelectorToken.with(
+                    "m",
+                    "m",
+                    SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
+                ),
+                SpreadsheetFormatterSelectorToken.with(
+                    "yy",
+                    "yy",
+                    SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
+                )
+            ), // textComponents
+            Lists.of(
+                SpreadsheetFormatterSelectorTokenAlternative.with(
+                    "d",
+                    "d"
+                ),
+                SpreadsheetFormatterSelectorTokenAlternative.with(
+                    "m",
+                    "m"
+                )
+            ),
+            "AppendPluginSelectorTokenComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Append component(s)\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20dmyyd] id=id123-append-0-Link\n" +
+                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-time-format-pattern%20dmyym] id=id123-append-1-Link\n" // expected
         );
     }
 
     @Test
     public void testRefreshNumberFormat() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter",
-                SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN,
-                Lists.of(
-                        SpreadsheetFormatterSelectorToken.with(
-                                "$",
-                                "$",
-                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
-                        )
-                ), // textComponents
-                Lists.of(
-                        SpreadsheetFormatterSelectorTokenAlternative.with(
-                                "0",
-                                "0"
-                        ),
-                        SpreadsheetFormatterSelectorTokenAlternative.with(
-                                "#",
-                                "#"
-                        )
+            "/1/Untitled/cell/A1/formatter",
+            SpreadsheetFormatterName.NUMBER_FORMAT_PATTERN,
+            Lists.of(
+                SpreadsheetFormatterSelectorToken.with(
+                    "$",
+                    "$",
+                    SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
+                )
+            ), // textComponents
+            Lists.of(
+                SpreadsheetFormatterSelectorTokenAlternative.with(
+                    "0",
+                    "0"
                 ),
-                "AppendPluginSelectorTokenComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Append component(s)\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"0\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%20$0] id=id123-append-0-Link\n" +
-                        "            \"#\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%20$%23] id=id123-append-1-Link\n" // expected
+                SpreadsheetFormatterSelectorTokenAlternative.with(
+                    "#",
+                    "#"
+                )
+            ),
+            "AppendPluginSelectorTokenComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Append component(s)\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"0\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%20$0] id=id123-append-0-Link\n" +
+                "            \"#\" [#/1/Untitled/cell/A1/formatter/save/number-format-pattern%20$%23] id=id123-append-1-Link\n" // expected
         );
     }
 
     @Test
     public void testRefreshTextFormat() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter",
-                SpreadsheetFormatterName.TEXT_FORMAT_PATTERN,
-                Lists.of(
-                        SpreadsheetFormatterSelectorToken.with(
-                                "@",
-                                "@",
-                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
-                        )
-                ), // textComponents
-                Lists.of(
-                        SpreadsheetFormatterSelectorTokenAlternative.with(
-                                "@",
-                                "@"
-                        ),
-                        SpreadsheetFormatterSelectorTokenAlternative.with(
-                                "_ ",
-                                "_ "
-                        )
+            "/1/Untitled/cell/A1/formatter",
+            SpreadsheetFormatterName.TEXT_FORMAT_PATTERN,
+            Lists.of(
+                SpreadsheetFormatterSelectorToken.with(
+                    "@",
+                    "@",
+                    SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
+                )
+            ), // textComponents
+            Lists.of(
+                SpreadsheetFormatterSelectorTokenAlternative.with(
+                    "@",
+                    "@"
                 ),
-                "AppendPluginSelectorTokenComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Append component(s)\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"@\" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20@@] id=id123-append-0-Link\n" +
-                        "            \"_ \" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20@_%20] id=id123-append-1-Link\n" // expected
+                SpreadsheetFormatterSelectorTokenAlternative.with(
+                    "_ ",
+                    "_ "
+                )
+            ),
+            "AppendPluginSelectorTokenComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Append component(s)\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"@\" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20@@] id=id123-append-0-Link\n" +
+                "            \"_ \" [#/1/Untitled/cell/A1/formatter/save/text-format-pattern%20@_%20] id=id123-append-1-Link\n" // expected
         );
     }
 
     @Test
     public void testRefreshTimeFormat() {
         this.refreshAndCheck(
-                "/1/Untitled/cell/A1/formatter",
-                SpreadsheetFormatterName.TIME_FORMAT_PATTERN,
-                Lists.of(
-                        SpreadsheetFormatterSelectorToken.with(
-                                "h",
-                                "h",
-                                SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
-                        )
-                ), // textComponents
-                Lists.of(
-                        SpreadsheetFormatterSelectorTokenAlternative.with(
-                                "m",
-                                "m"
-                        )
-                ),
-                "AppendPluginSelectorTokenComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Append component(s)\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"m\" [#/1/Untitled/cell/A1/formatter/save/time-format-pattern%20hm] id=id123-append-0-Link\n" // expected
+            "/1/Untitled/cell/A1/formatter",
+            SpreadsheetFormatterName.TIME_FORMAT_PATTERN,
+            Lists.of(
+                SpreadsheetFormatterSelectorToken.with(
+                    "h",
+                    "h",
+                    SpreadsheetFormatterSelectorToken.NO_ALTERNATIVES
+                )
+            ), // textComponents
+            Lists.of(
+                SpreadsheetFormatterSelectorTokenAlternative.with(
+                    "m",
+                    "m"
+                )
+            ),
+            "AppendPluginSelectorTokenComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Append component(s)\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/time-format-pattern%20hm] id=id123-append-0-Link\n" // expected
         );
     }
 
@@ -280,27 +280,27 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlElement
                                  final String expected) {
         final AppendPluginSelectorTokenComponent<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative> component = AppendPluginSelectorTokenComponent.empty("id123-");
         component.refresh(
-                textComponents,
-                append,
-                new FakeAppendPluginSelectorTokenComponentContext() {
+            textComponents,
+            append,
+            new FakeAppendPluginSelectorTokenComponentContext() {
 
-                    @Override
-                    public String saveText(final String text) {
-                        return text.isEmpty() ?
-                                "" :
-                                formatterName + " " + text;
-                    }
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString(historyToken);
-                    }
+                @Override
+                public String saveText(final String text) {
+                    return text.isEmpty() ?
+                        "" :
+                        formatterName + " " + text;
                 }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.parseString(historyToken);
+                }
+            }
         );
 
         this.treePrintAndCheck(
-                component,
-                expected
+            component,
+            expected
         );
     }
 

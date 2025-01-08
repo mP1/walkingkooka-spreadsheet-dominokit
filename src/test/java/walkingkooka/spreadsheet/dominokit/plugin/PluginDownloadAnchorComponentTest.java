@@ -31,45 +31,45 @@ public final class PluginDownloadAnchorComponentTest implements HtmlElementCompo
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-                PluginDownloadAnchorComponent.empty("Download123")
-                        .setTextContent("Download123!"),
-                "\"Download123!\" DISABLED id=Download123"
+            PluginDownloadAnchorComponent.empty("Download123")
+                .setTextContent("Download123!"),
+            "\"Download123!\" DISABLED id=Download123"
         );
     }
 
     @Test
     public void testSetValueMissingFilename() {
         this.treePrintAndCheck(
-                PluginDownloadAnchorComponent.empty("Download456")
-                        .setTextContent("Download456!")
-                        .setValue(
-                                Optional.of(
-                                        PluginDownload.with(
-                                                PluginName.with("PluginName456"),
-                                                Optional.empty()
-                                        )
-                                )
-                        ),
-                "\"Download456!\" [/api/plugin/PluginName456/download] id=Download456"
+            PluginDownloadAnchorComponent.empty("Download456")
+                .setTextContent("Download456!")
+                .setValue(
+                    Optional.of(
+                        PluginDownload.with(
+                            PluginName.with("PluginName456"),
+                            Optional.empty()
+                        )
+                    )
+                ),
+            "\"Download456!\" [/api/plugin/PluginName456/download] id=Download456"
         );
     }
 
     @Test
     public void testSetValueWithFilename() {
         this.treePrintAndCheck(
-                PluginDownloadAnchorComponent.empty("Download789")
-                        .setTextContent("Download789!")
-                        .setValue(
-                                Optional.of(
-                                        PluginDownload.with(
-                                                PluginName.with("PluginName789"),
-                                                Optional.of(
-                                                        JarEntryInfoName.MANIFEST_MF
-                                                )
-                                        )
-                                )
-                        ),
-                "\"Download789!\" [/api/plugin/PluginName789/download/META-INF/MANIFEST.MF] id=Download789"
+            PluginDownloadAnchorComponent.empty("Download789")
+                .setTextContent("Download789!")
+                .setValue(
+                    Optional.of(
+                        PluginDownload.with(
+                            PluginName.with("PluginName789"),
+                            Optional.of(
+                                JarEntryInfoName.MANIFEST_MF
+                            )
+                        )
+                    )
+                ),
+            "\"Download789!\" [/api/plugin/PluginName789/download/META-INF/MANIFEST.MF] id=Download789"
         );
     }
 

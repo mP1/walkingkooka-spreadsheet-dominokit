@@ -50,8 +50,8 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
 
     private SpreadsheetViewportComponentTable(final HistoryTokenContext context) {
         final TableElement table = ElementsFactory.elements.table()
-                .id(SpreadsheetViewportComponent.ID)
-                .setOverFlow("hidden");
+            .id(SpreadsheetViewportComponent.ID)
+            .setOverFlow("hidden");
         this.columnHeaders = SpreadsheetViewportComponentTableRowColumnHeaders.empty(context);
 
         final THeadElement thead = ElementsFactory.elements.thead();
@@ -91,12 +91,12 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
             this.name = name;
 
             this.columnHeaders.setIdAndName(
-                    id,
-                    name
+                id,
+                name
             );
 
             this.rowsToTableRowCells.values()
-                    .forEach(r -> r.setIdAndName(id, name));
+                .forEach(r -> r.setIdAndName(id, name));
         }
 
         final Set<SpreadsheetRowReference> rows = windows.rows();
@@ -108,9 +108,9 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
             tbody.clearElement();
 
             this.columnHeaders.refresh(
-                    windows,
-                    selected,
-                    context
+                windows,
+                selected,
+                context
             );
 
             final Map<SpreadsheetRowReference, SpreadsheetViewportComponentTableRowCells> oldRowsToTableRowCells = this.rowsToTableRowCells;
@@ -121,13 +121,13 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
                 SpreadsheetViewportComponentTableRowCells tableRowCells = oldRowsToTableRowCells.get(row);
                 if (null == tableRowCells) {
                     tableRowCells = SpreadsheetViewportComponentTableRowCells.empty(
-                            row,
-                            context
+                        row,
+                        context
                     );
                 }
                 newRowsToTableRowCells.put(
-                        row,
-                        tableRowCells
+                    row,
+                    tableRowCells
                 );
                 tbody.appendChild(tableRowCells);
             }
@@ -141,9 +141,9 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
         final List<String> timings = Lists.array();
         {
             this.columnHeaders.refresh(
-                    windows,
-                    selected,
-                    context
+                windows,
+                selected,
+                context
             );
             timings.add(String.valueOf(System.currentTimeMillis() - started));
         }
@@ -152,9 +152,9 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
             final long tableRowCellsStart = System.currentTimeMillis();
 
             tableRowCells.refresh(
-                    windows,
-                    selected,
-                    context
+                windows,
+                selected,
+                context
             );
 
             ended = System.currentTimeMillis();

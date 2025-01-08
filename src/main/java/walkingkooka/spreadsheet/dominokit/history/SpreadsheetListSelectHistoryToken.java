@@ -33,16 +33,16 @@ public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHist
     static SpreadsheetListSelectHistoryToken with(final OptionalInt offset,
                                                   final OptionalInt count) {
         return new SpreadsheetListSelectHistoryToken(
-                checkOffset(offset),
-                count
+            checkOffset(offset),
+            count
         );
     }
 
     private SpreadsheetListSelectHistoryToken(final OptionalInt offset,
                                               final OptionalInt count) {
         super(
-                offset,
-                count
+            offset,
+            count
         );
     }
 
@@ -68,11 +68,11 @@ public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHist
         final OptionalInt count = this.count();
 
         context.spreadsheetMetadataFetcher()
-                .getSpreadsheetMetadatas(
-                        this.offset(),
-                        count.isPresent() ?
-                                count :
-                                context.spreadsheetListDialogComponentDefaultCount()
-                );
+            .getSpreadsheetMetadatas(
+                this.offset(),
+                count.isPresent() ?
+                    count :
+                    context.spreadsheetListDialogComponentDefaultCount()
+            );
     }
 }

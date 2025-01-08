@@ -37,15 +37,15 @@ import java.util.function.Consumer;
  * A {@link walkingkooka.Context} tht accompanies a {@link PluginAliasSetLikeDialogComponent} providing custom values and functionality.
  */
 public interface PluginAliasSetLikeDialogComponentContext<N extends Name & Comparable<N>,
-        I extends PluginInfoLike<I, N>,
-        IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
-        S extends PluginSelectorLike<N>,
-        A extends PluginAliasLike<N, S, A>,
-        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
-        extends CanGiveFocus,
-        SpreadsheetDialogComponentContext,
-        AddPluginAliasSetLikeComponentContext,
-        RemovePluginAliasSetLikeComponentContext {
+    I extends PluginInfoLike<I, N>,
+    IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
+    S extends PluginSelectorLike<N>,
+    A extends PluginAliasLike<N, S, A>,
+    AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
+    extends CanGiveFocus,
+    SpreadsheetDialogComponentContext,
+    AddPluginAliasSetLikeComponentContext,
+    RemovePluginAliasSetLikeComponentContext {
 
     /**
      * Returns the dialog title.

@@ -56,9 +56,9 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
                                                                                       final List<T> values,
                                                                                       final SpreadsheetMetadataPanelComponentContext context) {
         return SpreadsheetMetadataPanelComponentItemEnum.with(
-                propertyName,
-                values,
-                context
+            propertyName,
+            values,
+            context
         );
     }
 
@@ -69,7 +69,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
         checkContext(context);
 
         return SpreadsheetMetadataPanelComponentItemDateTimeOffset.with(
-                context
+            context
         );
     }
 
@@ -78,7 +78,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
      */
     static SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount generalFormatNumberDigitCount(final SpreadsheetMetadataPanelComponentContext context) {
         return SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount.with(
-                context
+            context
         );
     }
 
@@ -88,8 +88,8 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     public static <T> SpreadsheetMetadataPanelComponentItemAnchor<T> link(final SpreadsheetMetadataPropertyName<T> propertyName,
                                                                           final SpreadsheetMetadataPanelComponentContext context) {
         return SpreadsheetMetadataPanelComponentItemAnchor.with(
-                propertyName,
-                context
+            propertyName,
+            context
         );
     }
 
@@ -101,10 +101,10 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
                                                               final int max,
                                                               final SpreadsheetMetadataPanelComponentContext context) {
         return SpreadsheetMetadataPanelComponentItemNumber.with(
-                propertyName,
-                min,
-                max,
-                context
+            propertyName,
+            min,
+            max,
+            context
         );
     }
 
@@ -113,7 +113,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
      */
     static SpreadsheetMetadataPanelComponentItemPrecision precision(final SpreadsheetMetadataPanelComponentContext context) {
         return SpreadsheetMetadataPanelComponentItemPrecision.with(
-                context
+            context
         );
     }
 
@@ -124,9 +124,9 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
                                                                      final Function<T, String> formatter,
                                                                      final SpreadsheetMetadataPanelComponentContext context) {
         return SpreadsheetMetadataPanelComponentItemReadOnlyText.with(
-                propertyName,
-                formatter,
-                context
+            propertyName,
+            formatter,
+            context
         );
     }
 
@@ -135,7 +135,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
      */
     static SpreadsheetMetadataPanelComponentItemSpreadsheetName spreadsheetName(final SpreadsheetMetadataPanelComponentContext context) {
         return SpreadsheetMetadataPanelComponentItemSpreadsheetName.with(
-                context
+            context
         );
     }
 
@@ -145,8 +145,8 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     static SpreadsheetMetadataPanelComponentItemText text(final SpreadsheetMetadataPropertyName<String> propertyName,
                                                           final SpreadsheetMetadataPanelComponentContext context) {
         return SpreadsheetMetadataPanelComponentItemText.with(
-                propertyName,
-                context
+            propertyName,
+            context
         );
     }
 
@@ -183,10 +183,10 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
     final HistoryTokenAnchorComponent defaultValueAnchor() {
         final SpreadsheetMetadataPanelComponentContext context = this.context;
         return context.historyToken()
-                .link(SpreadsheetMetadataPanelComponent.id(this.propertyName) + "-default")
-                .setTabIndex(0)
-                .addPushHistoryToken(context)
-                .setTextContent("default");
+            .link(SpreadsheetMetadataPanelComponent.id(this.propertyName) + "-default")
+            .setTabIndex(0)
+            .addPushHistoryToken(context)
+            .setTextContent("default");
     }
 
     /**
@@ -198,24 +198,24 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
         final SpreadsheetMetadataPanelComponentContext context = this.context;
 
         anchor.setHistoryToken(
-                Optional.of(
-                        context.historyToken()
-                                .setMetadataPropertyName(propertyName)
-                                .clearSave()
-                )
+            Optional.of(
+                context.historyToken()
+                    .setMetadataPropertyName(propertyName)
+                    .clearSave()
+            )
         );
 
         // if value absent must be using default so disable
         anchor.setDisabled(
-                false == context.spreadsheetMetadata()
-                        .getIgnoringDefaults(propertyName)
-                        .isPresent()
+            false == context.spreadsheetMetadata()
+                .getIgnoringDefaults(propertyName)
+                .isPresent()
         );
 
         SpreadsheetTooltipComponent.attach(
-                anchor,
-                newTooltip,
-                DropDirection.BOTTOM_MIDDLE
+            anchor,
+            newTooltip,
+            DropDirection.BOTTOM_MIDDLE
         );
     }
 
@@ -233,35 +233,35 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
         };
 
         integerBox.addEventListener(
-                EventType.change.getName(),
-                (final Event event) -> this.saveIntegerValue(integerBox)
+            EventType.change.getName(),
+            (final Event event) -> this.saveIntegerValue(integerBox)
         ).addEventListener(
-                EventType.keydown.getName(),
-                (final Event event) -> {
-                    final KeyboardEvent keyboardEvent = Js.cast(event);
-                    switch (Key.fromEvent(keyboardEvent)) {
-                        case Enter:
-                            event.preventDefault();
-                            this.saveIntegerValue(integerBox);
-                            break;
-                        default:
-                            // ignore other keys
-                            break;
-                    }
+            EventType.keydown.getName(),
+            (final Event event) -> {
+                final KeyboardEvent keyboardEvent = Js.cast(event);
+                switch (Key.fromEvent(keyboardEvent)) {
+                    case Enter:
+                        event.preventDefault();
+                        this.saveIntegerValue(integerBox);
+                        break;
+                    default:
+                        // ignore other keys
+                        break;
                 }
+            }
         ).apply(
-                self ->
-                        self.appendChild(
-                                PostfixAddOn.of(
-                                        SpreadsheetIcons.close()
-                                                .clickable()
-                                                .addClickListener((e) -> self.clear())
-                                )
-                        )
+            self ->
+                self.appendChild(
+                    PostfixAddOn.of(
+                        SpreadsheetIcons.close()
+                            .clickable()
+                            .addClickListener((e) -> self.clear())
+                    )
+                )
         );
 
         return integerBox.setWidth(TEXT_BOX_WIDTH)
-                .setMarginBottom("0");
+            .setMarginBottom("0");
     }
 
     private void saveIntegerValue(final IntegerBox integerBox) {
@@ -280,36 +280,36 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
         final TextBox textBox = new TextBox();
 
         textBox.addEventListener(
-                EventType.change,
-                (final Event event) -> this.saveText(textBox)
+            EventType.change,
+            (final Event event) -> this.saveText(textBox)
         ).addEventListener(
-                EventType.keydown,
-                (final Event event) -> {
-                    final KeyboardEvent keyboardEvent = Js.cast(event);
-                    switch (Key.fromEvent(keyboardEvent)) {
-                        case Enter:
-                            event.preventDefault();
-                            this.saveText(textBox);
-                            break;
-                        default:
-                            // ignore other keys
-                            break;
-                    }
+            EventType.keydown,
+            (final Event event) -> {
+                final KeyboardEvent keyboardEvent = Js.cast(event);
+                switch (Key.fromEvent(keyboardEvent)) {
+                    case Enter:
+                        event.preventDefault();
+                        this.saveText(textBox);
+                        break;
+                    default:
+                        // ignore other keys
+                        break;
                 }
+            }
         ).apply(
-                self ->
-                        self.appendChild(
-                                PostfixAddOn.of(
-                                        SpreadsheetIcons.close()
-                                                .clickable()
-                                                .addClickListener((e) -> self.clear())
-                                )
-                        )
+            self ->
+                self.appendChild(
+                    PostfixAddOn.of(
+                        SpreadsheetIcons.close()
+                            .clickable()
+                            .addClickListener((e) -> self.clear())
+                    )
+                )
         );
 
         // clear the margin-bottom: 16px
         return textBox.setWidth(TEXT_BOX_WIDTH)
-                .setMarginBottom("0");
+            .setMarginBottom("0");
     }
 
     private void saveText(final TextBox textBox) {
@@ -330,29 +330,29 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
         context.debug(this.getClass().getSimpleName() + ".save " + propertyName + "=" + CharSequences.quoteAndEscape(saveText));
 
         context.save(
-                propertyName,
-                saveText
+            propertyName,
+            saveText
         );
     }
 
     final UListElement uListElement() {
         final UListElement element = ElementsFactory.elements.ul();
         element.style()
-                .setCssProperty("list-style-type", "none")
-                .setDisplay("flex")
-                .setCssProperty("flex-wrap", "wrap")
-                .setCssProperty("justify-content", "flex-start")
-                .setCssProperty("align-items", "center")
-                .setMargin("0px")
-                .setPaddingLeft("0");
+            .setCssProperty("list-style-type", "none")
+            .setDisplay("flex")
+            .setCssProperty("flex-wrap", "wrap")
+            .setCssProperty("justify-content", "flex-start")
+            .setCssProperty("align-items", "center")
+            .setMargin("0px")
+            .setPaddingLeft("0");
         return element;
     }
 
     final LIElement liElement() {
         final LIElement element = ElementsFactory.elements.li();
         element.style()
-                .setDisplay("flex")
-                .setPadding("0px");
+            .setDisplay("flex")
+            .setPadding("0px");
         return element;
     }
 

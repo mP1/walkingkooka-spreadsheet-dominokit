@@ -31,8 +31,8 @@ public abstract class SpreadsheetIdHistoryTokenTestCase<T extends SpreadsheetHis
     @Test
     public final void testWithNullIdFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken(null)
+            NullPointerException.class,
+            () -> this.createHistoryToken(null)
         );
     }
 

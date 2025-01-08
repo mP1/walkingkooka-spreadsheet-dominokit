@@ -36,7 +36,7 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
 
     static SpreadsheetLoadHistoryToken with(final SpreadsheetId id) {
         return new SpreadsheetLoadHistoryToken(
-                id
+            id
         );
     }
 
@@ -53,16 +53,16 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     HistoryToken parse0(final String component,
                         final TextCursor cursor) {
         return spreadsheetSelect(
-                this.id(),
-                SpreadsheetName.with(component)
+            this.id(),
+            SpreadsheetName.with(component)
         ).parse(cursor);
     }
 
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.spreadsheetListSelect(
-                OptionalInt.empty(), // from
-                OptionalInt.empty() // count
+            OptionalInt.empty(), // from
+            OptionalInt.empty() // count
         );
     }
 
@@ -70,8 +70,8 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return spreadsheetSelect(
-                id,
-                name
+            id,
+            name
         );
     }
 
@@ -84,8 +84,8 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.loadSpreadsheetMetadataAndPushPreviousIfFails(
-                this.id(),
-                previous
+            this.id(),
+            previous
         );
     }
 }

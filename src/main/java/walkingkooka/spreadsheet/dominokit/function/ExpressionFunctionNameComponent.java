@@ -34,8 +34,8 @@ public final class ExpressionFunctionNameComponent implements ValueSpreadsheetTe
 
     private ExpressionFunctionNameComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                ExpressionFunctionName::with,
-                ExpressionFunctionName::toString
+            ExpressionFunctionName::with,
+            ExpressionFunctionName::toString
         );
     }
 

@@ -46,10 +46,10 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
                                                           final AnchoredSpreadsheetSelection anchoredSelection,
                                                           final SpreadsheetCellClipboardKind kind) {
         return new SpreadsheetCellClipboardPasteHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                kind
+            id,
+            name,
+            anchoredSelection,
+            kind
         );
     }
 
@@ -58,10 +58,10 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final SpreadsheetCellClipboardKind kind) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                kind
+            id,
+            name,
+            anchoredSelection,
+            kind
         );
     }
 
@@ -70,10 +70,10 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellClipboardPasteHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                this.kind()
+            id,
+            name,
+            anchoredSelection,
+            this.kind()
         );
     }
 
@@ -85,36 +85,36 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
     @Override
     void onHistoryTokenChangeClipboard(final AppContext context) {
         final SpreadsheetCellRangeReference cellRange = context.spreadsheetViewportCache()
-                .resolveIfLabel(
-                        SpreadsheetCellClipboardPasteHistoryToken.this.anchoredSelection()
-                                .selection()
-                ).toCellRange();
+            .resolveIfLabel(
+                SpreadsheetCellClipboardPasteHistoryToken.this.anchoredSelection()
+                    .selection()
+            ).toCellRange();
 
         context.readClipboardItem(
-                Predicates.is(ClipboardTextItem.MEDIA_TYPE),
-                new ClipboardContextReadWatcher() {
-                    @Override
-                    public void onSuccess(final List<ClipboardTextItem> items) {
-                        final SpreadsheetCellClipboardPasteHistoryToken that = SpreadsheetCellClipboardPasteHistoryToken.this;
-                        final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
-                        final SpreadsheetId id = that.id();
-                        final SpreadsheetCellClipboardKind kind = that.kind();
+            Predicates.is(ClipboardTextItem.MEDIA_TYPE),
+            new ClipboardContextReadWatcher() {
+                @Override
+                public void onSuccess(final List<ClipboardTextItem> items) {
+                    final SpreadsheetCellClipboardPasteHistoryToken that = SpreadsheetCellClipboardPasteHistoryToken.this;
+                    final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
+                    final SpreadsheetId id = that.id();
+                    final SpreadsheetCellClipboardKind kind = that.kind();
 
-                        for (final ClipboardTextItem item : items) {
-                            kind.saveOrUpdateCells(
-                                    fetcher,
-                                    id,
-                                    item.toSpreadsheetCellRange(context)
-                                            .move(cellRange)
-                            );
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(final Object cause) {
-                        context.error("Paste failed", cause);
+                    for (final ClipboardTextItem item : items) {
+                        kind.saveOrUpdateCells(
+                            fetcher,
+                            id,
+                            item.toSpreadsheetCellRange(context)
+                                .move(cellRange)
+                        );
                     }
                 }
+
+                @Override
+                public void onFailure(final Object cause) {
+                    context.error("Paste failed", cause);
+                }
+            }
         );
     }
 }

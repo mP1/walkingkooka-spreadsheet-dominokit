@@ -32,16 +32,16 @@ import java.util.Optional;
  * An anchor that maps to {@link walkingkooka.spreadsheet.dominokit.history.PluginUploadSaveHistoryToken}.
  */
 public final class PluginUploadSaveAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, PluginUploadSaveAnchorComponent>,
-        AnchorComponentLikeDelegator<PluginUploadSaveAnchorComponent> {
+    AnchorComponentLikeDelegator<PluginUploadSaveAnchorComponent> {
 
     public static PluginUploadSaveAnchorComponent empty(final String id) {
         return new PluginUploadSaveAnchorComponent()
-                .setId(id);
+            .setId(id);
     }
 
     private PluginUploadSaveAnchorComponent() {
         this.component = HistoryTokenAnchorComponent.empty()
-                .setDisabled(true);
+            .setDisabled(true);
     }
 
     public PluginUploadSaveAnchorComponent clearValue() {
@@ -52,9 +52,9 @@ public final class PluginUploadSaveAnchorComponent implements HtmlElementCompone
         Objects.requireNonNull(file, "file");
 
         this.component.setHistoryToken(
-                file.map(
-                        HistoryToken::pluginUploadSave
-                )
+            file.map(
+                HistoryToken::pluginUploadSave
+            )
         );
         return this;
     }

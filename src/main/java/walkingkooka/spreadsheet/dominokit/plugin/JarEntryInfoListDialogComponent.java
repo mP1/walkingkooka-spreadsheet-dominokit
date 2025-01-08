@@ -43,9 +43,9 @@ import java.util.Optional;
  * A dialog that includes a table showing all the entries for a JAR file, along with delete, download and close links.
  */
 public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        PluginFetcherWatcher,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher {
+    PluginFetcherWatcher,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher {
 
     public static JarEntryInfoListDialogComponent with(final JarEntryInfoListDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
@@ -62,11 +62,11 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
         this.table = this.table();
 
         this.delete = PluginDeleteAnchorComponent.empty(
-                        ID_PREFIX + "delete" + SpreadsheetElementIds.LINK
-                ).setTextContent("Delete");
+            ID_PREFIX + "delete" + SpreadsheetElementIds.LINK
+        ).setTextContent("Delete");
         this.download = PluginDownloadAnchorComponent.empty(
-                        ID_PREFIX + "download" + SpreadsheetElementIds.LINK
-                ).setTextContent("Download");
+            ID_PREFIX + "download" + SpreadsheetElementIds.LINK
+        ).setTextContent("Download");
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate(context);
@@ -76,8 +76,8 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
 
     private JarEntryInfoListTableComponent table() {
         return JarEntryInfoListTableComponent.empty(
-                ID_PREFIX,
-                this.context
+            ID_PREFIX,
+            this.context
         );
     }
 
@@ -87,9 +87,9 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
 
     private void refreshClose(final HistoryTokenContext context) {
         this.close.setHistoryToken(
-                Optional.of(
-                        context.historyToken().close()
-                )
+            Optional.of(
+                context.historyToken().close()
+            )
         );
     }
 
@@ -99,7 +99,7 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
 
     private void refreshDelete() {
         this.delete.setValue(
-                Optional.ofNullable(this.pluginName)
+            Optional.ofNullable(this.pluginName)
         );
     }
 
@@ -110,14 +110,14 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
     private void refreshDownload() {
         final PluginName pluginName = this.pluginName;
         this.download.setValue(
-                Optional.ofNullable(
-                        null == pluginName ?
-                                null :
-                                PluginDownload.with(
-                                        pluginName,
-                                        Optional.empty() // no file, want archive
-                                )
-                )
+            Optional.ofNullable(
+                null == pluginName ?
+                    null :
+                    PluginDownload.with(
+                        pluginName,
+                        Optional.empty() // no file, want archive
+                    )
+            )
         );
     }
 
@@ -128,17 +128,17 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
     // TODO add DELETE, RENAME links
     private SpreadsheetDialogComponent dialogCreate(final JarEntryInfoListDialogComponentContext context) {
         return SpreadsheetDialogComponent.with(
-                        ID + SpreadsheetElementIds.DIALOG, // id
-                        "Plugin", // title
-                        true, // includeClose
-                        context
-                ).appendChild(this.table)
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(this.delete)
-                                .appendChild(this.download)
-                                .appendChild(this.close)
-                );
+                ID + SpreadsheetElementIds.DIALOG, // id
+                "Plugin", // title
+                true, // includeClose
+                context
+            ).appendChild(this.table)
+            .appendChild(
+                SpreadsheetFlexLayout.row()
+                    .appendChild(this.delete)
+                    .appendChild(this.download)
+                    .appendChild(this.close)
+            );
     }
 
     @Override
@@ -219,7 +219,7 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
     @Override
     public void openGiveFocus(final RefreshContext context) {
         final PluginSelectHistoryToken select = context.historyToken()
-                .cast(PluginSelectHistoryToken.class);
+            .cast(PluginSelectHistoryToken.class);
         this.pluginName = select.name();
 
         this.context.listJarEntries(
@@ -230,9 +230,9 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
     @Override
     public void refresh(final RefreshContext context) {
         this.dialog.setTitle(
-                Optional.ofNullable(this.pluginName)
-                        .map(PluginName::value)
-                        .orElse("Loading...")
+            Optional.ofNullable(this.pluginName)
+                .map(PluginName::value)
+                .orElse("Loading...")
         );
         this.table.setList(this.list);
 

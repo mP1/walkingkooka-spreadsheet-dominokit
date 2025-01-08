@@ -32,25 +32,25 @@ public final class SpreadsheetColumnFreezeHistoryTokenTest extends SpreadsheetCo
     @Test
     public void testUrlFragmentColumn() {
         this.urlFragmentAndCheck(
-                COLUMN,
-                "/123/SpreadsheetName456/column/A/freeze");
+            COLUMN,
+            "/123/SpreadsheetName456/column/A/freeze");
     }
 
     @Test
     public void testUrlFragmentColumnRange() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.parseColumnRange("A:B").setAnchor(SpreadsheetViewportAnchor.RIGHT),
-                "/123/SpreadsheetName456/column/A:B/right/freeze"
+            SpreadsheetSelection.parseColumnRange("A:B").setAnchor(SpreadsheetViewportAnchor.RIGHT),
+            "/123/SpreadsheetName456/column/A:B/right/freeze"
         );
     }
 
     @Test
     public void testUrlFragmentColumnRangeInvalidFails() {
         assertThrows(
-                SpreadsheetMetadataPropertyValueException.class,
-                () -> this.createHistoryToken(
-                        SpreadsheetSelection.parseColumnRange("B:C").setAnchor(SpreadsheetViewportAnchor.RIGHT)
-                )
+            SpreadsheetMetadataPropertyValueException.class,
+            () -> this.createHistoryToken(
+                SpreadsheetSelection.parseColumnRange("B:C").setAnchor(SpreadsheetViewportAnchor.RIGHT)
+            )
         );
     }
 
@@ -61,9 +61,9 @@ public final class SpreadsheetColumnFreezeHistoryTokenTest extends SpreadsheetCo
                                                            final SpreadsheetName name,
                                                            final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetColumnFreezeHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

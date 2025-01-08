@@ -59,28 +59,28 @@ final class SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredi
     public boolean test(final ParserToken token) {
         boolean test = false;
 
-        if(token instanceof SpreadsheetParserToken) {
+        if (token instanceof SpreadsheetParserToken) {
             final SpreadsheetParserToken spreadsheetParserToken = token.cast(SpreadsheetParserToken.class);
 
             if (spreadsheetParserToken.isNamedFunction()) {
                 final SpreadsheetNamedFunctionParserToken namedFunction = (SpreadsheetNamedFunctionParserToken) spreadsheetParserToken;
                 final ExpressionFunctionName functionName = namedFunction.functionName()
-                        .toExpressionFunctionName();
+                    .toExpressionFunctionName();
 
                 if (SpreadsheetExpressionFunctions.TEXT_MATCH.equals(functionName)) {
                     final List<ParserToken> parameters = namedFunction.parameters()
-                            .parameters();
+                        .parameters();
 
                     switch (parameters.size()) {
                         case 2:
                             test = isCellGetterFunction(
-                                    parameters.get(0)
-                                            .cast(SpreadsheetParserToken.class)
+                                parameters.get(0)
+                                    .cast(SpreadsheetParserToken.class)
                             ) ||
-                                    isCellGetterFunction(
-                                            parameters.get(1)
-                                                    .cast(SpreadsheetParserToken.class)
-                                    );
+                                isCellGetterFunction(
+                                    parameters.get(1)
+                                        .cast(SpreadsheetParserToken.class)
+                                );
                             break;
                         default:
                             break;
@@ -98,7 +98,7 @@ final class SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredi
         if (token.isNamedFunction()) {
             final SpreadsheetNamedFunctionParserToken namedFunction = (SpreadsheetNamedFunctionParserToken) token;
             final ExpressionFunctionName functionName = namedFunction.functionName()
-                    .toExpressionFunctionName();
+                .toExpressionFunctionName();
 
             // callFormula()
             // callFormatter()
@@ -107,7 +107,7 @@ final class SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredi
             // callFormattedValue()
             if (this.getter.equals(functionName)) {
                 final List<ParserToken> parameters = namedFunction.parameters()
-                        .parameters();
+                    .parameters();
                 switch (parameters.size()) {
                     case 0:
                         test = true;

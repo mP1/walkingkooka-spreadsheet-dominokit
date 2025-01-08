@@ -27,35 +27,35 @@ public final class SpreadsheetListRenameSaveHistoryTokenTest extends Spreadsheet
     @Test
     public void testWithNullValueFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetListRenameSaveHistoryToken.with(
-                        ID,
-                        null
-                )
+            NullPointerException.class,
+            () -> SpreadsheetListRenameSaveHistoryToken.with(
+                ID,
+                null
+            )
         );
     }
 
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(),
-                "/rename/123/save/" + NAME
+            this.createHistoryToken(),
+            "/rename/123/save/" + NAME
         );
     }
 
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.spreadsheetListRenameSelect(ID)
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetListRenameSelect(ID)
         );
     }
 
     @Override
     SpreadsheetListRenameSaveHistoryToken createHistoryToken(final SpreadsheetId id) {
         return SpreadsheetListRenameSaveHistoryToken.with(
-                id,
-                NAME
+            id,
+            NAME
         );
     }
 

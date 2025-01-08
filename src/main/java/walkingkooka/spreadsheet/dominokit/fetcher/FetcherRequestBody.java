@@ -37,7 +37,7 @@ public abstract class FetcherRequestBody<T> implements Value<T> {
     /**
      * {@see FetcherRequestBodyString}
      */
-    public static FetcherRequestBody<String> string(final String  value) {
+    public static FetcherRequestBody<String> string(final String value) {
         return FetcherRequestBodyString.with(value);
     }
 

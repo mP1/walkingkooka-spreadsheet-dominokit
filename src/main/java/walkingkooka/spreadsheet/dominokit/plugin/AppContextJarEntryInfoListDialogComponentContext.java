@@ -29,12 +29,12 @@ import java.util.Locale;
 import java.util.Objects;
 
 final class AppContextJarEntryInfoListDialogComponentContext implements JarEntryInfoListDialogComponentContext,
-        HasPluginFetcherWatchersDelegator,
-        SpreadsheetDialogComponentContextDelegator {
+    HasPluginFetcherWatchersDelegator,
+    SpreadsheetDialogComponentContextDelegator {
 
     static AppContextJarEntryInfoListDialogComponentContext with(final AppContext context) {
         return new AppContextJarEntryInfoListDialogComponentContext(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -45,8 +45,8 @@ final class AppContextJarEntryInfoListDialogComponentContext implements JarEntry
     @Override
     public PluginName pluginName() {
         return this.historyToken()
-                .cast(PluginSelectHistoryToken.class)
-                .name();
+            .cast(PluginSelectHistoryToken.class)
+            .name();
     }
 
     @Override
@@ -57,7 +57,7 @@ final class AppContextJarEntryInfoListDialogComponentContext implements JarEntry
     @Override
     public void listJarEntries(final PluginName pluginName) {
         this.context.pluginFetcher()
-                .listJarEntries(pluginName);
+            .listJarEntries(pluginName);
     }
 
     // HasPluginFetcherWatchersDelegator................................................................................

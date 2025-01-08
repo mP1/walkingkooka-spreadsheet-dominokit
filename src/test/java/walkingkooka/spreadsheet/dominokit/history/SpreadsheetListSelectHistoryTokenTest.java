@@ -26,44 +26,44 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     @Test
     public void testParseInvalidOffset() {
         this.parseAndCheck(
-                "/*/offset/X",
-                SpreadsheetListSelectHistoryToken.with(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "/*/offset/X",
+            SpreadsheetListSelectHistoryToken.with(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParseOffset() {
         this.parseAndCheck(
-                "/*/offset/10",
-                SpreadsheetListSelectHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.empty() // count
-                )
+            "/*/offset/10",
+            SpreadsheetListSelectHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParseCount() {
         this.parseAndCheck(
-                "/*/count/20",
-                SpreadsheetListSelectHistoryToken.with(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.of(20) // count
-                )
+            "/*/count/20",
+            SpreadsheetListSelectHistoryToken.with(
+                OptionalInt.empty(), // offset
+                OptionalInt.of(20) // count
+            )
         );
     }
 
     @Test
     public void testParseOffsetAndCount() {
         this.parseAndCheck(
-                "/*/offset/10/count/20",
-                SpreadsheetListSelectHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.of(20) // count
-                )
+            "/*/offset/10/count/20",
+            SpreadsheetListSelectHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.of(20) // count
+            )
         );
     }
 
@@ -75,22 +75,22 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     @Test
     public void testUrlFragmentOffset() {
         this.urlFragmentAndCheck(
-                SpreadsheetListSelectHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.empty() // count
-                ),
-                "/*/offset/10"
+            SpreadsheetListSelectHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.empty() // count
+            ),
+            "/*/offset/10"
         );
     }
 
     @Test
     public void testUrlFragmentOffsetAndCount() {
         this.urlFragmentAndCheck(
-                SpreadsheetListSelectHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.of(20) // count
-                ),
-                "/*/offset/10/count/20"
+            SpreadsheetListSelectHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.of(20) // count
+            ),
+            "/*/offset/10/count/20"
         );
     }
 
@@ -102,11 +102,11 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     @Test
     public void testReload() {
         this.reloadAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.spreadsheetListReload(
-                        OFFSET,
-                        COUNT
-                )
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetListReload(
+                OFFSET,
+                COUNT
+            )
         );
     }
 
@@ -114,8 +114,8 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     SpreadsheetListSelectHistoryToken createHistoryToken(final OptionalInt offset,
                                                          final OptionalInt count) {
         return SpreadsheetListSelectHistoryToken.with(
-                offset,
-                count
+            offset,
+            count
         );
     }
 

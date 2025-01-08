@@ -28,11 +28,11 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
     @Test
     public void testParseMissingSpreadsheetId() {
         this.parseAndCheck(
-                "/delete",
-                HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // from
-                        OptionalInt.empty() // count
-                )
+            "/delete",
+            HistoryToken.spreadsheetListSelect(
+                OptionalInt.empty(), // from
+                OptionalInt.empty() // count
+            )
         );
     }
 
@@ -44,11 +44,11 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // from
-                        OptionalInt.empty() // count
-                )
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetListSelect(
+                OptionalInt.empty(), // from
+                OptionalInt.empty() // count
+            )
         );
     }
 
@@ -57,23 +57,23 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
         final SpreadsheetListDeleteHistoryToken token = this.createHistoryToken();
 
         this.setAnchoredSelectionAndCheck(
-                token,
-                token
+            token,
+            token
         );
     }
 
     @Test
     public void testSetMetadataPropertyName() {
         this.setMetadataPropertyNameAndCheck(
-                SpreadsheetMetadataPropertyName.LOCALE,
-                this.createHistoryToken()
+            SpreadsheetMetadataPropertyName.LOCALE,
+            this.createHistoryToken()
         );
     }
 
     @Test
     public void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 

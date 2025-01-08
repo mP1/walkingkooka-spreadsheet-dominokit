@@ -27,8 +27,8 @@ public final class AppContextSpreadsheetColumnRowInsertCountDialogComponentConte
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> AppContextSpreadsheetColumnRowInsertCountDialogComponentContext.with(null)
+            NullPointerException.class,
+            () -> AppContextSpreadsheetColumnRowInsertCountDialogComponentContext.with(null)
         );
     }
 

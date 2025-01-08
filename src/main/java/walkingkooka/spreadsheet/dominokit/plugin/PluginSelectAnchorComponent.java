@@ -33,18 +33,18 @@ import java.util.Optional;
  * An anchor that updates the {@link HistoryToken} with a given {@link PluginName}.
  */
 public final class PluginSelectAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, PluginSelectAnchorComponent>,
-        AnchorComponentLikeDelegator<PluginSelectAnchorComponent> {
+    AnchorComponentLikeDelegator<PluginSelectAnchorComponent> {
 
     public static PluginSelectAnchorComponent empty(final String id) {
         return new PluginSelectAnchorComponent()
-                .setId(id);
+            .setId(id);
     }
 
     private PluginSelectAnchorComponent() {
         this.component = ValueHistoryTokenAnchorComponent.with(
-                HistoryTokenAnchorComponent.empty(),
-                this::getter,
-                this::setter
+            HistoryTokenAnchorComponent.empty(),
+            this::getter,
+            this::setter
         );
     }
 
@@ -53,13 +53,13 @@ public final class PluginSelectAnchorComponent implements HtmlElementComponent<H
      */
     private Optional<PluginName> getter(final HistoryTokenAnchorComponent anchor) {
         return anchor.historyToken()
-                .map(t -> t.cast(PluginSelectHistoryToken.class).name());
+            .map(t -> t.cast(PluginSelectHistoryToken.class).name());
     }
 
     private void setter(final Optional<PluginName> value,
                         final HistoryTokenAnchorComponent anchor) {
         anchor.setHistoryToken(
-                value.map(v -> HistoryToken.pluginSelect(v))
+            value.map(v -> HistoryToken.pluginSelect(v))
         );
     }
 

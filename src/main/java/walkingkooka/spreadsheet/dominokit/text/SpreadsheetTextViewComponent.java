@@ -52,7 +52,7 @@ public final class SpreadsheetTextViewComponent extends SpreadsheetTextViewCompo
     @Override
     public SpreadsheetTextViewComponent setValue(final Optional<String> value) {
         this.element.setTextContent(
-                value.orElse("")
+            value.orElse("")
         );
         return this;
     }
@@ -62,13 +62,13 @@ public final class SpreadsheetTextViewComponent extends SpreadsheetTextViewCompo
         final String value = this.element.getTextContent();
 
         return Optional.ofNullable(
-                CharSequences.isNullOrEmpty(value ) ?
-                        null :
-                        value
+            CharSequences.isNullOrEmpty(value) ?
+                null :
+                value
         );
     }
 
-    @Override 
+    @Override
     public SpreadsheetTextViewComponent setCssText(final String css) {
         this.element.cssText(css);
         return this;

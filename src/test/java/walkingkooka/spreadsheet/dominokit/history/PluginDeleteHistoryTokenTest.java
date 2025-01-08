@@ -34,11 +34,11 @@ public final class PluginDeleteHistoryTokenTest extends PluginNameHistoryTokenTe
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.pluginListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            this.createHistoryToken(),
+            HistoryToken.pluginListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 

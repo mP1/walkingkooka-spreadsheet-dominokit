@@ -49,10 +49,10 @@ import java.util.Set;
  * A model dialog with several textboxes that allow creation, editing, saving and deletion of a {@link SpreadsheetLabelMapping}.
  */
 public final class SpreadsheetLabelMappingDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher {
+    LoadedSpreadsheetMetadataRequired,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher,
+    SpreadsheetDeltaFetcherWatcher {
 
     /**
      * Creates a new {@link SpreadsheetLabelMappingDialogComponent}.
@@ -94,19 +94,19 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         final SpreadsheetLabelMappingDialogComponentContext context = this.context;
 
         return SpreadsheetDialogComponent.with(
-                        ID + SpreadsheetElementIds.DIALOG,
-                        "Label",
-                        true, // includeClose
-                        context
-                ).appendChild(this.label)
-                .appendChild(this.target)
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(this.save)
-                                .appendChild(this.undo)
-                                .appendChild(this.delete)
-                                .appendChild(this.close)
-                );
+                ID + SpreadsheetElementIds.DIALOG,
+                "Label",
+                true, // includeClose
+                context
+            ).appendChild(this.label)
+            .appendChild(this.target)
+            .appendChild(
+                SpreadsheetFlexLayout.row()
+                    .appendChild(this.save)
+                    .appendChild(this.undo)
+                    .appendChild(this.delete)
+                    .appendChild(this.close)
+            );
     }
 
     private final SpreadsheetDialogComponent dialog;
@@ -133,12 +133,12 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private SpreadsheetLabelComponent label(final Context context) {
         return SpreadsheetLabelComponent.with(context)
-                .setId(ID_PREFIX + "label-TextBox")
-                .setLabel("Label")
-                .required()
-                .addChangeListener(
-                        (oldValue, newValue) -> this.refreshLinksAndLoadLabels()
-                );
+            .setId(ID_PREFIX + "label-TextBox")
+            .setLabel("Label")
+            .required()
+            .addChangeListener(
+                (oldValue, newValue) -> this.refreshLinksAndLoadLabels()
+            );
     }
 
     private final SpreadsheetLabelComponent label;
@@ -150,13 +150,13 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
      */
     private SpreadsheetExpressionReferenceComponent target() {
         return SpreadsheetExpressionReferenceComponent.empty()
-                .setId(ID_PREFIX + "target-TextBox")
-                .setLabel("Cell, cell range or Label")
-                .addChangeListener(
-                        (oldValue, newValue) -> this.refreshLinksAndLoadLabels()
-                ).addKeyupListener(
-                        (e) -> this.refreshLinksAndLoadLabels()
-                );
+            .setId(ID_PREFIX + "target-TextBox")
+            .setLabel("Cell, cell range or Label")
+            .addChangeListener(
+                (oldValue, newValue) -> this.refreshLinksAndLoadLabels()
+            ).addKeyupListener(
+                (e) -> this.refreshLinksAndLoadLabels()
+            );
     }
 
     private final SpreadsheetExpressionReferenceComponent target;
@@ -166,13 +166,13 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         final Optional<SpreadsheetExpressionReference> target = this.target.value();
 
         this.save.setHistoryToken(
-                Optional.ofNullable(
-                        label.isPresent() && target.isPresent() ?
-                                this.context.historyToken()
-                                        .setLabelName(label)
-                                        .save(target) :
-                                null
-                )
+            Optional.ofNullable(
+                label.isPresent() && target.isPresent() ?
+                    this.context.historyToken()
+                        .setLabelName(label)
+                        .save(target) :
+                    null
+            )
         );
     }
 
@@ -183,14 +183,14 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
      */
     private void refreshUndo() {
         this.undo.setHistoryToken(
-                Optional.of(
-                        this.context.historyToken()
-                                .setLabelName(
-                                        this.undoLabel
-                                ).save(
-                                        this.undoTarget
-                                )
-                )
+            Optional.of(
+                this.context.historyToken()
+                    .setLabelName(
+                        this.undoLabel
+                    ).save(
+                        this.undoTarget
+                    )
+            )
         );
     }
 
@@ -204,13 +204,13 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         final Optional<SpreadsheetLabelName> label = this.label.value();
 
         this.delete.setHistoryToken(
-                Optional.ofNullable(
-                        label.isPresent() ?
-                                this.context.historyToken()
-                                        .setLabelName(label)
-                                        .delete() :
-                                null
-                )
+            Optional.ofNullable(
+                label.isPresent() ?
+                    this.context.historyToken()
+                        .setLabelName(label)
+                        .delete() :
+                    null
+            )
         );
     }
 
@@ -220,10 +220,10 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private void refreshClose() {
         this.close.setHistoryToken(
-                Optional.ofNullable(
-                        this.context.historyToken()
-                                .close()
-                )
+            Optional.ofNullable(
+                this.context.historyToken()
+                    .close()
+            )
         );
     }
 
@@ -253,18 +253,18 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
         try {
             final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
-                    .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
+                .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
             this.label.setValue(
-                    token.labelName()
+                token.labelName()
             );
             this.target.setValue(
-                    Cast.to(
-                            token.anchoredSelectionOrEmpty()
-                                    .map(AnchoredSpreadsheetSelection::selection)
-                    )
+                Cast.to(
+                    token.anchoredSelectionOrEmpty()
+                        .map(AnchoredSpreadsheetSelection::selection)
+                )
             );
             loadLabel = token.labelName()
-                    .isPresent();
+                .isPresent();
         } catch (final RuntimeException ignore) {
             this.label.clearValue();
             this.target.clearValue();
@@ -276,7 +276,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         this.loaded = null;
 
         context.giveFocus(
-                this.label::focus
+            this.label::focus
         );
     }
 
@@ -306,7 +306,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
             SpreadsheetLabelName labelName = null;
             try {
                 final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
-                        .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
+                    .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
                 final Optional<SpreadsheetLabelName> maybeLabelName = token.labelName();
                 if (maybeLabelName.isPresent()) {
                     labelName = maybeLabelName.get();
@@ -329,10 +329,10 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
             this.loaded = null;
 
             this.label.setValue(
-                    Optional.of(loaded.label())
+                Optional.of(loaded.label())
             );
             this.target.setValue(
-                    Optional.of(loaded.target())
+                Optional.of(loaded.target())
             );
         }
     }
@@ -355,13 +355,13 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                 switch (mappings.size()) {
                     case 1:
                         final SpreadsheetLabelMapping mapping = mappings.iterator()
-                                .next();
+                            .next();
 
                         undoLabel = Optional.of(
-                                mapping.label()
+                            mapping.label()
                         );
                         undoTarget = Optional.of(
-                                mapping.target()
+                            mapping.target()
                         );
 
                         this.loaded = mapping;

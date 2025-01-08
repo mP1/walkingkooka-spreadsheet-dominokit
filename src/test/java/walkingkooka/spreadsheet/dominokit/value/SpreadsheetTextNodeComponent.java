@@ -64,6 +64,6 @@ public final class SpreadsheetTextNodeComponent implements SpreadsheetTextNodeCo
     @Override
     public String toString() {
         return this.value.map(TextNode::text)
-                .orElse("");
+            .orElse("");
     }
 }

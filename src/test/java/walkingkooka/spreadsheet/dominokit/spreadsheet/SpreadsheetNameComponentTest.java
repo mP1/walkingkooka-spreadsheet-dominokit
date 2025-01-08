@@ -30,30 +30,30 @@ public final class SpreadsheetNameComponentTest implements ValueComponentTesting
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-                SpreadsheetNameComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "Spreadsheet123"
-                                )
-                        ),
-                "SpreadsheetNameComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Spreadsheet123]\n"
+            SpreadsheetNameComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "Spreadsheet123"
+                    )
+                ),
+            "SpreadsheetNameComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Spreadsheet123]\n"
         );
     }
 
     @Test
     public void testSetValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetNameComponent.empty()
-                        .clearValue(),
-                "SpreadsheetNameComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      []\n" +
-                        "      Errors\n" +
-                        "        Empty \"name\"\n"
+            SpreadsheetNameComponent.empty()
+                .clearValue(),
+            "SpreadsheetNameComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      []\n" +
+                "      Errors\n" +
+                "        Empty \"name\"\n"
         );
     }
 

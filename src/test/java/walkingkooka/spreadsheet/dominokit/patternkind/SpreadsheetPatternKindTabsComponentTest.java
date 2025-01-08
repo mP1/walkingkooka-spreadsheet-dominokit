@@ -30,44 +30,44 @@ public final class SpreadsheetPatternKindTabsComponentTest implements HtmlElemen
     @Test
     public void testFormat() {
         this.treePrintAndCheck(
-                tabs(SpreadsheetPatternKind.formatValues()),
-                "SpreadsheetPatternKindTabsComponent\n" +
-                        "  SpreadsheetTabsComponent\n" +
-                        "    TAB 0\n" +
-                        "      \"Date\" DISABLED id=id123-date-format\n" +
-                        "    TAB 1\n" +
-                        "      \"Date Time\" DISABLED id=id123-date-time-format\n" +
-                        "    TAB 2\n" +
-                        "      \"Number\" DISABLED id=id123-number-format\n" +
-                        "    TAB 3\n" +
-                        "      \"Text\" DISABLED id=id123-text-format\n" +
-                        "    TAB 4\n" +
-                        "      \"Time\" DISABLED id=id123-time-format\n"
+            tabs(SpreadsheetPatternKind.formatValues()),
+            "SpreadsheetPatternKindTabsComponent\n" +
+                "  SpreadsheetTabsComponent\n" +
+                "    TAB 0\n" +
+                "      \"Date\" DISABLED id=id123-date-format\n" +
+                "    TAB 1\n" +
+                "      \"Date Time\" DISABLED id=id123-date-time-format\n" +
+                "    TAB 2\n" +
+                "      \"Number\" DISABLED id=id123-number-format\n" +
+                "    TAB 3\n" +
+                "      \"Text\" DISABLED id=id123-text-format\n" +
+                "    TAB 4\n" +
+                "      \"Time\" DISABLED id=id123-time-format\n"
         );
     }
 
     @Test
     public void testParse() {
         this.treePrintAndCheck(
-                tabs(SpreadsheetPatternKind.parseValues()),
-                "SpreadsheetPatternKindTabsComponent\n" +
-                        "  SpreadsheetTabsComponent\n" +
-                        "    TAB 0\n" +
-                        "      \"Date\" DISABLED id=id123-date-parse\n" +
-                        "    TAB 1\n" +
-                        "      \"Date Time\" DISABLED id=id123-date-time-parse\n" +
-                        "    TAB 2\n" +
-                        "      \"Number\" DISABLED id=id123-number-parse\n" +
-                        "    TAB 3\n" +
-                        "      \"Time\" DISABLED id=id123-time-parse\n"
+            tabs(SpreadsheetPatternKind.parseValues()),
+            "SpreadsheetPatternKindTabsComponent\n" +
+                "  SpreadsheetTabsComponent\n" +
+                "    TAB 0\n" +
+                "      \"Date\" DISABLED id=id123-date-parse\n" +
+                "    TAB 1\n" +
+                "      \"Date Time\" DISABLED id=id123-date-time-parse\n" +
+                "    TAB 2\n" +
+                "      \"Number\" DISABLED id=id123-number-parse\n" +
+                "    TAB 3\n" +
+                "      \"Time\" DISABLED id=id123-time-parse\n"
         );
     }
 
     private SpreadsheetPatternKindTabsComponent tabs(final SpreadsheetPatternKind[] kinds) {
         return SpreadsheetPatternKindTabsComponent.empty(
-                ID,
-                kinds,
-                new FakeSpreadsheetPatternKindTabsComponentContext()
+            ID,
+            kinds,
+            new FakeSpreadsheetPatternKindTabsComponentContext()
         );
     }
 

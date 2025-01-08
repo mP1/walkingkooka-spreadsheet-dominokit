@@ -33,8 +33,8 @@ public final class SpreadsheetNameComponent implements ValueSpreadsheetTextBoxWr
 
     private SpreadsheetNameComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetName::with,
-                HasText::text
+            SpreadsheetName::with,
+            HasText::text
         );
     }
 

@@ -55,10 +55,10 @@ final class SpreadsheetSelectionMenuFormatter {
                       final SpreadsheetContextMenu menu,
                       final SpreadsheetSelectionMenuContext context) {
         build0(
-                historyToken.formatter(),
-                menu,
-                context.idPrefix() + "formatter-",
-                context
+            historyToken.formatter(),
+            menu,
+            context.idPrefix() + "formatter-",
+            context
         );
     }
 
@@ -67,27 +67,27 @@ final class SpreadsheetSelectionMenuFormatter {
                        final String idPrefix,
                        final SpreadsheetSelectionMenuContext context) {
         buildSpreadsheetFormatterSelectorsMenus(
-                historyToken,
-                menu,
-                idPrefix,
-                context.spreadsheetFormatterSelectorsMenus()
+            historyToken,
+            menu,
+            idPrefix,
+            context.spreadsheetFormatterSelectorsMenus()
         );
 
         menu.separator();
 
         buildEdit(
-                historyToken,
-                menu,
-                idPrefix
+            historyToken,
+            menu,
+            idPrefix
         );
 
         menu.separator();
 
         buildRecents(
-                historyToken,
-                menu,
-                idPrefix,
-                context.recentSpreadsheetFormatterSelectors()
+            historyToken,
+            menu,
+            idPrefix,
+            context.recentSpreadsheetFormatterSelectors()
         );
     }
 
@@ -96,20 +96,20 @@ final class SpreadsheetSelectionMenuFormatter {
                                                                 final String idPrefix,
                                                                 final List<SpreadsheetFormatterSelectorMenu> menus) {
         final Map<SpreadsheetFormatterName, List<SpreadsheetFormatterSelectorMenu>> nameToMenus = menus.stream()
-                .collect(
-                        Collectors.toMap(
-                                (SpreadsheetFormatterSelectorMenu m) -> m.selector().name(),
-                                (SpreadsheetFormatterSelectorMenu m) -> {
-                                    final List<SpreadsheetFormatterSelectorMenu> first = Lists.array();
-                                    first.add(m);
-                                    return first;
-                                },
-                                (List<SpreadsheetFormatterSelectorMenu> before, List<SpreadsheetFormatterSelectorMenu> merge) -> {
-                                    before.addAll(merge);
-                                    return before;
-                                }
-                        )
-                );
+            .collect(
+                Collectors.toMap(
+                    (SpreadsheetFormatterSelectorMenu m) -> m.selector().name(),
+                    (SpreadsheetFormatterSelectorMenu m) -> {
+                        final List<SpreadsheetFormatterSelectorMenu> first = Lists.array();
+                        first.add(m);
+                        return first;
+                    },
+                    (List<SpreadsheetFormatterSelectorMenu> before, List<SpreadsheetFormatterSelectorMenu> merge) -> {
+                        before.addAll(merge);
+                        return before;
+                    }
+                )
+            );
 
         // sort SpreadsheetFormatterName
         for (final Entry<SpreadsheetFormatterName, List<SpreadsheetFormatterSelectorMenu>> nameAndMenus : new TreeMap<>(nameToMenus).entrySet()) {
@@ -117,25 +117,25 @@ final class SpreadsheetSelectionMenuFormatter {
             final String nameMenuId = idPrefix + name.value();
 
             final SpreadsheetContextMenu nameMenu = menu.subMenu(
-                    nameMenuId + SpreadsheetElementIds.SUB_MENU,
-                    CaseKind.kebabToTitle(
-                            name.value()
-                    )
+                nameMenuId + SpreadsheetElementIds.SUB_MENU,
+                CaseKind.kebabToTitle(
+                    name.value()
+                )
             );
 
             for (final SpreadsheetFormatterSelectorMenu spreadsheetFormatterSelectorMenu : nameAndMenus.getValue()) {
                 nameMenu.item(
-                        SpreadsheetContextMenuItem.with(
-                                nameMenuId + SpreadsheetElementIds.MENU_ITEM,
-                                spreadsheetFormatterSelectorMenu.label()
-                        ).historyToken(
-                                Optional.of(
-                                        historyToken.save(
-                                                spreadsheetFormatterSelectorMenu.selector()
-                                                        .toString()
-                                        )
-                                )
+                    SpreadsheetContextMenuItem.with(
+                        nameMenuId + SpreadsheetElementIds.MENU_ITEM,
+                        spreadsheetFormatterSelectorMenu.label()
+                    ).historyToken(
+                        Optional.of(
+                            historyToken.save(
+                                spreadsheetFormatterSelectorMenu.selector()
+                                    .toString()
+                            )
                         )
+                    )
                 );
             }
         }
@@ -145,14 +145,14 @@ final class SpreadsheetSelectionMenuFormatter {
                                   final SpreadsheetContextMenu menu,
                                   final String idPrefix) {
         menu.item(
-                SpreadsheetContextMenuItem.with(
-                        idPrefix + "edit" + SpreadsheetElementIds.MENU_ITEM,
-                        "Edit..."
-                ).historyToken(
-                        Optional.of(
-                                historyToken
-                        )
+            SpreadsheetContextMenuItem.with(
+                idPrefix + "edit" + SpreadsheetElementIds.MENU_ITEM,
+                "Edit..."
+            ).historyToken(
+                Optional.of(
+                    historyToken
                 )
+            )
         );
     }
 
@@ -165,25 +165,25 @@ final class SpreadsheetSelectionMenuFormatter {
 
         for (final SpreadsheetFormatterSelector selector : selectors) {
             final String label = CaseKind.kebabToTitle(
-                    selector.name()
-                            .value()
+                selector.name()
+                    .value()
             );
 
             final String text = selector.valueText();
 
             menu.item(
-                    SpreadsheetContextMenuItem.with(
-                            idPrefix + "recent-" + i + SpreadsheetElementIds.MENU_ITEM,
-                            text.isEmpty() ?
-                                    label :
-                                    label + " " + text
-                    ).historyToken(
-                            Optional.of(
-                                    historyToken.save(
-                                            selector.text()
-                                    )
-                            )
+                SpreadsheetContextMenuItem.with(
+                    idPrefix + "recent-" + i + SpreadsheetElementIds.MENU_ITEM,
+                    text.isEmpty() ?
+                        label :
+                        label + " " + text
+                ).historyToken(
+                    Optional.of(
+                        historyToken.save(
+                            selector.text()
+                        )
                     )
+                )
             );
 
             i++;

@@ -57,7 +57,7 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
                       final SpreadsheetName name) {
         this.selectAll.setIdAndName(id, name);
         this.columnToHeaders.values()
-                .forEach(c -> c.setIdAndName(id, name));
+            .forEach(c -> c.setIdAndName(id, name));
     }
 
     @Override
@@ -82,8 +82,8 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
                 SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn columnTableCell = oldColumnToHeaders.get(column);
                 if (null == columnTableCell) {
                     columnTableCell = SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn.empty(
-                            column,
-                            context
+                        column,
+                        context
                     );
                 }
                 newColumnToHeaders.put(column, columnTableCell);
@@ -94,18 +94,18 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
         }
 
         this.selectAll.refresh(
-                selected,
-                context
+            selected,
+            context
         );
 
         // column headers will clear/selection
         this.columnToHeaders.values()
-                .forEach(
-                        c -> c.refresh(
-                                selected,
-                                context
-                        )
-                );
+            .forEach(
+                c -> c.refresh(
+                    selected,
+                    context
+                )
+            );
     }
 
     private final SpreadsheetViewportComponentTableCellHeaderSelectAll selectAll;

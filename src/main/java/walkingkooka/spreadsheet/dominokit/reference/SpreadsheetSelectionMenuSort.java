@@ -44,15 +44,15 @@ final class SpreadsheetSelectionMenuSort {
         // PREFIX-
 
         comparatorsMenuItem(
-                historyToken,
-                columnOrRow,
-                idPrefix,
-                comparatorNames,
-                menu.subMenu(
-                        CharSequences.subSequence(idPrefix, 0, -1) + SpreadsheetElementIds.SUB_MENU, // -1 removes trailing minus because SUB_MENU includes a minus at the start
-                        "Sort " + columnOrRow.textLabel(),
-                        icon
-                )
+            historyToken,
+            columnOrRow,
+            idPrefix,
+            comparatorNames,
+            menu.subMenu(
+                CharSequences.subSequence(idPrefix, 0, -1) + SpreadsheetElementIds.SUB_MENU, // -1 removes trailing minus because SUB_MENU includes a minus at the start
+                "Sort " + columnOrRow.textLabel(),
+                icon
+            )
         );
     }
 
@@ -67,45 +67,45 @@ final class SpreadsheetSelectionMenuSort {
             final String subMenuId = idPrefix + name.value();
 
             final SpreadsheetContextMenu subMenu = menu.subMenu(
-                    subMenuId + SpreadsheetElementIds.SUB_MENU,
-                    CaseKind.kebabToTitle(
-                            name.value()
-                    )
+                subMenuId + SpreadsheetElementIds.SUB_MENU,
+                CaseKind.kebabToTitle(
+                    name.value()
+                )
             );
 
             final String upDownPrefixId = subMenuId + '-';
 
             // comparator-name / UP
             subMenu.item(
-                    upOrDownMenuItem(
-                            upDownPrefixId,
-                            columnOrRow,
-                            name,
-                            SpreadsheetComparatorDirection.UP,
-                            historyToken
-                    )
+                upOrDownMenuItem(
+                    upDownPrefixId,
+                    columnOrRow,
+                    name,
+                    SpreadsheetComparatorDirection.UP,
+                    historyToken
+                )
             );
 
             // comparator-name / DOWN
             subMenu.item(
-                    upOrDownMenuItem(
-                            upDownPrefixId,
-                            columnOrRow,
-                            name,
-                            SpreadsheetComparatorDirection.DOWN,
-                            historyToken
-                    )
+                upOrDownMenuItem(
+                    upDownPrefixId,
+                    columnOrRow,
+                    name,
+                    SpreadsheetComparatorDirection.DOWN,
+                    historyToken
+                )
             );
         }
 
         menu.separator();
 
         menu.item(
-                editMenuItem(
-                        idPrefix,
-                        columnOrRow,
-                        historyToken
-                )
+            editMenuItem(
+                idPrefix,
+                columnOrRow,
+                historyToken
+            )
         );
     }
 
@@ -116,15 +116,15 @@ final class SpreadsheetSelectionMenuSort {
                                                                final SpreadsheetComparatorDirection direction,
                                                                final HistoryToken historyToken) {
         return historyToken.setSortSave(
-                name.setDirection(direction)
-                        .setColumnOrRow(columnOrRow)
-                        .list()
+            name.setDirection(direction)
+                .setColumnOrRow(columnOrRow)
+                .list()
         ).contextMenuItem(
-                idPrefix + direction + SpreadsheetElementIds.MENU_ITEM,
-                CaseKind.SNAKE.change(
-                        direction.name(),
-                        CaseKind.TITLE
-                )
+            idPrefix + direction + SpreadsheetElementIds.MENU_ITEM,
+            CaseKind.SNAKE.change(
+                direction.name(),
+                CaseKind.TITLE
+            )
         );
     }
 
@@ -132,9 +132,9 @@ final class SpreadsheetSelectionMenuSort {
                                                            final SpreadsheetColumnOrRowReference columnOrRow,
                                                            final HistoryToken historyToken) {
         return historyToken.setSortEdit(columnOrRow + "=")
-                .contextMenuItem(
-                        idPrefix + "edit" + SpreadsheetElementIds.MENU_ITEM,
-                        "Edit"
-                );
+            .contextMenuItem(
+                idPrefix + "edit" + SpreadsheetElementIds.MENU_ITEM,
+                "Edit"
+            );
     }
 }

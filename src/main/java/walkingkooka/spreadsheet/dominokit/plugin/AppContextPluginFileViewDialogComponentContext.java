@@ -28,12 +28,12 @@ import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import java.util.Objects;
 
 public final class AppContextPluginFileViewDialogComponentContext implements PluginFileViewDialogComponentContext,
-        HasPluginFetcherWatchersDelegator,
-        HistoryTokenContextDelegator {
+    HasPluginFetcherWatchersDelegator,
+    HistoryTokenContextDelegator {
 
     public static AppContextPluginFileViewDialogComponentContext with(final AppContext context) {
         return new AppContextPluginFileViewDialogComponentContext(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -45,10 +45,10 @@ public final class AppContextPluginFileViewDialogComponentContext implements Plu
     public void loadJarTextFile(final PluginName pluginName,
                                 final JarEntryInfoName filename) {
         this.context.pluginFetcher()
-                .loadJarTextFile(
-                        pluginName,
-                        filename
-                );
+            .loadJarTextFile(
+                pluginName,
+                filename
+            );
     }
 
     // HasPluginFetcherWatchersDelegator................................................................................

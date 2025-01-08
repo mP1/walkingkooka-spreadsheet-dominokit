@@ -22,31 +22,31 @@ public interface HistoryTokenContextDelegator extends HistoryTokenContext {
     @Override
     default Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
         return this.historyTokenContext()
-                .addHistoryTokenWatcher(watcher);
+            .addHistoryTokenWatcher(watcher);
     }
 
     @Override
     default Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
         return this.historyTokenContext()
-                .addHistoryTokenWatcherOnce(watcher);
+            .addHistoryTokenWatcherOnce(watcher);
     }
 
     @Override
     default HistoryToken historyToken() {
         return this.historyTokenContext()
-                .historyToken();
+            .historyToken();
     }
 
     @Override
     default void pushHistoryToken(final HistoryToken token) {
         this.historyTokenContext()
-                .pushHistoryToken(token);
+            .pushHistoryToken(token);
     }
 
     @Override
     default void fireCurrentHistoryToken() {
         this.historyTokenContext()
-                .fireCurrentHistoryToken();
+            .fireCurrentHistoryToken();
     }
 
     HistoryTokenContext historyTokenContext();

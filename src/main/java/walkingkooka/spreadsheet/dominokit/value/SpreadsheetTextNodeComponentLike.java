@@ -28,7 +28,7 @@ import java.util.Optional;
  * Defines the public interface for a {@link SpreadsheetTextNodeComponent}.
  */
 public interface SpreadsheetTextNodeComponentLike extends Component,
-        TreePrintable {
+    TreePrintable {
 
     Optional<TextNode> value();
 
@@ -41,8 +41,8 @@ public interface SpreadsheetTextNodeComponentLike extends Component,
         printer.println(this.getClass().getSimpleName());
 
         final String text = this.value()
-                .map(TextNode::text)
-                .orElse("");
+            .map(TextNode::text)
+            .orElse("");
         if (false == text.isEmpty()) {
             printer.indent();
             {

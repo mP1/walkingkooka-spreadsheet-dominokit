@@ -37,9 +37,9 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
     @Test
     public void testSetIdName() {
         this.setIdAndNameAndCheck(
-                ID,
-                NAME,
-                HistoryToken.spreadsheetSelect(ID, NAME)
+            ID,
+            NAME,
+            HistoryToken.spreadsheetSelect(ID, NAME)
         );
     }
 
@@ -48,9 +48,9 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
         final SpreadsheetId differentId = SpreadsheetId.with(9999);
 
         this.setIdAndNameAndCheck(
-                differentId,
-                NAME,
-                HistoryToken.spreadsheetSelect(differentId, NAME)
+            differentId,
+            NAME,
+            HistoryToken.spreadsheetSelect(differentId, NAME)
         );
     }
 
@@ -59,23 +59,23 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
         final SpreadsheetName differentName = SpreadsheetName.with("Different");
 
         this.setIdAndNameAndCheck(
-                ID,
-                differentName,
-                HistoryToken.spreadsheetSelect(ID, differentName)
+            ID,
+            differentName,
+            HistoryToken.spreadsheetSelect(ID, differentName)
         );
     }
 
     @Test
     public void testSetMetadataPropertyName() {
         this.setMetadataPropertyNameAndCheck(
-                SpreadsheetMetadataPropertyName.LOCALE
+            SpreadsheetMetadataPropertyName.LOCALE
         );
     }
 
     @Test
     public void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 

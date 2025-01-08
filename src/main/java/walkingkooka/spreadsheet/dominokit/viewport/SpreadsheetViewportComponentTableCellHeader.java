@@ -37,7 +37,7 @@ import java.util.function.Predicate;
  * Base class for any of the header UI components belonging to the {@link SpreadsheetViewportComponent} TABLE.
  */
 abstract class SpreadsheetViewportComponentTableCellHeader<T extends SpreadsheetSelection> extends SpreadsheetViewportComponentTableCell
-        implements IsElement<HTMLTableCellElement> {
+    implements IsElement<HTMLTableCellElement> {
 
     SpreadsheetViewportComponentTableCellHeader(final String id,
                                                 final String css,
@@ -47,22 +47,22 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
         super();
 
         final HistoryTokenAnchorComponent anchor = context.historyToken()
-                .setAnchoredSelection(
-                        Optional.of(
-                                selection.setDefaultAnchor()
-                        )
-                ).link(id)
-                .setTabIndex(0)
-                .addPushHistoryToken(context)
-                .setTextContent(text);
+            .setAnchoredSelection(
+                Optional.of(
+                    selection.setDefaultAnchor()
+                )
+            ).link(id)
+            .setTabIndex(0)
+            .addPushHistoryToken(context)
+            .setTextContent(text);
         this.anchor = anchor;
 
         final THElement element = ElementsFactory.elements.th()
-                .id(id)
-                .style(css);
+            .id(id)
+            .style(css);
 
         element.appendChild(
-                anchor.element()
+            anchor.element()
         );
         this.element = element;
 
@@ -75,25 +75,25 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
                             final SpreadsheetName name) {
         final HistoryTokenAnchorComponent anchor = this.anchor;
         anchor.setHistoryToken(
-                anchor.historyToken()
-                        .map(t -> t.setIdAndName(id, name))
+            anchor.historyToken()
+                .map(t -> t.setIdAndName(id, name))
         );
     }
 
     final void setAnchoredSpreadsheetSelection(final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection) {
         this.anchor.historyToken()
-                .ifPresent(
-                        h -> this.setHistoryToken(
-                                h.setAnchoredSelection(
-                                        Optional.of(anchoredSpreadsheetSelection)
-                                )
-                        )
-                );
+            .ifPresent(
+                h -> this.setHistoryToken(
+                    h.setAnchoredSelection(
+                        Optional.of(anchoredSpreadsheetSelection)
+                    )
+                )
+            );
     }
 
     final void setHistoryToken(final HistoryToken historyToken) {
         this.anchor.setHistoryToken(
-                Optional.of(historyToken)
+            Optional.of(historyToken)
         );
     }
 
@@ -103,9 +103,9 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
     final void refresh(final Predicate<SpreadsheetSelection> selected,
                        final SpreadsheetViewportComponentTableContext context) {
         this.element.setBackgroundColor(
-                selected.test(this.selection) ?
-                        SpreadsheetDominoKitColor.VIEWPORT_HEADER_SELECTED_BACKGROUND_COLOR.toString() :
-                        SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.toString()
+            selected.test(this.selection) ?
+                SpreadsheetDominoKitColor.VIEWPORT_HEADER_SELECTED_BACKGROUND_COLOR.toString() :
+                SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.toString()
         );
 
         final Boolean extended = context.isShiftKeyDown();

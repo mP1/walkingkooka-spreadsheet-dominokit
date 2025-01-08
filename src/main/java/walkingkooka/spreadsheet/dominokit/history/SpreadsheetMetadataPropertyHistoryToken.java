@@ -28,14 +28,14 @@ import java.util.Objects;
 import java.util.Optional;
 
 public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends SpreadsheetMetadataHistoryToken
-        implements HasSpreadsheetPatternKind {
+    implements HasSpreadsheetPatternKind {
 
     SpreadsheetMetadataPropertyHistoryToken(final SpreadsheetId id,
                                             final SpreadsheetName name,
                                             final SpreadsheetMetadataPropertyName<T> propertyName) {
         super(
-                id,
-                name
+            id,
+            name
         );
 
         this.propertyName = Objects.requireNonNull(propertyName, "propertyName");
@@ -56,10 +56,10 @@ public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends Spreads
     @Override //
     final UrlFragment metadataUrlFragment() {
         return this.propertyName()
-                .urlFragment()
-                .appendSlashThen(
-                        this.metadataPropertyUrlFragment()
-                );
+            .urlFragment()
+            .appendSlashThen(
+                this.metadataPropertyUrlFragment()
+            );
     }
 
     abstract UrlFragment metadataPropertyUrlFragment();

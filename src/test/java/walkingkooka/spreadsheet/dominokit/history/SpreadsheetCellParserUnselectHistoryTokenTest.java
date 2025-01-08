@@ -36,24 +36,24 @@ public final class SpreadsheetCellParserUnselectHistoryTokenTest extends Spreads
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/parser/toolbar"
+            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/parser/toolbar"
         );
     }
 
     @Test
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/parser/toolbar"
+            SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/*/top-left/parser/toolbar"
         );
     }
 
     @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/cell/Label123/parser/toolbar"
+            LABEL,
+            "/123/SpreadsheetName456/cell/Label123/parser/toolbar"
         );
     }
 
@@ -76,14 +76,14 @@ public final class SpreadsheetCellParserUnselectHistoryTokenTest extends Spreads
     @Test
     public void testSave() {
         this.saveAndCheck(
-                "dd/mm/yyyy"
+            "dd/mm/yyyy"
         );
     }
 
     @Test
     public void testSaveEmpty() {
         this.saveAndCheck(
-                ""
+            ""
         );
     }
 
@@ -92,9 +92,9 @@ public final class SpreadsheetCellParserUnselectHistoryTokenTest extends Spreads
                                                                  final SpreadsheetName name,
                                                                  final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellParserUnselectHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

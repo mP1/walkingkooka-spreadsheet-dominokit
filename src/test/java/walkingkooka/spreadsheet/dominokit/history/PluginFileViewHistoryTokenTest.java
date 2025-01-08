@@ -28,7 +28,7 @@ import static org.junit.Assert.assertThrows;
 public final class PluginFileViewHistoryTokenTest extends PluginNameHistoryTokenTestCase<PluginFileViewHistoryToken> {
 
     private final static Optional<JarEntryInfoName> FILE = Optional.of(
-            JarEntryInfoName.with("/dir1/file2.txt")
+        JarEntryInfoName.with("/dir1/file2.txt")
     );
 
     // with.............................................................................................................
@@ -36,11 +36,11 @@ public final class PluginFileViewHistoryTokenTest extends PluginNameHistoryToken
     @Test
     public void testWithNullFileFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> PluginFileViewHistoryToken.with(
-                        PLUGIN_NAME,
-                        null
-                )
+            NullPointerException.class,
+            () -> PluginFileViewHistoryToken.with(
+                PLUGIN_NAME,
+                null
+            )
         );
     }
 
@@ -48,19 +48,19 @@ public final class PluginFileViewHistoryTokenTest extends PluginNameHistoryToken
     @Test
     public void testParseWithFile() {
         this.parseAndCheck(
-                "/plugin/TestPluginName123/file/dir1/file2.txt",
-                this.createHistoryToken()
+            "/plugin/TestPluginName123/file/dir1/file2.txt",
+            this.createHistoryToken()
         );
     }
 
     @Test
     public void testParseWithoutFile() {
         this.parseAndCheck(
-                "/plugin/TestPluginName123/file",
-                PluginFileViewHistoryToken.with(
-                        PLUGIN_NAME,
-                        Optional.empty()
-                )
+            "/plugin/TestPluginName123/file",
+            PluginFileViewHistoryToken.with(
+                PLUGIN_NAME,
+                Optional.empty()
+            )
         );
     }
 
@@ -69,18 +69,18 @@ public final class PluginFileViewHistoryTokenTest extends PluginNameHistoryToken
     @Test
     public void testUrlFragmentWithFile() {
         this.urlFragmentAndCheck(
-                "/plugin/TestPluginName123/file/dir1/file2.txt"
+            "/plugin/TestPluginName123/file/dir1/file2.txt"
         );
     }
 
     @Test
     public void testUrlFragmentWithoutFile() {
         this.urlFragmentAndCheck(
-                PluginFileViewHistoryToken.with(
-                        PLUGIN_NAME,
-                        Optional.empty()
-                ),
-                "/plugin/TestPluginName123/file");
+            PluginFileViewHistoryToken.with(
+                PLUGIN_NAME,
+                Optional.empty()
+            ),
+            "/plugin/TestPluginName123/file");
     }
 
     // clearAction.....................................................................................................
@@ -88,23 +88,23 @@ public final class PluginFileViewHistoryTokenTest extends PluginNameHistoryToken
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.pluginSelect(PLUGIN_NAME)
+            this.createHistoryToken(),
+            HistoryToken.pluginSelect(PLUGIN_NAME)
         );
     }
 
     @Test
     public void testClose() {
         this.closeAndCheck(
-                HistoryToken.pluginSelect(PLUGIN_NAME)
+            HistoryToken.pluginSelect(PLUGIN_NAME)
         );
     }
 
     @Override
     PluginFileViewHistoryToken createHistoryToken(final PluginName name) {
         return PluginFileViewHistoryToken.with(
-                name,
-                FILE
+            name,
+            FILE
         );
     }
 

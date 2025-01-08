@@ -29,9 +29,9 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
                                                                           final SpreadsheetName name,
                                                                           final TextStylePropertyName<T> stylePropertyName) {
         return new SpreadsheetMetadataPropertyStyleSelectHistoryToken<>(
-                id,
-                name,
-                stylePropertyName
+            id,
+            name,
+            stylePropertyName
         );
     }
 
@@ -39,9 +39,9 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
                                                                final SpreadsheetName name,
                                                                final TextStylePropertyName<T> stylePropertyName) {
         super(
-                id,
-                name,
-                stylePropertyName
+            id,
+            name,
+            stylePropertyName
         );
     }
 
@@ -60,9 +60,9 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return with(
-                id,
-                name,
-                this.stylePropertyName()
+            id,
+            name,
+            this.stylePropertyName()
         );
     }
 

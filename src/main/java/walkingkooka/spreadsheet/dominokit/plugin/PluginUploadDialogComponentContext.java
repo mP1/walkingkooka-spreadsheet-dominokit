@@ -21,5 +21,5 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 
 public interface PluginUploadDialogComponentContext extends HasPluginFetcherWatchers,
-        RefreshContext {
+    RefreshContext {
 }

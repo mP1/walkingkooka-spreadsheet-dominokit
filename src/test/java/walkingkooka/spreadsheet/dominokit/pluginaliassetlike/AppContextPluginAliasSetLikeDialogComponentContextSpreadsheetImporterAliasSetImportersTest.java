@@ -26,12 +26,12 @@ import walkingkooka.spreadsheet.importer.SpreadsheetImporterName;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterSelector;
 
 public final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImportersTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters,
-        SpreadsheetImporterName,
-        SpreadsheetImporterInfo,
-        SpreadsheetImporterInfoSet,
-        SpreadsheetImporterSelector,
-        SpreadsheetImporterAlias,
-        SpreadsheetImporterAliasSet> {
+    SpreadsheetImporterName,
+    SpreadsheetImporterInfo,
+    SpreadsheetImporterInfoSet,
+    SpreadsheetImporterSelector,
+    SpreadsheetImporterAlias,
+    SpreadsheetImporterAliasSet> {
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSetImporters.with(AppContexts.fake());

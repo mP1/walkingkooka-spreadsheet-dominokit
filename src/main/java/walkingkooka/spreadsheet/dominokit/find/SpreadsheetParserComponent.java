@@ -35,19 +35,19 @@ public final class SpreadsheetParserComponent implements ValueSpreadsheetTextBox
     public static SpreadsheetParserComponent empty(final SpreadsheetParser parser,
                                                    final SpreadsheetParserContext context) {
         return new SpreadsheetParserComponent(
-                Objects.requireNonNull(parser, "parser"),
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(parser, "parser"),
+            Objects.requireNonNull(context, "context")
         );
     }
 
     private SpreadsheetParserComponent(final SpreadsheetParser parser,
                                        final SpreadsheetParserContext context) {
         this.textBox = ValueSpreadsheetTextBox.with(
-                (text) -> parser.parseText(
-                                text,
-                        context
-                ).cast(SpreadsheetParserToken.class),
-                Object::toString
+            (text) -> parser.parseText(
+                text,
+                context
+            ).cast(SpreadsheetParserToken.class),
+            Object::toString
         );
     }
 

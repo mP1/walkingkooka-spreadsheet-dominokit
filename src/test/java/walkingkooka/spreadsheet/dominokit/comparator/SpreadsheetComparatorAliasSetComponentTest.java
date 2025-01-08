@@ -32,38 +32,38 @@ public final class SpreadsheetComparatorAliasSetComponentTest implements ValueCo
         final SpreadsheetComparatorAliasSet alias = SpreadsheetComparatorAliasSet.parse("alias1 plugin1, plugin2");
 
         this.checkEquals(
-                alias,
-                SpreadsheetComparatorAliasSet.parse(alias.text())
+            alias,
+            SpreadsheetComparatorAliasSet.parse(alias.text())
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetComparatorAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of("alias1 name1, alias2, name2")
-                        ),
-                "SpreadsheetComparatorAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [alias1 name1, alias2, name2]\n"
+            SpreadsheetComparatorAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of("alias1 name1, alias2, name2")
+                ),
+            "SpreadsheetComparatorAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [alias1 name1, alias2, name2]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalidValue() {
         this.treePrintAndCheck(
-                SpreadsheetComparatorAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of("alias1 name1, alias2 !")
-                        ),
-                "SpreadsheetComparatorAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [alias1 name1, alias2 !]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 21\n"
+            SpreadsheetComparatorAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of("alias1 name1, alias2 !")
+                ),
+            "SpreadsheetComparatorAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [alias1 name1, alias2 !]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 21\n"
         );
     }
 

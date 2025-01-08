@@ -29,23 +29,23 @@ public final class SpreadsheetColumnClearHistoryTokenTest extends SpreadsheetCol
     @Test
     public void testUrlFragmentColumn() {
         this.urlFragmentAndCheck(
-                COLUMN,
-                "/123/SpreadsheetName456/column/A/clear");
+            COLUMN,
+            "/123/SpreadsheetName456/column/A/clear");
     }
 
     @Test
     public void testUrlFragmentColumnRange() {
         this.urlFragmentAndCheck(
-                COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT),
-                "/123/SpreadsheetName456/column/B:C/right/clear"
+            COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT),
+            "/123/SpreadsheetName456/column/B:C/right/clear"
         );
     }
 
     @Test
     public void testUrlFragmentColumnRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_COLUMNS.setAnchor(SpreadsheetViewportAnchor.RIGHT),
-                "/123/SpreadsheetName456/column/*/right/clear"
+            SpreadsheetSelection.ALL_COLUMNS.setAnchor(SpreadsheetViewportAnchor.RIGHT),
+            "/123/SpreadsheetName456/column/*/right/clear"
         );
     }
 
@@ -56,9 +56,9 @@ public final class SpreadsheetColumnClearHistoryTokenTest extends SpreadsheetCol
                                                           final SpreadsheetName name,
                                                           final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetColumnClearHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

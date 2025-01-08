@@ -26,8 +26,8 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 final class AppContextSpreadsheetToolbarComponentContext implements SpreadsheetToolbarComponentContext,
-        HistoryTokenContextDelegator,
-        HasSpreadsheetDeltaFetcherWatchersDelegator {
+    HistoryTokenContextDelegator,
+    HasSpreadsheetDeltaFetcherWatchersDelegator {
 
     static AppContextSpreadsheetToolbarComponentContext with(final AppContext context) {
         return new AppContextSpreadsheetToolbarComponentContext(context);

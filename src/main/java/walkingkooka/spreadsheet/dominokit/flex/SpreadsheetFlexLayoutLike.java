@@ -27,7 +27,7 @@ import walkingkooka.text.printer.IndentingPrinter;
  * Defines the public API for {@link SpreadsheetFlexLayout}. Used to keep the main/text versions in sync.
  */
 public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout>,
-        ComponentWithChildren<SpreadsheetFlexLayout, HTMLDivElement> {
+    ComponentWithChildren<SpreadsheetFlexLayout, HTMLDivElement> {
 
     SpreadsheetFlexLayout setId(final String id);
 

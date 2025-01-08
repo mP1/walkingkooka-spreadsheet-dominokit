@@ -29,22 +29,22 @@ public final class SpreadsheetTextViewComponentTest implements ValueComponentTes
     @Test
     public void testClearValueAndTreePrint() {
         this.treePrintAndCheck(
-                SpreadsheetTextViewComponent.empty()
-                        .clearValue(),
-               "SpreadsheetTextViewComponent\n" +
-                       "  \"\"\n"
+            SpreadsheetTextViewComponent.empty()
+                .clearValue(),
+            "SpreadsheetTextViewComponent\n" +
+                "  \"\"\n"
         );
     }
 
     @Test
     public void testSetValueAndTreePrint() {
         this.treePrintAndCheck(
-                SpreadsheetTextViewComponent.empty()
-                        .setValue(
-                                Optional.of("Hello123")
-                        ),
-                "SpreadsheetTextViewComponent\n" +
-                        "  \"Hello123\"\n"
+            SpreadsheetTextViewComponent.empty()
+                .setValue(
+                    Optional.of("Hello123")
+                ),
+            "SpreadsheetTextViewComponent\n" +
+                "  \"Hello123\"\n"
         );
     }
 

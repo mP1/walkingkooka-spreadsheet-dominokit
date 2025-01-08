@@ -28,9 +28,9 @@ abstract public class SpreadsheetCellFormulaHistoryToken extends SpreadsheetCell
                                        final SpreadsheetName name,
                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 

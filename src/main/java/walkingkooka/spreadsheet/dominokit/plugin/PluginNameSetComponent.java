@@ -29,8 +29,8 @@ public final class PluginNameSetComponent implements ValueSpreadsheetTextBoxWrap
 
     private PluginNameSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                PluginNameSet::parse,
-                PluginNameSet::text
+            PluginNameSet::parse,
+            PluginNameSet::text
         );
     }
 

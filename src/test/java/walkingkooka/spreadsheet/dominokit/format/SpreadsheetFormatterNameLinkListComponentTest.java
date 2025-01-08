@@ -32,53 +32,53 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Optional;
 
 public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlElementComponentTesting<SpreadsheetFormatterNameLinkListComponent, HTMLDivElement>,
-        SpreadsheetMetadataTesting {
+    SpreadsheetMetadataTesting {
 
     private final static String ID = "ID123-";
 
     @Test
     public void testRefresh() {
         this.refreshAndCheck(
-                Optional.empty(),
-                "SpreadsheetFormatterNameLinkListComponent\n" +
-                        "  SpreadsheetLinkListComponent\n" +
-                        "    SpreadsheetCard\n" +
-                        "      Card\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"Automatic\" [#/1/SpreadsheetName123/cell/A1/formatter/save/automatic] id=ID123-0-Link\n" +
-                        "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-1-Link\n" +
-                        "            \"Date Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-format-pattern] id=ID123-2-Link\n" +
-                        "            \"Date Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time-format-pattern] id=ID123-3-Link\n" +
-                        "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-4-Link\n" +
-                        "            \"Number Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number-format-pattern] id=ID123-5-Link\n" +
-                        "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-6-Link\n" +
-                        "            \"Text Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text-format-pattern] id=ID123-7-Link\n" +
-                        "            \"Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time-format-pattern] id=ID123-8-Link\n"
+            Optional.empty(),
+            "SpreadsheetFormatterNameLinkListComponent\n" +
+                "  SpreadsheetLinkListComponent\n" +
+                "    SpreadsheetCard\n" +
+                "      Card\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Automatic\" [#/1/SpreadsheetName123/cell/A1/formatter/save/automatic] id=ID123-0-Link\n" +
+                "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-1-Link\n" +
+                "            \"Date Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-format-pattern] id=ID123-2-Link\n" +
+                "            \"Date Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time-format-pattern] id=ID123-3-Link\n" +
+                "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-4-Link\n" +
+                "            \"Number Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number-format-pattern] id=ID123-5-Link\n" +
+                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-6-Link\n" +
+                "            \"Text Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text-format-pattern] id=ID123-7-Link\n" +
+                "            \"Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time-format-pattern] id=ID123-8-Link\n"
         );
     }
 
     @Test
     public void testRefreshWithSelectedFormatterName() {
         this.refreshAndCheck(
-                Optional.of(
-                        SpreadsheetFormatterName.DATE_FORMAT_PATTERN
-                ),
-                "SpreadsheetFormatterNameLinkListComponent\n" +
-                        "  SpreadsheetLinkListComponent\n" +
-                        "    SpreadsheetCard\n" +
-                        "      Card\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"Automatic\" [#/1/SpreadsheetName123/cell/A1/formatter/save/automatic] id=ID123-0-Link\n" +
-                        "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-1-Link\n" +
-                        "            \"Date Format Pattern\" DISABLED id=ID123-2-Link\n" +
-                        "            \"Date Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time-format-pattern] id=ID123-3-Link\n" +
-                        "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-4-Link\n" +
-                        "            \"Number Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number-format-pattern] id=ID123-5-Link\n" +
-                        "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-6-Link\n" +
-                        "            \"Text Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text-format-pattern] id=ID123-7-Link\n" +
-                        "            \"Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time-format-pattern] id=ID123-8-Link\n"
+            Optional.of(
+                SpreadsheetFormatterName.DATE_FORMAT_PATTERN
+            ),
+            "SpreadsheetFormatterNameLinkListComponent\n" +
+                "  SpreadsheetLinkListComponent\n" +
+                "    SpreadsheetCard\n" +
+                "      Card\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Automatic\" [#/1/SpreadsheetName123/cell/A1/formatter/save/automatic] id=ID123-0-Link\n" +
+                "            \"Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/collection] id=ID123-1-Link\n" +
+                "            \"Date Format Pattern\" DISABLED id=ID123-2-Link\n" +
+                "            \"Date Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/date-time-format-pattern] id=ID123-3-Link\n" +
+                "            \"General\" [#/1/SpreadsheetName123/cell/A1/formatter/save/general] id=ID123-4-Link\n" +
+                "            \"Number Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/number-format-pattern] id=ID123-5-Link\n" +
+                "            \"Spreadsheet Pattern Collection\" [#/1/SpreadsheetName123/cell/A1/formatter/save/spreadsheet-pattern-collection] id=ID123-6-Link\n" +
+                "            \"Text Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/text-format-pattern] id=ID123-7-Link\n" +
+                "            \"Time Format Pattern\" [#/1/SpreadsheetName123/cell/A1/formatter/save/time-format-pattern] id=ID123-8-Link\n"
         );
     }
 
@@ -86,30 +86,30 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlElemen
                                  final String expected) {
         final SpreadsheetFormatterNameLinkListComponent formatters = SpreadsheetFormatterNameLinkListComponent.empty(ID);
         formatters.refresh(
-                new FakeSpreadsheetFormatterNameLinkListComponentContext() {
-                    @Override
-                    public SpreadsheetFormatterInfoSet spreadsheetFormatterInfos() {
-                        return SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterInfos();
-                    }
-
-                    @Override public Optional<SpreadsheetFormatterName> formatterName() {
-                        return spreadsheetFormatterName;
-                    }
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.cellFormatterSelect(
-                                SpreadsheetId.with(1),
-                                SpreadsheetName.with("SpreadsheetName123"),
-                                SpreadsheetSelection.A1.setDefaultAnchor()
-                        );
-                    }
+            new FakeSpreadsheetFormatterNameLinkListComponentContext() {
+                @Override
+                public SpreadsheetFormatterInfoSet spreadsheetFormatterInfos() {
+                    return SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterInfos();
                 }
+
+                @Override public Optional<SpreadsheetFormatterName> formatterName() {
+                    return spreadsheetFormatterName;
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellFormatterSelect(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName123"),
+                        SpreadsheetSelection.A1.setDefaultAnchor()
+                    );
+                }
+            }
         );
 
         this.treePrintAndCheck(
-                formatters,
-                expected
+            formatters,
+            expected
         );
     }
 

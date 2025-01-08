@@ -25,8 +25,8 @@ public interface VisibleHtmlElementComponent<E extends HTMLElement, C extends Vi
     @Override
     default C setVisibility(final boolean visibility) {
         Doms.setVisibility(
-                this.element(),
-                visibility
+            this.element(),
+            visibility
         );
         return (C) this;
     }

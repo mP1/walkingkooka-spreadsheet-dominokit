@@ -27,8 +27,8 @@ public final class AppContextSpreadsheetLabelMappingDialogComponentContextTest i
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> AppContextSpreadsheetLabelMappingDialogComponentContext.with(null)
+            NullPointerException.class,
+            () -> AppContextSpreadsheetLabelMappingDialogComponentContext.with(null)
         );
     }
 

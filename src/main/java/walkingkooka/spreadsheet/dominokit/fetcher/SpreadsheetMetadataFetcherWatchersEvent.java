@@ -39,8 +39,8 @@ final class SpreadsheetMetadataFetcherWatchersEvent extends FetcherWatchersEvent
     @Override
     void fire(final SpreadsheetMetadataFetcherWatcher watcher) {
         watcher.onSpreadsheetMetadata(
-                this.metadata,
-                this.context
+            this.metadata,
+            this.context
         );
     }
 

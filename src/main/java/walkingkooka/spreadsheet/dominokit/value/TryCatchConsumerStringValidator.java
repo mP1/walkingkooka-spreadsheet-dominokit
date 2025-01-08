@@ -50,7 +50,7 @@ final class TryCatchConsumerStringValidator implements Validator<Optional<String
 
         try {
             this.consumer.accept(
-                    value.orElse("")
+                value.orElse("")
             );
             result = ValidationResult.valid();
         } catch (final InvalidCharacterException fail) {

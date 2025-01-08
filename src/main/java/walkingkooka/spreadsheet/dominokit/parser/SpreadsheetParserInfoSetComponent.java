@@ -29,8 +29,8 @@ public final class SpreadsheetParserInfoSetComponent implements ValueSpreadsheet
 
     private SpreadsheetParserInfoSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetParserInfoSet::parse,
-                SpreadsheetParserInfoSet::text
+            SpreadsheetParserInfoSet::parse,
+            SpreadsheetParserInfoSet::text
         );
     }
 

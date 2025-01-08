@@ -48,10 +48,10 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                                                         final AnchoredSpreadsheetSelection anchoredSelection,
                                                         final SpreadsheetCellClipboardKind kind) {
         return new SpreadsheetCellClipboardCutHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                kind
+            id,
+            name,
+            anchoredSelection,
+            kind
         );
     }
 
@@ -60,10 +60,10 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final SpreadsheetCellClipboardKind kind) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                kind
+            id,
+            name,
+            anchoredSelection,
+            kind
         );
     }
 
@@ -72,10 +72,10 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellClipboardCutHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                this.kind()
+            id,
+            name,
+            anchoredSelection,
+            this.kind()
         );
     }
 
@@ -88,78 +88,78 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
     void onHistoryTokenChangeClipboard(final AppContext context) {
         final SpreadsheetCellClipboardKind kind = this.kind();
         final SpreadsheetCellRangeReference range = context.spreadsheetViewportCache()
-                .resolveIfLabel(
-                        this.anchoredSelection()
-                                .selection()
-                ).toCellRange();
+            .resolveIfLabel(
+                this.anchoredSelection()
+                    .selection()
+            ).toCellRange();
 
         final ClipboardTextItem clipboardTextItem = ClipboardTextItem.toJson(
-                context.spreadsheetViewportCache()
-                        .cellRange(range),
-                kind,
-                context
+            context.spreadsheetViewportCache()
+                .cellRange(range),
+            kind,
+            context
         );
 
         context.writeClipboardItem(
-                clipboardTextItem,
-                new ClipboardContextWriteWatcher() {
-                    @Override
-                    public void onSuccess() {
-                        final SpreadsheetCellClipboardCutHistoryToken that = SpreadsheetCellClipboardCutHistoryToken.this;
-                        final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
-                        final SpreadsheetId id = that.id();
-                        final AnchoredSpreadsheetSelection anchoredSelection = that.anchoredSelection();
-                        final SpreadsheetSelection selection = anchoredSelection.selection();
+            clipboardTextItem,
+            new ClipboardContextWriteWatcher() {
+                @Override
+                public void onSuccess() {
+                    final SpreadsheetCellClipboardCutHistoryToken that = SpreadsheetCellClipboardCutHistoryToken.this;
+                    final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
+                    final SpreadsheetId id = that.id();
+                    final AnchoredSpreadsheetSelection anchoredSelection = that.anchoredSelection();
+                    final SpreadsheetSelection selection = anchoredSelection.selection();
 
-                        switch (kind) {
-                            case CELL:
-                                fetcher.deleteCells(
-                                        id,
-                                        context.viewport(
-                                                Optional.of(
-                                                        anchoredSelection
-                                                )
-                                        )
-                                );
-                                break;
-                            case FORMULA:
-                                fetcher.patchFormula(
-                                        id,
-                                        selection,
-                                        SpreadsheetFormula.EMPTY // delete formulas
-                                );
-                                break;
-                            case FORMATTER:
-                                fetcher.patchFormatter(
-                                        id,
-                                        selection,
-                                        SpreadsheetCell.NO_FORMATTER
-                                );
-                                break;
-                            case PARSER:
-                                fetcher.patchParser(
-                                        id,
-                                        selection,
-                                        SpreadsheetCell.NO_PARSER
-                                );
-                                break;
-                            case STYLE:
-                                fetcher.patchStyle(
-                                        id,
-                                        selection,
-                                        JsonNode.nullNode()
-                                );
-                                break;
-                            case FORMATTED_VALUE:
-                                throw new UnsupportedOperationException("Cut formatted-value is not supported");
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(final Object cause) {
-
+                    switch (kind) {
+                        case CELL:
+                            fetcher.deleteCells(
+                                id,
+                                context.viewport(
+                                    Optional.of(
+                                        anchoredSelection
+                                    )
+                                )
+                            );
+                            break;
+                        case FORMULA:
+                            fetcher.patchFormula(
+                                id,
+                                selection,
+                                SpreadsheetFormula.EMPTY // delete formulas
+                            );
+                            break;
+                        case FORMATTER:
+                            fetcher.patchFormatter(
+                                id,
+                                selection,
+                                SpreadsheetCell.NO_FORMATTER
+                            );
+                            break;
+                        case PARSER:
+                            fetcher.patchParser(
+                                id,
+                                selection,
+                                SpreadsheetCell.NO_PARSER
+                            );
+                            break;
+                        case STYLE:
+                            fetcher.patchStyle(
+                                id,
+                                selection,
+                                JsonNode.nullNode()
+                            );
+                            break;
+                        case FORMATTED_VALUE:
+                            throw new UnsupportedOperationException("Cut formatted-value is not supported");
                     }
                 }
+
+                @Override
+                public void onFailure(final Object cause) {
+
+                }
+            }
         );
     }
 }

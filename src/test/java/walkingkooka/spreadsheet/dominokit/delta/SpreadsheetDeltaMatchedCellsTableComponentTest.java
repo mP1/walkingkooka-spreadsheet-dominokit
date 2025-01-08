@@ -41,41 +41,41 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements HtmlElementComponentTesting<
-        SpreadsheetDeltaMatchedCellsTableComponent,
-        HTMLDivElement> {
+    SpreadsheetDeltaMatchedCellsTableComponent,
+    HTMLDivElement> {
 
     // with.............................................................................................................
 
     @Test
     public void testWithNullIdFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetDeltaMatchedCellsTableComponent.with(
-                        null,
-                        SpreadsheetDeltaMatchedCellsTableComponentContexts.fake()
-                )
+            NullPointerException.class,
+            () -> SpreadsheetDeltaMatchedCellsTableComponent.with(
+                null,
+                SpreadsheetDeltaMatchedCellsTableComponentContexts.fake()
+            )
         );
     }
 
     @Test
     public void testWithEmptyIdFails() {
         assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetDeltaMatchedCellsTableComponent.with(
-                        "",
-                        SpreadsheetDeltaMatchedCellsTableComponentContexts.fake()
-                )
+            IllegalArgumentException.class,
+            () -> SpreadsheetDeltaMatchedCellsTableComponent.with(
+                "",
+                SpreadsheetDeltaMatchedCellsTableComponentContexts.fake()
+            )
         );
     }
 
     @Test
     public void testWithNullContextFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetDeltaMatchedCellsTableComponent.with(
-                        "ID",
-                        null
-                )
+            NullPointerException.class,
+            () -> SpreadsheetDeltaMatchedCellsTableComponent.with(
+                "ID",
+                null
+            )
         );
     }
 
@@ -84,157 +84,157 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Htm
     @Test
     public void testRenderEmptySpreadsheetDelta() {
         this.renderAndCheck(
-                SpreadsheetDelta.EMPTY,
-                "SpreadsheetDeltaMatchedCellsTableComponent\n" +
-                        "  SpreadsheetDataTableComponent\n" +
-                        "    id=ID123-cells-Table\n" +
-                        "    COLUMN(S)\n" +
-                        "      Cell\n" +
-                        "      Formula\n" +
-                        "      Formatted\n" +
-                        "      Value\n" +
-                        "    ROW(S)\n" +
-                        "    PLUGINS\n" +
-                        "      BodyScrollPlugin\n"
+            SpreadsheetDelta.EMPTY,
+            "SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "  SpreadsheetDataTableComponent\n" +
+                "    id=ID123-cells-Table\n" +
+                "    COLUMN(S)\n" +
+                "      Cell\n" +
+                "      Formula\n" +
+                "      Formatted\n" +
+                "      Value\n" +
+                "    ROW(S)\n" +
+                "    PLUGINS\n" +
+                "      BodyScrollPlugin\n"
         );
     }
 
     @Test
     public void testRenderSpreadsheetDeltaOneCell() {
         this.renderAndCheck(
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY.setText("=1+2")
-                                ).setFormattedValue(
-                                        Optional.of(
-                                                SpreadsheetText.with("Hello").setColor(
-                                                        Optional.of(Color.parse("blue"))
-                                                ).toTextNode()
-                                        )
-                                )
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText("=1+2")
+                    ).setFormattedValue(
+                        Optional.of(
+                            SpreadsheetText.with("Hello").setColor(
+                                Optional.of(Color.parse("blue"))
+                            ).toTextNode()
                         )
-                ).setMatchedCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1
-                        )
-                ),
-                "SpreadsheetDeltaMatchedCellsTableComponent\n" +
-                        "  SpreadsheetDataTableComponent\n" +
-                        "    id=ID123-cells-Table\n" +
-                        "    COLUMN(S)\n" +
-                        "      Cell\n" +
-                        "      Formula\n" +
-                        "      Formatted\n" +
-                        "      Value\n" +
-                        "    ROW(S)\n" +
-                        "      ROW 0\n" +
-                        "        \"A1\" [#/1/Spreadsheet222/cell/A1]\n" +
-                        "        \"=1+2\" [#/1/Spreadsheet222/cell/A1/formula]\n" +
-                        "        SpreadsheetTextNodeComponent\n" +
-                        "          Hello\n" +
-                        "        SpreadsheetTextComponent\n" +
-                        "          \"\"\n" +
-                        "    PLUGINS\n" +
-                        "      BodyScrollPlugin\n"
+                    )
+                )
+            ).setMatchedCells(
+                Sets.of(
+                    SpreadsheetSelection.A1
+                )
+            ),
+            "SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "  SpreadsheetDataTableComponent\n" +
+                "    id=ID123-cells-Table\n" +
+                "    COLUMN(S)\n" +
+                "      Cell\n" +
+                "      Formula\n" +
+                "      Formatted\n" +
+                "      Value\n" +
+                "    ROW(S)\n" +
+                "      ROW 0\n" +
+                "        \"A1\" [#/1/Spreadsheet222/cell/A1]\n" +
+                "        \"=1+2\" [#/1/Spreadsheet222/cell/A1/formula]\n" +
+                "        SpreadsheetTextNodeComponent\n" +
+                "          Hello\n" +
+                "        SpreadsheetTextComponent\n" +
+                "          \"\"\n" +
+                "    PLUGINS\n" +
+                "      BodyScrollPlugin\n"
         );
     }
 
     @Test
     public void testRenderSpreadsheetDeltaSeveralCells() {
         this.renderAndCheck(
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1.setFormula(
-                                        SpreadsheetFormula.EMPTY.setText("=111")
-                                ).setFormattedValue(
-                                        Optional.of(
-                                                SpreadsheetText.with("Hello").setColor(
-                                                        Optional.of(Color.parse("blue"))
-                                                ).toTextNode()
-                                        )
-                                ),
-                                SpreadsheetSelection.parseCell("A2")
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY.setText("=222")
-                                        ).setFormattedValue(
-                                                Optional.of(
-                                                        SpreadsheetText.with("2222").toTextNode()
-                                                )
-                                        )
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText("=111")
+                    ).setFormattedValue(
+                        Optional.of(
+                            SpreadsheetText.with("Hello").setColor(
+                                Optional.of(Color.parse("blue"))
+                            ).toTextNode()
                         )
-                ).setMatchedCells(
-                        Sets.of(
-                                SpreadsheetSelection.A1
+                    ),
+                    SpreadsheetSelection.parseCell("A2")
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY.setText("=222")
+                        ).setFormattedValue(
+                            Optional.of(
+                                SpreadsheetText.with("2222").toTextNode()
+                            )
                         )
-                ),
-                "SpreadsheetDeltaMatchedCellsTableComponent\n" +
-                        "  SpreadsheetDataTableComponent\n" +
-                        "    id=ID123-cells-Table\n" +
-                        "    COLUMN(S)\n" +
-                        "      Cell\n" +
-                        "      Formula\n" +
-                        "      Formatted\n" +
-                        "      Value\n" +
-                        "    ROW(S)\n" +
-                        "      ROW 0\n" +
-                        "        \"A1\" [#/1/Spreadsheet222/cell/A1]\n" +
-                        "        \"=111\" [#/1/Spreadsheet222/cell/A1/formula]\n" +
-                        "        SpreadsheetTextNodeComponent\n" +
-                        "          Hello\n" +
-                        "        SpreadsheetTextComponent\n" +
-                        "          \"\"\n" +
-                        "      ROW 1\n" +
-                        "        \"A2\" [#/1/Spreadsheet222/cell/A2]\n" +
-                        "        \"=222\" [#/1/Spreadsheet222/cell/A2/formula]\n" +
-                        "        SpreadsheetTextNodeComponent\n" +
-                        "          2222\n" +
-                        "        SpreadsheetTextComponent\n" +
-                        "          \"\"\n" +
-                        "    PLUGINS\n" +
-                        "      BodyScrollPlugin\n"
+                )
+            ).setMatchedCells(
+                Sets.of(
+                    SpreadsheetSelection.A1
+                )
+            ),
+            "SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "  SpreadsheetDataTableComponent\n" +
+                "    id=ID123-cells-Table\n" +
+                "    COLUMN(S)\n" +
+                "      Cell\n" +
+                "      Formula\n" +
+                "      Formatted\n" +
+                "      Value\n" +
+                "    ROW(S)\n" +
+                "      ROW 0\n" +
+                "        \"A1\" [#/1/Spreadsheet222/cell/A1]\n" +
+                "        \"=111\" [#/1/Spreadsheet222/cell/A1/formula]\n" +
+                "        SpreadsheetTextNodeComponent\n" +
+                "          Hello\n" +
+                "        SpreadsheetTextComponent\n" +
+                "          \"\"\n" +
+                "      ROW 1\n" +
+                "        \"A2\" [#/1/Spreadsheet222/cell/A2]\n" +
+                "        \"=222\" [#/1/Spreadsheet222/cell/A2/formula]\n" +
+                "        SpreadsheetTextNodeComponent\n" +
+                "          2222\n" +
+                "        SpreadsheetTextComponent\n" +
+                "          \"\"\n" +
+                "    PLUGINS\n" +
+                "      BodyScrollPlugin\n"
         );
     }
 
     private void renderAndCheck(final SpreadsheetDelta delta,
                                 final String expected) {
         final SpreadsheetDeltaMatchedCellsTableComponent component = SpreadsheetDeltaMatchedCellsTableComponent.with(
-                "ID123-",
-                SpreadsheetDeltaMatchedCellsTableComponentContexts.basic(
-                        new FakeHistoryTokenContext() {
-                            @Override @Test
-                            public HistoryToken historyToken() {
-                                return HistoryToken.parseString("/1/Spreadsheet222/cell/A1/find");
-                            }
-                        },
-                        new HasSpreadsheetDeltaFetcher() {
-                            @Override
-                            public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
-                                return null;
-                            }
+            "ID123-",
+            SpreadsheetDeltaMatchedCellsTableComponentContexts.basic(
+                new FakeHistoryTokenContext() {
+                    @Override @Test
+                    public HistoryToken historyToken() {
+                        return HistoryToken.parseString("/1/Spreadsheet222/cell/A1/find");
+                    }
+                },
+                new HasSpreadsheetDeltaFetcher() {
+                    @Override
+                    public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
+                        return null;
+                    }
 
-                            @Override
-                            public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-                                return null;
-                            }
+                    @Override
+                    public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+                        return null;
+                    }
 
-                            @Override
-                            public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
-                                return null;
-                            }
-                        }
-                )
+                    @Override
+                    public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
+                        return null;
+                    }
+                }
+            )
         );
         component.onSpreadsheetDelta(
-                HttpMethod.POST,
-                Url.parseAbsolute("https://example.com/1/cell/"),
-                delta,
-                AppContexts.fake()
+            HttpMethod.POST,
+            Url.parseAbsolute("https://example.com/1/cell/"),
+            delta,
+            AppContexts.fake()
         );
 
         this.treePrintAndCheck(
-                component,
-                expected
+            component,
+            expected
         );
     }
 

@@ -35,8 +35,8 @@ public final class SpreadsheetRowReferenceComponent implements ValueSpreadsheetT
 
     private SpreadsheetRowReferenceComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetSelection::parseRow,
-                HasText::text
+            SpreadsheetSelection::parseRow,
+            HasText::text
         );
     }
 

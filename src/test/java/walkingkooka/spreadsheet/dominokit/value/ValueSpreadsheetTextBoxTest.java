@@ -34,71 +34,71 @@ public final class ValueSpreadsheetTextBoxTest implements ValueComponentTesting<
     @Test
     public void testWithNullParserFunctionFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> ValueSpreadsheetTextBox.with(
-                        null,
-                        Object::toString
-                )
+            NullPointerException.class,
+            () -> ValueSpreadsheetTextBox.with(
+                null,
+                Object::toString
+            )
         );
     }
 
     @Test
     public void testWithNullFormatterFunctionFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> ValueSpreadsheetTextBox.with(
-                        (s) -> {
-                            throw new UnsupportedOperationException();
-                        },
-                        null
-                )
+            NullPointerException.class,
+            () -> ValueSpreadsheetTextBox.with(
+                (s) -> {
+                    throw new UnsupportedOperationException();
+                },
+                null
+            )
         );
     }
 
     @Test
     public void testSetValue() {
         this.checkEquals(
-                Optional.of("AB12"),
-                this.createComponent()
-                        .setValue(
-                                Optional.of(
-                                        SpreadsheetSelection.parseCell("AB12")
-                                )
-                        ).stringValue()
+            Optional.of("AB12"),
+            this.createComponent()
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.parseCell("AB12")
+                    )
+                ).stringValue()
         );
     }
 
     @Test
     public void testPrintTreeSetStringValueInvalidCharacter() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setId("id123")
-                        .setStringValue(
-                                Optional.of(
-                                        "AB!12"
-                                )
-                        ),
-                "ValueSpreadsheetTextBox\n" +
-                        "  SpreadsheetTextBox\n" +
-                        "    [AB!12] id=id123\n" +
-                        "    Errors\n" +
-                        "      Invalid character '!' at 2\n"
+            this.createComponent()
+                .setId("id123")
+                .setStringValue(
+                    Optional.of(
+                        "AB!12"
+                    )
+                ),
+            "ValueSpreadsheetTextBox\n" +
+                "  SpreadsheetTextBox\n" +
+                "    [AB!12] id=id123\n" +
+                "    Errors\n" +
+                "      Invalid character '!' at 2\n"
         );
     }
 
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setId("id123")
-                        .setValue(
-                                Optional.of(
-                                        SpreadsheetSelection.parseCell("AB12")
-                                )
-                        ),
-                "ValueSpreadsheetTextBox\n" +
-                        "  SpreadsheetTextBox\n" +
-                        "    [AB12] id=id123\n"
+            this.createComponent()
+                .setId("id123")
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.parseCell("AB12")
+                    )
+                ),
+            "ValueSpreadsheetTextBox\n" +
+                "  SpreadsheetTextBox\n" +
+                "    [AB12] id=id123\n"
         );
     }
 
@@ -107,8 +107,8 @@ public final class ValueSpreadsheetTextBoxTest implements ValueComponentTesting<
     @Override
     public ValueSpreadsheetTextBox<SpreadsheetCellReference> createComponent() {
         return ValueSpreadsheetTextBox.with(
-                SpreadsheetSelection::parseCell,
-                HasText::text
+            SpreadsheetSelection::parseCell,
+            HasText::text
         );
     }
 

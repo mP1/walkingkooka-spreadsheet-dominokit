@@ -32,12 +32,12 @@ import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEditConte
  * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetParserSelectorDialogComponent} provided various inputs.
  */
 public interface SpreadsheetParserSelectorDialogComponentContext extends CanGiveFocus,
-        ComponentLifecycleMatcher,
-        HasSpreadsheetParserFetcherWatchers,
-        SpreadsheetDialogComponentContext,
-        SpreadsheetParserProvider,
-        SpreadsheetPatternKindTabsComponentContext,
-        SpreadsheetParserSelectorEditContext {
+    ComponentLifecycleMatcher,
+    HasSpreadsheetParserFetcherWatchers,
+    SpreadsheetDialogComponentContext,
+    SpreadsheetParserProvider,
+    SpreadsheetPatternKindTabsComponentContext,
+    SpreadsheetParserSelectorEditContext {
 
     /**
      * Logic to provide the dialog title. In some cases the title might not be currently enabled as it is extracted from

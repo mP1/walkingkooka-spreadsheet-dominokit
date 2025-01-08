@@ -34,8 +34,8 @@ public final class ExpressionFunctionAliasSetComponent implements ValueSpreadshe
 
     private ExpressionFunctionAliasSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                ExpressionFunctionAliasSet::parse,
-                ExpressionFunctionAliasSet::toString
+            ExpressionFunctionAliasSet::parse,
+            ExpressionFunctionAliasSet::toString
         );
     }
 

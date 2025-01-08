@@ -41,17 +41,17 @@ import java.util.Set;
  * A modal dialog that supports editing a {@link SpreadsheetComparatorNameList}.
  */
 public final class SpreadsheetComparatorNameListDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher,
-        SpreadsheetMetadataFetcherWatcher {
+    LoadedSpreadsheetMetadataRequired,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher,
+    SpreadsheetMetadataFetcherWatcher {
 
     /**
      * Creates a new {@link SpreadsheetComparatorNameListDialogComponent}.
      */
     public static SpreadsheetComparatorNameListDialogComponent with(final SpreadsheetComparatorNameListDialogComponentContext context) {
         return new SpreadsheetComparatorNameListDialogComponent(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -89,20 +89,20 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
         final SpreadsheetComparatorNameListDialogComponentContext context = this.context;
 
         SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                ID + SpreadsheetElementIds.DIALOG,
-                context.dialogTitle(),
-                true, // includeClose
-                context
+            ID + SpreadsheetElementIds.DIALOG,
+            context.dialogTitle(),
+            true, // includeClose
+            context
         );
 
         return dialog.appendChild(this.textBox)
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(this.save)
-                                .appendChild(this.undo)
-                                .appendChild(this.clear)
-                                .appendChild(this.close)
-                );
+            .appendChild(
+                SpreadsheetFlexLayout.row()
+                    .appendChild(this.save)
+                    .appendChild(this.undo)
+                    .appendChild(this.clear)
+                    .appendChild(this.close)
+            );
     }
 
     @Override
@@ -121,12 +121,12 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
      */
     private SpreadsheetComparatorNameListComponent textBox() {
         return SpreadsheetComparatorNameListComponent.empty()
-                .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-                .addKeyupListener(
-                        (e) -> this.onTextBox(this.text())
-                ).addChangeListener(
-                        (oldValue, newValue) -> this.onTextBox(this.text())
-                );
+            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
+            .addKeyupListener(
+                (e) -> this.onTextBox(this.text())
+            ).addChangeListener(
+                (oldValue, newValue) -> this.onTextBox(this.text())
+            );
     }
 
     /**
@@ -134,10 +134,10 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
      */
     private void onTextBox(final String text) {
         this.save.setHistoryToken(
-                Optional.of(
-                        this.context.historyToken()
-                                .save(text)
-                )
+            Optional.of(
+                this.context.historyToken()
+                    .save(text)
+            )
         );
     }
 
@@ -146,13 +146,13 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
      */
     private String text() {
         return this.textBox.stringValue()
-                .orElse("");
+            .orElse("");
     }
 
     // @VisibleForTesting
     void setText(final String text) {
         this.textBox.setStringValue(
-                Optional.of(text)
+            Optional.of(text)
         );
         this.onTextBox(text);
     }
@@ -218,7 +218,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
     @Override
     public void openGiveFocus(final RefreshContext context) {
         context.giveFocus(
-                this.textBox::focus
+            this.textBox::focus
         );
     }
 
@@ -231,10 +231,10 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
         this.setText(undo);
 
         this.undo.setHistoryToken(
-                Optional.of(
-                        context.historyToken()
-                                .save(undo)
-                )
+            Optional.of(
+                context.historyToken()
+                    .save(undo)
+            )
         );
 
         this.refreshTitleAndLinks();
@@ -246,19 +246,19 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
         final HistoryToken historyToken = context.historyToken();
 
         this.dialog.setTitle(
-                context.dialogTitle()
+            context.dialogTitle()
         );
 
         this.clear.setHistoryToken(
-                Optional.of(
-                        historyToken.clearSave()
-                )
+            Optional.of(
+                historyToken.clearSave()
+            )
         );
 
         this.close.setHistoryToken(
-                Optional.of(
-                        historyToken.close()
-                )
+            Optional.of(
+                historyToken.close()
+            )
         );
     }
 }

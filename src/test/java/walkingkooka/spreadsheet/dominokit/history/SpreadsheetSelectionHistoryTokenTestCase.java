@@ -33,12 +33,12 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
         final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.LOCALE;
 
         this.setMetadataPropertyNameAndCheck(
-                propertyName,
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        propertyName
-                )
+            propertyName,
+            HistoryToken.metadataPropertySelect(
+                ID,
+                NAME,
+                propertyName
+            )
         );
     }
 }

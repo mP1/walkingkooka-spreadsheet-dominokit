@@ -58,20 +58,20 @@ import java.util.Set;
  * A modal dialog that supports editing a {@link SpreadsheetParserSelector}.
  */
 public final class SpreadsheetParserSelectorDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher,
-        SpreadsheetMetadataFetcherWatcher,
-        SpreadsheetParserFetcherWatcher,
-        NopSpreadsheetParserInfoSetFetcherWatcher {
+    LoadedSpreadsheetMetadataRequired,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher,
+    SpreadsheetDeltaFetcherWatcher,
+    SpreadsheetMetadataFetcherWatcher,
+    SpreadsheetParserFetcherWatcher,
+    NopSpreadsheetParserInfoSetFetcherWatcher {
 
     /**
      * Creates a new {@link SpreadsheetParserSelectorDialogComponent}.
      */
     public static SpreadsheetParserSelectorDialogComponent with(final SpreadsheetParserSelectorDialogComponentContext context) {
         return new SpreadsheetParserSelectorDialogComponent(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -83,12 +83,12 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.tabs = context.shouldShowTabs() ?
-                SpreadsheetPatternKindTabsComponent.empty(
-                        ID + SpreadsheetElementIds.TABS + "-",
-                        SpreadsheetPatternKind.parseValues(),
-                        context
-                ) :
-                null;
+            SpreadsheetPatternKindTabsComponent.empty(
+                ID + SpreadsheetElementIds.TABS + "-",
+                SpreadsheetPatternKind.parseValues(),
+                context
+            ) :
+            null;
 
         this.parserNames = SpreadsheetParserNameLinkListComponent.empty(ID + "-parserNames-");
         this.parserName = Optional.empty();
@@ -127,10 +127,10 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         final SpreadsheetParserSelectorDialogComponentContext context = this.context;
 
         SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                ID + SpreadsheetElementIds.DIALOG,
-                context.dialogTitle(),
-                true, // includeClose
-                context
+            ID + SpreadsheetElementIds.DIALOG,
+            context.dialogTitle(),
+            true, // includeClose
+            context
         );
 
         if (null != this.tabs) {
@@ -138,17 +138,17 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         }
 
         return dialog.appendChild(this.parserNames)
-                .appendChild(this.table)
-                .appendChild(this.appender)
-                .appendChild(this.removeOrReplace)
-                .appendChild(this.textBox)
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(this.save)
-                                .appendChild(this.undo)
-                                .appendChild(this.clear)
-                                .appendChild(this.close)
-                );
+            .appendChild(this.table)
+            .appendChild(this.appender)
+            .appendChild(this.removeOrReplace)
+            .appendChild(this.textBox)
+            .appendChild(
+                SpreadsheetFlexLayout.row()
+                    .appendChild(this.save)
+                    .appendChild(this.undo)
+                    .appendChild(this.clear)
+                    .appendChild(this.close)
+            );
     }
 
     @Override
@@ -190,12 +190,12 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
      */
     private SpreadsheetParserSelectorComponent textBox(final String id) {
         return SpreadsheetParserSelectorComponent.empty()
-                .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-                .addKeyupListener(
-                        (e) -> this.onTextBox(this.text())
-                ).addChangeListener(
-                        (oldValue, newValue) -> this.onTextBox(this.text())
-                );
+            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
+            .addKeyupListener(
+                (e) -> this.onTextBox(this.text())
+            ).addChangeListener(
+                (oldValue, newValue) -> this.onTextBox(this.text())
+            );
     }
 
     /**
@@ -205,8 +205,8 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         final SpreadsheetParserSelectorDialogComponentContext context = this.context;
 
         final SpreadsheetParserSelectorEdit edit = SpreadsheetParserSelectorEdit.parse(
-                text,
-                context
+            text,
+            context
         );
 
         // couldnt get edit in browser, try server
@@ -214,8 +214,8 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
             context.loadSpreadsheetParsersEdit(text);
         } else {
             this.onSpreadsheetParserSelectorEdit(
-                    edit,
-                    context
+                edit,
+                context
             );
         }
     }
@@ -225,13 +225,13 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
      */
     private String text() {
         return this.textBox.stringValue()
-                .orElse("");
+            .orElse("");
     }
 
     // @VisibleForTesting
     void setText(final String text) {
         this.textBox.setStringValue(
-                Optional.of(text)
+            Optional.of(text)
         );
         this.onTextBox(text);
     }
@@ -249,8 +249,8 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                                                 final AppContext context) {
         if (this.isOpen()) {
             this.onSpreadsheetParserSelectorEdit(
-                    edit,
-                    this.context
+                edit,
+                this.context
             );
         }
     }
@@ -258,61 +258,61 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     private void onSpreadsheetParserSelectorEdit(final SpreadsheetParserSelectorEdit edit,
                                                  final SpreadsheetParserSelectorDialogComponentContext context) {
         this.parserName = edit.selector()
-                .map(SpreadsheetParserSelector::name);
+            .map(SpreadsheetParserSelector::name);
 
         this.table.refresh(
-                edit.samples(),
-                SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableComponentContext.with(
-                        edit.selector()
-                                .orElse(null),
-                        context
-                )
+            edit.samples(),
+            SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableComponentContext.with(
+                edit.selector()
+                    .orElse(null),
+                context
+            )
         );
 
         final SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext appenderRemoveOrReplaceContext =
-                SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext.with(
-                        edit.selector()
-                                .map(SpreadsheetParserSelector::name)
-                                .orElse(null),
-                        context
-                );
+            SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext.with(
+                edit.selector()
+                    .map(SpreadsheetParserSelector::name)
+                    .orElse(null),
+                context
+            );
 
         this.appender.refresh(
-                edit.tokens(),
-                edit.next()
-                        .map(SpreadsheetParserSelectorToken::alternatives)
-                        .orElse(Lists.empty()),
-                appenderRemoveOrReplaceContext
+            edit.tokens(),
+            edit.next()
+                .map(SpreadsheetParserSelectorToken::alternatives)
+                .orElse(Lists.empty()),
+            appenderRemoveOrReplaceContext
         );
 
         this.removeOrReplace.refresh(
-                edit.tokens(),
-                appenderRemoveOrReplaceContext
+            edit.tokens(),
+            appenderRemoveOrReplaceContext
         );
 
         // clear or update the errors
         final String message = edit.message();
         final boolean hasNoError = CharSequences.isNullOrEmpty(message);
         this.textBox.setErrors(
-                hasNoError ?
-                        Lists.empty() :
-                        Lists.of(message)
+            hasNoError ?
+                Lists.empty() :
+                Lists.of(message)
         );
 
         // enable SAVE if no error exists
         final String text = this.text();
         if (text.isEmpty() || hasNoError) {
             this.save.setHistoryToken(
-                    Optional.of(
-                            context.historyToken()
-                                    .save(
-                                            Optional.of(
-                                                    edit.selector()
-                                                            .map(SpreadsheetParserSelector::toString)
-                                                            .orElse("")
-                                            )
-                                    )
-                    )
+                Optional.of(
+                    context.historyToken()
+                        .save(
+                            Optional.of(
+                                edit.selector()
+                                    .map(SpreadsheetParserSelector::toString)
+                                    .orElse("")
+                            )
+                        )
+                )
             );
         } else {
             this.save.setDisabled(true);
@@ -388,7 +388,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     @Override
     public void openGiveFocus(final RefreshContext context) {
         context.giveFocus(
-                this.textBox::focus
+            this.textBox::focus
         );
     }
 
@@ -402,10 +402,10 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         this.setText(undo);
 
         this.undo.setHistoryToken(
-                Optional.of(
-                        context.historyToken()
-                                .save(undo)
-                )
+            Optional.of(
+                context.historyToken()
+                    .save(undo)
+            )
         );
 
         this.refreshTitleTabsClearClose();
@@ -417,7 +417,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         final HistoryToken historyToken = context.historyToken();
 
         this.dialog.setTitle(
-                context.dialogTitle()
+            context.dialogTitle()
         );
 
         if (null != this.tabs) {
@@ -425,23 +425,23 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         }
 
         this.parserNames.refresh(
-                SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext.with(
-                        context, // HistoryTokenContext
-                        context, // SpreadsheetParserProvider,
-                        this.parserName
-                )
+            SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext.with(
+                context, // HistoryTokenContext
+                context, // SpreadsheetParserProvider,
+                this.parserName
+            )
         );
 
         this.clear.setHistoryToken(
-                Optional.of(
-                        historyToken.clearSave()
-                )
+            Optional.of(
+                historyToken.clearSave()
+            )
         );
 
         this.close.setHistoryToken(
-                Optional.of(
-                        historyToken.close()
-                )
+            Optional.of(
+                historyToken.close()
+            )
         );
     }
 

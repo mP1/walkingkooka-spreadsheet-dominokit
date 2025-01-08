@@ -21,19 +21,19 @@ public interface HasSpreadsheetDeltaFetcherDelegator extends HasSpreadsheetDelta
     @Override
     default SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
         return this.hasSpreadsheetDeltaFetcher()
-                .spreadsheetDeltaFetcher();
+            .spreadsheetDeltaFetcher();
     }
 
     @Override
     default Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.hasSpreadsheetDeltaFetcher()
-                .addSpreadsheetDeltaFetcherWatcher(watcher);
+            .addSpreadsheetDeltaFetcherWatcher(watcher);
     }
 
     @Override
     default Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.hasSpreadsheetDeltaFetcher()
-                .addSpreadsheetDeltaFetcherWatcherOnce(watcher);
+            .addSpreadsheetDeltaFetcherWatcherOnce(watcher);
     }
 
     HasSpreadsheetDeltaFetcher hasSpreadsheetDeltaFetcher();

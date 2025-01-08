@@ -27,39 +27,39 @@ import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightParserToken;
 import java.util.Optional;
 
 public final class SpreadsheetConditionRightParserTokenComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetConditionRightParserToken, SpreadsheetConditionRightParserTokenComponent>,
-        SpreadsheetMetadataTesting {
+    SpreadsheetMetadataTesting {
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setStringValue(
-                                Optional.of(
-                                        "< 123"
-                                )
-                        ),
-                "SpreadsheetConditionRightParserTokenComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [< 123]\n"
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "< 123"
+                    )
+                ),
+            "SpreadsheetConditionRightParserTokenComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [< 123]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setStringValue(
-                                Optional.of(
-                                        "1+2"
-                                )
-                        ),
-                "SpreadsheetConditionRightParserTokenComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [1+2]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '1' at 0\n"
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "1+2"
+                    )
+                ),
+            "SpreadsheetConditionRightParserTokenComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [1+2]\n" +
+                "      Errors\n" +
+                "        Invalid character '1' at 0\n"
         );
     }
 
@@ -68,7 +68,7 @@ public final class SpreadsheetConditionRightParserTokenComponentTest implements 
     @Override
     public SpreadsheetConditionRightParserTokenComponent createComponent() {
         return SpreadsheetConditionRightParserTokenComponent.empty(
-                () -> SPREADSHEET_PARSER_CONTEXT
+            () -> SPREADSHEET_PARSER_CONTEXT
         );
     }
 

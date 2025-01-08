@@ -37,25 +37,25 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellFindHistoryToken> {
     private final static SpreadsheetCellFindQuery FIND = SpreadsheetCellFindQuery.empty()
-            .setPath(
-                    Optional.of(SpreadsheetCellRangeReferencePath.LRTD)
-            ).setOffset(OptionalInt.of(123))
-            .setCount(OptionalInt.of(456))
-            .setValueType(Optional.of(SpreadsheetValueType.ANY))
-            .setQuery(
-                    Optional.of(
-                            SpreadsheetCellQuery.parse("789+blah()")
-                    )
-            );
+        .setPath(
+            Optional.of(SpreadsheetCellRangeReferencePath.LRTD)
+        ).setOffset(OptionalInt.of(123))
+        .setCount(OptionalInt.of(456))
+        .setValueType(Optional.of(SpreadsheetValueType.ANY))
+        .setQuery(
+            Optional.of(
+                SpreadsheetCellQuery.parse("789+blah()")
+            )
+        );
 
     // setPath..........................................................................................................
 
     @Test
     public void testSetFindNullFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> this.createHistoryToken()
-                        .setQuery(null)
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setQuery(null)
         );
     }
 
@@ -64,29 +64,29 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         final SpreadsheetCellFindHistoryToken token = this.createHistoryToken();
 
         assertSame(
-                token,
-                token.setQuery(token.query())
+            token,
+            token.setQuery(token.query())
         );
     }
 
     @Test
     public void testSetFindDifferent() {
         final Optional<SpreadsheetCellRangeReferencePath> path = Optional.of(
-                SpreadsheetCellRangeReferencePath.BULR
+            SpreadsheetCellRangeReferencePath.BULR
         );
 
         final SpreadsheetCellFindQuery find = SpreadsheetCellFindQuery.empty()
-                .setPath(path);
+            .setPath(path);
 
         this.checkEquals(
-                SpreadsheetCellFindHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        find
-                ),
-                this.createHistoryToken()
-                        .setQuery(find)
+            SpreadsheetCellFindHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                find
+            ),
+            this.createHistoryToken()
+                .setQuery(find)
         );
     }
 
@@ -95,7 +95,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 
@@ -104,46 +104,46 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck2(
-                CELL.setDefaultAnchor(),
-                "/123/SpreadsheetName456/cell/A1/find"
+            CELL.setDefaultAnchor(),
+            "/123/SpreadsheetName456/cell/A1/find"
         );
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck2(
-                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/find"
+            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/find"
         );
     }
 
     @Test
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck2(
-                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/find"
+            SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/*/top-left/find"
         );
     }
 
     @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck2(
-                LABEL.setDefaultAnchor(),
-                "/123/SpreadsheetName456/cell/Label123/find"
+            LABEL.setDefaultAnchor(),
+            "/123/SpreadsheetName456/cell/Label123/find"
         );
     }
 
     private void urlFragmentAndCheck2(final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection,
                                       final String expected) {
         this.urlFragmentAndCheck(
-                SpreadsheetCellFindHistoryToken.with(
-                        ID,
-                        NAME,
-                        anchoredSpreadsheetSelection,
-                        SpreadsheetCellFindQuery.empty()
-                ),
-                UrlFragment.with(expected),
-                anchoredSpreadsheetSelection::toString
+            SpreadsheetCellFindHistoryToken.with(
+                ID,
+                NAME,
+                anchoredSpreadsheetSelection,
+                SpreadsheetCellFindQuery.empty()
+            ),
+            UrlFragment.with(expected),
+            anchoredSpreadsheetSelection::toString
         );
     }
 
@@ -152,104 +152,104 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testParseWithoutArguments() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find",
-                Optional.empty(), // path
-                OptionalInt.empty(), // offset
-                OptionalInt.empty(), // count
-                Optional.empty(), // valueType
-                Optional.empty() // query
+            "/123/SpreadsheetName456/cell/A1/find",
+            Optional.empty(), // path
+            OptionalInt.empty(), // offset
+            OptionalInt.empty(), // count
+            Optional.empty(), // valueType
+            Optional.empty() // query
         );
     }
 
     @Test
     public void testParseInvalidComponent() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/!invalid",
-                Optional.empty(), // path
-                OptionalInt.empty(), // offset
-                OptionalInt.empty(), // count
-                Optional.empty(), // valueType
-                Optional.empty() // query
+            "/123/SpreadsheetName456/cell/A1/find/!invalid",
+            Optional.empty(), // path
+            OptionalInt.empty(), // offset
+            OptionalInt.empty(), // count
+            Optional.empty(), // valueType
+            Optional.empty() // query
         );
     }
 
     @Test
     public void testParsePath() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/path/BULR",
-                Optional.of(
-                        SpreadsheetCellRangeReferencePath.BULR
-                ), // path
-                OptionalInt.empty(), // offset
-                OptionalInt.empty(), // count
-                Optional.empty(), // valueType
-                Optional.empty() // query
+            "/123/SpreadsheetName456/cell/A1/find/path/BULR",
+            Optional.of(
+                SpreadsheetCellRangeReferencePath.BULR
+            ), // path
+            OptionalInt.empty(), // offset
+            OptionalInt.empty(), // count
+            Optional.empty(), // valueType
+            Optional.empty() // query
         );
     }
 
     @Test
     public void testParsePathInvalidOffset() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/!invalid",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SELECTION
-                )
+            "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/!invalid",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SELECTION
+            )
         );
     }
 
     @Test
     public void testParsePathOffset() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/path/LRBU/offset/1",
-                Optional.of(
-                        SpreadsheetCellRangeReferencePath.LRBU
-                ), // path
-                OptionalInt.of(1), // offset
-                OptionalInt.empty(), // count
-                Optional.empty(), // valueType
-                Optional.empty() // query
+            "/123/SpreadsheetName456/cell/A1/find/path/LRBU/offset/1",
+            Optional.of(
+                SpreadsheetCellRangeReferencePath.LRBU
+            ), // path
+            OptionalInt.of(1), // offset
+            OptionalInt.empty(), // count
+            Optional.empty(), // valueType
+            Optional.empty() // query
         );
     }
 
     @Test
     public void testParsePathOffsetInvalidCount() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/0/count/!invalid",
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SELECTION
-                )
+            "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/0/count/!invalid",
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SELECTION
+            )
         );
     }
 
     @Test
     public void testParsePathOffsetCount() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/12/count/34",
-                Optional.of(
-                        SpreadsheetCellRangeReferencePath.BULR
-                ), // path
-                OptionalInt.of(12), // offset
-                OptionalInt.of(34), // count
-                Optional.empty(), // valueType
-                Optional.empty() // query
+            "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/12/count/34",
+            Optional.of(
+                SpreadsheetCellRangeReferencePath.BULR
+            ), // path
+            OptionalInt.of(12), // offset
+            OptionalInt.of(34), // count
+            Optional.empty(), // valueType
+            Optional.empty() // query
         );
     }
 
     @Test
     public void testParsePathOffsetCountValueType() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/123/count/456/value-type/" + SpreadsheetValueType.NUMBER,
-                Optional.of(
-                        SpreadsheetCellRangeReferencePath.BULR
-                ), // path
-                OptionalInt.of(123), // offset
-                OptionalInt.of(456), // count
-                Optional.of(SpreadsheetValueType.NUMBER), // valueType
-                Optional.empty() // query
+            "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/123/count/456/value-type/" + SpreadsheetValueType.NUMBER,
+            Optional.of(
+                SpreadsheetCellRangeReferencePath.BULR
+            ), // path
+            OptionalInt.of(123), // offset
+            OptionalInt.of(456), // count
+            Optional.of(SpreadsheetValueType.NUMBER), // valueType
+            Optional.empty() // query
         );
     }
 
@@ -258,14 +258,14 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         final String query = "'Hello'";
 
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.DATE + "/query/",
-                Optional.of(
-                        SpreadsheetCellRangeReferencePath.BULR
-                ), // path
-                OptionalInt.of(1234), // offset
-                OptionalInt.of(5678), // count
-                Optional.of(SpreadsheetValueType.DATE), // valueType
-                Optional.empty() // query
+            "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.DATE + "/query/",
+            Optional.of(
+                SpreadsheetCellRangeReferencePath.BULR
+            ), // path
+            OptionalInt.of(1234), // offset
+            OptionalInt.of(5678), // count
+            Optional.of(SpreadsheetValueType.DATE), // valueType
+            Optional.empty() // query
         );
     }
 
@@ -274,16 +274,16 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         final String query = "Hello()";
 
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.DATE + "/query/" + query,
-                Optional.of(
-                        SpreadsheetCellRangeReferencePath.BULR
-                ), // path
-                OptionalInt.of(1234), // offset
-                OptionalInt.of(5678), // count
-                Optional.of(SpreadsheetValueType.DATE), // valueType
-                Optional.of(
-                        SpreadsheetCellQuery.parse(query)
-                )// query
+            "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.DATE + "/query/" + query,
+            Optional.of(
+                SpreadsheetCellRangeReferencePath.BULR
+            ), // path
+            OptionalInt.of(1234), // offset
+            OptionalInt.of(5678), // count
+            Optional.of(SpreadsheetValueType.DATE), // valueType
+            Optional.of(
+                SpreadsheetCellQuery.parse(query)
+            )// query
         );
     }
 
@@ -292,64 +292,64 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         final String query = "1/23*4/5";
 
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.TIME + "/query/" + query,
-                Optional.of(
-                        SpreadsheetCellRangeReferencePath.BULR
-                ), // path
-                OptionalInt.of(1234), // offset
-                OptionalInt.of(5678), // count
-                Optional.of(SpreadsheetValueType.TIME), // valueType
-                Optional.of(
-                        SpreadsheetCellQuery.parse(query)
-                )// query
+            "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.TIME + "/query/" + query,
+            Optional.of(
+                SpreadsheetCellRangeReferencePath.BULR
+            ), // path
+            OptionalInt.of(1234), // offset
+            OptionalInt.of(5678), // count
+            Optional.of(SpreadsheetValueType.TIME), // valueType
+            Optional.of(
+                SpreadsheetCellQuery.parse(query)
+            )// query
         );
     }
 
     @Test
     public void testParseOffset() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/offset/1234",
-                Optional.empty(), // path
-                OptionalInt.of(1234), // offset
-                OptionalInt.empty(), // count
-                Optional.empty(), // valueType
-                Optional.empty() // query
+            "/123/SpreadsheetName456/cell/A1/find/offset/1234",
+            Optional.empty(), // path
+            OptionalInt.of(1234), // offset
+            OptionalInt.empty(), // count
+            Optional.empty(), // valueType
+            Optional.empty() // query
         );
     }
 
     @Test
     public void testParseCount() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/count/5678/",
-                Optional.empty(), // path
-                OptionalInt.empty(), // offset
-                OptionalInt.of(5678), // count
-                Optional.empty(), // valueType
-                Optional.empty() // query
+            "/123/SpreadsheetName456/cell/A1/find/count/5678/",
+            Optional.empty(), // path
+            OptionalInt.empty(), // offset
+            OptionalInt.of(5678), // count
+            Optional.empty(), // valueType
+            Optional.empty() // query
         );
     }
 
     @Test
     public void testParseOffsetCount() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/",
-                Optional.empty(), // path
-                OptionalInt.of(1234), // offset
-                OptionalInt.of(5678), // count
-                Optional.empty(), // valueType
-                Optional.empty() // query
+            "/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/",
+            Optional.empty(), // path
+            OptionalInt.of(1234), // offset
+            OptionalInt.of(5678), // count
+            Optional.empty(), // valueType
+            Optional.empty() // query
         );
     }
 
     @Test
     public void testParseValueType() {
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/value-type/" + SpreadsheetValueType.TIME,
-                Optional.empty(), // path
-                OptionalInt.empty(), // offset
-                OptionalInt.empty(), // count
-                Optional.of(SpreadsheetValueType.TIME), // valueType
-                Optional.empty() // query
+            "/123/SpreadsheetName456/cell/A1/find/value-type/" + SpreadsheetValueType.TIME,
+            Optional.empty(), // path
+            OptionalInt.empty(), // offset
+            OptionalInt.empty(), // count
+            Optional.of(SpreadsheetValueType.TIME), // valueType
+            Optional.empty() // query
         );
     }
 
@@ -358,14 +358,14 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         final String query = "1/23*4/5";
 
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/value-type/" + SpreadsheetValueType.TIME + "/query/" + query,
-                Optional.empty(), // path
-                OptionalInt.empty(), // offset
-                OptionalInt.empty(), // count
-                Optional.of(SpreadsheetValueType.TIME), // valueType
-                Optional.of(
-                        SpreadsheetCellQuery.parse(query)
-                )// query
+            "/123/SpreadsheetName456/cell/A1/find/value-type/" + SpreadsheetValueType.TIME + "/query/" + query,
+            Optional.empty(), // path
+            OptionalInt.empty(), // offset
+            OptionalInt.empty(), // count
+            Optional.of(SpreadsheetValueType.TIME), // valueType
+            Optional.of(
+                SpreadsheetCellQuery.parse(query)
+            )// query
         );
     }
 
@@ -374,14 +374,14 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         final String query = "1/23*4/5";
 
         this.parseAndCheck2(
-                "/123/SpreadsheetName456/cell/A1/find/query/" + query,
-                Optional.empty(), // path
-                OptionalInt.empty(), // offset
-                OptionalInt.empty(), // count
-                Optional.empty(), // valueType
-                Optional.of(
-                        SpreadsheetCellQuery.parse(query)
-                ) // query
+            "/123/SpreadsheetName456/cell/A1/find/query/" + query,
+            Optional.empty(), // path
+            OptionalInt.empty(), // offset
+            OptionalInt.empty(), // count
+            Optional.empty(), // valueType
+            Optional.of(
+                SpreadsheetCellQuery.parse(query)
+            ) // query
         );
     }
 
@@ -392,18 +392,18 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                                 final Optional<String> valueType,
                                 final Optional<SpreadsheetCellQuery> query) {
         this.parseAndCheck(
-                url,
-                SpreadsheetCellFindHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        SpreadsheetCellFindQuery.empty()
-                                .setPath(path)
-                                .setOffset(offset)
-                                .setCount(count)
-                                .setValueType(valueType)
-                                .setQuery(query)
-                )
+            url,
+            SpreadsheetCellFindHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                SpreadsheetCellFindQuery.empty()
+                    .setPath(path)
+                    .setOffset(offset)
+                    .setCount(count)
+                    .setValueType(valueType)
+                    .setQuery(query)
+            )
         );
     }
 
@@ -412,12 +412,12 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            this.createHistoryToken(),
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
@@ -426,12 +426,12 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testClose() {
         this.closeAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            this.createHistoryToken(),
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
@@ -442,10 +442,10 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                                                        final SpreadsheetName name,
                                                        final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellFindHistoryToken.with(
-                id,
-                name,
-                selection,
-                FIND
+            id,
+            name,
+            selection,
+            FIND
         );
     }
 

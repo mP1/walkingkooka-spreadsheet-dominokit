@@ -29,8 +29,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
  * tests as required by a {@link SpreadsheetViewportComponent}.
  */
 public interface SpreadsheetViewportComponentLifecycle extends HistoryTokenAwareComponentLifecycle,
-        HasSpreadsheetMetadata,
-        HasSpreadsheetViewportCache {
+    HasSpreadsheetMetadata,
+    HasSpreadsheetViewportCache {
 
     @Override
     default boolean shouldIgnore(final HistoryToken token) {

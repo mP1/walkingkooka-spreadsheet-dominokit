@@ -28,8 +28,8 @@ final class PluginFetcherWatchersPluginSetEvent extends FetcherWatchersEvent<Plu
     static PluginFetcherWatchersPluginSetEvent with(final PluginSet plugins,
                                                     final AppContext context) {
         return new PluginFetcherWatchersPluginSetEvent(
-                plugins,
-                context
+            plugins,
+            context
         );
     }
 
@@ -42,8 +42,8 @@ final class PluginFetcherWatchersPluginSetEvent extends FetcherWatchersEvent<Plu
     @Override
     void fire(final PluginFetcherWatcher watcher) {
         watcher.onPluginSet(
-                this.plugins,
-                this.context
+            this.plugins,
+            this.context
         );
     }
 

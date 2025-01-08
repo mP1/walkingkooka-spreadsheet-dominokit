@@ -28,13 +28,13 @@ public final class HistoryTokenWatchers implements HistoryTokenWatcher {
 
     public Runnable add(final HistoryTokenWatcher watcher) {
         return this.watchers.add(
-                (e) -> e.accept(watcher)
+            (e) -> e.accept(watcher)
         );
     }
 
     public Runnable addOnce(final HistoryTokenWatcher watcher) {
         return this.watchers.addOnce(
-                (e) -> e.accept(watcher)
+            (e) -> e.accept(watcher)
         );
     }
 
@@ -42,10 +42,10 @@ public final class HistoryTokenWatchers implements HistoryTokenWatcher {
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         this.watchers.accept(
-                HistoryTokenWatchersEvent.with(
-                        previous,
-                        context
-                )
+            HistoryTokenWatchersEvent.with(
+                previous,
+                context
+            )
         );
     }
 

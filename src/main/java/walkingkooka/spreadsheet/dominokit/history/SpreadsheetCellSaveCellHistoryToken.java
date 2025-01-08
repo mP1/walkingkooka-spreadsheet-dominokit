@@ -46,10 +46,10 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final Set<SpreadsheetCell> value) {
         return new SpreadsheetCellSaveCellHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                Sets.immutable(value)
+            id,
+            name,
+            anchoredSelection,
+            Sets.immutable(value)
         );
     }
 
@@ -58,19 +58,19 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final Set<SpreadsheetCell> value) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
 
         // complain if any of the same formulas are outside the selection range.
         final SpreadsheetSelection selection = anchoredSelection.selection();
         if (false == selection.isLabelName()) {
             final String outside = value.stream()
-                    .map(SpreadsheetCell::reference)
-                    .filter(selection.negate())
-                    .map(SpreadsheetSelection::toString)
-                    .collect(Collectors.joining(", "));
+                .map(SpreadsheetCell::reference)
+                .filter(selection.negate())
+                .map(SpreadsheetSelection::toString)
+                .collect(Collectors.joining(", "));
             if (false == outside.isEmpty()) {
                 throw new IllegalArgumentException("Save value includes cells " + outside + " outside " + selection);
             }
@@ -92,10 +92,10 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final Set<SpreadsheetCell> value) {
         return new SpreadsheetCellSaveCellHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                value
+            id,
+            name,
+            anchoredSelection,
+            value
         );
     }
 
@@ -104,12 +104,12 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
         final TextCursor cursor = TextCursors.charSequence(value);
 
         return this.replace(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                parseCells(
-                        cursor
-                )
+            this.id(),
+            this.name(),
+            this.anchoredSelection(),
+            parseCells(
+                cursor
+            )
         );
     }
 
@@ -124,8 +124,8 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
     @Override
     UrlFragment urlFragmentSaveValue() {
         return UrlFragment.with(
-                MARSHALL_CONTEXT.marshallCollection(this.value)
-                        .toString()
+            MARSHALL_CONTEXT.marshallCollection(this.value)
+                .toString()
         );
     }
 
@@ -133,11 +133,11 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
-                .saveCells(
-                        this.id(),
-                        this.anchoredSelection().selection(),
-                        this.value()
-                );
+            .saveCells(
+                this.id(),
+                this.anchoredSelection().selection(),
+                this.value()
+            );
         context.pushHistoryToken(previous);
     }
 }

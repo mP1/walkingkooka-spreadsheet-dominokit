@@ -32,7 +32,7 @@ final class AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename ext
 
     static AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename with(final AppContext context) {
         return new AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -48,15 +48,15 @@ final class AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename ext
     @Override
     public SpreadsheetId spreadsheetId() {
         return this.historyToken().cast(SpreadsheetRenameHistoryToken.class)
-                .id();
+            .id();
     }
 
     @Override
     public Optional<SpreadsheetName> spreadsheetName() {
         return Optional.of(
-                this.historyToken()
-                        .cast(SpreadsheetRenameSelectHistoryToken.class)
-                        .name()
+            this.historyToken()
+                .cast(SpreadsheetRenameSelectHistoryToken.class)
+                .name()
         );
     }
 

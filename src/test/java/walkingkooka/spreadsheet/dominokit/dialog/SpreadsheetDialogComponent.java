@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Objects;
 
 public final class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLike,
-        TestHtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
+    TestHtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
 
     /**
      * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
@@ -43,10 +43,10 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetDialogComponent(
-                id,
-                title,
-                includeClose,
-                context
+            id,
+            title,
+            includeClose,
+            context
         );
     }
 
@@ -128,8 +128,8 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
     public void printTreeChildren(final IndentingPrinter printer) {
         for (final IsElement<?> child : this.children) {
             TreePrintable.printTreeOrToString(
-                    child,
-                    printer
+                child,
+                printer
             );
             printer.lineStart();
         }

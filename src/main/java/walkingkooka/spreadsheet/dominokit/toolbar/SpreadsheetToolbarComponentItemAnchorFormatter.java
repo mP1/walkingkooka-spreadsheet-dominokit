@@ -32,27 +32,27 @@ import java.util.Optional;
  * A link ui that may exist withing a toolbar, which actives the formatter dialog
  */
 final class SpreadsheetToolbarComponentItemAnchorFormatter extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorFormatter>
-        implements SpreadsheetCellComponentLifecycle,
-        NopComponentLifecycleRefresh,
-        NopComponentLifecycleOpenGiveFocus {
+    implements SpreadsheetCellComponentLifecycle,
+    NopComponentLifecycleRefresh,
+    NopComponentLifecycleOpenGiveFocus {
 
     static SpreadsheetToolbarComponentItemAnchorFormatter with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorFormatter(
-                context
+            context
         );
     }
 
     private SpreadsheetToolbarComponentItemAnchorFormatter(final SpreadsheetToolbarComponentContext context) {
         super(
-                SpreadsheetToolbarComponent.formatterId(),
-                Optional.of(
-                        SpreadsheetIcons.formatter()
-                ),
-                "Formatting",
-                "Formatting...",
-                context
+            SpreadsheetToolbarComponent.formatterId(),
+            Optional.of(
+                SpreadsheetIcons.formatter()
+            ),
+            "Formatting",
+            "Formatting...",
+            context
         );
     }
 
@@ -61,22 +61,22 @@ final class SpreadsheetToolbarComponentItemAnchorFormatter extends SpreadsheetTo
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
-                .anchoredSelectionHistoryTokenOrEmpty()
-                .map(
-                        t -> t.formatter()
-                                .toolbar()
-                ).ifPresent(context::pushHistoryToken);
+            .anchoredSelectionHistoryTokenOrEmpty()
+            .map(
+                t -> t.formatter()
+                    .toolbar()
+            ).ifPresent(context::pushHistoryToken);
     }
 
 
     @Override
     public void refresh(final RefreshContext context) {
         this.anchor.setHistoryToken(
-                context.historyToken()
-                        .anchoredSelectionHistoryTokenOrEmpty()
-                        .map(
-                                t -> t.formatter()
-                        )
+            context.historyToken()
+                .anchoredSelectionHistoryTokenOrEmpty()
+                .map(
+                    t -> t.formatter()
+                )
         );
     }
 }

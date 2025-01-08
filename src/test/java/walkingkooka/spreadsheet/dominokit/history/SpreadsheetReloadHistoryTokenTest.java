@@ -32,11 +32,11 @@ public final class SpreadsheetReloadHistoryTokenTest extends SpreadsheetNameHist
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                )
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            )
         );
     }
 
@@ -45,19 +45,19 @@ public final class SpreadsheetReloadHistoryTokenTest extends SpreadsheetNameHist
         final SpreadsheetMetadataPropertyName<?> propertyName = SpreadsheetMetadataPropertyName.LOCALE;
 
         this.setMetadataPropertyNameAndCheck(
-                propertyName,
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        propertyName
-                )
+            propertyName,
+            HistoryToken.metadataPropertySelect(
+                ID,
+                NAME,
+                propertyName
+            )
         );
     }
 
     @Test
     public void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 
@@ -65,8 +65,8 @@ public final class SpreadsheetReloadHistoryTokenTest extends SpreadsheetNameHist
     SpreadsheetReloadHistoryToken createHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name) {
         return SpreadsheetReloadHistoryToken.with(
-                id,
-                name
+            id,
+            name
         );
     }
 

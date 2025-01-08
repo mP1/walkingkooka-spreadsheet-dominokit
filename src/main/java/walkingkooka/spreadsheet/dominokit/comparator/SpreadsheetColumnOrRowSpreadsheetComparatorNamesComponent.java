@@ -33,8 +33,8 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent imp
 
     private SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetColumnOrRowSpreadsheetComparatorNames::parse,
-                HasText::text
+            SpreadsheetColumnOrRowSpreadsheetComparatorNames::parse,
+            HasText::text
         );
     }
 

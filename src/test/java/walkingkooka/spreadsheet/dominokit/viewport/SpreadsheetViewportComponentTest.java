@@ -27,40 +27,40 @@ import walkingkooka.test.ParseStringTesting;
 import java.util.Optional;
 
 public final class SpreadsheetViewportComponentTest implements HtmlElementComponentTesting<SpreadsheetViewportComponent, HTMLDivElement>,
-        ParseStringTesting<Optional<SpreadsheetSelection>> {
+    ParseStringTesting<Optional<SpreadsheetSelection>> {
 
     // id...............................................................................................................
 
     @Test
     public void testIdWithCell() {
         this.idAndCheck(
-                SpreadsheetSelection.A1,
-                "viewport-cell-A1"
+            SpreadsheetSelection.A1,
+            "viewport-cell-A1"
         );
     }
 
     @Test
     public void testIdWithColumn() {
         this.idAndCheck(
-                SpreadsheetSelection.parseColumn("B"),
-                "viewport-column-B"
+            SpreadsheetSelection.parseColumn("B"),
+            "viewport-column-B"
         );
     }
 
     @Test
     public void testIdWithRow() {
         this.idAndCheck(
-                SpreadsheetSelection.parseRow("3"),
-                "viewport-row-3"
+            SpreadsheetSelection.parseRow("3"),
+            "viewport-row-3"
         );
     }
 
     private void idAndCheck(final SpreadsheetSelection selection,
                             final String id) {
         this.checkEquals(
-                id,
-                SpreadsheetViewportComponent.id(selection),
-                () -> selection + " id"
+            id,
+            SpreadsheetViewportComponent.id(selection),
+            () -> selection + " id"
         );
     }
 
@@ -84,100 +84,100 @@ public final class SpreadsheetViewportComponentTest implements HtmlElementCompon
     @Test
     public void testParseIdWithEmpty() {
         this.parseStringAndCheck(
-                ""
+            ""
         );
     }
 
     @Test
     public void testParseIdWithMissingViewportIdPrefix() {
         this.parseStringAndCheck(
-                "xyz"
+            "xyz"
         );
     }
 
     @Test
     public void testParseIdWithInvalidSelectionType() {
         this.parseStringAndCheck(
-                "viewport-invalid"
+            "viewport-invalid"
         );
     }
 
     @Test
     public void testParseIdWithInvalidSelectionType2() {
         this.parseStringAndCheck(
-                "viewport-invalid-A1"
+            "viewport-invalid-A1"
         );
     }
 
     @Test
     public void testParseIdWithCellRangeFails() {
         this.parseStringAndCheck(
-                "viewport-cell-A1:A2"
+            "viewport-cell-A1:A2"
         );
     }
 
     @Test
     public void testParseIdWithColumnRangeFails() {
         this.parseStringAndCheck(
-                "viewport-column-B:C"
+            "viewport-column-B:C"
         );
     }
 
     @Test
     public void testParseIdWithLabelFails() {
         this.parseStringAndCheck(
-                "viewport-cell-Label123"
+            "viewport-cell-Label123"
         );
     }
 
     @Test
     public void testParseIdWithRowRangeFails() {
         this.parseStringAndCheck(
-                "viewport-row-4:5"
+            "viewport-row-4:5"
         );
     }
 
     private void parseStringAndCheck(final String id) {
         this.parseStringAndCheck(
-                id,
-                Optional.empty()
+            id,
+            Optional.empty()
         );
     }
 
     @Test
     public void testParseIdWithCell() {
         this.parseStringAndCheck(
-                "viewport-cell-A1",
-                SpreadsheetSelection.A1
+            "viewport-cell-A1",
+            SpreadsheetSelection.A1
         );
     }
 
     @Test
     public void testParseIdWithColumn() {
         this.parseStringAndCheck(
-                "viewport-column-B",
-                SpreadsheetSelection.parseColumn("B")
+            "viewport-column-B",
+            SpreadsheetSelection.parseColumn("B")
         );
     }
 
     @Test
     public void testParseIdWithRow() {
         this.parseStringAndCheck(
-                "viewport-row-3",
-                SpreadsheetSelection.parseRow("3")
+            "viewport-row-3",
+            SpreadsheetSelection.parseRow("3")
         );
     }
 
     private void parseStringAndCheck(final String id,
                                      final SpreadsheetSelection selection) {
         this.parseStringAndCheck(
-                id,
-                Optional.of(selection)
+            id,
+            Optional.of(selection)
         );
 
         this.idAndCheck(
-                selection,
-                id
+            selection,
+            id
         );
     }
 

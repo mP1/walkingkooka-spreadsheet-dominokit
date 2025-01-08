@@ -26,66 +26,66 @@ public final class SpreadsheetListReloadHistoryTokenTest extends SpreadsheetList
     @Test
     public void testParseInvalidOffset() {
         this.parseAndCheck(
-                "/*/offset/X/reload/",
-                HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "/*/offset/X/reload/",
+            HistoryToken.spreadsheetListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParseReload() {
         this.parseAndCheck(
-                "/reload",
-                HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "/reload",
+            HistoryToken.spreadsheetListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParseStarReload() {
         this.parseAndCheck(
-                "/*/reload",
-                SpreadsheetListReloadHistoryToken.with(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "/*/reload",
+            SpreadsheetListReloadHistoryToken.with(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParseOffset() {
         this.parseAndCheck(
-                "/*/offset/10/reload",
-                SpreadsheetListReloadHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.empty() // count
-                )
+            "/*/offset/10/reload",
+            SpreadsheetListReloadHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParseCount() {
         this.parseAndCheck(
-                "/*/count/20/reload",
-                SpreadsheetListReloadHistoryToken.with(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.of(20) // count
-                )
+            "/*/count/20/reload",
+            SpreadsheetListReloadHistoryToken.with(
+                OptionalInt.empty(), // offset
+                OptionalInt.of(20) // count
+            )
         );
     }
 
     @Test
     public void testParseOffsetAndCount() {
         this.parseAndCheck(
-                "/*/offset/10/count/20/reload",
-                SpreadsheetListReloadHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.of(20) // count
-                )
+            "/*/offset/10/count/20/reload",
+            SpreadsheetListReloadHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.of(20) // count
+            )
         );
     }
 
@@ -97,44 +97,44 @@ public final class SpreadsheetListReloadHistoryTokenTest extends SpreadsheetList
     @Test
     public void testUrlFragmentOffset() {
         this.urlFragmentAndCheck(
-                SpreadsheetListReloadHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.empty() // count
-                ),
-                "/*/offset/10/reload"
+            SpreadsheetListReloadHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.empty() // count
+            ),
+            "/*/offset/10/reload"
         );
     }
 
     @Test
     public void testUrlFragmentOffsetAndCount() {
         this.urlFragmentAndCheck(
-                SpreadsheetListReloadHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.of(20) // count
-                ),
-                "/*/offset/10/count/20/reload"
+            SpreadsheetListReloadHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.of(20) // count
+            ),
+            "/*/offset/10/count/20/reload"
         );
     }
 
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.spreadsheetListSelect(
-                        OFFSET,
-                        COUNT
-                )
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetListSelect(
+                OFFSET,
+                COUNT
+            )
         );
     }
 
     @Test
     public void testReload() {
         this.reloadAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.spreadsheetListReload(
-                        OFFSET,
-                        COUNT
-                )
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetListReload(
+                OFFSET,
+                COUNT
+            )
         );
     }
 
@@ -142,8 +142,8 @@ public final class SpreadsheetListReloadHistoryTokenTest extends SpreadsheetList
     SpreadsheetListReloadHistoryToken createHistoryToken(final OptionalInt offset,
                                                          final OptionalInt count) {
         return SpreadsheetListReloadHistoryToken.with(
-                offset,
-                count
+            offset,
+            count
         );
     }
 

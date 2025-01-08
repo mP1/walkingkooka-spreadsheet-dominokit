@@ -41,18 +41,18 @@ public final class ValueSpreadsheetTextBox<T> implements ValueComponent<HTMLFiel
     public static <T> ValueSpreadsheetTextBox<T> with(final Function<String, T> parser,
                                                       final Function<T, String> formatter) {
         return new ValueSpreadsheetTextBox<>(
-                Objects.requireNonNull(parser, "parser"),
-                Objects.requireNonNull(formatter, "formatter")
+            Objects.requireNonNull(parser, "parser"),
+            Objects.requireNonNull(formatter, "formatter")
         );
     }
 
     private ValueSpreadsheetTextBox(final Function<String, T> parser,
                                     final Function<T, String> formatter) {
         this.textBox = SpreadsheetTextBox.empty()
-                .autocompleteOff()
-                .clearIcon()
-                .disableSpellcheck()
-                .enterFiresValueChange();
+            .autocompleteOff()
+            .clearIcon()
+            .disableSpellcheck()
+            .enterFiresValueChange();
         this.setParser(parser);
         this.setFormatter(formatter);
         this.required();
@@ -66,7 +66,7 @@ public final class ValueSpreadsheetTextBox<T> implements ValueComponent<HTMLFiel
 
         this.parser = parser;
         this.setValidator(
-                SpreadsheetValidators.tryCatch(parser::apply)
+            SpreadsheetValidators.tryCatch(parser::apply)
         );
         this.validate();
         return this;
@@ -123,7 +123,7 @@ public final class ValueSpreadsheetTextBox<T> implements ValueComponent<HTMLFiel
     @Override
     public ValueSpreadsheetTextBox<T> optional() {
         this.textBox.setValidator(
-                SpreadsheetValidators.optional(this.validator)
+            SpreadsheetValidators.optional(this.validator)
         );
         this.required = false;
         return this;
@@ -167,6 +167,7 @@ public final class ValueSpreadsheetTextBox<T> implements ValueComponent<HTMLFiel
         this.textBox.setErrors(errors);
         return this;
     }
+
     @Override
     public ValueSpreadsheetTextBox<T> focus() {
         this.textBox.focus();
@@ -207,12 +208,12 @@ public final class ValueSpreadsheetTextBox<T> implements ValueComponent<HTMLFiel
         Objects.requireNonNull(listener, "listener");
 
         this.textBox.addChangeListener(
-                (final Optional<String> oldValue,
-                 final Optional<String> newValue) ->
-                        listener.onValueChanged(
-                                tryParse(oldValue),
-                                tryParse(newValue)
-                        )
+            (final Optional<String> oldValue,
+             final Optional<String> newValue) ->
+                listener.onValueChanged(
+                    tryParse(oldValue),
+                    tryParse(newValue)
+                )
         );
 
         return this;
@@ -258,7 +259,7 @@ public final class ValueSpreadsheetTextBox<T> implements ValueComponent<HTMLFiel
         Objects.requireNonNull(value, "value");
 
         this.textBox.setValue(
-                value.map(this.formatter::apply)
+            value.map(this.formatter::apply)
         );
         return this;
     }
@@ -266,7 +267,7 @@ public final class ValueSpreadsheetTextBox<T> implements ValueComponent<HTMLFiel
     @Override //
     public Optional<T> value() {
         return tryParse(
-                this.textBox.value()
+            this.textBox.value()
         );
     }
 
@@ -274,17 +275,17 @@ public final class ValueSpreadsheetTextBox<T> implements ValueComponent<HTMLFiel
         T parsed;
         try {
             parsed = this.parser.apply(
-                    text.orElse("")
+                text.orElse("")
             );
         } catch (final Exception ignore) {
             parsed = null;
         }
         return Optional.ofNullable(
-                null == parsed ||
-                        "".equals(parsed) ||
-                        isEmpty(parsed) ?
-                        null :
-                        parsed
+            null == parsed ||
+                "".equals(parsed) ||
+                isEmpty(parsed) ?
+                null :
+                parsed
         );
     }
 

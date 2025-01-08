@@ -30,46 +30,46 @@ public final class ConverterSelectorComponentTest implements ValueComponentTesti
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                ConverterSelectorComponent.empty()
-                        .setStringValue(
-                                Optional.of("hello")
-                        ),
-                "ConverterSelectorComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [hello]\n"
+            ConverterSelectorComponent.empty()
+                .setStringValue(
+                    Optional.of("hello")
+                ),
+            "ConverterSelectorComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [hello]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                ConverterSelectorComponent.empty()
-                        .setStringValue(
-                                Optional.of("!@#")
-                        ),
-                "ConverterSelectorComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [!@#]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 0\n"
+            ConverterSelectorComponent.empty()
+                .setStringValue(
+                    Optional.of("!@#")
+                ),
+            "ConverterSelectorComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [!@#]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 0\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid2() {
         this.treePrintAndCheck(
-                ConverterSelectorComponent.empty()
-                        .setStringValue(
-                                Optional.of("Hello!")
-                        ),
-                "ConverterSelectorComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Hello!]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 5\n"
+            ConverterSelectorComponent.empty()
+                .setStringValue(
+                    Optional.of("Hello!")
+                ),
+            "ConverterSelectorComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Hello!]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 5\n"
         );
     }
 

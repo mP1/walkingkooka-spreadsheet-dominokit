@@ -33,10 +33,10 @@ final class PluginFetcherWatchersJarEntryInfoNameEvent extends FetcherWatchersEv
                                                            final Optional<String> body,
                                                            final AppContext context) {
         return new PluginFetcherWatchersJarEntryInfoNameEvent(
-                pluginName,
-                filename,
-                body,
-                context
+            pluginName,
+            filename,
+            body,
+            context
         );
     }
 
@@ -53,10 +53,10 @@ final class PluginFetcherWatchersJarEntryInfoNameEvent extends FetcherWatchersEv
     @Override
     void fire(final PluginFetcherWatcher watcher) {
         watcher.onJarEntryInfoName(
-                this.pluginName,
-                this.filename,
-                this.body,
-                this.context
+            this.pluginName,
+            this.filename,
+            this.body,
+            this.context
         );
     }
 

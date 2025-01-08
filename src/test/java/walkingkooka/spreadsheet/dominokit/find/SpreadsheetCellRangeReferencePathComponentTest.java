@@ -30,39 +30,39 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements Val
     @Test
     public void testEmpty() {
         this.treePrintAndCheck(
-                SpreadsheetCellRangeReferencePathComponent.empty(),
-                "SpreadsheetCellRangeReferencePathComponent\n" +
-                        "  SpreadsheetSelectComponent\n" +
-                        "    []\n" +
-                        "      left-right top-down=LRTD\n" +
-                        "      right-left top-down=RLTD\n" +
-                        "      left-right bottom-up=LRBU\n" +
-                        "      right-left bottom-up=RLBU\n" +
-                        "      top-down left-right=TDLR\n" +
-                        "      top-down right-left=TDRL\n" +
-                        "      bottom-up left-right=BULR\n" +
-                        "      bottom-up right-left=BURL\n"
+            SpreadsheetCellRangeReferencePathComponent.empty(),
+            "SpreadsheetCellRangeReferencePathComponent\n" +
+                "  SpreadsheetSelectComponent\n" +
+                "    []\n" +
+                "      left-right top-down=LRTD\n" +
+                "      right-left top-down=RLTD\n" +
+                "      left-right bottom-up=LRBU\n" +
+                "      right-left bottom-up=RLBU\n" +
+                "      top-down left-right=TDLR\n" +
+                "      top-down right-left=TDRL\n" +
+                "      bottom-up left-right=BULR\n" +
+                "      bottom-up right-left=BURL\n"
         );
     }
 
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-                SpreadsheetCellRangeReferencePathComponent.empty()
-                        .setValue(
-                                Optional.of(SpreadsheetCellRangeReferencePath.BULR)
-                        ),
-                "SpreadsheetCellRangeReferencePathComponent\n" +
-                        "  SpreadsheetSelectComponent\n" +
-                        "    [BULR]\n" +
-                        "      left-right top-down=LRTD\n" +
-                        "      right-left top-down=RLTD\n" +
-                        "      left-right bottom-up=LRBU\n" +
-                        "      right-left bottom-up=RLBU\n" +
-                        "      top-down left-right=TDLR\n" +
-                        "      top-down right-left=TDRL\n" +
-                        "      bottom-up left-right=BULR\n" +
-                        "      bottom-up right-left=BURL\n"
+            SpreadsheetCellRangeReferencePathComponent.empty()
+                .setValue(
+                    Optional.of(SpreadsheetCellRangeReferencePath.BULR)
+                ),
+            "SpreadsheetCellRangeReferencePathComponent\n" +
+                "  SpreadsheetSelectComponent\n" +
+                "    [BULR]\n" +
+                "      left-right top-down=LRTD\n" +
+                "      right-left top-down=RLTD\n" +
+                "      left-right bottom-up=LRBU\n" +
+                "      right-left bottom-up=RLBU\n" +
+                "      top-down left-right=TDLR\n" +
+                "      top-down right-left=TDRL\n" +
+                "      bottom-up left-right=BULR\n" +
+                "      bottom-up right-left=BURL\n"
         );
     }
 

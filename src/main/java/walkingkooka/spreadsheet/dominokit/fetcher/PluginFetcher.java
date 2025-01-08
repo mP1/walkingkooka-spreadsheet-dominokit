@@ -62,23 +62,23 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         Objects.requireNonNull(context, "context");
 
         return new PluginFetcher(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     private PluginFetcher(final PluginFetcherWatcher watcher,
                           final AppContext context) {
         super(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     // DELETE /api/plugin/PluginName
     public void deletePlugin(final PluginName pluginName) {
         this.delete(
-                pluginNameUrl(pluginName)
+            pluginNameUrl(pluginName)
         );
     }
 
@@ -95,25 +95,25 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         }
 
         this.get(
-                plugin()
-                        .appendPathName(UrlPathName.WILDCARD)
-                        .appendPathName(
-                                SpreadsheetServerLinkRelations.FILTER.toUrlPathName()
-                        ).setQuery(
-                                UrlQueryString.EMPTY.addParameter(SpreadsheetUrlQueryParameters.QUERY, query)
-                                        .addParameter(SpreadsheetUrlQueryParameters.OFFSET, String.valueOf(offset))
-                                        .addParameter(SpreadsheetUrlQueryParameters.COUNT, String.valueOf(count))
-                        )
+            plugin()
+                .appendPathName(UrlPathName.WILDCARD)
+                .appendPathName(
+                    SpreadsheetServerLinkRelations.FILTER.toUrlPathName()
+                ).setQuery(
+                    UrlQueryString.EMPTY.addParameter(SpreadsheetUrlQueryParameters.QUERY, query)
+                        .addParameter(SpreadsheetUrlQueryParameters.OFFSET, String.valueOf(offset))
+                        .addParameter(SpreadsheetUrlQueryParameters.COUNT, String.valueOf(count))
+                )
         );
     }
 
     // GET /api/plugin/PluginName/list
     public void listJarEntries(final PluginName pluginName) {
         this.get(
-                pluginNameUrl(pluginName)
-                        .appendPathName(
-                                SpreadsheetServerLinkRelations.LIST.toUrlPathName()
-                        )
+            pluginNameUrl(pluginName)
+                .appendPathName(
+                    SpreadsheetServerLinkRelations.LIST.toUrlPathName()
+                )
         );
     }
 
@@ -123,23 +123,23 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
     public void loadJarTextFile(final PluginName pluginName,
                                 final JarEntryInfoName filename) {
         this.fetch(
-                HttpMethod.GET,
-                pluginDownloadUrl(
-                        pluginName,
-                        Optional.of(filename)
-                ),
-                Maps.of(
-                        HttpHeaderName.ACCEPT,
-                        LOAD_TEXT_FILE_ACCEPT
-                ),
-                Optional.empty()
+            HttpMethod.GET,
+            pluginDownloadUrl(
+                pluginName,
+                Optional.of(filename)
+            ),
+            Maps.of(
+                HttpHeaderName.ACCEPT,
+                LOAD_TEXT_FILE_ACCEPT
+            ),
+            Optional.empty()
         );
     }
 
     private final static Accept LOAD_TEXT_FILE_ACCEPT = Accept.with(
-            Lists.of(
-                    MediaType.ANY_TEXT
-            )
+        Lists.of(
+            MediaType.ANY_TEXT
+        )
     );
 
     /**
@@ -150,19 +150,19 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         Objects.requireNonNull(body, "body");
 
         this.fetch(
-                HttpMethod.POST,
-                pluginUploadUrl(),
-                Maps.of(
-                        HttpHeaderName.ACCEPT,
-                        SpreadsheetServerMediaTypes.BINARY
-                ),
-                Optional.of(body)
+            HttpMethod.POST,
+            pluginUploadUrl(),
+            Maps.of(
+                HttpHeaderName.ACCEPT,
+                SpreadsheetServerMediaTypes.BINARY
+            ),
+            Optional.of(body)
         );
     }
 
     static RelativeUrl plugin() {
         return Url.EMPTY_RELATIVE_URL.appendPath(
-                SpreadsheetHttpServer.API_PLUGIN
+            SpreadsheetHttpServer.API_PLUGIN
         );
     }
 
@@ -171,9 +171,9 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         Objects.requireNonNull(pluginName, "pluginName");
 
         return Url.EMPTY_RELATIVE_URL.appendPath(
-                SpreadsheetHttpServer.API_PLUGIN.append(
-                        UrlPathName.with(pluginName.value())
-                )
+            SpreadsheetHttpServer.API_PLUGIN.append(
+                UrlPathName.with(pluginName.value())
+            )
         );
     }
 
@@ -187,11 +187,11 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
         Objects.requireNonNull(file, "file");
 
         RelativeUrl url = pluginNameUrl(pluginName)
-                .appendPathName(SpreadsheetServerLinkRelations.DOWNLOAD.toUrlPathName());
+            .appendPathName(SpreadsheetServerLinkRelations.DOWNLOAD.toUrlPathName());
         if (file.isPresent()) {
             url = url.appendPath(
-                    UrlPath.parse(
-                            file.get().value())
+                UrlPath.parse(
+                    file.get().value())
             );
         }
 
@@ -201,8 +201,8 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
     // @VisibleForTesting
     static RelativeUrl pluginUploadUrl() {
         return Url.EMPTY_RELATIVE_URL.appendPath(
-                SpreadsheetHttpServer.API_PLUGIN.append(UrlPathName.WILDCARD)
-                        .append(UPLOAD)
+            SpreadsheetHttpServer.API_PLUGIN.append(UrlPathName.WILDCARD)
+                .append(UPLOAD)
         );
     }
 
@@ -226,52 +226,52 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
             case "JarEntryInfoList":
                 // GET https://server/api/plugin/Plugin/list
                 this.watcher.onJarEntryInfoList(
-                        this.extractPluginName(url),
-                        Optional.ofNullable(
-                                bodyText.trim()
-                                        .isEmpty() ?
-                                        null :
-                                        this.parse(
-                                                bodyText,
-                                                JarEntryInfoList.class
-                                        )
-                        ),
-                        this.context
+                    this.extractPluginName(url),
+                    Optional.ofNullable(
+                        bodyText.trim()
+                            .isEmpty() ?
+                            null :
+                            this.parse(
+                                bodyText,
+                                JarEntryInfoList.class
+                            )
+                    ),
+                    this.context
                 );
                 break;
             case "JarEntryInfoName":
                 // GET https://server/api/plugin/PluginName/download/**
                 this.watcher.onJarEntryInfoName(
-                        this.extractPluginName(url),
-                        JarEntryInfoName.pluginDownloadPathExtract(url.path()),
-                        body,
-                        context
+                    this.extractPluginName(url),
+                    JarEntryInfoName.pluginDownloadPathExtract(url.path()),
+                    body,
+                    context
                 );
                 break;
             case "Plugin":
                 // GET http://server/api/plugin/PluginName
                 this.watcher.onPlugin(
-                        this.extractPluginName(url),
-                        Optional.ofNullable(
-                                bodyText.trim()
-                                        .isEmpty() ?
-                                        null :
-                                        this.parse(
-                                                bodyText,
-                                                Plugin.class
-                                        )
-                        ), // edit
-                        context
+                    this.extractPluginName(url),
+                    Optional.ofNullable(
+                        bodyText.trim()
+                            .isEmpty() ?
+                            null :
+                            this.parse(
+                                bodyText,
+                                Plugin.class
+                            )
+                    ), // edit
+                    context
                 );
                 break;
             case "PluginSet":
                 // GET http://server/api/plugin/PluginName/filter
                 this.watcher.onPluginSet(
-                        this.parse(
-                                bodyText,
-                                PluginSet.class
-                        ), // edit
-                        context
+                    this.parse(
+                        bodyText,
+                        PluginSet.class
+                    ), // edit
+                    context
                 );
                 break;
             default:
@@ -282,13 +282,13 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
     // extract pluginName from url / 1=api / 2=plugin / 3=PluginName
     private PluginName extractPluginName(final AbsoluteOrRelativeUrl url) {
         final List<UrlPathName> names = url.path()
-                .namesList();
+            .namesList();
         if (names.size() < 3) {
             throw new IllegalStateException("Missing pluginName from url " + url);
         }
         return PluginName.with(
-                names.get(3)
-                        .value()
+            names.get(3)
+                .value()
         );
     }
 }

@@ -48,138 +48,138 @@ import java.util.List;
 import java.util.TreeSet;
 
 public final class PluginNameSetDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginNameSetDialogComponent, PluginNameSetDialogComponentContext>,
-        HistoryTokenTesting,
-        SpreadsheetMetadataTesting {
+    HistoryTokenTesting,
+    SpreadsheetMetadataTesting {
     @Test
     public void testEmptyTextRefresh() {
         final AppContext context = this.appContext(
-                HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/plugins"),
-                "plugin111, plugin222", // metadata.PLUGINS
-                "plugin111, plugin222" // PluginStore plugins
+            HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/plugins"),
+            "plugin111, plugin222", // metadata.PLUGINS
+            "plugin111, plugin222" // PluginStore plugins
         );
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
-                PluginNameSetDialogComponent.with(
-                        this.dialogContext(context)
-                ),
-                "",
-                context,
-                "PluginNameSetDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    PluginsTitle999\n" +
-                        "    id=pluginNameSet-Dialog includeClose=true\n" +
-                        "      AddPluginNameSetComponent\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            Add\n" +
-                        "              SpreadsheetFlexLayout\n" +
-                        "                ROW\n" +
-                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-0-Link\n" +
-                        "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-add-1-Link\n" +
-                        "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin222] id=pluginNameSet-add-2-Link\n" +
-                        "      RemovePluginNameSetComponent\n" +
-                        "      PluginNameSetComponent\n" +
-                        "        ValueSpreadsheetTextBox\n" +
-                        "          SpreadsheetTextBox\n" +
-                        "            [] id=pluginNameSet-TextBox\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-save-Link\n" +
-                        "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
-                        "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
+            PluginNameSetDialogComponent.with(
+                this.dialogContext(context)
+            ),
+            "",
+            context,
+            "PluginNameSetDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    PluginsTitle999\n" +
+                "    id=pluginNameSet-Dialog includeClose=true\n" +
+                "      AddPluginNameSetComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            Add\n" +
+                "              SpreadsheetFlexLayout\n" +
+                "                ROW\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-0-Link\n" +
+                "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-add-1-Link\n" +
+                "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin222] id=pluginNameSet-add-2-Link\n" +
+                "      RemovePluginNameSetComponent\n" +
+                "      PluginNameSetComponent\n" +
+                "        ValueSpreadsheetTextBox\n" +
+                "          SpreadsheetTextBox\n" +
+                "            [] id=pluginNameSet-TextBox\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-save-Link\n" +
+                "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
+                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
         );
     }
 
     @Test
     public void testNonEmptyTextRefresh() {
         final AppContext context = this.appContext(
-                HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/plugins/"),
-                "plugin111, plugin222", // metadata.PLUGINS
-                "plugin111, plugin222" // PluginStore plugins
+            HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/plugins/"),
+            "plugin111, plugin222", // metadata.PLUGINS
+            "plugin111, plugin222" // PluginStore plugins
         );
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
-                PluginNameSetDialogComponent.with(
-                        this.dialogContext(context)
-                ),
-                "plugin111",
-                context,
-                "PluginNameSetDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    PluginsTitle999\n" +
-                        "    id=pluginNameSet-Dialog includeClose=true\n" +
-                        "      AddPluginNameSetComponent\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            Add\n" +
-                        "              SpreadsheetFlexLayout\n" +
-                        "                ROW\n" +
-                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-0-Link\n" +
-                        "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-1-Link\n" +
-                        "      RemovePluginNameSetComponent\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            Remove\n" +
-                        "              SpreadsheetFlexLayout\n" +
-                        "                ROW\n" +
-                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-remove-0-Link\n" +
-                        "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-remove-1-Link\n" +
-                        "      PluginNameSetComponent\n" +
-                        "        ValueSpreadsheetTextBox\n" +
-                        "          SpreadsheetTextBox\n" +
-                        "            [plugin111] id=pluginNameSet-TextBox\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
-                        "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
-                        "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
+            PluginNameSetDialogComponent.with(
+                this.dialogContext(context)
+            ),
+            "plugin111",
+            context,
+            "PluginNameSetDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    PluginsTitle999\n" +
+                "    id=pluginNameSet-Dialog includeClose=true\n" +
+                "      AddPluginNameSetComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            Add\n" +
+                "              SpreadsheetFlexLayout\n" +
+                "                ROW\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-0-Link\n" +
+                "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-1-Link\n" +
+                "      RemovePluginNameSetComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            Remove\n" +
+                "              SpreadsheetFlexLayout\n" +
+                "                ROW\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-remove-0-Link\n" +
+                "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-remove-1-Link\n" +
+                "      PluginNameSetComponent\n" +
+                "        ValueSpreadsheetTextBox\n" +
+                "          SpreadsheetTextBox\n" +
+                "            [plugin111] id=pluginNameSet-TextBox\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
+                "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
+                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
         );
     }
 
     @Test
     public void testNonEmptyTextDifferentPluginsAndRefresh() {
         final AppContext context = this.appContext(
-                HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/plugins/"),
-                "plugin111, plugin222", // metadata.PLUGINS
-                "plugin111, plugin222, plugin333" // PluginStore plugins
+            HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/plugins/"),
+            "plugin111, plugin222", // metadata.PLUGINS
+            "plugin111, plugin222, plugin333" // PluginStore plugins
         );
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
-                PluginNameSetDialogComponent.with(
-                        this.dialogContext(context)
-                ),
-                "plugin111",
-                context,
-                "PluginNameSetDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    PluginsTitle999\n" +
-                        "    id=pluginNameSet-Dialog includeClose=true\n" +
-                        "      AddPluginNameSetComponent\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            Add\n" +
-                        "              SpreadsheetFlexLayout\n" +
-                        "                ROW\n" +
-                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222,plugin333] id=pluginNameSet-add-0-Link\n" +
-                        "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-1-Link\n" +
-                        "                  \"Plugin333\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin333] id=pluginNameSet-add-2-Link\n" +
-                        "      RemovePluginNameSetComponent\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            Remove\n" +
-                        "              SpreadsheetFlexLayout\n" +
-                        "                ROW\n" +
-                        "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-remove-0-Link\n" +
-                        "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-remove-1-Link\n" +
-                        "      PluginNameSetComponent\n" +
-                        "        ValueSpreadsheetTextBox\n" +
-                        "          SpreadsheetTextBox\n" +
-                        "            [plugin111] id=pluginNameSet-TextBox\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
-                        "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
-                        "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
+            PluginNameSetDialogComponent.with(
+                this.dialogContext(context)
+            ),
+            "plugin111",
+            context,
+            "PluginNameSetDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    PluginsTitle999\n" +
+                "    id=pluginNameSet-Dialog includeClose=true\n" +
+                "      AddPluginNameSetComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            Add\n" +
+                "              SpreadsheetFlexLayout\n" +
+                "                ROW\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222,plugin333] id=pluginNameSet-add-0-Link\n" +
+                "                  \"Plugin222\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-add-1-Link\n" +
+                "                  \"Plugin333\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin333] id=pluginNameSet-add-2-Link\n" +
+                "      RemovePluginNameSetComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            Remove\n" +
+                "              SpreadsheetFlexLayout\n" +
+                "                ROW\n" +
+                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-remove-0-Link\n" +
+                "                  \"Plugin111\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-remove-1-Link\n" +
+                "      PluginNameSetComponent\n" +
+                "        ValueSpreadsheetTextBox\n" +
+                "          SpreadsheetTextBox\n" +
+                "            [plugin111] id=pluginNameSet-TextBox\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
+                "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
+                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
         );
     }
 
@@ -188,21 +188,21 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                                                         final AppContext context,
                                                         final String expected) {
         this.checkEquals(
-                false,
-                dialog.isMatch(NOT_MATCHED),
-                () -> "should not be matched " + NOT_MATCHED
+            false,
+            dialog.isMatch(NOT_MATCHED),
+            () -> "should not be matched " + NOT_MATCHED
         );
 
         dialog.onHistoryTokenChange(
-                NOT_MATCHED,
-                context
+            NOT_MATCHED,
+            context
         );
 
         dialog.setText(text);
 
         this.treePrintAndCheck(
-                dialog,
-                expected
+            dialog,
+            expected
         );
     }
 
@@ -227,16 +227,16 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                                  final int offset,
                                  final int count) {
             final List<Plugin> plugin = this.context.pluginStore()
-                    .filter(
-                            query,
-                            offset,
-                            count
-                    );
+                .filter(
+                    query,
+                    offset,
+                    count
+                );
             this.pluginFetcherWatchers.onPluginSet(
-                    PluginSet.with(
-                            new TreeSet<>(plugin)
-                    ),
-                    this.context
+                PluginSet.with(
+                    new TreeSet<>(plugin)
+                ),
+                this.context
             );
         }
 
@@ -305,18 +305,18 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
 
         for (final PluginName pluginStoreName : PluginNameSet.parse(pluginStorePlugins)) {
             pluginStore.save(
-                    Plugin.with(
-                            pluginStoreName,
-                            pluginStoreName.value() + ".jar",
-                            Binary.with(
-                                    JarFileTesting.jarFile(
-                                            "Manifest-Version: 1.0\r\n",
-                                            Maps.empty() // contents filename to file content - bytes
-                                    )
-                            ),
-                            USER,
-                            NOW.now()
-                    )
+                Plugin.with(
+                    pluginStoreName,
+                    pluginStoreName.value() + ".jar",
+                    Binary.with(
+                        JarFileTesting.jarFile(
+                            "Manifest-Version: 1.0\r\n",
+                            Maps.empty() // contents filename to file content - bytes
+                        )
+                    ),
+                    USER,
+                    NOW.now()
+                )
             );
         }
 
@@ -335,11 +335,11 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
-                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                        SpreadsheetId.with(1)
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    SpreadsheetId.with(1)
                 ).setOrRemove(
-                        SpreadsheetMetadataPropertyName.PLUGINS,
-                        PluginNameSet.parse(metadataPlugins)
+                    SpreadsheetMetadataPropertyName.PLUGINS,
+                    PluginNameSet.parse(metadataPlugins)
                 );
             }
 

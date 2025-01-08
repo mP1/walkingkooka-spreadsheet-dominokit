@@ -20,5 +20,5 @@ package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 
 public class FakeRemovePluginAliasSetLikeComponentContext extends FakeHistoryTokenContext
-        implements RemovePluginAliasSetLikeComponentContext {
+    implements RemovePluginAliasSetLikeComponentContext {
 }
