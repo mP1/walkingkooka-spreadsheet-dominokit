@@ -41,15 +41,15 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, selection, propertyName);
 
         this.saveAndCheck(
-                historyToken,
-                value,
-                HistoryToken.cellStyleSave(
-                        ID,
-                        NAME,
-                        selection,
-                        propertyName,
-                        Optional.of(Color.parse(value))
-                )
+            historyToken,
+            value,
+            HistoryToken.cellStyleSave(
+                ID,
+                NAME,
+                selection,
+                propertyName,
+                Optional.of(Color.parse(value))
+            )
         );
     }
 
@@ -61,15 +61,15 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, selection, propertyName);
 
         this.saveAndCheck(
-                historyToken,
-                value,
-                HistoryToken.cellStyleSave(
-                        ID,
-                        NAME,
-                        selection,
-                        propertyName,
-                        Optional.empty()
-                )
+            historyToken,
+            value,
+            HistoryToken.cellStyleSave(
+                ID,
+                NAME,
+                selection,
+                propertyName,
+                Optional.empty()
+            )
         );
     }
 
@@ -78,13 +78,13 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     @Test
     public void testUrlFragmentCellAll() {
         this.urlFragmentAndCheck(
-                SpreadsheetCellStyleSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        TextStylePropertyName.ALL
-                ),
-                "/123/SpreadsheetName456/cell/A1/style/*"
+            SpreadsheetCellStyleSelectHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.ALL
+            ),
+            "/123/SpreadsheetName456/cell/A1/style/*"
         );
     }
 
@@ -96,24 +96,24 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/style/color"
+            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/style/color"
         );
     }
 
     @Test
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/style/color"
+            SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/*/top-left/style/color"
         );
     }
 
     @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/cell/Label123/style/color"
+            LABEL,
+            "/123/SpreadsheetName456/cell/Label123/style/color"
         );
     }
 
@@ -121,14 +121,14 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     public void testUrlFragmentAllTextStylePropertyNames() {
         for (final TextStylePropertyName<?> propertyName : TextStylePropertyName.values()) {
             final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
-                    ID,
-                    NAME,
-                    CELL.setDefaultAnchor(),
-                    propertyName
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                propertyName
             );
             this.urlFragmentAndCheck(
-                    token,
-                    token.urlFragment()
+                token,
+                token.urlFragment()
             );
         }
     }
@@ -137,14 +137,14 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     public void testParseAllTextStylePropertyNames() {
         for (final TextStylePropertyName<?> propertyName : TextStylePropertyName.values()) {
             final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
-                    ID,
-                    NAME,
-                    CELL.setDefaultAnchor(),
-                    propertyName
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                propertyName
             );
             this.parseAndCheck(
-                    token.urlFragment(),
-                    token
+                token.urlFragment(),
+                token
             );
         }
     }
@@ -162,10 +162,10 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                                                                      final AnchoredSpreadsheetSelection selection,
                                                                      final TextStylePropertyName<Color> propertyName) {
         return SpreadsheetCellStyleSelectHistoryToken.with(
-                id,
-                name,
-                selection,
-                PROPERTY_NAME
+            id,
+            name,
+            selection,
+            PROPERTY_NAME
         );
     }
 

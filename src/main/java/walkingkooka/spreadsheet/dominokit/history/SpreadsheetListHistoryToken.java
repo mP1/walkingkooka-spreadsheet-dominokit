@@ -46,9 +46,9 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
     @Override //
     final UrlFragment spreadsheetUrlFragment() {
         return countAndOffsetUrlFragment(
-                this.offset,
-                this.count,
-                this.spreadsheetListUrlFragment()
+            this.offset,
+            this.count,
+            this.spreadsheetListUrlFragment()
         );
     }
 
@@ -66,8 +66,8 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
     final HistoryToken replaceIdAndName(final SpreadsheetId id,
                                         final SpreadsheetName name) {
         return spreadsheetSelect(
-                id,
-                name
+            id,
+            name
         );
     }
 }

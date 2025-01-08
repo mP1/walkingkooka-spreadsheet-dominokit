@@ -26,16 +26,16 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderDelegator;
 import java.util.Optional;
 
 final class SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext implements SpreadsheetFormatterNameLinkListComponentContext,
-        HistoryTokenContextDelegator,
-        SpreadsheetFormatterProviderDelegator {
+    HistoryTokenContextDelegator,
+    SpreadsheetFormatterProviderDelegator {
 
     static SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext with(final HistoryTokenContext historyTokenContext,
                                                                                                             final SpreadsheetFormatterProvider spreadsheetFormatterProvider,
                                                                                                             final Optional<SpreadsheetFormatterName> formatterName) {
         return new SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext(
-                historyTokenContext,
-                spreadsheetFormatterProvider,
-                formatterName
+            historyTokenContext,
+            spreadsheetFormatterProvider,
+            formatterName
         );
     }
 

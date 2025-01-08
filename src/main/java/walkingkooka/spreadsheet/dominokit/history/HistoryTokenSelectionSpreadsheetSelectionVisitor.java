@@ -39,12 +39,12 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
     static HistoryToken selectionToken(final SpreadsheetNameHistoryToken historyToken,
                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         final HistoryTokenSelectionSpreadsheetSelectionVisitor visitor = new HistoryTokenSelectionSpreadsheetSelectionVisitor(
-                historyToken.id(),
-                historyToken.name(),
-                anchoredSelection.anchor()
+            historyToken.id(),
+            historyToken.name(),
+            anchoredSelection.anchor()
         );
         visitor.accept(
-                anchoredSelection.selection()
+            anchoredSelection.selection()
         );
         return visitor.historyToken;
     }
@@ -80,11 +80,11 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
 
     private void setColumn(final SpreadsheetSelection selection) {
         this.setSelectionToken(
-                HistoryToken.column(
-                        this.id,
-                        this.name,
-                        selection.setAnchor(this.anchor)
-                )
+            HistoryToken.column(
+                this.id,
+                this.name,
+                selection.setAnchor(this.anchor)
+            )
         );
     }
 
@@ -95,11 +95,11 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
 
     private void setCell(final SpreadsheetSelection selection) {
         this.setSelectionToken(
-                HistoryToken.cell(
-                        this.id,
-                        this.name,
-                        selection.setAnchor(this.anchor)
-                )
+            HistoryToken.cell(
+                this.id,
+                this.name,
+                selection.setAnchor(this.anchor)
+            )
         );
     }
 
@@ -115,11 +115,11 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
 
     private void setRow(final SpreadsheetSelection selection) {
         this.setSelectionToken(
-                HistoryToken.row(
-                        this.id,
-                        this.name,
-                        selection.setAnchor(this.anchor)
-                )
+            HistoryToken.row(
+                this.id,
+                this.name,
+                selection.setAnchor(this.anchor)
+            )
         );
     }
 

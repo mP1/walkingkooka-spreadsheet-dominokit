@@ -45,18 +45,18 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
         if (null != url) {
             // 1=api / 2=plugin / 3=download / 4=path
             name = JarEntryInfoName.with(
-                    url.path()
-                            .namesList()
-                            .stream()
-                            .skip(5)
-                            .map(n -> n.value())
-                            .collect(
-                                    Collectors.joining(
-                                            JarEntryInfoName.SEPARATOR.string(),
-                                            JarEntryInfoName.SEPARATOR.string(),
-                                            ""
-                                    )
-                            )
+                url.path()
+                    .namesList()
+                    .stream()
+                    .skip(5)
+                    .map(n -> n.value())
+                    .collect(
+                        Collectors.joining(
+                            JarEntryInfoName.SEPARATOR.string(),
+                            JarEntryInfoName.SEPARATOR.string(),
+                            ""
+                        )
+                    )
             );
         }
 
@@ -65,10 +65,10 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
 
     private final static BiConsumer<Optional<JarEntryInfoName>, HistoryTokenAnchorComponent> SETTER = (v, c) -> {
         c.setHref(
-                PluginFetcher.pluginDownloadUrl(
-                        PLUGIN_NAME,
-                        v
-                )
+            PluginFetcher.pluginDownloadUrl(
+                PLUGIN_NAME,
+                v
+            )
         );
     };
 
@@ -77,36 +77,36 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
     @Test
     public void testWithNullAnchorFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> ValueHistoryTokenAnchorComponent.with(
-                        null,
-                        GETTER,
-                        SETTER
-                )
+            NullPointerException.class,
+            () -> ValueHistoryTokenAnchorComponent.with(
+                null,
+                GETTER,
+                SETTER
+            )
         );
     }
 
     @Test
     public void testWithNullGetterFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> ValueHistoryTokenAnchorComponent.with(
-                        HistoryTokenAnchorComponent.empty(),
-                        null,
-                        SETTER
-                )
+            NullPointerException.class,
+            () -> ValueHistoryTokenAnchorComponent.with(
+                HistoryTokenAnchorComponent.empty(),
+                null,
+                SETTER
+            )
         );
     }
 
     @Test
     public void testWithNullSetterFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> ValueHistoryTokenAnchorComponent.with(
-                        HistoryTokenAnchorComponent.empty(),
-                        GETTER,
-                        null
-                )
+            NullPointerException.class,
+            () -> ValueHistoryTokenAnchorComponent.with(
+                HistoryTokenAnchorComponent.empty(),
+                GETTER,
+                null
+            )
         );
     }
 
@@ -115,11 +115,11 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
     @Test
     public void testValueWhenEmpty() {
         this.valueAndCheck(
-                ValueHistoryTokenAnchorComponent.with(
-                        HistoryTokenAnchorComponent.empty(),
-                        GETTER,
-                        SETTER
-                )
+            ValueHistoryTokenAnchorComponent.with(
+                HistoryTokenAnchorComponent.empty(),
+                GETTER,
+                SETTER
+            )
         );
     }
 
@@ -128,14 +128,14 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
         final JarEntryInfoName value = JarEntryInfoName.MANIFEST_MF;
 
         this.valueAndCheck(
-                ValueHistoryTokenAnchorComponent.with(
-                        HistoryTokenAnchorComponent.empty(),
-                        GETTER,
-                        SETTER
-                ).setValue(
-                        Optional.of(value)
-                ),
-                value
+            ValueHistoryTokenAnchorComponent.with(
+                HistoryTokenAnchorComponent.empty(),
+                GETTER,
+                SETTER
+            ).setValue(
+                Optional.of(value)
+            ),
+            value
         );
     }
 
@@ -144,48 +144,48 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
     @Test
     public void testTreePrintWithoutValue() {
         this.treePrintAndCheck(
-                this.createComponent(),
-                "DISABLED"
+            this.createComponent(),
+            "DISABLED"
         );
     }
 
     @Test
     public void testTreePrintWithoutValueAndDisabled() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setDisabled(true),
-                "DISABLED"
+            this.createComponent()
+                .setDisabled(true),
+            "DISABLED"
         );
     }
 
     @Test
     public void testTreePrintWithoutValueAndSetId() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setId("Anchor123"),
-                "DISABLED id=Anchor123"
+            this.createComponent()
+                .setId("Anchor123"),
+            "DISABLED id=Anchor123"
         );
     }
 
     @Test
     public void testTreePrintAfterSetValue() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setValue(
-                                Optional.of(
-                                        JarEntryInfoName.MANIFEST_MF
-                                )
-                        ),
-                "[/api/plugin/TestPluginName123/download/META-INF/MANIFEST.MF]"
+            this.createComponent()
+                .setValue(
+                    Optional.of(
+                        JarEntryInfoName.MANIFEST_MF
+                    )
+                ),
+            "[/api/plugin/TestPluginName123/download/META-INF/MANIFEST.MF]"
         );
     }
 
     @Override
     public ValueHistoryTokenAnchorComponent<JarEntryInfoName> createComponent() {
         return ValueHistoryTokenAnchorComponent.with(
-                HistoryTokenAnchorComponent.empty(),
-                GETTER,
-                SETTER
+            HistoryTokenAnchorComponent.empty(),
+            GETTER,
+            SETTER
         );
     }
 

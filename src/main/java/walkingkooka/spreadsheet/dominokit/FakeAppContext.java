@@ -76,8 +76,8 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 public class FakeAppContext extends FakeSpreadsheetProvider
-        implements AppContext,
-        JsonNodeMarshallUnmarshallContextDelegator {
+    implements AppContext,
+    JsonNodeMarshallUnmarshallContextDelegator {
 
     @Override
     public void readClipboardItem(final Predicate<MediaType> filter,
@@ -124,7 +124,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     public ConverterFetcher converterFetcher() {
         throw new UnsupportedOperationException();
     }
-    
+
     // SpreadsheetDeltaWatcher.........................................................................................
 
     @Override
@@ -175,7 +175,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     public ExpressionFunctionFetcher expressionFunctionFetcher() {
         throw new UnsupportedOperationException();
     }
-    
+
     // SpreadsheetFormatterWatcher......................................................................................
 
     @Override
@@ -265,7 +265,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     public PluginFetcher pluginFetcher() {
         throw new UnsupportedOperationException();
     }
-    
+
     // ProviderContext..................................................................................................
 
     @Override

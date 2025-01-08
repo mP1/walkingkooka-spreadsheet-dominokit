@@ -30,8 +30,8 @@ final class SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent extend
     static SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent with(final Set<SpreadsheetMetadata> metadatas,
                                                                               final AppContext context) {
         return new SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent(
-                metadatas,
-                context
+            metadatas,
+            context
         );
     }
 
@@ -44,8 +44,8 @@ final class SpreadsheetMetadataFetcherWatchersSetSpreadsheetMetadataEvent extend
     @Override
     void fire(final SpreadsheetMetadataFetcherWatcher watcher) {
         watcher.onSpreadsheetMetadataSet(
-                this.metadatas,
-                this.context
+            this.metadatas,
+            this.context
         );
     }
 

@@ -34,9 +34,9 @@ public final class SpreadsheetCellParserUnselectHistoryToken extends Spreadsheet
                                                           final SpreadsheetName name,
                                                           final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellParserUnselectHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -44,10 +44,10 @@ public final class SpreadsheetCellParserUnselectHistoryToken extends Spreadsheet
                                                       final SpreadsheetName name,
                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                Optional.empty() // SpreadsheetParserSelector
+            id,
+            name,
+            anchoredSelection,
+            Optional.empty() // SpreadsheetParserSelector
         );
     }
 
@@ -61,9 +61,9 @@ public final class SpreadsheetCellParserUnselectHistoryToken extends Spreadsheet
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellParserUnselectHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 

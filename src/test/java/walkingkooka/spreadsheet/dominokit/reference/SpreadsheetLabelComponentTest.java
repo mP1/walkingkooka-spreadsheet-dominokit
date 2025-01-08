@@ -34,46 +34,46 @@ public final class SpreadsheetLabelComponentTest implements ValueComponentTestin
     @Test
     public void testSetValueMissingValue() {
         this.treePrintAndCheck(
-                SpreadsheetLabelComponent.with(CONTEXT)
-                        .setLabel("Label123")
-                        .setValue(
-                                Optional.empty()
-                        ),
-                "SpreadsheetLabelComponent\n" +
-                        "  SpreadsheetSuggestBoxComponent\n" +
-                        "    Label123 [] REQUIRED\n" +
-                        "    Errors\n" +
-                        "      Empty \"Label\"\n"
+            SpreadsheetLabelComponent.with(CONTEXT)
+                .setLabel("Label123")
+                .setValue(
+                    Optional.empty()
+                ),
+            "SpreadsheetLabelComponent\n" +
+                "  SpreadsheetSuggestBoxComponent\n" +
+                "    Label123 [] REQUIRED\n" +
+                "    Errors\n" +
+                "      Empty \"Label\"\n"
         );
     }
 
     @Test
     public void testSetStringValueInvalidStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetLabelComponent.with(CONTEXT)
-                        .setLabel("Label123")
-                        .setStringValue(
-                                Optional.of("X!")
-                        ),
-                "SpreadsheetLabelComponent\n" +
-                        "  SpreadsheetSuggestBoxComponent\n" +
-                        "    Label123 [] REQUIRED\n" +
-                        "    Errors\n" +
-                        "      Invalid character '!' at 1\n"
+            SpreadsheetLabelComponent.with(CONTEXT)
+                .setLabel("Label123")
+                .setStringValue(
+                    Optional.of("X!")
+                ),
+            "SpreadsheetLabelComponent\n" +
+                "  SpreadsheetSuggestBoxComponent\n" +
+                "    Label123 [] REQUIRED\n" +
+                "    Errors\n" +
+                "      Invalid character '!' at 1\n"
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetLabelComponent.with(CONTEXT)
-                        .setLabel("Label123")
-                        .setStringValue(
-                                Optional.of("SpreadsheetLabel456")
-                        ),
-                "SpreadsheetLabelComponent\n" +
-                        "  SpreadsheetSuggestBoxComponent\n" +
-                        "    Label123 [SpreadsheetLabel456] REQUIRED\n"
+            SpreadsheetLabelComponent.with(CONTEXT)
+                .setLabel("Label123")
+                .setStringValue(
+                    Optional.of("SpreadsheetLabel456")
+                ),
+            "SpreadsheetLabelComponent\n" +
+                "  SpreadsheetSuggestBoxComponent\n" +
+                "    Label123 [SpreadsheetLabel456] REQUIRED\n"
         );
     }
 

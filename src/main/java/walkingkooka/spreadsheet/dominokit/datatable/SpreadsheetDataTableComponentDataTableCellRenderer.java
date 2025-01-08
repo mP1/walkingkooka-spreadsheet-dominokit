@@ -29,8 +29,8 @@ final class SpreadsheetDataTableComponentDataTableCellRenderer<T> implements Cel
     static <T> SpreadsheetDataTableComponentDataTableCellRenderer<T> with(final int columnNumber,
                                                                           final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
         return new SpreadsheetDataTableComponentDataTableCellRenderer<>(
-                columnNumber,
-                cellRenderer
+            columnNumber,
+            cellRenderer
         );
     }
 
@@ -43,8 +43,8 @@ final class SpreadsheetDataTableComponentDataTableCellRenderer<T> implements Cel
     @Override
     public Node asElement(final CellInfo<T> cellInfo) {
         return this.cellRenderer.render(
-                this.columnNumber,
-                cellInfo.getRecord()
+            this.columnNumber,
+            cellInfo.getRecord()
         ).node();
     }
 

@@ -34,27 +34,27 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.OptionalInt;
 
 public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetColumnRowInsertCountDialogComponent,
-        SpreadsheetColumnRowInsertCountDialogComponentContext>,
-        SpreadsheetMetadataTesting {
+    SpreadsheetColumnRowInsertCountDialogComponentContext>,
+    SpreadsheetMetadataTesting {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
 
     private final static SpreadsheetName NAME = SpreadsheetName.with("spreadsheetName123");
 
     private final static HistoryToken COLUMN_HISTORY_TOKEN = HistoryToken.columnInsertAfter(
-            ID,
-            NAME,
-            SpreadsheetSelection.parseColumnRange("A:B")
-                    .setDefaultAnchor(),
-            OptionalInt.empty()
+        ID,
+        NAME,
+        SpreadsheetSelection.parseColumnRange("A:B")
+            .setDefaultAnchor(),
+        OptionalInt.empty()
     );
 
     private final static HistoryToken ROW_HISTORY_TOKEN = HistoryToken.rowInsertAfter(
-            ID,
-            NAME,
-            SpreadsheetSelection.parseRowRange("1:23")
-                    .setDefaultAnchor(),
-            OptionalInt.empty()
+        ID,
+        NAME,
+        SpreadsheetSelection.parseRowRange("1:23")
+            .setDefaultAnchor(),
+        OptionalInt.empty()
     );
 
     @Test
@@ -74,7 +74,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID)
-                        .set(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, NAME);
+                    .set(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, NAME);
             }
 
             @Override
@@ -84,48 +84,48 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
         };
 
         final SpreadsheetColumnRowInsertCountDialogComponent dialog = SpreadsheetColumnRowInsertCountDialogComponent.with(
-                new FakeSpreadsheetColumnRowInsertCountDialogComponentContext() {
+            new FakeSpreadsheetColumnRowInsertCountDialogComponentContext() {
 
-                    @Override
-                    public String dialogTitle() {
-                        return "ColumnTitle1234";
-                    }
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return COLUMN_HISTORY_TOKEN;
-                    }
-
-                    @Override
-                    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                        return null;
-                    }
-
-                    @Override
-                    public boolean shouldIgnore(final HistoryToken token) {
-                        return false;
-                    }
-
-                    @Override
-                    public boolean isMatch(final HistoryToken token) {
-                        return token.equals(COLUMN_HISTORY_TOKEN);
-                    }
+                @Override
+                public String dialogTitle() {
+                    return "ColumnTitle1234";
                 }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return COLUMN_HISTORY_TOKEN;
+                }
+
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return null;
+                }
+
+                @Override
+                public boolean shouldIgnore(final HistoryToken token) {
+                    return false;
+                }
+
+                @Override
+                public boolean isMatch(final HistoryToken token) {
+                    return token.equals(COLUMN_HISTORY_TOKEN);
+                }
+            }
         );
 
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "SpreadsheetColumnRowInsertCountDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    ColumnTitle1234\n" +
-                        "    id=columnRowInsert-Dialog includeClose=true\n" +
-                        "      SpreadsheetIntegerBox\n" +
-                        "        Count [] id=columnRowInsert-count-TextBox REQUIRED\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Go\" [#/1/spreadsheetName123/column/A:B/right/insertAfter/1] id=columnRowInsert-go-Link\n" +
-                        "          \"Close\" [#/1/spreadsheetName123/column/A:B/right] id=columnRowInsert-close-Link\n"
+            dialog,
+            context,
+            "SpreadsheetColumnRowInsertCountDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    ColumnTitle1234\n" +
+                "    id=columnRowInsert-Dialog includeClose=true\n" +
+                "      SpreadsheetIntegerBox\n" +
+                "        Count [] id=columnRowInsert-count-TextBox REQUIRED\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Go\" [#/1/spreadsheetName123/column/A:B/right/insertAfter/1] id=columnRowInsert-go-Link\n" +
+                "          \"Close\" [#/1/spreadsheetName123/column/A:B/right] id=columnRowInsert-close-Link\n"
         );
     }
 
@@ -146,7 +146,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, ID)
-                        .set(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, NAME);
+                    .set(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, NAME);
             }
 
             @Override
@@ -156,48 +156,48 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
         };
 
         final SpreadsheetColumnRowInsertCountDialogComponent dialog = SpreadsheetColumnRowInsertCountDialogComponent.with(
-                new FakeSpreadsheetColumnRowInsertCountDialogComponentContext() {
+            new FakeSpreadsheetColumnRowInsertCountDialogComponentContext() {
 
-                    @Override
-                    public String dialogTitle() {
-                        return "RowTitle1234";
-                    }
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return ROW_HISTORY_TOKEN;
-                    }
-
-                    @Override
-                    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                        return null;
-                    }
-
-                    @Override
-                    public boolean shouldIgnore(final HistoryToken token) {
-                        return false;
-                    }
-
-                    @Override
-                    public boolean isMatch(final HistoryToken token) {
-                        return token.equals(ROW_HISTORY_TOKEN);
-                    }
+                @Override
+                public String dialogTitle() {
+                    return "RowTitle1234";
                 }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return ROW_HISTORY_TOKEN;
+                }
+
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return null;
+                }
+
+                @Override
+                public boolean shouldIgnore(final HistoryToken token) {
+                    return false;
+                }
+
+                @Override
+                public boolean isMatch(final HistoryToken token) {
+                    return token.equals(ROW_HISTORY_TOKEN);
+                }
+            }
         );
 
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "SpreadsheetColumnRowInsertCountDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    RowTitle1234\n" +
-                        "    id=columnRowInsert-Dialog includeClose=true\n" +
-                        "      SpreadsheetIntegerBox\n" +
-                        "        Count [] id=columnRowInsert-count-TextBox REQUIRED\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Go\" [#/1/spreadsheetName123/row/1:23/bottom/insertAfter/1] id=columnRowInsert-go-Link\n" +
-                        "          \"Close\" [#/1/spreadsheetName123/row/1:23/bottom] id=columnRowInsert-close-Link\n"
+            dialog,
+            context,
+            "SpreadsheetColumnRowInsertCountDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    RowTitle1234\n" +
+                "    id=columnRowInsert-Dialog includeClose=true\n" +
+                "      SpreadsheetIntegerBox\n" +
+                "        Count [] id=columnRowInsert-count-TextBox REQUIRED\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Go\" [#/1/spreadsheetName123/row/1:23/bottom/insertAfter/1] id=columnRowInsert-go-Link\n" +
+                "          \"Close\" [#/1/spreadsheetName123/row/1:23/bottom] id=columnRowInsert-close-Link\n"
         );
     }
 

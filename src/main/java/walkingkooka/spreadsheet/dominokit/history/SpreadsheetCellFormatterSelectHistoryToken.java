@@ -32,9 +32,9 @@ public final class SpreadsheetCellFormatterSelectHistoryToken extends Spreadshee
                                                            final SpreadsheetName name,
                                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormatterSelectHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -42,10 +42,10 @@ public final class SpreadsheetCellFormatterSelectHistoryToken extends Spreadshee
                                                        final SpreadsheetName name,
                                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                Optional.empty() // SpreadsheetFormatterSelector
+            id,
+            name,
+            anchoredSelection,
+            Optional.empty() // SpreadsheetFormatterSelector
         );
     }
 
@@ -59,23 +59,23 @@ public final class SpreadsheetCellFormatterSelectHistoryToken extends Spreadshee
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormatterSelectHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
     @Override
     HistoryToken save0(final String value) {
         return HistoryToken.cellFormatterSave(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                Optional.ofNullable(
-                        value.isEmpty() ?
-                                null :
-                                SpreadsheetFormatterSelector.parse(value)
-                )
+            this.id(),
+            this.name(),
+            this.anchoredSelection(),
+            Optional.ofNullable(
+                value.isEmpty() ?
+                    null :
+                    SpreadsheetFormatterSelector.parse(value)
+            )
         );
     }
 

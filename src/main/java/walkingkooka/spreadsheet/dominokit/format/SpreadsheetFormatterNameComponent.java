@@ -34,8 +34,8 @@ public final class SpreadsheetFormatterNameComponent implements ValueSpreadsheet
 
     private SpreadsheetFormatterNameComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetFormatterName::with,
-                SpreadsheetFormatterName::toString
+            SpreadsheetFormatterName::with,
+            SpreadsheetFormatterName::toString
         );
     }
 

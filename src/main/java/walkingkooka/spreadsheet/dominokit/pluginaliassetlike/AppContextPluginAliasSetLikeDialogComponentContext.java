@@ -40,12 +40,12 @@ import java.util.Objects;
  * Base class that captures a lot of common functionality for a {@link PluginAliasSetLikeDialogComponentContext}.
  */
 abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name & Comparable<N>,
-        I extends PluginInfoLike<I, N>,
-        IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
-        S extends PluginSelectorLike<N>,
-        A extends PluginAliasLike<N, S, A>,
-        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> implements PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS>,
-        SpreadsheetDialogComponentContextDelegator {
+    I extends PluginInfoLike<I, N>,
+    IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
+    S extends PluginSelectorLike<N>,
+    A extends PluginAliasLike<N, S, A>,
+    AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> implements PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS>,
+    SpreadsheetDialogComponentContextDelegator {
 
     AppContextPluginAliasSetLikeDialogComponentContext(final AppContext context) {
         this.context = Objects.requireNonNull(context, "context");
@@ -56,17 +56,17 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
     @Override
     public final String dialogTitle() {
         return CaseKind.kebabToTitle(
-                this.metadataPropertyName()
-                        .text()
+            this.metadataPropertyName()
+                .text()
         );
     }
 
     @Override
     public final boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-                token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
-                        .propertyName()
-                        .equals(this.metadataPropertyName());
+            token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
+                .propertyName()
+                .equals(this.metadataPropertyName());
     }
 
     @Override
@@ -77,9 +77,9 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
     @Override
     public final void loadProviderInfoSetLike() {
         this.loadPluginInfoSetLike0(
-                this.historyToken()
-                        .cast(SpreadsheetNameHistoryToken.class)
-                        .id()
+            this.historyToken()
+                .cast(SpreadsheetNameHistoryToken.class)
+                .id()
         );
     }
 
@@ -88,14 +88,14 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
     @Override
     public final AS parseAliasSetLike(final String text) {
         return this.metadataPropertyName()
-                .parseUrlFragmentSaveValue(text);
+            .parseUrlFragmentSaveValue(text);
     }
 
     @Override
     public final AS metadataAliasSetLike() {
         return this.context.spreadsheetMetadata()
-                .getIgnoringDefaults(this.metadataPropertyName())
-                .orElse(this.emptyAliasSetLike());
+            .getIgnoringDefaults(this.metadataPropertyName())
+            .orElse(this.emptyAliasSetLike());
     }
 
     abstract SpreadsheetMetadataPropertyName<AS> metadataPropertyName();

@@ -30,50 +30,50 @@ public final class SpreadsheetFlexLayoutTest implements HtmlElementComponentTest
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
-                SpreadsheetFlexLayout.row()
-                        .appendChild(
-                                SpreadsheetTextBox.empty()
-                                        .setValue(
-                                                Optional.of("Value111")
-                                        )
-                        ).appendChild(
-                                SpreadsheetTextBox.empty()
-                                        .setValue(
-                                                Optional.of("Value222")
-                                        )
-                        ),
-                "SpreadsheetFlexLayout\n" +
-                        "  ROW\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Value111]\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Value222]\n"
+            SpreadsheetFlexLayout.row()
+                .appendChild(
+                    SpreadsheetTextBox.empty()
+                        .setValue(
+                            Optional.of("Value111")
+                        )
+                ).appendChild(
+                    SpreadsheetTextBox.empty()
+                        .setValue(
+                            Optional.of("Value222")
+                        )
+                ),
+            "SpreadsheetFlexLayout\n" +
+                "  ROW\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Value111]\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Value222]\n"
         );
     }
 
     @Test
     public void testTreePrintIncludesId() {
         this.treePrintAndCheck(
-                SpreadsheetFlexLayout.row()
-                        .setId("Id123")
-                        .appendChild(
-                                SpreadsheetTextBox.empty()
-                                        .setValue(
-                                                Optional.of("Value111")
-                                        )
-                        ).appendChild(
-                                SpreadsheetTextBox.empty()
-                                        .setValue(
-                                                Optional.of("Value222")
-                                        )
-                        ),
-                "SpreadsheetFlexLayout\n" +
-                        "  ROW\n" +
-                        "    id=Id123\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        [Value111]\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        [Value222]\n"
+            SpreadsheetFlexLayout.row()
+                .setId("Id123")
+                .appendChild(
+                    SpreadsheetTextBox.empty()
+                        .setValue(
+                            Optional.of("Value111")
+                        )
+                ).appendChild(
+                    SpreadsheetTextBox.empty()
+                        .setValue(
+                            Optional.of("Value222")
+                        )
+                ),
+            "SpreadsheetFlexLayout\n" +
+                "  ROW\n" +
+                "    id=Id123\n" +
+                "      SpreadsheetTextBox\n" +
+                "        [Value111]\n" +
+                "      SpreadsheetTextBox\n" +
+                "        [Value222]\n"
         );
     }
 

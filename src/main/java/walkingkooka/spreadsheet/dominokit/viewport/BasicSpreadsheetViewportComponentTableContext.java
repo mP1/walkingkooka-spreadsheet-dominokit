@@ -30,8 +30,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationContext;
 import walkingkooka.tree.text.TextStyle;
 
 final class BasicSpreadsheetViewportComponentTableContext implements SpreadsheetViewportComponentTableContext,
-        HistoryTokenContextDelegator,
-        LoggingContextDelegator {
+    HistoryTokenContextDelegator,
+    LoggingContextDelegator {
 
 
     static BasicSpreadsheetViewportComponentTableContext with(final HistoryTokenContext historyTokenContext,
@@ -43,14 +43,14 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
                                                               final SpreadsheetViewport spreadsheetViewport,
                                                               final LoggingContext loggingContext) {
         return new BasicSpreadsheetViewportComponentTableContext(
-                historyTokenContext,
-                viewportCache,
-                hideZeroValues,
-                defaultCellStyle,
-                mustRefresh,
-                shiftKeyDown,
-                spreadsheetViewport,
-                loggingContext
+            historyTokenContext,
+            viewportCache,
+            hideZeroValues,
+            defaultCellStyle,
+            mustRefresh,
+            shiftKeyDown,
+            spreadsheetViewport,
+            loggingContext
         );
     }
 
@@ -113,23 +113,23 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
     @Override
     public AnchoredSpreadsheetSelection extendColumn(final SpreadsheetColumnReference column) {
         return this.update(
-                SpreadsheetViewportNavigation.extendColumn(column)
+            SpreadsheetViewportNavigation.extendColumn(column)
         );
     }
 
     @Override
     public AnchoredSpreadsheetSelection extendRow(final SpreadsheetRowReference row) {
         return this.update(
-                SpreadsheetViewportNavigation.extendRow(row)
+            SpreadsheetViewportNavigation.extendRow(row)
         );
     }
 
     private AnchoredSpreadsheetSelection update(final SpreadsheetViewportNavigation navigation) {
         return navigation.update(
-                        this.spreadsheetViewport,
-                        this.navigationContext
-                ).anchoredSelection()
-                .get();
+                this.spreadsheetViewport,
+                this.navigationContext
+            ).anchoredSelection()
+            .get();
     }
 
     private final SpreadsheetViewport spreadsheetViewport;

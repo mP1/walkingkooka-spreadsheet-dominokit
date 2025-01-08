@@ -25,5 +25,5 @@ import walkingkooka.text.printer.TreePrintableTesting;
  * Helps testing components that support lifecycle changes.
  */
 public interface ComponentLifecycleTesting<T extends ComponentLifecycle & TreePrintable> extends ClassTesting<T>,
-        TreePrintableTesting {
+    TreePrintableTesting {
 }

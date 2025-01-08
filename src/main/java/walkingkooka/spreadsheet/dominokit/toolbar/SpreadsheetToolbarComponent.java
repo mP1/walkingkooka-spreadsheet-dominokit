@@ -44,11 +44,11 @@ import java.util.Optional;
  * A toolbar that contains icons that trigger an action.
  */
 public final class SpreadsheetToolbarComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetToolbarComponent>,
-        SpreadsheetViewportComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher {
+    SpreadsheetViewportComponentLifecycle,
+    LoadedSpreadsheetMetadataRequired,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher,
+    SpreadsheetDeltaFetcherWatcher {
 
     public static SpreadsheetToolbarComponent with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
@@ -86,10 +86,10 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
      */
     private SpreadsheetFlexLayout createFlexLayout(final SpreadsheetToolbarComponentContext context) {
         return SpreadsheetFlexLayout.row()
-                .displayBlock() // without this the toolbar rows have a undesirable line "height" instead of meeting.
-                .appendChildren(
-                        components(context)
-                );
+            .displayBlock() // without this the toolbar rows have a undesirable line "height" instead of meeting.
+            .appendChildren(
+                components(context)
+            );
     }
 
     /**
@@ -108,44 +108,44 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
      */
     private static List<SpreadsheetToolbarComponentItem<?>> components(final SpreadsheetToolbarComponentContext context) {
         return Lists.of(
-                // style
-                SpreadsheetToolbarComponentItem.bold(context),
-                SpreadsheetToolbarComponentItem.italics(context),
-                SpreadsheetToolbarComponentItem.strikeThru(context),
-                SpreadsheetToolbarComponentItem.underline(context),
-                // text
-                SpreadsheetToolbarComponentItem.textAlignLeft(context),
-                SpreadsheetToolbarComponentItem.textAlignCenter(context),
-                SpreadsheetToolbarComponentItem.textAlignRight(context),
-                SpreadsheetToolbarComponentItem.textAlignJustify(context),
-                // vertical
-                SpreadsheetToolbarComponentItem.verticalAlignTop(context),
-                SpreadsheetToolbarComponentItem.verticalAlignMiddle(context),
-                SpreadsheetToolbarComponentItem.verticalAlignBottom(context),
-                // case
-                SpreadsheetToolbarComponentItem.textCaseCapitalize(context),
-                SpreadsheetToolbarComponentItem.textCaseLowercase(context),
-                SpreadsheetToolbarComponentItem.textCaseUppercase(context),
-                // format/pattern
-                SpreadsheetToolbarComponentItem.formatPattern(context),
-                SpreadsheetToolbarComponentItem.parsePattern(context),
-                // clear
-                SpreadsheetToolbarComponentItem.clearStyle(context),
-                // metadata properties
-                SpreadsheetToolbarComponentItem.hideZeroValues(context),
-                // finding/sorting/highlighting
-                SpreadsheetToolbarComponentItem.findCells(context),
-                SpreadsheetToolbarComponentItem.highlightCells(context),
-                // SORT
-                SpreadsheetToolbarComponentItem.sort(context),
-                // label
-                SpreadsheetToolbarComponentItem.labelCreate(context),
-                // reload
-                SpreadsheetToolbarComponentItem.reload(context),
-                // plugin
-                SpreadsheetToolbarComponentItem.plugin(context),
-                // swagger
-                SpreadsheetToolbarComponentItem.swagger(context)
+            // style
+            SpreadsheetToolbarComponentItem.bold(context),
+            SpreadsheetToolbarComponentItem.italics(context),
+            SpreadsheetToolbarComponentItem.strikeThru(context),
+            SpreadsheetToolbarComponentItem.underline(context),
+            // text
+            SpreadsheetToolbarComponentItem.textAlignLeft(context),
+            SpreadsheetToolbarComponentItem.textAlignCenter(context),
+            SpreadsheetToolbarComponentItem.textAlignRight(context),
+            SpreadsheetToolbarComponentItem.textAlignJustify(context),
+            // vertical
+            SpreadsheetToolbarComponentItem.verticalAlignTop(context),
+            SpreadsheetToolbarComponentItem.verticalAlignMiddle(context),
+            SpreadsheetToolbarComponentItem.verticalAlignBottom(context),
+            // case
+            SpreadsheetToolbarComponentItem.textCaseCapitalize(context),
+            SpreadsheetToolbarComponentItem.textCaseLowercase(context),
+            SpreadsheetToolbarComponentItem.textCaseUppercase(context),
+            // format/pattern
+            SpreadsheetToolbarComponentItem.formatPattern(context),
+            SpreadsheetToolbarComponentItem.parsePattern(context),
+            // clear
+            SpreadsheetToolbarComponentItem.clearStyle(context),
+            // metadata properties
+            SpreadsheetToolbarComponentItem.hideZeroValues(context),
+            // finding/sorting/highlighting
+            SpreadsheetToolbarComponentItem.findCells(context),
+            SpreadsheetToolbarComponentItem.highlightCells(context),
+            // SORT
+            SpreadsheetToolbarComponentItem.sort(context),
+            // label
+            SpreadsheetToolbarComponentItem.labelCreate(context),
+            // reload
+            SpreadsheetToolbarComponentItem.reload(context),
+            // plugin
+            SpreadsheetToolbarComponentItem.plugin(context),
+            // swagger
+            SpreadsheetToolbarComponentItem.swagger(context)
         );
     }
 
@@ -225,10 +225,10 @@ public final class SpreadsheetToolbarComponent implements HtmlElementComponent<H
     public static <T> String id(final TextStylePropertyName<T> propertyName,
                                 final Optional<T> value) {
         return TOOLBAR_ID_PREFIX +
-                propertyName.constantName().toLowerCase() +
-                value.map(
-                        v -> '-' + v.toString().toUpperCase()
-                ).orElse("");
+            propertyName.constantName().toLowerCase() +
+            value.map(
+                v -> '-' + v.toString().toUpperCase()
+            ).orElse("");
     }
 
     public static String findCellsId() {

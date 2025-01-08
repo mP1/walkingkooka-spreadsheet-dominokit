@@ -39,9 +39,9 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
                                                           final SpreadsheetName name,
                                                           final SpreadsheetLabelName labelName) {
         return new SpreadsheetLabelMappingDeleteHistoryToken(
-                id,
-                name,
-                labelName
+            id,
+            name,
+            labelName
         );
     }
 
@@ -49,8 +49,8 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
                                                       final SpreadsheetName name,
                                                       final SpreadsheetLabelName labelName) {
         super(
-                id,
-                name
+            id,
+            name
         );
         this.labelName = Objects.requireNonNull(labelName, "labelName");
     }
@@ -66,7 +66,7 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     @Override
     UrlFragment labelUrlFragment() {
         return UrlFragment.with(
-                this.labelName.value()
+            this.labelName.value()
         ).appendSlashThen(DELETE);
     }
 
@@ -80,9 +80,9 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return with(
-                id,
-                name,
-                this.labelName
+            id,
+            name,
+            this.labelName
         );
     }
 
@@ -97,9 +97,9 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
         context.pushHistoryToken(previous);
 
         context.spreadsheetDeltaFetcher()
-                .deleteLabelMapping(
-                        this.id(),
-                        this.labelName // getter returns Optional label
-                );
+            .deleteLabelMapping(
+                this.id(),
+                this.labelName // getter returns Optional label
+            );
     }
 }

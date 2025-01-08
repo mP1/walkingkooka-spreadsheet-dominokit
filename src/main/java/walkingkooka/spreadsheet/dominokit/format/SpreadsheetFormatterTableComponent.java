@@ -43,44 +43,44 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
      */
     public static SpreadsheetFormatterTableComponent empty(final String id) {
         return new SpreadsheetFormatterTableComponent(
-                CharSequences.failIfNullOrEmpty(id, "id")
+            CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
 
     private SpreadsheetFormatterTableComponent(final String id) {
         this.cellRenderer = SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellRenderer.with(id);
         this.dataTable = SpreadsheetDataTableComponent.with(
-                id, // id
-                columnConfigs(), // configs
-                this.cellRenderer
+            id, // id
+            columnConfigs(), // configs
+            this.cellRenderer
         ).hideHeaders();
 
         this.card = SpreadsheetCard.empty()
-                .appendChild(this.dataTable);
+            .appendChild(this.dataTable);
     }
 
     private static List<ColumnConfig<SpreadsheetFormatterSample>> columnConfigs() {
         final List<ColumnConfig<SpreadsheetFormatterSample>> columns = Lists.array();
 
         columns.add(
-                columnConfig(
-                        "label",
-                        TextAlign.LEFT
-                )
+            columnConfig(
+                "label",
+                TextAlign.LEFT
+            )
         );
 
         columns.add(
-                columnConfig(
-                        "selector",
-                        TextAlign.CENTER
-                )
+            columnConfig(
+                "selector",
+                TextAlign.CENTER
+            )
         );
 
         columns.add(
-                columnConfig(
-                        "formatted",
-                        TextAlign.CENTER
-                )
+            columnConfig(
+                "formatted",
+                TextAlign.CENTER
+            )
         );
 
         return columns;
@@ -89,13 +89,13 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
     private static ColumnConfig<SpreadsheetFormatterSample> columnConfig(final String columnName,
                                                                          final TextAlign textAlign) {
         return ColumnConfig.<SpreadsheetFormatterSample>create(columnName)
-                .setFixed(true)
-                .minWidth("33%")
-                .setTextAlign(
-                        CellTextAlign.valueOf(
-                                textAlign.name()
-                        )
-                );
+            .setFixed(true)
+            .minWidth("33%")
+            .setTextAlign(
+                CellTextAlign.valueOf(
+                    textAlign.name()
+                )
+            );
     }
 
     public void refresh(final List<SpreadsheetFormatterSample> samples,
@@ -104,7 +104,7 @@ public final class SpreadsheetFormatterTableComponent implements HtmlElementComp
 
         this.cellRenderer.context = Objects.requireNonNull(context, "context");
         this.dataTable.setValue(
-                Optional.of(samples)
+            Optional.of(samples)
         );
 
         // manually show/hide depending on samples. Card will never be empty because SpreadsheetDataTableComponent is never empty

@@ -30,30 +30,30 @@ public final class SpreadsheetComparatorNameComponentTest implements ValueCompon
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetComparatorNameComponent.empty()
-                        .setStringValue(
-                                Optional.of("hello-comparator")
-                        ),
-                "SpreadsheetComparatorNameComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [hello-comparator]\n"
+            SpreadsheetComparatorNameComponent.empty()
+                .setStringValue(
+                    Optional.of("hello-comparator")
+                ),
+            "SpreadsheetComparatorNameComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [hello-comparator]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetComparatorNameComponent.empty()
-                        .setStringValue(
-                                Optional.of("!@#")
-                        ),
-                "SpreadsheetComparatorNameComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [!@#]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 0\n"
+            SpreadsheetComparatorNameComponent.empty()
+                .setStringValue(
+                    Optional.of("!@#")
+                ),
+            "SpreadsheetComparatorNameComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [!@#]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 0\n"
         );
     }
 

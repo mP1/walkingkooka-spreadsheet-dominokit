@@ -40,10 +40,10 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
                                                                               final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel,
                                                                               final SpreadsheetViewportWindows window) {
         return new SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor(
-                mappings,
-                cellToLabels,
-                labelToNonLabel,
-                window
+            mappings,
+            cellToLabels,
+            labelToNonLabel,
+            window
         );
     }
 
@@ -77,13 +77,13 @@ final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor extends 
                 }
 
                 final SpreadsheetSelection nonLabel = labelToNonLabel.get(
-                        possibleLabel.toLabelName()
+                    possibleLabel.toLabelName()
                 );
                 if (null != nonLabel) {
                     // assumes nonLabel must be either a cell or cell-range
                     for (final SpreadsheetCellReference cell : nonLabel.toCellRange()) {
                         cellToLabels.get(cell)
-                                .add(unknownLabel);
+                            .add(unknownLabel);
                     }
                     labelToNonLabel.put(unknownLabel, nonLabel);
                     change = true;

@@ -40,28 +40,28 @@ public final class SpreadsheetParserNameLinkListComponent implements HtmlElement
     private SpreadsheetParserNameLinkListComponent(final String id) {
         super();
         this.list = SpreadsheetLinkListComponent.with(
-                id,
-                "", // title
-                CaseKind::kebabToTitle
+            id,
+            "", // title
+            CaseKind::kebabToTitle
         );
     }
 
     public void refresh(final SpreadsheetParserNameLinkListComponentContext context) {
         this.list.refresh(
-                context.spreadsheetParserInfos()
-                        .stream()
-                        .map(SpreadsheetParserNameLinkListComponent::linkText)
-                        .collect(Collectors.toList()),
-                SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext.with(
-                        context.parserName(),
-                        context
-                ) // context
+            context.spreadsheetParserInfos()
+                .stream()
+                .map(SpreadsheetParserNameLinkListComponent::linkText)
+                .collect(Collectors.toList()),
+            SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext.with(
+                context.parserName(),
+                context
+            ) // context
         );
     }
 
     private static String linkText(final SpreadsheetParserInfo info) {
         return info.name()
-                .value();
+            .value();
     }
 
     @Override

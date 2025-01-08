@@ -37,9 +37,9 @@ public final class SpreadsheetTooltipComponent implements SpreadsheetTooltipComp
         Objects.requireNonNull(direction, "direction");
 
         return new SpreadsheetTooltipComponent(
-                component,
-                text,
-                direction
+            component,
+            text,
+            direction
         );
     }
 
@@ -47,8 +47,8 @@ public final class SpreadsheetTooltipComponent implements SpreadsheetTooltipComp
                                         final String text,
                                         final DropDirection direction) {
         this.tooltip = Tooltip.create(
-                component.element(),
-                text
+            component.element(),
+            text
         ).setPosition(direction);
         this.direction = direction;
 
@@ -71,8 +71,8 @@ public final class SpreadsheetTooltipComponent implements SpreadsheetTooltipComp
         this.tooltip.detach();
 
         this.tooltip = Tooltip.create(
-                this.component.element(),
-                text
+            this.component.element(),
+            text
         ).setPosition(this.direction);
 
         return this;

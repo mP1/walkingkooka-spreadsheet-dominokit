@@ -46,8 +46,8 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
      */
     final HistoryToken save0(final String value) {
         return HistoryToken.pluginSave(
-                this.name,
-                value
+            this.name,
+            value
         );
     }
 
@@ -68,11 +68,11 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
                 break;
             case FILE_STRING:
                 historyToken = pluginFileView(
-                        this.name,
-                        Optional.empty()
+                    this.name,
+                    Optional.empty()
                 );
                 historyToken = historyToken.cast(PluginFileViewHistoryToken.class)
-                        .parseFile(cursor);
+                    .parseFile(cursor);
                 break;
             case SAVE_STRING:
                 historyToken = this.parseSave(cursor);
@@ -86,12 +86,11 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
         return historyToken;
     }
 
-    @Override
-    final UrlFragment pluginUrlFragment() {
+    @Override final UrlFragment pluginUrlFragment() {
         return UrlFragment.with(name.value())
-                .appendSlashThen(
-                        this.pluginNameUrlFragment()
-                );
+            .appendSlashThen(
+                this.pluginNameUrlFragment()
+            );
     }
 
     // /plugin/PluginName/

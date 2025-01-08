@@ -33,41 +33,41 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
     @Test
     public void testUrlFragmentColumn1() {
         this.urlFragmentAndCheck(
-                COLUMN,
-                "/123/SpreadsheetName456/column/A/insertBefore/1");
+            COLUMN,
+            "/123/SpreadsheetName456/column/A/insertBefore/1");
     }
 
     @Test
     public void testUrlFragmentColumnEmptyCount() {
         this.urlFragmentAndCheck(
-                SpreadsheetColumnInsertBeforeHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseColumn("BC").setDefaultAnchor(),
-                        OptionalInt.empty()
-                ),
-                "/123/SpreadsheetName456/column/BC/insertBefore");
+            SpreadsheetColumnInsertBeforeHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseColumn("BC").setDefaultAnchor(),
+                OptionalInt.empty()
+            ),
+            "/123/SpreadsheetName456/column/BC/insertBefore");
     }
 
     @Test
     public void testUrlFragmentColumn23() {
         this.urlFragmentAndCheck(
-                SpreadsheetColumnInsertBeforeHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseColumn("BC").setDefaultAnchor(),
-                        OptionalInt.of(
-                                23
-                        )
-                ),
-                "/123/SpreadsheetName456/column/BC/insertBefore/23");
+            SpreadsheetColumnInsertBeforeHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseColumn("BC").setDefaultAnchor(),
+                OptionalInt.of(
+                    23
+                )
+            ),
+            "/123/SpreadsheetName456/column/BC/insertBefore/23");
     }
 
     @Test
     public void testUrlFragmentColumnRange1() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.parseColumnRange("A:B").setAnchor(SpreadsheetViewportAnchor.RIGHT),
-                "/123/SpreadsheetName456/column/A:B/right/insertBefore/1"
+            SpreadsheetSelection.parseColumnRange("A:B").setAnchor(SpreadsheetViewportAnchor.RIGHT),
+            "/123/SpreadsheetName456/column/A:B/right/insertBefore/1"
         );
     }
 
@@ -76,38 +76,38 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
     @Test
     public void testParseColumnMissingCount() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/column/B",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseColumn("B").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/B",
+            HistoryToken.column(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseColumn("B").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseColumnZeroCount() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/column/C/insertBefore/0",
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseColumn("C").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/column/C/insertBefore/0",
+            HistoryToken.column(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseColumn("C").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseColumnWithCount() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/column/B/insertBefore/1",
-                SpreadsheetColumnInsertBeforeHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseColumn("B")
-                                .setDefaultAnchor(),
-                        COUNT
-                )
+            "/123/SpreadsheetName456/column/B/insertBefore/1",
+            SpreadsheetColumnInsertBeforeHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseColumn("B")
+                    .setDefaultAnchor(),
+                COUNT
+            )
         );
     }
 
@@ -116,12 +116,12 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
     @Test
     public void testClose() {
         this.closeAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor()
-                )
+            this.createHistoryToken(),
+            HistoryToken.column(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
         );
     }
 
@@ -130,10 +130,10 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
                                                                  final SpreadsheetName name,
                                                                  final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetColumnInsertBeforeHistoryToken.with(
-                id,
-                name,
-                selection,
-                COUNT
+            id,
+            name,
+            selection,
+            COUNT
         );
     }
 

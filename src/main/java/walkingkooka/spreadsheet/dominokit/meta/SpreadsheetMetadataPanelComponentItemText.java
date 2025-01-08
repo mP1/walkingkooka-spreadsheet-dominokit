@@ -36,16 +36,16 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
         checkContext(context);
 
         return new SpreadsheetMetadataPanelComponentItemText(
-                propertyName,
-                context
+            propertyName,
+            context
         );
     }
 
     private SpreadsheetMetadataPanelComponentItemText(final SpreadsheetMetadataPropertyName<String> propertyName,
                                                       final SpreadsheetMetadataPanelComponentContext context) {
         super(
-                propertyName,
-                context
+            propertyName,
+            context
         );
 
         final UListElement list = this.uListElement();
@@ -53,18 +53,18 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
 
         this.textBox = this.textBox();
         list.appendChild(
-                this.liElement()
-                        .appendChild(
-                                this.textBox
-                        )
+            this.liElement()
+                .appendChild(
+                    this.textBox
+                )
         );
 
         final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         list.appendChild(
-                this.liElement()
-                        .appendChild(
-                                defaultValueAnchor
-                        )
+            this.liElement()
+                .appendChild(
+                    defaultValueAnchor
+                )
         );
         this.defaultValueAnchor = defaultValueAnchor;
     }
@@ -81,16 +81,16 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
 
         this.textBox.setValue(
-                metadata.getIgnoringDefaults(this.propertyName)
-                        .orElse(null)
+            metadata.getIgnoringDefaults(this.propertyName)
+                .orElse(null)
         );
 
         this.refreshDefaultValue(
-                this.defaultValueAnchor,
-                metadata.defaults()
-                        .get(this.propertyName)
-                        .map(Object::toString)
-                        .orElse("")
+            this.defaultValueAnchor,
+            metadata.defaults()
+                .get(this.propertyName)
+                .map(Object::toString)
+                .orElse("")
         );
     }
 

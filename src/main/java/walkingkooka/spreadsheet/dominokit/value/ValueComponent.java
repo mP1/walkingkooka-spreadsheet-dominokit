@@ -30,9 +30,9 @@ import java.util.Optional;
  * A component that supports entering or selecting a value.
  */
 public interface ValueComponent<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
-        extends HtmlElementComponent<E, C>,
-        ComponentWithErrors<C>,
-        Value<Optional<V>> {
+    extends HtmlElementComponent<E, C>,
+    ComponentWithErrors<C>,
+    Value<Optional<V>> {
 
     C setId(final String id);
 
@@ -69,7 +69,7 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
 
     default C setEnabled(final boolean enabled) {
         return this.setDisabled(
-                false == enabled
+            false == enabled
         );
     }
 

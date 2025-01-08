@@ -33,18 +33,18 @@ import java.util.Optional;
  * Creates a {@link PluginDeleteAnchorComponent}.
  */
 public final class PluginDeleteAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, PluginDeleteAnchorComponent>,
-        AnchorComponentLikeDelegator<PluginDeleteAnchorComponent> {
+    AnchorComponentLikeDelegator<PluginDeleteAnchorComponent> {
 
     public static PluginDeleteAnchorComponent empty(final String id) {
         return new PluginDeleteAnchorComponent()
-                .setId(id);
+            .setId(id);
     }
 
     private PluginDeleteAnchorComponent() {
         this.component = ValueHistoryTokenAnchorComponent.with(
-                HistoryTokenAnchorComponent.empty(),
-                this::getter,
-                this::setter
+            HistoryTokenAnchorComponent.empty(),
+            this::getter,
+            this::setter
         );
     }
 
@@ -53,13 +53,13 @@ public final class PluginDeleteAnchorComponent implements HtmlElementComponent<H
      */
     private Optional<PluginName> getter(final HistoryTokenAnchorComponent anchor) {
         return anchor.historyToken()
-                .map(t -> t.cast(PluginDeleteHistoryToken.class).name());
+            .map(t -> t.cast(PluginDeleteHistoryToken.class).name());
     }
 
     private void setter(final Optional<PluginName> value,
                         final HistoryTokenAnchorComponent anchor) {
         anchor.setHistoryToken(
-                value.map(v -> HistoryToken.pluginDelete(v))
+            value.map(v -> HistoryToken.pluginDelete(v))
         );
     }
 

@@ -29,10 +29,10 @@ import java.util.Optional;
  * Base class for links that update a {@link TextStyle}.
  */
 abstract class SpreadsheetToolbarComponentItemAnchorTextStyle<C extends SpreadsheetToolbarComponentItemAnchorTextStyle<C>>
-        extends SpreadsheetToolbarComponentItemAnchor<C>
-        implements SpreadsheetCellComponentLifecycle,
-        NopComponentLifecycleOpenGiveFocus,
-        NopComponentLifecycleRefresh {
+    extends SpreadsheetToolbarComponentItemAnchor<C>
+    implements SpreadsheetCellComponentLifecycle,
+    NopComponentLifecycleOpenGiveFocus,
+    NopComponentLifecycleRefresh {
 
     SpreadsheetToolbarComponentItemAnchorTextStyle(final String id,
                                                    final Optional<Icon<?>> icon,
@@ -40,11 +40,11 @@ abstract class SpreadsheetToolbarComponentItemAnchorTextStyle<C extends Spreadsh
                                                    final String tooltipText,
                                                    final SpreadsheetToolbarComponentContext context) {
         super(
-                id,
-                icon,
-                text,
-                tooltipText,
-                context
+            id,
+            icon,
+            text,
+            tooltipText,
+            context
         );
     }
 }

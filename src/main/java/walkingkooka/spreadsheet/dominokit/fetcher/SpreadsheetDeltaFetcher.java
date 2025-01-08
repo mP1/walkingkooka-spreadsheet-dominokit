@@ -216,9 +216,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     public static UrlQueryString viewportAndWindowQueryString(final SpreadsheetViewport viewport,
                                                               final SpreadsheetViewportWindows window) {
         return viewportQueryString(viewport)
-                .addParameters(
-                        windowQueryString(window)
-                );
+            .addParameters(
+                windowQueryString(window)
+            );
     }
 
     /**
@@ -235,10 +235,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         final SpreadsheetViewportRectangle rectangle = viewport.rectangle();
 
         UrlQueryString result = UrlQueryString.EMPTY
-                .addParameter(SpreadsheetDeltaUrlQueryParameters.HOME, rectangle.home().toString())
-                .addParameter(SpreadsheetDeltaUrlQueryParameters.WIDTH, String.valueOf(rectangle.width()))
-                .addParameter(SpreadsheetDeltaUrlQueryParameters.HEIGHT, String.valueOf(rectangle.height()))
-                .addParameter(SpreadsheetDeltaUrlQueryParameters.INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
+            .addParameter(SpreadsheetDeltaUrlQueryParameters.HOME, rectangle.home().toString())
+            .addParameter(SpreadsheetDeltaUrlQueryParameters.WIDTH, String.valueOf(rectangle.width()))
+            .addParameter(SpreadsheetDeltaUrlQueryParameters.HEIGHT, String.valueOf(rectangle.height()))
+            .addParameter(SpreadsheetDeltaUrlQueryParameters.INCLUDE_FROZEN_COLUMNS_ROWS, Boolean.TRUE.toString());
 
         final Optional<AnchoredSpreadsheetSelection> maybeAnchored = viewport.anchoredSelection();
         if (maybeAnchored.isPresent()) {
@@ -246,18 +246,18 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
             result = result.addParameter(
-                    SpreadsheetDeltaUrlQueryParameters.SELECTION,
-                    selection.toStringMaybeStar()
+                SpreadsheetDeltaUrlQueryParameters.SELECTION,
+                selection.toStringMaybeStar()
             ).addParameter(
-                    SpreadsheetDeltaUrlQueryParameters.SELECTION_TYPE,
-                    selection.selectionTypeName()
+                SpreadsheetDeltaUrlQueryParameters.SELECTION_TYPE,
+                selection.selectionTypeName()
             );
 
             final SpreadsheetViewportAnchor anchor = anchoredSpreadsheetSelection.anchor();
             if (SpreadsheetViewportAnchor.NONE != anchor) {
                 result = result.addParameter(
-                        SpreadsheetDeltaUrlQueryParameters.SELECTION_ANCHOR,
-                        anchor.kebabText()
+                    SpreadsheetDeltaUrlQueryParameters.SELECTION_ANCHOR,
+                    anchor.kebabText()
                 );
             }
         }
@@ -265,11 +265,11 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         final List<SpreadsheetViewportNavigation> navigations = viewport.navigations();
         if (false == navigations.isEmpty()) {
             result = result.addParameter(
-                    SpreadsheetDeltaUrlQueryParameters.NAVIGATION,
-                    SpreadsheetViewport.SEPARATOR.toSeparatedString(
-                            navigations,
-                            SpreadsheetViewportNavigation::text
-                    )
+                SpreadsheetDeltaUrlQueryParameters.NAVIGATION,
+                SpreadsheetViewport.SEPARATOR.toSeparatedString(
+                    navigations,
+                    SpreadsheetViewportNavigation::text
+                )
             );
         }
 
@@ -283,11 +283,11 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         Objects.requireNonNull(window, "window");
 
         return window.isEmpty() ?
-                UrlQueryString.EMPTY :
-                UrlQueryString.EMPTY.addParameter(
-                        SpreadsheetDeltaUrlQueryParameters.WINDOW,
-                        window.toString()
-                );
+            UrlQueryString.EMPTY :
+            UrlQueryString.EMPTY.addParameter(
+                SpreadsheetDeltaUrlQueryParameters.WINDOW,
+                window.toString()
+            );
     }
 
     public static SpreadsheetDeltaFetcher with(final SpreadsheetDeltaFetcherWatcher watcher,
@@ -296,16 +296,16 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetDeltaFetcher(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     private SpreadsheetDeltaFetcher(final SpreadsheetDeltaFetcherWatcher watcher,
                                     final AppContext context) {
         super(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
@@ -314,15 +314,15 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         final AppContext context = this.context;
 
         this.postDelta(
-                url(
-                        id,
-                        selection
-                ).appendPathName(
-                        SpreadsheetDeltaHttpMappings.CLEAR.toUrlPathName()
-                ).setQuery(
-                        context.viewportAndWindowQueryString()
-                ),
-                SpreadsheetDelta.EMPTY
+            url(
+                id,
+                selection
+            ).appendPathName(
+                SpreadsheetDeltaHttpMappings.CLEAR.toUrlPathName()
+            ).setQuery(
+                context.viewportAndWindowQueryString()
+            ),
+            SpreadsheetDelta.EMPTY
         );
     }
 
@@ -333,12 +333,12 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                             final SpreadsheetSelection selection) {
         final AppContext context = this.context;
         this.delete(
-                url(
-                        id,
-                        selection
-                ).setQuery(
-                        context.viewportAndWindowQueryString()
-                )
+            url(
+                id,
+                selection
+            ).setQuery(
+                context.viewportAndWindowQueryString()
+            )
         );
     }
 
@@ -346,11 +346,11 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                           final SpreadsheetCellRangeReference cells,
                           final SpreadsheetCellFindQuery find) {
         this.get(
-                findCellsUrl(
-                        id,
-                        cells,
-                        find
-                )
+            findCellsUrl(
+                id,
+                cells,
+                find
+            )
         );
     }
 
@@ -359,17 +359,17 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                     final SpreadsheetCellRangeReference cells,
                                     final SpreadsheetCellFindQuery find) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPathName(SpreadsheetHateosResourceNames.CELL.toUrlPathName())
-                .appendPathName(
-                        UrlPathName.with(
-                                Objects.requireNonNull(cells, "cells")
-                                        .toStringMaybeStar()
-                        )
-                ).appendPathName(
-                        SpreadsheetDeltaHttpMappings.FIND.toUrlPathName()
-                ).setQuery(
-                        find.toUrlQueryString()
-                );
+            .appendPathName(SpreadsheetHateosResourceNames.CELL.toUrlPathName())
+            .appendPathName(
+                UrlPathName.with(
+                    Objects.requireNonNull(cells, "cells")
+                        .toStringMaybeStar()
+                )
+            ).appendPathName(
+                SpreadsheetDeltaHttpMappings.FIND.toUrlPathName()
+            ).setQuery(
+                find.toUrlQueryString()
+            );
     }
 
     public void insertAfterColumn(final SpreadsheetId id,
@@ -377,10 +377,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                   final int count) {
         // http://localhost:3000/api/spreadsheet/1/column/ABC/after?count=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
         this.insertColumnOrRow(
-                id,
-                selection,
-                SpreadsheetDeltaHttpMappings.AFTER,
-                count
+            id,
+            selection,
+            SpreadsheetDeltaHttpMappings.AFTER,
+            count
         );
     }
 
@@ -389,10 +389,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                    final int count) {
         // http://localhost:3000/api/spreadsheet/1/column/ABC/before?count=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
         this.insertColumnOrRow(
-                id,
-                selection,
-                SpreadsheetDeltaHttpMappings.BEFORE,
-                count
+            id,
+            selection,
+            SpreadsheetDeltaHttpMappings.BEFORE,
+            count
         );
     }
 
@@ -401,10 +401,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                final int count) {
         // http://localhost:3000/api/spreadsheet/1/row/ABC/after?count=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
         this.insertColumnOrRow(
-                id,
-                selection,
-                SpreadsheetDeltaHttpMappings.AFTER,
-                count
+            id,
+            selection,
+            SpreadsheetDeltaHttpMappings.AFTER,
+            count
         );
     }
 
@@ -413,10 +413,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                 final int count) {
         // http://localhost:3000/api/spreadsheet/1/row/ABC/before?count=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
         this.insertColumnOrRow(
-                id,
-                selection,
-                SpreadsheetDeltaHttpMappings.BEFORE,
-                count
+            id,
+            selection,
+            SpreadsheetDeltaHttpMappings.BEFORE,
+            count
         );
     }
 
@@ -427,23 +427,23 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         final AppContext context = this.context;
 
         final UrlQueryString queryString = UrlQueryString.parse("count=" + count)
-                .addParameters(
-                        context.viewportAndWindowQueryString()
-                );
+            .addParameters(
+                context.viewportAndWindowQueryString()
+            );
 
         // /api/spreadsheet/SpreadsheetId/column/A:B/insertBefore?count=1
         this.post(
-                SpreadsheetMetadataFetcher.url(
-                        id
+            SpreadsheetMetadataFetcher.url(
+                    id
                 ).appendPath(
-                        UrlPath.parse(
-                                selection.cellColumnOrRowText() +
-                                        UrlPath.SEPARATOR +
-                                        selection.toStringMaybeStar()
-                        )
-                        ).appendPathName(afterOrBefore.toUrlPathName())
-                        .setQuery(queryString),
-                FetcherRequestBody.string("")
+                    UrlPath.parse(
+                        selection.cellColumnOrRowText() +
+                            UrlPath.SEPARATOR +
+                            selection.toStringMaybeStar()
+                    )
+                ).appendPathName(afterOrBefore.toUrlPathName())
+                .setQuery(queryString),
+            FetcherRequestBody.string("")
         );
     }
 
@@ -454,17 +454,17 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                             final SpreadsheetViewport viewport) {
         // DELETE http://localhost:3000/api/spreadsheet/1f/cell/$cells
         this.delete(
-                url(
-                        id,
-                        checkViewport(viewport)
-                                .anchoredSelection()
-                                .get()
-                                .selection()
-                ).setQuery(
-                        viewportQueryString(
-                                viewport
-                        )
+            url(
+                id,
+                checkViewport(viewport)
+                    .anchoredSelection()
+                    .get()
+                    .selection()
+            ).setQuery(
+                viewportQueryString(
+                    viewport
                 )
+            )
         );
     }
 
@@ -476,20 +476,20 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         // load cells for the new window...
         // http://localhost:3000/api/spreadsheet/1f/cell/*/force-recompute?home=A1&width=1712&height=765&includeFrozenColumnsRows=true
         this.get(
-                url(
-                        id,
-                        SpreadsheetSelection.ALL_CELLS,
-                        FORCE_RECOMPUTE // path
-                ).setQuery(
-                        viewportQueryString(
-                                viewport
-                        )
+            url(
+                id,
+                SpreadsheetSelection.ALL_CELLS,
+                FORCE_RECOMPUTE // path
+            ).setQuery(
+                viewportQueryString(
+                    viewport
                 )
+            )
         );
     }
 
     private final static UrlPath FORCE_RECOMPUTE = UrlPath.parse(
-                    CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
+        CaseKind.kebabEnumName(SpreadsheetEngineEvaluation.FORCE_RECOMPUTE)
     );
 
     /**
@@ -501,10 +501,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         Objects.requireNonNull(labelName, "labelName");
 
         this.get(
-                url(
-                        id,
-                        labelName
-                )
+            url(
+                id,
+                labelName
+            )
         );
     }
 
@@ -517,17 +517,17 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         Objects.requireNonNull(mapping, "mapping");
 
         this.post(
-                url(
-                        id,
-                        mapping.label()
-                ),
-                FetcherRequestBody.string(
-                        this.context.marshall(
-                                SpreadsheetDelta.EMPTY.setLabels(
-                                        Sets.of(mapping)
-                                )
-                        ).toString()
-                )
+            url(
+                id,
+                mapping.label()
+            ),
+            FetcherRequestBody.string(
+                this.context.marshall(
+                    SpreadsheetDelta.EMPTY.setLabels(
+                        Sets.of(mapping)
+                    )
+                ).toString()
+            )
         );
     }
 
@@ -540,10 +540,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         Objects.requireNonNull(labelName, "labelName");
 
         this.delete(
-                url(
-                        id,
-                        labelName
-                )
+            url(
+                id,
+                labelName
+            )
         );
     }
 
@@ -551,10 +551,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                   final SpreadsheetSelection selection,
                                   final Map<SpreadsheetCellReference, SpreadsheetFormula> cellToFormulas) {
         this.patchCellsWithMap(
-                id,
-                selection,
-                cellToFormulas,
-                SpreadsheetDelta::cellsFormulaPatch
+            id,
+            selection,
+            cellToFormulas,
+            SpreadsheetDelta::cellsFormulaPatch
         );
     }
 
@@ -562,10 +562,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                     final SpreadsheetSelection selection,
                                     final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> cellToFormatters) {
         this.patchCellsWithMap(
-                id,
-                selection,
-                cellToFormatters,
-                SpreadsheetDelta::cellsFormatterPatch
+            id,
+            selection,
+            cellToFormatters,
+            SpreadsheetDelta::cellsFormatterPatch
         );
     }
 
@@ -573,10 +573,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                  final SpreadsheetSelection selection,
                                  final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> cellToParsers) {
         this.patchCellsWithMap(
-                id,
-                selection,
-                cellToParsers,
-                SpreadsheetDelta::cellsParserPatch
+            id,
+            selection,
+            cellToParsers,
+            SpreadsheetDelta::cellsParserPatch
         );
     }
 
@@ -584,10 +584,10 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                 final SpreadsheetSelection selection,
                                 final Map<SpreadsheetCellReference, TextStyle> cellToStyles) {
         this.patchCellsWithMap(
-                id,
-                selection,
-                cellToStyles,
-                SpreadsheetDelta::cellsStylePatch
+            id,
+            selection,
+            cellToStyles,
+            SpreadsheetDelta::cellsStylePatch
         );
     }
 
@@ -598,18 +598,18 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         final AppContext context = this.context;
 
         this.post(
-                url(
-                        id,
-                        selection
-                ).setQuery(
-                        context.viewportAndWindowQueryString()
-                ),
-                FetcherRequestBody.string(
-                        patcher.apply(
-                                cellToStyles,
-                                this.context
-                        ).toString()
-                )
+            url(
+                id,
+                selection
+            ).setQuery(
+                context.viewportAndWindowQueryString()
+            ),
+            FetcherRequestBody.string(
+                patcher.apply(
+                    cellToStyles,
+                    this.context
+                ).toString()
+            )
         );
     }
 
@@ -617,14 +617,14 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                              final SpreadsheetSelection selection,
                              final SpreadsheetFormula formula) {
         this.patchDelta(
-                url(
-                        id,
-                        selection
-                ),
-                SpreadsheetDelta.formulaPatch(
-                        formula,
-                        this.context
-                )
+            url(
+                id,
+                selection
+            ),
+            SpreadsheetDelta.formulaPatch(
+                formula,
+                this.context
+            )
         );
     }
 
@@ -632,14 +632,14 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                final SpreadsheetSelection selection,
                                final Optional<SpreadsheetFormatterSelector> formatter) {
         this.patchDelta(
-                url(
-                        id,
-                        selection
-                ),
-                SpreadsheetDelta.formatterPatch(
-                        formatter,
-                        this.context
-                )
+            url(
+                id,
+                selection
+            ),
+            SpreadsheetDelta.formatterPatch(
+                formatter,
+                this.context
+            )
         );
     }
 
@@ -647,14 +647,14 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                             final SpreadsheetSelection selection,
                             final Optional<SpreadsheetParserSelector> parser) {
         this.patchDelta(
-                url(
-                        id,
-                        selection
-                ),
-                SpreadsheetDelta.parserPatch(
-                        parser,
-                        this.context
-                )
+            url(
+                id,
+                selection
+            ),
+            SpreadsheetDelta.parserPatch(
+                parser,
+                this.context
+            )
         );
     }
 
@@ -662,13 +662,13 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                            final SpreadsheetSelection selection,
                            final JsonNode style) {
         this.patchDelta(
-                url(
-                        id,
-                        selection
-                ),
-                SpreadsheetDelta.stylePatch(
-                        style
-                )
+            url(
+                id,
+                selection
+            ),
+            SpreadsheetDelta.stylePatch(
+                style
+            )
         );
     }
 
@@ -678,13 +678,13 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         final AppContext context = this.context;
 
         this.postDelta(
-                url(
-                        id,
-                        selection
-                ).setQuery(
-                        context.viewportAndWindowQueryString()
-                ),
-                SpreadsheetDelta.EMPTY.setCells(cells)
+            url(
+                id,
+                selection
+            ).setQuery(
+                context.viewportAndWindowQueryString()
+            ),
+            SpreadsheetDelta.EMPTY.setCells(cells)
         );
     }
 
@@ -695,22 +695,22 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
 
         // PATCH cell with new formula
         this.patchDelta(
-                url(
-                        id,
-                        selection
-                ).setQuery(
-                        context.viewportAndWindowQueryString()
-                ),
-                SpreadsheetDelta.EMPTY.setCells(
-                        Sets.of(
-                                selection.toCell()
-                                        .setFormula(
-                                                SpreadsheetFormula.EMPTY.setText(
-                                                        formulaText
-                                                )
-                                        )
+            url(
+                id,
+                selection
+            ).setQuery(
+                context.viewportAndWindowQueryString()
+            ),
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    selection.toCell()
+                        .setFormula(
+                            SpreadsheetFormula.EMPTY.setText(
+                                formulaText
+                            )
                         )
                 )
+            )
         );
     }
 
@@ -720,16 +720,16 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         final AppContext context = this.context;
 
         this.patchDelta(
-                url(
-                        id,
-                        selection
-                ).setQuery(
-                        context.viewportAndWindowQueryString()
-                ),
-                SpreadsheetDelta.formatterPatch(
-                        formatter,
-                        context
-                )
+            url(
+                id,
+                selection
+            ).setQuery(
+                context.viewportAndWindowQueryString()
+            ),
+            SpreadsheetDelta.formatterPatch(
+                formatter,
+                context
+            )
         );
     }
 
@@ -739,16 +739,16 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         final AppContext context = this.context;
 
         this.patchDelta(
-                url(
-                        id,
-                        selection
-                ).setQuery(
-                        context.viewportAndWindowQueryString()
-                ),
-                SpreadsheetDelta.parserPatch(
-                        parser,
-                        context
-                )
+            url(
+                id,
+                selection
+            ).setQuery(
+                context.viewportAndWindowQueryString()
+            ),
+            SpreadsheetDelta.parserPatch(
+                parser,
+                context
+            )
         );
     }
 
@@ -759,17 +759,17 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         final AppContext context = this.context;
 
         this.patchDelta(
-                url(
-                        id,
-                        selection
-                ).setQuery(
-                        context.viewportAndWindowQueryString()
-                ),
-                SpreadsheetDelta.stylePatch(
-                        name.stylePatch(
-                                value.orElse(null)
-                        )
+            url(
+                id,
+                selection
+            ).setQuery(
+                context.viewportAndWindowQueryString()
+            ),
+            SpreadsheetDelta.stylePatch(
+                name.stylePatch(
+                    value.orElse(null)
                 )
+            )
         );
     }
 
@@ -778,42 +778,42 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                           final SpreadsheetExpressionReference selection,
                           final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
         this.get(
-                url(
-                        id,
-                        selection
-                ).appendPathName(
-                        SpreadsheetDeltaHttpMappings.SORT.toUrlPathName()
-                ).setQuery(
-                        this.context.viewportAndWindowQueryString()
-                                .addParameter(
-                                        SpreadsheetDeltaUrlQueryParameters.COMPARATORS,
-                                        comparators.text()
-                                )
-                )
+            url(
+                id,
+                selection
+            ).appendPathName(
+                SpreadsheetDeltaHttpMappings.SORT.toUrlPathName()
+            ).setQuery(
+                this.context.viewportAndWindowQueryString()
+                    .addParameter(
+                        SpreadsheetDeltaUrlQueryParameters.COMPARATORS,
+                        comparators.text()
+                    )
+            )
         );
     }
 
     private void patchDelta(final AbsoluteOrRelativeUrl url,
                             final JsonNode delta) {
         this.patch(
-                url,
-                this.toJson(delta)
+            url,
+            this.toJson(delta)
         );
     }
 
     private void patchDelta(final AbsoluteOrRelativeUrl url,
                             final SpreadsheetDelta delta) {
         this.patch(
-                url,
-                this.toJson(delta)
+            url,
+            this.toJson(delta)
         );
     }
 
     private void postDelta(final AbsoluteOrRelativeUrl url,
                            final SpreadsheetDelta delta) {
         this.post(
-                url,
-                this.toJson(delta)
+            url,
+            this.toJson(delta)
         );
     }
 
@@ -821,9 +821,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     static RelativeUrl url(final SpreadsheetId id,
                            final SpreadsheetSelection selection) {
         return url(
-                id,
-                selection,
-                UrlPath.EMPTY // no patch
+            id,
+            selection,
+            UrlPath.EMPTY // no patch
         );
     }
 
@@ -832,28 +832,28 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                            final SpreadsheetSelection selection,
                            final UrlPath path) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPath(
-                        UrlPath.parse(
-                                checkSelection(selection)
-                                        .cellColumnOrRowText()
-                        )
-                ).appendPath(
-                        UrlPath.parse(
-                                selection.toStringMaybeStar()
-                        )
-                ).appendPath(path);
+            .appendPath(
+                UrlPath.parse(
+                    checkSelection(selection)
+                        .cellColumnOrRowText()
+                )
+            ).appendPath(
+                UrlPath.parse(
+                    selection.toStringMaybeStar()
+                )
+            ).appendPath(path);
     }
 
     // GET http://localhost:3000/api/spreadsheet/1/label/Label123
     static RelativeUrl url(final SpreadsheetId id,
                            final SpreadsheetLabelName labelName) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPathName(LABEL.toUrlPathName())
-                .appendPath(
-                        UrlPath.parse(
-                                labelName.value()
-                        )
-                );
+            .appendPathName(LABEL.toUrlPathName())
+            .appendPath(
+                UrlPath.parse(
+                    labelName.value()
+                )
+            );
     }
 
     private final static HateosResourceName LABEL = HateosResourceName.with("label");
@@ -884,13 +884,13 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             case "SpreadsheetDelta":
                 // http://server/api/spreadsheet/1/cell
                 this.watcher.onSpreadsheetDelta(
-                        method, // method
-                        url, // the request url
-                        this.parse(
-                                body.orElse(""),
-                                SpreadsheetDelta.class
-                        ), // delta
-                        context
+                    method, // method
+                    url, // the request url
+                    this.parse(
+                        body.orElse(""),
+                        SpreadsheetDelta.class
+                    ), // delta
+                    context
                 );
                 break;
             default:

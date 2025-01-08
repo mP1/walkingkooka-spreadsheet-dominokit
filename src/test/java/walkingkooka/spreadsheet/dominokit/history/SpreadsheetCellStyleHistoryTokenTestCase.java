@@ -39,7 +39,7 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
     @Test
     public final void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 
@@ -50,10 +50,10 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
                          final SpreadsheetName name,
                          final AnchoredSpreadsheetSelection selection) {
         return this.createHistoryToken(
-                id,
-                name,
-                selection,
-                PROPERTY_NAME
+            id,
+            name,
+            selection,
+            PROPERTY_NAME
         );
     }
 

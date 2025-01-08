@@ -32,9 +32,9 @@ final class PluginFetcherWatchersPluginEvent extends FetcherWatchersEvent<Plugin
                                                  final Optional<Plugin> plugin,
                                                  final AppContext context) {
         return new PluginFetcherWatchersPluginEvent(
-                name,
-                plugin,
-                context
+            name,
+            plugin,
+            context
         );
     }
 
@@ -49,9 +49,9 @@ final class PluginFetcherWatchersPluginEvent extends FetcherWatchersEvent<Plugin
     @Override
     void fire(final PluginFetcherWatcher watcher) {
         watcher.onPlugin(
-                this.name,
-                this.plugin,
-                this.context
+            this.name,
+            this.plugin,
+            this.context
         );
     }
 

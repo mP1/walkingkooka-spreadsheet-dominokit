@@ -123,7 +123,7 @@ public final class Sample {
         System.out.println("Pattern: " + simpleDateFormat.toPattern());
 
         final Date date = DateTime.localDateToDate(
-                LocalDate.of(2000, 12, 31)
+            LocalDate.of(2000, 12, 31)
         );
 
         System.out.println("java.util.Date.toString(): " + date);
@@ -137,7 +137,7 @@ public final class Sample {
         System.out.println("Pattern: " + simpleDateFormat.toPattern());
 
         final Date date = DateTime.localDateTimeToDate(
-                LocalDateTime.of(2000, 12, 31, 12, 58, 59)
+            LocalDateTime.of(2000, 12, 31, 12, 58, 59)
         );
 
         System.out.println("java.util.Date.toString(): " + date);
@@ -151,7 +151,7 @@ public final class Sample {
         System.out.println("Pattern: " + simpleDateFormat.toPattern());
 
         final Date date = DateTime.localTimeToDate(
-                LocalTime.of(12, 58, 59)
+            LocalTime.of(12, 58, 59)
         );
 
         System.out.println("java.util.Date.toString(): " + date);
@@ -162,7 +162,7 @@ public final class Sample {
     private static SimpleDateFormat simpleDateFormat(final DateFormat format) {
         final SimpleDateFormat simpleDateFormat = (SimpleDateFormat) format;
         return new SimpleDateFormat(
-                DateTime.simpleDateFormatPatternWithoutTimezone(simpleDateFormat.toPattern())
+            DateTime.simpleDateFormatPatternWithoutTimezone(simpleDateFormat.toPattern())
         );
     }
 }

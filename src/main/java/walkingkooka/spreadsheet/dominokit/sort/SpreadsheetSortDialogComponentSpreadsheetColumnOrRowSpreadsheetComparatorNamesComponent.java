@@ -58,11 +58,11 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(
-                id,
-                moveUp,
-                moveDown,
-                setter,
-                context
+            id,
+            moveUp,
+            moveDown,
+            setter,
+            context
         );
     }
 
@@ -75,42 +75,42 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         // NAMES MOVE_UP MOVE_DOW
         //
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names = SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
-                .setId(
-                        CharSequences.subSequence(
-                                id,
-                                0,
-                                -1
-                        ) + SpreadsheetElementIds.TEXT_BOX
-                ).setCssText("flex-grow: 1; width: fit-content;");
+            .setId(
+                CharSequences.subSequence(
+                    id,
+                    0,
+                    -1
+                ) + SpreadsheetElementIds.TEXT_BOX
+            ).setCssText("flex-grow: 1; width: fit-content;");
         this.names = names;
 
         final String linkCss = "padding-top: 10px";
 
         final HistoryTokenAnchorComponent moveUpLink = context.historyToken()
-                .link(id + "moveUp")
-                .setTextContent("Move Up")
-                .setCssText(linkCss);
+            .link(id + "moveUp")
+            .setTextContent("Move Up")
+            .setCssText(linkCss);
         this.moveUpLink = moveUpLink;
         this.moveUp = moveUp;
 
         final HistoryTokenAnchorComponent moveDownLink = context.historyToken()
-                .link(id + "moveDown")
-                .setTextContent("Move Down")
-                .setCssText(linkCss);
+            .link(id + "moveDown")
+            .setTextContent("Move Down")
+            .setCssText(linkCss);
         this.moveDownLink = moveDownLink;
         this.moveDown = moveDown;
 
         final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent.empty(
-                id,
-                (newNames) -> setter.apply(
-                        Optional.of(newNames)
-                )
+            id,
+            (newNames) -> setter.apply(
+                Optional.of(newNames)
+            )
         );
         this.appender = appender;
 
         final SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent remover = SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent.empty(
-                id,
-                setter
+            id,
+            setter
         );
         this.remover = remover;
 
@@ -120,36 +120,36 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         // REMOVER
         //
         this.root = SpreadsheetFlexLayout.column()
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(names)
-                                .appendChild(moveUpLink)
-                                .appendChild(moveDownLink)
-                )
-                .appendChild(appender)
-                .appendChild(remover);
+            .appendChild(
+                SpreadsheetFlexLayout.row()
+                    .appendChild(names)
+                    .appendChild(moveUpLink)
+                    .appendChild(moveDownLink)
+            )
+            .appendChild(appender)
+            .appendChild(remover);
     }
 
     void refresh(final String columnOrRowSpreadsheetComparatorNames,
                  final SpreadsheetSortDialogComponentContext context) {
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names = this.names;
         names.setStringValue(
-                Optional.ofNullable(
-                        columnOrRowSpreadsheetComparatorNames.isEmpty() ?
-                                null :
-                                columnOrRowSpreadsheetComparatorNames
-                )
+            Optional.ofNullable(
+                columnOrRowSpreadsheetComparatorNames.isEmpty() ?
+                    null :
+                    columnOrRowSpreadsheetComparatorNames
+            )
         );
 
         {
             final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames> value = names.value();
 
             this.moveUpLink.setHistoryToken(
-                    this.moveUp.apply(value)
+                this.moveUp.apply(value)
             );
 
             this.moveDownLink.setHistoryToken(
-                    this.moveDown.apply(value)
+                this.moveDown.apply(value)
             );
         }
 
@@ -157,14 +157,14 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
         final List<SpreadsheetComparatorNameAndDirection> comparatorNameAndDirections = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseSpreadsheetComparatorNameAndDirections(columnOrRowSpreadsheetComparatorNames);
 
         this.appender.refresh(
-                columnOrRow,
-                comparatorNameAndDirections,
-                context
+            columnOrRow,
+            comparatorNameAndDirections,
+            context
         );
         this.remover.refresh(
-                columnOrRow,
-                comparatorNameAndDirections,
-                context
+            columnOrRow,
+            comparatorNameAndDirections,
+            context
         );
     }
 

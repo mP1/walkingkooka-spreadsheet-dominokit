@@ -30,46 +30,46 @@ public final class PluginUploadSaveAnchorComponentTest implements HtmlElementCom
     @Test
     public void testClearFile() {
         this.treePrintAndCheck(
-                PluginUploadSaveAnchorComponent.empty("lost")
-                        .setId("Upload123")
-                        .setTextContent("Upload123!"),
-                "\"Upload123!\" DISABLED id=Upload123"
+            PluginUploadSaveAnchorComponent.empty("lost")
+                .setId("Upload123")
+                .setTextContent("Upload123!"),
+            "\"Upload123!\" DISABLED id=Upload123"
         );
     }
 
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-                PluginUploadSaveAnchorComponent.empty("lost")
-                        .setId("Upload456")
-                        .setTextContent("Upload456!")
-                        .setValue(
-                                Optional.of(
-                                        BrowserFile.base64(
-                                                "Filename123",
-                                                "Filecontent456"
-                                        )
-                                )
-                        ),
-                "\"Upload456!\" [#/plugin-upload/save/base64/Filename123/Filecontent456] id=Upload456"
+            PluginUploadSaveAnchorComponent.empty("lost")
+                .setId("Upload456")
+                .setTextContent("Upload456!")
+                .setValue(
+                    Optional.of(
+                        BrowserFile.base64(
+                            "Filename123",
+                            "Filecontent456"
+                        )
+                    )
+                ),
+            "\"Upload456!\" [#/plugin-upload/save/base64/Filename123/Filecontent456] id=Upload456"
         );
     }
 
     @Test
     public void testSetValueClearValue() {
         this.treePrintAndCheck(
-                PluginUploadSaveAnchorComponent.empty("lost")
-                        .setId("Upload789")
-                        .setTextContent("Upload789!")
-                        .setValue(
-                                Optional.of(
-                                        BrowserFile.base64(
-                                                "Filename123",
-                                                "Filecontent456"
-                                        )
-                                )
-                        ).clearValue(),
-                "\"Upload789!\" DISABLED id=Upload789"
+            PluginUploadSaveAnchorComponent.empty("lost")
+                .setId("Upload789")
+                .setTextContent("Upload789!")
+                .setValue(
+                    Optional.of(
+                        BrowserFile.base64(
+                            "Filename123",
+                            "Filecontent456"
+                        )
+                    )
+                ).clearValue(),
+            "\"Upload789!\" DISABLED id=Upload789"
         );
     }
 

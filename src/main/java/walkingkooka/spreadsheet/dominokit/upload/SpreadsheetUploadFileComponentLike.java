@@ -95,25 +95,25 @@ abstract class SpreadsheetUploadFileComponentLike implements ValueComponent<HTML
         printer.indent();
         {
             printer.println("id=" + this.id());
-            if(this.isDisabled()) {
+            if (this.isDisabled()) {
                 printer.println("disabled");
             }
 
             final String label = this.label();
-            if(false == label.isEmpty()) {
+            if (false == label.isEmpty()) {
                 printer.println("label=" + label);
             }
 
             final String helperText = this.helperText()
-                            .orElse("");
-            if(false == helperText.isEmpty()) {
+                .orElse("");
+            if (false == helperText.isEmpty()) {
                 printer.println("helperText=" + helperText);
             }
 
             printer.indent();
             {
                 this.value()
-                        .ifPresent(value -> value.printTree(printer));
+                    .ifPresent(value -> value.printTree(printer));
             }
             printer.outdent();
         }

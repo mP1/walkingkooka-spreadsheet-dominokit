@@ -37,7 +37,7 @@ public interface ComponentWithErrors<T> {
      */
     default boolean hasErrors() {
         return false == this.errors()
-                .isEmpty();
+            .isEmpty();
     }
 
     /**

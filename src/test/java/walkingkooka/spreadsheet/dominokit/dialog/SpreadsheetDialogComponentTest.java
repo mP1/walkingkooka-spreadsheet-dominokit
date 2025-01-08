@@ -31,68 +31,68 @@ public final class SpreadsheetDialogComponentTest implements HtmlElementComponen
     @Test
     public void testOpenTitleCloseableChildren() {
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                "id123",
-                "Title456",
-                true, // includeClose,
-                HistoryTokenContexts.fake()
+            "id123",
+            "Title456",
+            true, // includeClose,
+            HistoryTokenContexts.fake()
         );
         dialog.appendChild(
-                SpreadsheetTextBox.empty()
-                        .setId("TextBoxId111")
-                        .setValue(
-                                Optional.of(
-                                        "Value111"
-                                )
-                        )
+            SpreadsheetTextBox.empty()
+                .setId("TextBoxId111")
+                .setValue(
+                    Optional.of(
+                        "Value111"
+                    )
+                )
         );
         dialog.appendChild(
-                SpreadsheetTextBox.empty()
-                        .setId("TextBoxId222")
-                        .setValue(
-                                Optional.of(
-                                        "Value222"
-                                )
-                        )
+            SpreadsheetTextBox.empty()
+                .setId("TextBoxId222")
+                .setValue(
+                    Optional.of(
+                        "Value222"
+                    )
+                )
         );
 
         dialog.open();
 
         this.treePrintAndCheck(
-                dialog,
-                "SpreadsheetDialogComponent\n" +
-                        "  Title456\n" +
-                        "  id=id123 includeClose=true\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Value111] id=TextBoxId111\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Value222] id=TextBoxId222\n"
+            dialog,
+            "SpreadsheetDialogComponent\n" +
+                "  Title456\n" +
+                "  id=id123 includeClose=true\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Value111] id=TextBoxId111\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Value222] id=TextBoxId222\n"
         );
     }
 
     @Test
     public void testClosedTitleCloseableChildren() {
         final SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                "id123",
-                "Title456",
-                true, // includeClose,
-                HistoryTokenContexts.fake()
+            "id123",
+            "Title456",
+            true, // includeClose,
+            HistoryTokenContexts.fake()
         ).appendChild(
-                SpreadsheetTextBox.empty()
-                        .setId("TextBoxId111")
-                        .setValue(
-                                Optional.of(
-                                        "Value111"
-                                )
-                        )
+            SpreadsheetTextBox.empty()
+                .setId("TextBoxId111")
+                .setValue(
+                    Optional.of(
+                        "Value111"
+                    )
+                )
         );
 
         this.treePrintAndCheck(
-                dialog,
-                "SpreadsheetDialogComponent\n" +
-                        "  Title456\n" +
-                        "  id=id123 includeClose=true CLOSED\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Value111] id=TextBoxId111\n"
+            dialog,
+            "SpreadsheetDialogComponent\n" +
+                "  Title456\n" +
+                "  id=id123 includeClose=true CLOSED\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Value111] id=TextBoxId111\n"
         );
     }
 

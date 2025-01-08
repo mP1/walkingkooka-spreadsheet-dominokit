@@ -52,9 +52,9 @@ abstract public class Fetcher<W extends FetcherWatcher> {
      */
     final void delete(final AbsoluteOrRelativeUrl url) {
         this.fetchJson(
-                HttpMethod.DELETE,
-                url,
-                Optional.empty()
+            HttpMethod.DELETE,
+            url,
+            Optional.empty()
         );
     }
 
@@ -63,9 +63,9 @@ abstract public class Fetcher<W extends FetcherWatcher> {
      */
     final void get(final AbsoluteOrRelativeUrl url) {
         this.fetchJson(
-                HttpMethod.GET,
-                url,
-                Optional.empty()
+            HttpMethod.GET,
+            url,
+            Optional.empty()
         );
     }
 
@@ -76,9 +76,9 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     final void patch(final AbsoluteOrRelativeUrl url,
                      final FetcherRequestBody<?> body) {
         this.fetchJson(
-                HttpMethod.PATCH,
-                url,
-                Optional.of(body)
+            HttpMethod.PATCH,
+            url,
+            Optional.of(body)
         );
     }
 
@@ -89,9 +89,9 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     final void post(final AbsoluteOrRelativeUrl url,
                     final FetcherRequestBody<?> body) {
         this.fetchJson(
-                HttpMethod.POST,
-                url,
-                Optional.of(body)
+            HttpMethod.POST,
+            url,
+            Optional.of(body)
         );
     }
 
@@ -102,9 +102,9 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     final void put(final AbsoluteOrRelativeUrl url,
                    final FetcherRequestBody<?> body) {
         this.fetchJson(
-                HttpMethod.PUT,
-                url,
-                Optional.of(body)
+            HttpMethod.PUT,
+            url,
+            Optional.of(body)
         );
     }
 
@@ -124,8 +124,8 @@ abstract public class Fetcher<W extends FetcherWatcher> {
             //        MediaType.APPLICATION_JSON
             //);
             headers.put(
-                    HttpHeaderName.CONTENT_TYPE,
-                    SpreadsheetServerMediaTypes.CONTENT_TYPE
+                HttpHeaderName.CONTENT_TYPE,
+                SpreadsheetServerMediaTypes.CONTENT_TYPE
             );
 
 //            if (body.isPresent()) {
@@ -138,10 +138,10 @@ abstract public class Fetcher<W extends FetcherWatcher> {
         }
 
         this.fetch(
-                method,
-                url,
-                headers,//entity
-                body
+            method,
+            url,
+            headers,//entity
+            body
         );
     }
 
@@ -161,32 +161,32 @@ abstract public class Fetcher<W extends FetcherWatcher> {
 
         for (final Entry<HttpHeaderName<?>, Object> headerAndValues : headers.entrySet()) {
             final String headerName = headerAndValues.getKey()
-                    .value();
+                .value();
             final Object headerValue = headerAndValues.getValue();
 
             nativeHeaders.append(
-                    headerName,
-                    headerValue.toString()
+                headerName,
+                headerValue.toString()
             );
         }
 
         requestInit.setHeaders(nativeHeaders);
 
         final Runnable doFetch = () -> this.doFetch(
-                method,
-                url,
-                headers,
-                body,
-                requestInit
+            method,
+            url,
+            headers,
+            body,
+            requestInit
         );
 
         if (body.isPresent()) {
             body.get()
-                    .handleFetch(
-                            nativeHeaders,
-                            requestInit,
-                            doFetch
-                    );
+                .handleFetch(
+                    nativeHeaders,
+                    requestInit,
+                    doFetch
+                );
         } else {
             doFetch.run();
         }
@@ -198,56 +198,56 @@ abstract public class Fetcher<W extends FetcherWatcher> {
                          final Optional<FetcherRequestBody<?>> body,
                          final RequestInit requestInit) {
         this.onBegin(
-                method,
-                url,
-                body
+            method,
+            url,
+            body
         );
 
         this.setWaitingRequestCount(this.waitingRequestCount() + 1);
 
         DomGlobal.fetch(
-                        url.value(),
-                        requestInit
-                ).then(response -> {
-                    response.text()
-                            .then(
-                                    text -> {
-                                        this.setWaitingRequestCount(this.waitingRequestCount() - 1);
+                url.value(),
+                requestInit
+            ).then(response -> {
+                response.text()
+                    .then(
+                        text -> {
+                            this.setWaitingRequestCount(this.waitingRequestCount() - 1);
 
-                                        if (response.ok) {
-                                            this.fireSuccess(
-                                                    method,
-                                                    url,
-                                                    response.headers.get(
-                                                            HateosResourceMapping.X_CONTENT_TYPE_NAME.value()
-                                                    ),
-                                                    204 == response.status ?
-                                                            Optional.empty() :
-                                                            Optional.of(text)
-                                            );
-                                        } else {
-                                            final HttpStatus status = HttpStatusCode.withCode(response.status)
-                                                    .setMessage(response.statusText);
-                                            this.onFailure(
-                                                    method,
-                                                    url,
-                                                    status,
-                                                    response.headers,
-                                                    text
-                                            );
-                                        }
-                                        return null;
-                                    }
-                            );
+                            if (response.ok) {
+                                this.fireSuccess(
+                                    method,
+                                    url,
+                                    response.headers.get(
+                                        HateosResourceMapping.X_CONTENT_TYPE_NAME.value()
+                                    ),
+                                    204 == response.status ?
+                                        Optional.empty() :
+                                        Optional.of(text)
+                                );
+                            } else {
+                                final HttpStatus status = HttpStatusCode.withCode(response.status)
+                                    .setMessage(response.statusText);
+                                this.onFailure(
+                                    method,
+                                    url,
+                                    status,
+                                    response.headers,
+                                    text
+                                );
+                            }
+                            return null;
+                        }
+                    );
 
-                    return null;
-                })
-                .catch_(error -> {
-                    this.setWaitingRequestCount(this.waitingRequestCount() - 1);
+                return null;
+            })
+            .catch_(error -> {
+                this.setWaitingRequestCount(this.waitingRequestCount() - 1);
 
-                    this.onError(error);
-                    return null;
-                });
+                this.onError(error);
+                return null;
+            });
     }
 
     /**
@@ -257,10 +257,10 @@ abstract public class Fetcher<W extends FetcherWatcher> {
                          final AbsoluteOrRelativeUrl url,
                          final Optional<FetcherRequestBody<?>> body) {
         this.watcher.onBegin(
-                method,
-                url,
-                body,
-                this.context
+            method,
+            url,
+            body,
+            this.context
         );
     }
 
@@ -275,7 +275,7 @@ abstract public class Fetcher<W extends FetcherWatcher> {
         String actualBodyLength = "";
         if (body.isPresent()) {
             final String bodyText = body.get();
-            if(false == CharSequences.isNullOrEmpty(bodyText)) {
+            if (false == CharSequences.isNullOrEmpty(bodyText)) {
                 actualBodyLength = " " + bodyText.length();
             }
         }
@@ -283,10 +283,10 @@ abstract public class Fetcher<W extends FetcherWatcher> {
         this.context.debug(this.getClass().getSimpleName() + ".onSuccess " + method + " " + url + " " + contentTypeName + actualBodyLength);
 
         this.onSuccess(
-                method,
-                url,
-                contentTypeName,
-                body
+            method,
+            url,
+            contentTypeName,
+            body
         );
     }
 
@@ -307,19 +307,19 @@ abstract public class Fetcher<W extends FetcherWatcher> {
                            final Headers headers,
                            final String body) {
         this.watcher.onFailure(
-                method,
-                url,
-                status,
-                headers,
-                body,
-                this.context
+            method,
+            url,
+            status,
+            headers,
+            body,
+            this.context
         );
     }
 
     private void onError(final Object cause) {
         this.watcher.onError(
-                cause,
-                this.context
+            cause,
+            this.context
         );
     }
 
@@ -331,10 +331,10 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     final <T> T parse(final String json,
                       final Class<T> type) {
         return this.context.unmarshall(
-                JsonNode.parse(
-                        json
-                ),
-                type
+            JsonNode.parse(
+                json
+            ),
+            type
         );
     }
 
@@ -343,9 +343,9 @@ abstract public class Fetcher<W extends FetcherWatcher> {
      */
     final FetcherRequestBody<String> toJson(final Object value) {
         return FetcherRequestBody.string(
-                this.context.marshall(
-                        value
-                ).toString()
+            this.context.marshall(
+                value
+            ).toString()
         );
     }
 

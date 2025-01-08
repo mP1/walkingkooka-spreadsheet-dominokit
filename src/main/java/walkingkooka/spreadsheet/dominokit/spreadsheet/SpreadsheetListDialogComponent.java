@@ -44,9 +44,9 @@ import java.util.Set;
  * spreadsheets.
  */
 public final class SpreadsheetListDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        SpreadsheetMetadataFetcherWatcher,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher {
+    SpreadsheetMetadataFetcherWatcher,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher {
 
     public static SpreadsheetListDialogComponent with(final SpreadsheetListDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
@@ -73,13 +73,13 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
 
     private HistoryTokenAnchorComponent reload() {
         return this.context.historyToken()
-                .link(ID_PREFIX + "reload")
-                .setTextContent("reload")
-                .setIconAfter(
-                        Optional.of(
-                                SpreadsheetIcons.spreadsheetListReload()
-                        )
-                );
+            .link(ID_PREFIX + "reload")
+            .setTextContent("reload")
+            .setIconAfter(
+                Optional.of(
+                    SpreadsheetIcons.spreadsheetListReload()
+                )
+            );
     }
 
     private final HistoryTokenAnchorComponent reload;
@@ -102,16 +102,16 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
 
     private HistoryTokenAnchorComponent count(final int count) {
         return this.context.historyToken()
-                .link(ID_PREFIX + "count-" + count + "-rows")
-                .setTextContent(count + " Rows");
+            .link(ID_PREFIX + "count-" + count + "-rows")
+            .setTextContent(count + " Rows");
     }
 
     // table............................................................................................................
 
     private SpreadsheetListTableComponent table() {
         return SpreadsheetListTableComponent.empty(
-                ID_PREFIX,
-                this.context
+            ID_PREFIX,
+            this.context
         );
     }
 
@@ -121,21 +121,21 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetDialogComponent dialogCreate(final SpreadsheetListDialogComponentContext context) {
         return SpreadsheetDialogComponent.with(
-                        ID + SpreadsheetElementIds.DIALOG, // id
-                        "Spreadsheet List", // title
-                        false, // includeClose
-                        context
-                ).appendChild(this.table)
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(
-                                        HistoryToken.spreadsheetCreate()
-                                                .link(ID_PREFIX + "create")
-                                                .setTextContent("Create")
-                                ).appendChild(this.reload)
-                                .appendChild(this.count10)
-                                .appendChild(this.count20)
-                );
+                ID + SpreadsheetElementIds.DIALOG, // id
+                "Spreadsheet List", // title
+                false, // includeClose
+                context
+            ).appendChild(this.table)
+            .appendChild(
+                SpreadsheetFlexLayout.row()
+                    .appendChild(
+                        HistoryToken.spreadsheetCreate()
+                            .link(ID_PREFIX + "create")
+                            .setTextContent("Create")
+                    ).appendChild(this.reload)
+                    .appendChild(this.count10)
+                    .appendChild(this.count20)
+            );
     }
 
     @Override
@@ -171,11 +171,11 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
                                          final AppContext context) {
         if (this.isOpen()) {
             this.table.setMetadata(
-                    new ArrayList<>(metadatas)
+                new ArrayList<>(metadatas)
             );
             this.table.refresh(
-                    context.historyToken()
-                            .cast(SpreadsheetListHistoryToken.class)
+                context.historyToken()
+                    .cast(SpreadsheetListHistoryToken.class)
             );
         }
     }
@@ -205,29 +205,29 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     @Override
     public void refresh(final RefreshContext context) {
         final SpreadsheetListHistoryToken historyToken = context.historyToken()
-                .cast(SpreadsheetListHistoryToken.class);
+            .cast(SpreadsheetListHistoryToken.class);
 
         // refresh reload, history token might have changed offset or count etc.
         this.reload.setHistoryToken(
-                Optional.of(
-                        historyToken.reload()
-                )
+            Optional.of(
+                historyToken.reload()
+            )
         );
 
         this.count10.setHistoryToken(
-                Optional.of(
-                        historyToken.setCount(
-                                OptionalInt.of(10)
-                        )
+            Optional.of(
+                historyToken.setCount(
+                    OptionalInt.of(10)
                 )
+            )
         );
 
         this.count20.setHistoryToken(
-                Optional.of(
-                        historyToken.setCount(
-                                OptionalInt.of(20)
-                        )
+            Optional.of(
+                historyToken.setCount(
+                    OptionalInt.of(20)
                 )
+            )
         );
 
         this.table.refresh(historyToken);

@@ -39,28 +39,28 @@ public final class SpreadsheetFormatterNameLinkListComponent implements HtmlElem
     private SpreadsheetFormatterNameLinkListComponent(final String id) {
         super();
         this.list = SpreadsheetLinkListComponent.with(
-                id,
-                "", // title
-                CaseKind::kebabToTitle
+            id,
+            "", // title
+            CaseKind::kebabToTitle
         );
     }
 
     public void refresh(final SpreadsheetFormatterNameLinkListComponentContext context) {
         this.list.refresh(
-                context.spreadsheetFormatterInfos()
-                        .stream()
-                        .map(SpreadsheetFormatterNameLinkListComponent::linkText)
-                        .collect(Collectors.toList()),
-                SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext.with(
-                        context.formatterName(),
-                        context
-                ) // context
+            context.spreadsheetFormatterInfos()
+                .stream()
+                .map(SpreadsheetFormatterNameLinkListComponent::linkText)
+                .collect(Collectors.toList()),
+            SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext.with(
+                context.formatterName(),
+                context
+            ) // context
         );
     }
 
     private static String linkText(final SpreadsheetFormatterInfo info) {
         return info.name()
-                .value();
+            .value();
     }
 
     @Override

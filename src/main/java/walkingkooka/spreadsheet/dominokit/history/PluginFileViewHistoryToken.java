@@ -34,8 +34,8 @@ public final class PluginFileViewHistoryToken extends PluginNameHistoryToken {
     static PluginFileViewHistoryToken with(final PluginName name,
                                            final Optional<JarEntryInfoName> file) {
         return new PluginFileViewHistoryToken(
-                Objects.requireNonNull(name, "name"),
-                Objects.requireNonNull(file, "file")
+            Objects.requireNonNull(name, "name"),
+            Objects.requireNonNull(file, "file")
         );
     }
 
@@ -53,11 +53,11 @@ public final class PluginFileViewHistoryToken extends PluginNameHistoryToken {
         Objects.requireNonNull(file, "file");
 
         return this.file.equals(file) ?
-                this :
-                new PluginFileViewHistoryToken(
-                        this.name,
-                        file
-                );
+            this :
+            new PluginFileViewHistoryToken(
+                this.name,
+                file
+            );
     }
 
     private final Optional<JarEntryInfoName> file;
@@ -68,13 +68,13 @@ public final class PluginFileViewHistoryToken extends PluginNameHistoryToken {
     HistoryToken parseFile(final TextCursor cursor) {
         final String all = parseAll(cursor);
         return this.setFile(
-                Optional.ofNullable(
-                        all.isEmpty() ?
-                                null :
-                                JarEntryInfoName.with(
-                                        '/' + all
-                                )
-                )
+            Optional.ofNullable(
+                all.isEmpty() ?
+                    null :
+                    JarEntryInfoName.with(
+                        '/' + all
+                    )
+            )
         );
     }
 
@@ -84,8 +84,8 @@ public final class PluginFileViewHistoryToken extends PluginNameHistoryToken {
     @Override
     UrlFragment pluginNameUrlFragment() {
         return FILE.append(
-                this.file.map(f -> UrlFragment.parse(f.value()))
-                        .orElse(UrlFragment.EMPTY)
+            this.file.map(f -> UrlFragment.parse(f.value()))
+                .orElse(UrlFragment.EMPTY)
         );
     }
 

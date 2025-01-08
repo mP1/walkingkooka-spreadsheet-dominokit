@@ -31,140 +31,140 @@ public final class SpreadsheetColumnSortEditHistoryTokenTest extends Spreadsheet
     @Test
     public void testWithNullComparatorNamesFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetColumnSortEditHistoryToken.with(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        null
-                )
+            NullPointerException.class,
+            () -> SpreadsheetColumnSortEditHistoryToken.with(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                null
+            )
         );
     }
 
     @Test
     public void testWithEmptyComparatorNames() {
         SpreadsheetColumnSortEditHistoryToken.with(
-                ID,
-                NAME,
-                ANCHORED_COLUMN,
-                ""
+            ID,
+            NAME,
+            ANCHORED_COLUMN,
+            ""
         );
     }
 
     @Test
     public void testWithInvalidComparatorNames() {
         SpreadsheetColumnSortEditHistoryToken.with(
-                ID,
-                NAME,
-                ANCHORED_COLUMN,
-                "!Invalid"
+            ID,
+            NAME,
+            ANCHORED_COLUMN,
+            "!Invalid"
         );
     }
 
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(),
-                "/123/SpreadsheetName456/column/A/sort/edit/" + COMPARATOR_NAMES_LIST_STRING
+            this.createHistoryToken(),
+            "/123/SpreadsheetName456/column/A/sort/edit/" + COMPARATOR_NAMES_LIST_STRING
         );
     }
 
     @Test
     public void testUrlFragmentWithEmptyComparatorNames() {
         this.urlFragmentAndCheck(
-                SpreadsheetColumnSortEditHistoryToken.with(
-                        ID,
-                        NAME,
-                        ANCHORED_COLUMN,
-                        ""
-                ),
-                "/123/SpreadsheetName456/column/A:C/right/sort/edit"
+            SpreadsheetColumnSortEditHistoryToken.with(
+                ID,
+                NAME,
+                ANCHORED_COLUMN,
+                ""
+            ),
+            "/123/SpreadsheetName456/column/A:C/right/sort/edit"
         );
     }
 
     @Test
     public void testParseInvalidComparatorNames() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/column/A:C/sort/edit/!invalid",
-                SpreadsheetColumnSortEditHistoryToken.with(
-                        ID,
-                        NAME,
-                        ANCHORED_COLUMN,
-                        "!invalid"
-                )
+            "/123/SpreadsheetName456/column/A:C/sort/edit/!invalid",
+            SpreadsheetColumnSortEditHistoryToken.with(
+                ID,
+                NAME,
+                ANCHORED_COLUMN,
+                "!invalid"
+            )
         );
     }
 
     @Test
     public void testParseMissingComparatorNames() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/column/A/sort/edit",
-                SpreadsheetColumnSortEditHistoryToken.with(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        ""
-                )
+            "/123/SpreadsheetName456/column/A/sort/edit",
+            SpreadsheetColumnSortEditHistoryToken.with(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                ""
+            )
         );
     }
 
     @Test
     public void testParseEmptyComparatorNames() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/column/A/sort/edit/",
-                SpreadsheetColumnSortEditHistoryToken.with(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        ""
-                )
+            "/123/SpreadsheetName456/column/A/sort/edit/",
+            SpreadsheetColumnSortEditHistoryToken.with(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                ""
+            )
         );
     }
 
     @Test
     public void testParseInvalidComparatorColumn() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/column/A/sort/edit/Z=text",
-                SpreadsheetColumnSortEditHistoryToken.with(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        "Z=text"
-                )
+            "/123/SpreadsheetName456/column/A/sort/edit/Z=text",
+            SpreadsheetColumnSortEditHistoryToken.with(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                "Z=text"
+            )
         );
     }
 
     @Test
     public void testParseInvalidComparatorRow() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/column/A/sort/edit/99=text",
-                SpreadsheetColumnSortEditHistoryToken.with(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        "99=text"
-                )
+            "/123/SpreadsheetName456/column/A/sort/edit/99=text",
+            SpreadsheetColumnSortEditHistoryToken.with(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                "99=text"
+            )
         );
     }
 
     @Test
     public void testParse2() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/column/A/sort/edit/" + COMPARATOR_NAMES_LIST_STRING,
-                this.createHistoryToken()
+            "/123/SpreadsheetName456/column/A/sort/edit/" + COMPARATOR_NAMES_LIST_STRING,
+            this.createHistoryToken()
         );
     }
 
     @Test
     public void testParseColumnRange() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/column/A:C/right/sort/edit/" + COMPARATOR_NAMES_LIST_STRING2,
-                SpreadsheetColumnSortEditHistoryToken.with(
-                        ID,
-                        NAME,
-                        ANCHORED_COLUMN,
-                        COMPARATOR_NAMES_LIST_STRING2
-                )
+            "/123/SpreadsheetName456/column/A:C/right/sort/edit/" + COMPARATOR_NAMES_LIST_STRING2,
+            SpreadsheetColumnSortEditHistoryToken.with(
+                ID,
+                NAME,
+                ANCHORED_COLUMN,
+                COMPARATOR_NAMES_LIST_STRING2
+            )
         );
     }
 
@@ -173,14 +173,14 @@ public final class SpreadsheetColumnSortEditHistoryTokenTest extends Spreadsheet
         final String saveText = "A=text";
 
         this.saveAndCheck(
-                this.createHistoryToken(),
-                saveText,
-                SpreadsheetColumnSortSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        COLUMN.setDefaultAnchor(),
-                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(saveText)
-                )
+            this.createHistoryToken(),
+            saveText,
+            SpreadsheetColumnSortSaveHistoryToken.with(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(saveText)
+            )
         );
     }
 
@@ -188,22 +188,22 @@ public final class SpreadsheetColumnSortEditHistoryTokenTest extends Spreadsheet
     public void testSaveColumnRange() {
         final String saveText = "A=text;B=text";
         final AnchoredSpreadsheetSelection anchored = SpreadsheetSelection.parseColumnRange("A:B")
-                .setDefaultAnchor();
+            .setDefaultAnchor();
 
         this.saveAndCheck(
-                SpreadsheetColumnSortEditHistoryToken.with(
-                        ID,
-                        NAME,
-                        anchored,
-                        saveText
-                ),
-                saveText,
-                SpreadsheetColumnSortSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        anchored,
-                        SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(saveText)
-                )
+            SpreadsheetColumnSortEditHistoryToken.with(
+                ID,
+                NAME,
+                anchored,
+                saveText
+            ),
+            saveText,
+            SpreadsheetColumnSortSaveHistoryToken.with(
+                ID,
+                NAME,
+                anchored,
+                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(saveText)
+            )
         );
     }
 
@@ -212,10 +212,10 @@ public final class SpreadsheetColumnSortEditHistoryTokenTest extends Spreadsheet
                                                              final SpreadsheetName name,
                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         return this.createHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                COMPARATOR_NAMES_LIST_STRING
+            id,
+            name,
+            anchoredSelection,
+            COMPARATOR_NAMES_LIST_STRING
         );
     }
 
@@ -224,10 +224,10 @@ public final class SpreadsheetColumnSortEditHistoryTokenTest extends Spreadsheet
                                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                                      final String comparatorNames) {
         return SpreadsheetColumnSortEditHistoryToken.with(
-                id,
-                name,
-                anchoredSelection,
-                comparatorNames
+            id,
+            name,
+            anchoredSelection,
+            comparatorNames
         );
     }
 

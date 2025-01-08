@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 public class FakePluginNameSetDialogComponentContext extends FakeSpreadsheetDialogComponentContext
-        implements PluginNameSetDialogComponentContext {
+    implements PluginNameSetDialogComponentContext {
 
     public FakePluginNameSetDialogComponentContext() {
         super();

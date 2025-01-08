@@ -38,13 +38,13 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetParserComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetParserToken, SpreadsheetParserComponent>,
-        SpreadsheetMetadataTesting {
+    SpreadsheetMetadataTesting {
 
     private final static SpreadsheetParser SPREADSHEET_PARSER = SpreadsheetParsers.conditionRight(
-            METADATA_EN_AU.spreadsheetParser(
-                    SPREADSHEET_PARSER_PROVIDER,
-                    PROVIDER_CONTEXT
-            )
+        METADATA_EN_AU.spreadsheetParser(
+            SPREADSHEET_PARSER_PROVIDER,
+            PROVIDER_CONTEXT
+        )
     );
 
     // empty............................................................................................................
@@ -52,22 +52,22 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     @Test
     public void testEmptyNullParserFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetParserComponent.empty(
-                        null,
-                        SPREADSHEET_PARSER_CONTEXT
-                )
+            NullPointerException.class,
+            () -> SpreadsheetParserComponent.empty(
+                null,
+                SPREADSHEET_PARSER_CONTEXT
+            )
         );
     }
 
     @Test
     public void testEmptyNullSpreadsheetParserContextFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetParserComponent.empty(
-                        SPREADSHEET_PARSER,
-                        null
-                )
+            NullPointerException.class,
+            () -> SpreadsheetParserComponent.empty(
+                SPREADSHEET_PARSER,
+                null
+            )
         );
     }
 
@@ -76,106 +76,106 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     @Test
     public void testValueWithEmptyText() {
         this.valueAndCheck(
-                ""
+            ""
         );
     }
 
     @Test
     public void testValueWithWhitespace() {
         this.valueAndCheck(
-                "  "
+            "  "
         );
     }
 
     @Test
     public void testValueWithString() {
         this.valueAndCheck(
-                "=\"Hello\"",
-                SpreadsheetParserToken.text(
-                        Lists.of(
-                                SpreadsheetParserToken.doubleQuoteSymbol("\"", "\""),
-                                SpreadsheetParserToken.textLiteral("Hello", "Hello"),
-                                SpreadsheetParserToken.doubleQuoteSymbol("\"", "\"")
-                        ),
-                        "\"Hello\""
-                )
+            "=\"Hello\"",
+            SpreadsheetParserToken.text(
+                Lists.of(
+                    SpreadsheetParserToken.doubleQuoteSymbol("\"", "\""),
+                    SpreadsheetParserToken.textLiteral("Hello", "Hello"),
+                    SpreadsheetParserToken.doubleQuoteSymbol("\"", "\"")
+                ),
+                "\"Hello\""
+            )
         );
     }
 
     @Test
     public void testValueWithNumber() {
         this.valueAndCheck(
-                "=123.5",
-                SpreadsheetParserToken.number(
-                        Lists.of(
-                                SpreadsheetParserToken.digits("123", "123"),
-                                SpreadsheetParserToken.decimalSeparatorSymbol(".", "."),
-                                SpreadsheetParserToken.digits("5", "5")
-                        ),
-                        "123.5"
-                )
+            "=123.5",
+            SpreadsheetParserToken.number(
+                Lists.of(
+                    SpreadsheetParserToken.digits("123", "123"),
+                    SpreadsheetParserToken.decimalSeparatorSymbol(".", "."),
+                    SpreadsheetParserToken.digits("5", "5")
+                ),
+                "123.5"
+            )
         );
     }
 
     @Test
     public void testValueWithDate() {
         this.valueAndCheck(
-                "=1999/12/31",
-                SpreadsheetParserToken.date(
-                        Lists.of(
-                                SpreadsheetParserToken.year(1999, "1999"),
-                                SpreadsheetParserToken.textLiteral("/", "/"),
-                                SpreadsheetParserToken.monthNumber(12, "12"),
-                                SpreadsheetParserToken.textLiteral("/", "/"),
-                                SpreadsheetParserToken.dayNumber(31, "31")
-                        ),
-                        "1999/12/31"
-                )
+            "=1999/12/31",
+            SpreadsheetParserToken.date(
+                Lists.of(
+                    SpreadsheetParserToken.year(1999, "1999"),
+                    SpreadsheetParserToken.textLiteral("/", "/"),
+                    SpreadsheetParserToken.monthNumber(12, "12"),
+                    SpreadsheetParserToken.textLiteral("/", "/"),
+                    SpreadsheetParserToken.dayNumber(31, "31")
+                ),
+                "1999/12/31"
+            )
         );
     }
 
     @Test
     public void testValueWithDateTime() {
         this.valueAndCheck(
-                "=1999/12/31 12:58",
-                SpreadsheetParserToken.dateTime(
-                        Lists.of(
-                                SpreadsheetParserToken.year(1999, "1999"),
-                                SpreadsheetParserToken.textLiteral("/", "/"),
-                                SpreadsheetParserToken.monthNumber(12, "12"),
-                                SpreadsheetParserToken.textLiteral("/", "/"),
-                                SpreadsheetParserToken.dayNumber(31, "31"),
-                                SpreadsheetParserToken.whitespace(" ", " "),
-                                SpreadsheetParserToken.hour(12, "12"),
-                                SpreadsheetParserToken.textLiteral(":", ":"),
-                                SpreadsheetParserToken.minute(58, "58")
-                        ),
-                        "1999/12/31 12:58"
-                )
+            "=1999/12/31 12:58",
+            SpreadsheetParserToken.dateTime(
+                Lists.of(
+                    SpreadsheetParserToken.year(1999, "1999"),
+                    SpreadsheetParserToken.textLiteral("/", "/"),
+                    SpreadsheetParserToken.monthNumber(12, "12"),
+                    SpreadsheetParserToken.textLiteral("/", "/"),
+                    SpreadsheetParserToken.dayNumber(31, "31"),
+                    SpreadsheetParserToken.whitespace(" ", " "),
+                    SpreadsheetParserToken.hour(12, "12"),
+                    SpreadsheetParserToken.textLiteral(":", ":"),
+                    SpreadsheetParserToken.minute(58, "58")
+                ),
+                "1999/12/31 12:58"
+            )
         );
     }
 
     @Test
     public void testValueWithTime() {
         this.valueAndCheck(
-                "=12:58:59",
-                SpreadsheetParserToken.time(
-                        Lists.of(
-                                SpreadsheetParserToken.hour(12, "12"),
-                                SpreadsheetParserToken.textLiteral(":", ":"),
-                                SpreadsheetParserToken.minute(58, "58"),
-                                SpreadsheetParserToken.textLiteral(":", ":"),
-                                SpreadsheetParserToken.seconds(59, "59")
-                        ),
-                        "12:58:59"
-                )
+            "=12:58:59",
+            SpreadsheetParserToken.time(
+                Lists.of(
+                    SpreadsheetParserToken.hour(12, "12"),
+                    SpreadsheetParserToken.textLiteral(":", ":"),
+                    SpreadsheetParserToken.minute(58, "58"),
+                    SpreadsheetParserToken.textLiteral(":", ":"),
+                    SpreadsheetParserToken.seconds(59, "59")
+                ),
+                "12:58:59"
+            )
         );
     }
 
     private void valueAndCheck(final String text) {
         this.valueAndCheck(
-                text,
-                Optional.empty()
+            text,
+            Optional.empty()
         );
     }
 
@@ -183,42 +183,42 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
                                final ParserToken... expected) {
         final List<ParserToken> tokens = Lists.array();
         tokens.add(
-                SpreadsheetParserToken.equalsSymbol("=", "=")
+            SpreadsheetParserToken.equalsSymbol("=", "=")
         );
         tokens.addAll(
-                Lists.of(expected)
+            Lists.of(expected)
         );
 
         this.valueAndCheck(
-                text,
-                SpreadsheetParserToken.conditionRightEquals(
-                        tokens,
-                        text
-                )
+            text,
+            SpreadsheetParserToken.conditionRightEquals(
+                tokens,
+                text
+            )
         );
     }
 
     private void valueAndCheck(final String text,
                                final SpreadsheetConditionRightEqualsParserToken expected) {
         this.valueAndCheck(
-                text,
-                Optional.of(expected)
+            text,
+            Optional.of(expected)
         );
     }
 
     private void valueAndCheck(final String text,
                                final Optional<SpreadsheetConditionRightParserToken> expected) {
         final SpreadsheetParserComponent component = createComponent()
-                .setStringValue(
-                        Optional.of(text)
-                );
+            .setStringValue(
+                Optional.of(text)
+            );
         this.checkEquals(
-                expected,
-                component.value(),
-                () -> component.treeToString(
-                        Indentation.SPACES2,
-                        LineEnding.NL
-                )
+            expected,
+            component.value(),
+            () -> component.treeToString(
+                Indentation.SPACES2,
+                LineEnding.NL
+            )
         );
     }
 
@@ -227,143 +227,143 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     @Test
     public void testTreePrintWithEmptyText() {
         this.treePrintAndCheck(
-                this.createComponent(),
-                "SpreadsheetParserComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      []\n" +
-                        "      Errors\n" +
-                        "        Empty \"text\"\n"
+            this.createComponent(),
+            "SpreadsheetParserComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      []\n" +
+                "      Errors\n" +
+                "        Empty \"text\"\n"
         );
     }
 
     @Test
     public void testTreePrintWithAdditionExpression() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setStringValue(
-                                Optional.of(
-                                        "=1+2"
-                                )
-                        ),
-                "SpreadsheetParserComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [=1+2]\n"
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "=1+2"
+                    )
+                ),
+            "SpreadsheetParserComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [=1+2]\n"
         );
     }
 
     @Test
     public void testTreePrintWithConditionTest() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setStringValue(
-                                Optional.of(
-                                        ">3"
-                                )
-                        ),
-                "SpreadsheetParserComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [>3]\n"
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        ">3"
+                    )
+                ),
+            "SpreadsheetParserComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [>3]\n"
         );
     }
 
     @Test
     public void testTreePrintWithString() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setStringValue(
-                                Optional.of(
-                                        "=\"Hello\""
-                                )
-                        ),
-                "SpreadsheetParserComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [=\"Hello\"]\n"
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "=\"Hello\""
+                    )
+                ),
+            "SpreadsheetParserComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [=\"Hello\"]\n"
         );
     }
 
     @Test
     public void testTreePrintWithNumber() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setStringValue(
-                                Optional.of(
-                                        "=123.0"
-                                )
-                        ),
-                "SpreadsheetParserComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [=123.0]\n"
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "=123.0"
+                    )
+                ),
+            "SpreadsheetParserComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [=123.0]\n"
         );
     }
 
     @Test
     public void testTreePrintWithDate() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setStringValue(
-                                Optional.of(
-                                        "=1999/12/31"
-                                )
-                        ),
-                "SpreadsheetParserComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [=1999/12/31]\n"
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "=1999/12/31"
+                    )
+                ),
+            "SpreadsheetParserComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [=1999/12/31]\n"
         );
     }
 
     @Test
     public void testTreePrintWithDateTime() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setStringValue(
-                                Optional.of(
-                                        "=1999/12/31 12:58"
-                                )
-                        ),
-                "SpreadsheetParserComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [=1999/12/31 12:58]\n"
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "=1999/12/31 12:58"
+                    )
+                ),
+            "SpreadsheetParserComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [=1999/12/31 12:58]\n"
         );
     }
 
     @Test
     public void testTreePrintWithTime() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setStringValue(
-                                Optional.of(
-                                        "=12:58:59"
-                                )
-                        ),
-                "SpreadsheetParserComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [=12:58:59]\n"
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "=12:58:59"
+                    )
+                ),
+            "SpreadsheetParserComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [=12:58:59]\n"
         );
     }
 
     @Test
     public void testTreePrintWithInvalidExpression() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setStringValue(
-                                Optional.of(
-                                        "=1.25+"
-                                )
-                        ),
-                "SpreadsheetParserComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [=1.25+]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '+' at 5\n"
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "=1.25+"
+                    )
+                ),
+            "SpreadsheetParserComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [=1.25+]\n" +
+                "      Errors\n" +
+                "        Invalid character '+' at 5\n"
         );
     }
 
@@ -372,8 +372,8 @@ public final class SpreadsheetParserComponentTest implements ValueComponentTesti
     @Override
     public SpreadsheetParserComponent createComponent() {
         return SpreadsheetParserComponent.empty(
-                SPREADSHEET_PARSER,
-                SPREADSHEET_PARSER_CONTEXT
+            SPREADSHEET_PARSER,
+            SPREADSHEET_PARSER_CONTEXT
         );
     }
 

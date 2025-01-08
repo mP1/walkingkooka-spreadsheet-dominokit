@@ -41,9 +41,9 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
         checkContext(context);
 
         return new SpreadsheetMetadataPanelComponentItemReadOnlyText<>(
-                propertyName,
-                formatter,
-                context
+            propertyName,
+            formatter,
+            context
         );
     }
 
@@ -51,14 +51,14 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
                                                               final Function<T, String> formatter,
                                                               final SpreadsheetMetadataPanelComponentContext context) {
         super(
-                propertyName,
-                context
+            propertyName,
+            context
         );
         this.formatter = formatter;
 
         this.element = ElementsFactory.elements.div()
-                .setPaddingTop("5px")
-                .setPaddingBottom("5px");
+            .setPaddingTop("5px")
+            .setPaddingBottom("5px");
     }
 
     @Override
@@ -74,8 +74,8 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
 
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
         final String text = metadata.get(propertyName)
-                .map(this.formatter)
-                .orElse("");
+            .map(this.formatter)
+            .orElse("");
         this.element.setTextContent(text);
     }
 

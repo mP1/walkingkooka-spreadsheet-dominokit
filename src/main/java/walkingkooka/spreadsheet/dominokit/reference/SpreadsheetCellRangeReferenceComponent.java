@@ -34,8 +34,8 @@ public final class SpreadsheetCellRangeReferenceComponent implements ValueSpread
 
     private SpreadsheetCellRangeReferenceComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetSelection::parseCellRange,
-                HasText::text
+            SpreadsheetSelection::parseCellRange,
+            HasText::text
         );
     }
 

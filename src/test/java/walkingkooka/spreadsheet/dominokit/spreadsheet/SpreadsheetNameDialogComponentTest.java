@@ -29,8 +29,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetNameDialogComponent,
-        SpreadsheetNameDialogComponentContext>,
-        SpreadsheetMetadataTesting {
+    SpreadsheetNameDialogComponentContext>,
+    SpreadsheetMetadataTesting {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
 
@@ -48,32 +48,32 @@ public final class SpreadsheetNameDialogComponentTest implements SpreadsheetDial
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.spreadsheetRenameSelect(
-                        ID,
-                        NAME
+                    ID,
+                    NAME
                 );
             }
         };
 
         final SpreadsheetNameDialogComponent dialog = SpreadsheetNameDialogComponent.with(
-                SpreadsheetNameDialogComponentContexts.spreadsheetRename(context)
+            SpreadsheetNameDialogComponentContexts.spreadsheetRename(context)
         );
 
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "SpreadsheetNameDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    Spreadsheet Name\n" +
-                        "    id=spreadsheetName-Dialog includeClose=true\n" +
-                        "      SpreadsheetNameComponent\n" +
-                        "        ValueSpreadsheetTextBox\n" +
-                        "          SpreadsheetTextBox\n" +
-                        "            [spreadsheetName123] id=spreadsheetName-TextBox\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Save\" [#/1/spreadsheetName123/rename/save/spreadsheetName123] id=spreadsheetName-save-Link\n" +
-                        "          \"Undo\" DISABLED id=spreadsheetName-undo-Link\n" +
-                        "          \"Close\" [#/1/spreadsheetName123] id=spreadsheetName-close-Link\n"
+            dialog,
+            context,
+            "SpreadsheetNameDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Spreadsheet Name\n" +
+                "    id=spreadsheetName-Dialog includeClose=true\n" +
+                "      SpreadsheetNameComponent\n" +
+                "        ValueSpreadsheetTextBox\n" +
+                "          SpreadsheetTextBox\n" +
+                "            [spreadsheetName123] id=spreadsheetName-TextBox\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Save\" [#/1/spreadsheetName123/rename/save/spreadsheetName123] id=spreadsheetName-save-Link\n" +
+                "          \"Undo\" DISABLED id=spreadsheetName-undo-Link\n" +
+                "          \"Close\" [#/1/spreadsheetName123] id=spreadsheetName-close-Link\n"
         );
     }
 

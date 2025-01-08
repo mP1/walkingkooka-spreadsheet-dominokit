@@ -32,43 +32,43 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Optional;
 
 public class SpreadsheetParserNameLinkListComponentTest implements HtmlElementComponentTesting<SpreadsheetParserNameLinkListComponent, HTMLDivElement>,
-        SpreadsheetMetadataTesting {
+    SpreadsheetMetadataTesting {
 
     private final static String ID = "ID123-";
 
     @Test
     public void testRefresh() {
         this.refreshAndCheck(
-                Optional.empty(),
-                "SpreadsheetParserNameLinkListComponent\n" +
-                        "  SpreadsheetLinkListComponent\n" +
-                        "    SpreadsheetCard\n" +
-                        "      Card\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"Date Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-parse-pattern] id=ID123-0-Link\n" +
-                        "            \"Date Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time-parse-pattern] id=ID123-1-Link\n" +
-                        "            \"Number Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/number-parse-pattern] id=ID123-2-Link\n" +
-                        "            \"Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/time-parse-pattern] id=ID123-3-Link\n"
+            Optional.empty(),
+            "SpreadsheetParserNameLinkListComponent\n" +
+                "  SpreadsheetLinkListComponent\n" +
+                "    SpreadsheetCard\n" +
+                "      Card\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Date Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-parse-pattern] id=ID123-0-Link\n" +
+                "            \"Date Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time-parse-pattern] id=ID123-1-Link\n" +
+                "            \"Number Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/number-parse-pattern] id=ID123-2-Link\n" +
+                "            \"Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/time-parse-pattern] id=ID123-3-Link\n"
         );
     }
 
     @Test
     public void testRefreshWithSelectedParserName() {
         this.refreshAndCheck(
-                Optional.of(
-                        SpreadsheetParserName.DATE_PARSER_PATTERN
-                ),
-                "SpreadsheetParserNameLinkListComponent\n" +
-                        "  SpreadsheetLinkListComponent\n" +
-                        "    SpreadsheetCard\n" +
-                        "      Card\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"Date Parse Pattern\" DISABLED id=ID123-0-Link\n" +
-                        "            \"Date Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time-parse-pattern] id=ID123-1-Link\n" +
-                        "            \"Number Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/number-parse-pattern] id=ID123-2-Link\n" +
-                        "            \"Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/time-parse-pattern] id=ID123-3-Link\n"
+            Optional.of(
+                SpreadsheetParserName.DATE_PARSER_PATTERN
+            ),
+            "SpreadsheetParserNameLinkListComponent\n" +
+                "  SpreadsheetLinkListComponent\n" +
+                "    SpreadsheetCard\n" +
+                "      Card\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Date Parse Pattern\" DISABLED id=ID123-0-Link\n" +
+                "            \"Date Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time-parse-pattern] id=ID123-1-Link\n" +
+                "            \"Number Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/number-parse-pattern] id=ID123-2-Link\n" +
+                "            \"Time Parse Pattern\" [#/1/SpreadsheetName123/cell/A1/parser/save/time-parse-pattern] id=ID123-3-Link\n"
         );
     }
 
@@ -76,30 +76,30 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlElementCo
                                  final String expected) {
         final SpreadsheetParserNameLinkListComponent parsers = SpreadsheetParserNameLinkListComponent.empty(ID);
         parsers.refresh(
-                new FakeSpreadsheetParserNameLinkListComponentContext() {
-                    @Override
-                    public SpreadsheetParserInfoSet spreadsheetParserInfos() {
-                        return SPREADSHEET_PARSER_PROVIDER.spreadsheetParserInfos();
-                    }
-
-                    @Override public Optional<SpreadsheetParserName> parserName() {
-                        return spreadsheetParserName;
-                    }
-
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.cellParserSelect(
-                                SpreadsheetId.with(1),
-                                SpreadsheetName.with("SpreadsheetName123"),
-                                SpreadsheetSelection.A1.setDefaultAnchor()
-                        );
-                    }
+            new FakeSpreadsheetParserNameLinkListComponentContext() {
+                @Override
+                public SpreadsheetParserInfoSet spreadsheetParserInfos() {
+                    return SPREADSHEET_PARSER_PROVIDER.spreadsheetParserInfos();
                 }
+
+                @Override public Optional<SpreadsheetParserName> parserName() {
+                    return spreadsheetParserName;
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellParserSelect(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName123"),
+                        SpreadsheetSelection.A1.setDefaultAnchor()
+                    );
+                }
+            }
         );
 
         this.treePrintAndCheck(
-                parsers,
-                expected
+            parsers,
+            expected
         );
     }
 

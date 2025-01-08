@@ -48,13 +48,13 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
                 break;
             case 1:
                 rendered = this.selector(
-                        this.id + sample.label(),
-                        sample.selector()
+                    this.id + sample.label(),
+                    sample.selector()
                 );
                 break;
             case 2:
                 rendered = this.formatted(
-                        sample.value()
+                    sample.value()
                 );
                 break;
             default:
@@ -66,28 +66,28 @@ final class SpreadsheetFormatterTableComponentSpreadsheetDataTableComponentCellR
 
     private Component label(final String label) {
         return SpreadsheetTextNodeComponent.with(
-                Optional.of(
-                        TextNode.text(label)
-                )
+            Optional.of(
+                TextNode.text(label)
+            )
         );
     }
 
     private Component selector(final String id,
-                                                final SpreadsheetFormatterSelector selector) {
+                               final SpreadsheetFormatterSelector selector) {
         final HistoryToken historyToken = this.context.historyToken();
 
         return historyToken.saveLink(
-                id,
-                selector.valueText(),
-                this.context.formatterTableHistoryTokenSave(selector)
+            id,
+            selector.valueText(),
+            this.context.formatterTableHistoryTokenSave(selector)
         );
     }
 
     private Component formatted(final TextNode formatted) {
         return SpreadsheetTextNodeComponent.with(
-                Optional.of(
-                        formatted
-                )
+            Optional.of(
+                formatted
+            )
         );
     }
 

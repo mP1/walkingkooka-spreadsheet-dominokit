@@ -32,8 +32,8 @@ public final class HistoryTokenMenuItem extends AbstractMenuItem<Void> {
 
         // need to kill margin other menu items with links wont line up with text-only menu items.
         anchor.element()
-                .style
-                .setProperty("margin-left", "0");
+            .style
+            .setProperty("margin-left", "0");
     }
 
     public HistoryTokenAnchorComponent anchor() {

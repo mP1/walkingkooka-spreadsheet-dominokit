@@ -45,9 +45,9 @@ import java.util.Optional;
  * A dialog that supports uploading of a plugin archive.
  */
 public final class PluginUploadDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        PluginFetcherWatcher,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher {
+    PluginFetcherWatcher,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher {
 
     public static PluginUploadDialogComponent with(final PluginUploadDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
@@ -72,9 +72,9 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
 
     private void refreshClose(final HistoryTokenContext context) {
         this.close.setHistoryToken(
-                Optional.of(
-                        context.historyToken().close()
-                )
+            Optional.of(
+                context.historyToken().close()
+            )
         );
     }
 
@@ -84,10 +84,10 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
 
     private SpreadsheetUploadFileComponent uploadFile() {
         return SpreadsheetUploadFileComponent.empty(ID_PREFIX + "UploadFile")
-                .setLabel("Drop files here or click to upload.")
-                .addChangeListener(
-                        (oldFile, newFile) -> this.refreshIfOpen(this.context)
-                );
+            .setLabel("Drop files here or click to upload.")
+            .addChangeListener(
+                (oldFile, newFile) -> this.refreshIfOpen(this.context)
+            );
     }
 
     private void refreshUploadFile() {
@@ -101,12 +101,12 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
 
     private PluginUploadSaveAnchorComponent uploadLink() {
         return PluginUploadSaveAnchorComponent.empty(ID_PREFIX + "upload" + SpreadsheetElementIds.LINK)
-                .setTextContent("Upload");
+            .setTextContent("Upload");
     }
 
     private void refreshUploadLink() {
         this.uploadLink.setValue(
-                this.uploadFile.value()
+            this.uploadFile.value()
         );
     }
 
@@ -116,16 +116,16 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
 
     private SpreadsheetDialogComponent dialogCreate(final PluginUploadDialogComponentContext context) {
         return SpreadsheetDialogComponent.with(
-                ID + SpreadsheetElementIds.DIALOG, // id
-                "Upload Plugin", // title
-                true, // includeClose
-                context
+            ID + SpreadsheetElementIds.DIALOG, // id
+            "Upload Plugin", // title
+            true, // includeClose
+            context
         ).appendChild(
-                this.uploadFile
+            this.uploadFile
         ).appendChild(
-                SpreadsheetFlexLayout.row()
-                        .appendChild(this.uploadLink)
-                        .appendChild(this.close)
+            SpreadsheetFlexLayout.row()
+                .appendChild(this.uploadLink)
+                .appendChild(this.close)
         );
     }
 

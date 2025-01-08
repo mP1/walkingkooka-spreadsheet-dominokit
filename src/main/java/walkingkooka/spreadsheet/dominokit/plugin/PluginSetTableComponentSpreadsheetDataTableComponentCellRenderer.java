@@ -38,8 +38,8 @@ final class PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer imp
     static PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer with(final String id,
                                                                                  final PluginSetTableComponentContext context) {
         return new PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer(
-                CharSequences.failIfNullOrEmpty(id, "id"),
-                Objects.requireNonNull(context, "context")
+            CharSequences.failIfNullOrEmpty(id, "id"),
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -82,35 +82,35 @@ final class PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer imp
 
     private SpreadsheetTextComponent pluginName(final Plugin plugin) {
         return this.text(
-                plugin.name()
-                        .value()
+            plugin.name()
+                .value()
         );
     }
 
     private SpreadsheetTextComponent filename(final Plugin plugin) {
         return this.text(
-                plugin.filename()
+            plugin.filename()
         );
     }
 
     private SpreadsheetTextComponent user(final Plugin plugin) {
         return this.text(
-                plugin.user()
-                        .value()
+            plugin.user()
+                .value()
         );
     }
 
     private SpreadsheetTextComponent timestamp(final Plugin plugin) {
         return text(
-                this.context.formatDateTime(
-                        plugin.timestamp()
-                )
+            this.context.formatDateTime(
+                plugin.timestamp()
+            )
         );
     }
 
     private SpreadsheetTextComponent text(final String text) {
         return this.text(
-                Optional.of(text)
+            Optional.of(text)
         );
     }
 
@@ -119,33 +119,33 @@ final class PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer imp
         final PluginName pluginName = plugin.name();
 
         final PluginDeleteAnchorComponent delete = PluginDeleteAnchorComponent.empty(this.id + "delete" + SpreadsheetElementIds.LINK)
-                .setTextContent("Delete")
-                .setValue(
-                        Optional.of(pluginName)
-                );
-        
+            .setTextContent("Delete")
+            .setValue(
+                Optional.of(pluginName)
+            );
+
         final PluginDownloadAnchorComponent download = PluginDownloadAnchorComponent.empty(this.id + "download" + SpreadsheetElementIds.LINK)
-                .setTextContent("Download")
-                .setValue(
-                        Optional.of(
-                                PluginDownload.with(
-                                        pluginName,
-                                        Optional.<JarEntryInfoName>empty()
-                                )
-                        )
-                );
+            .setTextContent("Download")
+            .setValue(
+                Optional.of(
+                    PluginDownload.with(
+                        pluginName,
+                        Optional.<JarEntryInfoName>empty()
+                    )
+                )
+            );
 
         final PluginSelectAnchorComponent view = PluginSelectAnchorComponent.empty(
                 this.id + "view" + SpreadsheetElementIds.LINK
-                ).setTextContent("View")
-                .setValue(
-                        Optional.of(pluginName)
-                );
+            ).setTextContent("View")
+            .setValue(
+                Optional.of(pluginName)
+            );
 
         return SpreadsheetFlexLayout.row()
-                .appendChild(delete)
-                .appendChild(download)
-                .appendChild(view);
+            .appendChild(delete)
+            .appendChild(download)
+            .appendChild(view);
     }
 
     private SpreadsheetTextComponent text(final Optional<String> text) {

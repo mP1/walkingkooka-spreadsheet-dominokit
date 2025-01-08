@@ -49,7 +49,7 @@ public final class SpreadsheetValidators implements PublicStaticHelper {
     public static Validator<Optional<String>> tryCatch(final Consumer<String> consumer) {
         return TryCatchConsumerStringValidator.with(consumer);
     }
-    
+
     /**
      * Stop creation
      */

@@ -26,12 +26,12 @@ import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 public final class AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConvertersTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters,
-        ConverterName,
-        ConverterInfo,
-        ConverterInfoSet,
-        ConverterSelector,
-        ConverterAlias,
-        ConverterAliasSet> {
+    ConverterName,
+    ConverterInfo,
+    ConverterInfoSet,
+    ConverterSelector,
+    ConverterAlias,
+    ConverterAliasSet> {
     @Override
     public AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters createContext() {
         return AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters.with(AppContexts.fake());

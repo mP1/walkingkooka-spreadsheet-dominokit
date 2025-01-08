@@ -29,10 +29,10 @@ import java.util.Optional;
  * Base class for links that update a {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} property.
  */
 abstract class SpreadsheetToolbarComponentItemAnchorMetadata<T extends SpreadsheetToolbarComponentItemAnchorMetadata<T>>
-        extends SpreadsheetToolbarComponentItemAnchor<T>
-        implements SpreadsheetCellComponentLifecycle,
-        NopComponentLifecycleOpenGiveFocus,
-        NopComponentLifecycleRefresh {
+    extends SpreadsheetToolbarComponentItemAnchor<T>
+    implements SpreadsheetCellComponentLifecycle,
+    NopComponentLifecycleOpenGiveFocus,
+    NopComponentLifecycleRefresh {
 
     SpreadsheetToolbarComponentItemAnchorMetadata(final String id,
                                                   final Optional<Icon<?>> icon,
@@ -40,11 +40,11 @@ abstract class SpreadsheetToolbarComponentItemAnchorMetadata<T extends Spreadshe
                                                   final String tooltipText,
                                                   final SpreadsheetToolbarComponentContext context) {
         super(
-                id,
-                icon,
-                text,
-                tooltipText,
-                context
+            id,
+            icon,
+            text,
+            tooltipText,
+            context
         );
         this.context = context;
     }

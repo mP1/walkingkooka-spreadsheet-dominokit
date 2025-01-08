@@ -42,8 +42,8 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class HistoryTokenRecorderTest implements ClassTesting<HistoryTokenRecorder<?>>,
-        TreePrintableTesting,
-        ToStringTesting<HistoryTokenRecorder<?>> {
+    TreePrintableTesting,
+    ToStringTesting<HistoryTokenRecorder<?>> {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
 
@@ -54,24 +54,24 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
     @Test
     public void testWithNullPredicateFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> HistoryTokenRecorder.with(
-                        null,
-                        1
-                )
+            NullPointerException.class,
+            () -> HistoryTokenRecorder.with(
+                null,
+                1
+            )
         );
     }
 
     @Test
     public void testWithZeroMaxFails() {
         assertThrows(
-                IllegalArgumentException.class,
-                () -> HistoryTokenRecorder.with(
-                        (t) -> {
-                            throw new UnsupportedOperationException();
-                        },
-                        0
-                )
+            IllegalArgumentException.class,
+            () -> HistoryTokenRecorder.with(
+                (t) -> {
+                    throw new UnsupportedOperationException();
+                },
+                0
+            )
         );
     }
 
@@ -80,205 +80,205 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
     @Test
     public void testOnHistoryTokenChange() {
         final HistoryTokenRecorder<SpreadsheetFormatterSelector> recorder = HistoryTokenRecorder.with(
-                (t) -> Optional.ofNullable(
-                        t instanceof SpreadsheetCellFormatterSaveHistoryToken ?
-                                t.cast(
-                                                SpreadsheetCellFormatterSaveHistoryToken.class
-                                        ).spreadsheetFormatterSelector()
-                                        .orElse(null) :
-                                null
-                ),
-                3
+            (t) -> Optional.ofNullable(
+                t instanceof SpreadsheetCellFormatterSaveHistoryToken ?
+                    t.cast(
+                            SpreadsheetCellFormatterSaveHistoryToken.class
+                        ).spreadsheetFormatterSelector()
+                        .orElse(null) :
+                    null
+            ),
+            3
         );
 
         final SpreadsheetFormatterSelector keep1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         final SpreadsheetFormatterSelector keep2 = SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         this.onHistoryChangeAndCheck(
-                recorder,
-                Lists.of(
-                        HistoryToken.cellFormatterSave(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor(),
-                                Optional.of(keep1)
-                        ),
-                        HistoryToken.cell(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor()
-                        ),
-                        HistoryToken.cellFormatterSave(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor(),
-                                Optional.of(keep2)
-                        )
+            recorder,
+            Lists.of(
+                HistoryToken.cellFormatterSave(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor(),
+                    Optional.of(keep1)
                 ),
-                keep2,
-                keep1
+                HistoryToken.cell(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                HistoryToken.cellFormatterSave(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor(),
+                    Optional.of(keep2)
+                )
+            ),
+            keep2,
+            keep1
         );
     }
 
     @Test
     public void testOnHistoryTokenChangeDuplicate() {
         final HistoryTokenRecorder<SpreadsheetFormatterSelector> recorder = HistoryTokenRecorder.with(
-                (t) -> Optional.ofNullable(
-                        t instanceof SpreadsheetCellFormatterSaveHistoryToken ?
-                                t.cast(
-                                                SpreadsheetCellFormatterSaveHistoryToken.class
-                                        ).spreadsheetFormatterSelector()
-                                        .orElse(null) :
-                                null
-                ),
-                3
+            (t) -> Optional.ofNullable(
+                t instanceof SpreadsheetCellFormatterSaveHistoryToken ?
+                    t.cast(
+                            SpreadsheetCellFormatterSaveHistoryToken.class
+                        ).spreadsheetFormatterSelector()
+                        .orElse(null) :
+                    null
+            ),
+            3
         );
 
         final SpreadsheetFormatterSelector keep1 = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         final SpreadsheetFormatterSelector keep2 = SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         final HistoryToken ignore1 = HistoryToken.cell(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
+            ID,
+            NAME,
+            CELL.setDefaultAnchor()
         );
 
         this.onHistoryChangeAndCheck(
-                recorder,
-                Lists.of(
-                        HistoryToken.cellFormatterSave(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor(),
-                                Optional.of(keep1)
-                        ),
-                        ignore1,
-                        HistoryToken.cellFormatterSave(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor(),
-                                Optional.of(keep2)
-                        ),
-                        HistoryToken.cellFormatterSave(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor(),
-                                Optional.of(keep1)
-                        )
+            recorder,
+            Lists.of(
+                HistoryToken.cellFormatterSave(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor(),
+                    Optional.of(keep1)
                 ),
-                keep1,
-                keep2
+                ignore1,
+                HistoryToken.cellFormatterSave(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor(),
+                    Optional.of(keep2)
+                ),
+                HistoryToken.cellFormatterSave(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor(),
+                    Optional.of(keep1)
+                )
+            ),
+            keep1,
+            keep2
         );
     }
 
     @Test
     public void testOnHistoryTokenChangeMax() {
         final HistoryTokenRecorder<SpreadsheetFormatterSelector> recorder = HistoryTokenRecorder.with(
-                (t) -> Optional.ofNullable(
-                        t instanceof SpreadsheetCellFormatterSaveHistoryToken ?
-                                t.cast(
-                                                SpreadsheetCellFormatterSaveHistoryToken.class
-                                        ).spreadsheetFormatterSelector()
-                                        .orElse(null) :
-                                null
-                ),
-                3
+            (t) -> Optional.ofNullable(
+                t instanceof SpreadsheetCellFormatterSaveHistoryToken ?
+                    t.cast(
+                            SpreadsheetCellFormatterSaveHistoryToken.class
+                        ).spreadsheetFormatterSelector()
+                        .orElse(null) :
+                    null
+            ),
+            3
         );
 
         final SpreadsheetFormatterSelector keep1 = SpreadsheetPattern.parseTextFormatPattern("@")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         final SpreadsheetFormatterSelector keep2 = SpreadsheetPattern.parseTextFormatPattern("@@")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         final SpreadsheetFormatterSelector keep3 = SpreadsheetPattern.parseTextFormatPattern("@@@")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         final SpreadsheetFormatterSelector keep4 = SpreadsheetPattern.parseTextFormatPattern("@@@@")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         this.onHistoryChangeAndCheck(
-                recorder,
-                Lists.of(
-                        HistoryToken.cellFormatterSave(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor(),
-                                Optional.of(keep1)
-                        ),
-                        HistoryToken.cellFormatterSave(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor(),
-                                Optional.of(keep2)
-                        ),
-                        HistoryToken.cellFormatterSave(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor(),
-                                Optional.of(keep3)
-                        ),
-                        HistoryToken.cell(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor()
-                        ),
-                        HistoryToken.cellFormatterSave(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor(),
-                                Optional.of(keep4)
-                        )
+            recorder,
+            Lists.of(
+                HistoryToken.cellFormatterSave(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor(),
+                    Optional.of(keep1)
                 ),
-                keep4,
-                keep3,
-                keep2
+                HistoryToken.cellFormatterSave(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor(),
+                    Optional.of(keep2)
+                ),
+                HistoryToken.cellFormatterSave(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor(),
+                    Optional.of(keep3)
+                ),
+                HistoryToken.cell(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor()
+                ),
+                HistoryToken.cellFormatterSave(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor(),
+                    Optional.of(keep4)
+                )
+            ),
+            keep4,
+            keep3,
+            keep2
         );
     }
 
     @Test
     public void testOnHistoryTokenChangeSpreadsheetIdChange() {
         final HistoryTokenRecorder<SpreadsheetFormatterSelector> recorder = HistoryTokenRecorder.with(
-                (t) -> Optional.ofNullable(
-                        t instanceof SpreadsheetCellFormatterSaveHistoryToken ?
-                                t.cast(
-                                                SpreadsheetCellFormatterSaveHistoryToken.class
-                                        ).spreadsheetFormatterSelector()
-                                        .orElse(null) :
-                                null
-                ),
-                3
+            (t) -> Optional.ofNullable(
+                t instanceof SpreadsheetCellFormatterSaveHistoryToken ?
+                    t.cast(
+                            SpreadsheetCellFormatterSaveHistoryToken.class
+                        ).spreadsheetFormatterSelector()
+                        .orElse(null) :
+                    null
+            ),
+            3
         );
 
         final SpreadsheetFormatterSelector keep1 = SpreadsheetPattern.parseTextFormatPattern("@")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         final SpreadsheetFormatterSelector keep2 = SpreadsheetPattern.parseTextFormatPattern("@@")
-                .spreadsheetFormatterSelector();
+            .spreadsheetFormatterSelector();
 
         this.onHistoryChangeAndCheck(
-                recorder,
-                Lists.of(
-                        HistoryToken.cellFormatterSave(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor(),
-                                Optional.of(keep1)
-                        ),
-                        HistoryToken.cellFormatterSave(
-                                SpreadsheetId.with(2),
-                                NAME,
-                                CELL.setDefaultAnchor(),
-                                Optional.of(keep2)
-                        )
+            recorder,
+            Lists.of(
+                HistoryToken.cellFormatterSave(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor(),
+                    Optional.of(keep1)
                 ),
-                keep2
+                HistoryToken.cellFormatterSave(
+                    SpreadsheetId.with(2),
+                    NAME,
+                    CELL.setDefaultAnchor(),
+                    Optional.of(keep2)
+                )
+            ),
+            keep2
         );
     }
 
@@ -289,17 +289,17 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
 
         for (final HistoryToken token : fired) {
             recorder.onHistoryTokenChange(
-                    previous,
-                    this.appContext(token)
+                previous,
+                this.appContext(token)
             );
             previous = token;
         }
 
         this.checkEquals(
-                Lists.of(
-                        expected
-                ),
-                recorder.values()
+            Lists.of(
+                expected
+            ),
+            recorder.values()
         );
     }
 
@@ -308,40 +308,40 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
     @Test
     public void testClear() {
         final HistoryTokenRecorder<SpreadsheetFormatterSelector> recorder = HistoryTokenRecorder.with(
-                (t) -> Optional.ofNullable(
-                        t instanceof SpreadsheetCellFormatterSaveHistoryToken ?
-                                t.cast(
-                                                SpreadsheetCellFormatterSaveHistoryToken.class
-                                        ).spreadsheetFormatterSelector()
-                                        .orElse(null) :
-                                null
-                ),
-                3
+            (t) -> Optional.ofNullable(
+                t instanceof SpreadsheetCellFormatterSaveHistoryToken ?
+                    t.cast(
+                            SpreadsheetCellFormatterSaveHistoryToken.class
+                        ).spreadsheetFormatterSelector()
+                        .orElse(null) :
+                    null
+            ),
+            3
         );
 
         recorder.onHistoryTokenChange(
-                HistoryToken.unknown(
-                        UrlFragment.SLASH
-                ),
-                this.appContext(
-                        HistoryToken.cellFormatterSave(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor(),
-                                Optional.of(
-                                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                                                .spreadsheetFormatterSelector()
-                                )
-                        )
+            HistoryToken.unknown(
+                UrlFragment.SLASH
+            ),
+            this.appContext(
+                HistoryToken.cellFormatterSave(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor(),
+                    Optional.of(
+                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                            .spreadsheetFormatterSelector()
+                    )
                 )
+            )
         );
 
         recorder.clear();
 
         this.checkEquals(
-                Lists.empty(),
-                recorder.values(),
-                "values"
+            Lists.empty(),
+            recorder.values(),
+            "values"
         );
     }
 
@@ -350,34 +350,34 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
     @Test
     public void testToString() {
         final HistoryTokenRecorder<SpreadsheetFormatterSelector> recorder = HistoryTokenRecorder.with(
-                (t) -> Optional.ofNullable(
-                        t.cast(SpreadsheetCellFormatterSaveHistoryToken.class)
-                                .spreadsheetFormatterSelector()
-                                .get()
-                ),
-                3
+            (t) -> Optional.ofNullable(
+                t.cast(SpreadsheetCellFormatterSaveHistoryToken.class)
+                    .spreadsheetFormatterSelector()
+                    .get()
+            ),
+            3
         );
 
         recorder.onHistoryTokenChange(
-                HistoryToken.unknown(
-                        UrlFragment.SLASH
-                ),
-                this.appContext(
-                        HistoryToken.cellFormatterSave(
-                                ID,
-                                NAME,
-                                CELL.setDefaultAnchor(),
-                                Optional.of(
-                                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                                                .spreadsheetFormatterSelector()
-                                )
-                        )
+            HistoryToken.unknown(
+                UrlFragment.SLASH
+            ),
+            this.appContext(
+                HistoryToken.cellFormatterSave(
+                    ID,
+                    NAME,
+                    CELL.setDefaultAnchor(),
+                    Optional.of(
+                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                            .spreadsheetFormatterSelector()
+                    )
                 )
+            )
         );
 
         this.toStringAndCheck(
-                recorder,
-                "max=3 date-format-pattern dd/mm/yyyy"
+            recorder,
+            "max=3 date-format-pattern dd/mm/yyyy"
         );
     }
 

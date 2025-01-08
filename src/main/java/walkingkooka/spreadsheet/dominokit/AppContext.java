@@ -67,30 +67,30 @@ import java.util.Set;
  * A {@link Context} at the application level that provides and centralises many global values and components.
  */
 public interface AppContext extends CanGiveFocus,
-        ClipboardContext,
-        SpreadsheetProvider,
-        HasLocale,
-        HasNow,
-        HasSpreadsheetComparatorFetcher,
-        HasConverterFetcher,
-        HasPluginFetcher,
-        HasSpreadsheetDeltaFetcher,
-        HasSpreadsheetExporterFetcher,
-        HasExpressionFunctionFetcher,
-        HasSpreadsheetFormatterFetcher,
-        HasSpreadsheetImporterFetcher,
-        HasSpreadsheetMetadata,
-        HasSpreadsheetMetadataFetcher,
-        HasSpreadsheetParserFetcher,
-        JsonNodeMarshallUnmarshallContext,
-        ProviderContext,
-        SpreadsheetFormatterContext,
-        SpreadsheetParserContext,
-        SpreadsheetDialogComponentContext,
-        HistoryTokenContext,
-        LoggingContext,
-        RefreshContext,
-        Context {
+    ClipboardContext,
+    SpreadsheetProvider,
+    HasLocale,
+    HasNow,
+    HasSpreadsheetComparatorFetcher,
+    HasConverterFetcher,
+    HasPluginFetcher,
+    HasSpreadsheetDeltaFetcher,
+    HasSpreadsheetExporterFetcher,
+    HasExpressionFunctionFetcher,
+    HasSpreadsheetFormatterFetcher,
+    HasSpreadsheetImporterFetcher,
+    HasSpreadsheetMetadata,
+    HasSpreadsheetMetadataFetcher,
+    HasSpreadsheetParserFetcher,
+    JsonNodeMarshallUnmarshallContext,
+    ProviderContext,
+    SpreadsheetFormatterContext,
+    SpreadsheetParserContext,
+    SpreadsheetDialogComponentContext,
+    HistoryTokenContext,
+    LoggingContext,
+    RefreshContext,
+    Context {
 
     /**
      * If the metadata.spreadsheetId and current historyToken.spreadsheetId DONT match wait for the metadata to be loaded then fire history token again.
@@ -101,11 +101,11 @@ public interface AppContext extends CanGiveFocus,
         final HistoryToken token = this.historyToken();
         if (token instanceof SpreadsheetNameHistoryToken) {
             loaded = token.cast(SpreadsheetNameHistoryToken.class).id()
-                    .equals(
-                            this.spreadsheetMetadata()
-                                    .id()
-                                    .orElse(null)
-                    );
+                .equals(
+                    this.spreadsheetMetadata()
+                        .id()
+                        .orElse(null)
+                );
         } else {
             loaded = false;
         }
@@ -124,57 +124,57 @@ public interface AppContext extends CanGiveFocus,
         Objects.requireNonNull(previous, "previous");
 
         this.addSpreadsheetMetadataFetcherWatcherOnce(
-                new SpreadsheetMetadataFetcherWatcher() {
+            new SpreadsheetMetadataFetcherWatcher() {
 
-                    @Override
-                    public void onEmptyResponse(final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                                      final AppContext context) {
-                        // ignore
-                    }
-
-                    @Override
-                    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                                         final AppContext context) {
-                        // ignore
-                    }
-
-                    @Override
-                    public void onBegin(final HttpMethod method,
-                                        final Url url,
-                                        final Optional<FetcherRequestBody<?>> body,
-                                        final AppContext context) {
-                        // ignore
-                    }
-
-                    @Override
-                    public void onFailure(final HttpMethod method,
-                                          final AbsoluteOrRelativeUrl url,
-                                          final HttpStatus status,
-                                          final Headers headers,
-                                          final String body,
-                                          final AppContext context) {
-                        context.pushHistoryToken(
-                                previous.clearAction()
-                        );
-                    }
-
-                    @Override
-                    public void onError(final Object cause,
-                                        final AppContext context) {
-                        context.pushHistoryToken(
-                                previous.clearAction()
-                        );
-                    }
+                @Override
+                public void onEmptyResponse(final AppContext context) {
+                    // nop
                 }
+
+                @Override
+                public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                                  final AppContext context) {
+                    // ignore
+                }
+
+                @Override
+                public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                                     final AppContext context) {
+                    // ignore
+                }
+
+                @Override
+                public void onBegin(final HttpMethod method,
+                                    final Url url,
+                                    final Optional<FetcherRequestBody<?>> body,
+                                    final AppContext context) {
+                    // ignore
+                }
+
+                @Override
+                public void onFailure(final HttpMethod method,
+                                      final AbsoluteOrRelativeUrl url,
+                                      final HttpStatus status,
+                                      final Headers headers,
+                                      final String body,
+                                      final AppContext context) {
+                    context.pushHistoryToken(
+                        previous.clearAction()
+                    );
+                }
+
+                @Override
+                public void onError(final Object cause,
+                                    final AppContext context) {
+                    context.pushHistoryToken(
+                        previous.clearAction()
+                    );
+                }
+            }
         );
 
         this.spreadsheetMetadataFetcher()
-                .loadSpreadsheetMetadata(id);
+            .loadSpreadsheetMetadata(id);
     }
 
     // viewport.........................................................................................................
@@ -202,9 +202,9 @@ public interface AppContext extends CanGiveFocus,
      */
     default UrlQueryString viewportAndWindowQueryString() {
         return SpreadsheetDeltaFetcher.viewportAndWindowQueryString(
-                this.viewport(SpreadsheetViewport.NO_ANCHORED_SELECTION),
-                this.spreadsheetViewportCache()
-                        .windows()
+            this.viewport(SpreadsheetViewport.NO_ANCHORED_SELECTION),
+            this.spreadsheetViewportCache()
+                .windows()
         );
     }
 

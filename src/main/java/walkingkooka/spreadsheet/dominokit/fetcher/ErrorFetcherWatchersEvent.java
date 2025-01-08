@@ -38,8 +38,8 @@ final class ErrorFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherW
     @Override
     void fire(final W watcher) {
         watcher.onError(
-                this.cause,
-                this.context
+            this.cause,
+            this.context
         );
     }
 

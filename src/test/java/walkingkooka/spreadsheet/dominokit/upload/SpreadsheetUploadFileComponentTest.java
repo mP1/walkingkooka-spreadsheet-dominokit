@@ -30,55 +30,55 @@ public final class SpreadsheetUploadFileComponentTest implements ValueComponentT
     @Test
     public void testClearValueAndTreePrint() {
         this.treePrintAndCheck(
-                SpreadsheetUploadFileComponent.empty("id123")
-                        .clearValue(),
-               "SpreadsheetUploadFileComponent\n" +
-                       "  id=id123\n"
+            SpreadsheetUploadFileComponent.empty("id123")
+                .clearValue(),
+            "SpreadsheetUploadFileComponent\n" +
+                "  id=id123\n"
         );
     }
 
     @Test
     public void testSetValueAndTreePrint() {
         this.treePrintAndCheck(
-                SpreadsheetUploadFileComponent.empty("id456")
-                        .setValue(
-                                Optional.of(
-                                        BrowserFile.base64(
-                                                "FileName123",
-                                                "FileContent456"
-                                        )
-                                )
-                        ),
-                "SpreadsheetUploadFileComponent\n" +
-                        "  id=id456\n" +
-                        "    BrowserFileBase64\n" +
-                        "      \"FileName123\"\n" +
-                        "        FileContent456\n"
+            SpreadsheetUploadFileComponent.empty("id456")
+                .setValue(
+                    Optional.of(
+                        BrowserFile.base64(
+                            "FileName123",
+                            "FileContent456"
+                        )
+                    )
+                ),
+            "SpreadsheetUploadFileComponent\n" +
+                "  id=id456\n" +
+                "    BrowserFileBase64\n" +
+                "      \"FileName123\"\n" +
+                "        FileContent456\n"
         );
     }
 
     @Test
     public void testSetLabelSetHelperSetValueAndTreePrint() {
         this.treePrintAndCheck(
-                SpreadsheetUploadFileComponent.empty("id456")
-                        .setLabel("Label123")
-                        .setHelperText(
-                                Optional.of("HelperText123")
-                        ).setValue(
-                                Optional.of(
-                                        BrowserFile.base64(
-                                                "FileName123",
-                                                "FileContent456"
-                                        )
-                                )
-                        ),
-                "SpreadsheetUploadFileComponent\n" +
-                        "  id=id456\n" +
-                        "  label=Label123\n" +
-                        "  helperText=HelperText123\n" +
-                        "    BrowserFileBase64\n" +
-                        "      \"FileName123\"\n" +
-                        "        FileContent456\n"
+            SpreadsheetUploadFileComponent.empty("id456")
+                .setLabel("Label123")
+                .setHelperText(
+                    Optional.of("HelperText123")
+                ).setValue(
+                    Optional.of(
+                        BrowserFile.base64(
+                            "FileName123",
+                            "FileContent456"
+                        )
+                    )
+                ),
+            "SpreadsheetUploadFileComponent\n" +
+                "  id=id456\n" +
+                "  label=Label123\n" +
+                "  helperText=HelperText123\n" +
+                "    BrowserFileBase64\n" +
+                "      \"FileName123\"\n" +
+                "        FileContent456\n"
         );
     }
 

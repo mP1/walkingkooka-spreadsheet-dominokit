@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.HasSpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
 public interface SpreadsheetToolbarComponentContext extends HistoryTokenContext,
-        HasSpreadsheetDeltaFetcherWatchers,
-        HasSpreadsheetMetadata,
-        HasSpreadsheetViewportCache {
+    HasSpreadsheetDeltaFetcherWatchers,
+    HasSpreadsheetMetadata,
+    HasSpreadsheetViewportCache {
 }

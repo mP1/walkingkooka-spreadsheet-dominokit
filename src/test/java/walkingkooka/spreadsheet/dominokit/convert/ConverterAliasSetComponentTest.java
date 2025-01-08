@@ -31,49 +31,49 @@ public final class ConverterAliasSetComponentTest implements ValueComponentTesti
     @Test
     public void testParseAndText() {
         final ConverterAliasSet aliases = ConverterProviders.converters()
-                .converterInfos()
-                .aliasSet();
+            .converterInfos()
+            .aliasSet();
 
         this.checkEquals(
-                aliases,
-                ConverterAliasSet.parse(aliases.text())
+            aliases,
+            ConverterAliasSet.parse(aliases.text())
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                ConverterAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        ConverterProviders.converters()
-                                                .converterInfos()
-                                                .aliasSet()
-                                                .text()
-                                )
-                        ),
-                "ConverterAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [boolean-to-number, chain, character-or-string-to-string, collection, custom-to-string, has-text-to-string, local-date-time-to-local-date, local-date-time-to-local-time, local-date-time-to-number, local-date-time-to-string, local-date-to-local-date-time, local-date-to-number, local-date-to-string, local-time-to-local-date-time, local-time-to-number, local-time-to-string, mapper, never, number-to-boolean, number-to-local-date, number-to-local-date-time, number-to-local-time, number-to-number, number-to-string, object, object-to-string, parser, simple, string-to-character-or-string, string-to-local-date, string-to-local-date-time, string-to-local-time, string-to-number, to-boolean]\n"
+            ConverterAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        ConverterProviders.converters()
+                            .converterInfos()
+                            .aliasSet()
+                            .text()
+                    )
+                ),
+            "ConverterAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [boolean-to-number, chain, character-or-string-to-string, collection, custom-to-string, has-text-to-string, local-date-time-to-local-date, local-date-time-to-local-time, local-date-time-to-number, local-date-time-to-string, local-date-to-local-date-time, local-date-to-number, local-date-to-string, local-time-to-local-date-time, local-time-to-number, local-time-to-string, mapper, never, number-to-boolean, number-to-local-date, number-to-local-date-time, number-to-local-time, number-to-number, number-to-string, object, object-to-string, parser, simple, string-to-character-or-string, string-to-local-date, string-to-local-date-time, string-to-local-time, string-to-number, to-boolean]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                ConverterAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "hello, !"
-                                )
-                        ),
-                "ConverterAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [hello, !]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 7\n"
+            ConverterAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "hello, !"
+                    )
+                ),
+            "ConverterAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [hello, !]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 7\n"
         );
     }
 

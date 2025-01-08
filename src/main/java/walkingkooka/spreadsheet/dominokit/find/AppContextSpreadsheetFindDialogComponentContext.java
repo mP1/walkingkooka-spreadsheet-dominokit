@@ -35,14 +35,14 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext,
-        HasSpreadsheetDeltaFetcherWatchersDelegator,
-        SpreadsheetDialogComponentContextDelegator,
-        SpreadsheetParserProviderDelegator,
-        ProviderContextDelegator {
+    HasSpreadsheetDeltaFetcherWatchersDelegator,
+    SpreadsheetDialogComponentContextDelegator,
+    SpreadsheetParserProviderDelegator,
+    ProviderContextDelegator {
 
     static AppContextSpreadsheetFindDialogComponentContext with(final AppContext context) {
         return new AppContextSpreadsheetFindDialogComponentContext(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -69,11 +69,11 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
                           final SpreadsheetCellRangeReference cells,
                           final SpreadsheetCellFindQuery find) {
         this.context.spreadsheetDeltaFetcher()
-                .findCells(
-                        id,
-                        cells,
-                        find
-                );
+            .findCells(
+                id,
+                cells,
+                find
+            );
     }
 
     // HasSpreadsheetMetadata...........................................................................................

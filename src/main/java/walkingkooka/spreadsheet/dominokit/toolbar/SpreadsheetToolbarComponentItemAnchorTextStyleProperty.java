@@ -47,12 +47,12 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorTextStyleProperty<>(
-                propertyName,
-                propertyValue,
-                icon,
-                text,
-                tooltipText,
-                context
+            propertyName,
+            propertyValue,
+            icon,
+            text,
+            tooltipText,
+            context
         );
     }
 
@@ -63,14 +63,14 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
                                                                    final String tooltipText,
                                                                    final SpreadsheetToolbarComponentContext context) {
         super(
-                SpreadsheetToolbarComponent.id(
-                        propertyName,
-                        Optional.of(propertyValue)
-                ),
-                icon,
-                text,
-                tooltipText,
-                context
+            SpreadsheetToolbarComponent.id(
+                propertyName,
+                Optional.of(propertyValue)
+            ),
+            icon,
+            text,
+            tooltipText,
+            context
         );
         this.propertyName = propertyName;
         this.propertyValue = propertyValue;
@@ -86,42 +86,42 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleProperty<T> extends Sp
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
-                .anchoredSelectionHistoryTokenOrEmpty()
-                .map(
-                        t -> t.style(this.propertyName)
-                ).ifPresent(context::pushHistoryToken);
+            .anchoredSelectionHistoryTokenOrEmpty()
+            .map(
+                t -> t.style(this.propertyName)
+            ).ifPresent(context::pushHistoryToken);
     }
 
     @Override
     public void refresh(final RefreshContext context) {
         final T saveValue = this.context.spreadsheetViewportCache()
-                .selectionSummary()
-                .style()
-                .get(this.propertyName)
-                .orElse(null);
+            .selectionSummary()
+            .style()
+            .get(this.propertyName)
+            .orElse(null);
 
         final boolean selected = this.propertyValue.equals(saveValue);
 
         this.anchor.setHistoryToken(
-                context.historyToken()
-                        .anchoredSelectionHistoryTokenOrEmpty()
-                        .map(
-                                t -> t.style(this.propertyName)
-                                        .save(
-                                                save(
-                                                        selected ?
-                                                                null :
-                                                                this.propertyValue
-                                                )
-                                        )
+            context.historyToken()
+                .anchoredSelectionHistoryTokenOrEmpty()
+                .map(
+                    t -> t.style(this.propertyName)
+                        .save(
+                            save(
+                                selected ?
+                                    null :
+                                    this.propertyValue
+                            )
                         )
+                )
         ).setChecked(selected);
     }
 
     private static String save(final Object value) {
         return null == value ?
-                "" :
-                value.toString();
+            "" :
+            value.toString();
     }
 
 

@@ -27,7 +27,7 @@ final class AppLoggingContext implements LoggingContext {
 
     static AppLoggingContext with(final LoggingContext context) {
         return new AppLoggingContext(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -58,9 +58,9 @@ final class AppLoggingContext implements LoggingContext {
         this.context.error(values);
 
         Notification.create(
-                        String.valueOf(values[0])
-                ).setPosition(Position.TOP_MIDDLE)
-                .show();
+                String.valueOf(values[0])
+            ).setPosition(Position.TOP_MIDDLE)
+            .show();
     }
 
     private final LoggingContext context;

@@ -32,96 +32,96 @@ import walkingkooka.tree.text.TextNode;
 import java.util.List;
 
 public final class SpreadsheetFormatterTableComponentTest implements ClassTesting<SpreadsheetFormatterTableComponent>,
-        SpreadsheetMetadataTesting,
-        TreePrintableTesting {
+    SpreadsheetMetadataTesting,
+    TreePrintableTesting {
 
     @Test
     public void testRefresh() {
         this.refreshAndCheck(
-                Lists.of(
-                        SpreadsheetFormatterSample.with(
-                                "Label123",
-                                SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
-                                        .spreadsheetFormatterSelector(),
-                                TextNode.text("1999/12/31")
-                        )
-                ), // SpreadsheetFormatterTableComponentContext#formatterTableHistoryTokenSave -> SpreadsheetFormatterSelector#toString + "@"
-                "SpreadsheetFormatterTableComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      SpreadsheetDataTableComponent\n" +
-                        "        id=id123-Table\n" +
-                        "        ROW(S)\n" +
-                        "          ROW 0\n" +
-                        "            SpreadsheetTextNodeComponent\n" +
-                        "              Label123\n" +
-                        "            \"yyyy/mm/dd\" [#/2/Untitled/cell/D1/formatter/save/date-format-pattern%20yyyy/mm/dd@] id=id123-Label123-Link\n" +
-                        "            SpreadsheetTextNodeComponent\n" +
-                        "              1999/12/31\n"
+            Lists.of(
+                SpreadsheetFormatterSample.with(
+                    "Label123",
+                    SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
+                        .spreadsheetFormatterSelector(),
+                    TextNode.text("1999/12/31")
+                )
+            ), // SpreadsheetFormatterTableComponentContext#formatterTableHistoryTokenSave -> SpreadsheetFormatterSelector#toString + "@"
+            "SpreadsheetFormatterTableComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      SpreadsheetDataTableComponent\n" +
+                "        id=id123-Table\n" +
+                "        ROW(S)\n" +
+                "          ROW 0\n" +
+                "            SpreadsheetTextNodeComponent\n" +
+                "              Label123\n" +
+                "            \"yyyy/mm/dd\" [#/2/Untitled/cell/D1/formatter/save/date-format-pattern%20yyyy/mm/dd@] id=id123-Label123-Link\n" +
+                "            SpreadsheetTextNodeComponent\n" +
+                "              1999/12/31\n"
         );
     }
 
     @Test
     public void testRefresh2() {
         this.refreshAndCheck(
-                Lists.of(
-                        SpreadsheetFormatterSample.with(
-                                "Short",
-                                SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
-                                        .spreadsheetFormatterSelector(),
-                                TextNode.text("1999/12/31")
-                        ),
-                        SpreadsheetFormatterSample.with(
-                                "Medium",
-                                SpreadsheetPattern.parseDateFormatPattern("ddd/mm/yyyy")
-                                        .spreadsheetFormatterSelector(),
-                                TextNode.text("Monday 31/12/1999")
-                        )
-                ), // SpreadsheetFormatterTableComponentContext#formatterTableHistoryTokenSave -> SpreadsheetFormatterSelector#toString + "@"
-                "SpreadsheetFormatterTableComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      SpreadsheetDataTableComponent\n" +
-                        "        id=id123-Table\n" +
-                        "        ROW(S)\n" +
-                        "          ROW 0\n" +
-                        "            SpreadsheetTextNodeComponent\n" +
-                        "              Short\n" +
-                        "            \"yyyy/mm/dd\" [#/2/Untitled/cell/D1/formatter/save/date-format-pattern%20yyyy/mm/dd@] id=id123-Short-Link\n" +
-                        "            SpreadsheetTextNodeComponent\n" +
-                        "              1999/12/31\n" +
-                        "          ROW 1\n" +
-                        "            SpreadsheetTextNodeComponent\n" +
-                        "              Medium\n" +
-                        "            \"ddd/mm/yyyy\" [#/2/Untitled/cell/D1/formatter/save/date-format-pattern%20ddd/mm/yyyy@] id=id123-Medium-Link\n" +
-                        "            SpreadsheetTextNodeComponent\n" +
-                        "              Monday 31/12/1999\n"
+            Lists.of(
+                SpreadsheetFormatterSample.with(
+                    "Short",
+                    SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
+                        .spreadsheetFormatterSelector(),
+                    TextNode.text("1999/12/31")
+                ),
+                SpreadsheetFormatterSample.with(
+                    "Medium",
+                    SpreadsheetPattern.parseDateFormatPattern("ddd/mm/yyyy")
+                        .spreadsheetFormatterSelector(),
+                    TextNode.text("Monday 31/12/1999")
+                )
+            ), // SpreadsheetFormatterTableComponentContext#formatterTableHistoryTokenSave -> SpreadsheetFormatterSelector#toString + "@"
+            "SpreadsheetFormatterTableComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      SpreadsheetDataTableComponent\n" +
+                "        id=id123-Table\n" +
+                "        ROW(S)\n" +
+                "          ROW 0\n" +
+                "            SpreadsheetTextNodeComponent\n" +
+                "              Short\n" +
+                "            \"yyyy/mm/dd\" [#/2/Untitled/cell/D1/formatter/save/date-format-pattern%20yyyy/mm/dd@] id=id123-Short-Link\n" +
+                "            SpreadsheetTextNodeComponent\n" +
+                "              1999/12/31\n" +
+                "          ROW 1\n" +
+                "            SpreadsheetTextNodeComponent\n" +
+                "              Medium\n" +
+                "            \"ddd/mm/yyyy\" [#/2/Untitled/cell/D1/formatter/save/date-format-pattern%20ddd/mm/yyyy@] id=id123-Medium-Link\n" +
+                "            SpreadsheetTextNodeComponent\n" +
+                "              Monday 31/12/1999\n"
         );
     }
 
     private void refreshAndCheck(final List<SpreadsheetFormatterSample> samples,
                                  final String expected) {
         final SpreadsheetFormatterTableComponent component = SpreadsheetFormatterTableComponent.empty(
-                "id123-"
+            "id123-"
         );
         component.refresh(
-                samples,
-                new FakeSpreadsheetFormatterTableComponentContext() {
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString("/2/Untitled/cell/D1/formatter");
-                    }
-
-                    @Override
-                    public String formatterTableHistoryTokenSave(final SpreadsheetFormatterSelector selector) {
-                        return selector.text() + "@";
-                    }
+            samples,
+            new FakeSpreadsheetFormatterTableComponentContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.parseString("/2/Untitled/cell/D1/formatter");
                 }
+
+                @Override
+                public String formatterTableHistoryTokenSave(final SpreadsheetFormatterSelector selector) {
+                    return selector.text() + "@";
+                }
+            }
         );
 
         this.treePrintAndCheck(
-                component,
-                expected
+            component,
+            expected
         );
     }
 

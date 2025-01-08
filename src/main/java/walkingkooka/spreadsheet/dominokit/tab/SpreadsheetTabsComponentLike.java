@@ -69,7 +69,7 @@ public interface SpreadsheetTabsComponentLike extends HtmlElementComponent<HTMLD
                 printer.indent();
                 {
                     this.anchor(i)
-                            .printTree(printer);
+                        .printTree(printer);
                     printer.lineStart();
                 }
                 printer.outdent();

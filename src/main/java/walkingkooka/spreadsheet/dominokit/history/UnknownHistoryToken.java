@@ -59,8 +59,8 @@ public final class UnknownHistoryToken extends HistoryToken {
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return spreadsheetSelect(
-                id,
-                name
+            id,
+            name
         );
     }
 

@@ -33,8 +33,8 @@ public final class ConverterNameComponent implements ValueSpreadsheetTextBoxWrap
 
     private ConverterNameComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                ConverterName::with,
-                ConverterName::toString
+            ConverterName::with,
+            ConverterName::toString
         );
     }
 

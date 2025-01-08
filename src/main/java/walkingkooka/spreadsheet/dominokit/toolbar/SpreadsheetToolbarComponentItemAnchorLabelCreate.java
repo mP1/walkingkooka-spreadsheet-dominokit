@@ -32,26 +32,26 @@ import java.util.Optional;
  * A toolbar link which when clicked open the create label dialog.
  */
 final class SpreadsheetToolbarComponentItemAnchorLabelCreate extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorLabelCreate>
-        implements NopComponentLifecycleOpenGiveFocus,
-        NopComponentLifecycleRefresh {
+    implements NopComponentLifecycleOpenGiveFocus,
+    NopComponentLifecycleRefresh {
 
     static SpreadsheetToolbarComponentItemAnchorLabelCreate with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorLabelCreate(
-                context
+            context
         );
     }
 
     private SpreadsheetToolbarComponentItemAnchorLabelCreate(final SpreadsheetToolbarComponentContext context) {
         super(
-                SpreadsheetToolbarComponent.labelCreateId(),
-                Optional.of(
-                        SpreadsheetIcons.labelAdd()
-                ),
-                "Create Label",
-                "Create Label",
-                context
+            SpreadsheetToolbarComponent.labelCreateId(),
+            Optional.of(
+                SpreadsheetIcons.labelAdd()
+            ),
+            "Create Label",
+            "Create Label",
+            context
         );
     }
 
@@ -69,11 +69,11 @@ final class SpreadsheetToolbarComponentItemAnchorLabelCreate extends Spreadsheet
         final HistoryToken historyToken = context.historyToken();
 
         this.anchor.setHistoryToken(
-                Optional.of(
-                        historyToken.setLabelName(
-                                Optional.empty()
-                        )
+            Optional.of(
+                historyToken.setLabelName(
+                    Optional.empty()
                 )
+            )
         );
     }
 

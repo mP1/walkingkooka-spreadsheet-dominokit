@@ -39,7 +39,7 @@ import java.util.Optional;
 public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionFetcherWatcher> {
 
     private final static UrlPath FUNCTION = UrlPath.parse(
-            ExpressionFunctionHateosResourceMappings.FUNCTION.value()
+        ExpressionFunctionHateosResourceMappings.FUNCTION.value()
     );
 
     static {
@@ -49,8 +49,8 @@ public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionF
     private ExpressionFunctionFetcher(final ExpressionFunctionFetcherWatcher watcher,
                                       final AppContext context) {
         super(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
@@ -60,20 +60,20 @@ public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionF
         Objects.requireNonNull(context, "context");
 
         return new ExpressionFunctionFetcher(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     static RelativeUrl function(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPath(FUNCTION);
+            .appendPath(FUNCTION);
     }
 
     // GET /api/spreadsheet/SpreadsheetId/function/*
     public void infoSet(final SpreadsheetId id) {
         this.get(
-                function(id)
+            function(id)
         );
     }
 
@@ -91,13 +91,13 @@ public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionF
             case "ExpressionFunctionInfoSet":
                 // GET http://server/api/spreadsheet/1/function
                 this.watcher.onExpressionFunctionInfoSet(
-                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(), // the request url
-                        this.parse(
-                                body.orElse(""),
-                                ExpressionFunctionInfoSet.class
-                        ), // edit
-                        context
+                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                        .get(), // the request url
+                    this.parse(
+                        body.orElse(""),
+                        ExpressionFunctionInfoSet.class
+                    ), // edit
+                    context
                 );
                 break;
             default:

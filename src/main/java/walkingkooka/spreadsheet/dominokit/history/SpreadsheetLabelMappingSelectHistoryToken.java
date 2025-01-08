@@ -40,9 +40,9 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
                                                           final SpreadsheetName name,
                                                           final Optional<SpreadsheetLabelName> labelName) {
         return new SpreadsheetLabelMappingSelectHistoryToken(
-                id,
-                name,
-                labelName
+            id,
+            name,
+            labelName
         );
     }
 
@@ -50,8 +50,8 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
                                                       final SpreadsheetName name,
                                                       final Optional<SpreadsheetLabelName> labelName) {
         super(
-                id,
-                name
+            id,
+            name
         );
         this.labelName = Objects.requireNonNull(labelName, "labelName");
     }
@@ -68,9 +68,9 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     @Override
     UrlFragment labelUrlFragment() {
         return this.labelName.map(
-                l -> UrlFragment.with(
-                        l.value()
-                )
+            l -> UrlFragment.with(
+                l.value()
+            )
         ).orElse(UrlFragment.EMPTY);
     }
 
@@ -84,9 +84,9 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return with(
-                id,
-                name,
-                this.labelName
+            id,
+            name,
+            this.labelName
         );
     }
 
@@ -95,15 +95,15 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
         final Optional<SpreadsheetLabelName> labelName = this.labelName;
 
         return labelName.isPresent() ?
-                labelMappingSave(
-                        this.id(),
-                        this.name(),
-                        labelName.get()
-                                .mapping(
-                                        SpreadsheetSelection.parseExpressionReference(value)
-                                )
-                ) :
-                this;
+            labelMappingSave(
+                this.id(),
+                this.name(),
+                labelName.get()
+                    .mapping(
+                        SpreadsheetSelection.parseExpressionReference(value)
+                    )
+            ) :
+            this;
     }
 
     @Override

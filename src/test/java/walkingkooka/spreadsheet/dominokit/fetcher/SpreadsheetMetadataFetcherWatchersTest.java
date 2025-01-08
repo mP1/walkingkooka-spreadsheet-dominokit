@@ -41,16 +41,16 @@ public final class SpreadsheetMetadataFetcherWatchersTest extends FetcherWatcher
 
         final SpreadsheetMetadataFetcherWatchers watchers = SpreadsheetMetadataFetcherWatchers.empty();
         watchers.add(
-                new FakeSpreadsheetMetadataFetcherWatcher() {
-                    @Override
-                    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                                      final AppContext context) {
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(spreadsheetMetadata, metadata);
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(appContext, context);
+            new FakeSpreadsheetMetadataFetcherWatcher() {
+                @Override
+                public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                                  final AppContext context) {
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(spreadsheetMetadata, metadata);
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetMetadataFetcherWatchersTest.this.fired++;
-                    }
-                });
+                    SpreadsheetMetadataFetcherWatchersTest.this.fired++;
+                }
+            });
         watchers.onSpreadsheetMetadata(spreadsheetMetadata, appContext);
 
         this.checkEquals(1, this.fired);
@@ -63,27 +63,27 @@ public final class SpreadsheetMetadataFetcherWatchersTest extends FetcherWatcher
         final HttpMethod method = HttpMethod.with("CustomHttpMethod");
         final Url url = Url.parseAbsolute("https://example/");
         final Optional<FetcherRequestBody<?>> body = Optional.of(
-                FetcherRequestBody.string("Body123")
+            FetcherRequestBody.string("Body123")
         );
         final AppContext appContext = AppContexts.fake();
 
         final SpreadsheetMetadataFetcherWatchers watchers = SpreadsheetMetadataFetcherWatchers.empty();
         watchers.add(
-                new FakeSpreadsheetMetadataFetcherWatcher() {
+            new FakeSpreadsheetMetadataFetcherWatcher() {
 
-                    @Override
-                    public void onBegin(final HttpMethod m,
-                                        final Url u,
-                                        final Optional<FetcherRequestBody<?>> b,
-                                        final AppContext context) {
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(method, m);
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(u, u);
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(b, b);
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(appContext, context);
+                @Override
+                public void onBegin(final HttpMethod m,
+                                    final Url u,
+                                    final Optional<FetcherRequestBody<?>> b,
+                                    final AppContext context) {
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(method, m);
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(u, u);
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(b, b);
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetMetadataFetcherWatchersTest.this.fired++;
-                    }
-                });
+                    SpreadsheetMetadataFetcherWatchersTest.this.fired++;
+                }
+            });
         watchers.onBegin(method, url, body, appContext);
         this.checkEquals(1, this.fired);
 
@@ -103,16 +103,16 @@ public final class SpreadsheetMetadataFetcherWatchersTest extends FetcherWatcher
 
         final SpreadsheetMetadataFetcherWatchers watchers = SpreadsheetMetadataFetcherWatchers.empty();
         watchers.add(
-                new FakeSpreadsheetMetadataFetcherWatcher() {
-                    @Override
-                    public void onError(final Object c,
-                                        final AppContext context) {
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(cause, c);
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(appContext, context);
+            new FakeSpreadsheetMetadataFetcherWatcher() {
+                @Override
+                public void onError(final Object c,
+                                    final AppContext context) {
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(cause, c);
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetMetadataFetcherWatchersTest.this.fired++;
-                    }
-                });
+                    SpreadsheetMetadataFetcherWatchersTest.this.fired++;
+                }
+            });
         watchers.onError(cause, appContext);
         this.checkEquals(1, this.fired);
 
@@ -136,25 +136,25 @@ public final class SpreadsheetMetadataFetcherWatchersTest extends FetcherWatcher
 
         final SpreadsheetMetadataFetcherWatchers watchers = SpreadsheetMetadataFetcherWatchers.empty();
         watchers.add(
-                new FakeSpreadsheetMetadataFetcherWatcher() {
+            new FakeSpreadsheetMetadataFetcherWatcher() {
 
-                    @Override
-                    public void onFailure(final HttpMethod m,
-                                          final AbsoluteOrRelativeUrl u,
-                                          final HttpStatus s,
-                                          final Headers h,
-                                          final String b,
-                                          final AppContext context) {
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(method, m);
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(url, u);
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(status, s);
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(headers, h);
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(body, b);
-                        SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(appContext, context);
+                @Override
+                public void onFailure(final HttpMethod m,
+                                      final AbsoluteOrRelativeUrl u,
+                                      final HttpStatus s,
+                                      final Headers h,
+                                      final String b,
+                                      final AppContext context) {
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(method, m);
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(url, u);
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(status, s);
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(headers, h);
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(body, b);
+                    SpreadsheetMetadataFetcherWatchersTest.this.checkEquals(appContext, context);
 
-                        SpreadsheetMetadataFetcherWatchersTest.this.fired++;
-                    }
-                });
+                    SpreadsheetMetadataFetcherWatchersTest.this.fired++;
+                }
+            });
         watchers.onFailure(method, url, status, headers, body, appContext);
         this.checkEquals(1, this.fired);
 

@@ -33,7 +33,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
 
     public static SpreadsheetUploadFileComponent empty(final String id) {
         return new SpreadsheetUploadFileComponent()
-                .setId(id);
+            .setId(id);
     }
 
     private SpreadsheetUploadFileComponent() {
@@ -107,7 +107,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
 
     private boolean disabled = false;
 
-    @Override 
+    @Override
     public SpreadsheetUploadFileComponent addChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
         return this;
     }
@@ -127,7 +127,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
         return this;
     }
 
-    @Override 
+    @Override
     public HTMLDivElement element() {
         throw new UnsupportedOperationException();
     }

@@ -38,11 +38,11 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 abstract class AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSet extends AppContextPluginAliasSetLikeDialogComponentContext<ConverterName,
-        ConverterInfo,
-        ConverterInfoSet,
-        ConverterSelector,
-        ConverterAlias,
-        ConverterAliasSet> {
+    ConverterInfo,
+    ConverterInfoSet,
+    ConverterSelector,
+    ConverterAlias,
+    ConverterAliasSet> {
 
     AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSet(final AppContext context) {
         super(context);
@@ -62,49 +62,49 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextConverterAliasS
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.converterFetcher()
-                .infoSet(id);
+            .infoSet(id);
     }
 
     @Override
     public final Runnable addProviderFetcherWatcher(final Consumer<ConverterAliasSet> set) {
         return this.context.addConverterFetcherWatcher(
-                new ConverterFetcherWatcher() {
-                    @Override
-                    public void onConverterInfoSet(final SpreadsheetId id,
-                                                   final ConverterInfoSet infos,
-                                                   final AppContext context) {
-                        set.accept(infos.aliasSet());
-                    }
-
-                    @Override
-                    public void onBegin(final HttpMethod method,
-                                        final Url url,
-                                        final Optional<FetcherRequestBody<?>> body,
-                                        final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onFailure(final HttpMethod method,
-                                          final AbsoluteOrRelativeUrl url,
-                                          final HttpStatus status,
-                                          final Headers headers,
-                                          final String body,
-                                          final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onError(final Object cause,
-                                        final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onEmptyResponse(final AppContext context) {
-                        // nop
-                    }
+            new ConverterFetcherWatcher() {
+                @Override
+                public void onConverterInfoSet(final SpreadsheetId id,
+                                               final ConverterInfoSet infos,
+                                               final AppContext context) {
+                    set.accept(infos.aliasSet());
                 }
+
+                @Override
+                public void onBegin(final HttpMethod method,
+                                    final Url url,
+                                    final Optional<FetcherRequestBody<?>> body,
+                                    final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onFailure(final HttpMethod method,
+                                      final AbsoluteOrRelativeUrl url,
+                                      final HttpStatus status,
+                                      final Headers headers,
+                                      final String body,
+                                      final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onError(final Object cause,
+                                    final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onEmptyResponse(final AppContext context) {
+                    // nop
+                }
+            }
         );
     }
 }

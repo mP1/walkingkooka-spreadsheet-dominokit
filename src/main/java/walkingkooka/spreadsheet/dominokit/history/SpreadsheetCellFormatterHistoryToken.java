@@ -40,7 +40,7 @@ public abstract class SpreadsheetCellFormatterHistoryToken extends SpreadsheetCe
     @Override // /cell/A1/formatter
     final UrlFragment cellUrlFragment() {
         return FORMATTER.appendSlashThen(
-                this.formatterUrlFragment()
+            this.formatterUrlFragment()
         );
     }
 

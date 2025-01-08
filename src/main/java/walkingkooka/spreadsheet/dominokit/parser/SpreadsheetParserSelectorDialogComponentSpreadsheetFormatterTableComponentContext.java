@@ -24,13 +24,13 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 
 final class SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableComponentContext implements SpreadsheetFormatterTableComponentContext,
-        HistoryTokenContextDelegator {
+    HistoryTokenContextDelegator {
 
     static SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableComponentContext with(final SpreadsheetParserSelector selector,
                                                                                                   final HistoryTokenContext context) {
         return new SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableComponentContext(
-                selector,
-                context
+            selector,
+            context
         );
     }
 
@@ -43,7 +43,7 @@ final class SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableCom
     @Override
     public String formatterTableHistoryTokenSave(final SpreadsheetFormatterSelector selector) {
         return this.selector.setValueText(selector.valueText())
-                .toString();
+            .toString();
     }
 
     private final SpreadsheetParserSelector selector;

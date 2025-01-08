@@ -31,8 +31,8 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     SpreadsheetLabelMappingHistoryToken(final SpreadsheetId id,
                                         final SpreadsheetName name) {
         super(
-                id,
-                name
+            id,
+            name
         );
     }
 
@@ -42,7 +42,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
     @Override //
     final UrlFragment selectionUrlFragment() {
         return LABEL.appendSlashThen(
-                this.labelUrlFragment()
+            this.labelUrlFragment()
         );
     }
 
@@ -55,9 +55,9 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
 
     final HistoryToken labelMappingSelect() {
         return HistoryToken.labelMapping(
-                this.id(),
-                this.name(),
-                this.labelName()
+            this.id(),
+            this.name(),
+            this.labelName()
         );
     }
 
@@ -74,8 +74,8 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
                 break;
             case MENU_STRING:
                 result = this.menu(
-                        Optional.empty(), // no selection
-                        SpreadsheetLabelNameResolvers.fake()
+                    Optional.empty(), // no selection
+                    SpreadsheetLabelNameResolvers.fake()
                 );
                 break;
             case SAVE_STRING:

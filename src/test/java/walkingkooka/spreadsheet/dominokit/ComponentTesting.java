@@ -21,5 +21,5 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public interface ComponentTesting<C extends Component> extends TreePrintableTesting,
-        ClassTesting<C> {
+    ClassTesting<C> {
 }

@@ -33,41 +33,41 @@ public final class SpreadsheetRowInsertAfterHistoryTokenTest extends Spreadsheet
     @Test
     public void testUrlFragmentRow1() {
         this.urlFragmentAndCheck(
-                ROW,
-                "/123/SpreadsheetName456/row/1/insertAfter/1");
+            ROW,
+            "/123/SpreadsheetName456/row/1/insertAfter/1");
     }
 
     @Test
     public void testUrlFragmentRowEmptyCount() {
         this.urlFragmentAndCheck(
-                SpreadsheetRowInsertAfterHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseRow("12").setDefaultAnchor(),
-                        OptionalInt.empty()
-                ),
-                "/123/SpreadsheetName456/row/12/insertAfter");
+            SpreadsheetRowInsertAfterHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRow("12").setDefaultAnchor(),
+                OptionalInt.empty()
+            ),
+            "/123/SpreadsheetName456/row/12/insertAfter");
     }
 
     @Test
     public void testUrlFragmentRow23() {
         this.urlFragmentAndCheck(
-                SpreadsheetRowInsertAfterHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseRow("12").setDefaultAnchor(),
-                        OptionalInt.of(
-                                23
-                        )
-                ),
-                "/123/SpreadsheetName456/row/12/insertAfter/23");
+            SpreadsheetRowInsertAfterHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRow("12").setDefaultAnchor(),
+                OptionalInt.of(
+                    23
+                )
+            ),
+            "/123/SpreadsheetName456/row/12/insertAfter/23");
     }
 
     @Test
     public void testUrlFragmentRowRange1() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.parseRowRange("3:4").setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-                "/123/SpreadsheetName456/row/3:4/bottom/insertAfter/1"
+            SpreadsheetSelection.parseRowRange("3:4").setAnchor(SpreadsheetViewportAnchor.BOTTOM),
+            "/123/SpreadsheetName456/row/3:4/bottom/insertAfter/1"
         );
     }
 
@@ -76,38 +76,38 @@ public final class SpreadsheetRowInsertAfterHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseRowMissingCount() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/row/5",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseRow("5").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/5",
+            HistoryToken.row(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRow("5").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseRowZeroCount() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/row/6/insertAfter/0",
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseRow("6").setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/row/6/insertAfter/0",
+            HistoryToken.row(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRow("6").setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseRowWithCount() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/row/7/insertAfter/1",
-                SpreadsheetRowInsertAfterHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseRow("7")
-                                .setDefaultAnchor(),
-                        COUNT
-                )
+            "/123/SpreadsheetName456/row/7/insertAfter/1",
+            SpreadsheetRowInsertAfterHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseRow("7")
+                    .setDefaultAnchor(),
+                COUNT
+            )
         );
     }
 
@@ -116,12 +116,12 @@ public final class SpreadsheetRowInsertAfterHistoryTokenTest extends Spreadsheet
     @Test
     public void testClose() {
         this.closeAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        ROW.setDefaultAnchor()
-                )
+            this.createHistoryToken(),
+            HistoryToken.row(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
         );
     }
 
@@ -130,10 +130,10 @@ public final class SpreadsheetRowInsertAfterHistoryTokenTest extends Spreadsheet
                                                              final SpreadsheetName name,
                                                              final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetRowInsertAfterHistoryToken.with(
-                id,
-                name,
-                selection,
-                COUNT
+            id,
+            name,
+            selection,
+            COUNT
         );
     }
 

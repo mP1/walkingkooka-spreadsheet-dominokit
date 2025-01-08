@@ -30,36 +30,36 @@ public final class SpreadsheetRowReferenceComponentTest implements ValueComponen
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetRowReferenceComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "Hello"
-                                )
-                        ),
-                "SpreadsheetRowReferenceComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Hello]\n" +
-                        "      Errors\n" +
-                        "        Invalid character 'H' at 0\n"
+            SpreadsheetRowReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "Hello"
+                    )
+                ),
+            "SpreadsheetRowReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Hello]\n" +
+                "      Errors\n" +
+                "        Invalid character 'H' at 0\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetRowReferenceComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "Invalid123!"
-                                )
-                        ),
-                "SpreadsheetRowReferenceComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Invalid123!]\n" +
-                        "      Errors\n" +
-                        "        Invalid character 'I' at 0\n"
+            SpreadsheetRowReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "Invalid123!"
+                    )
+                ),
+            "SpreadsheetRowReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Invalid123!]\n" +
+                "      Errors\n" +
+                "        Invalid character 'I' at 0\n"
         );
     }
 

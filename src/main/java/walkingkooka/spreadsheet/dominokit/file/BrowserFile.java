@@ -29,7 +29,7 @@ import walkingkooka.text.printer.TreePrintable;
  * Does not hold a native BrowserFile but supports sub-classes that can represent a file in various text forms.
  */
 public abstract class BrowserFile implements HasUrlFragment,
-        TreePrintable {
+    TreePrintable {
 
     /**
      * Currently only supports parsing text in {@link BrowserFileBase64} form.
@@ -43,8 +43,8 @@ public abstract class BrowserFile implements HasUrlFragment,
         }
 
         final String type = text.substring(
-                0,
-                endOfType
+            0,
+            endOfType
         );
         if (type.isEmpty()) {
             throw new EmptyTextException("Missing type");
@@ -53,7 +53,7 @@ public abstract class BrowserFile implements HasUrlFragment,
         switch (type) {
             case BASE64:
                 return parseBase64(
-                        text.substring(endOfType + 1)
+                    text.substring(endOfType + 1)
                 );
             default:
                 throw new IllegalArgumentException("Invalid type " + CharSequences.quoteAndEscape(type));
@@ -62,21 +62,21 @@ public abstract class BrowserFile implements HasUrlFragment,
 
     private static BrowserFile parseBase64(final String text) {
         final int endOfFilename = text.indexOf(
-                HistoryToken.SEPARATOR.character()
+            HistoryToken.SEPARATOR.character()
         );
 
         return base64(
-                text.substring(
-                        0,
-                        -1 == endOfFilename ?
-                                text.length() :
-                                endOfFilename
-                ),
+            text.substring(
+                0,
                 -1 == endOfFilename ?
-                        "" :
-                        text.substring(
-                                endOfFilename + 1
-                        )
+                    text.length() :
+                    endOfFilename
+            ),
+            -1 == endOfFilename ?
+                "" :
+                text.substring(
+                    endOfFilename + 1
+                )
         );
     }
 
@@ -88,8 +88,8 @@ public abstract class BrowserFile implements HasUrlFragment,
     public static BrowserFile base64(final String name,
                                      final String content) {
         return BrowserFileBase64.with(
-                name,
-                content
+            name,
+            content
         );
     }
 

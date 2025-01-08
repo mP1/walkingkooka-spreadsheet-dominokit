@@ -38,11 +38,11 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSet extends AppContextPluginAliasSetLikeDialogComponentContext<SpreadsheetImporterName,
-        SpreadsheetImporterInfo,
-        SpreadsheetImporterInfoSet,
-        SpreadsheetImporterSelector,
-        SpreadsheetImporterAlias,
-        SpreadsheetImporterAliasSet> {
+    SpreadsheetImporterInfo,
+    SpreadsheetImporterInfoSet,
+    SpreadsheetImporterSelector,
+    SpreadsheetImporterAlias,
+    SpreadsheetImporterAliasSet> {
 
     AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImporterAliasSet(final AppContext context) {
         super(context);
@@ -62,49 +62,49 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetImpo
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetImporterFetcher()
-                .infoSet(id);
+            .infoSet(id);
     }
 
     @Override
     public final Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetImporterAliasSet> set) {
         return this.context.addSpreadsheetImporterFetcherWatcher(
-                new SpreadsheetImporterFetcherWatcher() {
-                    @Override
-                    public void onSpreadsheetImporterInfoSet(final SpreadsheetId id,
-                                                             final SpreadsheetImporterInfoSet infos,
-                                                             final AppContext context) {
-                        set.accept(infos.aliasSet());
-                    }
-
-                    @Override
-                    public void onBegin(final HttpMethod method,
-                                        final Url url,
-                                        final Optional<FetcherRequestBody<?>> body,
-                                        final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onFailure(final HttpMethod method,
-                                          final AbsoluteOrRelativeUrl url,
-                                          final HttpStatus status,
-                                          final Headers headers,
-                                          final String body,
-                                          final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onError(final Object cause,
-                                        final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onEmptyResponse(final AppContext context) {
-                        // nop
-                    }
+            new SpreadsheetImporterFetcherWatcher() {
+                @Override
+                public void onSpreadsheetImporterInfoSet(final SpreadsheetId id,
+                                                         final SpreadsheetImporterInfoSet infos,
+                                                         final AppContext context) {
+                    set.accept(infos.aliasSet());
                 }
+
+                @Override
+                public void onBegin(final HttpMethod method,
+                                    final Url url,
+                                    final Optional<FetcherRequestBody<?>> body,
+                                    final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onFailure(final HttpMethod method,
+                                      final AbsoluteOrRelativeUrl url,
+                                      final HttpStatus status,
+                                      final Headers headers,
+                                      final String body,
+                                      final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onError(final Object cause,
+                                    final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onEmptyResponse(final AppContext context) {
+                    // nop
+                }
+            }
         );
     }
 }

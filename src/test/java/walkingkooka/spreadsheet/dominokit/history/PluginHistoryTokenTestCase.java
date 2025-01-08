@@ -29,16 +29,16 @@ public abstract class PluginHistoryTokenTestCase<T extends PluginHistoryToken> e
     @Test
     public final void testSetIdName() {
         this.setIdAndNameAndCheck(
-                ID,
-                NAME,
-                HistoryToken.spreadsheetSelect(ID, NAME)
+            ID,
+            NAME,
+            HistoryToken.spreadsheetSelect(ID, NAME)
         );
     }
 
     @Test
     public final void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 
@@ -49,25 +49,25 @@ public abstract class PluginHistoryTokenTestCase<T extends PluginHistoryToken> e
         final T token = this.createHistoryToken();
 
         this.parseAndCheck(
-                token.urlFragment(),
-                token
+            token.urlFragment(),
+            token
         );
     }
 
     final void parseAndCheck(final String fragment,
                              final PluginHistoryToken token) {
         this.parseAndCheck(
-                UrlFragment.parse(fragment),
-                token
+            UrlFragment.parse(fragment),
+            token
         );
     }
 
     final void parseAndCheck(final UrlFragment fragment,
                              final PluginHistoryToken token) {
         this.checkEquals(
-                token,
-                HistoryToken.parse(fragment),
-                () -> "parse " + fragment
+            token,
+            HistoryToken.parse(fragment),
+            () -> "parse " + fragment
         );
     }
 }

@@ -31,65 +31,65 @@ public final class ExpressionFunctionInfoSetComponentTest implements ValueCompon
     @Test
     public void testParseAndText() {
         final ExpressionFunctionInfoSet infos = ExpressionFunctionProviders.expressionFunctions()
-                .expressionFunctionInfos();
+            .expressionFunctionInfos();
 
         this.checkEquals(
-                infos,
-                ExpressionFunctionInfoSet.parse(infos.text())
+            infos,
+            ExpressionFunctionInfoSet.parse(infos.text())
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                ExpressionFunctionInfoSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        ExpressionFunctionProviders.expressionFunctions()
-                                                .expressionFunctionInfos()
-                                                .text()
-                                )
-                        ),
-                "ExpressionFunctionInfoSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/name name,https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/node node,https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/typeName typeName]\n"
+            ExpressionFunctionInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        ExpressionFunctionProviders.expressionFunctions()
+                            .expressionFunctionInfos()
+                            .text()
+                    )
+                ),
+            "ExpressionFunctionInfoSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/name name,https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/node node,https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/typeName typeName]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                ExpressionFunctionInfoSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "https://www.example.com/Hello !"
-                                )
-                        ),
-                "ExpressionFunctionInfoSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [https://www.example.com/Hello !]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 30\n"
+            ExpressionFunctionInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "https://www.example.com/Hello !"
+                    )
+                ),
+            "ExpressionFunctionInfoSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [https://www.example.com/Hello !]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 30\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalidSecondExpressionFunctionInfo() {
         this.treePrintAndCheck(
-                ExpressionFunctionInfoSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "https://www.example.com/Good Good, https://www.example.com/Bad Bad!"
-                                )
-                        ),
-                "ExpressionFunctionInfoSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [https://www.example.com/Good Good, https://www.example.com/Bad Bad!]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 66\n"
+            ExpressionFunctionInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "https://www.example.com/Good Good, https://www.example.com/Bad Bad!"
+                    )
+                ),
+            "ExpressionFunctionInfoSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [https://www.example.com/Good Good, https://www.example.com/Bad Bad!]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 66\n"
         );
     }
 

@@ -22,7 +22,7 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
 public final class ErrorFetcherWatchersEventTest implements ClassTesting<ErrorFetcherWatchersEvent<?>> {
-    
+
     @Override
     public Class<ErrorFetcherWatchersEvent<?>> type() {
         return Cast.to(ErrorFetcherWatchersEvent.class);

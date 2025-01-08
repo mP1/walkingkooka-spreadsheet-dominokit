@@ -30,62 +30,62 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest
     @Test
     public void testPrintTree() {
         this.treePrintAndCheck(
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
-                        .setValue(
-                                Optional.of(
-                                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.parse("A=text")
-                                )
-                        ),
-                "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [A=text]\n"
+            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
+                .setValue(
+                    Optional.of(
+                        SpreadsheetColumnOrRowSpreadsheetComparatorNames.parse("A=text")
+                    )
+                ),
+            "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [A=text]\n"
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
-                        .setStringValue(
-                                Optional.of("A=hello,tree")
-                        ),
-                "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [A=hello,tree]\n"
+            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
+                .setStringValue(
+                    Optional.of("A=hello,tree")
+                ),
+            "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [A=hello,tree]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalidColumn() {
         this.treePrintAndCheck(
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
-                        .setStringValue(
-                                Optional.of("!A=hello")
-                        ),
-                "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [!A=hello]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 0\n"
+            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
+                .setStringValue(
+                    Optional.of("!A=hello")
+                ),
+            "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [!A=hello]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 0\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalidSpreadsheetComparatorName() {
         this.treePrintAndCheck(
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
-                        .setStringValue(
-                                Optional.of("A=!hello")
-                        ),
-                "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [A=!hello]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 2\n"
+            SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.empty()
+                .setStringValue(
+                    Optional.of("A=!hello")
+                ),
+            "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [A=!hello]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 2\n"
         );
     }
 

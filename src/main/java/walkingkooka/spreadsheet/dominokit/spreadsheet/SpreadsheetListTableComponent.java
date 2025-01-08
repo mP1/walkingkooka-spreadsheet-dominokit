@@ -45,8 +45,8 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
     static SpreadsheetListTableComponent empty(final String id,
                                                final SpreadsheetListDialogComponentContext context) {
         return new SpreadsheetListTableComponent(
-                Objects.requireNonNull(id, "id"),
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(id, "id"),
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -57,54 +57,54 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
         this.card = SpreadsheetCard.empty();
 
         this.table = SpreadsheetDataTableComponent.with(
+            id,
+            columnConfigs(),
+            SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer.with(
                 id,
-                columnConfigs(),
-                SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer.with(
-                        id,
-                        context
-                )
+                context
+            )
         ).emptyStatePlugin(
-                SpreadsheetIcons.spreadsheetListTableEmpty(),
-                "No spreadsheets"
+            SpreadsheetIcons.spreadsheetListTableEmpty(),
+            "No spreadsheets"
         );
 
         this.card.appendChild(
-                this.table.previousNextLinks(id)
+            this.table.previousNextLinks(id)
         );
     }
 
     private List<ColumnConfig<SpreadsheetMetadata>> columnConfigs() {
         return Lists.of(
-                columnConfig(
-                        "Name",
-                        "name",
-                        TextAlign.LEFT
-                ),
-                columnConfig(
-                        "Created by",
-                        "created-by",
-                        TextAlign.LEFT
-                ),
-                columnConfig(
-                        "Created",
-                        "create-date-time",
-                        TextAlign.LEFT
-                ),
-                columnConfig(
-                        "Last modified by",
-                        "last-modified-by",
-                        TextAlign.LEFT
-                ),
-                columnConfig(
-                        "Last modified",
-                        "last-modified-date-time",
-                        TextAlign.LEFT
-                ),
-                columnConfig(
-                        "Links",
-                        "links",
-                        TextAlign.LEFT
-                )
+            columnConfig(
+                "Name",
+                "name",
+                TextAlign.LEFT
+            ),
+            columnConfig(
+                "Created by",
+                "created-by",
+                TextAlign.LEFT
+            ),
+            columnConfig(
+                "Created",
+                "create-date-time",
+                TextAlign.LEFT
+            ),
+            columnConfig(
+                "Last modified by",
+                "last-modified-by",
+                TextAlign.LEFT
+            ),
+            columnConfig(
+                "Last modified",
+                "last-modified-date-time",
+                TextAlign.LEFT
+            ),
+            columnConfig(
+                "Links",
+                "links",
+                TextAlign.LEFT
+            )
         );
     }
 
@@ -112,22 +112,22 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
                                                                   final String columnName,
                                                                   final TextAlign textAlign) {
         return ColumnConfig.<SpreadsheetMetadata>create(columnName)
-                .setTitle(title)
-                .setFixed(true)
-                .setTextAlign(
-                        CellTextAlign.valueOf(
-                                textAlign.name()
-                        )
-                );
+            .setTitle(title)
+            .setFixed(true)
+            .setTextAlign(
+                CellTextAlign.valueOf(
+                    textAlign.name()
+                )
+            );
     }
 
     private final SpreadsheetDataTableComponent<SpreadsheetMetadata> table;
 
     SpreadsheetListTableComponent setMetadata(final List<SpreadsheetMetadata> metadatas) {
         this.table.setValue(
-                Optional.of(
-                        metadatas
-                )
+            Optional.of(
+                metadatas
+            )
         );
 
         return this;
@@ -135,8 +135,8 @@ final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDi
 
     void refresh(final SpreadsheetListHistoryToken historyToken) {
         this.table.refreshPreviousNextLinks(
-                historyToken,
-                DEFAULT_COUNT
+            historyToken,
+            DEFAULT_COUNT
         );
     }
 

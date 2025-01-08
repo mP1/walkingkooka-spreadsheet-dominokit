@@ -33,7 +33,7 @@ public final class SpreadsheetConditionRightParserTokenComponent implements Valu
 
     public static SpreadsheetConditionRightParserTokenComponent empty(final Supplier<SpreadsheetParserContext> context) {
         return new SpreadsheetConditionRightParserTokenComponent(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -41,10 +41,10 @@ public final class SpreadsheetConditionRightParserTokenComponent implements Valu
         final SpreadsheetConditionRightParserTokenComponentConditionFunction function = SpreadsheetConditionRightParserTokenComponentConditionFunction.with(context);
 
         this.textBox = ValueSpreadsheetTextBox.with(
-                function,
-                HasText::text
+            function,
+            HasText::text
         ).setValidator(
-                SpreadsheetConditionRightParserTokenComponentValidator.with(function)
+            SpreadsheetConditionRightParserTokenComponentValidator.with(function)
         );
     }
 

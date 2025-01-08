@@ -44,9 +44,9 @@ import java.util.Optional;
  * A dialog that displays a file from a plugin archive.
  */
 public final class PluginFileViewDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        PluginFetcherWatcher,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher {
+    PluginFetcherWatcher,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher {
 
     public static PluginFileViewDialogComponent with(final PluginFileViewDialogComponentContext context) {
         Objects.requireNonNull(context, "context");
@@ -60,8 +60,8 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
         this.textView = this.textView();
 
         this.download = PluginDownloadAnchorComponent.empty(
-                        "plugin-download" + SpreadsheetElementIds.LINK
-                ).setTextContent("Download");
+            "plugin-download" + SpreadsheetElementIds.LINK
+        ).setTextContent("Download");
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate(context);
@@ -77,24 +77,24 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
      */
     private SpreadsheetTextViewComponent textView() {
         return SpreadsheetTextViewComponent.empty()
-                .setId(ID_PREFIX + "Text");
+            .setId(ID_PREFIX + "Text");
     }
 
     private void refreshTextView() {
         final PluginFileViewHistoryToken historyToken = context.historyToken()
-                .cast(PluginFileViewHistoryToken.class);
+            .cast(PluginFileViewHistoryToken.class);
 
         final PluginName pluginName = historyToken.name();
         final JarEntryInfoName filename = historyToken.file()
-                .get();
+            .get();
 
         if (false == pluginName.equals(this.pluginName) || false == filename.equals(this.filename)) {
             this.pluginName = pluginName;
             this.filename = filename;
 
             this.context.loadJarTextFile(
-                    pluginName,
-                    filename
+                pluginName,
+                filename
             );
         }
     }
@@ -115,9 +115,9 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
 
     private void refreshClose(final HistoryTokenContext context) {
         this.close.setHistoryToken(
-                Optional.of(
-                        context.historyToken().close()
-                )
+            Optional.of(
+                context.historyToken().close()
+            )
         );
     }
 
@@ -127,19 +127,19 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
 
     private void refreshDownload() {
         final PluginFileViewHistoryToken historyToken = context.historyToken()
-                .cast(PluginFileViewHistoryToken.class);
+            .cast(PluginFileViewHistoryToken.class);
 
         final PluginName pluginName = historyToken.name();
         final JarEntryInfoName filename = historyToken.file()
-                .get();
+            .get();
 
         this.download.setValue(
-                Optional.ofNullable(
-                        PluginDownload.with(
-                                pluginName,
-                                Optional.of(filename)
-                        )
+            Optional.ofNullable(
+                PluginDownload.with(
+                    pluginName,
+                    Optional.of(filename)
                 )
+            )
         );
     }
 
@@ -149,26 +149,26 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
 
     private SpreadsheetDialogComponent dialogCreate(final PluginFileViewDialogComponentContext context) {
         return SpreadsheetDialogComponent.with(
-                        ID + SpreadsheetElementIds.DIALOG, // id
-                        "View", // title
-                        true, // includeClose
-                        context
-                ).appendChild(this.textView)
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(this.download)
-                                .appendChild(this.close)
-                );
+                ID + SpreadsheetElementIds.DIALOG, // id
+                "View", // title
+                true, // includeClose
+                context
+            ).appendChild(this.textView)
+            .appendChild(
+                SpreadsheetFlexLayout.row()
+                    .appendChild(this.download)
+                    .appendChild(this.close)
+            );
     }
 
     private void refreshDialog() {
         final PluginFileViewHistoryToken historyToken = context.historyToken()
-                .cast(PluginFileViewHistoryToken.class);
+            .cast(PluginFileViewHistoryToken.class);
 
         this.dialog.setTitle(
-                historyToken.file()
-                        .get()
-                        .value()
+            historyToken.file()
+                .get()
+                .value()
         );
     }
 
@@ -234,9 +234,9 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
     @Override
     public boolean isMatch(final HistoryToken token) {
         return token instanceof PluginFileViewHistoryToken &&
-                token.cast(PluginFileViewHistoryToken.class)
-                        .file()
-                        .isPresent();
+            token.cast(PluginFileViewHistoryToken.class)
+                .file()
+                .isPresent();
     }
 
     /**

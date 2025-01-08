@@ -31,108 +31,108 @@ public final class SpreadsheetTabsComponentTest implements HtmlElementComponentT
     @Test
     public void testEmptyNoTabs() {
         this.treePrintAndCheck(
-                SpreadsheetTabsComponent.with(
-                        new FakeHistoryTokenContext() {
-                            @Override
-                            public HistoryToken historyToken() {
-                                return HistoryToken.parseString("/1/Untitled/cell/B1/formatter");
-                            }
-                        }
-                ),
-                "SpreadsheetTabsComponent\n"
+            SpreadsheetTabsComponent.with(
+                new FakeHistoryTokenContext() {
+                    @Override
+                    public HistoryToken historyToken() {
+                        return HistoryToken.parseString("/1/Untitled/cell/B1/formatter");
+                    }
+                }
+            ),
+            "SpreadsheetTabsComponent\n"
         );
     }
 
     @Test
     public void testSeveralTabsNonActive() {
         this.treePrintAndCheck(
-                SpreadsheetTabsComponent.with(
-                                new FakeHistoryTokenContext() {
-                                    @Override
-                                    public HistoryToken historyToken() {
-                                        return HistoryToken.parseString("/1/Untitled/cell/B1/formatter");
-                                    }
-                                }
-                        ).appendTab("tab-1", "Tab-1A")
-                        .appendTab("tab-2", "Tab-2B")
-                        .appendTab("tab-3", "Tab-3C"),
-                "SpreadsheetTabsComponent\n" +
-                        "  TAB 0\n" +
-                        "    \"Tab-1A\" DISABLED id=tab-1\n" +
-                        "  TAB 1\n" +
-                        "    \"Tab-2B\" DISABLED id=tab-2\n" +
-                        "  TAB 2\n" +
-                        "    \"Tab-3C\" DISABLED id=tab-3\n"
+            SpreadsheetTabsComponent.with(
+                    new FakeHistoryTokenContext() {
+                        @Override
+                        public HistoryToken historyToken() {
+                            return HistoryToken.parseString("/1/Untitled/cell/B1/formatter");
+                        }
+                    }
+                ).appendTab("tab-1", "Tab-1A")
+                .appendTab("tab-2", "Tab-2B")
+                .appendTab("tab-3", "Tab-3C"),
+            "SpreadsheetTabsComponent\n" +
+                "  TAB 0\n" +
+                "    \"Tab-1A\" DISABLED id=tab-1\n" +
+                "  TAB 1\n" +
+                "    \"Tab-2B\" DISABLED id=tab-2\n" +
+                "  TAB 2\n" +
+                "    \"Tab-3C\" DISABLED id=tab-3\n"
         );
     }
 
     @Test
     public void testSeveralTabsIncludingActive() {
         this.treePrintAndCheck(
-                SpreadsheetTabsComponent.with(
-                                new FakeHistoryTokenContext() {
-                                    @Override
-                                    public HistoryToken historyToken() {
-                                        return HistoryToken.parseString("/1/Untitled/cell/B1/formatter");
-                                    }
-                                }
-                        ).appendTab("tab-1", "Tab-1A")
-                        .appendTab("tab-2", "Tab-2B")
-                        .appendTab("tab-3", "Tab-3C")
-                        .setTab(1),
-                "SpreadsheetTabsComponent\n" +
-                        "  TAB 0\n" +
-                        "    \"Tab-1A\" DISABLED id=tab-1\n" +
-                        "  TAB 1 SELECTED\n" +
-                        "    \"Tab-2B\" DISABLED id=tab-2\n" +
-                        "  TAB 2\n" +
-                        "    \"Tab-3C\" DISABLED id=tab-3\n"
+            SpreadsheetTabsComponent.with(
+                    new FakeHistoryTokenContext() {
+                        @Override
+                        public HistoryToken historyToken() {
+                            return HistoryToken.parseString("/1/Untitled/cell/B1/formatter");
+                        }
+                    }
+                ).appendTab("tab-1", "Tab-1A")
+                .appendTab("tab-2", "Tab-2B")
+                .appendTab("tab-3", "Tab-3C")
+                .setTab(1),
+            "SpreadsheetTabsComponent\n" +
+                "  TAB 0\n" +
+                "    \"Tab-1A\" DISABLED id=tab-1\n" +
+                "  TAB 1 SELECTED\n" +
+                "    \"Tab-2B\" DISABLED id=tab-2\n" +
+                "  TAB 2\n" +
+                "    \"Tab-3C\" DISABLED id=tab-3\n"
         );
     }
 
     @Test
     public void testSeveralTabsIncludingActiveLinksWithAnchor() {
         final SpreadsheetTabsComponent tabs = SpreadsheetTabsComponent.with(
-                        new FakeHistoryTokenContext() {
-                            @Override
-                            public HistoryToken historyToken() {
-                                return HistoryToken.parseString("/1/Untitled/cell/B1/formatter");
-                            }
-                        }
-                ).appendTab("date-tab", "Date")
-                .appendTab("number-tab", "Number")
-                .appendTab("text-tab", "Text")
-                .setTab(1);
+                new FakeHistoryTokenContext() {
+                    @Override
+                    public HistoryToken historyToken() {
+                        return HistoryToken.parseString("/1/Untitled/cell/B1/formatter");
+                    }
+                }
+            ).appendTab("date-tab", "Date")
+            .appendTab("number-tab", "Number")
+            .appendTab("text-tab", "Text")
+            .setTab(1);
 
         tabs.anchor(0)
-                .setHistoryToken(
-                        Optional.of(
-                                HistoryToken.parseString("/1/Untitled/cell/B1/formatter")
-                        )
+            .setHistoryToken(
+                Optional.of(
+                    HistoryToken.parseString("/1/Untitled/cell/B1/formatter")
+                )
 
-                );
+            );
         tabs.anchor(1)
-                .setHistoryToken(
-                        Optional.of(
-                                HistoryToken.parseString("/1/Untitled/cell/B1/formatter")
-                        )
-                );
+            .setHistoryToken(
+                Optional.of(
+                    HistoryToken.parseString("/1/Untitled/cell/B1/formatter")
+                )
+            );
         tabs.anchor(2)
-                .setHistoryToken(
-                        Optional.of(
-                                HistoryToken.parseString("/1/Untitled/cell/B1/formatter")
-                        )
-                );
+            .setHistoryToken(
+                Optional.of(
+                    HistoryToken.parseString("/1/Untitled/cell/B1/formatter")
+                )
+            );
 
         this.treePrintAndCheck(
-                tabs,
-                "SpreadsheetTabsComponent\n" +
-                        "  TAB 0\n" +
-                        "    \"Date\" [#/1/Untitled/cell/B1/formatter] id=date-tab\n" +
-                        "  TAB 1 SELECTED\n" +
-                        "    \"Number\" [#/1/Untitled/cell/B1/formatter] id=number-tab\n" +
-                        "  TAB 2\n" +
-                        "    \"Text\" [#/1/Untitled/cell/B1/formatter] id=text-tab\n"
+            tabs,
+            "SpreadsheetTabsComponent\n" +
+                "  TAB 0\n" +
+                "    \"Date\" [#/1/Untitled/cell/B1/formatter] id=date-tab\n" +
+                "  TAB 1 SELECTED\n" +
+                "    \"Number\" [#/1/Untitled/cell/B1/formatter] id=number-tab\n" +
+                "  TAB 2\n" +
+                "    \"Text\" [#/1/Untitled/cell/B1/formatter] id=text-tab\n"
         );
     }
 

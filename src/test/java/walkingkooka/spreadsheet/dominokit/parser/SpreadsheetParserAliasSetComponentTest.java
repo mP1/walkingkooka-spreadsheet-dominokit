@@ -32,42 +32,42 @@ public final class SpreadsheetParserAliasSetComponentTest implements ValueCompon
         final SpreadsheetParserAliasSet alias = SpreadsheetParserAliasSet.parse("alias1 plugin1, plugin2");
 
         this.checkEquals(
-                alias,
-                SpreadsheetParserAliasSet.parse(alias.text())
+            alias,
+            SpreadsheetParserAliasSet.parse(alias.text())
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetParserAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "alias1 parser1, parser2"
-                                )
-                        ),
-                "SpreadsheetParserAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [alias1 parser1, parser2]\n"
+            SpreadsheetParserAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "alias1 parser1, parser2"
+                    )
+                ),
+            "SpreadsheetParserAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [alias1 parser1, parser2]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetParserAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "alias1 parser1, 9"
-                                )
-                        ),
-                "SpreadsheetParserAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [alias1 parser1, 9]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '9' at 16\n"
+            SpreadsheetParserAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "alias1 parser1, 9"
+                    )
+                ),
+            "SpreadsheetParserAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [alias1 parser1, 9]\n" +
+                "      Errors\n" +
+                "        Invalid character '9' at 16\n"
         );
     }
 

@@ -29,26 +29,26 @@ import java.util.Objects;
 import java.util.Optional;
 
 final class SpreadsheetToolbarComponentItemAnchorReload extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorReload>
-        implements NopComponentLifecycleOpenGiveFocus,
-        NopComponentLifecycleRefresh {
+    implements NopComponentLifecycleOpenGiveFocus,
+    NopComponentLifecycleRefresh {
 
     static SpreadsheetToolbarComponentItemAnchorReload with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorReload(
-                context
+            context
         );
     }
 
     private SpreadsheetToolbarComponentItemAnchorReload(final SpreadsheetToolbarComponentContext context) {
         super(
-                SpreadsheetToolbarComponent.reloadId(),
-                Optional.of(
-                        SpreadsheetIcons.reload()
-                ),
-                "Reload",
-                "Reload",
-                context
+            SpreadsheetToolbarComponent.reloadId(),
+            Optional.of(
+                SpreadsheetIcons.reload()
+            ),
+            "Reload",
+            "Reload",
+            context
         );
     }
 
@@ -64,10 +64,10 @@ final class SpreadsheetToolbarComponentItemAnchorReload extends SpreadsheetToolb
     @Override
     public void refresh(final RefreshContext context) {
         this.anchor.setHistoryToken(
-                Optional.of(
-                        context.historyToken()
-                                .reload()
-                )
+            Optional.of(
+                context.historyToken()
+                    .reload()
+            )
         );
     }
 

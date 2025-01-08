@@ -38,13 +38,13 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     @Test
     public void testWithNullValueFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetMetadataPropertySaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.LOCALE,
-                        null
-                )
+            NullPointerException.class,
+            () -> SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.LOCALE,
+                null
+            )
         );
     }
 
@@ -56,75 +56,75 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     @Test
     public void testUrlFragmentDateFormatPatternNullValue() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataPropertySaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.DATE_FORMATTER,
-                        Optional.empty()
-                ),
-                "/123/SpreadsheetName456/spreadsheet/date-formatter/save/"
+            SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DATE_FORMATTER,
+                Optional.empty()
+            ),
+            "/123/SpreadsheetName456/spreadsheet/date-formatter/save/"
         );
     }
 
     @Test
     public void testUrlFragmentDateFormatter() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataPropertySaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.DATE_FORMATTER,
-                        Optional.of(
-                                SpreadsheetPattern.parseDateFormatPattern("yymmdd")
-                                        .spreadsheetFormatterSelector()
-                        )
-                ),
-                "/123/SpreadsheetName456/spreadsheet/date-formatter/save/date-format-pattern yymmdd"
+            SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DATE_FORMATTER,
+                Optional.of(
+                    SpreadsheetPattern.parseDateFormatPattern("yymmdd")
+                        .spreadsheetFormatterSelector()
+                )
+            ),
+            "/123/SpreadsheetName456/spreadsheet/date-formatter/save/date-format-pattern yymmdd"
         );
     }
 
     @Test
     public void testUrlFragmentDefaultYear() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataPropertySaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
-                        Optional.of(
-                                99
-                        )
-                ),
-                "/123/SpreadsheetName456/spreadsheet/default-year/save/99"
+            SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
+                Optional.of(
+                    99
+                )
+            ),
+            "/123/SpreadsheetName456/spreadsheet/default-year/save/99"
         );
     }
 
     @Test
     public void testParseDateFormatter() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/date-formatter/save/date-format-pattern%20yymmdd",
-                SpreadsheetMetadataPropertySaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.DATE_FORMATTER,
-                        Optional.of(
-                                SpreadsheetPattern.parseDateFormatPattern("yymmdd")
-                                        .spreadsheetFormatterSelector()
-                        )
+            "/123/SpreadsheetName456/spreadsheet/date-formatter/save/date-format-pattern%20yymmdd",
+            SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DATE_FORMATTER,
+                Optional.of(
+                    SpreadsheetPattern.parseDateFormatPattern("yymmdd")
+                        .spreadsheetFormatterSelector()
                 )
+            )
         );
     }
 
     @Test
     public void testParseDefaultYear() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/default-year/save/49",
-                SpreadsheetMetadataPropertySaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
-                        Optional.of(
-                                49
-                        )
+            "/123/SpreadsheetName456/spreadsheet/default-year/save/49",
+            SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
+                Optional.of(
+                    49
                 )
+            )
         );
     }
 
@@ -132,40 +132,40 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     @Test
     public void testParseSpreadsheetId() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/spreadsheet-id/save/456",
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID
-                )
+            "/123/SpreadsheetName456/spreadsheet/spreadsheet-id/save/456",
+            HistoryToken.metadataPropertySelect(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.SPREADSHEET_ID
+            )
         );
     }
 
     @Test
     public void testParseStyleSaveWithoutValue() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/style/color/save/",
-                HistoryToken.metadataPropertyStyleSave(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.COLOR,
-                        Optional.empty()
-                )
+            "/123/SpreadsheetName456/spreadsheet/style/color/save/",
+            HistoryToken.metadataPropertyStyleSave(
+                ID,
+                NAME,
+                TextStylePropertyName.COLOR,
+                Optional.empty()
+            )
         );
     }
 
     @Test
     public void testParseStyleSaveValue() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/style/color/save/#123456",
-                HistoryToken.metadataPropertyStyleSave(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.COLOR,
-                        Optional.of(
-                                Color.parse("#123456")
-                        )
+            "/123/SpreadsheetName456/spreadsheet/style/color/save/#123456",
+            HistoryToken.metadataPropertyStyleSave(
+                ID,
+                NAME,
+                TextStylePropertyName.COLOR,
+                Optional.of(
+                    Color.parse("#123456")
                 )
+            )
         );
     }
 
@@ -174,12 +174,12 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        EXPRESSION_NUMBER_KIND
-                )
+            this.createHistoryToken(),
+            HistoryToken.metadataPropertySelect(
+                ID,
+                NAME,
+                EXPRESSION_NUMBER_KIND
+            )
         );
     }
 
@@ -188,38 +188,38 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     @Test
     public void testCloseFormatPattern() {
         this.closeAndCheck(
-                HistoryToken.metadataPropertySave(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.DATE_FORMATTER,
-                        Optional.of(
-                                SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                                        .spreadsheetFormatterSelector()
-                        )
-                ),
-                HistoryToken.metadataSelect(
-                        ID,
-                        NAME
+            HistoryToken.metadataPropertySave(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DATE_FORMATTER,
+                Optional.of(
+                    SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                        .spreadsheetFormatterSelector()
                 )
+            ),
+            HistoryToken.metadataSelect(
+                ID,
+                NAME
+            )
         );
     }
 
     @Test
     public void testCloseParsePattern() {
         this.closeAndCheck(
-                HistoryToken.metadataPropertySave(
-                        ID,
-                        NAME,
-                        SpreadsheetMetadataPropertyName.DATE_PARSER,
-                        Optional.of(
-                                SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
-                                        .spreadsheetParserSelector()
-                        )
-                ),
-                HistoryToken.metadataSelect(
-                        ID,
-                        NAME
+            HistoryToken.metadataPropertySave(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.DATE_PARSER,
+                Optional.of(
+                    SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
+                        .spreadsheetParserSelector()
                 )
+            ),
+            HistoryToken.metadataSelect(
+                ID,
+                NAME
+            )
         );
     }
 
@@ -229,9 +229,9 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     SpreadsheetMetadataPropertySaveHistoryToken<ExpressionNumberKind> createHistoryToken(final SpreadsheetId id,
                                                                                          final SpreadsheetName name) {
         return this.createHistoryToken(
-                id,
-                name,
-                EXPRESSION_NUMBER_KIND
+            id,
+            name,
+            EXPRESSION_NUMBER_KIND
         );
     }
 
@@ -240,12 +240,12 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                                                                                          final SpreadsheetName name,
                                                                                          final SpreadsheetMetadataPropertyName<ExpressionNumberKind> propertyName) {
         return SpreadsheetMetadataPropertySaveHistoryToken.with(
-                id,
-                name,
-                propertyName,
-                Optional.of(
-                        ExpressionNumberKind.BIG_DECIMAL
-                )
+            id,
+            name,
+            propertyName,
+            Optional.of(
+                ExpressionNumberKind.BIG_DECIMAL
+            )
         );
     }
 

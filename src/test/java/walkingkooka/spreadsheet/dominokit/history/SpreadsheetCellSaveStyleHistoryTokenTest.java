@@ -38,48 +38,48 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
     @Test
     public void testWithSaveFormulasOutsideRangeFails() {
         final IllegalArgumentException thrown = assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetCellSaveStyleHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.parseCell("A2"),
-                                TextStyle.EMPTY
-                        )
+            IllegalArgumentException.class,
+            () -> SpreadsheetCellSaveStyleHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.parseCell("A2"),
+                    TextStyle.EMPTY
                 )
+            )
         );
 
         this.checkEquals(
-                "Save value includes cells A2 outside A1",
-                thrown.getMessage(),
-                "message"
+            "Save value includes cells A2 outside A1",
+            thrown.getMessage(),
+            "message"
         );
     }
 
     @Test
     public void testWithSaveFormulasOutsideRangeFails2() {
         final IllegalArgumentException thrown = assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetCellSaveStyleHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A2:A3").setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                TextStyle.EMPTY,
-                                SpreadsheetSelection.parseCell("A3"),
-                                TextStyle.EMPTY,
-                                SpreadsheetSelection.parseCell("A4"),
-                                TextStyle.EMPTY
-                        )
+            IllegalArgumentException.class,
+            () -> SpreadsheetCellSaveStyleHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A2:A3").setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.A1,
+                    TextStyle.EMPTY,
+                    SpreadsheetSelection.parseCell("A3"),
+                    TextStyle.EMPTY,
+                    SpreadsheetSelection.parseCell("A4"),
+                    TextStyle.EMPTY
                 )
+            )
         );
 
         this.checkEquals(
-                "Save value includes cells A1, A4 outside A2:A3",
-                thrown.getMessage(),
-                "message"
+            "Save value includes cells A1, A4 outside A2:A3",
+            thrown.getMessage(),
+            "message"
         );
     }
 
@@ -88,129 +88,129 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/save/style",
-                SpreadsheetCellSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/save/style",
+            SpreadsheetCellSelectHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/save/style/{\"A1\":{\"color\":\"#123456\"}}",
-                SpreadsheetCellSaveStyleHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                TextStyle.EMPTY.set(
-                                        TextStylePropertyName.COLOR,
-                                        Color.parse("#123456")
-                                )
-                        )
+            "/123/SpreadsheetName456/cell/A1/save/style/{\"A1\":{\"color\":\"#123456\"}}",
+            SpreadsheetCellSaveStyleHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.A1,
+                    TextStyle.EMPTY.set(
+                        TextStylePropertyName.COLOR,
+                        Color.parse("#123456")
+                    )
                 )
+            )
         );
     }
 
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1:A2/save/style/{\"A1\":{\"color\":\"#111111\"},\"A2\":{\"color\":\"#222222\"}}",
-                SpreadsheetCellSaveStyleHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:A2")
-                                .setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                TextStyle.EMPTY.set(
-                                        TextStylePropertyName.COLOR,
-                                        Color.parse("#111111")
-                                ),
-                                SpreadsheetSelection.parseCell("A2"),
-                                TextStyle.EMPTY.set(
-                                        TextStylePropertyName.COLOR,
-                                        Color.parse("#222222")
-                                )
-                        )
+            "/123/SpreadsheetName456/cell/A1:A2/save/style/{\"A1\":{\"color\":\"#111111\"},\"A2\":{\"color\":\"#222222\"}}",
+            SpreadsheetCellSaveStyleHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:A2")
+                    .setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.A1,
+                    TextStyle.EMPTY.set(
+                        TextStylePropertyName.COLOR,
+                        Color.parse("#111111")
+                    ),
+                    SpreadsheetSelection.parseCell("A2"),
+                    TextStyle.EMPTY.set(
+                        TextStylePropertyName.COLOR,
+                        Color.parse("#222222")
+                    )
                 )
+            )
         );
     }
 
     @Test
     public void testUrlFragment() {
         final Map<SpreadsheetCellReference, TextStyle> cellToStyle = Maps.of(
-                SpreadsheetSelection.A1,
-                TextStyle.EMPTY.set(
-                        TextStylePropertyName.COLOR,
-                        Color.parse("#123456")
-                )
+            SpreadsheetSelection.A1,
+            TextStyle.EMPTY.set(
+                TextStylePropertyName.COLOR,
+                Color.parse("#123456")
+            )
         );
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveStyleHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        cellToStyle
-                ),
-                "/123/SpreadsheetName456/cell/A1/save/style/" + marshallMap(cellToStyle)
+            SpreadsheetCellSaveStyleHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                cellToStyle
+            ),
+            "/123/SpreadsheetName456/cell/A1/save/style/" + marshallMap(cellToStyle)
         );
     }
 
     @Test
     public void testUrlFragment2() {
         final Map<SpreadsheetCellReference, TextStyle> cellToStyle = Maps.of(
-                SpreadsheetSelection.A1,
-                TextStyle.EMPTY.set(
-                        TextStylePropertyName.COLOR,
-                        Color.parse("#123456")
-                )
+            SpreadsheetSelection.A1,
+            TextStyle.EMPTY.set(
+                TextStylePropertyName.COLOR,
+                Color.parse("#123456")
+            )
         );
 
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveStyleHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        cellToStyle
-                ),
-                "/123/SpreadsheetName456/cell/A1/save/style/" + marshallMap(cellToStyle)
+            SpreadsheetCellSaveStyleHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                cellToStyle
+            ),
+            "/123/SpreadsheetName456/cell/A1/save/style/" + marshallMap(cellToStyle)
         );
     }
 
     @Test
     public void testUrlFragmentWithMultipleCells() {
         final Map<SpreadsheetCellReference, TextStyle> cellToStyle = Maps.of(
-                SpreadsheetSelection.A1,
-                TextStyle.EMPTY.set(
-                        TextStylePropertyName.COLOR,
-                        Color.parse("#111111")
-                ),
-                SpreadsheetSelection.parseCell("A2"),
-                TextStyle.EMPTY.set(
-                        TextStylePropertyName.COLOR,
-                        Color.parse("#222222")
-                ),
-                SpreadsheetSelection.parseCell("A3"),
-                TextStyle.EMPTY.set(
-                        TextStylePropertyName.COLOR,
-                        Color.parse("#333333")
-                )
+            SpreadsheetSelection.A1,
+            TextStyle.EMPTY.set(
+                TextStylePropertyName.COLOR,
+                Color.parse("#111111")
+            ),
+            SpreadsheetSelection.parseCell("A2"),
+            TextStyle.EMPTY.set(
+                TextStylePropertyName.COLOR,
+                Color.parse("#222222")
+            ),
+            SpreadsheetSelection.parseCell("A3"),
+            TextStyle.EMPTY.set(
+                TextStylePropertyName.COLOR,
+                Color.parse("#333333")
+            )
         );
 
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveStyleHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:A3")
-                                .setDefaultAnchor(),
-                        cellToStyle
-                ),
-                "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/style/" + marshallMap(cellToStyle)
+            SpreadsheetCellSaveStyleHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:A3")
+                    .setDefaultAnchor(),
+                cellToStyle
+            ),
+            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/style/" + marshallMap(cellToStyle)
         );
     }
 
@@ -219,16 +219,16 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
                                                             final SpreadsheetName name,
                                                             final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellSaveStyleHistoryToken.with(
-                id,
-                name,
-                anchoredSelection,
-                Maps.of(
-                        SpreadsheetSelection.A1,
-                        TextStyle.EMPTY.set(
-                                TextStylePropertyName.TEXT_ALIGN,
-                                TextAlign.CENTER
-                        )
+            id,
+            name,
+            anchoredSelection,
+            Maps.of(
+                SpreadsheetSelection.A1,
+                TextStyle.EMPTY.set(
+                    TextStylePropertyName.TEXT_ALIGN,
+                    TextAlign.CENTER
                 )
+            )
         );
     }
 

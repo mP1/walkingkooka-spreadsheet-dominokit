@@ -34,7 +34,7 @@ import java.util.Optional;
  * A drop down that supports picking an optional {@link String spreadsheet value type}.
  */
 final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLFieldSetElement, String, SpreadsheetValueTypeComponent>,
-        TreePrintable {
+    TreePrintable {
 
     static SpreadsheetValueTypeComponent empty() {
         return new SpreadsheetValueTypeComponent();
@@ -166,7 +166,7 @@ final class SpreadsheetValueTypeComponent implements ValueComponent<HTMLFieldSet
     @Override
     public SpreadsheetValueTypeComponent addFocusListener(final EventListener listener) {
         this.select.addFocusListener(
-                listener
+            listener
         );
         return this;
     }

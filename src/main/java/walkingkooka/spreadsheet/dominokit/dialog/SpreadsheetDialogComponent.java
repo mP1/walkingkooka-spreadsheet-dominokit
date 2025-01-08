@@ -59,10 +59,10 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetDialogComponent(
-                id,
-                title,
-                includeClose,
-                context
+            id,
+            title,
+            includeClose,
+            context
         );
     }
 
@@ -77,13 +77,13 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
 
         if (includeClose) {
             close = this.closeLink(
-                    id,
-                    context
+                id,
+                context
             );
             navBar.appendChild(
-                    PostfixAddOn.of(
-                            close
-                    )
+                PostfixAddOn.of(
+                    close
+                )
             );
         } else {
             close = null;
@@ -95,8 +95,8 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
 
         // only auto close when the user clicks the background if a CLOSE icon is included
         this.dialog = dialog(navBar)
-                .id(id)
-                .setAutoClose(includeClose);
+            .id(id)
+            .setAutoClose(includeClose);
 
         this.setTitle(title);
     }
@@ -104,12 +104,12 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
     private HistoryTokenAnchorComponent closeLink(final String id,
                                                   final HistoryTokenContext context) {
         return context.historyToken()
-                .link(id + "-close-X")
-                .setIconAfter(
-                        Optional.of(
-                                SpreadsheetIcons.close()
-                        )
-                );
+            .link(id + "-close-X")
+            .setIconAfter(
+                Optional.of(
+                    SpreadsheetIcons.close()
+                )
+            );
     }
 
     private final HistoryTokenAnchorComponent close;
@@ -123,14 +123,14 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
      */
     private Dialog dialog(final NavBar navBar) {
         return Dialog.create()
-                //.setType(DialogType.DEFAULT) // large
-                .setModal(true)
-                .setStretchWidth(DialogSize.LARGE)
-                .setStretchHeight(DialogSize.LARGE)
-                .withHeader(
-                        (d, header) ->
-                                header.appendChild(navBar)
-                ).addCloseListener(this::onClose);
+            //.setType(DialogType.DEFAULT) // large
+            .setModal(true)
+            .setStretchWidth(DialogSize.LARGE)
+            .setStretchHeight(DialogSize.LARGE)
+            .withHeader(
+                (d, header) ->
+                    header.appendChild(navBar)
+            ).addCloseListener(this::onClose);
     }
 
     private void onClose(final Dialog dialog) {
@@ -146,8 +146,8 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
                 final HistoryTokenContext context = this.context;
 
                 context.pushHistoryToken(
-                        context.historyToken()
-                                .close()
+                    context.historyToken()
+                        .close()
                 );
             }
         }
@@ -224,10 +224,10 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
         final HistoryTokenAnchorComponent close = this.close;
         if (null != close) {
             close.setHistoryToken(
-                    Optional.of(
-                            this.context.historyToken()
-                                    .close()
-                    )
+                Optional.of(
+                    this.context.historyToken()
+                        .close()
+                )
             );
         }
 
@@ -288,8 +288,8 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
     @Override
     public void printTreeChildren(final IndentingPrinter printer) {
         printer.println(
-                this.element()
-                        .toString()
+            this.element()
+                .toString()
         );
     }
 }

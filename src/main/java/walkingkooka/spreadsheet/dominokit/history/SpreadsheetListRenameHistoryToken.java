@@ -25,14 +25,14 @@ public abstract class SpreadsheetListRenameHistoryToken extends SpreadsheetIdHis
 
     SpreadsheetListRenameHistoryToken(final SpreadsheetId id) {
         super(
-                id
+            id
         );
     }
 
     @Override //
     final UrlFragment spreadsheetUrlFragment() {
         return RENAME.appendSlashThen(
-                this.id().urlFragment()
+            this.id().urlFragment()
         ).appendSlashThen(this.renameUrlFragment());
     }
 
@@ -42,8 +42,8 @@ public abstract class SpreadsheetListRenameHistoryToken extends SpreadsheetIdHis
     final HistoryToken replaceIdAndName(final SpreadsheetId id,
                                         final SpreadsheetName name) {
         return HistoryToken.spreadsheetSelect(
-                id,
-                name
+            id,
+            name
         );
     }
 }

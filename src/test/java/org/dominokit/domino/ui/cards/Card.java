@@ -28,7 +28,7 @@ import walkingkooka.text.printer.TreePrintable;
 import java.util.List;
 
 public class Card implements IsElement<Element>,
-        TreePrintable {
+    TreePrintable {
 
     public static Card create() {
         return new Card();
@@ -103,8 +103,8 @@ public class Card implements IsElement<Element>,
         for (final IsElement<?> component : this.components) {
             printer.lineStart();
             TreePrintable.printTreeOrToString(
-                    component,
-                    printer
+                component,
+                printer
             );
         }
     }

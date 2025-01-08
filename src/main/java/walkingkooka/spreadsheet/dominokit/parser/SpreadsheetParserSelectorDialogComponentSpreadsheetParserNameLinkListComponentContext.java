@@ -26,16 +26,16 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
 import java.util.Optional;
 
 final class SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext implements SpreadsheetParserNameLinkListComponentContext,
-        HistoryTokenContextDelegator,
-        SpreadsheetParserProviderDelegator {
+    HistoryTokenContextDelegator,
+    SpreadsheetParserProviderDelegator {
 
     static SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext with(final HistoryTokenContext historyTokenContext,
                                                                                                       final SpreadsheetParserProvider spreadsheetParserProvider,
                                                                                                       final Optional<SpreadsheetParserName> parserName) {
         return new SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext(
-                historyTokenContext,
-                spreadsheetParserProvider,
-                parserName
+            historyTokenContext,
+            spreadsheetParserProvider,
+            parserName
         );
     }
 

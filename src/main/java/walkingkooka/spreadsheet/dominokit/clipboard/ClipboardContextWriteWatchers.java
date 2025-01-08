@@ -35,8 +35,8 @@ public final class ClipboardContextWriteWatchers implements PublicStaticHelper {
     public static ClipboardContextWriteWatcher logging(final ClipboardTextItem clipboardTextItem,
                                                        final LoggingContext context) {
         return LoggingClipboardContextWriteWatcher.with(
-                clipboardTextItem,
-                context
+            clipboardTextItem,
+            context
         );
     }
 

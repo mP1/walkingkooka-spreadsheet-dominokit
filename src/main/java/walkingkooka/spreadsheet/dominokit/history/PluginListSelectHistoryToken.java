@@ -33,16 +33,16 @@ public final class PluginListSelectHistoryToken extends PluginListHistoryToken {
     static PluginListSelectHistoryToken with(final OptionalInt offset,
                                              final OptionalInt count) {
         return new PluginListSelectHistoryToken(
-                checkOffset(offset),
-                count
+            checkOffset(offset),
+            count
         );
     }
 
     private PluginListSelectHistoryToken(final OptionalInt offset,
                                          final OptionalInt count) {
         super(
-                offset,
-                count
+            offset,
+            count
         );
     }
 
@@ -58,8 +58,8 @@ public final class PluginListSelectHistoryToken extends PluginListHistoryToken {
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.spreadsheetListSelect(
-                OptionalInt.empty(),
-                OptionalInt.empty()
+            OptionalInt.empty(),
+            OptionalInt.empty()
         );
     }
 

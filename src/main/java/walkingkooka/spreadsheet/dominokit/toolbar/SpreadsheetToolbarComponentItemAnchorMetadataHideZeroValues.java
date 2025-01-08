@@ -37,19 +37,19 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends 
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues(
-                context
+            context
         );
     }
 
     private SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues(final SpreadsheetToolbarComponentContext context) {
         super(
-                SpreadsheetToolbarComponent.hideZeroValues(),
-                Optional.of(
-                        SpreadsheetIcons.hideZeroValues()
-                ),
-                "Hide Zeros",
-                "Hide Zeros", // let refresh load tooltip
-                context
+            SpreadsheetToolbarComponent.hideZeroValues(),
+            Optional.of(
+                SpreadsheetIcons.hideZeroValues()
+            ),
+            "Hide Zeros",
+            "Hide Zeros", // let refresh load tooltip
+            context
         );
     }
 
@@ -67,21 +67,21 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends 
         final boolean hide = HideZeroValues.isHideZeroValues(this.context);
 
         this.setTooltipText(
-                HideZeroValues.label(false == hide)
+            HideZeroValues.label(false == hide)
         );
 
         this.anchor.setChecked(
-                hide
+            hide
         ).setHistoryToken(
-                Optional.of(
-                        context.historyToken()
-                                .setMetadataPropertyName(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
-                                .save(
-                                        Optional.of(
-                                                false == HideZeroValues.isHideZeroValues(this.context) // if hide=true then click makes hide=false
-                                        )
-                                )
-                )
+            Optional.of(
+                context.historyToken()
+                    .setMetadataPropertyName(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
+                    .save(
+                        Optional.of(
+                            false == HideZeroValues.isHideZeroValues(this.context) // if hide=true then click makes hide=false
+                        )
+                    )
+            )
         );
     }
 

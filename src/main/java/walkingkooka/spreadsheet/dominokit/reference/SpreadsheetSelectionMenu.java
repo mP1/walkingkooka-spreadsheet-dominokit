@@ -100,39 +100,39 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
         if (selection.isCellReference() || selection.isCellRangeReference() || selection.isLabelName()) {
             clipboard(
-                    historyToken,
-                    menu,
-                    context
+                historyToken,
+                menu,
+                context
             );
 
             style(
-                    historyToken,
-                    menu.subMenu(
-                            context.idPrefix() + "style" + SpreadsheetElementIds.SUB_MENU,
-                            "Style"
-                    ),
-                    context
+                historyToken,
+                menu.subMenu(
+                    context.idPrefix() + "style" + SpreadsheetElementIds.SUB_MENU,
+                    "Style"
+                ),
+                context
             );
 
             format(
-                    historyToken,
-                    menu,
-                    context
+                historyToken,
+                menu,
+                context
             );
 
             hideIfZero(
-                    historyToken,
-                    menu,
-                    context
+                historyToken,
+                menu,
+                context
             );
         }
         menu.separator();
 
         {
             clearDelete(
-                    historyToken,
-                    menu,
-                    context
+                historyToken,
+                menu,
+                context
             );
         }
         menu.separator();
@@ -170,13 +170,13 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             final String itemIdPrefix = idPrefix + "cut";
 
             clipboardCutCopyPaste(
-                    menu.subMenu(
-                            itemIdPrefix + SpreadsheetElementIds.SUB_MENU,
-                            "Cut",
-                            SpreadsheetIcons.cut()
-                    ),
-                    itemIdPrefix + '-',
-                    historyToken::setCellCut
+                menu.subMenu(
+                    itemIdPrefix + SpreadsheetElementIds.SUB_MENU,
+                    "Cut",
+                    SpreadsheetIcons.cut()
+                ),
+                itemIdPrefix + '-',
+                historyToken::setCellCut
             );
         }
 
@@ -184,13 +184,13 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             final String itemIdPrefix = idPrefix + "copy";
 
             clipboardCutCopyPaste(
-                    menu.subMenu(
-                            itemIdPrefix + SpreadsheetElementIds.SUB_MENU,
-                            "Copy",
-                            SpreadsheetIcons.copy()
-                    ),
-                    itemIdPrefix + '-',
-                    (k) -> historyToken.setCellCopy(k)
+                menu.subMenu(
+                    itemIdPrefix + SpreadsheetElementIds.SUB_MENU,
+                    "Copy",
+                    SpreadsheetIcons.copy()
+                ),
+                itemIdPrefix + '-',
+                (k) -> historyToken.setCellCopy(k)
             );
         }
 
@@ -198,13 +198,13 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             final String itemIdPrefix = idPrefix + "paste";
 
             clipboardCutCopyPaste(
-                    menu.subMenu(
-                            itemIdPrefix + SpreadsheetElementIds.SUB_MENU,
-                            "Paste",
-                            SpreadsheetIcons.paste()
-                    ),
-                    itemIdPrefix + '-',
-                    historyToken::setCellPaste
+                menu.subMenu(
+                    itemIdPrefix + SpreadsheetElementIds.SUB_MENU,
+                    "Paste",
+                    SpreadsheetIcons.paste()
+                ),
+                itemIdPrefix + '-',
+                historyToken::setCellPaste
             );
 
             // PASTE items are initially disabled and then async enabled after the clipboard is examined.
@@ -221,17 +221,17 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // Cut > Cell
         for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.menuItemValues()) {
             menu2 = menu2.item(
-                    SpreadsheetContextMenuItem.with(
-                            clipboardCutCopyPasteMenuItemId(
-                                    idPrefix,
-                                    kind
-                            ),
-                            clipboardCutCopyPasteMenuItemText(kind)
-                    ).historyToken(
-                            Optional.of(
-                                    historyToken.apply(kind)
-                            )
+                SpreadsheetContextMenuItem.with(
+                    clipboardCutCopyPasteMenuItemId(
+                        idPrefix,
+                        kind
+                    ),
+                    clipboardCutCopyPasteMenuItemText(kind)
+                ).historyToken(
+                    Optional.of(
+                        historyToken.apply(kind)
                     )
+                )
             );
         }
     }
@@ -239,18 +239,18 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     private static String clipboardCutCopyPasteMenuItemId(final String idPrefix,
                                                           final SpreadsheetCellClipboardKind kind) {
         return idPrefix +
-                CaseKind.SNAKE.change(
-                        kind.name().toLowerCase(),
-                        CaseKind.KEBAB
-                ) +
-                SpreadsheetElementIds.MENU_ITEM;
+            CaseKind.SNAKE.change(
+                kind.name().toLowerCase(),
+                CaseKind.KEBAB
+            ) +
+            SpreadsheetElementIds.MENU_ITEM;
     }
 
     // "Cell" | "Format pattern"
     private static String clipboardCutCopyPasteMenuItemText(final SpreadsheetCellClipboardKind kind) {
         return CaseKind.SNAKE.change(
-                kind.name().toLowerCase(),
-                CaseKind.TITLE
+            kind.name().toLowerCase(),
+            CaseKind.TITLE
         );
     }
 
@@ -258,14 +258,14 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                final SpreadsheetContextMenu menu,
                                final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetContextMenu subMenu = menu.subMenu(
-                context.idPrefix() + "menu" + SpreadsheetElementIds.SUB_MENU,
-                "Formatter"
+            context.idPrefix() + "menu" + SpreadsheetElementIds.SUB_MENU,
+            "Formatter"
         );
 
         SpreadsheetSelectionMenuFormatter.build(
-                historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
-                subMenu,
-                context
+            historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
+            subMenu,
+            context
         );
 
         subMenu.disableIfEmpty();
@@ -277,23 +277,23 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final boolean hidden = HideZeroValues.isHideZeroValues(context);
 
         menu.item(
-                SpreadsheetContextMenuItem.with(
-                                context.idPrefix() + "hideIfZero" + SpreadsheetElementIds.MENU_ITEM,
-                                HideZeroValues.label(hidden)
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.hideZeroValues()
-                                )
+            SpreadsheetContextMenuItem.with(
+                    context.idPrefix() + "hideIfZero" + SpreadsheetElementIds.MENU_ITEM,
+                    HideZeroValues.label(hidden)
+                ).icon(
+                    Optional.of(
+                        SpreadsheetIcons.hideZeroValues()
+                    )
+                )
+                .historyToken(
+                    Optional.of(
+                        historyToken.setMetadataPropertyName(
+                            SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES
+                        ).save(
+                            Optional.of(false == hidden)
                         )
-                        .historyToken(
-                                Optional.of(
-                                        historyToken.setMetadataPropertyName(
-                                                SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES
-                                        ).save(
-                                                Optional.of(false == hidden)
-                                        )
-                                )
-                        ).checked(hidden)
+                    )
+                ).checked(hidden)
         );
     }
 
@@ -336,11 +336,11 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                               final SpreadsheetContextMenu menu,
                               final SpreadsheetSelectionMenuContext context) {
         colorItem(
-                "color",
-                "Color",
-                historyToken.style(TextStylePropertyName.COLOR),
-                menu,
-                context
+            "color",
+            "Color",
+            historyToken.style(TextStylePropertyName.COLOR),
+            menu,
+            context
         );
     }
 
@@ -348,11 +348,11 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                         final SpreadsheetContextMenu menu,
                                         final SpreadsheetSelectionMenuContext context) {
         colorItem(
-                "background-color",
-                "Background color",
-                historyToken.style(TextStylePropertyName.BACKGROUND_COLOR),
-                menu,
-                context
+            "background-color",
+            "Background color",
+            historyToken.style(TextStylePropertyName.BACKGROUND_COLOR),
+            menu,
+            context
         );
     }
 
@@ -362,16 +362,16 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                   final SpreadsheetContextMenu menu,
                                   final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetContextMenu sub = menu.subMenu(
-                context.idPrefix() + id + SpreadsheetElementIds.SUB_MENU,
-                text,
-                SpreadsheetIcons.palette()
+            context.idPrefix() + id + SpreadsheetElementIds.SUB_MENU,
+            text,
+            SpreadsheetIcons.palette()
         );
 
         final SpreadsheetMetadataColorPickerComponent colors = SpreadsheetMetadataColorPickerComponent.with(historyToken);
 
         colors.refreshAll(
-                historyToken,
-                context.spreadsheetMetadata()
+            historyToken,
+            context.spreadsheetMetadata()
         );
         sub.item(colors);
     }
@@ -380,16 +380,16 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                    final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
         menu.item(
-                historyToken.style(TextStylePropertyName.ALL)
-                        .clearSave()
-                        .contextMenuItem(
-                                context.idPrefix() + "clear-style" + SpreadsheetElementIds.MENU_ITEM,
-                                "Clear style"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.clearStyle()
-                                )
-                        )
+            historyToken.style(TextStylePropertyName.ALL)
+                .clearSave()
+                .contextMenuItem(
+                    context.idPrefix() + "clear-style" + SpreadsheetElementIds.MENU_ITEM,
+                    "Clear style"
+                ).icon(
+                    Optional.of(
+                        SpreadsheetIcons.clearStyle()
+                    )
+                )
         );
     }
 
@@ -406,18 +406,18 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             final Optional<?> value = style.value();
 
             final String label = CaseKind.kebabToTitle(
-                    name.value()
+                name.value()
             );
 
             menu.item(
-                    historyToken.style(name)
-                            .save(value)
-                            .contextMenuItem(
-                                    idPrefix + "-" + i + SpreadsheetElementIds.MENU_ITEM,
-                                    value.isPresent() ?
-                                            "Set " + label + " " + value.get() :
-                                            "Clear " + label
-                            )
+                historyToken.style(name)
+                    .save(value)
+                    .contextMenuItem(
+                        idPrefix + "-" + i + SpreadsheetElementIds.MENU_ITEM,
+                        value.isPresent() ?
+                            "Set " + label + " " + value.get() :
+                            "Clear " + label
+                    )
             );
         }
     }
@@ -426,98 +426,98 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                     final SpreadsheetContextMenu menu,
                                     final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetSelection selection = historyToken.anchoredSelectionOrEmpty()
-                .orElseThrow(
-                        () -> new IllegalStateException("History token missing selection " + historyToken)
-                ).selection();
+            .orElseThrow(
+                () -> new IllegalStateException("History token missing selection " + historyToken)
+            ).selection();
 
         // only render clear for columns and rows
         if (selection.pick(
-                false, // cell
-                true, // column
-                true // row
+            false, // cell
+            true, // column
+            true // row
         )) {
             menu.item(
-                    historyToken.clear()
-                            .contextMenuItem(
-                                    context.idPrefix() +
-                                            "clear" +
-                                            SpreadsheetElementIds.MENU_ITEM,
-                                    "Clear"
-                            )
+                historyToken.clear()
+                    .contextMenuItem(
+                        context.idPrefix() +
+                            "clear" +
+                            SpreadsheetElementIds.MENU_ITEM,
+                        "Clear"
+                    )
             );
         }
 
         menu.item(
-                historyToken.delete()
-                        .contextMenuItem(
-                                context.idPrefix() +
-                                        "delete" +
-                                        SpreadsheetElementIds.MENU_ITEM,
-                                "Delete"
-                        ).icon(
-                                Optional.of(
-                                        selection.<Supplier<Icon<?>>>pick(
-                                                SpreadsheetIcons::cellDelete,
-                                                SpreadsheetIcons::columnRemove,
-                                                SpreadsheetIcons::rowRemove
-                                        ).get()
-                                )
-                        )
+            historyToken.delete()
+                .contextMenuItem(
+                    context.idPrefix() +
+                        "delete" +
+                        SpreadsheetElementIds.MENU_ITEM,
+                    "Delete"
+                ).icon(
+                    Optional.of(
+                        selection.<Supplier<Icon<?>>>pick(
+                            SpreadsheetIcons::cellDelete,
+                            SpreadsheetIcons::columnRemove,
+                            SpreadsheetIcons::rowRemove
+                        ).get()
+                    )
+                )
         );
     }
 
     private static void fontWeight(final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
         menu.checkedItem(
-                context.idPrefix() + "bold" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Bold", // text
-                Optional.of(
-                        SpreadsheetIcons.bold()
-                ), // icons
-                TextStylePropertyName.FONT_WEIGHT,
-                FontWeight.BOLD,
-                SpreadsheetHotKeys.BOLD,
-                context
+            context.idPrefix() + "bold" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Bold", // text
+            Optional.of(
+                SpreadsheetIcons.bold()
+            ), // icons
+            TextStylePropertyName.FONT_WEIGHT,
+            FontWeight.BOLD,
+            SpreadsheetHotKeys.BOLD,
+            context
         );
     }
 
     private static void fontStyle(final SpreadsheetContextMenu menu,
                                   final SpreadsheetSelectionMenuContext context) {
         menu.checkedItem(
-                context.idPrefix() + "italics" + SpreadsheetElementIds.MENU_ITEM,
-                "Italics", // text
-                Optional.of(
-                        SpreadsheetIcons.italics()
-                ), // icons
-                TextStylePropertyName.FONT_STYLE,
-                FontStyle.ITALIC,
-                SpreadsheetHotKeys.ITALICS,
-                context
+            context.idPrefix() + "italics" + SpreadsheetElementIds.MENU_ITEM,
+            "Italics", // text
+            Optional.of(
+                SpreadsheetIcons.italics()
+            ), // icons
+            TextStylePropertyName.FONT_STYLE,
+            FontStyle.ITALIC,
+            SpreadsheetHotKeys.ITALICS,
+            context
         );
     }
 
     private static void textDecoration(final SpreadsheetContextMenu menu,
                                        final SpreadsheetSelectionMenuContext context) {
         menu.checkedItem(
-                context.idPrefix() + "strike-thru" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Strike-thru", // text
-                Optional.of(
-                        SpreadsheetIcons.strikethrough()
-                ), // icons
-                TextStylePropertyName.TEXT_DECORATION_LINE,
-                TextDecorationLine.LINE_THROUGH,
-                SpreadsheetHotKeys.STRIKETHRU,
-                context
+            context.idPrefix() + "strike-thru" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Strike-thru", // text
+            Optional.of(
+                SpreadsheetIcons.strikethrough()
+            ), // icons
+            TextStylePropertyName.TEXT_DECORATION_LINE,
+            TextDecorationLine.LINE_THROUGH,
+            SpreadsheetHotKeys.STRIKETHRU,
+            context
         ).checkedItem(
-                context.idPrefix() + "underline" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Underline", // text
-                Optional.of(
-                        SpreadsheetIcons.underline()
-                ), // icons
-                TextStylePropertyName.TEXT_DECORATION_LINE,
-                TextDecorationLine.UNDERLINE,
-                SpreadsheetHotKeys.UNDERLINE,
-                context
+            context.idPrefix() + "underline" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Underline", // text
+            Optional.of(
+                SpreadsheetIcons.underline()
+            ), // icons
+            TextStylePropertyName.TEXT_DECORATION_LINE,
+            TextDecorationLine.UNDERLINE,
+            SpreadsheetHotKeys.UNDERLINE,
+            context
         );
     }
 
@@ -525,87 +525,87 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                  final SpreadsheetContextMenu menu,
                                  final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
-                context.idPrefix() + "text-case" + SpreadsheetElementIds.SUB_MENU,
-                "Text case"
+            context.idPrefix() + "text-case" + SpreadsheetElementIds.SUB_MENU,
+            "Text case"
         ).item(
-                historyToken.style(TextStylePropertyName.TEXT_TRANSFORM)
-                        .clearSave()
-                        .contextMenuItem(
-                                context.idPrefix() + "normal" + SpreadsheetElementIds.MENU_ITEM,
-                                "Normal"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.textCaseUpper()
-                                )
-                        )
-        ).checkedItem(
-                context.idPrefix() + "capitalize" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Capitalize", // text
-                Optional.of(
-                        SpreadsheetIcons.textCaseCapitalize()
-                ), // icons
-                TextStylePropertyName.TEXT_TRANSFORM,
-                TextTransform.CAPITALIZE,
-                SpreadsheetHotKeys.TEXT_TRANSFORM_CAPITALIZE,
-                context
-        ).checkedItem(
-                context.idPrefix() + "lower" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Lower case", // text
-                Optional.of(
-                        SpreadsheetIcons.textCaseLower()
-                ), // icons
-                TextStylePropertyName.TEXT_TRANSFORM,
-                TextTransform.LOWERCASE,
-                SpreadsheetHotKeys.TEXT_TRANSFORM_LOWERCASE,
-                context
-        ).checkedItem(
-                context.idPrefix() + "upper" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Upper case", // text
-                Optional.of(
+            historyToken.style(TextStylePropertyName.TEXT_TRANSFORM)
+                .clearSave()
+                .contextMenuItem(
+                    context.idPrefix() + "normal" + SpreadsheetElementIds.MENU_ITEM,
+                    "Normal"
+                ).icon(
+                    Optional.of(
                         SpreadsheetIcons.textCaseUpper()
-                ), // icons
-                TextStylePropertyName.TEXT_TRANSFORM,
-                TextTransform.UPPERCASE,
-                SpreadsheetHotKeys.TEXT_TRANSFORM_UPPERCASE,
-                context
+                    )
+                )
+        ).checkedItem(
+            context.idPrefix() + "capitalize" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Capitalize", // text
+            Optional.of(
+                SpreadsheetIcons.textCaseCapitalize()
+            ), // icons
+            TextStylePropertyName.TEXT_TRANSFORM,
+            TextTransform.CAPITALIZE,
+            SpreadsheetHotKeys.TEXT_TRANSFORM_CAPITALIZE,
+            context
+        ).checkedItem(
+            context.idPrefix() + "lower" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Lower case", // text
+            Optional.of(
+                SpreadsheetIcons.textCaseLower()
+            ), // icons
+            TextStylePropertyName.TEXT_TRANSFORM,
+            TextTransform.LOWERCASE,
+            SpreadsheetHotKeys.TEXT_TRANSFORM_LOWERCASE,
+            context
+        ).checkedItem(
+            context.idPrefix() + "upper" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Upper case", // text
+            Optional.of(
+                SpreadsheetIcons.textCaseUpper()
+            ), // icons
+            TextStylePropertyName.TEXT_TRANSFORM,
+            TextTransform.UPPERCASE,
+            SpreadsheetHotKeys.TEXT_TRANSFORM_UPPERCASE,
+            context
         );
     }
 
     private static void textWrapping(final SpreadsheetContextMenu menu,
                                      final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
-                context.idPrefix() + "text-wrapping" + SpreadsheetElementIds.SUB_MENU,
-                "Wrapping"
+            context.idPrefix() + "text-wrapping" + SpreadsheetElementIds.SUB_MENU,
+            "Wrapping"
         ).checkedItem(
-                context.idPrefix() + "clip" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Clip", // text
-                Optional.of(
-                        SpreadsheetIcons.textWrappingClip()
-                ), // icons
-                TextStylePropertyName.OVERFLOW_WRAP,
-                OverflowWrap.NORMAL,
-                SpreadsheetHotKeys.TEXT_WRAPPING_NORMAL,
-                context
+            context.idPrefix() + "clip" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Clip", // text
+            Optional.of(
+                SpreadsheetIcons.textWrappingClip()
+            ), // icons
+            TextStylePropertyName.OVERFLOW_WRAP,
+            OverflowWrap.NORMAL,
+            SpreadsheetHotKeys.TEXT_WRAPPING_NORMAL,
+            context
         ).checkedItem(
-                context.idPrefix() + "overflow" + SpreadsheetElementIds.MENU_ITEM,
-                "Overflow", // text
-                Optional.of(
-                        SpreadsheetIcons.textWrappingOverflow()
-                ), // icons
-                TextStylePropertyName.OVERFLOW_X,
-                Overflow.VISIBLE,
-                SpreadsheetHotKeys.TEXT_WRAPPING_OVERFLOW,
-                context
+            context.idPrefix() + "overflow" + SpreadsheetElementIds.MENU_ITEM,
+            "Overflow", // text
+            Optional.of(
+                SpreadsheetIcons.textWrappingOverflow()
+            ), // icons
+            TextStylePropertyName.OVERFLOW_X,
+            Overflow.VISIBLE,
+            SpreadsheetHotKeys.TEXT_WRAPPING_OVERFLOW,
+            context
         ).checkedItem(
-                context.idPrefix() + "wrap" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Wrap", // text
-                Optional.of(
-                        SpreadsheetIcons.textWrappingWrap()
-                ), // icons
-                TextStylePropertyName.OVERFLOW_X,
-                Overflow.HIDDEN,
-                SpreadsheetHotKeys.TEXT_WRAPPING_WRAP,
-                context
+            context.idPrefix() + "wrap" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Wrap", // text
+            Optional.of(
+                SpreadsheetIcons.textWrappingWrap()
+            ), // icons
+            TextStylePropertyName.OVERFLOW_X,
+            Overflow.HIDDEN,
+            SpreadsheetHotKeys.TEXT_WRAPPING_WRAP,
+            context
         );
     }
 
@@ -626,8 +626,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     private static void border(final SpreadsheetContextMenu menu,
                                final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetContextMenu border = menu.subMenu(
-                context.idPrefix() + "border" + SpreadsheetElementIds.SUB_MENU,
-                "Border"
+            context.idPrefix() + "border" + SpreadsheetElementIds.SUB_MENU,
+            "Border"
         );
 
         final String borderIdPrefix = context.idPrefix() + "border";
@@ -639,32 +639,32 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             final String idPrefix = borderIdPrefix + '-' + enumName.toLowerCase();
 
             borderItem(
-                    idPrefix + '-',
-                    border.subMenu(
-                            idPrefix + SpreadsheetElementIds.SUB_MENU, // id
-                            CaseKind.SNAKE.change(
-                                    enumName,
-                                    CaseKind.TITLE
-                            ), // label
-                            boxEdgeAndIcon.getValue() // icon
-                    ),
-                    boxEdge,
-                    context
+                idPrefix + '-',
+                border.subMenu(
+                    idPrefix + SpreadsheetElementIds.SUB_MENU, // id
+                    CaseKind.SNAKE.change(
+                        enumName,
+                        CaseKind.TITLE
+                    ), // label
+                    boxEdgeAndIcon.getValue() // icon
+                ),
+                boxEdge,
+                context
             );
         }
     }
 
     private final static Map<BoxEdge, Icon<?>> BORDER_BOX_EDGE_AND_ICONS = Maps.of(
-            BoxEdge.TOP,
-            SpreadsheetIcons.borderTop(),
-            BoxEdge.LEFT,
-            SpreadsheetIcons.borderLeft(),
-            BoxEdge.RIGHT,
-            SpreadsheetIcons.borderRight(),
-            BoxEdge.BOTTOM,
-            SpreadsheetIcons.borderBottom(),
-            BoxEdge.ALL,
-            SpreadsheetIcons.borderAll()
+        BoxEdge.TOP,
+        SpreadsheetIcons.borderTop(),
+        BoxEdge.LEFT,
+        SpreadsheetIcons.borderLeft(),
+        BoxEdge.RIGHT,
+        SpreadsheetIcons.borderRight(),
+        BoxEdge.BOTTOM,
+        SpreadsheetIcons.borderBottom(),
+        BoxEdge.ALL,
+        SpreadsheetIcons.borderAll()
     );
 
     // COLOR
@@ -677,25 +677,25 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final HistoryToken historyToken = context.historyToken();
 
         colorItem(
-                idPrefix + "color",
-                "Color",
-                historyToken.style(boxEdge.borderColorPropertyName()), // token
-                menu,
-                context
+            idPrefix + "color",
+            "Color",
+            historyToken.style(boxEdge.borderColorPropertyName()), // token
+            menu,
+            context
         );
 
         borderStyle(
-                idPrefix + "style", // without trailing dash
-                menu,
-                boxEdge,
-                context
+            idPrefix + "style", // without trailing dash
+            menu,
+            boxEdge,
+            context
         );
 
         borderWidth(
-                idPrefix + "width", // without trailing dash
-                menu,
-                boxEdge,
-                context
+            idPrefix + "width", // without trailing dash
+            menu,
+            boxEdge,
+            context
         );
     }
 
@@ -704,8 +704,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                     final BoxEdge boxEdge,
                                     final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetContextMenu styleSubMenu = menu.subMenu(
-                idPrefix + SpreadsheetElementIds.SUB_MENU,
-                "Style"
+            idPrefix + SpreadsheetElementIds.SUB_MENU,
+            "Style"
         );
 
         final TextStylePropertyName<BorderStyle> propertyName = boxEdge.borderStylePropertyName();
@@ -714,45 +714,45 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             final String name = borderStyle.name();
 
             styleSubMenu.checkedItem(
-                    idPrefix + "-" + CaseKind.SNAKE.change(
-                            name,
-                            CaseKind.KEBAB
-                    ) + SpreadsheetElementIds.MENU_ITEM, // id
-                    CaseKind.SNAKE.change(
-                            name,
-                            CaseKind.TITLE
-                    ), // text
-                    Optional.empty(), // no icons
-                    propertyName, // property name
-                    borderStyle, // property value
-                    "", // key
-                    context
+                idPrefix + "-" + CaseKind.SNAKE.change(
+                    name,
+                    CaseKind.KEBAB
+                ) + SpreadsheetElementIds.MENU_ITEM, // id
+                CaseKind.SNAKE.change(
+                    name,
+                    CaseKind.TITLE
+                ), // text
+                Optional.empty(), // no icons
+                propertyName, // property name
+                borderStyle, // property value
+                "", // key
+                context
             );
         }
 
         // clear
         styleSubMenu.item(
-                context.historyToken()
-                        .style(propertyName)
-                        .clearSave()
-                        .contextMenuItem(
-                                idPrefix + "-clear" + SpreadsheetElementIds.MENU_ITEM, // id
-                                "Clear"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.borderStyleClear()
-                                )
-                        )
+            context.historyToken()
+                .style(propertyName)
+                .clearSave()
+                .contextMenuItem(
+                    idPrefix + "-clear" + SpreadsheetElementIds.MENU_ITEM, // id
+                    "Clear"
+                ).icon(
+                    Optional.of(
+                        SpreadsheetIcons.borderStyleClear()
+                    )
+                )
         );
     }
 
     // TODO Add more later BorderStyles
     // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2189
     private final static List<BorderStyle> BORDER_STYLE = Lists.of(
-            BorderStyle.NONE,
-            BorderStyle.DASHED,
-            BorderStyle.DOTTED,
-            BorderStyle.SOLID
+        BorderStyle.NONE,
+        BorderStyle.DASHED,
+        BorderStyle.DOTTED,
+        BorderStyle.SOLID
     );
 
     // none
@@ -764,41 +764,41 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                     final BoxEdge boxEdge,
                                     final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetContextMenu borderWidthSubMenu = menu.subMenu(
-                idPrefix + SpreadsheetElementIds.SUB_MENU,
-                "Width"
+            idPrefix + SpreadsheetElementIds.SUB_MENU,
+            "Width"
         );
 
         final TextStylePropertyName<Length<?>> propertyName = boxEdge.borderWidthPropertyName();
 
         for (int i = 0; i < 5; i++) {
             final String label = 0 == i ?
-                    "None" :
-                    String.valueOf(i);
+                "None" :
+                String.valueOf(i);
 
             borderWidthSubMenu.checkedItem(
-                    idPrefix + '-' + i + SpreadsheetElementIds.MENU_ITEM, // id
-                    label, // text
-                    Optional.empty(), // no icons
-                    propertyName, // property name
-                    Length.pixel((double) i), // property value
-                    "", // key
-                    context
+                idPrefix + '-' + i + SpreadsheetElementIds.MENU_ITEM, // id
+                label, // text
+                Optional.empty(), // no icons
+                propertyName, // property name
+                Length.pixel((double) i), // property value
+                "", // key
+                context
             );
         }
 
         // clear
         borderWidthSubMenu.item(
-                context.historyToken()
-                        .style(propertyName)
-                        .clearSave()
-                        .contextMenuItem(
-                                idPrefix + "-clear" + SpreadsheetElementIds.MENU_ITEM, // id
-                                "Clear"
-                        ).icon(
-                                Optional.of(
-                                        SpreadsheetIcons.borderStyleClear()
-                                )
-                        )
+            context.historyToken()
+                .style(propertyName)
+                .clearSave()
+                .contextMenuItem(
+                    idPrefix + "-clear" + SpreadsheetElementIds.MENU_ITEM, // id
+                    "Clear"
+                ).icon(
+                    Optional.of(
+                        SpreadsheetIcons.borderStyleClear()
+                    )
+                )
         );
     }
 
@@ -807,86 +807,86 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     private static void alignment(final SpreadsheetContextMenu menu,
                                   final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
-                context.idPrefix() + "alignment" + SpreadsheetElementIds.SUB_MENU,
-                "Alignment"
+            context.idPrefix() + "alignment" + SpreadsheetElementIds.SUB_MENU,
+            "Alignment"
         ).checkedItem(
-                context.idPrefix() + "left" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Left", // text
-                Optional.of(
-                        SpreadsheetIcons.alignLeft()
-                ), // icons
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.LEFT,
-                SpreadsheetHotKeys.ALIGNMENT_LEFT,
-                context
+            context.idPrefix() + "left" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Left", // text
+            Optional.of(
+                SpreadsheetIcons.alignLeft()
+            ), // icons
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.LEFT,
+            SpreadsheetHotKeys.ALIGNMENT_LEFT,
+            context
         ).checkedItem(
-                context.idPrefix() + "center" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Center", // text
-                Optional.of(
-                        SpreadsheetIcons.alignCenter()
-                ), // icons
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.CENTER,
-                SpreadsheetHotKeys.ALIGNMENT_CENTER,
-                context
+            context.idPrefix() + "center" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Center", // text
+            Optional.of(
+                SpreadsheetIcons.alignCenter()
+            ), // icons
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.CENTER,
+            SpreadsheetHotKeys.ALIGNMENT_CENTER,
+            context
         ).checkedItem(
-                context.idPrefix() + "right" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Right", // text
-                Optional.of(
-                        SpreadsheetIcons.alignRight()
-                ), // icons
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.RIGHT,
-                SpreadsheetHotKeys.ALIGNMENT_RIGHT,
-                context
+            context.idPrefix() + "right" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Right", // text
+            Optional.of(
+                SpreadsheetIcons.alignRight()
+            ), // icons
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.RIGHT,
+            SpreadsheetHotKeys.ALIGNMENT_RIGHT,
+            context
         ).checkedItem(
-                context.idPrefix() + "justify" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Justify", // text
-                Optional.of(
-                        SpreadsheetIcons.alignJustify()
-                ), // icons
-                TextStylePropertyName.TEXT_ALIGN,
-                TextAlign.JUSTIFY,
-                SpreadsheetHotKeys.ALIGNMENT_JUSTIFY,
-                context
+            context.idPrefix() + "justify" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Justify", // text
+            Optional.of(
+                SpreadsheetIcons.alignJustify()
+            ), // icons
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.JUSTIFY,
+            SpreadsheetHotKeys.ALIGNMENT_JUSTIFY,
+            context
         );
     }
 
     private static void verticalAlignment(final SpreadsheetContextMenu menu,
                                           final SpreadsheetSelectionMenuContext context) {
         menu.subMenu(
-                context.idPrefix() + "vertical-alignment" + SpreadsheetElementIds.SUB_MENU,
-                "Vertical Alignment"
+            context.idPrefix() + "vertical-alignment" + SpreadsheetElementIds.SUB_MENU,
+            "Vertical Alignment"
         ).checkedItem(
-                context.idPrefix() + "top" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Top", // text
-                Optional.of(
-                        SpreadsheetIcons.verticalAlignTop()
-                ), // icons
-                TextStylePropertyName.VERTICAL_ALIGN,
-                VerticalAlign.TOP,
-                SpreadsheetHotKeys.VERTICAL_ALIGNMENT_TOP,
-                context
+            context.idPrefix() + "top" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Top", // text
+            Optional.of(
+                SpreadsheetIcons.verticalAlignTop()
+            ), // icons
+            TextStylePropertyName.VERTICAL_ALIGN,
+            VerticalAlign.TOP,
+            SpreadsheetHotKeys.VERTICAL_ALIGNMENT_TOP,
+            context
         ).checkedItem(
-                context.idPrefix() + "middle" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Middle", // text
-                Optional.of(
-                        SpreadsheetIcons.verticalAlignMiddle()
-                ), // icons
-                TextStylePropertyName.VERTICAL_ALIGN,
-                VerticalAlign.MIDDLE,
-                SpreadsheetHotKeys.VERTICAL_ALIGNMENT_MIDDLE,
-                context
+            context.idPrefix() + "middle" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Middle", // text
+            Optional.of(
+                SpreadsheetIcons.verticalAlignMiddle()
+            ), // icons
+            TextStylePropertyName.VERTICAL_ALIGN,
+            VerticalAlign.MIDDLE,
+            SpreadsheetHotKeys.VERTICAL_ALIGNMENT_MIDDLE,
+            context
         ).checkedItem(
-                context.idPrefix() + "bottom" + SpreadsheetElementIds.MENU_ITEM, // id
-                "Bottom", // text
-                Optional.of(
-                        SpreadsheetIcons.verticalAlignBottom()
-                ), // icons
-                TextStylePropertyName.VERTICAL_ALIGN,
-                VerticalAlign.BOTTOM,
-                SpreadsheetHotKeys.VERTICAL_ALIGNMENT_BOTTOM,
-                context
+            context.idPrefix() + "bottom" + SpreadsheetElementIds.MENU_ITEM, // id
+            "Bottom", // text
+            Optional.of(
+                SpreadsheetIcons.verticalAlignBottom()
+            ), // icons
+            TextStylePropertyName.VERTICAL_ALIGN,
+            VerticalAlign.BOTTOM,
+            SpreadsheetHotKeys.VERTICAL_ALIGNMENT_BOTTOM,
+            context
         );
     }
 
@@ -898,37 +898,37 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
         if (selection.isColumnReference() | selection.isColumnRangeReference() | selection.isCellReference() || selection.isCellRangeReference()) {
             final HistoryToken columnHistoryToken = historyToken.setAnchoredSelection(
-                    Optional.of(
-                            selection.toColumnOrColumnRange()
-                                    .setAnchor(
-                                            anchoredSpreadsheetSelection.anchor()
-                                                    .toColumnOrColumnRangeAnchor()
-                                    )
-                    )
+                Optional.of(
+                    selection.toColumnOrColumnRange()
+                        .setAnchor(
+                            anchoredSpreadsheetSelection.anchor()
+                                .toColumnOrColumnRangeAnchor()
+                        )
+                )
             );
 
             final String beforeIdPrefix = context.idPrefix() + "column-insert-before";
 
             insertSubMenu(
-                    menu.subMenu(
-                            beforeIdPrefix + SpreadsheetElementIds.SUB_MENU,
-                            "Insert before column",
-                            SpreadsheetIcons.columnInsertBefore()
-                    ),
-                    beforeIdPrefix,
-                    columnHistoryToken::insertBefore
+                menu.subMenu(
+                    beforeIdPrefix + SpreadsheetElementIds.SUB_MENU,
+                    "Insert before column",
+                    SpreadsheetIcons.columnInsertBefore()
+                ),
+                beforeIdPrefix,
+                columnHistoryToken::insertBefore
             );
 
             final String afterIdPrefix = context.idPrefix() + "column-insert-after";
 
             insertSubMenu(
-                    menu.subMenu(
-                            afterIdPrefix + SpreadsheetElementIds.SUB_MENU,
-                            "Insert after column",
-                            SpreadsheetIcons.columnInsertAfter()
-                    ),
-                    afterIdPrefix,
-                    columnHistoryToken::insertAfter
+                menu.subMenu(
+                    afterIdPrefix + SpreadsheetElementIds.SUB_MENU,
+                    "Insert after column",
+                    SpreadsheetIcons.columnInsertAfter()
+                ),
+                afterIdPrefix,
+                columnHistoryToken::insertAfter
             );
         }
     }
@@ -941,37 +941,37 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
         if (selection.isRowReference() | selection.isRowRangeReference() | selection.isCellReference() || selection.isCellRangeReference()) {
             final HistoryToken rowHistoryToken = historyToken.setAnchoredSelection(
-                    Optional.of(
-                            selection.toRowOrRowRange()
-                                    .setAnchor(
-                                            anchoredSpreadsheetSelection.anchor()
-                                                    .toRowOrRowRangeAnchor()
-                                    )
-                    )
+                Optional.of(
+                    selection.toRowOrRowRange()
+                        .setAnchor(
+                            anchoredSpreadsheetSelection.anchor()
+                                .toRowOrRowRangeAnchor()
+                        )
+                )
             );
 
             final String beforeIdPrefix = context.idPrefix() + "row-insert-before";
 
             insertSubMenu(
-                    menu.subMenu(
-                            beforeIdPrefix + SpreadsheetElementIds.SUB_MENU,
-                            "Insert before row",
-                            SpreadsheetIcons.rowInsertBefore()
-                    ),
-                    beforeIdPrefix,
-                    rowHistoryToken::insertBefore
+                menu.subMenu(
+                    beforeIdPrefix + SpreadsheetElementIds.SUB_MENU,
+                    "Insert before row",
+                    SpreadsheetIcons.rowInsertBefore()
+                ),
+                beforeIdPrefix,
+                rowHistoryToken::insertBefore
             );
 
             final String afterIdPrefix = context.idPrefix() + "row-insert-after";
 
             insertSubMenu(
-                    menu.subMenu(
-                            afterIdPrefix + SpreadsheetElementIds.SUB_MENU,
-                            "Insert after row",
-                            SpreadsheetIcons.rowInsertAfter()
-                    ),
-                    afterIdPrefix,
-                    rowHistoryToken::insertAfter
+                menu.subMenu(
+                    afterIdPrefix + SpreadsheetElementIds.SUB_MENU,
+                    "Insert after row",
+                    SpreadsheetIcons.rowInsertAfter()
+                ),
+                afterIdPrefix,
+                rowHistoryToken::insertAfter
             );
         }
     }
@@ -991,13 +991,13 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 final String idPrefix = context.idPrefix() + "column-sort-";
 
                 SpreadsheetSelectionMenuSort.build(
-                        historyToken,
-                        selection.toColumnOrColumnRange()
-                                .toColumn(),
-                        idPrefix, // id prefix
-                        SpreadsheetIcons.columnSort(),
-                        context.sortComparatorNames(),
-                        menu
+                    historyToken,
+                    selection.toColumnOrColumnRange()
+                        .toColumn(),
+                    idPrefix, // id prefix
+                    SpreadsheetIcons.columnSort(),
+                    context.sortComparatorNames(),
+                    menu
                 );
             }
         }
@@ -1016,13 +1016,13 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 final String idPrefix = context.idPrefix() + "row-sort-";
 
                 SpreadsheetSelectionMenuSort.build(
-                        historyToken,
-                        selection.toRowOrRowRange()
-                                .toRow(),
-                        idPrefix, // id prefix
-                        SpreadsheetIcons.columnSort(),
-                        context.sortComparatorNames(),
-                        menu
+                    historyToken,
+                    selection.toRowOrRowRange()
+                        .toRow(),
+                    idPrefix, // id prefix
+                    SpreadsheetIcons.columnSort(),
+                    context.sortComparatorNames(),
+                    menu
                 );
             }
         }
@@ -1034,19 +1034,19 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                        final SpreadsheetContextMenu menu,
                                        final SpreadsheetSelectionMenuContext context) {
         menu.item(
-                SpreadsheetContextMenuItem.with(
-                        context.idPrefix() + "freeze" + SpreadsheetElementIds.MENU_ITEM,
-                        "Freeze"
-                ).historyToken(
-                        historyToken.freezeOrEmpty()
-                )
+            SpreadsheetContextMenuItem.with(
+                context.idPrefix() + "freeze" + SpreadsheetElementIds.MENU_ITEM,
+                "Freeze"
+            ).historyToken(
+                historyToken.freezeOrEmpty()
+            )
         ).item(
-                SpreadsheetContextMenuItem.with(
-                        context.idPrefix() + "unfreeze" + SpreadsheetElementIds.MENU_ITEM,
-                        "Unfreeze"
-                ).historyToken(
-                        historyToken.unfreezeOrEmpty()
-                )
+            SpreadsheetContextMenuItem.with(
+                context.idPrefix() + "unfreeze" + SpreadsheetElementIds.MENU_ITEM,
+                "Unfreeze"
+            ).historyToken(
+                historyToken.unfreezeOrEmpty()
+            )
         );
     }
 
@@ -1057,11 +1057,11 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final Set<SpreadsheetLabelMapping> labelMappings = context.labelMappings(selection);
 
         SpreadsheetContextMenu sub = menu.subMenu(
-                context.idPrefix() + "label" + SpreadsheetElementIds.SUB_MENU,
-                "Labels",
-                String.valueOf(
-                        labelMappings.size()
-                )
+            context.idPrefix() + "label" + SpreadsheetElementIds.SUB_MENU,
+            "Labels",
+            String.valueOf(
+                labelMappings.size()
+            )
         );
 
         int i = 0;
@@ -1071,23 +1071,23 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             final SpreadsheetLabelName label = mapping.label();
 
             sub = sub.item(
-                    historyToken.setLabelName(
-                            Optional.of(label)
-                    ).contextMenuItem(
-                            context.idPrefix() + "label-" + i + SpreadsheetElementIds.MENU_ITEM,
-                            label + " (" + mapping.target() + ")"
-                    )
+                historyToken.setLabelName(
+                    Optional.of(label)
+                ).contextMenuItem(
+                    context.idPrefix() + "label-" + i + SpreadsheetElementIds.MENU_ITEM,
+                    label + " (" + mapping.target() + ")"
+                )
             );
 
             i++;
         }
 
         sub.item(
-                historyToken.setLabelName(Optional.empty())
-                        .contextMenuItem(
-                                context.idPrefix() + "label-create" + SpreadsheetElementIds.MENU_ITEM,
-                                "Create..."
-                        )
+            historyToken.setLabelName(Optional.empty())
+                .contextMenuItem(
+                    context.idPrefix() + "label-create" + SpreadsheetElementIds.MENU_ITEM,
+                    "Create..."
+                )
         );
     }
 
@@ -1096,23 +1096,23 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                       final Function<OptionalInt, HistoryToken> setCount) {
         for (int i = 1; i <= 3; i++) {
             menu.item(
-                    setCount.apply(
-                            OptionalInt.of(i)
-                    ).contextMenuItem(
-                            idPrefix + '-' + i + SpreadsheetElementIds.MENU_ITEM,
-                            String.valueOf(i)
-                    )
+                setCount.apply(
+                    OptionalInt.of(i)
+                ).contextMenuItem(
+                    idPrefix + '-' + i + SpreadsheetElementIds.MENU_ITEM,
+                    String.valueOf(i)
+                )
             );
         }
 
         // insert a url which will display a modal to prompt the user for the actual count
         menu.item(
-                setCount.apply(
-                        OptionalInt.empty()
-                ).contextMenuItem(
-                        idPrefix + "-prompt" + SpreadsheetElementIds.MENU_ITEM,
-                        "..."
-                )
+            setCount.apply(
+                OptionalInt.empty()
+            ).contextMenuItem(
+                idPrefix + "-prompt" + SpreadsheetElementIds.MENU_ITEM,
+                "..."
+            )
         );
     }
 

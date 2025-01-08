@@ -28,64 +28,64 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 public final class SpreadsheetComparatorNameListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetComparatorNameListDialogComponent,
-        SpreadsheetComparatorNameListDialogComponentContext>,
-        SpreadsheetMetadataTesting {
+    SpreadsheetComparatorNameListDialogComponentContext>,
+    SpreadsheetMetadataTesting {
 
     @Test
     public void testRefresh() {
         final AppContext context = this.appContext(
-                "/1/Spreadsheet123/spreadsheet/sort-comparators"
+            "/1/Spreadsheet123/spreadsheet/sort-comparators"
         );
 
         final SpreadsheetComparatorNameListDialogComponent dialog = SpreadsheetComparatorNameListDialogComponent.with(
-                new FakeSpreadsheetComparatorNameListDialogComponentContext() {
-                    @Override
-                    public HistoryToken historyToken() {
-                        return context.historyToken();
-                    }
-
-                    @Override
-                    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                        return () -> {
-                        };
-                    }
-
-                    @Override
-                    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-                        return () -> {
-                        };
-                    }
-
-                    @Override
-                    public String dialogTitle() {
-                        return "Sort Comparators Title123";
-                    }
-
-                    @Override
-                    public String undo() {
-                        return "day-of-month";
-                    }
+            new FakeSpreadsheetComparatorNameListDialogComponentContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return context.historyToken();
                 }
+
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public String dialogTitle() {
+                    return "Sort Comparators Title123";
+                }
+
+                @Override
+                public String undo() {
+                    return "day-of-month";
+                }
+            }
         );
 
         dialog.refresh(context);
 
         this.treePrintAndCheck(
-                dialog,
-                "SpreadsheetComparatorNameListDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    Sort Comparators Title123\n" +
-                        "    id=spreadsheetComparatorNameList-Dialog includeClose=true CLOSED\n" +
-                        "      SpreadsheetComparatorNameListComponent\n" +
-                        "        ValueSpreadsheetTextBox\n" +
-                        "          SpreadsheetTextBox\n" +
-                        "            [day-of-month] id=spreadsheetComparatorNameList-TextBox\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Save\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/day-of-month] id=spreadsheetComparatorNameList-save-Link\n" +
-                        "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/day-of-month] id=spreadsheetComparatorNameList-undo-Link\n" +
-                        "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/] id=spreadsheetComparatorNameList-clear-Link\n" +
-                        "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetComparatorNameList-close-Link\n"
+            dialog,
+            "SpreadsheetComparatorNameListDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Sort Comparators Title123\n" +
+                "    id=spreadsheetComparatorNameList-Dialog includeClose=true CLOSED\n" +
+                "      SpreadsheetComparatorNameListComponent\n" +
+                "        ValueSpreadsheetTextBox\n" +
+                "          SpreadsheetTextBox\n" +
+                "            [day-of-month] id=spreadsheetComparatorNameList-TextBox\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/day-of-month] id=spreadsheetComparatorNameList-save-Link\n" +
+                "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/day-of-month] id=spreadsheetComparatorNameList-undo-Link\n" +
+                "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/sort-comparators/save/] id=spreadsheetComparatorNameList-clear-Link\n" +
+                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetComparatorNameList-close-Link\n"
         );
     }
 

@@ -29,24 +29,24 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
     @Test
     public void testUrlFragmentRow() {
         this.urlFragmentAndCheck(
-                ROW,
-                "/123/SpreadsheetName456/row/1"
+            ROW,
+            "/123/SpreadsheetName456/row/1"
         );
     }
 
     @Test
     public void testUrlFragmentRowRange() {
         this.urlFragmentAndCheck(
-                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-                "/123/SpreadsheetName456/row/2:3/bottom"
+            ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
+            "/123/SpreadsheetName456/row/2:3/bottom"
         );
     }
 
     @Test
     public void testUrlFragmentRowRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_ROWS.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-                "/123/SpreadsheetName456/row/*/bottom"
+            SpreadsheetSelection.ALL_ROWS.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
+            "/123/SpreadsheetName456/row/*/bottom"
         );
     }
 
@@ -55,16 +55,16 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
     @Test
     public void testFreezeOrEmptyRowInvalid() {
         this.freezeOrEmptyAndCheck(
-                SpreadsheetSelection.parseRow("2")
-                        .setDefaultAnchor()
+            SpreadsheetSelection.parseRow("2")
+                .setDefaultAnchor()
         );
     }
 
     @Test
     public void testFreezeOrEmptyRowRangeInvalid() {
         this.freezeOrEmptyAndCheck(
-                SpreadsheetSelection.parseRowRange("3:4")
-                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM)
+            SpreadsheetSelection.parseRowRange("3:4")
+                .setAnchor(SpreadsheetViewportAnchor.BOTTOM)
         );
     }
 
@@ -80,16 +80,16 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
     @Test
     public void testUnfreezeOrEmptyRowInvalid() {
         this.unfreezeOrEmptyAndCheck(
-                SpreadsheetSelection.parseRow("2")
-                        .setDefaultAnchor()
+            SpreadsheetSelection.parseRow("2")
+                .setDefaultAnchor()
         );
     }
 
     @Test
     public void testUnfreezeOrEmptyRowRangeInvalid() {
         this.unfreezeOrEmptyAndCheck(
-                SpreadsheetSelection.parseRowRange("3:4")
-                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM)
+            SpreadsheetSelection.parseRowRange("3:4")
+                .setAnchor(SpreadsheetViewportAnchor.BOTTOM)
         );
     }
 
@@ -98,9 +98,9 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
                                                         final SpreadsheetName name,
                                                         final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetRowSelectHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

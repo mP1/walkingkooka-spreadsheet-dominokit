@@ -45,16 +45,16 @@ final class ElementalHistory implements History {
     @Override
     public void pushHistoryToken(final HistoryToken token) {
         Scheduler.get()
-                .scheduleDeferred(
-                        () -> {
-                            final String newHash = "#" + token.urlFragment();
-                            final String current = DomGlobal.location.hash;
-                            if (false == current.equals(newHash)) {
-                                DomGlobal.console.trace("ElementalHistory.pushHistoryToken from " + CharSequences.quoteAndEscape(current) + " to " + CharSequences.quoteAndEscape(newHash));
-                                DomGlobal.location.hash = newHash;
-                            }
-                        }
-                );
+            .scheduleDeferred(
+                () -> {
+                    final String newHash = "#" + token.urlFragment();
+                    final String current = DomGlobal.location.hash;
+                    if (false == current.equals(newHash)) {
+                        DomGlobal.console.trace("ElementalHistory.pushHistoryToken from " + CharSequences.quoteAndEscape(current) + " to " + CharSequences.quoteAndEscape(newHash));
+                        DomGlobal.location.hash = newHash;
+                    }
+                }
+            );
     }
 
     @Override
@@ -71,7 +71,7 @@ final class ElementalHistory implements History {
             final UrlFragment historyTokenUrlFragment = historyToken.urlFragment();
 
             // if different, the hash must have been invalid, update with the actual parsed result.
-            if(false == historyTokenUrlFragment.equals(urlFragment)) {
+            if (false == historyTokenUrlFragment.equals(urlFragment)) {
                 hash = historyTokenUrlFragment.value();
                 DomGlobal.location.hash = hash;
             }

@@ -47,8 +47,8 @@ import java.util.OptionalInt;
  * A {@link ValueComponent} wrapper around a {@link DataTable}.
  */
 public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponent<T>>,
-        ComponentWithChildren<SpreadsheetDataTableComponent<T>, HTMLDivElement>,
-        TreePrintable {
+    ComponentWithChildren<SpreadsheetDataTableComponent<T>, HTMLDivElement>,
+    TreePrintable {
 
     @Override SpreadsheetDataTableComponent<T> setCssText(final String css);
 
@@ -156,24 +156,24 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
 
     default HistoryTokenAnchorComponent previous(final String idPrefix) {
         return HistoryTokenAnchorComponent.empty()
-                .setId(idPrefix + "previous" + SpreadsheetElementIds.LINK)
-                .setTextContent("previous")
-                .setIconBefore(
-                        Optional.of(
-                                SpreadsheetIcons.tablePrevious()
-                        )
-                );
+            .setId(idPrefix + "previous" + SpreadsheetElementIds.LINK)
+            .setTextContent("previous")
+            .setIconBefore(
+                Optional.of(
+                    SpreadsheetIcons.tablePrevious()
+                )
+            );
     }
 
     default HistoryTokenAnchorComponent next(final String idPrefix) {
         return HistoryTokenAnchorComponent.empty()
-                .setId(idPrefix + "next" + SpreadsheetElementIds.LINK)
-                .setTextContent("next")
-                .setIconAfter(
-                        Optional.of(
-                                SpreadsheetIcons.tableNext()
-                        )
-                );
+            .setId(idPrefix + "next" + SpreadsheetElementIds.LINK)
+            .setTextContent("next")
+            .setIconAfter(
+                Optional.of(
+                    SpreadsheetIcons.tableNext()
+                )
+            );
     }
 
     SpreadsheetDataTableComponent<T> setPrevious(final Optional<HistoryToken> historyToken);
@@ -187,39 +187,39 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
     default SpreadsheetDataTableComponent<T> refreshPreviousNextLinks(final HistoryToken historyToken,
                                                                       final int defaultCount) {
         final int offset = historyToken.offset()
-                .orElse(0);
+            .orElse(0);
         final int count = historyToken.count()
-                .orElse(defaultCount);
+            .orElse(defaultCount);
 
         final boolean previousDisabled = 0 == offset;
         final boolean nextDisabled = this.value()
-                .map(Collection::size)
-                .orElse(0) < count;
+            .map(Collection::size)
+            .orElse(0) < count;
 
         this.setPrevious(
-                Optional.ofNullable(
-                        false == previousDisabled ?
-                                historyToken.setOffset(
-                                        OptionalInt.of(
-                                                Math.max(
-                                                        0,
-                                                        offset - count + 1
-                                                )
-                                        )
-                                ) :
-                                null
-                )
+            Optional.ofNullable(
+                false == previousDisabled ?
+                    historyToken.setOffset(
+                        OptionalInt.of(
+                            Math.max(
+                                0,
+                                offset - count + 1
+                            )
+                        )
+                    ) :
+                    null
+            )
         );
         this.setNext(
-                Optional.ofNullable(
-                        false == nextDisabled ?
-                                historyToken.setOffset(
-                                        OptionalInt.of(
-                                                offset + count - 1
-                                        )
-                                ) :
-                                null
-                )
+            Optional.ofNullable(
+                false == nextDisabled ?
+                    historyToken.setOffset(
+                        OptionalInt.of(
+                            offset + count - 1
+                        )
+                    ) :
+                    null
+            )
         );
 
         return (SpreadsheetDataTableComponent<T>) this;
@@ -281,13 +281,13 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
         printer.indent();
         {
             printer.println(
-                    "id=" +
-                            CharSequences.subSequence(
-                                    this.id(),
-                                    0,
-                                    -1
-                            ) +
-                            SpreadsheetElementIds.TABLE
+                "id=" +
+                    CharSequences.subSequence(
+                        this.id(),
+                        0,
+                        -1
+                    ) +
+                    SpreadsheetElementIds.TABLE
             );
 
             // print columns
@@ -297,7 +297,7 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
                 {
                     for (final ColumnConfig<T> columnConfig : columnConfigs) {
                         printer.println(
-                                columnConfig.getTitle()
+                            columnConfig.getTitle()
                         );
                     }
                 }
@@ -319,11 +319,11 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
                             for (int column = 0; column < columnCount; column++) {
                                 // eventually all HtmlElementComponents will implement printTree
                                 TreePrintable.printTreeOrToString(
-                                        cellRenderer.render(
-                                                column,
-                                                value
-                                        ),
-                                        printer
+                                    cellRenderer.render(
+                                        column,
+                                        value
+                                    ),
+                                    printer
                                 );
                                 printer.lineStart();
                             }
@@ -343,8 +343,8 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
                     {
                         for (final IsElement<?> child : children) {
                             TreePrintable.printTreeOrToString(
-                                    child,
-                                    printer
+                                child,
+                                printer
                             );
                         }
                     }

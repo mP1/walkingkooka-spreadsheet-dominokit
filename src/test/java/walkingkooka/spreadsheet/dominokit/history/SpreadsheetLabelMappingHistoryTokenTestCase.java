@@ -39,38 +39,38 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
     @Test
     public final void testClose() {
         this.closeAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                )
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            )
         );
     }
 
     final void urlFragmentAndCheck(final SpreadsheetLabelName label,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(
-                        label
-                ),
-                expected
+            this.createHistoryToken(
+                label
+            ),
+            expected
         );
     }
 
     @Override final T createHistoryToken(final SpreadsheetId id,
                                          final SpreadsheetName name) {
         return this.createHistoryToken(
-                id,
-                name,
-                LABEL
+            id,
+            name,
+            LABEL
         );
     }
 
     final T createHistoryToken(final SpreadsheetLabelName label) {
         return this.createHistoryToken(
-                ID,
-                NAME,
-                label
+            ID,
+            NAME,
+            label
         );
     }
 

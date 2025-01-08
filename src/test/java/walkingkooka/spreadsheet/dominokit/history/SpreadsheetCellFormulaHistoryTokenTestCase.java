@@ -30,7 +30,7 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
     @Test
     public final void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 }

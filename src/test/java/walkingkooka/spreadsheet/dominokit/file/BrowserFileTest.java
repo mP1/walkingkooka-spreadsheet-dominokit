@@ -23,7 +23,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.test.ParseStringTesting;
 
 public final class BrowserFileTest implements ParseStringTesting<BrowserFile>,
-        ClassTesting<BrowserFile> {
+    ClassTesting<BrowserFile> {
 
     // parse............................................................................................................
 
@@ -35,33 +35,33 @@ public final class BrowserFileTest implements ParseStringTesting<BrowserFile>,
     @Test
     public void testParse() {
         this.parseStringAndCheck(
-                "base64/filename123/fileContent456",
-                BrowserFileBase64.with(
-                        "filename123",
-                        "fileContent456"
-                )
+            "base64/filename123/fileContent456",
+            BrowserFileBase64.with(
+                "filename123",
+                "fileContent456"
+            )
         );
     }
 
     @Test
     public void testParseWithEmptyContent() {
         this.parseStringAndCheck(
-                "base64/filename123/",
-                BrowserFileBase64.with(
-                        "filename123",
-                        ""
-                )
+            "base64/filename123/",
+            BrowserFileBase64.with(
+                "filename123",
+                ""
+            )
         );
     }
 
     @Test
     public void testParseWithEmptyContent2() {
         this.parseStringAndCheck(
-                "base64/filename123",
-                BrowserFileBase64.with(
-                        "filename123",
-                        ""
-                )
+            "base64/filename123",
+            BrowserFileBase64.with(
+                "filename123",
+                ""
+            )
         );
     }
 

@@ -29,9 +29,9 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import java.util.Objects;
 
 final class AppContextSpreadsheetSortDialogComponentContext implements SpreadsheetSortDialogComponentContext,
-        HistoryTokenContextDelegator,
-        LoggingContextDelegator,
-        SpreadsheetComparatorProviderDelegator {
+    HistoryTokenContextDelegator,
+    LoggingContextDelegator,
+    SpreadsheetComparatorProviderDelegator {
 
     static AppContextSpreadsheetSortDialogComponentContext with(final AppContext context) {
         Objects.requireNonNull(context, "context");

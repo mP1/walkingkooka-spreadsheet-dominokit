@@ -26,13 +26,13 @@ import java.util.Objects;
 
 final class AppContextPluginSetTableComponentContext implements PluginSetTableComponentContext, HistoryTokenContextDelegator {
 
-    static AppContextPluginSetTableComponentContext with(final AppContext context){
+    static AppContextPluginSetTableComponentContext with(final AppContext context) {
         return new AppContextPluginSetTableComponentContext(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
-    private AppContextPluginSetTableComponentContext(final AppContext context){
+    private AppContextPluginSetTableComponentContext(final AppContext context) {
         this.context = context;
     }
 

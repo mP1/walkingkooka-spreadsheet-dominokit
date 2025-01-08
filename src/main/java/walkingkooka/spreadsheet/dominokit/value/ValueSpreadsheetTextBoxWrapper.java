@@ -30,196 +30,197 @@ import java.util.Optional;
  * A helper interface that implements delegator methods for a wrapped {@link ValueSpreadsheetTextBox}.
  */
 public interface ValueSpreadsheetTextBoxWrapper<C extends ValueSpreadsheetTextBoxWrapper<C, V>, V>
-        extends ValueComponent<HTMLFieldSetElement, V, C> {
+    extends ValueComponent<HTMLFieldSetElement, V, C> {
 
     @Override
     default C setId(final String id) {
         this.parserSpreadsheetTextBox()
-                .setId(id);
+            .setId(id);
         return (C) this;
     }
 
     @Override
     default String id() {
         return this.parserSpreadsheetTextBox()
-                .id();
+            .id();
     }
 
     @Override
     default C setLabel(final String label) {
         this.parserSpreadsheetTextBox()
-                .setLabel(label);
+            .setLabel(label);
         return (C) this;
     }
 
     @Override
     default String label() {
         return this.parserSpreadsheetTextBox()
-                .label();
+            .label();
     }
 
     @Override
     default C setValue(final Optional<V> value) {
         this.parserSpreadsheetTextBox()
-                .setValue(value);
+            .setValue(value);
         return (C) this;
     }
 
     @Override
     default C focus() {
         this.parserSpreadsheetTextBox()
-                .focus();
+            .focus();
         return (C) this;
     }
 
     @Override
     default C optional() {
         this.parserSpreadsheetTextBox()
-                .optional();
+            .optional();
         return (C) this;
     }
 
     @Override
     default C required() {
         this.parserSpreadsheetTextBox()
-                .required();
+            .required();
         return (C) this;
     }
 
     @Override
     default boolean isRequired() {
         return this.parserSpreadsheetTextBox()
-                .isRequired();
+            .isRequired();
     }
 
     @Override
     default C validate() {
         this.parserSpreadsheetTextBox()
-                .validate();
+            .validate();
         return (C) this;
     }
 
     @Override
     default List<String> errors() {
         return this.parserSpreadsheetTextBox()
-                .errors();
+            .errors();
     }
 
     @Override
     default C setErrors(final List<String> errors) {
         this.parserSpreadsheetTextBox()
-                .setErrors(errors);
+            .setErrors(errors);
         return (C) this;
     }
+
     @Override
     default boolean isDisabled() {
         return this.parserSpreadsheetTextBox()
-                .isDisabled();
+            .isDisabled();
     }
 
     @Override
     default C setDisabled(final boolean disabled) {
         this.parserSpreadsheetTextBox()
-                .setDisabled(disabled);
+            .setDisabled(disabled);
         return (C) this;
     }
 
     @Override
     default C addChangeListener(final ChangeListener<Optional<V>> listener) {
         this.parserSpreadsheetTextBox()
-                .addChangeListener(listener);
+            .addChangeListener(listener);
         return (C) this;
     }
 
     @Override
     default C addFocusListener(final EventListener listener) {
         this.parserSpreadsheetTextBox()
-                .addFocusListener(listener);
+            .addFocusListener(listener);
         return (C) this;
     }
 
     @Override
     default C addKeydownListener(final EventListener listener) {
         this.parserSpreadsheetTextBox()
-                .addKeydownListener(listener);
+            .addKeydownListener(listener);
         return (C) this;
     }
 
     @Override
     default C addKeyupListener(final EventListener listener) {
         this.parserSpreadsheetTextBox()
-                .addKeyupListener(listener);
+            .addKeyupListener(listener);
         return (C) this;
     }
 
     @Override
     default C alwaysShowHelperText() {
         this.parserSpreadsheetTextBox()
-                .alwaysShowHelperText();
+            .alwaysShowHelperText();
         return (C) this;
     }
 
     @Override
     default C setHelperText(final Optional<String> text) {
         this.parserSpreadsheetTextBox()
-                .setHelperText(text);
+            .setHelperText(text);
         return (C) this;
     }
 
     @Override
     default Optional<String> helperText() {
         return this.parserSpreadsheetTextBox()
-                .helperText();
+            .helperText();
     }
 
     @Override
     default C hideMarginBottom() {
         this.parserSpreadsheetTextBox()
-                .hideMarginBottom();
+            .hideMarginBottom();
         return (C) this;
     }
 
     @Override
     default C removeBorders() {
         this.parserSpreadsheetTextBox()
-                .removeBorders();
+            .removeBorders();
         return (C) this;
     }
 
     @Override
     default Optional<V> value() {
         return this.parserSpreadsheetTextBox()
-                .value();
+            .value();
     }
 
     default Optional<String> stringValue() {
         return this.parserSpreadsheetTextBox()
-                .stringValue();
+            .stringValue();
     }
 
     default C setStringValue(final Optional<String> stringValue) {
         this.parserSpreadsheetTextBox()
-                .setStringValue(stringValue);
+            .setStringValue(stringValue);
         return (C) this;
     }
 
     @Override
     default HTMLFieldSetElement element() {
         return this.parserSpreadsheetTextBox()
-                .element();
+            .element();
     }
 
     @Override
     default C setCssText(final String css) {
         this.parserSpreadsheetTextBox()
-                .setCssText(css);
+            .setCssText(css);
         return (C) this;
     }
 
     @Override
     default Node node() {
         return this.parserSpreadsheetTextBox()
-                .node();
+            .node();
     }
 
     /**
@@ -235,7 +236,7 @@ public interface ValueSpreadsheetTextBoxWrapper<C extends ValueSpreadsheetTextBo
         printer.indent();
         {
             this.parserSpreadsheetTextBox()
-                    .printTree(printer);
+                .printTree(printer);
         }
         printer.outdent();
     }

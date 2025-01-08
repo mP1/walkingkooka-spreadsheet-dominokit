@@ -40,9 +40,9 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlElementCom
                                                             final SpreadsheetPatternKind[] kinds,
                                                             final SpreadsheetPatternKindTabsComponentContext context) {
         return new SpreadsheetPatternKindTabsComponent(
-                id,
-                kinds,
-                context
+            id,
+            kinds,
+            context
         );
     }
 
@@ -50,9 +50,9 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlElementCom
                                                 final SpreadsheetPatternKind[] kinds,
                                                 final SpreadsheetPatternKindTabsComponentContext context) {
         this.tabsComponent = this.tabsComponentCreate(
-                id,
-                kinds,
-                context
+            id,
+            kinds,
+            context
         );
 
         this.kinds = kinds;
@@ -67,13 +67,13 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlElementCom
 
         for (final SpreadsheetPatternKind kind : kinds) {
             tabs.appendTab(
-                    id +
-                            CaseKind.SNAKE.change(
-                                    kind.name()
-                                            .toLowerCase(),
-                                    CaseKind.KEBAB
-                            ).replace("-pattern", ""),
-                    tabTitle(kind)
+                id +
+                    CaseKind.SNAKE.change(
+                        kind.name()
+                            .toLowerCase(),
+                        CaseKind.KEBAB
+                    ).replace("-pattern", ""),
+                tabTitle(kind)
             );
         }
 
@@ -88,10 +88,10 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlElementCom
      */
     private static String tabTitle(final SpreadsheetPatternKind kind) {
         return CaseKind.SNAKE.change(
-                kind.name()
-                        .replace("FORMAT_PATTERN", "")
-                        .replace("PARSE_PATTERN", ""),
-                CaseKind.TITLE
+            kind.name()
+                .replace("FORMAT_PATTERN", "")
+                .replace("PARSE_PATTERN", ""),
+            CaseKind.TITLE
         ).trim();
     }
 
@@ -103,7 +103,7 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlElementCom
     public void refresh(final SpreadsheetPatternKindTabsComponentContext context) {
         final SpreadsheetTabsComponent tabs = this.tabsComponent;
         final SpreadsheetPatternKind kind = context.historyToken().patternKind()
-                .orElse(null);
+            .orElse(null);
 
         int i = 0;
         for (final SpreadsheetPatternKind possible : this.kinds) {
@@ -117,10 +117,10 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlElementCom
             } else {
                 final HistoryToken historyToken = context.historyToken();
                 final HistoryToken historyTokenWithPatternKind = historyToken.setPatternKind(
-                        Optional.of(possible)
+                    Optional.of(possible)
                 );
                 anchor.setHistoryToken(
-                        Optional.of(historyTokenWithPatternKind)
+                    Optional.of(historyTokenWithPatternKind)
                 );
             }
 

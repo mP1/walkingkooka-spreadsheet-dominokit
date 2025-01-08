@@ -48,13 +48,13 @@ import java.util.function.Predicate;
  * A TD which includes a single {@link SpreadsheetCell}.
  */
 final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends SpreadsheetViewportComponentTableCell
-        implements IsElement<HTMLTableCellElement> {
+    implements IsElement<HTMLTableCellElement> {
 
     static SpreadsheetViewportComponentTableCellSpreadsheetCell empty(final SpreadsheetCellReference cellReference,
                                                                       final SpreadsheetViewportComponentTableContext context) {
         return new SpreadsheetViewportComponentTableCellSpreadsheetCell(
-                cellReference,
-                context
+            cellReference,
+            context
         );
     }
 
@@ -65,16 +65,16 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         this.element = ElementsFactory.elements.td()
-                .id(
-                        SpreadsheetViewportComponent.id(cellReference)
-                ).setTabIndex(0)
-                .style(
-                        css(
-                                CELL_STYLE,
-                                cache.columnWidth(cellReference.column()),
-                                cache.rowHeight(cellReference.row())
-                        )
-                );
+            .id(
+                SpreadsheetViewportComponent.id(cellReference)
+            ).setTabIndex(0)
+            .style(
+                css(
+                    CELL_STYLE,
+                    cache.columnWidth(cellReference.column()),
+                    cache.rowHeight(cellReference.row())
+                )
+            );
         this.cellReference = cellReference;
         this.tooltipMessage = "";
     }
@@ -95,8 +95,8 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
         final boolean isSelected = selected.test(cellReference);
         Color mixBackgroundColor = isSelected ?
-                SpreadsheetDominoKitColor.VIEWPORT_CELL_SELECTED_BACKGROUND_COLOR :
-                null;
+            SpreadsheetDominoKitColor.VIEWPORT_CELL_SELECTED_BACKGROUND_COLOR :
+            null;
 
         boolean hideZeroValues = false;
 
@@ -105,14 +105,14 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
             if (context.hideZeroValues()) {
                 final Object value = cell.formula()
-                        .value()
-                        .orElse(null);
+                    .value()
+                    .orElse(null);
 
                 if (ExpressionNumber.is(value) &&
-                        ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create((Number) value).sign()) {
+                    ExpressionNumberSign.ZERO == ExpressionNumberKind.DEFAULT.create((Number) value).sign()) {
                     mixBackgroundColor = mixBackgroundColor.mix(
-                            SpreadsheetDominoKitColor.HIGHLIGHT_COLOR,
-                            0.25f
+                        SpreadsheetDominoKitColor.HIGHLIGHT_COLOR,
+                        0.25f
                     );
 
                     hideZeroValues = true;
@@ -121,9 +121,9 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
         }
 
         if (context.mustRefresh() ||
-                false == maybeCell.equals(this.cell) ||
-                this.selected != isSelected ||
-                this.hideZeroValues != hideZeroValues
+            false == maybeCell.equals(this.cell) ||
+            this.selected != isSelected ||
+            this.hideZeroValues != hideZeroValues
         ) {
             this.cell = maybeCell;
             this.selected = isSelected;
@@ -142,25 +142,25 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                     final Optional<TextNode> maybeFormatted = cell.formattedValue();
                     if (maybeFormatted.isPresent()) {
                         td.appendChild(
-                                Doms.node(maybeFormatted.get())
+                            Doms.node(maybeFormatted.get())
                         );
                     }
                 }
                 style = cell.style()
-                        .merge(style);
+                    .merge(style);
                 maybeError = cell.formula()
-                        .error();
+                    .error();
             }
 
             if (null != mixBackgroundColor) {
                 Color color = style.getOrFail(TextStylePropertyName.BACKGROUND_COLOR);
 
                 style = style.set(
-                        TextStylePropertyName.BACKGROUND_COLOR,
-                        color.mix(
-                                mixBackgroundColor,
-                                0.25f
-                        )
+                    TextStylePropertyName.BACKGROUND_COLOR,
+                    color.mix(
+                        mixBackgroundColor,
+                        0.25f
+                    )
                 );
             }
 
@@ -169,20 +169,20 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
             final Length<?> height = cache.rowHeight(cellReference.row());
 
             style = style.setValues(
-                    Maps.of(
-                            TextStylePropertyName.WIDTH,
-                            width,
-                            TextStylePropertyName.HEIGHT,
-                            height,
-                            TextStylePropertyName.MIN_WIDTH,
-                            width,
-                            TextStylePropertyName.MIN_HEIGHT,
-                            height
-                    )
+                Maps.of(
+                    TextStylePropertyName.WIDTH,
+                    width,
+                    TextStylePropertyName.HEIGHT,
+                    height,
+                    TextStylePropertyName.MIN_WIDTH,
+                    width,
+                    TextStylePropertyName.MIN_HEIGHT,
+                    height
+                )
             );
 
             td.style(
-                    style.text() + "box-sizing: border-box;"
+                style.text() + "box-sizing: border-box;"
             );
 
 
@@ -200,13 +200,13 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
     private void tooltipRefresh(final Optional<SpreadsheetError> error) {
         final String newTooltipMessage = error.map(
-                e -> {
-                    final String errorMessage = e.message();
-                    return errorMessage.isEmpty() ?
-                            e.toString() :
-                            errorMessage;
+            e -> {
+                final String errorMessage = e.message();
+                return errorMessage.isEmpty() ?
+                    e.toString() :
+                    errorMessage;
 
-                }
+            }
         ).orElse("");
 
         final String oldTooltipMessage = this.tooltipMessage;
@@ -219,8 +219,8 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
 
             if (false == newTooltipMessage.isEmpty()) {
                 this.tooltip = Tooltip.create(
-                        this.element,
-                        newTooltipMessage
+                    this.element,
+                    newTooltipMessage
                 ).setPosition(DropDirection.BOTTOM_MIDDLE);
             }
 

@@ -34,8 +34,8 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueSprea
 
     private SpreadsheetExpressionReferenceComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetSelection::parseExpressionReference,
-                HasText::text
+            SpreadsheetSelection::parseExpressionReference,
+            HasText::text
         );
     }
 

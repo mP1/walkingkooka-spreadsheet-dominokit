@@ -45,12 +45,12 @@ public final class PluginUploadSelectHistoryToken extends PluginUploadHistoryTok
                         final TextCursor cursor) {
         PluginUploadHistoryToken historyToken = this;
 
-        switch(component) {
+        switch (component) {
             case SAVE_STRING:
                 historyToken = pluginUploadSave(
-                        BrowserFile.parse(
-                                parseAll(cursor)
-                        )
+                    BrowserFile.parse(
+                        parseAll(cursor)
+                    )
                 );
                 break;
             case "":
@@ -75,8 +75,8 @@ public final class PluginUploadSelectHistoryToken extends PluginUploadHistoryTok
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.pluginListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
+            OptionalInt.empty(), // offset
+            OptionalInt.empty() // count
         );
     }
 

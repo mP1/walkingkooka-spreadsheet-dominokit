@@ -31,20 +31,20 @@ public final class PluginDownload {
         Objects.requireNonNull(path, "path");
 
         return PluginDownload.with(
-                PluginName.with(
-                        path.namesList()
-                                .get(3)
-                                .value()
-                ),
-                JarEntryInfoName.pluginDownloadPathExtract(path)
+            PluginName.with(
+                path.namesList()
+                    .get(3)
+                    .value()
+            ),
+            JarEntryInfoName.pluginDownloadPathExtract(path)
         );
     }
 
     public static PluginDownload with(final PluginName pluginName,
                                       final Optional<JarEntryInfoName> filename) {
         return new PluginDownload(
-                Objects.requireNonNull(pluginName, "pluginName"),
-                Objects.requireNonNull(filename, "filename")
+            Objects.requireNonNull(pluginName, "pluginName"),
+            Objects.requireNonNull(filename, "filename")
         );
     }
 
@@ -71,8 +71,8 @@ public final class PluginDownload {
     @Override
     public int hashCode() {
         return Objects.hash(
-                this.pluginName,
-                this.filename
+            this.pluginName,
+            this.filename
         );
     }
 
@@ -83,14 +83,14 @@ public final class PluginDownload {
 
     private boolean equals0(final PluginDownload other) {
         return this.pluginName.equals(other.pluginName) &&
-                this.filename.equals(other.filename);
+            this.filename.equals(other.filename);
     }
 
     @Override
     public String toString() {
         return ToStringBuilder.empty()
-                .value(this.pluginName)
-                .value(this.filename)
-                .build();
+            .value(this.pluginName)
+            .value(this.filename)
+            .build();
     }
 }

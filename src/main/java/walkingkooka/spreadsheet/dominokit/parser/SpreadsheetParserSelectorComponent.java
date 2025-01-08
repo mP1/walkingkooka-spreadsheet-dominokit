@@ -34,8 +34,8 @@ public final class SpreadsheetParserSelectorComponent implements ValueSpreadshee
 
     private SpreadsheetParserSelectorComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetParserSelector::parse,
-                HasText::text
+            SpreadsheetParserSelector::parse,
+            HasText::text
         );
     }
 

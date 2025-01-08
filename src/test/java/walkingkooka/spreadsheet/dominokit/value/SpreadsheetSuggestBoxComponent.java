@@ -39,17 +39,17 @@ import java.util.function.Function;
  * A text box component that includes support for suggestions using a {@link SuggestionsStore}.
  */
 public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements SpreadsheetSuggestBoxComponentLike<T>,
-        TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetSuggestBoxComponent<T>>,
-        ValidatorHelper {
+    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetSuggestBoxComponent<T>>,
+    ValidatorHelper {
 
     public static <T extends HasText> SpreadsheetSuggestBoxComponent<T> with(final Function<String, T> parser,
-                                                                                                                      final SuggestionsStore<String, SpanElement, SuggestOption<String>> suggestionsStore) {
+                                                                             final SuggestionsStore<String, SpanElement, SuggestOption<String>> suggestionsStore) {
         Objects.requireNonNull(parser, "parser");
         Objects.requireNonNull(suggestionsStore, "suggestionsStore");
 
         return new SpreadsheetSuggestBoxComponent<>(
-                parser,
-                suggestionsStore
+            parser,
+            suggestionsStore
         );
     }
 
@@ -143,14 +143,14 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         Objects.requireNonNull(value, "value");
 
         return this.setStringValue(
-                value.map(HasText::text)
+            value.map(HasText::text)
         );
     }
 
     @Override //
     public Optional<T> value() {
         return tryParse(
-                this.stringValue.orElse("")
+            this.stringValue.orElse("")
         );
     }
 
@@ -189,11 +189,11 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     public SpreadsheetSuggestBoxComponent<T> optional() {
         this.required = false;
         return this.setValidator(
-                SpreadsheetValidators.optional(
-                        SpreadsheetValidators.tryCatch(
-                                this.parser::apply
-                        )
+            SpreadsheetValidators.optional(
+                SpreadsheetValidators.tryCatch(
+                    this.parser::apply
                 )
+            )
         );
     }
 
@@ -201,9 +201,9 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     public SpreadsheetSuggestBoxComponent<T> required() {
         this.required = true;
         return this.setValidator(
-                SpreadsheetValidators.tryCatch(
-                        this.parser::apply
-                )
+            SpreadsheetValidators.tryCatch(
+                this.parser::apply
+            )
         );
     }
 
@@ -224,12 +224,12 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     @Override
     public SpreadsheetSuggestBoxComponent<T> validate() {
         this.setErrors(
-                this.validateAndGetErrors(
-                        this.stringValue,
-                        Optional.ofNullable(
-                                this.validator
-                        )
+            this.validateAndGetErrors(
+                this.stringValue,
+                Optional.ofNullable(
+                    this.validator
                 )
+            )
         );
         return this;
     }

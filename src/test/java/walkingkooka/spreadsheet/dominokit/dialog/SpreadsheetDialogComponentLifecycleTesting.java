@@ -20,5 +20,5 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycleTesting;
 
 public interface SpreadsheetDialogComponentLifecycleTesting<T extends SpreadsheetDialogComponentLifecycle,
-        C extends SpreadsheetDialogComponentContext> extends HistoryTokenAwareComponentLifecycleTesting<T> {
+    C extends SpreadsheetDialogComponentContext> extends HistoryTokenAwareComponentLifecycleTesting<T> {
 }

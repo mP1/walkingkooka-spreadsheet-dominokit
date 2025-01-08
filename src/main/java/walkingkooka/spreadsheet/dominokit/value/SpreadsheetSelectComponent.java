@@ -35,7 +35,7 @@ import java.util.Optional;
  * A select component with a few helpers to assist with build and working with values.
  */
 public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLFieldSetElement, T, SpreadsheetSelectComponent<T>>,
-        SpreadsheetTextBoxTreePrintable<SpreadsheetSelectComponent<T>, T> {
+    SpreadsheetTextBoxTreePrintable<SpreadsheetSelectComponent<T>, T> {
 
     public static <T> SpreadsheetSelectComponent<T> empty() {
         return new SpreadsheetSelectComponent<>();
@@ -101,8 +101,8 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         checkValue(value);
 
         return this.appendValue(
-                text,
-                Optional.of(value)
+            text,
+            Optional.of(value)
         );
     }
 
@@ -115,10 +115,10 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         checkValue(value);
 
         this.select.appendChild(
-                SelectOption.create(
-                        value.orElse(null),
-                        text
-                )
+            SelectOption.create(
+                value.orElse(null),
+                text
+            )
         );
         return this;
     }
@@ -128,7 +128,7 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         checkValue(value);
 
         this.select.setValue(
-                value.orElse(null)
+            value.orElse(null)
         );
         return this;
     }
@@ -136,7 +136,7 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     @Override //
     public Optional<T> value() {
         return Optional.ofNullable(
-                this.select.getValue()
+            this.select.getValue()
         );
     }
 
@@ -196,7 +196,7 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         Objects.requireNonNull(errors, "errors");
 
         this.select.invalidate(
-                Lists.immutable(errors)
+            Lists.immutable(errors)
         );
         return this;
     }
@@ -207,10 +207,10 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         Objects.requireNonNull(listener, "listener");
 
         this.select.addChangeListener(
-                (oldValue, newValue) -> listener.onValueChanged(
-                        Optional.ofNullable(oldValue),
-                        Optional.ofNullable(newValue)
-                )
+            (oldValue, newValue) -> listener.onValueChanged(
+                Optional.ofNullable(oldValue),
+                Optional.ofNullable(newValue)
+            )
         );
         return this;
     }
@@ -218,8 +218,8 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     @Override
     public SpreadsheetSelectComponent<T> addFocusListener(final EventListener listener) {
         this.select.addEventListener(
-                EventType.focus,
-                listener
+            EventType.focus,
+            listener
         );
         return this;
     }
@@ -229,8 +229,8 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         Objects.requireNonNull(listener, "listener");
 
         this.select.addEventListener(
-                EventType.keydown,
-                listener
+            EventType.keydown,
+            listener
         );
         return this;
     }
@@ -240,8 +240,8 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         Objects.requireNonNull(listener, "listener");
 
         this.select.addEventListener(
-                EventType.keyup,
-                listener
+            EventType.keyup,
+            listener
         );
         return this;
     }
@@ -265,9 +265,9 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
     @Override
     public SpreadsheetSelectComponent<T> removeBorders() {
         this.select.getInputElement()
-                .parent()
-                .setBorder("0")
-                .setCssProperty("border-radius", 0);
+            .parent()
+            .setBorder("0")
+            .setCssProperty("border-radius", 0);
         return this;
     }
 
@@ -305,8 +305,8 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         {
             // Not sure what this will print...
             TreePrintable.printTreeOrToString(
-                    this.select.getOptionsMenu(),
-                    printer
+                this.select.getOptionsMenu(),
+                printer
             );
         }
         printer.outdent();

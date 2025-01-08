@@ -39,11 +39,11 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 abstract class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSet extends AppContextPluginAliasSetLikeDialogComponentContext<ExpressionFunctionName,
-        ExpressionFunctionInfo,
-        ExpressionFunctionInfoSet,
-        ExpressionFunctionSelector,
-        ExpressionFunctionAlias,
-        ExpressionFunctionAliasSet> {
+    ExpressionFunctionInfo,
+    ExpressionFunctionInfoSet,
+    ExpressionFunctionSelector,
+    ExpressionFunctionAlias,
+    ExpressionFunctionAliasSet> {
 
     AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSet(final AppContext context) {
         super(context);
@@ -63,49 +63,49 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunct
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.expressionFunctionFetcher()
-                .infoSet(id);
+            .infoSet(id);
     }
 
     @Override
     public final Runnable addProviderFetcherWatcher(final Consumer<ExpressionFunctionAliasSet> set) {
         return this.context.addExpressionFunctionFetcherWatcher(
-                new ExpressionFunctionFetcherWatcher() {
-                    @Override
-                    public void onExpressionFunctionInfoSet(final SpreadsheetId id,
-                                                            final ExpressionFunctionInfoSet infos,
-                                                            final AppContext context) {
-                        set.accept(infos.aliasSet());
-                    }
-
-                    @Override
-                    public void onBegin(final HttpMethod method,
-                                        final Url url,
-                                        final Optional<FetcherRequestBody<?>> body,
-                                        final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onFailure(final HttpMethod method,
-                                          final AbsoluteOrRelativeUrl url,
-                                          final HttpStatus status,
-                                          final Headers headers,
-                                          final String body,
-                                          final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onError(final Object cause,
-                                        final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onEmptyResponse(final AppContext context) {
-                        // nop
-                    }
+            new ExpressionFunctionFetcherWatcher() {
+                @Override
+                public void onExpressionFunctionInfoSet(final SpreadsheetId id,
+                                                        final ExpressionFunctionInfoSet infos,
+                                                        final AppContext context) {
+                    set.accept(infos.aliasSet());
                 }
+
+                @Override
+                public void onBegin(final HttpMethod method,
+                                    final Url url,
+                                    final Optional<FetcherRequestBody<?>> body,
+                                    final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onFailure(final HttpMethod method,
+                                      final AbsoluteOrRelativeUrl url,
+                                      final HttpStatus status,
+                                      final Headers headers,
+                                      final String body,
+                                      final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onError(final Object cause,
+                                    final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onEmptyResponse(final AppContext context) {
+                    // nop
+                }
+            }
         );
     }
 
@@ -117,12 +117,12 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunct
         final AppContext context = this.context;
 
         return context.spreadsheetMetadata()
-                .get(SpreadsheetMetadataPropertyName.FUNCTIONS)
-                .orElse(ExpressionFunctionAliasSet.EMPTY)
-                .keepAliasOrNameAll(
-                        context.systemSpreadsheetProvider()
-                                .expressionFunctionInfos()
-                                .names()
-                );
+            .get(SpreadsheetMetadataPropertyName.FUNCTIONS)
+            .orElse(ExpressionFunctionAliasSet.EMPTY)
+            .keepAliasOrNameAll(
+                context.systemSpreadsheetProvider()
+                    .expressionFunctionInfos()
+                    .names()
+            );
     }
 }

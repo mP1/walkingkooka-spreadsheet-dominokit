@@ -26,8 +26,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherW
 import java.util.Optional;
 
 public interface SpreadsheetNameDialogComponentContext extends SpreadsheetDialogComponentContext,
-        ComponentLifecycleMatcher,
-        HasSpreadsheetMetadataFetcherWatchers {
+    ComponentLifecycleMatcher,
+    HasSpreadsheetMetadataFetcherWatchers {
 
     void loadSpreadsheetMetadata(final SpreadsheetId id);
 

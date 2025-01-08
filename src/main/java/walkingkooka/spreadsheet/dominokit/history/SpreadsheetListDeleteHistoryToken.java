@@ -45,28 +45,28 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
 
     static SpreadsheetListDeleteHistoryToken with(final SpreadsheetId id) {
         return new SpreadsheetListDeleteHistoryToken(
-                id
+            id
         );
     }
 
     private SpreadsheetListDeleteHistoryToken(final SpreadsheetId id) {
         super(
-                id
+            id
         );
     }
 
     @Override
     UrlFragment spreadsheetUrlFragment() {
         return DELETE.appendSlashThen(
-                this.id().urlFragment()
+            this.id().urlFragment()
         );
     }
 
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.spreadsheetListSelect(
-                OptionalInt.empty(), // from
-                OptionalInt.empty() // count
+            OptionalInt.empty(), // from
+            OptionalInt.empty() // count
         );
     }
 
@@ -91,58 +91,58 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.pushHistoryToken(
-                previous.clearAction()
+            previous.clearAction()
         );
 
         context.addSpreadsheetMetadataFetcherWatcherOnce(
-                new SpreadsheetMetadataFetcherWatcher() {
-                    @Override
-                    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                                      final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                                         final AppContext context) {
-                        // ignore
-                    }
-
-                    @Override
-                    public void onBegin(final HttpMethod method,
-                                        final Url url,
-                                        final Optional<FetcherRequestBody<?>> body,
-                                        final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onFailure(final HttpMethod method,
-                                          final AbsoluteOrRelativeUrl url,
-                                          final HttpStatus status,
-                                          final Headers headers,
-                                          final String body,
-                                          final AppContext context) {
-                        context.pushHistoryToken(
-                                previous.clearAction()
-                        );
-                    }
-
-                    @Override
-                    public void onError(final Object cause,
-                                        final AppContext context) {
-                        context.pushHistoryToken(
-                                previous.clearAction()
-                        );
-                    }
-
-                    @Override
-                    public void onEmptyResponse(final AppContext context) {
-
-                    }
+            new SpreadsheetMetadataFetcherWatcher() {
+                @Override
+                public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
+                                                  final AppContext context) {
+                    // nop
                 }
+
+                @Override
+                public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
+                                                     final AppContext context) {
+                    // ignore
+                }
+
+                @Override
+                public void onBegin(final HttpMethod method,
+                                    final Url url,
+                                    final Optional<FetcherRequestBody<?>> body,
+                                    final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onFailure(final HttpMethod method,
+                                      final AbsoluteOrRelativeUrl url,
+                                      final HttpStatus status,
+                                      final Headers headers,
+                                      final String body,
+                                      final AppContext context) {
+                    context.pushHistoryToken(
+                        previous.clearAction()
+                    );
+                }
+
+                @Override
+                public void onError(final Object cause,
+                                    final AppContext context) {
+                    context.pushHistoryToken(
+                        previous.clearAction()
+                    );
+                }
+
+                @Override
+                public void onEmptyResponse(final AppContext context) {
+
+                }
+            }
         );
         context.spreadsheetMetadataFetcher()
-                .deleteSpreadsheetMetadata(this.id());
+            .deleteSpreadsheetMetadata(this.id());
     }
 }

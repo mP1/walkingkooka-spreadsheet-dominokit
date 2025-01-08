@@ -30,56 +30,56 @@ public final class SpreadsheetValueTypeComponentTest implements ValueComponentTe
     @Test
     public void testTreePrintWithoutValue() {
         this.treePrintAndCheck(
-                SpreadsheetValueTypeComponent.empty(),
-                "SpreadsheetValueTypeComponent\n" +
-                        "  SpreadsheetSelectComponent\n" +
-                        "    []\n" +
-                        "      Any=*\n" +
-                        "      Boolean=boolean\n" +
-                        "      Date=date\n" +
-                        "      Error=error\n" +
-                        "      DateTime=date-time\n" +
-                        "      Number=number\n" +
-                        "      Text=text\n" +
-                        "      Time=time\n"
+            SpreadsheetValueTypeComponent.empty(),
+            "SpreadsheetValueTypeComponent\n" +
+                "  SpreadsheetSelectComponent\n" +
+                "    []\n" +
+                "      Any=*\n" +
+                "      Boolean=boolean\n" +
+                "      Date=date\n" +
+                "      Error=error\n" +
+                "      DateTime=date-time\n" +
+                "      Number=number\n" +
+                "      Text=text\n" +
+                "      Time=time\n"
         );
     }
 
     @Test
     public void testTreePrintWithAnyValue() {
         this.treePrintAndCheck(
-                SpreadsheetValueTypeComponent.empty()
-                        .setValue(Optional.of(SpreadsheetValueType.ANY)),
-                "SpreadsheetValueTypeComponent\n" +
-                        "  SpreadsheetSelectComponent\n" +
-                        "    [*]\n" +
-                        "      Any=*\n" +
-                        "      Boolean=boolean\n" +
-                        "      Date=date\n" +
-                        "      Error=error\n" +
-                        "      DateTime=date-time\n" +
-                        "      Number=number\n" +
-                        "      Text=text\n" +
-                        "      Time=time\n"
+            SpreadsheetValueTypeComponent.empty()
+                .setValue(Optional.of(SpreadsheetValueType.ANY)),
+            "SpreadsheetValueTypeComponent\n" +
+                "  SpreadsheetSelectComponent\n" +
+                "    [*]\n" +
+                "      Any=*\n" +
+                "      Boolean=boolean\n" +
+                "      Date=date\n" +
+                "      Error=error\n" +
+                "      DateTime=date-time\n" +
+                "      Number=number\n" +
+                "      Text=text\n" +
+                "      Time=time\n"
         );
     }
 
     @Test
     public void testTreePrintWithBooleanValue() {
         this.treePrintAndCheck(
-                SpreadsheetValueTypeComponent.empty()
-                        .setValue(Optional.of(SpreadsheetValueType.BOOLEAN)),
-                "SpreadsheetValueTypeComponent\n" +
-                        "  SpreadsheetSelectComponent\n" +
-                        "    [boolean]\n" +
-                        "      Any=*\n" +
-                        "      Boolean=boolean\n" +
-                        "      Date=date\n" +
-                        "      Error=error\n" +
-                        "      DateTime=date-time\n" +
-                        "      Number=number\n" +
-                        "      Text=text\n" +
-                        "      Time=time\n"
+            SpreadsheetValueTypeComponent.empty()
+                .setValue(Optional.of(SpreadsheetValueType.BOOLEAN)),
+            "SpreadsheetValueTypeComponent\n" +
+                "  SpreadsheetSelectComponent\n" +
+                "    [boolean]\n" +
+                "      Any=*\n" +
+                "      Boolean=boolean\n" +
+                "      Date=date\n" +
+                "      Error=error\n" +
+                "      DateTime=date-time\n" +
+                "      Number=number\n" +
+                "      Text=text\n" +
+                "      Time=time\n"
         );
     }
 

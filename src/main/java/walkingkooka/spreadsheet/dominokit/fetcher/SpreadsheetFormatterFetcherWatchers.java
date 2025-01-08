@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdi
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 
 public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<SpreadsheetFormatterFetcherWatcher>
-        implements SpreadsheetFormatterFetcherWatcher {
+    implements SpreadsheetFormatterFetcherWatcher {
 
     public static SpreadsheetFormatterFetcherWatchers empty() {
         return new SpreadsheetFormatterFetcherWatchers();
@@ -39,11 +39,11 @@ public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<S
                                               final SpreadsheetFormatterInfoSet infos,
                                               final AppContext context) {
         this.fire(
-                SpreadsheetFormatterFetcherWatchersInfoSetEvent.with(
-                        id,
-                        infos,
-                        context
-                )
+            SpreadsheetFormatterFetcherWatchersInfoSetEvent.with(
+                id,
+                infos,
+                context
+            )
         );
     }
 
@@ -52,11 +52,11 @@ public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<S
                                                    final SpreadsheetFormatterSelectorEdit edit,
                                                    final AppContext context) {
         this.fire(
-                SpreadsheetFormatterFetcherWatchersEditEvent.with(
-                        id,
-                        edit,
-                        context
-                )
+            SpreadsheetFormatterFetcherWatchersEditEvent.with(
+                id,
+                edit,
+                context
+            )
         );
     }
 
@@ -65,11 +65,11 @@ public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<S
                                                        final SpreadsheetFormatterSelectorMenuList menu,
                                                        final AppContext context) {
         this.fire(
-                SpreadsheetFormatterFetcherWatchersMenuListEvent.with(
-                        id,
-                        menu,
-                        context
-                )
+            SpreadsheetFormatterFetcherWatchersMenuListEvent.with(
+                id,
+                menu,
+                context
+            )
         );
     }
 }

@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
 public abstract class SpreadsheetMetadataPropertyHistoryTokenTestCase<T extends SpreadsheetMetadataPropertyHistoryToken<V>, V> extends SpreadsheetMetadataHistoryTokenTestCase<T>
-        implements HasSpreadsheetPatternKindTesting {
+    implements HasSpreadsheetPatternKindTesting {
 
     final static SpreadsheetMetadataPropertyName<ExpressionNumberKind> EXPRESSION_NUMBER_KIND = SpreadsheetMetadataPropertyName.EXPRESSION_NUMBER_KIND;
 
@@ -38,12 +38,12 @@ public abstract class SpreadsheetMetadataPropertyHistoryTokenTestCase<T extends 
         final SpreadsheetMetadataPropertyName<?> different = SpreadsheetMetadataPropertyName.DATE_PARSER;
 
         this.setMetadataPropertyNameAndCheck(
-                different,
-                HistoryToken.metadataPropertySelect(
-                        ID,
-                        NAME,
-                        different
-                )
+            different,
+            HistoryToken.metadataPropertySelect(
+                ID,
+                NAME,
+                different
+            )
         );
     }
 

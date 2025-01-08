@@ -30,34 +30,34 @@ public final class ExpressionFunctionNameComponentTest implements ValueComponent
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                ExpressionFunctionNameComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "Hello"
-                                )
-                        ),
-                "ExpressionFunctionNameComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Hello]\n"
+            ExpressionFunctionNameComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "Hello"
+                    )
+                ),
+            "ExpressionFunctionNameComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Hello]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                ExpressionFunctionNameComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "Invalid123!"
-                                )
-                        ),
-                "ExpressionFunctionNameComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Invalid123!]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 10\n"
+            ExpressionFunctionNameComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "Invalid123!"
+                    )
+                ),
+            "ExpressionFunctionNameComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Invalid123!]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 10\n"
         );
     }
 

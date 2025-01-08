@@ -32,46 +32,46 @@ public abstract class SpreadsheetCellSaveMapHistoryTokenTestCase<T extends Sprea
 
     static String marshallMap(final Map<SpreadsheetCellReference, ?> cellToValue) {
         return MARSHALL_CONTEXT.marshallMap(
-                cellToValue.entrySet()
-                        .stream()
-                        .collect(
-                                Collectors.toMap(
-                                        entry -> entry.getKey().toString(),
-                                        Entry::getValue
-                                )
-                        )
+            cellToValue.entrySet()
+                .stream()
+                .collect(
+                    Collectors.toMap(
+                        entry -> entry.getKey().toString(),
+                        Entry::getValue
+                    )
+                )
         ).toString();
     }
 
     static String marshallMapWithOptionalValues(final Map<SpreadsheetCellReference, ?> cellToValue) {
         return MARSHALL_CONTEXT.marshallMap(
-                cellToValue.entrySet()
-                        .stream()
-                        .collect(
-                                Collectors.toMap(
-                                        entry -> entry.getKey().toString(),
-                                        entry -> MARSHALL_CONTEXT.marshall(
-                                                Optional.class.cast(entry.getValue())
-                                                        .orElse(null)
-                                        )
-                                )
+            cellToValue.entrySet()
+                .stream()
+                .collect(
+                    Collectors.toMap(
+                        entry -> entry.getKey().toString(),
+                        entry -> MARSHALL_CONTEXT.marshall(
+                            Optional.class.cast(entry.getValue())
+                                .orElse(null)
                         )
+                    )
+                )
         ).toString();
     }
 
     static String marshallMapWithOptionalTypedValues(final Map<SpreadsheetCellReference, ?> cellToValue) {
         return MARSHALL_CONTEXT.marshallMap(
-                cellToValue.entrySet()
-                        .stream()
-                        .collect(
-                                Collectors.toMap(
-                                        entry -> entry.getKey().toString(),
-                                        entry -> MARSHALL_CONTEXT.marshallWithType(
-                                                Optional.class.cast(entry.getValue())
-                                                        .orElse(null)
-                                        )
-                                )
+            cellToValue.entrySet()
+                .stream()
+                .collect(
+                    Collectors.toMap(
+                        entry -> entry.getKey().toString(),
+                        entry -> MARSHALL_CONTEXT.marshallWithType(
+                            Optional.class.cast(entry.getValue())
+                                .orElse(null)
                         )
+                    )
+                )
         ).toString();
     }
 }

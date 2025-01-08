@@ -67,48 +67,48 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
         checkContext(context);
 
         return new SpreadsheetMetadataPanelComponentItemDateTimeOffset(
-                context
+            context
         );
     }
 
     private SpreadsheetMetadataPanelComponentItemDateTimeOffset(final SpreadsheetMetadataPanelComponentContext context) {
         super(
-                PROPERTY_NAME,
-                context
+            PROPERTY_NAME,
+            context
         );
 
         final UListElement list = this.uListElement();
 
         final DateBox dateBox = DateBox.create()
-                .setId(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-DateBox")
-                .setParseStrict(true) // use locale sensitive medium format.;
-                .addChangeListener(
-                        (final Date oldValue, final Date newValue) -> {
-                            context.debug(this.getClass().getSimpleName() + ".onChange " + newValue);
-                            this.save(
-                                    null != newValue ?
-                                            toLong(newValue).toString() :
-                                            ""
-                            );
-                        }
-                ).apply(
-                        self ->
-                                self.appendChild(
-                                        PostfixAddOn.of(
-                                                Icons.close_circle()
-                                                        .clickable()
-                                                        .addClickListener((e) -> self.clear())
-                                        )
-                                )
-                );
+            .setId(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-DateBox")
+            .setParseStrict(true) // use locale sensitive medium format.;
+            .addChangeListener(
+                (final Date oldValue, final Date newValue) -> {
+                    context.debug(this.getClass().getSimpleName() + ".onChange " + newValue);
+                    this.save(
+                        null != newValue ?
+                            toLong(newValue).toString() :
+                            ""
+                    );
+                }
+            ).apply(
+                self ->
+                    self.appendChild(
+                        PostfixAddOn.of(
+                            Icons.close_circle()
+                                .clickable()
+                                .addClickListener((e) -> self.clear())
+                        )
+                    )
+            );
 
         list.appendChild(
-                liElement()
-                        .appendChild(dateBox)
+            liElement()
+                .appendChild(dateBox)
         );
 
         this.dateBox = dateBox.setWidth("200px")
-                .setMarginBottom("0");
+            .setMarginBottom("0");
 
         // build links for 1900 | 1904
         final HistoryToken token = context.historyToken();
@@ -116,29 +116,29 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
         for (final Long value : Lists.of(_1900, _1904)) {
             final HistoryTokenAnchorComponent anchor = token
-                    .link(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-" + value)
-                    .setTabIndex(0)
-                    .addPushHistoryToken(context)
-                    .setTextContent(
-                            formatValue(value)
-                    );
+                .link(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-" + value)
+                .setTabIndex(0)
+                .addPushHistoryToken(context)
+                .setTextContent(
+                    formatValue(value)
+                );
 
             valueToAnchors.put(value, anchor);
 
             list.appendChild(
-                    liElement()
-                            .appendChild(
-                                    anchor
-                            )
+                liElement()
+                    .appendChild(
+                        anchor
+                    )
             );
         }
 
         final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         list.appendChild(
-                liElement()
-                        .appendChild(
-                                defaultValueAnchor
-                        )
+            liElement()
+                .appendChild(
+                    defaultValueAnchor
+                )
         );
         this.defaultValueAnchor = defaultValueAnchor;
 
@@ -160,21 +160,21 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
     @Override
     public void refresh(final RefreshContext context) {
         final Long metadataValue = this.context.spreadsheetMetadata()
-                .getIgnoringDefaults(PROPERTY_NAME)
-                .orElse(null);
+            .getIgnoringDefaults(PROPERTY_NAME)
+            .orElse(null);
 
         // refresh the pattern, locale might have changed
         this.dateBox.setPattern(this.context.datePattern())
-                .setValue(
-                        null != metadataValue ?
-                                toDate(
-                                        metadataValue
-                                ) :
-                                null
-                );
+            .setValue(
+                null != metadataValue ?
+                    toDate(
+                        metadataValue
+                    ) :
+                    null
+            );
 
         final HistoryToken token = context.historyToken()
-                .setMetadataPropertyName(PROPERTY_NAME);
+            .setMetadataPropertyName(PROPERTY_NAME);
 
         // refresh the 1900 and 1904 links.
         for (final Entry<Long, HistoryTokenAnchorComponent> valueAndAnchor : this.valueToAnchors.entrySet()) {
@@ -182,27 +182,27 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
             final HistoryTokenAnchorComponent anchor = valueAndAnchor.getValue();
 
             anchor.setHistoryToken(
-                    Optional.of(
-                            token.save(
-                                    Optional.of(value)
-                            )
+                Optional.of(
+                    token.save(
+                        Optional.of(value)
                     )
+                )
             );
             anchor.setDisabled(
-                    Objects.equals(
-                            metadataValue,
-                            value
-                    )
+                Objects.equals(
+                    metadataValue,
+                    value
+                )
             );
         }
 
         this.refreshDefaultValue(
-                this.defaultValueAnchor,
-                this.context.spreadsheetMetadata()
-                        .defaults()
-                        .get(this.propertyName)
-                        .map(this::formatValue)
-                        .orElse("")
+            this.defaultValueAnchor,
+            this.context.spreadsheetMetadata()
+                .defaults()
+                .get(this.propertyName)
+                .map(this::formatValue)
+                .orElse("")
         );
     }
 
@@ -226,11 +226,11 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
     // @VisibleForTesting
     static Date toDate(final Long longValue) {
         return DateTime.localDateTimeToDate(
-                NUMBER_TO_DATE.convertOrFail(
-                        longValue,
-                        LocalDate.class,
-                        CONVERTER_CONTEXT
-                ).atTime(LocalTime.MIN)
+            NUMBER_TO_DATE.convertOrFail(
+                longValue,
+                LocalDate.class,
+                CONVERTER_CONTEXT
+            ).atTime(LocalTime.MIN)
         );
     }
 
@@ -239,10 +239,10 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
     // @VisibleForTesting
     static Long toLong(final Date date) {
         return TO_LONG.convertOrFail(
-                DateTime.dateToLocalDateTime(date)
-                        .toLocalDate(),
-                Long.class,
-                CONVERTER_CONTEXT
+            DateTime.dateToLocalDateTime(date)
+                .toLocalDate(),
+            Long.class,
+            CONVERTER_CONTEXT
         );
     }
 

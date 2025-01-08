@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 public class FakeSpreadsheetToolbarComponentContext extends FakeHistoryTokenContext
-        implements SpreadsheetToolbarComponentContext{
+    implements SpreadsheetToolbarComponentContext {
 
     public FakeSpreadsheetToolbarComponentContext() {
         super();

@@ -45,8 +45,8 @@ public final class HistoryTokenRecorder<T> implements HistoryTokenWatcher {
         }
 
         return new HistoryTokenRecorder<>(
-                mapper,
-                max
+            mapper,
+            max
         );
     }
 
@@ -64,8 +64,8 @@ public final class HistoryTokenRecorder<T> implements HistoryTokenWatcher {
         final List<T> values = this.values;
 
         this.maybeClearValues(
-                historyToken,
-                values
+            historyToken,
+            values
         );
 
         final Optional<T> maybeNewValue = this.mapper.apply(historyToken);
@@ -74,13 +74,13 @@ public final class HistoryTokenRecorder<T> implements HistoryTokenWatcher {
 
             values.remove(newValue);
             values.add(
-                    0,
-                    newValue
+                0,
+                newValue
             );
             final int size = values.size();
             if (size > this.max) {
                 values.remove(
-                        size - 1
+                    size - 1
                 ); // remove oldest.
             }
         }
@@ -136,9 +136,9 @@ public final class HistoryTokenRecorder<T> implements HistoryTokenWatcher {
     @Override
     public String toString() {
         return ToStringBuilder.empty()
-                .label("max")
-                .value(this.max)
-                .value(this.values)
-                .build();
+            .label("max")
+            .value(this.max)
+            .value(this.values)
+            .build();
     }
 }

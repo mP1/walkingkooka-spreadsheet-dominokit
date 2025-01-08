@@ -47,31 +47,31 @@ public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetCompa
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetComparatorFetcher(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     private SpreadsheetComparatorFetcher(final SpreadsheetComparatorFetcherWatcher watcher,
                                          final AppContext context) {
         super(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     // GET /api/spreadsheet/SpreadsheetId/comparator/*
     public void infoSet(final SpreadsheetId id) {
         this.get(
-                comparator(id)
+            comparator(id)
         );
     }
 
     static RelativeUrl comparator(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPathName(
-                        SpreadsheetComparatorName.HATEOS_RESOURCE_NAME.toUrlPathName()
-                );
+            .appendPathName(
+                SpreadsheetComparatorName.HATEOS_RESOURCE_NAME.toUrlPathName()
+            );
     }
 
     @Override
@@ -88,13 +88,13 @@ public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetCompa
             case "SpreadsheetComparatorInfoSet":
                 // GET http://server/api/spreadsheet/1/comparator
                 this.watcher.onSpreadsheetComparatorInfoSet(
-                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(), // the request url
-                        this.parse(
-                                body.orElse(""),
-                                SpreadsheetComparatorInfoSet.class
-                        ), // edit
-                        context
+                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                        .get(), // the request url
+                    this.parse(
+                        body.orElse(""),
+                        SpreadsheetComparatorInfoSet.class
+                    ), // edit
+                    context
                 );
                 break;
             default:

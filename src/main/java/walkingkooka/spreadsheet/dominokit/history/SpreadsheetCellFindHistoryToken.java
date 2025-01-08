@@ -41,10 +41,10 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final SpreadsheetCellFindQuery query) {
         return new SpreadsheetCellFindHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                query
+            id,
+            name,
+            anchoredSelection,
+            query
         );
     }
 
@@ -53,9 +53,9 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
                                             final AnchoredSpreadsheetSelection anchoredSelection,
                                             final SpreadsheetCellFindQuery query) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
         this.query = query;
     }
@@ -68,13 +68,13 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         Objects.requireNonNull(query, "query");
 
         return this.query.equals(query) ?
-                this :
-                new SpreadsheetCellFindHistoryToken(
-                        this.id(),
-                        this.name(),
-                        this.anchoredSelection(),
-                        query
-                );
+            this :
+            new SpreadsheetCellFindHistoryToken(
+                this.id(),
+                this.name(),
+                this.anchoredSelection(),
+                query
+            );
     }
 
     private final SpreadsheetCellFindQuery query;
@@ -94,9 +94,9 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         ).setQuery(this.query);
     }
 

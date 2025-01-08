@@ -30,9 +30,9 @@ final class SpreadsheetFormatterFetcherWatchersInfoSetEvent extends FetcherWatch
                                                                 final SpreadsheetFormatterInfoSet infos,
                                                                 final AppContext context) {
         return new SpreadsheetFormatterFetcherWatchersInfoSetEvent(
-                id,
-                infos,
-                context
+            id,
+            infos,
+            context
         );
     }
 
@@ -47,9 +47,9 @@ final class SpreadsheetFormatterFetcherWatchersInfoSetEvent extends FetcherWatch
     @Override
     void fire(final SpreadsheetFormatterFetcherWatcher watcher) {
         watcher.onSpreadsheetFormatterInfoSet(
-                this.id,
-                this.infos,
-                this.context
+            this.id,
+            this.infos,
+            this.context
         );
     }
 

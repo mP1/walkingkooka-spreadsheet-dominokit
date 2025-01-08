@@ -43,8 +43,8 @@ public final class SpreadsheetCellRangeReferencePathComponent implements ValueCo
 
         for (final SpreadsheetCellRangeReferencePath path : SpreadsheetCellRangeReferencePath.values()) {
             this.select.appendValue(
-                    path.labelText(), // text
-                    path // value
+                path.labelText(), // text
+                path // value
             );
         }
     }

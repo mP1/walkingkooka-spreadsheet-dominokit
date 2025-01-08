@@ -49,9 +49,9 @@ public interface SpreadsheetTooltipComponentLike extends TreePrintable {
         printer.indent();
         {
             printer.println(
-                    CharSequences.quoteAndEscape(
-                            this.textContent()
-                    )
+                CharSequences.quoteAndEscape(
+                    this.textContent()
+                )
             );
         }
         printer.outdent();

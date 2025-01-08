@@ -38,11 +38,11 @@ final class AppHistoryTokenAnchorComponents implements PublicStaticHelper {
     static HistoryTokenAnchorComponent files() {
         // TODO need to *READ* from and count
         return HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // from
-                        OptionalInt.empty() // count
-                )
-                .link("files")
-                .setTextContent("Files");
+                OptionalInt.empty(), // from
+                OptionalInt.empty() // count
+            )
+            .link("files")
+            .setTextContent("Files");
     }
 
     // name.............................................................................................................
@@ -53,30 +53,30 @@ final class AppHistoryTokenAnchorComponents implements PublicStaticHelper {
      */
     static HistoryTokenAnchorComponent spreadsheetName(final AppContext context) {
         final HistoryTokenAnchorComponent anchor = context.historyToken()
-                .link("spreadsheetNameRename");
+            .link("spreadsheetNameRename");
 
         context.addHistoryTokenWatcher(
-                (previous, c) -> {
-                    final HistoryToken historyToken = c.historyToken();
+            (previous, c) -> {
+                final HistoryToken historyToken = c.historyToken();
 
-                    SpreadsheetNameHistoryToken nameHistoryToken = null;
-                    String nameText = "";
+                SpreadsheetNameHistoryToken nameHistoryToken = null;
+                String nameText = "";
 
-                    if (historyToken instanceof SpreadsheetNameHistoryToken) {
-                        nameHistoryToken = historyToken.cast(SpreadsheetNameHistoryToken.class);
-                        final SpreadsheetName name = nameHistoryToken.name();
+                if (historyToken instanceof SpreadsheetNameHistoryToken) {
+                    nameHistoryToken = historyToken.cast(SpreadsheetNameHistoryToken.class);
+                    final SpreadsheetName name = nameHistoryToken.name();
 
-                        nameHistoryToken = HistoryToken.spreadsheetRenameSelect(
-                                nameHistoryToken.id(),
-                                name
-                        );
-                        nameText = name.text();
-                    }
-                    anchor.setHistoryToken(
-                            Optional.ofNullable(nameHistoryToken)
+                    nameHistoryToken = HistoryToken.spreadsheetRenameSelect(
+                        nameHistoryToken.id(),
+                        name
                     );
-                    anchor.setTextContent(nameText);
+                    nameText = name.text();
                 }
+                anchor.setHistoryToken(
+                    Optional.ofNullable(nameHistoryToken)
+                );
+                anchor.setTextContent(nameText);
+            }
         );
         return anchor;
     }

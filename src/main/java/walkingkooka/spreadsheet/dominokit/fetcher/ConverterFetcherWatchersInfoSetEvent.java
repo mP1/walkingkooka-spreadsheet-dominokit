@@ -30,9 +30,9 @@ final class ConverterFetcherWatchersInfoSetEvent extends FetcherWatchersEvent<Co
                                                      final ConverterInfoSet infos,
                                                      final AppContext context) {
         return new ConverterFetcherWatchersInfoSetEvent(
-                id,
-                infos,
-                context
+            id,
+            infos,
+            context
         );
     }
 
@@ -47,9 +47,9 @@ final class ConverterFetcherWatchersInfoSetEvent extends FetcherWatchersEvent<Co
     @Override
     void fire(final ConverterFetcherWatcher watcher) {
         watcher.onConverterInfoSet(
-                this.id,
-                this.infos,
-                this.context
+            this.id,
+            this.infos,
+            this.context
         );
     }
 

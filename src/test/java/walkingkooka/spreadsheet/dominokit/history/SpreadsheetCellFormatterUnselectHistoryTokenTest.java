@@ -37,24 +37,24 @@ public final class SpreadsheetCellFormatterUnselectHistoryTokenTest extends Spre
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/formatter/toolbar"
+            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/formatter/toolbar"
         );
     }
 
     @Test
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/formatter/toolbar"
+            SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/*/top-left/formatter/toolbar"
         );
     }
 
     @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/cell/Label123/formatter/toolbar"
+            LABEL,
+            "/123/SpreadsheetName456/cell/Label123/formatter/toolbar"
         );
     }
 
@@ -77,8 +77,8 @@ public final class SpreadsheetCellFormatterUnselectHistoryTokenTest extends Spre
     @Test
     public void testSetDelete() {
         this.deleteAndCheck(
-                this.createHistoryToken(),
-                this.createHistoryToken()
+            this.createHistoryToken(),
+            this.createHistoryToken()
         );
     }
 
@@ -87,16 +87,16 @@ public final class SpreadsheetCellFormatterUnselectHistoryTokenTest extends Spre
     @Test
     public void testSave() {
         this.saveAndCheck(
-                SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                        .spreadsheetFormatterSelector()
-                        .toString()
+            SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                .spreadsheetFormatterSelector()
+                .toString()
         );
     }
 
     @Test
     public void testSaveEmpty() {
         this.saveAndCheck(
-                ""
+            ""
         );
     }
 
@@ -105,9 +105,9 @@ public final class SpreadsheetCellFormatterUnselectHistoryTokenTest extends Spre
                                                                     final SpreadsheetName name,
                                                                     final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellFormatterUnselectHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

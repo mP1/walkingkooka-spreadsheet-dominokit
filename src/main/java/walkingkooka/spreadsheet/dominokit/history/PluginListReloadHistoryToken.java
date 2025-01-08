@@ -33,16 +33,16 @@ public final class PluginListReloadHistoryToken extends PluginListHistoryToken {
     static PluginListReloadHistoryToken with(final OptionalInt offset,
                                              final OptionalInt count) {
         return new PluginListReloadHistoryToken(
-                checkOffset(offset),
-                count
+            checkOffset(offset),
+            count
         );
     }
 
     private PluginListReloadHistoryToken(final OptionalInt offset,
                                          final OptionalInt count) {
         super(
-                offset,
-                count
+            offset,
+            count
         );
     }
 
@@ -58,8 +58,8 @@ public final class PluginListReloadHistoryToken extends PluginListHistoryToken {
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.pluginListSelect(
-                this.offset(),
-                this.count()
+            this.offset(),
+            this.count()
         );
     }
 
@@ -67,7 +67,7 @@ public final class PluginListReloadHistoryToken extends PluginListHistoryToken {
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.pushHistoryToken(
-                this.clearAction()
+            this.clearAction()
         );
         this.loadPlugins(context);
     }

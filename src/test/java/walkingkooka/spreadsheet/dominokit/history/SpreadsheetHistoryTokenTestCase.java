@@ -31,25 +31,25 @@ public abstract class SpreadsheetHistoryTokenTestCase<T extends SpreadsheetHisto
         final T token = this.createHistoryToken();
 
         this.parseAndCheck(
-                token.urlFragment(),
-                token
+            token.urlFragment(),
+            token
         );
     }
 
     final void parseAndCheck(final String fragment,
                              final SpreadsheetHistoryToken token) {
         this.parseAndCheck(
-                UrlFragment.parse(fragment),
-                token
+            UrlFragment.parse(fragment),
+            token
         );
     }
 
     final void parseAndCheck(final UrlFragment fragment,
                              final SpreadsheetHistoryToken token) {
         this.checkEquals(
-                token,
-                HistoryToken.parse(fragment),
-                () -> "parse " + fragment
+            token,
+            HistoryToken.parse(fragment),
+            () -> "parse " + fragment
         );
     }
 }

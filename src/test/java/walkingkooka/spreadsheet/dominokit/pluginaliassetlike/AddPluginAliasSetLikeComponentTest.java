@@ -34,20 +34,20 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
 public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComponentTesting<AddPluginAliasSetLikeComponent<ExpressionFunctionName,
-        ExpressionFunctionInfo,
-        ExpressionFunctionInfoSet,
-        ExpressionFunctionSelector,
-        ExpressionFunctionAlias,
-        ExpressionFunctionAliasSet>,
-        HTMLDivElement> {
+    ExpressionFunctionInfo,
+    ExpressionFunctionInfoSet,
+    ExpressionFunctionSelector,
+    ExpressionFunctionAlias,
+    ExpressionFunctionAliasSet>,
+    HTMLDivElement> {
 
     private final static AddPluginAliasSetLikeComponentContext CONTEXT = new FakeAddPluginAliasSetLikeComponentContext() {
         @Override
         public HistoryToken historyToken() {
             return HistoryToken.metadataPropertySelect(
-                    SpreadsheetId.with(1),
-                    SpreadsheetName.with("SpreadsheetName123"),
-                    SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS
+                SpreadsheetId.with(1),
+                SpreadsheetName.with("SpreadsheetName123"),
+                SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS
             );
         }
     };
@@ -56,15 +56,15 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshNoneAdded() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-                ExpressionFunctionAliasSet.parse("name1, name2, name3"), // present
-                ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // present
+            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
+            CONTEXT
         );
 
         // all aliases(name1, name2, name3) already present no links will be added
         this.treePrintAndCheck(
-                component,
-                "AddPluginAliasSetLikeComponent\n"
+            component,
+            "AddPluginAliasSetLikeComponent\n"
         );
     }
 
@@ -72,15 +72,15 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshNoneAddedWithAliases() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-                ExpressionFunctionAliasSet.parse("alias1 name1"), // present
-                ExpressionFunctionAliasSet.parse("name1"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.parse("alias1 name1"), // present
+            ExpressionFunctionAliasSet.parse("name1"), // provider
+            CONTEXT
         );
 
         // all aliases(alias1) already present no links will be added
         this.treePrintAndCheck(
-                component,
-                "AddPluginAliasSetLikeComponent\n"
+            component,
+            "AddPluginAliasSetLikeComponent\n"
         );
     }
 
@@ -88,15 +88,15 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshNoneAddedWithAliases2() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-                ExpressionFunctionAliasSet.parse("alias1 name1, name2, name3"), // present
-                ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.parse("alias1 name1, name2, name3"), // present
+            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
+            CONTEXT
         );
 
         // all aliases(name1, name2, name3) no need to create any add links
         this.treePrintAndCheck(
-                component,
-                "AddPluginAliasSetLikeComponent\n"
+            component,
+            "AddPluginAliasSetLikeComponent\n"
         );
     }
 
@@ -104,23 +104,23 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshSomeAdded() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-                ExpressionFunctionAliasSet.parse("name1, name2"), // present
-                ExpressionFunctionAliasSet.parse("name1, name2, name3, name4"), // provider
-                this.context()
+            ExpressionFunctionAliasSet.parse("name1, name2"), // present
+            ExpressionFunctionAliasSet.parse("name1, name2, name3, name4"), // provider
+            this.context()
         );
 
         // links to add name3 and name4 are needed
         this.treePrintAndCheck(
-                component,
-                "AddPluginAliasSetLikeComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Add\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2,%20name3,%20name4] id=base-id-123-add-0-Link\n" +
-                        "            \"Name3\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=base-id-123-add-1-Link\n" +
-                        "            \"Name4\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2,%20name4] id=base-id-123-add-2-Link\n"
+            component,
+            "AddPluginAliasSetLikeComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Add\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2,%20name3,%20name4] id=base-id-123-add-0-Link\n" +
+                "            \"Name3\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=base-id-123-add-1-Link\n" +
+                "            \"Name4\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2,%20name4] id=base-id-123-add-2-Link\n"
         );
     }
 
@@ -128,22 +128,22 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshAllAdded() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-                ExpressionFunctionAliasSet.parse(""), // present
-                ExpressionFunctionAliasSet.parse("name1"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.parse(""), // present
+            ExpressionFunctionAliasSet.parse("name1"), // provider
+            CONTEXT
         );
 
         // name1 add link needed
         this.treePrintAndCheck(
-                component,
-                "AddPluginAliasSetLikeComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Add\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1] id=base-id-123-add-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1] id=base-id-123-add-1-Link\n"
+            component,
+            "AddPluginAliasSetLikeComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Add\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1] id=base-id-123-add-0-Link\n" +
+                "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1] id=base-id-123-add-1-Link\n"
         );
     }
 
@@ -151,24 +151,24 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshAllAdded2() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-                ExpressionFunctionAliasSet.parse(""), // present
-                ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.parse(""), // present
+            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
+            CONTEXT
         );
 
         // need to create links for all aliases: name1, name2, name3
         this.treePrintAndCheck(
-                component,
-                "AddPluginAliasSetLikeComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Add\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=base-id-123-add-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1] id=base-id-123-add-1-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name2] id=base-id-123-add-2-Link\n" +
-                        "            \"Name3\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name3] id=base-id-123-add-3-Link\n"
+            component,
+            "AddPluginAliasSetLikeComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Add\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=base-id-123-add-0-Link\n" +
+                "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1] id=base-id-123-add-1-Link\n" +
+                "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name2] id=base-id-123-add-2-Link\n" +
+                "            \"Name3\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name3] id=base-id-123-add-3-Link\n"
         );
     }
 
@@ -177,23 +177,23 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.setFilter((t) -> t.toString().contains("name"));
         component.refresh(
-                ExpressionFunctionAliasSet.parse(""), // present
-                ExpressionFunctionAliasSet.parse("name1, name2, hidden3"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.parse(""), // present
+            ExpressionFunctionAliasSet.parse("name1, name2, hidden3"), // provider
+            CONTEXT
         );
 
         // name1 add link needed
         this.treePrintAndCheck(
-                component,
-                "AddPluginAliasSetLikeComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Add\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2] id=base-id-123-add-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1] id=base-id-123-add-1-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name2] id=base-id-123-add-2-Link\n"
+            component,
+            "AddPluginAliasSetLikeComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Add\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2] id=base-id-123-add-0-Link\n" +
+                "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1] id=base-id-123-add-1-Link\n" +
+                "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name2] id=base-id-123-add-2-Link\n"
         );
     }
 
@@ -201,22 +201,22 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshSomeAddedIncludesAliases1() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-                ExpressionFunctionAliasSet.parse("alias1 name1"), // present
-                ExpressionFunctionAliasSet.parse("name1, name2"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.parse("alias1 name1"), // present
+            ExpressionFunctionAliasSet.parse("name1, name2"), // provider
+            CONTEXT
         );
 
         // add links needed for name2
         this.treePrintAndCheck(
-                component,
-                "AddPluginAliasSetLikeComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Add\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2] id=base-id-123-add-0-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias1%20name1,%20name2] id=base-id-123-add-1-Link\n"
+            component,
+            "AddPluginAliasSetLikeComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Add\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2] id=base-id-123-add-0-Link\n" +
+                "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias1%20name1,%20name2] id=base-id-123-add-1-Link\n"
         );
     }
 
@@ -224,22 +224,22 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlElementComp
     public void testRefreshSomeAddedIncludesAliases2() {
         final AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = AddPluginAliasSetLikeComponent.empty("base-id-123-add-");
         component.refresh(
-                ExpressionFunctionAliasSet.parse("name1, alias2 name2, alias3 name3 https://example.com/name3"), // present
-                ExpressionFunctionAliasSet.parse("name1, name2, name3, name4"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.parse("name1, alias2 name2, alias3 name3 https://example.com/name3"), // present
+            ExpressionFunctionAliasSet.parse("name1, name2, name3, name4"), // provider
+            CONTEXT
         );
 
         // need to add link for name4
         this.treePrintAndCheck(
-                component,
-                "AddPluginAliasSetLikeComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Add\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2,%20name3,%20name4] id=base-id-123-add-0-Link\n" +
-                        "            \"Name4\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias2%20name2,%20alias3%20name3%20https://example.com/name3%20,%20name1,%20name4] id=base-id-123-add-1-Link\n"
+            component,
+            "AddPluginAliasSetLikeComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Add\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2,%20name3,%20name4] id=base-id-123-add-0-Link\n" +
+                "            \"Name4\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias2%20name2,%20alias3%20name3%20https://example.com/name3%20,%20name1,%20name4] id=base-id-123-add-1-Link\n"
         );
     }
 

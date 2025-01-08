@@ -28,12 +28,12 @@ import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
  * A {@link walkingkooka.Context} tht accompanies a {@link PluginNameSetDialogComponent} providing custom values and functionality.
  */
 public interface PluginNameSetDialogComponentContext
-        extends SpreadsheetDialogComponentContext,
-        AddPluginNameSetComponentContext,
-        RemovePluginNameSetComponentContext,
-        HasPluginFetcherWatchers,
-        HasSpreadsheetMetadataFetcherWatchers,
-        HasSpreadsheetMetadata{
+    extends SpreadsheetDialogComponentContext,
+    AddPluginNameSetComponentContext,
+    RemovePluginNameSetComponentContext,
+    HasPluginFetcherWatchers,
+    HasSpreadsheetMetadataFetcherWatchers,
+    HasSpreadsheetMetadata {
     /**
      * Returns the dialog title.
      */

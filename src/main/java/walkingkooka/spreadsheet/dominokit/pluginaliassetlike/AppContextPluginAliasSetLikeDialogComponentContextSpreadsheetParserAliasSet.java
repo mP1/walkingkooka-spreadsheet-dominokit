@@ -39,11 +39,11 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSet extends AppContextPluginAliasSetLikeDialogComponentContext<SpreadsheetParserName,
-        SpreadsheetParserInfo,
-        SpreadsheetParserInfoSet,
-        SpreadsheetParserSelector,
-        SpreadsheetParserAlias,
-        SpreadsheetParserAliasSet> {
+    SpreadsheetParserInfo,
+    SpreadsheetParserInfoSet,
+    SpreadsheetParserSelector,
+    SpreadsheetParserAlias,
+    SpreadsheetParserAliasSet> {
 
     AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetParserAliasSet(final AppContext context) {
         super(context);
@@ -63,56 +63,56 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetPars
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetParserFetcher()
-                .infoSet(id);
+            .infoSet(id);
     }
 
     @Override
     public final Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetParserAliasSet> set) {
         return this.context.addSpreadsheetParserFetcherWatcher(
-                new SpreadsheetParserFetcherWatcher() {
-                    @Override
-                    public void onSpreadsheetParserInfoSet(final SpreadsheetId id,
-                                                           final SpreadsheetParserInfoSet infos,
-                                                           final AppContext context) {
-                        set.accept(infos.aliasSet());
-                    }
-
-                    @Override
-                    public void onSpreadsheetParserSelectorEdit(final SpreadsheetId id,
-                                                                final SpreadsheetParserSelectorEdit edit,
-                                                                final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onBegin(final HttpMethod method,
-                                        final Url url,
-                                        final Optional<FetcherRequestBody<?>> body,
-                                        final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onFailure(final HttpMethod method,
-                                          final AbsoluteOrRelativeUrl url,
-                                          final HttpStatus status,
-                                          final Headers headers,
-                                          final String body,
-                                          final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onError(final Object cause,
-                                        final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onEmptyResponse(final AppContext context) {
-                        // nop
-                    }
+            new SpreadsheetParserFetcherWatcher() {
+                @Override
+                public void onSpreadsheetParserInfoSet(final SpreadsheetId id,
+                                                       final SpreadsheetParserInfoSet infos,
+                                                       final AppContext context) {
+                    set.accept(infos.aliasSet());
                 }
+
+                @Override
+                public void onSpreadsheetParserSelectorEdit(final SpreadsheetId id,
+                                                            final SpreadsheetParserSelectorEdit edit,
+                                                            final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onBegin(final HttpMethod method,
+                                    final Url url,
+                                    final Optional<FetcherRequestBody<?>> body,
+                                    final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onFailure(final HttpMethod method,
+                                      final AbsoluteOrRelativeUrl url,
+                                      final HttpStatus status,
+                                      final Headers headers,
+                                      final String body,
+                                      final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onError(final Object cause,
+                                    final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onEmptyResponse(final AppContext context) {
+                    // nop
+                }
+            }
         );
     }
 }

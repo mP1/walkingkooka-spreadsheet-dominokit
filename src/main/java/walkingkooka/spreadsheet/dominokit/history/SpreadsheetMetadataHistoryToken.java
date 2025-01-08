@@ -30,15 +30,15 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
     SpreadsheetMetadataHistoryToken(final SpreadsheetId id,
                                     final SpreadsheetName name) {
         super(
-                id,
-                name
+            id,
+            name
         );
     }
 
     @Override //
     final UrlFragment spreadsheetNameUrlFragment() {
         return SPREADSHEET.appendSlashThen(
-                this.metadataUrlFragment()
+            this.metadataUrlFragment()
         );
     }
 
@@ -61,7 +61,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
                 for (final SpreadsheetPatternKind kind : SpreadsheetPatternKind.values()) {
                     if (kind.urlFragment().value().equals(component)) {
                         result = this.setPatternKind(
-                                Optional.of(kind)
+                            Optional.of(kind)
                         );
                         break Switch;
                     }

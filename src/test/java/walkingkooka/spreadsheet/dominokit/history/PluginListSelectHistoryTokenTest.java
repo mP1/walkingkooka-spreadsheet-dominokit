@@ -26,108 +26,108 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testParseInvalidOffset() {
         this.parseAndCheck(
-                "/plugin/*/offset/X",
-                PluginListSelectHistoryToken.with(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "/plugin/*/offset/X",
+            PluginListSelectHistoryToken.with(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParseOffset() {
         this.parseAndCheck(
-                "/plugin/*/offset/10",
-                PluginListSelectHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.empty() // count
-                )
+            "/plugin/*/offset/10",
+            PluginListSelectHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParseCount() {
         this.parseAndCheck(
-                "/plugin/*/count/20",
-                PluginListSelectHistoryToken.with(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.of(20) // count
-                )
+            "/plugin/*/count/20",
+            PluginListSelectHistoryToken.with(
+                OptionalInt.empty(), // offset
+                OptionalInt.of(20) // count
+            )
         );
     }
 
     @Test
     public void testParseOffsetAndCount() {
         this.parseAndCheck(
-                "/plugin/*/offset/10/count/20",
-                PluginListSelectHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.of(20) // count
-                )
+            "/plugin/*/offset/10/count/20",
+            PluginListSelectHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.of(20) // count
+            )
         );
     }
 
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-                PluginListSelectHistoryToken.with(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                ),
-                "/plugin");
+            PluginListSelectHistoryToken.with(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            ),
+            "/plugin");
     }
 
     @Test
     public void testUrlFragmentOffset() {
         this.urlFragmentAndCheck(
-                PluginListSelectHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.empty() // count
-                ),
-                "/plugin/*/offset/10"
+            PluginListSelectHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.empty() // count
+            ),
+            "/plugin/*/offset/10"
         );
     }
 
     @Test
     public void testUrlFragmentOffsetAndCount() {
         this.urlFragmentAndCheck(
-                PluginListSelectHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.of(20) // count
-                ),
-                "/plugin/*/offset/10/count/20"
+            PluginListSelectHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.of(20) // count
+            ),
+            "/plugin/*/offset/10/count/20"
         );
     }
 
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testClose() {
         this.closeAndCheck(
-                HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            HistoryToken.spreadsheetListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testReload() {
         this.reloadAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.pluginListReload(
-                        OFFSET,
-                        COUNT
-                )
+            this.createHistoryToken(),
+            HistoryToken.pluginListReload(
+                OFFSET,
+                COUNT
+            )
         );
     }
 
@@ -135,8 +135,8 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
     PluginListSelectHistoryToken createHistoryToken(final OptionalInt offset,
                                                     final OptionalInt count) {
         return PluginListSelectHistoryToken.with(
-                offset,
-                count
+            offset,
+            count
         );
     }
 

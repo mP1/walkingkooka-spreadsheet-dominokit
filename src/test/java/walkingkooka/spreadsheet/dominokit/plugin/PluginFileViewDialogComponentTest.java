@@ -34,7 +34,7 @@ import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import java.util.Optional;
 
 public final class PluginFileViewDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<PluginFileViewDialogComponent,
-        SpreadsheetComparatorNameListDialogComponentContext> {
+    SpreadsheetComparatorNameListDialogComponentContext> {
 
     private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName111");
 
@@ -49,43 +49,43 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
     @Test
     public void testEmptyBeforeLoadingFile() {
         this.onHistoryTokenChangeAndCheck(
-                "/plugin/" + PLUGIN_NAME + "/file" + JarEntryInfoName.MANIFEST_MF,
-                "PluginFileViewDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    /META-INF/MANIFEST.MF\n" +
-                        "    id=plugin-file-view-Dialog includeClose=true\n" +
-                        "      SpreadsheetTextViewComponent\n" +
-                        "        \"\"\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                        "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+            "/plugin/" + PLUGIN_NAME + "/file" + JarEntryInfoName.MANIFEST_MF,
+            "PluginFileViewDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    /META-INF/MANIFEST.MF\n" +
+                "    id=plugin-file-view-Dialog includeClose=true\n" +
+                "      SpreadsheetTextViewComponent\n" +
+                "        \"\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
         );
     }
 
     @Test
     public void testLoadEmptyFile() {
         final TestAppContext context = new TestAppContext(
-                "/plugin/" + PLUGIN_NAME + "/file" + EMPTY_FILENAME
+            "/plugin/" + PLUGIN_NAME + "/file" + EMPTY_FILENAME
         );
 
         final PluginFileViewDialogComponent dialog = this.dialog(
-                this.pluginDialogComponentContext(context)
+            this.pluginDialogComponentContext(context)
         );
 
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "PluginFileViewDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    /empty-file.txt\n" +
-                        "    id=plugin-file-view-Dialog includeClose=true\n" +
-                        "      SpreadsheetTextViewComponent\n" +
-                        "        \"\"\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
-                        "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+            dialog,
+            context,
+            "PluginFileViewDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    /empty-file.txt\n" +
+                "    id=plugin-file-view-Dialog includeClose=true\n" +
+                "      SpreadsheetTextViewComponent\n" +
+                "        \"\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
+                "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
         );
     }
 
@@ -94,78 +94,78 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
         final TestAppContext context = new TestAppContext("/plugin/" + PLUGIN_NAME + "/file" + NON_EMPTY_FILENAME);
 
         final PluginFileViewDialogComponent dialog = this.dialog(
-                this.pluginDialogComponentContext(context)
+            this.pluginDialogComponentContext(context)
         );
 
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "PluginFileViewDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    /non-empty-file.txt\n" +
-                        "    id=plugin-file-view-Dialog includeClose=true\n" +
-                        "      SpreadsheetTextViewComponent\n" +
-                        "        \"Line1\\nLine2\\n\"\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
-                        "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+            dialog,
+            context,
+            "PluginFileViewDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    /non-empty-file.txt\n" +
+                "    id=plugin-file-view-Dialog includeClose=true\n" +
+                "      SpreadsheetTextViewComponent\n" +
+                "        \"Line1\\nLine2\\n\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
+                "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
         );
     }
 
     @Test
     public void testLoadDifferentFile() {
         final TestAppContext context = new TestAppContext(
-                "/plugin/" + PLUGIN_NAME + "/file" + EMPTY_FILENAME
+            "/plugin/" + PLUGIN_NAME + "/file" + EMPTY_FILENAME
         );
 
         final PluginFileViewDialogComponent dialog = this.dialog(
-                this.pluginDialogComponentContext(context)
+            this.pluginDialogComponentContext(context)
         );
 
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "PluginFileViewDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    /empty-file.txt\n" +
-                        "    id=plugin-file-view-Dialog includeClose=true\n" +
-                        "      SpreadsheetTextViewComponent\n" +
-                        "        \"\"\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
-                        "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+            dialog,
+            context,
+            "PluginFileViewDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    /empty-file.txt\n" +
+                "    id=plugin-file-view-Dialog includeClose=true\n" +
+                "      SpreadsheetTextViewComponent\n" +
+                "        \"\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
+                "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
         );
 
         context.pushHistoryToken(
-                HistoryToken.pluginFileView(
-                        PLUGIN_NAME,
-                        Optional.of(NON_EMPTY_FILENAME)
-                )
+            HistoryToken.pluginFileView(
+                PLUGIN_NAME,
+                Optional.of(NON_EMPTY_FILENAME)
+            )
         );
 
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "PluginFileViewDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    /non-empty-file.txt\n" +
-                        "    id=plugin-file-view-Dialog includeClose=true\n" +
-                        "      SpreadsheetTextViewComponent\n" +
-                        "        \"Line1\\nLine2\\n\"\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
-                        "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+            dialog,
+            context,
+            "PluginFileViewDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    /non-empty-file.txt\n" +
+                "    id=plugin-file-view-Dialog includeClose=true\n" +
+                "      SpreadsheetTextViewComponent\n" +
+                "        \"Line1\\nLine2\\n\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
+                "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
         );
     }
 
     private void onHistoryTokenChangeAndCheck(final String historyToken,
                                               final String expected) {
         this.onHistoryTokenChangeAndCheck(
-                new TestAppContext(historyToken),
-                expected
+            new TestAppContext(historyToken),
+            expected
         );
     }
 
@@ -173,7 +173,7 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
 
         TestAppContext(final String historyToken) {
             this.historyToken = HistoryToken.parseString(historyToken)
-                    .cast(PluginFileViewHistoryToken.class);
+                .cast(PluginFileViewHistoryToken.class);
         }
 
         @Override
@@ -185,21 +185,21 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
 
         void loadJarTextFile(final PluginName pluginName,
                              final JarEntryInfoName filename) {
-            if(PLUGIN_NAME.equals(pluginName)) {
-                if(EMPTY_FILENAME.equals(filename)) {
+            if (PLUGIN_NAME.equals(pluginName)) {
+                if (EMPTY_FILENAME.equals(filename)) {
                     this.pluginFetcherWatchers.onJarEntryInfoName(
-                            pluginName,
-                            Optional.of(EMPTY_FILENAME),
-                            EMPTY_FILE_CONTENT,
-                            this
+                        pluginName,
+                        Optional.of(EMPTY_FILENAME),
+                        EMPTY_FILE_CONTENT,
+                        this
                     );
                 }
-                if(NON_EMPTY_FILENAME.equals(filename)) {
+                if (NON_EMPTY_FILENAME.equals(filename)) {
                     this.pluginFetcherWatchers.onJarEntryInfoName(
-                            pluginName,
-                            Optional.of(NON_EMPTY_FILENAME),
-                            NON_EMPTY_FILE_CONTENT,
-                            this
+                        pluginName,
+                        Optional.of(NON_EMPTY_FILENAME),
+                        NON_EMPTY_FILE_CONTENT,
+                        this
                     );
                 }
             }
@@ -223,8 +223,8 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
             this.historyToken = token;
 
             this.historyTokenWatchers.onHistoryTokenChange(
-                    previous,
-                    this
+                previous,
+                this
             );
         }
 
@@ -234,17 +234,18 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
     private void onHistoryTokenChangeAndCheck(final TestAppContext context,
                                               final String expected) {
         this.onHistoryTokenChangeAndCheck(
-                this.dialog(
-                        this.pluginDialogComponentContext(context)
-                ),
-                context,
-                expected
+            this.dialog(
+                this.pluginDialogComponentContext(context)
+            ),
+            context,
+            expected
         );
     }
 
     private TestPluginFileViewDialogComponentContext pluginDialogComponentContext(final TestAppContext context) {
         return new TestPluginFileViewDialogComponentContext(context);
     }
+
     static class TestPluginFileViewDialogComponentContext extends FakePluginFileViewDialogComponentContext {
 
         TestPluginFileViewDialogComponentContext(final TestAppContext context) {
@@ -260,8 +261,8 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
         public void loadJarTextFile(final PluginName pluginName,
                                     final JarEntryInfoName filename) {
             this.context.loadJarTextFile(
-                    pluginName,
-                    filename
+                pluginName,
+                filename
             );
         }
 

@@ -154,29 +154,29 @@ import java.util.function.Predicate;
 
 @LocaleAware
 public class App implements EntryPoint,
-        AppContext,
-        WindowResizeWatcher,
-        HistoryTokenContextDelegator,
-        JsonNodeMarshallContextDelegator,
-        JsonNodeUnmarshallContextDelegator,
-        LoggingContextDelegator,
-        NopEmptyResponseFetcherWatcher,
-        ProviderContextDelegator,
-        SpreadsheetComparatorFetcherWatcher,
-        ConverterFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher,
-        HasSpreadsheetMetadataFetcherWatchersDelegator,
-        HasSpreadsheetDeltaFetcherWatchersDelegator,
-        SpreadsheetExporterFetcherWatcher,
-        ExpressionFunctionFetcherWatcher,
-        SpreadsheetFormatterFetcherWatcher,
-        SpreadsheetImporterFetcherWatcher,
-        SpreadsheetMetadataFetcherWatcher,
-        SpreadsheetParserFetcherWatcher,
-        PluginFetcherWatcher,
-        HasPluginFetcherWatchersDelegator,
-        SpreadsheetProviderDelegator,
-        SpreadsheetFormatterContextDelegator {
+    AppContext,
+    WindowResizeWatcher,
+    HistoryTokenContextDelegator,
+    JsonNodeMarshallContextDelegator,
+    JsonNodeUnmarshallContextDelegator,
+    LoggingContextDelegator,
+    NopEmptyResponseFetcherWatcher,
+    ProviderContextDelegator,
+    SpreadsheetComparatorFetcherWatcher,
+    ConverterFetcherWatcher,
+    SpreadsheetDeltaFetcherWatcher,
+    HasSpreadsheetMetadataFetcherWatchersDelegator,
+    HasSpreadsheetDeltaFetcherWatchersDelegator,
+    SpreadsheetExporterFetcherWatcher,
+    ExpressionFunctionFetcherWatcher,
+    SpreadsheetFormatterFetcherWatcher,
+    SpreadsheetImporterFetcherWatcher,
+    SpreadsheetMetadataFetcherWatcher,
+    SpreadsheetParserFetcherWatcher,
+    PluginFetcherWatcher,
+    HasPluginFetcherWatchersDelegator,
+    SpreadsheetProviderDelegator,
+    SpreadsheetFormatterContextDelegator {
 
     /**
      * When a {@link HistoryTokenWatcher#onHistoryTokenChange(HistoryToken, AppContext)} exceeds this value, it should be considered too slow and a WARN message logged.
@@ -190,33 +190,33 @@ public class App implements EntryPoint,
 
         // logging
         this.loggingContext = AppLoggingContext.with(
-                LoggingContexts.elemental()
+            LoggingContexts.elemental()
         );
 
         this.canGiveFocus = CanGiveFocuses.scheduler(this.loggingContext);
         AppUncaughtExceptionHandler.with(this.loggingContext);
 
         this.spreadsheetProvider = SpreadsheetProviders.basic(
-                ConverterProviders.empty(),
-                ExpressionFunctionProviders.empty(SpreadsheetExpressionFunctionNames.CASE_SENSITIVITY),
-                SpreadsheetComparatorProviders.empty(),
-                SpreadsheetExporterProviders.empty(),
-                SpreadsheetFormatterProviders.empty(),
-                SpreadsheetImporterProviders.empty(),
-                SpreadsheetParserProviders.empty()
+            ConverterProviders.empty(),
+            ExpressionFunctionProviders.empty(SpreadsheetExpressionFunctionNames.CASE_SENSITIVITY),
+            SpreadsheetComparatorProviders.empty(),
+            SpreadsheetExporterProviders.empty(),
+            SpreadsheetFormatterProviders.empty(),
+            SpreadsheetImporterProviders.empty(),
+            SpreadsheetParserProviders.empty()
         );
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
-                ExpressionNumberKind.DEFAULT,
-                MathContext.DECIMAL32
+            ExpressionNumberKind.DEFAULT,
+            MathContext.DECIMAL32
         );
 
         // metadata
         this.spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
         this.metadataFetcherWatchers = SpreadsheetMetadataFetcherWatchers.empty();
         this.spreadsheetMetadataFetcher = SpreadsheetMetadataFetcher.with(
-                this.metadataFetcherWatchers,
-                this
+            this.metadataFetcherWatchers,
+            this
         );
         this.addSpreadsheetMetadataFetcherWatcher(this);
 
@@ -226,8 +226,8 @@ public class App implements EntryPoint,
         // comparator
         this.spreadsheetComparatorFetcherWatchers = SpreadsheetComparatorFetcherWatchers.empty();
         this.spreadsheetComparatorFetcher = SpreadsheetComparatorFetcher.with(
-                this.spreadsheetComparatorFetcherWatchers,
-                this
+            this.spreadsheetComparatorFetcherWatchers,
+            this
         );
         this.spreadsheetComparatorInfoSet = SpreadsheetComparatorInfoSet.EMPTY;
         this.addSpreadsheetComparatorFetcherWatcher(this);
@@ -235,8 +235,8 @@ public class App implements EntryPoint,
         // converter
         this.converterFetcherWatchers = ConverterFetcherWatchers.empty();
         this.converterFetcher = ConverterFetcher.with(
-                this.converterFetcherWatchers,
-                this
+            this.converterFetcherWatchers,
+            this
         );
         this.converterInfoSet = ConverterInfoSet.EMPTY;
         this.addConverterFetcherWatcher(this);
@@ -244,16 +244,16 @@ public class App implements EntryPoint,
         // delta
         this.spreadsheetDeltaFetcherWatchers = SpreadsheetDeltaFetcherWatchers.empty();
         this.spreadsheetDeltaFetcher = SpreadsheetDeltaFetcher.with(
-                this.spreadsheetDeltaFetcherWatchers,
-                this
+            this.spreadsheetDeltaFetcherWatchers,
+            this
         );
         this.addSpreadsheetDeltaFetcherWatcher(this);
 
         // exporter
         this.spreadsheetExporterFetcherWatchers = SpreadsheetExporterFetcherWatchers.empty();
         this.spreadsheetExporterFetcher = SpreadsheetExporterFetcher.with(
-                this.spreadsheetExporterFetcherWatchers,
-                this
+            this.spreadsheetExporterFetcherWatchers,
+            this
         );
         this.spreadsheetExporterInfoSet = SpreadsheetExporterInfoSet.EMPTY;
         this.addSpreadsheetExporterFetcherWatcher(this);
@@ -261,8 +261,8 @@ public class App implements EntryPoint,
         // expressionFunction
         this.expressionFunctionFetcherWatchers = ExpressionFunctionFetcherWatchers.empty();
         this.expressionFunctionFetcher = ExpressionFunctionFetcher.with(
-                this.expressionFunctionFetcherWatchers,
-                this
+            this.expressionFunctionFetcherWatchers,
+            this
         );
         this.expressionFunctionInfoSet = ExpressionFunctionInfoSet.EMPTY;
         this.addExpressionFunctionFetcherWatcher(this);
@@ -270,8 +270,8 @@ public class App implements EntryPoint,
         // formatter
         this.spreadsheetFormatterFetcherWatchers = SpreadsheetFormatterFetcherWatchers.empty();
         this.spreadsheetFormatterFetcher = SpreadsheetFormatterFetcher.with(
-                this.spreadsheetFormatterFetcherWatchers,
-                this
+            this.spreadsheetFormatterFetcherWatchers,
+            this
         );
         this.spreadsheetFormatterInfoSet = SpreadsheetFormatterInfoSet.EMPTY;
         this.addSpreadsheetFormatterFetcherWatcher(this);
@@ -279,8 +279,8 @@ public class App implements EntryPoint,
         // importer
         this.spreadsheetImporterFetcherWatchers = SpreadsheetImporterFetcherWatchers.empty();
         this.spreadsheetImporterFetcher = SpreadsheetImporterFetcher.with(
-                this.spreadsheetImporterFetcherWatchers,
-                this
+            this.spreadsheetImporterFetcherWatchers,
+            this
         );
         this.spreadsheetImporterInfoSet = SpreadsheetImporterInfoSet.EMPTY;
         this.addSpreadsheetImporterFetcherWatcher(this);
@@ -288,8 +288,8 @@ public class App implements EntryPoint,
         // parser
         this.spreadsheetParserFetcherWatchers = SpreadsheetParserFetcherWatchers.empty();
         this.spreadsheetParserFetcher = SpreadsheetParserFetcher.with(
-                this.spreadsheetParserFetcherWatchers,
-                this
+            this.spreadsheetParserFetcherWatchers,
+            this
         );
         this.spreadsheetParserInfoSet = SpreadsheetParserInfoSet.EMPTY;
         this.addSpreadsheetParserFetcherWatcher(this);
@@ -297,8 +297,8 @@ public class App implements EntryPoint,
         // plugins
         this.pluginFetcherWatchers = PluginFetcherWatchers.empty();
         this.pluginFetcher = PluginFetcher.with(
-                this.pluginFetcherWatchers,
-                this
+            this.pluginFetcherWatchers,
+            this
         );
         this.addPluginFetcherWatcher(this);
 
@@ -314,12 +314,12 @@ public class App implements EntryPoint,
         AppSpreadsheetDialogComponents.register(this);
 
         this.layout = SpreadsheetAppLayout.prepare(
-                this.viewportComponent,
-                this
+            this.viewportComponent,
+            this
         );
 
         DomGlobal.document.body.append(
-                this.layout.element()
+            this.layout.element()
         );
     }
 
@@ -329,15 +329,15 @@ public class App implements EntryPoint,
                                 final Integer height) {
         final SpreadsheetAppLayout layout = this.layout;
         final int navigationBarHeight = layout.getNavBar()
-                .element()
-                .offsetHeight;
+            .element()
+            .offsetHeight;
 
         final int newHeight = height - navigationBarHeight;
         this.debug("App.onWindowResize: " + width + " x " + height + " navigationBarHeight: " + navigationBarHeight + " newHeight: " + newHeight);
 
         this.viewportComponent.setWidthAndHeight(
-                width,
-                newHeight
+            width,
+            newHeight
         );
 
         this.computeAndSaveSpreadsheetListDialogComponentDefaultCount(newHeight);
@@ -357,7 +357,7 @@ public class App implements EntryPoint,
     private void computeAndSaveSpreadsheetListDialogComponentDefaultCount(final int windowHeight) {
         // height - 350 reserved for dialog title, links along bottom etc divided by 32 for each row
         final OptionalInt defaultCount = OptionalInt.of(
-                (windowHeight - 300) / 32
+            (windowHeight - 300) / 32
         );
         this.debug("App.computeAndSaveSpreadsheetListDialogComponentDefaultCount: (windowHeight: " + windowHeight + " - 300) / 32 = defaultCount): " + defaultCount);
         this.defaultCount = defaultCount;
@@ -366,20 +366,20 @@ public class App implements EntryPoint,
 
         // only reload SpreadsheetListDialogComponent after resizing stops.
         DomGlobal.setTimeout(
-                (values) -> {
-                    if (System.currentTimeMillis() - this.lastResize > SPREADSHEET_LIST_RESIZE_DELAY) {
-                        final HistoryToken historyToken = this.historyToken();
-                        if (historyToken instanceof SpreadsheetListSelectHistoryToken) {
-                            final OptionalInt count = historyToken.count();
-                            if (false == count.isPresent()) {
-                                this.pushHistoryToken(
-                                        historyToken.reload()
-                                );
-                            }
+            (values) -> {
+                if (System.currentTimeMillis() - this.lastResize > SPREADSHEET_LIST_RESIZE_DELAY) {
+                    final HistoryToken historyToken = this.historyToken();
+                    if (historyToken instanceof SpreadsheetListSelectHistoryToken) {
+                        final OptionalInt count = historyToken.count();
+                        if (false == count.isPresent()) {
+                            this.pushHistoryToken(
+                                historyToken.reload()
+                            );
                         }
                     }
-                },
-                SPREADSHEET_LIST_RESIZE_DELAY
+                }
+            },
+            SPREADSHEET_LIST_RESIZE_DELAY
         );
     }
 
@@ -395,7 +395,7 @@ public class App implements EntryPoint,
     @Override
     public void onModuleLoad() {
         this.appHistoryTokenContextHistoryTokenWatcher.onHistoryTokenChange(
-                this.historyToken()
+            this.historyToken()
         );
 
         this.fireWindowSizeLater(this::onWindowResize);
@@ -432,21 +432,21 @@ public class App implements EntryPoint,
 
             // update the global JsonNodeUnmarshallContext.
             this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
-                    metadata.expressionNumberKind(),
-                    metadata.mathContext()
+                metadata.expressionNumberKind(),
+                metadata.mathContext()
             );
 
             final EnvironmentContext environmentContext = metadata.environmentContext(
-                    EnvironmentContexts.empty(
-                            this,
-                            Optional.of(
-                                    EmailAddress.parse("user123@example.com")
-                            )
+                EnvironmentContexts.empty(
+                    this,
+                    Optional.of(
+                        EmailAddress.parse("user123@example.com")
                     )
+                )
             );
             this.providerContext = ProviderContexts.basic(
-                    environmentContext,
-                    PluginStores.fake()
+                environmentContext,
+                PluginStores.fake()
             );
 
             final Optional<SpreadsheetId> maybeId = metadata.id();
@@ -460,12 +460,12 @@ public class App implements EntryPoint,
                 final Optional<SpreadsheetViewport> viewport = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT);
 
                 final HistoryToken idNameSelectionHistoryToken = historyToken
-                        .setIdAndName(
-                                id,
-                                name
-                        ).setAnchoredSelection(
-                                viewport.flatMap(SpreadsheetViewport::anchoredSelection)
-                        );
+                    .setIdAndName(
+                        id,
+                        name
+                    ).setAnchoredSelection(
+                        viewport.flatMap(SpreadsheetViewport::anchoredSelection)
+                    );
 
                 if (false == historyToken.equals(idNameSelectionHistoryToken)) {
                     context.debug("App.onSpreadsheetMetadata from " + historyToken + " to different id/name/anchoredSelection " + idNameSelectionHistoryToken, metadata);
@@ -475,8 +475,8 @@ public class App implements EntryPoint,
                     //
                     // eg so a focused cell is given focus etc.
                     if (false == id.equals(
-                            previousMetadata.id()
-                                    .orElse(null)
+                        previousMetadata.id()
+                            .orElse(null)
                     )) {
                         context.debug("App.onSpreadsheetMetadata new spreadsheet " + id + " loaded, firing history token again");
 
@@ -484,19 +484,19 @@ public class App implements EntryPoint,
 
                         // need to also load all PluginInfoSetLikes...as they are also used to build menus etc.
                         context.converterFetcher()
-                                .infoSet(id);
+                            .infoSet(id);
                         context.spreadsheetComparatorFetcher()
-                                .infoSet(id);
+                            .infoSet(id);
                         context.spreadsheetExporterFetcher()
-                                .infoSet(id);
+                            .infoSet(id);
                         context.expressionFunctionFetcher()
-                                .infoSet(id);
+                            .infoSet(id);
                         context.spreadsheetFormatterFetcher()
-                                .infoSet(id);
+                            .infoSet(id);
                         context.spreadsheetImporterFetcher()
-                                .infoSet(id);
+                            .infoSet(id);
                         context.spreadsheetParserFetcher()
-                                .infoSet(id);
+                            .infoSet(id);
                     }
                 }
             }
@@ -559,20 +559,20 @@ public class App implements EntryPoint,
         // we only update the anchoredSpreadsheetMetadata because some metadata GETS such as load metadata will not
         // have the window property (unnecessary to calculate and return).
         delta.viewport()
-                .ifPresent(
-                        newV -> {
-                            final SpreadsheetMetadata metadata = this.spreadsheetMetadata;
-                            this.spreadsheetMetadata = metadata.setOrRemove(
-                                    SpreadsheetMetadataPropertyName.VIEWPORT,
-                                    metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT)
-                                            .map(
-                                                    oldV -> oldV.setAnchoredSelection(
-                                                            newV.anchoredSelection()
-                                                    )
-                                            ).orElse(null)
-                            );
-                        }
-                );
+            .ifPresent(
+                newV -> {
+                    final SpreadsheetMetadata metadata = this.spreadsheetMetadata;
+                    this.spreadsheetMetadata = metadata.setOrRemove(
+                        SpreadsheetMetadataPropertyName.VIEWPORT,
+                        metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT)
+                            .map(
+                                oldV -> oldV.setAnchoredSelection(
+                                    newV.anchoredSelection()
+                                )
+                            ).orElse(null)
+                    );
+                }
+            );
     }
 
     // ClipboardContext.................................................................................................
@@ -581,8 +581,8 @@ public class App implements EntryPoint,
     public void readClipboardItem(final Predicate<MediaType> filter,
                                   final ClipboardContextReadWatcher watcher) {
         this.clipboardContext.readClipboardItem(
-                filter,
-                watcher
+            filter,
+            watcher
         );
     }
 
@@ -590,8 +590,8 @@ public class App implements EntryPoint,
     public void writeClipboardItem(final ClipboardTextItem item,
                                    final ClipboardContextWriteWatcher watcher) {
         this.clipboardContext.writeClipboardItem(
-                item,
-                watcher
+            item,
+            watcher
         );
     }
 
@@ -649,8 +649,8 @@ public class App implements EntryPoint,
                                                final SpreadsheetComparatorInfoSet infos,
                                                final AppContext context) {
         this.maybeRefreshSpreadsheetProvider(
-                id,
-                () -> this.spreadsheetComparatorInfoSet = infos
+            id,
+            () -> this.spreadsheetComparatorInfoSet = infos
         );
     }
 
@@ -682,8 +682,8 @@ public class App implements EntryPoint,
                                    final ConverterInfoSet infos,
                                    final AppContext context) {
         this.maybeRefreshSpreadsheetProvider(
-                id,
-                () -> this.converterInfoSet = infos
+            id,
+            () -> this.converterInfoSet = infos
         );
     }
 
@@ -715,8 +715,8 @@ public class App implements EntryPoint,
                                              final SpreadsheetExporterInfoSet infos,
                                              final AppContext context) {
         this.maybeRefreshSpreadsheetProvider(
-                id,
-                () -> this.spreadsheetExporterInfoSet = infos
+            id,
+            () -> this.spreadsheetExporterInfoSet = infos
         );
     }
 
@@ -748,8 +748,8 @@ public class App implements EntryPoint,
                                             final ExpressionFunctionInfoSet infos,
                                             final AppContext context) {
         this.maybeRefreshSpreadsheetProvider(
-                id,
-                () -> this.expressionFunctionInfoSet = infos
+            id,
+            () -> this.expressionFunctionInfoSet = infos
         );
     }
 
@@ -781,8 +781,8 @@ public class App implements EntryPoint,
                                               final SpreadsheetFormatterInfoSet infos,
                                               final AppContext context) {
         this.maybeRefreshSpreadsheetProvider(
-                id,
-                () -> this.spreadsheetFormatterInfoSet = infos
+            id,
+            () -> this.spreadsheetFormatterInfoSet = infos
         );
     }
 
@@ -828,8 +828,8 @@ public class App implements EntryPoint,
                                              final SpreadsheetImporterInfoSet infos,
                                              final AppContext context) {
         this.maybeRefreshSpreadsheetProvider(
-                id,
-                () -> this.spreadsheetImporterInfoSet = infos
+            id,
+            () -> this.spreadsheetImporterInfoSet = infos
         );
     }
 
@@ -861,8 +861,8 @@ public class App implements EntryPoint,
                                            final SpreadsheetParserInfoSet infos,
                                            final AppContext context) {
         this.maybeRefreshSpreadsheetProvider(
-                id,
-                () -> this.spreadsheetParserInfoSet = infos
+            id,
+            () -> this.spreadsheetParserInfoSet = infos
         );
     }
 
@@ -992,70 +992,60 @@ public class App implements EntryPoint,
         final SpreadsheetMetadata metadata = this.spreadsheetMetadata();
 
         final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.mergedMapped(
-                this.spreadsheetComparatorInfoSet.renameIfPresent(
-                        SpreadsheetComparatorInfoSet.EMPTY
-                ),
-                SpreadsheetComparatorProviders.spreadsheetComparators()
+            this.spreadsheetComparatorInfoSet.renameIfPresent(
+                SpreadsheetComparatorInfoSet.EMPTY
+            ),
+            SpreadsheetComparatorProviders.spreadsheetComparators()
         );
 
         final SpreadsheetExporterProvider spreadsheetExporterProvider = SpreadsheetExporterProviders.mergedMapped(
-                this.spreadsheetExporterInfoSet.renameIfPresent(
-                        SpreadsheetExporterInfoSet.EMPTY
-                ),
-                SpreadsheetExporterProviders.empty()
+            this.spreadsheetExporterInfoSet.renameIfPresent(
+                SpreadsheetExporterInfoSet.EMPTY
+            ),
+            SpreadsheetExporterProviders.empty()
         );
 
         final ExpressionFunctionProvider expressionFunctionProvider = ExpressionFunctionProviders.mergedMapped(
-                this.expressionFunctionInfoSet.renameIfPresent(
-                        ExpressionFunctionInfoSet.EMPTY
-                ),
-                ExpressionFunctionProviders.empty(SpreadsheetExpressionFunctionNames.CASE_SENSITIVITY) // TODO should have a non empty EFP
+            this.expressionFunctionInfoSet.renameIfPresent(
+                ExpressionFunctionInfoSet.EMPTY
+            ),
+            ExpressionFunctionProviders.empty(SpreadsheetExpressionFunctionNames.CASE_SENSITIVITY) // TODO should have a non empty EFP
         );
 
         final SpreadsheetFormatterProvider spreadsheetFormatterProvider = SpreadsheetFormatterProviders.mergedMapped(
-                this.spreadsheetFormatterInfoSet.renameIfPresent(
-                        SpreadsheetFormatterInfoSet.EMPTY
-                ),
-                SpreadsheetFormatterProviders.spreadsheetFormatPattern()
+            this.spreadsheetFormatterInfoSet.renameIfPresent(
+                SpreadsheetFormatterInfoSet.EMPTY
+            ),
+            SpreadsheetFormatterProviders.spreadsheetFormatPattern()
         );
 
         final SpreadsheetImporterProvider spreadsheetImporterProvider = SpreadsheetImporterProviders.mergedMapped(
-                this.spreadsheetImporterInfoSet.renameIfPresent(
-                        SpreadsheetImporterInfoSet.EMPTY
-                ),
-                SpreadsheetImporterProviders.empty()
+            this.spreadsheetImporterInfoSet.renameIfPresent(
+                SpreadsheetImporterInfoSet.EMPTY
+            ),
+            SpreadsheetImporterProviders.empty()
         );
 
         final SpreadsheetParserProvider spreadsheetParserProvider = SpreadsheetParserProviders.mergedMapped(
-                this.spreadsheetParserInfoSet.renameIfPresent(
-                        SpreadsheetParserInfoSet.EMPTY
-                ),
-                SpreadsheetParserProviders.spreadsheetParsePattern(spreadsheetFormatterProvider)
+            this.spreadsheetParserInfoSet.renameIfPresent(
+                SpreadsheetParserInfoSet.EMPTY
+            ),
+            SpreadsheetParserProviders.spreadsheetParsePattern(spreadsheetFormatterProvider)
         );
 
         final ConverterProvider converterProvider = ConverterProviders.mergedMapped(
-                this.converterInfoSet.renameIfPresent(
-                        ConverterInfoSet.EMPTY
-                ),
-                SpreadsheetConvertersConverterProviders.spreadsheetConverters(
-                        metadata,
-                        spreadsheetFormatterProvider,
-                        spreadsheetParserProvider
-                )
+            this.converterInfoSet.renameIfPresent(
+                ConverterInfoSet.EMPTY
+            ),
+            SpreadsheetConvertersConverterProviders.spreadsheetConverters(
+                metadata,
+                spreadsheetFormatterProvider,
+                spreadsheetParserProvider
+            )
         );
 
         this.spreadsheetProvider = metadata.spreadsheetProvider(
-                SpreadsheetProviders.basic(
-                        converterProvider,
-                        expressionFunctionProvider,
-                        spreadsheetComparatorProvider,
-                        spreadsheetExporterProvider,
-                        spreadsheetFormatterProvider,
-                        spreadsheetImporterProvider,
-                        spreadsheetParserProvider
-                )
-        );
-        this.systemSpreadsheetProvider = SpreadsheetProviders.basic(
+            SpreadsheetProviders.basic(
                 converterProvider,
                 expressionFunctionProvider,
                 spreadsheetComparatorProvider,
@@ -1063,14 +1053,24 @@ public class App implements EntryPoint,
                 spreadsheetFormatterProvider,
                 spreadsheetImporterProvider,
                 spreadsheetParserProvider
+            )
+        );
+        this.systemSpreadsheetProvider = SpreadsheetProviders.basic(
+            converterProvider,
+            expressionFunctionProvider,
+            spreadsheetComparatorProvider,
+            spreadsheetExporterProvider,
+            spreadsheetFormatterProvider,
+            spreadsheetImporterProvider,
+            spreadsheetParserProvider
         );
 
         try {
             this.formatterContext = metadata.spreadsheetFormatterContext(
-                    this.viewportCache, // SpreadsheetLabelNameResolver
-                    converterProvider,// ConverterProvider
-                    spreadsheetFormatterProvider, // SpreadsheetFormatterProvider
-                    this.providerContext // ProviderContext
+                this.viewportCache, // SpreadsheetLabelNameResolver
+                converterProvider,// ConverterProvider
+                spreadsheetFormatterProvider, // SpreadsheetFormatterProvider
+                this.providerContext // ProviderContext
             );
         } catch (final RuntimeException cause) {
             this.warn("App.refreshSpreadsheetProvider Failed to create SpreadsheetFormatterContext=" + cause.getMessage(), cause);
@@ -1079,7 +1079,7 @@ public class App implements EntryPoint,
 
         try {
             this.parserContext = metadata.spreadsheetParserContext(
-                    this // HasNow
+                this // HasNow
             );
         } catch (final RuntimeException cause) {
             this.warn("App.refreshSpreadsheetProvider Failed to create SpreadsheetParserContext=" + cause.getMessage(), cause);
@@ -1112,8 +1112,8 @@ public class App implements EntryPoint,
     @Override
     public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> selection) {
         return this.viewportComponent.viewport(
-                selection,
-                this
+            selection,
+            this
         );
     }
 

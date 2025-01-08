@@ -28,18 +28,18 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public interface SpreadsheetDialogComponentContextTesting<C extends SpreadsheetDialogComponentContext> extends ContextTesting<C>,
-        TreePrintableTesting {
+    TreePrintableTesting {
 
     @Test
     default void testNoMethodShouldReturnFetcher() {
         this.checkEquals(
-                Sets.empty(),
-                Arrays.stream(
-                                this.type()
-                                        .getMethods()
-                        ).filter(m -> Fetcher.class.isAssignableFrom(m.getReturnType()))
-                        .map(Method::toGenericString)
-                        .collect(Collectors.toSet())
+            Sets.empty(),
+            Arrays.stream(
+                    this.type()
+                        .getMethods()
+                ).filter(m -> Fetcher.class.isAssignableFrom(m.getReturnType()))
+                .map(Method::toGenericString)
+                .collect(Collectors.toSet())
         );
     }
 }

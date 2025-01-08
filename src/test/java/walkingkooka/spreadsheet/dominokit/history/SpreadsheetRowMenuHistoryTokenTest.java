@@ -29,24 +29,24 @@ public final class SpreadsheetRowMenuHistoryTokenTest extends SpreadsheetRowHist
     @Test
     public void testUrlFragmentRow() {
         this.urlFragmentAndCheck(
-                ROW,
-                "/123/SpreadsheetName456/row/1/menu"
+            ROW,
+            "/123/SpreadsheetName456/row/1/menu"
         );
     }
 
     @Test
     public void testUrlFragmentRowRange() {
         this.urlFragmentAndCheck(
-                ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-                "/123/SpreadsheetName456/row/2:3/bottom/menu"
+            ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
+            "/123/SpreadsheetName456/row/2:3/bottom/menu"
         );
     }
 
     @Test
     public void testUrlFragmentRowRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_ROWS.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-                "/123/SpreadsheetName456/row/*/bottom/menu"
+            SpreadsheetSelection.ALL_ROWS.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
+            "/123/SpreadsheetName456/row/*/bottom/menu"
         );
     }
 
@@ -55,9 +55,9 @@ public final class SpreadsheetRowMenuHistoryTokenTest extends SpreadsheetRowHist
                                                       final SpreadsheetName name,
                                                       final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetRowMenuHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

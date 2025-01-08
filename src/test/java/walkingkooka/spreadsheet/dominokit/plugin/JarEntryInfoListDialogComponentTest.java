@@ -39,39 +39,39 @@ import java.util.OptionalInt;
 import java.util.OptionalLong;
 
 public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<JarEntryInfoListDialogComponent,
-        SpreadsheetComparatorNameListDialogComponentContext> {
+    SpreadsheetComparatorNameListDialogComponentContext> {
 
     private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName111");
 
     @Test
     public void testEmptyBeforeLoadingJarEntryInfoList() {
         this.onHistoryTokenChangeAndCheck(
-                "/plugin/" + PLUGIN_NAME,
-                "JarEntryInfoListDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    Loading...\n" +
-                        "    id=plugin-Dialog includeClose=true\n" +
-                        "      JarEntryInfoListTableComponent\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            SpreadsheetDataTableComponent\n" +
-                        "              id=plugin-Table\n" +
-                        "              COLUMN(S)\n" +
-                        "                Name\n" +
-                        "                Size(Compressed)\n" +
-                        "                Method\n" +
-                        "                CRC\n" +
-                        "                Created\n" +
-                        "                Last modified by\n" +
-                        "                Links\n" +
-                        "              ROW(S)\n" +
-                        "              PLUGINS\n" +
-                        "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Delete\" DISABLED id=plugin-delete-Link\n" +
-                        "          \"Download\" DISABLED id=plugin-download-Link\n" +
-                        "          \"Close\" [#/plugin] id=plugin-close-Link\n"
+            "/plugin/" + PLUGIN_NAME,
+            "JarEntryInfoListDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Loading...\n" +
+                "    id=plugin-Dialog includeClose=true\n" +
+                "      JarEntryInfoListTableComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=plugin-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Name\n" +
+                "                Size(Compressed)\n" +
+                "                Method\n" +
+                "                CRC\n" +
+                "                Created\n" +
+                "                Last modified by\n" +
+                "                Links\n" +
+                "              ROW(S)\n" +
+                "              PLUGINS\n" +
+                "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Delete\" DISABLED id=plugin-delete-Link\n" +
+                "          \"Download\" DISABLED id=plugin-download-Link\n" +
+                "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
     }
 
@@ -80,77 +80,77 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
         final TestAppContext context = new TestAppContext("/plugin/" + PLUGIN_NAME);
 
         final JarEntryInfoListDialogComponent dialog = this.dialog(
-                this.pluginDialogComponentContext(context)
+            this.pluginDialogComponentContext(context)
         );
 
         // initially empty
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "JarEntryInfoListDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    Loading...\n" +
-                        "    id=plugin-Dialog includeClose=true\n" +
-                        "      JarEntryInfoListTableComponent\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            SpreadsheetDataTableComponent\n" +
-                        "              id=plugin-Table\n" +
-                        "              COLUMN(S)\n" +
-                        "                Name\n" +
-                        "                Size(Compressed)\n" +
-                        "                Method\n" +
-                        "                CRC\n" +
-                        "                Created\n" +
-                        "                Last modified by\n" +
-                        "                Links\n" +
-                        "              ROW(S)\n" +
-                        "              PLUGINS\n" +
-                        "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Delete\" DISABLED id=plugin-delete-Link\n" +
-                        "          \"Download\" DISABLED id=plugin-download-Link\n" +
-                        "          \"Close\" [#/plugin] id=plugin-close-Link\n"
+            dialog,
+            context,
+            "JarEntryInfoListDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Loading...\n" +
+                "    id=plugin-Dialog includeClose=true\n" +
+                "      JarEntryInfoListTableComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=plugin-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Name\n" +
+                "                Size(Compressed)\n" +
+                "                Method\n" +
+                "                CRC\n" +
+                "                Created\n" +
+                "                Last modified by\n" +
+                "                Links\n" +
+                "              ROW(S)\n" +
+                "              PLUGINS\n" +
+                "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Delete\" DISABLED id=plugin-delete-Link\n" +
+                "          \"Download\" DISABLED id=plugin-download-Link\n" +
+                "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
 
         dialog.onJarEntryInfoList(
-                PLUGIN_NAME,
-                Optional.of(
-                        JarEntryInfoList.EMPTY
-                ),
-                context
+            PLUGIN_NAME,
+            Optional.of(
+                JarEntryInfoList.EMPTY
+            ),
+            context
         );
 
         // refresh again !
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "JarEntryInfoListDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    TestPluginName111\n" +
-                        "    id=plugin-Dialog includeClose=true\n" +
-                        "      JarEntryInfoListTableComponent\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            SpreadsheetDataTableComponent\n" +
-                        "              id=plugin-Table\n" +
-                        "              COLUMN(S)\n" +
-                        "                Name\n" +
-                        "                Size(Compressed)\n" +
-                        "                Method\n" +
-                        "                CRC\n" +
-                        "                Created\n" +
-                        "                Last modified by\n" +
-                        "                Links\n" +
-                        "              ROW(S)\n" +
-                        "              PLUGINS\n" +
-                        "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Delete\" [#/plugin/TestPluginName111/delete] id=plugin-delete-Link\n" +
-                        "          \"Download\" [/api/plugin/TestPluginName111/download] id=plugin-download-Link\n" +
-                        "          \"Close\" [#/plugin] id=plugin-close-Link\n"
+            dialog,
+            context,
+            "JarEntryInfoListDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    TestPluginName111\n" +
+                "    id=plugin-Dialog includeClose=true\n" +
+                "      JarEntryInfoListTableComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=plugin-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Name\n" +
+                "                Size(Compressed)\n" +
+                "                Method\n" +
+                "                CRC\n" +
+                "                Created\n" +
+                "                Last modified by\n" +
+                "                Links\n" +
+                "              ROW(S)\n" +
+                "              PLUGINS\n" +
+                "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Delete\" [#/plugin/TestPluginName111/delete] id=plugin-delete-Link\n" +
+                "          \"Download\" [/api/plugin/TestPluginName111/download] id=plugin-download-Link\n" +
+                "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
     }
 
@@ -160,110 +160,110 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
         final TestAppContext context = new TestAppContext("/plugin/" + PLUGIN_NAME);
 
         final JarEntryInfoListDialogComponent dialog = this.dialog(
-                this.pluginDialogComponentContext(context)
+            this.pluginDialogComponentContext(context)
         );
 
         // initially empty
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "JarEntryInfoListDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    Loading...\n" +
-                        "    id=plugin-Dialog includeClose=true\n" +
-                        "      JarEntryInfoListTableComponent\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            SpreadsheetDataTableComponent\n" +
-                        "              id=plugin-Table\n" +
-                        "              COLUMN(S)\n" +
-                        "                Name\n" +
-                        "                Size(Compressed)\n" +
-                        "                Method\n" +
-                        "                CRC\n" +
-                        "                Created\n" +
-                        "                Last modified by\n" +
-                        "                Links\n" +
-                        "              ROW(S)\n" +
-                        "              PLUGINS\n" +
-                        "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Delete\" DISABLED id=plugin-delete-Link\n" +
-                        "          \"Download\" DISABLED id=plugin-download-Link\n" +
-                        "          \"Close\" [#/plugin] id=plugin-close-Link\n"
+            dialog,
+            context,
+            "JarEntryInfoListDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Loading...\n" +
+                "    id=plugin-Dialog includeClose=true\n" +
+                "      JarEntryInfoListTableComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=plugin-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Name\n" +
+                "                Size(Compressed)\n" +
+                "                Method\n" +
+                "                CRC\n" +
+                "                Created\n" +
+                "                Last modified by\n" +
+                "                Links\n" +
+                "              ROW(S)\n" +
+                "              PLUGINS\n" +
+                "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Delete\" DISABLED id=plugin-delete-Link\n" +
+                "          \"Download\" DISABLED id=plugin-download-Link\n" +
+                "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
 
         dialog.onJarEntryInfoList(
-                PLUGIN_NAME,
-                Optional.of(
-                        JarEntryInfoList.with(
-                                Lists.of(
-                                        JarEntryInfo.with(
-                                                JarEntryInfoName.with("/META-INF/MANIFEST.MF"), // filename
-                                                OptionalLong.of(111), // size
-                                                OptionalLong.of(22), // compressedSize
-                                                OptionalInt.of(1), // method
-                                                OptionalLong.of(0x12345678), // crc
-                                                Optional.of(
-                                                        LocalDateTime.of(1999, 12, 31, 12, 58)
-                                                ), // created
-                                                Optional.of(
-                                                        LocalDateTime.of(2000, 1, 2, 12, 58)
-                                                ) // last mod
-                                        )
-                                )
+            PLUGIN_NAME,
+            Optional.of(
+                JarEntryInfoList.with(
+                    Lists.of(
+                        JarEntryInfo.with(
+                            JarEntryInfoName.with("/META-INF/MANIFEST.MF"), // filename
+                            OptionalLong.of(111), // size
+                            OptionalLong.of(22), // compressedSize
+                            OptionalInt.of(1), // method
+                            OptionalLong.of(0x12345678), // crc
+                            Optional.of(
+                                LocalDateTime.of(1999, 12, 31, 12, 58)
+                            ), // created
+                            Optional.of(
+                                LocalDateTime.of(2000, 1, 2, 12, 58)
+                            ) // last mod
                         )
-                ),
-                context
+                    )
+                )
+            ),
+            context
         );
 
         // refresh again !
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "JarEntryInfoListDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    TestPluginName111\n" +
-                        "    id=plugin-Dialog includeClose=true\n" +
-                        "      JarEntryInfoListTableComponent\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            SpreadsheetDataTableComponent\n" +
-                        "              id=plugin-Table\n" +
-                        "              COLUMN(S)\n" +
-                        "                Name\n" +
-                        "                Size(Compressed)\n" +
-                        "                Method\n" +
-                        "                CRC\n" +
-                        "                Created\n" +
-                        "                Last modified by\n" +
-                        "                Links\n" +
-                        "              ROW(S)\n" +
-                        "                ROW 0\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"/META-INF/MANIFEST.MF\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"111 (22)\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"1\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"12345678\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"31/12/99, 12:58 pm\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"2/1/00, 12:58 pm\"\n" +
-                        "                  SpreadsheetFlexLayout\n" +
-                        "                    ROW\n" +
-                        "                      \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                        "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
-                        "              PLUGINS\n" +
-                        "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Delete\" [#/plugin/TestPluginName111/delete] id=plugin-delete-Link\n" +
-                        "          \"Download\" [/api/plugin/TestPluginName111/download] id=plugin-download-Link\n" +
-                        "          \"Close\" [#/plugin] id=plugin-close-Link\n"
+            dialog,
+            context,
+            "JarEntryInfoListDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    TestPluginName111\n" +
+                "    id=plugin-Dialog includeClose=true\n" +
+                "      JarEntryInfoListTableComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=plugin-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Name\n" +
+                "                Size(Compressed)\n" +
+                "                Method\n" +
+                "                CRC\n" +
+                "                Created\n" +
+                "                Last modified by\n" +
+                "                Links\n" +
+                "              ROW(S)\n" +
+                "                ROW 0\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"/META-INF/MANIFEST.MF\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"111 (22)\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"1\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"12345678\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"31/12/99, 12:58 pm\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"2/1/00, 12:58 pm\"\n" +
+                "                  SpreadsheetFlexLayout\n" +
+                "                    ROW\n" +
+                "                      \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
+                "              PLUGINS\n" +
+                "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Delete\" [#/plugin/TestPluginName111/delete] id=plugin-delete-Link\n" +
+                "          \"Download\" [/api/plugin/TestPluginName111/download] id=plugin-download-Link\n" +
+                "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
     }
 
@@ -272,193 +272,193 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
         final TestAppContext context = new TestAppContext("/plugin/" + PLUGIN_NAME);
 
         final JarEntryInfoListDialogComponent dialog = this.dialog(
-                this.pluginDialogComponentContext(context)
+            this.pluginDialogComponentContext(context)
         );
 
         // initially empty
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "JarEntryInfoListDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    Loading...\n" +
-                        "    id=plugin-Dialog includeClose=true\n" +
-                        "      JarEntryInfoListTableComponent\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            SpreadsheetDataTableComponent\n" +
-                        "              id=plugin-Table\n" +
-                        "              COLUMN(S)\n" +
-                        "                Name\n" +
-                        "                Size(Compressed)\n" +
-                        "                Method\n" +
-                        "                CRC\n" +
-                        "                Created\n" +
-                        "                Last modified by\n" +
-                        "                Links\n" +
-                        "              ROW(S)\n" +
-                        "              PLUGINS\n" +
-                        "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Delete\" DISABLED id=plugin-delete-Link\n" +
-                        "          \"Download\" DISABLED id=plugin-download-Link\n" +
-                        "          \"Close\" [#/plugin] id=plugin-close-Link\n"
+            dialog,
+            context,
+            "JarEntryInfoListDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Loading...\n" +
+                "    id=plugin-Dialog includeClose=true\n" +
+                "      JarEntryInfoListTableComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=plugin-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Name\n" +
+                "                Size(Compressed)\n" +
+                "                Method\n" +
+                "                CRC\n" +
+                "                Created\n" +
+                "                Last modified by\n" +
+                "                Links\n" +
+                "              ROW(S)\n" +
+                "              PLUGINS\n" +
+                "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Delete\" DISABLED id=plugin-delete-Link\n" +
+                "          \"Download\" DISABLED id=plugin-download-Link\n" +
+                "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
 
         dialog.onJarEntryInfoList(
-                PLUGIN_NAME,
-                Optional.of(
-                        JarEntryInfoList.with(
-                                Lists.of(
-                                        JarEntryInfo.with(
-                                                JarEntryInfoName.with("/META-INF/MANIFEST.MF"), // filename
-                                                OptionalLong.of(111), // size
-                                                OptionalLong.of(11), // compressedSize
-                                                OptionalInt.of(1), // method
-                                                OptionalLong.of(0x1111), // crc
-                                                Optional.of(
-                                                        LocalDateTime.of(1999, 1, 1, 1, 1)
-                                                ), // created
-                                                Optional.of(
-                                                        LocalDateTime.of(2000, 1, 1, 1, 1)
-                                                ) // last mod
-                                        )
-                                )
+            PLUGIN_NAME,
+            Optional.of(
+                JarEntryInfoList.with(
+                    Lists.of(
+                        JarEntryInfo.with(
+                            JarEntryInfoName.with("/META-INF/MANIFEST.MF"), // filename
+                            OptionalLong.of(111), // size
+                            OptionalLong.of(11), // compressedSize
+                            OptionalInt.of(1), // method
+                            OptionalLong.of(0x1111), // crc
+                            Optional.of(
+                                LocalDateTime.of(1999, 1, 1, 1, 1)
+                            ), // created
+                            Optional.of(
+                                LocalDateTime.of(2000, 1, 1, 1, 1)
+                            ) // last mod
                         )
-                ),
-                context
+                    )
+                )
+            ),
+            context
         );
 
         // refresh again !
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "JarEntryInfoListDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    TestPluginName111\n" +
-                        "    id=plugin-Dialog includeClose=true\n" +
-                        "      JarEntryInfoListTableComponent\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            SpreadsheetDataTableComponent\n" +
-                        "              id=plugin-Table\n" +
-                        "              COLUMN(S)\n" +
-                        "                Name\n" +
-                        "                Size(Compressed)\n" +
-                        "                Method\n" +
-                        "                CRC\n" +
-                        "                Created\n" +
-                        "                Last modified by\n" +
-                        "                Links\n" +
-                        "              ROW(S)\n" +
-                        "                ROW 0\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"/META-INF/MANIFEST.MF\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"111 (11)\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"1\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"1111\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"1/1/99, 1:01 am\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"1/1/00, 1:01 am\"\n" +
-                        "                  SpreadsheetFlexLayout\n" +
-                        "                    ROW\n" +
-                        "                      \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                        "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
-                        "              PLUGINS\n" +
-                        "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Delete\" [#/plugin/TestPluginName111/delete] id=plugin-delete-Link\n" +
-                        "          \"Download\" [/api/plugin/TestPluginName111/download] id=plugin-download-Link\n" +
-                        "          \"Close\" [#/plugin] id=plugin-close-Link\n"
+            dialog,
+            context,
+            "JarEntryInfoListDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    TestPluginName111\n" +
+                "    id=plugin-Dialog includeClose=true\n" +
+                "      JarEntryInfoListTableComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=plugin-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Name\n" +
+                "                Size(Compressed)\n" +
+                "                Method\n" +
+                "                CRC\n" +
+                "                Created\n" +
+                "                Last modified by\n" +
+                "                Links\n" +
+                "              ROW(S)\n" +
+                "                ROW 0\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"/META-INF/MANIFEST.MF\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"111 (11)\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"1\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"1111\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"1/1/99, 1:01 am\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"1/1/00, 1:01 am\"\n" +
+                "                  SpreadsheetFlexLayout\n" +
+                "                    ROW\n" +
+                "                      \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
+                "              PLUGINS\n" +
+                "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Delete\" [#/plugin/TestPluginName111/delete] id=plugin-delete-Link\n" +
+                "          \"Download\" [/api/plugin/TestPluginName111/download] id=plugin-download-Link\n" +
+                "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
 
         final PluginName differentPluginName = PluginName.with("differentPlugin222");
         context.historyToken = "/plugin/" + differentPluginName;
 
         dialog.onJarEntryInfoList(
-                differentPluginName,
-                Optional.of(
-                        JarEntryInfoList.with(
-                                Lists.of(
-                                        JarEntryInfo.with(
-                                                JarEntryInfoName.with("/META-INF/MANIFEST.MF"), // filename
-                                                OptionalLong.of(222), // size
-                                                OptionalLong.of(222), // compressedSize
-                                                OptionalInt.of(2), // method
-                                                OptionalLong.of(0x222222), // crc
-                                                Optional.of(
-                                                        LocalDateTime.of(1999, 2, 2, 2, 2)
-                                                ), // created
-                                                Optional.of(
-                                                        LocalDateTime.of(2000, 2, 2, 2, 2)
-                                                ) // last mod
-                                        )
-                                )
+            differentPluginName,
+            Optional.of(
+                JarEntryInfoList.with(
+                    Lists.of(
+                        JarEntryInfo.with(
+                            JarEntryInfoName.with("/META-INF/MANIFEST.MF"), // filename
+                            OptionalLong.of(222), // size
+                            OptionalLong.of(222), // compressedSize
+                            OptionalInt.of(2), // method
+                            OptionalLong.of(0x222222), // crc
+                            Optional.of(
+                                LocalDateTime.of(1999, 2, 2, 2, 2)
+                            ), // created
+                            Optional.of(
+                                LocalDateTime.of(2000, 2, 2, 2, 2)
+                            ) // last mod
                         )
-                ),
-                context
+                    )
+                )
+            ),
+            context
         );
 
         // refresh again !
         this.onHistoryTokenChangeAndCheck(
-                dialog,
-                context,
-                "JarEntryInfoListDialogComponent\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    differentPlugin222\n" +
-                        "    id=plugin-Dialog includeClose=true\n" +
-                        "      JarEntryInfoListTableComponent\n" +
-                        "        SpreadsheetCard\n" +
-                        "          Card\n" +
-                        "            SpreadsheetDataTableComponent\n" +
-                        "              id=plugin-Table\n" +
-                        "              COLUMN(S)\n" +
-                        "                Name\n" +
-                        "                Size(Compressed)\n" +
-                        "                Method\n" +
-                        "                CRC\n" +
-                        "                Created\n" +
-                        "                Last modified by\n" +
-                        "                Links\n" +
-                        "              ROW(S)\n" +
-                        "                ROW 0\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"/META-INF/MANIFEST.MF\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"222 (222)\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"2\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"222222\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"2/2/99, 2:02 am\"\n" +
-                        "                  SpreadsheetTextComponent\n" +
-                        "                    \"2/2/00, 2:02 am\"\n" +
-                        "                  SpreadsheetFlexLayout\n" +
-                        "                    ROW\n" +
-                        "                      \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                        "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
-                        "              PLUGINS\n" +
-                        "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
-                        "      SpreadsheetFlexLayout\n" +
-                        "        ROW\n" +
-                        "          \"Delete\" [#/plugin/differentPlugin222/delete] id=plugin-delete-Link\n" +
-                        "          \"Download\" [/api/plugin/differentPlugin222/download] id=plugin-download-Link\n" +
-                        "          \"Close\" [#/plugin] id=plugin-close-Link\n"
+            dialog,
+            context,
+            "JarEntryInfoListDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    differentPlugin222\n" +
+                "    id=plugin-Dialog includeClose=true\n" +
+                "      JarEntryInfoListTableComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=plugin-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Name\n" +
+                "                Size(Compressed)\n" +
+                "                Method\n" +
+                "                CRC\n" +
+                "                Created\n" +
+                "                Last modified by\n" +
+                "                Links\n" +
+                "              ROW(S)\n" +
+                "                ROW 0\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"/META-INF/MANIFEST.MF\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"222 (222)\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"2\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"222222\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"2/2/99, 2:02 am\"\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"2/2/00, 2:02 am\"\n" +
+                "                  SpreadsheetFlexLayout\n" +
+                "                    ROW\n" +
+                "                      \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                "                      \"View\" [#/plugin/TestPluginName111/file/META-INF/MANIFEST.MF] id=plugin-view-Link\n" +
+                "              PLUGINS\n" +
+                "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Delete\" [#/plugin/differentPlugin222/delete] id=plugin-delete-Link\n" +
+                "          \"Download\" [/api/plugin/differentPlugin222/download] id=plugin-download-Link\n" +
+                "          \"Close\" [#/plugin] id=plugin-close-Link\n"
         );
     }
 
     private void onHistoryTokenChangeAndCheck(final String historyToken,
                                               final String expected) {
         this.onHistoryTokenChangeAndCheck(
-                new TestAppContext(historyToken),
-                expected
+            new TestAppContext(historyToken),
+            expected
         );
     }
 
@@ -494,11 +494,11 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
     private void onHistoryTokenChangeAndCheck(final TestAppContext context,
                                               final String expected) {
         this.onHistoryTokenChangeAndCheck(
-                this.dialog(
-                        this.pluginDialogComponentContext(context)
-                ),
-                context,
-                expected
+            this.dialog(
+                this.pluginDialogComponentContext(context)
+            ),
+            context,
+            expected
         );
     }
 
@@ -525,6 +525,7 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
                 return context.addHistoryTokenWatcher(watcher);
             }
+
             @Override
             public Locale locale() {
                 return context.locale();

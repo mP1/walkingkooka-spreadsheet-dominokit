@@ -29,15 +29,15 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 public final class RemovePluginNameSetComponentTest implements HtmlElementComponentTesting<RemovePluginNameSetComponent,
-        HTMLDivElement> {
+    HTMLDivElement> {
 
     private final static RemovePluginNameSetComponentContext CONTEXT = new FakeRemovePluginNameSetComponentContext() {
         @Override
         public HistoryToken historyToken() {
             return HistoryToken.metadataPropertySelect(
-                    SpreadsheetId.with(1),
-                    SpreadsheetName.with("SpreadsheetName123"),
-                    SpreadsheetMetadataPropertyName.PLUGINS
+                SpreadsheetId.with(1),
+                SpreadsheetName.with("SpreadsheetName123"),
+                SpreadsheetMetadataPropertyName.PLUGINS
             );
         }
     };
@@ -46,15 +46,15 @@ public final class RemovePluginNameSetComponentTest implements HtmlElementCompon
     public void testRefreshNoneRemovable() {
         final RemovePluginNameSetComponent component = RemovePluginNameSetComponent.empty("base-id-123-remove-");
         component.refresh(
-                PluginNameSet.EMPTY, // present
-                PluginNameSet.parse("name1, name2, name3"), // provider
-                CONTEXT
+            PluginNameSet.EMPTY, // present
+            PluginNameSet.parse("name1, name2, name3"), // provider
+            CONTEXT
         );
 
         // all disabled no need to create any remove links
         this.treePrintAndCheck(
-                component,
-                "RemovePluginNameSetComponent\n"
+            component,
+            "RemovePluginNameSetComponent\n"
         );
     }
 
@@ -62,22 +62,22 @@ public final class RemovePluginNameSetComponentTest implements HtmlElementCompon
     public void testRefreshSomeRemovable() {
         final RemovePluginNameSetComponent component = RemovePluginNameSetComponent.empty("base-id-123-remove-");
         component.refresh(
-                PluginNameSet.parse("name1, name2"), // present
-                PluginNameSet.parse("name1, name2, name3, name4"), // provider
-                this.context()
+            PluginNameSet.parse("name1, name2"), // present
+            PluginNameSet.parse("name1, name2, name3, name4"), // provider
+            this.context()
         );
 
         this.treePrintAndCheck(
-                component,
-                "RemovePluginNameSetComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Remove\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1,name2] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name2] id=base-id-123-remove-1-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1] id=base-id-123-remove-2-Link\n"
+            component,
+            "RemovePluginNameSetComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Remove\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1,name2] id=base-id-123-remove-0-Link\n" +
+                "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name2] id=base-id-123-remove-1-Link\n" +
+                "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1] id=base-id-123-remove-2-Link\n"
         );
     }
 
@@ -85,24 +85,24 @@ public final class RemovePluginNameSetComponentTest implements HtmlElementCompon
     public void testRefreshAllRemovable() {
         final RemovePluginNameSetComponent component = RemovePluginNameSetComponent.empty("base-id-123-remove-");
         component.refresh(
-                PluginNameSet.parse("name1, name2, name3"), // present
-                PluginNameSet.parse("name1, name2, name3"), // provider
-                CONTEXT
+            PluginNameSet.parse("name1, name2, name3"), // present
+            PluginNameSet.parse("name1, name2, name3"), // provider
+            CONTEXT
         );
 
         // all disabled no need to create any enable links
         this.treePrintAndCheck(
-                component,
-                "RemovePluginNameSetComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Remove\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1,name2,name3] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name2,name3] id=base-id-123-remove-1-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1,name3] id=base-id-123-remove-2-Link\n" +
-                        "            \"Name3\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1,name2] id=base-id-123-remove-3-Link\n"
+            component,
+            "RemovePluginNameSetComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Remove\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1,name2,name3] id=base-id-123-remove-0-Link\n" +
+                "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name2,name3] id=base-id-123-remove-1-Link\n" +
+                "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1,name3] id=base-id-123-remove-2-Link\n" +
+                "            \"Name3\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/name1,name2] id=base-id-123-remove-3-Link\n"
         );
     }
 
@@ -111,23 +111,23 @@ public final class RemovePluginNameSetComponentTest implements HtmlElementCompon
         final RemovePluginNameSetComponent component = RemovePluginNameSetComponent.empty("base-id-123-remove-");
         component.setFilter((t) -> t.toString().contains("name"));
         component.refresh(
-                PluginNameSet.parse("name1, name2, missing3"), // present
-                PluginNameSet.parse("name1, name2, missing3"), // provider
-                CONTEXT
+            PluginNameSet.parse("name1, name2, missing3"), // present
+            PluginNameSet.parse("name1, name2, missing3"), // provider
+            CONTEXT
         );
 
         // all disabled no need to create any enable links
         this.treePrintAndCheck(
-                component,
-                "RemovePluginNameSetComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Remove\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/missing3,name1,name2] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/missing3,name2] id=base-id-123-remove-1-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/missing3,name1] id=base-id-123-remove-2-Link\n"
+            component,
+            "RemovePluginNameSetComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Remove\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/missing3,name1,name2] id=base-id-123-remove-0-Link\n" +
+                "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/missing3,name2] id=base-id-123-remove-1-Link\n" +
+                "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/plugins/save/missing3,name1] id=base-id-123-remove-2-Link\n"
         );
     }
 

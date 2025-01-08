@@ -32,46 +32,46 @@ public final class SpreadsheetCellUnfreezeHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testUrlFragmentColumnRangeInvalidFails() {
         assertThrows(
-                SpreadsheetMetadataPropertyValueException.class,
-                () -> this.createHistoryToken(
-                        SpreadsheetSelection.parseCellRange("B1:C3")
-                                .setDefaultAnchor()
-                )
+            SpreadsheetMetadataPropertyValueException.class,
+            () -> this.createHistoryToken(
+                SpreadsheetSelection.parseCellRange("B1:C3")
+                    .setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testUrlFragmentRowRangeInvalidFails() {
         assertThrows(
-                SpreadsheetMetadataPropertyValueException.class,
-                () -> this.createHistoryToken(
-                        SpreadsheetSelection.parseCellRange("A2:C3")
-                                .setDefaultAnchor()
-                )
+            SpreadsheetMetadataPropertyValueException.class,
+            () -> this.createHistoryToken(
+                SpreadsheetSelection.parseCellRange("A2:C3")
+                    .setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.A1.setDefaultAnchor(),
-                "/123/SpreadsheetName456/cell/A1/unfreeze"
+            SpreadsheetSelection.A1.setDefaultAnchor(),
+            "/123/SpreadsheetName456/cell/A1/unfreeze"
         );
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.parseCellRange("A1:B2").setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/A1:B2/top-left/unfreeze"
+            SpreadsheetSelection.parseCellRange("A1:B2").setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/A1:B2/top-left/unfreeze"
         );
     }
 
     @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/cell/Label123/unfreeze"
+            LABEL,
+            "/123/SpreadsheetName456/cell/Label123/unfreeze"
         );
     }
 
@@ -80,12 +80,12 @@ public final class SpreadsheetCellUnfreezeHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        SELECTION
-                )
+            this.createHistoryToken(),
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SELECTION
+            )
         );
     }
 
@@ -94,7 +94,7 @@ public final class SpreadsheetCellUnfreezeHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 
@@ -103,9 +103,9 @@ public final class SpreadsheetCellUnfreezeHistoryTokenTest extends SpreadsheetCe
                                                            final SpreadsheetName name,
                                                            final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellUnfreezeHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

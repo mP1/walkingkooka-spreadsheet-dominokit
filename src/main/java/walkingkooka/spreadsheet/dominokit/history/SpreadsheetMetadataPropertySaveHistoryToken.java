@@ -34,10 +34,10 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
                                                                    final SpreadsheetMetadataPropertyName<T> propertyName,
                                                                    final Optional<T> propertyValue) {
         return new SpreadsheetMetadataPropertySaveHistoryToken<>(
-                id,
-                name,
-                propertyName,
-                propertyValue
+            id,
+            name,
+            propertyName,
+            propertyValue
         );
     }
 
@@ -46,9 +46,9 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
                                                         final SpreadsheetMetadataPropertyName<T> propertyName,
                                                         final Optional<T> propertyValue) {
         super(
-                id,
-                name,
-                propertyName
+            id,
+            name,
+            propertyName
         );
 
         this.propertyValue = Objects.requireNonNull(propertyValue, "propertyValue");
@@ -63,16 +63,16 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     @Override
     UrlFragment metadataPropertyUrlFragment() {
         return saveUrlFragment(
-                this.propertyValue()
+            this.propertyValue()
         );
     }
 
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.metadataPropertySelect(
-                this.id(),
-                this.name(),
-                this.propertyName()
+            this.id(),
+            this.name(),
+            this.propertyName()
         );
     }
 
@@ -81,10 +81,10 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return with(
-                id,
-                name,
-                this.propertyName(),
-                this.propertyValue()
+            id,
+            name,
+            this.propertyName(),
+            this.propertyValue()
         );
     }
 
@@ -108,11 +108,11 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
 
         // now perform patch
         context.spreadsheetMetadataFetcher()
-                .patchMetadata(
-                        id,
-                        propertyName.patch(
-                                this.propertyValue().orElse(null)
-                        )
-                );
+            .patchMetadata(
+                id,
+                propertyName.patch(
+                    this.propertyValue().orElse(null)
+                )
+            );
     }
 }

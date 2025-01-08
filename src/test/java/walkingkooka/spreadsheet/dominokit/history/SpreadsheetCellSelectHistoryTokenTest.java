@@ -36,24 +36,24 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left"
+            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/B2:C3/top-left"
         );
     }
 
     @Test
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left"
+            SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/*/top-left"
         );
     }
 
     @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/cell/Label123"
+            LABEL,
+            "/123/SpreadsheetName456/cell/Label123"
         );
     }
 
@@ -62,60 +62,60 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testParseCell() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1",
-                SpreadsheetCellSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1",
+            SpreadsheetCellSelectHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseCellRange() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/B2:C3",
-                SpreadsheetCellSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        RANGE.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/B2:C3",
+            SpreadsheetCellSelectHistoryToken.with(
+                ID,
+                NAME,
+                RANGE.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseCellRangeAndAnchor() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/B2:C3",
-                SpreadsheetCellSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        RANGE.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/B2:C3",
+            SpreadsheetCellSelectHistoryToken.with(
+                ID,
+                NAME,
+                RANGE.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseCellRangeStar() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/*",
-                SpreadsheetCellSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.ALL_CELLS.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/*",
+            SpreadsheetCellSelectHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.ALL_CELLS.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public void testParseCellRangeStarAndAnchor() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/*/bottom-right",
-                SpreadsheetCellSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
-                )
+            "/123/SpreadsheetName456/cell/*/bottom-right",
+            SpreadsheetCellSelectHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
+            )
         );
     }
 
@@ -131,16 +131,16 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testFreezeOrEmptyCellInvalid() {
         this.freezeOrEmptyAndCheck(
-                SpreadsheetSelection.parseCell("B2")
-                        .setDefaultAnchor()
+            SpreadsheetSelection.parseCell("B2")
+                .setDefaultAnchor()
         );
     }
 
     @Test
     public void testFreezeOrEmptyCellRangeInvalid() {
         this.freezeOrEmptyAndCheck(
-                SpreadsheetSelection.parseCellRange("C3:D4")
-                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
+            SpreadsheetSelection.parseCellRange("C3:D4")
+                .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
         );
     }
 
@@ -149,12 +149,12 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testFormatter() {
         this.formatterAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.cellFormatterSelect(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            this.createHistoryToken(),
+            HistoryToken.cellFormatterSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
@@ -163,7 +163,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 
@@ -176,8 +176,8 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, selection);
 
         assertSame(
-                historyToken.save(formulaText),
-                historyToken
+            historyToken.save(formulaText),
+            historyToken
         );
     }
 
@@ -186,16 +186,16 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testUnfreezeOrEmptyCellInvalid() {
         this.unfreezeOrEmptyAndCheck(
-                SpreadsheetSelection.parseCell("B2")
-                        .setDefaultAnchor()
+            SpreadsheetSelection.parseCell("B2")
+                .setDefaultAnchor()
         );
     }
 
     @Test
     public void testUnfreezeOrEmptyCellRangeInvalid() {
         this.unfreezeOrEmptyAndCheck(
-                SpreadsheetSelection.parseCellRange("C3:D4")
-                        .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
+            SpreadsheetSelection.parseCellRange("C3:D4")
+                .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
         );
     }
 
@@ -204,9 +204,9 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
                                                          final SpreadsheetName name,
                                                          final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellSelectHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

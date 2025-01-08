@@ -50,10 +50,10 @@ public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCell
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> value) {
         return new SpreadsheetCellSaveParserHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                Maps.immutable(value)
+            id,
+            name,
+            anchoredSelection,
+            Maps.immutable(value)
         );
     }
 
@@ -62,17 +62,17 @@ public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCell
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> value) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                value
+            id,
+            name,
+            anchoredSelection,
+            value
         );
     }
 
     @Override
     Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> parseSaveValue(final TextCursor cursor) {
         return parseMapWithOptionalTypedValues(
-                cursor
+            cursor
         );
     }
 
@@ -82,10 +82,10 @@ public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCell
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> value) {
         return new SpreadsheetCellSaveParserHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                value
+            id,
+            name,
+            anchoredSelection,
+            value
         );
     }
 
@@ -99,7 +99,7 @@ public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCell
     @Override
     JsonNode saveValueUrlFragmentValueToJson(final Optional<SpreadsheetParserSelector> value) {
         return MARSHALL_CONTEXT.marshall(
-                value.orElse(null)
+            value.orElse(null)
         );
     }
 
@@ -109,11 +109,11 @@ public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCell
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
-                .patchCellsParser(
-                        this.id(),
-                        this.anchoredSelection().selection(),
-                        this.value()
-                );
+            .patchCellsParser(
+                this.id(),
+                this.anchoredSelection().selection(),
+                this.value()
+            );
         context.pushHistoryToken(previous);
     }
 }

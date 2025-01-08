@@ -36,8 +36,8 @@ public final class SpreadsheetFormulaComponent implements ValueSpreadsheetTextBo
 
     private SpreadsheetFormulaComponent(final Function<String, SpreadsheetFormula> parser) {
         this.textBox = ValueSpreadsheetTextBox.with(
-                parser,
-                HasText::text
+            parser,
+            HasText::text
         ).setValidator(SpreadsheetFormulaComponentValidator.with(parser));
     }
 

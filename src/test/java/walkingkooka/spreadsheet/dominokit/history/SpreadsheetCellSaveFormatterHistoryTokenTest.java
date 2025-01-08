@@ -37,60 +37,60 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     @Test
     public void testWithSaveFormulasOutsideRangeFails() {
         final IllegalArgumentException thrown = assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetCellSaveFormatterHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.parseCell("A2"),
-                                Optional.of(
-                                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
-                                                .spreadsheetFormatterSelector()
-                                )
-                        )
+            IllegalArgumentException.class,
+            () -> SpreadsheetCellSaveFormatterHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.parseCell("A2"),
+                    Optional.of(
+                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                            .spreadsheetFormatterSelector()
+                    )
                 )
+            )
         );
 
         this.checkEquals(
-                "Save value includes cells A2 outside A1",
-                thrown.getMessage(),
-                "message"
+            "Save value includes cells A2 outside A1",
+            thrown.getMessage(),
+            "message"
         );
     }
 
     @Test
     public void testWithSaveFormulasOutsideRangeFails2() {
         final IllegalArgumentException thrown = assertThrows(
-                IllegalArgumentException.class,
-                () -> SpreadsheetCellSaveFormatterHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A2:A3").setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                Optional.of(
-                                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                                                .spreadsheetFormatterSelector()
-                                ),
-                                SpreadsheetSelection.parseCell("A3"),
-                                Optional.of(
-                                        SpreadsheetPattern.parseDateTimeFormatPattern("dd/mm/yyyy hh:mm")
-                                                .spreadsheetFormatterSelector()
-                                ),
-                                SpreadsheetSelection.parseCell("A4"),
-                                Optional.of(
-                                        SpreadsheetPattern.parseTimeFormatPattern("hh:mm")
-                                                .spreadsheetFormatterSelector()
-                                )
-                        )
+            IllegalArgumentException.class,
+            () -> SpreadsheetCellSaveFormatterHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A2:A3").setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.A1,
+                    Optional.of(
+                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                            .spreadsheetFormatterSelector()
+                    ),
+                    SpreadsheetSelection.parseCell("A3"),
+                    Optional.of(
+                        SpreadsheetPattern.parseDateTimeFormatPattern("dd/mm/yyyy hh:mm")
+                            .spreadsheetFormatterSelector()
+                    ),
+                    SpreadsheetSelection.parseCell("A4"),
+                    Optional.of(
+                        SpreadsheetPattern.parseTimeFormatPattern("hh:mm")
+                            .spreadsheetFormatterSelector()
+                    )
                 )
+            )
         );
 
         this.checkEquals(
-                "Save value includes cells A1, A4 outside A2:A3",
-                thrown.getMessage(),
-                "message"
+            "Save value includes cells A1, A4 outside A2:A3",
+            thrown.getMessage(),
+            "message"
         );
     }
 
@@ -99,12 +99,12 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/save/formatter",
-                SpreadsheetCellSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor()
-                )
+            "/123/SpreadsheetName456/cell/A1/save/formatter",
+            SpreadsheetCellSelectHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
         );
     }
 
@@ -114,19 +114,19 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/save/formatter/%7B%0A%20%20%20%22A1%22%3A%20%22text-format-pattern%20%40%22%0A%7D",
-                SpreadsheetCellSaveFormatterHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                Optional.of(
-                                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
-                                                .spreadsheetFormatterSelector()
-                                )
-                        )
+            "/123/SpreadsheetName456/cell/A1/save/formatter/%7B%0A%20%20%20%22A1%22%3A%20%22text-format-pattern%20%40%22%0A%7D",
+            SpreadsheetCellSaveFormatterHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.A1,
+                    Optional.of(
+                        SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
+                            .spreadsheetFormatterSelector()
+                    )
                 )
+            )
         );
     }
 
@@ -137,25 +137,25 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/formatter/%7B%0A%20%20%22A1%22%3A%20%22date-format-pattern%20dd%2Fmm%2Fyyyy%22%2C%0A%20%20%22A2%22%3A%20%22time-format-pattern%20hh%3Amm%22%0A%7D",
-                SpreadsheetCellSaveFormatterHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:A2")
-                                .setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                Optional.of(
-                                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                                                .spreadsheetFormatterSelector()
-                                ),
-                                SpreadsheetSelection.parseCell("A2"),
-                                Optional.of(
-                                        SpreadsheetPattern.parseTimeFormatPattern("hh:mm")
-                                                .spreadsheetFormatterSelector()
-                                )
-                        )
+            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/formatter/%7B%0A%20%20%22A1%22%3A%20%22date-format-pattern%20dd%2Fmm%2Fyyyy%22%2C%0A%20%20%22A2%22%3A%20%22time-format-pattern%20hh%3Amm%22%0A%7D",
+            SpreadsheetCellSaveFormatterHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:A2")
+                    .setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.A1,
+                    Optional.of(
+                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                            .spreadsheetFormatterSelector()
+                    ),
+                    SpreadsheetSelection.parseCell("A2"),
+                    Optional.of(
+                        SpreadsheetPattern.parseTimeFormatPattern("hh:mm")
+                            .spreadsheetFormatterSelector()
+                    )
                 )
+            )
         );
     }
 
@@ -165,16 +165,16 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     @Test
     public void testParseOneCellWithoutPattern() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/cell/A1/save/formatter/%7B%22A1%22%3Anull%7D",
-                SpreadsheetCellSaveFormatterHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Maps.of(
-                                SpreadsheetSelection.A1,
-                                Optional.empty()
-                        )
+            "/123/SpreadsheetName456/cell/A1/save/formatter/%7B%22A1%22%3Anull%7D",
+            SpreadsheetCellSaveFormatterHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                Maps.of(
+                    SpreadsheetSelection.A1,
+                    Optional.empty()
                 )
+            )
         );
     }
 
@@ -187,96 +187,96 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     @Test
     public void testUrlFragment() {
         final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> cellToFormatter = Maps.of(
-                SpreadsheetSelection.A1,
-                Optional.of(
-                        SpreadsheetPattern.parseNumberFormatPattern("#.##")
-                                .spreadsheetFormatterSelector()
-                )
+            SpreadsheetSelection.A1,
+            Optional.of(
+                SpreadsheetPattern.parseNumberFormatPattern("#.##")
+                    .spreadsheetFormatterSelector()
+            )
         );
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveFormatterHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        cellToFormatter
-                ),
-                "/123/SpreadsheetName456/cell/A1/save/formatter/" +
-                        marshallMapWithOptionalValues(cellToFormatter)
+            SpreadsheetCellSaveFormatterHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                cellToFormatter
+            ),
+            "/123/SpreadsheetName456/cell/A1/save/formatter/" +
+                marshallMapWithOptionalValues(cellToFormatter)
         );
     }
 
     @Test
     public void testUrlFragment2() {
         final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> cellToFormatter = Maps.of(
-                SpreadsheetSelection.A1,
-                Optional.of(
-                        SpreadsheetPattern.parseTextFormatPattern("@@")
-                                .spreadsheetFormatterSelector()
-                )
+            SpreadsheetSelection.A1,
+            Optional.of(
+                SpreadsheetPattern.parseTextFormatPattern("@@")
+                    .spreadsheetFormatterSelector()
+            )
         );
 
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveFormatterHistoryToken.with(
-                        ID,
-                        NAME,
-                        SELECTION,
-                        cellToFormatter
-                ),
-                "/123/SpreadsheetName456/cell/A1/save/formatter/" +
-                        marshallMapWithOptionalValues(cellToFormatter)
+            SpreadsheetCellSaveFormatterHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                cellToFormatter
+            ),
+            "/123/SpreadsheetName456/cell/A1/save/formatter/" +
+                marshallMapWithOptionalValues(cellToFormatter)
         );
     }
 
     @Test
     public void testUrlFragmentWithMultipleCells() {
         final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> cellToFormulaText = Maps.of(
-                SpreadsheetSelection.A1,
-                Optional.of(
-                        SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                                .spreadsheetFormatterSelector()
-                ),
-                SpreadsheetSelection.parseCell("A2"),
-                Optional.of(
-                        SpreadsheetPattern.parseDateTimeFormatPattern("dd/mm/yyyy hh:mm")
-                                .spreadsheetFormatterSelector()
-                ),
-                SpreadsheetSelection.parseCell("A3"),
-                Optional.of(
-                        SpreadsheetPattern.parseTimeFormatPattern("hh:mm")
-                                .spreadsheetFormatterSelector()
-                )
+            SpreadsheetSelection.A1,
+            Optional.of(
+                SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                    .spreadsheetFormatterSelector()
+            ),
+            SpreadsheetSelection.parseCell("A2"),
+            Optional.of(
+                SpreadsheetPattern.parseDateTimeFormatPattern("dd/mm/yyyy hh:mm")
+                    .spreadsheetFormatterSelector()
+            ),
+            SpreadsheetSelection.parseCell("A3"),
+            Optional.of(
+                SpreadsheetPattern.parseTimeFormatPattern("hh:mm")
+                    .spreadsheetFormatterSelector()
+            )
         );
 
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveFormatterHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:A3")
-                                .setDefaultAnchor(),
-                        cellToFormulaText
-                ),
-                "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/formatter/" +
-                        marshallMapWithOptionalValues(cellToFormulaText)
+            SpreadsheetCellSaveFormatterHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:A3")
+                    .setDefaultAnchor(),
+                cellToFormulaText
+            ),
+            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/formatter/" +
+                marshallMapWithOptionalValues(cellToFormulaText)
         );
     }
 
     @Test
     public void testUrlFragmentWithNoFormatter() {
         final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> cellToFormulaText = Maps.of(
-                SpreadsheetSelection.A1,
-                Optional.empty()
+            SpreadsheetSelection.A1,
+            Optional.empty()
         );
 
         this.urlFragmentAndCheck(
-                SpreadsheetCellSaveFormatterHistoryToken.with(
-                        ID,
-                        NAME,
-                        SpreadsheetSelection.parseCellRange("A1:A3")
-                                .setDefaultAnchor(),
-                        cellToFormulaText
-                ),
-                "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/formatter/" +
-                        marshallMapWithOptionalValues(cellToFormulaText)
+            SpreadsheetCellSaveFormatterHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetSelection.parseCellRange("A1:A3")
+                    .setDefaultAnchor(),
+                cellToFormulaText
+            ),
+            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/formatter/" +
+                marshallMapWithOptionalValues(cellToFormulaText)
         );
     }
 
@@ -285,15 +285,15 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
                                                                 final SpreadsheetName name,
                                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellSaveFormatterHistoryToken.with(
-                id,
-                name,
-                anchoredSelection,
-                Maps.of(
-                        SpreadsheetSelection.A1,
-                        Optional.of(
-                                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
-                        )
+            id,
+            name,
+            anchoredSelection,
+            Maps.of(
+                SpreadsheetSelection.A1,
+                Optional.of(
+                    SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
                 )
+            )
         );
     }
 

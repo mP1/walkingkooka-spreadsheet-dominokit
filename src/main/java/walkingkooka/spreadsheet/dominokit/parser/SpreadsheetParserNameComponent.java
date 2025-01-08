@@ -34,8 +34,8 @@ public final class SpreadsheetParserNameComponent implements ValueSpreadsheetTex
 
     private SpreadsheetParserNameComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetParserName::with,
-                SpreadsheetParserName::toString
+            SpreadsheetParserName::with,
+            SpreadsheetParserName::toString
         );
     }
 

@@ -33,26 +33,26 @@ import java.util.Optional;
  * Displays SORT in the toolbar. This will only be enabled when more than one cell, one column or one row is selected.
  */
 final class SpreadsheetToolbarComponentItemAnchorSort extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorSort>
-        implements NopComponentLifecycleOpenGiveFocus,
-        NopComponentLifecycleRefresh {
+    implements NopComponentLifecycleOpenGiveFocus,
+    NopComponentLifecycleRefresh {
 
     static SpreadsheetToolbarComponentItemAnchorSort with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorSort(
-                context
+            context
         );
     }
 
     private SpreadsheetToolbarComponentItemAnchorSort(final SpreadsheetToolbarComponentContext context) {
         super(
-                SpreadsheetToolbarComponent.sortId(),
-                Optional.of(
-                        SpreadsheetIcons.sort()
-                ),
-                "Sort",
-                "Sort cell(s), column(s), row(s)...",
-                context
+            SpreadsheetToolbarComponent.sortId(),
+            Optional.of(
+                SpreadsheetIcons.sort()
+            ),
+            "Sort",
+            "Sort cell(s), column(s), row(s)...",
+            context
         );
     }
 
@@ -73,7 +73,7 @@ final class SpreadsheetToolbarComponentItemAnchorSort extends SpreadsheetToolbar
         if (token instanceof SpreadsheetAnchoredSelectionHistoryToken) {
             final SpreadsheetAnchoredSelectionHistoryToken anchored = token.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
             final SpreadsheetSelection selection = anchored.anchoredSelection()
-                    .selection();
+                .selection();
             if (selection.count() > 1) {
                 match = true;
             }
@@ -97,7 +97,7 @@ final class SpreadsheetToolbarComponentItemAnchorSort extends SpreadsheetToolbar
         }
 
         this.anchor.setHistoryToken(
-                Optional.ofNullable(sortEdit)
+            Optional.ofNullable(sortEdit)
         );
     }
 }

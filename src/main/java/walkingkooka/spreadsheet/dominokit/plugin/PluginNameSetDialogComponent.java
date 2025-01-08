@@ -53,18 +53,18 @@ import java.util.function.Predicate;
  * A modal dialog that supports editing a {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName#PLUGINS}
  */
 public final class PluginNameSetDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher,
-        SpreadsheetMetadataFetcherWatcher,
-        PluginFetcherWatcher {
+    LoadedSpreadsheetMetadataRequired,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher,
+    SpreadsheetMetadataFetcherWatcher,
+    PluginFetcherWatcher {
 
     /**
      * Creates a new {@link PluginNameSetDialogComponent}.
      */
     public static PluginNameSetDialogComponent with(final PluginNameSetDialogComponentContext context) {
         return new PluginNameSetDialogComponent(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -79,12 +79,12 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
         this.remove = RemovePluginNameSetComponent.empty(ID + "-remove-");
 
         this.textBox = PluginNameSetComponent.empty()
-                .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-                .addKeyupListener(
-                        (e) -> this.onTextBox(this.text())
-                ).addChangeListener(
-                        (oldValue, newValue) -> this.onTextBox(this.text())
-                );
+            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
+            .addKeyupListener(
+                (e) -> this.onTextBox(this.text())
+            ).addChangeListener(
+                (oldValue, newValue) -> this.onTextBox(this.text())
+            );
 
         this.save = this.anchor("Save");
         this.reset = this.anchor("Reset");
@@ -111,21 +111,21 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
         final PluginNameSetDialogComponentContext context = this.context;
 
         return SpreadsheetDialogComponent.with(
-                        ID + SpreadsheetElementIds.DIALOG,
-                        context.dialogTitle(),
-                        true, // includeClose
-                        context
-                ).setTitle(
-                        context.dialogTitle()
-                ).appendChild(this.add.setFilterValueChangeListener(this::addFilterOnValueChange))
-                .appendChild(this.remove.setFilterValueChangeListener(this::removeFilterOnValueChange))
-                .appendChild(this.textBox)
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(this.save)
-                                .appendChild(this.reset)
-                                .appendChild(this.close)
-                );
+                ID + SpreadsheetElementIds.DIALOG,
+                context.dialogTitle(),
+                true, // includeClose
+                context
+            ).setTitle(
+                context.dialogTitle()
+            ).appendChild(this.add.setFilterValueChangeListener(this::addFilterOnValueChange))
+            .appendChild(this.remove.setFilterValueChangeListener(this::removeFilterOnValueChange))
+            .appendChild(this.textBox)
+            .appendChild(
+                SpreadsheetFlexLayout.row()
+                    .appendChild(this.save)
+                    .appendChild(this.reset)
+                    .appendChild(this.close)
+            );
     }
 
     @Override
@@ -144,10 +144,10 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
     private void addFilterOnValueChange(final Optional<String> oldValue,
                                         final Optional<String> newValue) {
         this.context.pluginFilter(
-                this.add.filterValue()
-                        .orElse("*"),
-                0,
-                50
+            this.add.filterValue()
+                .orElse("*"),
+            0,
+            50
         );
     }
 
@@ -158,25 +158,25 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
     private void removeFilterOnValueChange(final Optional<String> oldValue,
                                            final Optional<String> newValue) {
         this.remove.setFilter(
-                this.predicate(
-                        newValue.orElse(null)
-                )
+            this.predicate(
+                newValue.orElse(null)
+            )
         );
         this.refreshNonReset();
     }
-    
+
     private final RemovePluginNameSetComponent remove;
 
     private Predicate<CharSequence> predicate(final String filterText) {
         return CharSequences.isNullOrEmpty(filterText) ?
-                null :
-                predicateNotEmptyFilterText(filterText);
+            null :
+            predicateNotEmptyFilterText(filterText);
     }
 
     private Predicate<CharSequence> predicateNotEmptyFilterText(final String text) {
         return Predicates.globPatterns(
-                text,
-                SpreadsheetStrings.CASE_SENSITIVITY
+            text,
+            SpreadsheetStrings.CASE_SENSITIVITY
         );
     }
 
@@ -188,7 +188,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
     private void onTextBox(final String text) {
         try {
             this.refreshNonReset(
-                    PluginNameSet.parse(text)
+                PluginNameSet.parse(text)
             );
         } catch (final RuntimeException parseFailed) {
             // ignore
@@ -200,13 +200,13 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
      */
     private String text() {
         return this.textBox.stringValue()
-                .orElse("");
+            .orElse("");
     }
 
     // @VisibleForTesting
     void setText(final String text) {
         this.textBox.setStringValue(
-                Optional.of(text)
+            Optional.of(text)
         );
         this.onTextBox(text);
     }
@@ -239,9 +239,9 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
                                       final AppContext context) {
         // maybe should ignore metadata if it has the wrong SpreadsheetMetadata
         this.setText(
-                metadata.get(SpreadsheetMetadataPropertyName.PLUGINS)
-                        .orElse(PluginNameSet.EMPTY)
-                        .text()
+            metadata.get(SpreadsheetMetadataPropertyName.PLUGINS)
+                .orElse(PluginNameSet.EMPTY)
+                .text()
         );
     }
 
@@ -300,7 +300,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
     public boolean isMatch(final HistoryToken token) {
         boolean match = false;
 
-        if(token instanceof SpreadsheetMetadataPropertySelectHistoryToken) {
+        if (token instanceof SpreadsheetMetadataPropertySelectHistoryToken) {
             final SpreadsheetMetadataPropertySelectHistoryToken<?> metadataPropertySelect = token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class);
             match = SpreadsheetMetadataPropertyName.PLUGINS.equals(metadataPropertySelect.propertyName());
         }
@@ -321,37 +321,37 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
         final PluginNameSetDialogComponentContext dialogContext = this.context;
 
         this.refreshReset(
-                dialogContext.spreadsheetMetadata()
-                        .get(SpreadsheetMetadataPropertyName.PLUGINS)
-                        .orElse(PluginNameSet.EMPTY)
+            dialogContext.spreadsheetMetadata()
+                .get(SpreadsheetMetadataPropertyName.PLUGINS)
+                .orElse(PluginNameSet.EMPTY)
         );
 
         final SpreadsheetMetadataPropertySelectHistoryToken<?> propertySelectHistoryToken = context.historyToken()
-                .cast(SpreadsheetMetadataPropertySelectHistoryToken.class);
+            .cast(SpreadsheetMetadataPropertySelectHistoryToken.class);
 
         // load latest metadata
         dialogContext.loadSpreadsheetMetadata(
-                propertySelectHistoryToken.id()
+            propertySelectHistoryToken.id()
         );
 
         dialogContext.pluginFilter(
-                this.add.filterValue()
-                        .orElse("*"),
-                0,
-                50
+            this.add.filterValue()
+                .orElse("*"),
+            0,
+            50
         );
 
         context.giveFocus(
-                this.textBox::focus
+            this.textBox::focus
         );
     }
 
     private void refreshReset(final PluginNameSet plugins) {
         this.reset.setHistoryToken(
-                Optional.of(
-                        this.context.historyToken()
-                                .save(plugins.text())
-                )
+            Optional.of(
+                this.context.historyToken()
+                    .save(plugins.text())
+            )
         );
     }
 
@@ -366,7 +366,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
     private void refreshNonReset() {
         final Optional<PluginNameSet> pluginNames = this.textBox.value();
         this.refreshNonReset(
-                pluginNames.orElse(PluginNameSet.EMPTY)
+            pluginNames.orElse(PluginNameSet.EMPTY)
         );
     }
 
@@ -378,29 +378,29 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
         final PluginNameSet filterMatchPluginNames = this.filterMatchPluginNames;
 
         this.add.refresh(
-                currentPluginNames,
-                filterMatchPluginNames,
-                context
+            currentPluginNames,
+            filterMatchPluginNames,
+            context
         );
 
         this.remove.refresh(
-                currentPluginNames,
-                filterMatchPluginNames,
-                context
+            currentPluginNames,
+            filterMatchPluginNames,
+            context
         );
 
         this.save.setHistoryToken(
-                Optional.of(
-                        historyToken.save(
-                                currentPluginNames.text()
-                        )
+            Optional.of(
+                historyToken.save(
+                    currentPluginNames.text()
                 )
+            )
         );
 
         this.close.setHistoryToken(
-                Optional.of(
-                        historyToken.close()
-                )
+            Optional.of(
+                historyToken.close()
+            )
         );
     }
 

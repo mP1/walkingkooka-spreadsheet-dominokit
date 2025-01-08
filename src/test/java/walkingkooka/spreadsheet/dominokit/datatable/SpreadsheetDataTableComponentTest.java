@@ -35,685 +35,685 @@ import java.util.Optional;
 import java.util.OptionalInt;
 
 public final class SpreadsheetDataTableComponentTest implements ClassTesting<SpreadsheetDataTableComponent<String>>,
-        TreePrintableTesting {
+    TreePrintableTesting {
 
     private final static String ID_PREFIX = "tableId123-";
 
     @Test
     public void testEmptyValue() {
         this.treePrintAndCheck(
-                walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent.<String>with(
-                        ID_PREFIX, // id-prefix
-                        Lists.of(
-                                ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                ColumnConfig.create("column-3C-name", "column-3C-title")
-                        ),
-                        (column, data) -> SpreadsheetTextComponent.with(
-                                Optional.of(
-                                        CharSequences.repeating(
-                                                data.charAt(column),
-                                                3
-                                        ).toString()
-                                )
-                        )
+            walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent.<String>with(
+                ID_PREFIX, // id-prefix
+                Lists.of(
+                    ColumnConfig.create("column-1A-name", "column-1A-title"),
+                    ColumnConfig.create("column-2B-name", "column-2B-title"),
+                    ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                "SpreadsheetDataTableComponent\n" +
-                        "  id=tableId123-Table\n" +
-                        "  COLUMN(S)\n" +
-                        "    column-1A-title\n" +
-                        "    column-2B-title\n" +
-                        "    column-3C-title\n"
+                (column, data) -> SpreadsheetTextComponent.with(
+                    Optional.of(
+                        CharSequences.repeating(
+                            data.charAt(column),
+                            3
+                        ).toString()
+                    )
+                )
+            ),
+            "SpreadsheetDataTableComponent\n" +
+                "  id=tableId123-Table\n" +
+                "  COLUMN(S)\n" +
+                "    column-1A-title\n" +
+                "    column-2B-title\n" +
+                "    column-3C-title\n"
         );
     }
 
     @Test
     public void testThreeColumnsNotValue() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
-                        ID_PREFIX, // id-prefix
-                        Lists.of(
-                                ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                ColumnConfig.create("column-3C-name", "column-3C-title")
-                        ),
-                        (column, data) -> SpreadsheetTextComponent.with(
-                                Optional.of(
-                                        CharSequences.repeating(
-                                                data.charAt(column),
-                                                3
-                                        ).toString()
-                                )
-                        )
+            SpreadsheetDataTableComponent.<String>with(
+                ID_PREFIX, // id-prefix
+                Lists.of(
+                    ColumnConfig.create("column-1A-name", "column-1A-title"),
+                    ColumnConfig.create("column-2B-name", "column-2B-title"),
+                    ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                "SpreadsheetDataTableComponent\n" +
-                        "  id=tableId123-Table\n" +
-                        "  COLUMN(S)\n" +
-                        "    column-1A-title\n" +
-                        "    column-2B-title\n" +
-                        "    column-3C-title\n"
+                (column, data) -> SpreadsheetTextComponent.with(
+                    Optional.of(
+                        CharSequences.repeating(
+                            data.charAt(column),
+                            3
+                        ).toString()
+                    )
+                )
+            ),
+            "SpreadsheetDataTableComponent\n" +
+                "  id=tableId123-Table\n" +
+                "  COLUMN(S)\n" +
+                "    column-1A-title\n" +
+                "    column-2B-title\n" +
+                "    column-3C-title\n"
         );
     }
 
     @Test
     public void testThreeColumnsNotValueWithChildren() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
-                        ID_PREFIX, // id-prefix
-                        Lists.of(
-                                ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                ColumnConfig.create("column-3C-name", "column-3C-title")
-                        ),
-                        (column, data) -> SpreadsheetTextComponent.with(
-                                Optional.of(
-                                        CharSequences.repeating(
-                                                data.charAt(column),
-                                                3
-                                        ).toString()
-                                )
-                        )
-                ).appendChild(
-                        SpreadsheetTextComponent.with(
-                                Optional.of("child-1A")
-                        )
-                ).appendChild(
-                        SpreadsheetTextComponent.with(
-                                Optional.of("child-2B")
-                        )
+            SpreadsheetDataTableComponent.<String>with(
+                ID_PREFIX, // id-prefix
+                Lists.of(
+                    ColumnConfig.create("column-1A-name", "column-1A-title"),
+                    ColumnConfig.create("column-2B-name", "column-2B-title"),
+                    ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                "SpreadsheetDataTableComponent\n" +
-                        "  id=tableId123-Table\n" +
-                        "  COLUMN(S)\n" +
-                        "    column-1A-title\n" +
-                        "    column-2B-title\n" +
-                        "    column-3C-title\n" +
-                        "  CHILDREN\n" +
-                        "    SpreadsheetTextComponent\n" +
-                        "      \"child-1A\"\n" +
-                        "    SpreadsheetTextComponent\n" +
-                        "      \"child-2B\"\n"
+                (column, data) -> SpreadsheetTextComponent.with(
+                    Optional.of(
+                        CharSequences.repeating(
+                            data.charAt(column),
+                            3
+                        ).toString()
+                    )
+                )
+            ).appendChild(
+                SpreadsheetTextComponent.with(
+                    Optional.of("child-1A")
+                )
+            ).appendChild(
+                SpreadsheetTextComponent.with(
+                    Optional.of("child-2B")
+                )
+            ),
+            "SpreadsheetDataTableComponent\n" +
+                "  id=tableId123-Table\n" +
+                "  COLUMN(S)\n" +
+                "    column-1A-title\n" +
+                "    column-2B-title\n" +
+                "    column-3C-title\n" +
+                "  CHILDREN\n" +
+                "    SpreadsheetTextComponent\n" +
+                "      \"child-1A\"\n" +
+                "    SpreadsheetTextComponent\n" +
+                "      \"child-2B\"\n"
         );
     }
 
     @Test
     public void testThreeColumnsThreeRows() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
-                        ID_PREFIX, // id-prefix
-                        Lists.of(
-                                ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                ColumnConfig.create("column-3C-name", "column-3C-title")
-                        ),
-                        (column, data) -> SpreadsheetTextComponent.with(
-                                Optional.of(
-                                        CharSequences.repeating(
-                                                data.charAt(column),
-                                                3
-                                        ).toString()
-                                )
-                        )
-                ).setValue(
-                        Optional.of(
-                                Lists.of(
-                                        "ABC",
-                                        "DEF",
-                                        "GHI"
-                                )
-                        )
+            SpreadsheetDataTableComponent.<String>with(
+                ID_PREFIX, // id-prefix
+                Lists.of(
+                    ColumnConfig.create("column-1A-name", "column-1A-title"),
+                    ColumnConfig.create("column-2B-name", "column-2B-title"),
+                    ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                "SpreadsheetDataTableComponent\n" +
-                        "  id=tableId123-Table\n" +
-                        "  COLUMN(S)\n" +
-                        "    column-1A-title\n" +
-                        "    column-2B-title\n" +
-                        "    column-3C-title\n" +
-                        "  ROW(S)\n" +
-                        "    ROW 0\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"AAA\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"BBB\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"CCC\"\n" +
-                        "    ROW 1\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"DDD\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"EEE\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"FFF\"\n" +
-                        "    ROW 2\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"GGG\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"HHH\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"III\"\n"
+                (column, data) -> SpreadsheetTextComponent.with(
+                    Optional.of(
+                        CharSequences.repeating(
+                            data.charAt(column),
+                            3
+                        ).toString()
+                    )
+                )
+            ).setValue(
+                Optional.of(
+                    Lists.of(
+                        "ABC",
+                        "DEF",
+                        "GHI"
+                    )
+                )
+            ),
+            "SpreadsheetDataTableComponent\n" +
+                "  id=tableId123-Table\n" +
+                "  COLUMN(S)\n" +
+                "    column-1A-title\n" +
+                "    column-2B-title\n" +
+                "    column-3C-title\n" +
+                "  ROW(S)\n" +
+                "    ROW 0\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"AAA\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"BBB\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"CCC\"\n" +
+                "    ROW 1\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"DDD\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"EEE\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"FFF\"\n" +
+                "    ROW 2\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"GGG\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"HHH\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"III\"\n"
         );
     }
 
     @Test
     public void testThreeColumnsMixedComponentTypes() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
-                        ID_PREFIX, // id-prefix
-                        Lists.of(
-                                ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                ColumnConfig.create("column-3C-name", "column-3C-title")
-                        ),
-                        (column, data) -> {
-                            switch (column) {
-                                case 0:
-                                    return SpreadsheetTextComponent.with(
-                                            Optional.of(
-                                                    data
-                                            )
-                                    );
-                                case 1:
-                                    return HistoryTokenAnchorComponent.empty()
-                                            .setHistoryToken(
-                                                    Optional.of(
-                                                            HistoryToken.parseString("/1/SpreadsheetName123/cell/A1")
-                                                    )
-                                            );
-                                case 2:
-                                    return SpreadsheetTextBox.empty();
-                                default:
-                                    throw new IllegalArgumentException("Invalid column " + column);
-                            }
-                        }
-                ).setValue(
-                        Optional.of(
-                                Lists.of(
-                                        "ABC",
-                                        "DEF",
-                                        "GHI"
-                                )
-                        )
+            SpreadsheetDataTableComponent.<String>with(
+                ID_PREFIX, // id-prefix
+                Lists.of(
+                    ColumnConfig.create("column-1A-name", "column-1A-title"),
+                    ColumnConfig.create("column-2B-name", "column-2B-title"),
+                    ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                "SpreadsheetDataTableComponent\n" +
-                        "  id=tableId123-Table\n" +
-                        "  COLUMN(S)\n" +
-                        "    column-1A-title\n" +
-                        "    column-2B-title\n" +
-                        "    column-3C-title\n" +
-                        "  ROW(S)\n" +
-                        "    ROW 0\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"ABC\"\n" +
-                        "      [#/1/SpreadsheetName123/cell/A1]\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        []\n" +
-                        "    ROW 1\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"DEF\"\n" +
-                        "      [#/1/SpreadsheetName123/cell/A1]\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        []\n" +
-                        "    ROW 2\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"GHI\"\n" +
-                        "      [#/1/SpreadsheetName123/cell/A1]\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        []\n"
+                (column, data) -> {
+                    switch (column) {
+                        case 0:
+                            return SpreadsheetTextComponent.with(
+                                Optional.of(
+                                    data
+                                )
+                            );
+                        case 1:
+                            return HistoryTokenAnchorComponent.empty()
+                                .setHistoryToken(
+                                    Optional.of(
+                                        HistoryToken.parseString("/1/SpreadsheetName123/cell/A1")
+                                    )
+                                );
+                        case 2:
+                            return SpreadsheetTextBox.empty();
+                        default:
+                            throw new IllegalArgumentException("Invalid column " + column);
+                    }
+                }
+            ).setValue(
+                Optional.of(
+                    Lists.of(
+                        "ABC",
+                        "DEF",
+                        "GHI"
+                    )
+                )
+            ),
+            "SpreadsheetDataTableComponent\n" +
+                "  id=tableId123-Table\n" +
+                "  COLUMN(S)\n" +
+                "    column-1A-title\n" +
+                "    column-2B-title\n" +
+                "    column-3C-title\n" +
+                "  ROW(S)\n" +
+                "    ROW 0\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"ABC\"\n" +
+                "      [#/1/SpreadsheetName123/cell/A1]\n" +
+                "      SpreadsheetTextBox\n" +
+                "        []\n" +
+                "    ROW 1\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"DEF\"\n" +
+                "      [#/1/SpreadsheetName123/cell/A1]\n" +
+                "      SpreadsheetTextBox\n" +
+                "        []\n" +
+                "    ROW 2\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"GHI\"\n" +
+                "      [#/1/SpreadsheetName123/cell/A1]\n" +
+                "      SpreadsheetTextBox\n" +
+                "        []\n"
         );
     }
 
     @Test
     public void testBodyScrollPlugin() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
-                        ID_PREFIX, // id-prefix
-                        Lists.of(
-                                ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                ColumnConfig.create("column-3C-name", "column-3C-title")
-                        ),
-                        (column, data) -> SpreadsheetTextComponent.with(
-                                Optional.of(
-                                        CharSequences.repeating(
-                                                data.charAt(column),
-                                                3
-                                        ).toString()
-                                )
-                        )
-                ).bodyScrollPlugin(),
-                "SpreadsheetDataTableComponent\n" +
-                        "  id=tableId123-Table\n" +
-                        "  COLUMN(S)\n" +
-                        "    column-1A-title\n" +
-                        "    column-2B-title\n" +
-                        "    column-3C-title\n" +
-                        "  PLUGINS\n" +
-                        "    BodyScrollPlugin\n"
+            SpreadsheetDataTableComponent.<String>with(
+                ID_PREFIX, // id-prefix
+                Lists.of(
+                    ColumnConfig.create("column-1A-name", "column-1A-title"),
+                    ColumnConfig.create("column-2B-name", "column-2B-title"),
+                    ColumnConfig.create("column-3C-name", "column-3C-title")
+                ),
+                (column, data) -> SpreadsheetTextComponent.with(
+                    Optional.of(
+                        CharSequences.repeating(
+                            data.charAt(column),
+                            3
+                        ).toString()
+                    )
+                )
+            ).bodyScrollPlugin(),
+            "SpreadsheetDataTableComponent\n" +
+                "  id=tableId123-Table\n" +
+                "  COLUMN(S)\n" +
+                "    column-1A-title\n" +
+                "    column-2B-title\n" +
+                "    column-3C-title\n" +
+                "  PLUGINS\n" +
+                "    BodyScrollPlugin\n"
         );
     }
 
     @Test
     public void testEmptyStatePlugin() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
-                        ID_PREFIX, // id-prefix
-                        Lists.of(
-                                ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                ColumnConfig.create("column-3C-name", "column-3C-title")
-                        ),
-                        (column, data) -> SpreadsheetTextComponent.with(
-                                Optional.of(
-                                        CharSequences.repeating(
-                                                data.charAt(column),
-                                                3
-                                        ).toString()
-                                )
-                        )
-                ).emptyStatePlugin(
-                        SpreadsheetIcons.alignLeft(),
-                        "Empty456"
+            SpreadsheetDataTableComponent.<String>with(
+                ID_PREFIX, // id-prefix
+                Lists.of(
+                    ColumnConfig.create("column-1A-name", "column-1A-title"),
+                    ColumnConfig.create("column-2B-name", "column-2B-title"),
+                    ColumnConfig.create("column-3C-name", "column-3C-title")
                 ),
-                "SpreadsheetDataTableComponent\n" +
-                        "  id=tableId123-Table\n" +
-                        "  COLUMN(S)\n" +
-                        "    column-1A-title\n" +
-                        "    column-2B-title\n" +
-                        "    column-3C-title\n" +
-                        "  PLUGINS\n" +
-                        "    EmptyStatePlugin (mdi-format-align-left) \"Empty456\"\n"
+                (column, data) -> SpreadsheetTextComponent.with(
+                    Optional.of(
+                        CharSequences.repeating(
+                            data.charAt(column),
+                            3
+                        ).toString()
+                    )
+                )
+            ).emptyStatePlugin(
+                SpreadsheetIcons.alignLeft(),
+                "Empty456"
+            ),
+            "SpreadsheetDataTableComponent\n" +
+                "  id=tableId123-Table\n" +
+                "  COLUMN(S)\n" +
+                "    column-1A-title\n" +
+                "    column-2B-title\n" +
+                "    column-3C-title\n" +
+                "  PLUGINS\n" +
+                "    EmptyStatePlugin (mdi-format-align-left) \"Empty456\"\n"
         );
     }
 
     @Test
     public void testThreeColumnsNoValueHeadersHidden() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
-                        ID_PREFIX, // id-prefix
-                        Lists.of(
-                                ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                ColumnConfig.create("column-3C-name", "column-3C-title")
-                        ),
-                        (column, data) -> SpreadsheetTextComponent.with(
-                                Optional.of(
-                                        CharSequences.repeating(
-                                                data.charAt(column),
-                                                3
-                                        ).toString()
-                                )
-                        )
-                ).hideHeaders(),
-                "SpreadsheetDataTableComponent\n" +
-                        "  id=tableId123-Table\n"
+            SpreadsheetDataTableComponent.<String>with(
+                ID_PREFIX, // id-prefix
+                Lists.of(
+                    ColumnConfig.create("column-1A-name", "column-1A-title"),
+                    ColumnConfig.create("column-2B-name", "column-2B-title"),
+                    ColumnConfig.create("column-3C-name", "column-3C-title")
+                ),
+                (column, data) -> SpreadsheetTextComponent.with(
+                    Optional.of(
+                        CharSequences.repeating(
+                            data.charAt(column),
+                            3
+                        ).toString()
+                    )
+                )
+            ).hideHeaders(),
+            "SpreadsheetDataTableComponent\n" +
+                "  id=tableId123-Table\n"
         );
     }
 
     @Test
     public void testThreeColumnsThreeRowsHeadersHidden() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
-                        ID_PREFIX, // id-prefix
-                        Lists.of(
-                                ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                ColumnConfig.create("column-3C-name", "column-3C-title")
-                        ),
-                        (column, data) -> SpreadsheetTextComponent.with(
-                                Optional.of(
-                                        CharSequences.repeating(
-                                                data.charAt(column),
-                                                3
-                                        ).toString()
-                                )
-                        )
-                ).setValue(
-                        Optional.of(
-                                Lists.of(
-                                        "ABC",
-                                        "DEF",
-                                        "GHI"
-                                )
-                        )
-                ).hideHeaders(),
-                "SpreadsheetDataTableComponent\n" +
-                        "  id=tableId123-Table\n" +
-                        "  ROW(S)\n" +
-                        "    ROW 0\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"AAA\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"BBB\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"CCC\"\n" +
-                        "    ROW 1\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"DDD\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"EEE\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"FFF\"\n" +
-                        "    ROW 2\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"GGG\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"HHH\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"III\"\n"
+            SpreadsheetDataTableComponent.<String>with(
+                ID_PREFIX, // id-prefix
+                Lists.of(
+                    ColumnConfig.create("column-1A-name", "column-1A-title"),
+                    ColumnConfig.create("column-2B-name", "column-2B-title"),
+                    ColumnConfig.create("column-3C-name", "column-3C-title")
+                ),
+                (column, data) -> SpreadsheetTextComponent.with(
+                    Optional.of(
+                        CharSequences.repeating(
+                            data.charAt(column),
+                            3
+                        ).toString()
+                    )
+                )
+            ).setValue(
+                Optional.of(
+                    Lists.of(
+                        "ABC",
+                        "DEF",
+                        "GHI"
+                    )
+                )
+            ).hideHeaders(),
+            "SpreadsheetDataTableComponent\n" +
+                "  id=tableId123-Table\n" +
+                "  ROW(S)\n" +
+                "    ROW 0\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"AAA\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"BBB\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"CCC\"\n" +
+                "    ROW 1\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"DDD\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"EEE\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"FFF\"\n" +
+                "    ROW 2\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"GGG\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"HHH\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"III\"\n"
         );
     }
 
     @Test
     public void testThreeColumnsIncludesDisabledNextPrev() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
-                                ID_PREFIX, // id-prefix
-                                Lists.of(
-                                        ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                        ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                        ColumnConfig.create("column-3C-name", "column-3C-title")
-                                ),
-                                (column, data) -> SpreadsheetTextComponent.with(
-                                        Optional.of(
-                                                CharSequences.repeating(
-                                                        data.charAt(column),
-                                                        3
-                                                ).toString()
-                                        )
-                                )
-                        ).setValue(
-                                Optional.of(
-                                        Lists.of(
-                                                "ABC",
-                                                "DEF",
-                                                "GHI"
-                                        )
-                                )
-                        ).previousNextLinks(ID_PREFIX)
-                        .setPrevious(
-                                Optional.of(
-                                        HistoryToken.parseString("/*/offset/11/count/5")
-                                )
-                        ).setNext(
-                                Optional.of(
-                                        HistoryToken.parseString("/*/offset/22/count/5")
-                                )
-                        ),
-                "SpreadsheetDataTableComponent\n" +
-                        "  id=tableId123-Table\n" +
-                        "  COLUMN(S)\n" +
-                        "    column-1A-title\n" +
-                        "    column-2B-title\n" +
-                        "    column-3C-title\n" +
-                        "  ROW(S)\n" +
-                        "    ROW 0\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"AAA\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"BBB\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"CCC\"\n" +
-                        "    ROW 1\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"DDD\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"EEE\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"FFF\"\n" +
-                        "    ROW 2\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"GGG\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"HHH\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"III\"\n" +
-                        "  CHILDREN\n" +
-                        "    SpreadsheetFlexLayout\n" +
-                        "      ROW\n" +
-                        "        mdi-arrow-left \"previous\" [#/*/offset/11/count/5] id=tableId123-previous-Link\n" +
-                        "        \"next\" [#/*/offset/22/count/5] mdi-arrow-right id=tableId123-next-Link\n"
+            SpreadsheetDataTableComponent.<String>with(
+                    ID_PREFIX, // id-prefix
+                    Lists.of(
+                        ColumnConfig.create("column-1A-name", "column-1A-title"),
+                        ColumnConfig.create("column-2B-name", "column-2B-title"),
+                        ColumnConfig.create("column-3C-name", "column-3C-title")
+                    ),
+                    (column, data) -> SpreadsheetTextComponent.with(
+                        Optional.of(
+                            CharSequences.repeating(
+                                data.charAt(column),
+                                3
+                            ).toString()
+                        )
+                    )
+                ).setValue(
+                    Optional.of(
+                        Lists.of(
+                            "ABC",
+                            "DEF",
+                            "GHI"
+                        )
+                    )
+                ).previousNextLinks(ID_PREFIX)
+                .setPrevious(
+                    Optional.of(
+                        HistoryToken.parseString("/*/offset/11/count/5")
+                    )
+                ).setNext(
+                    Optional.of(
+                        HistoryToken.parseString("/*/offset/22/count/5")
+                    )
+                ),
+            "SpreadsheetDataTableComponent\n" +
+                "  id=tableId123-Table\n" +
+                "  COLUMN(S)\n" +
+                "    column-1A-title\n" +
+                "    column-2B-title\n" +
+                "    column-3C-title\n" +
+                "  ROW(S)\n" +
+                "    ROW 0\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"AAA\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"BBB\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"CCC\"\n" +
+                "    ROW 1\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"DDD\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"EEE\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"FFF\"\n" +
+                "    ROW 2\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"GGG\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"HHH\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"III\"\n" +
+                "  CHILDREN\n" +
+                "    SpreadsheetFlexLayout\n" +
+                "      ROW\n" +
+                "        mdi-arrow-left \"previous\" [#/*/offset/11/count/5] id=tableId123-previous-Link\n" +
+                "        \"next\" [#/*/offset/22/count/5] mdi-arrow-right id=tableId123-next-Link\n"
         );
     }
 
     @Test
     public void testThreeColumnsIncludesRefreshedNextPrevNoPrevious() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
-                                ID_PREFIX, // id-prefix
-                                Lists.of(
-                                        ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                        ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                        ColumnConfig.create("column-3C-name", "column-3C-title")
-                                ),
-                                (column, data) -> SpreadsheetTextComponent.with(
-                                        Optional.of(
-                                                CharSequences.repeating(
-                                                        data.charAt(column),
-                                                        3
-                                                ).toString()
-                                        )
-                                )
-                        ).setValue(
-                                Optional.of(
-                                        Lists.of(
-                                                "ABC",
-                                                "DEF",
-                                                "GHI",
-                                                "JKL",
-                                                "MNO"
-                                        )
-                                )
-                        ).previousNextLinks(ID_PREFIX)
-                        .refreshPreviousNextLinks(
-                                HistoryToken.spreadsheetListSelect(
-                                        OptionalInt.of(0), // offset
-                                        OptionalInt.of(5) // count
-                                ),
-                                100
-                        ),
-                "SpreadsheetDataTableComponent\n" +
-                        "  id=tableId123-Table\n" +
-                        "  COLUMN(S)\n" +
-                        "    column-1A-title\n" +
-                        "    column-2B-title\n" +
-                        "    column-3C-title\n" +
-                        "  ROW(S)\n" +
-                        "    ROW 0\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"AAA\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"BBB\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"CCC\"\n" +
-                        "    ROW 1\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"DDD\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"EEE\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"FFF\"\n" +
-                        "    ROW 2\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"GGG\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"HHH\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"III\"\n" +
-                        "    ROW 3\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"JJJ\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"KKK\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"LLL\"\n" +
-                        "    ROW 4\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"MMM\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"NNN\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"OOO\"\n" +
-                        "  CHILDREN\n" +
-                        "    SpreadsheetFlexLayout\n" +
-                        "      ROW\n" +
-                        "        mdi-arrow-left \"previous\" DISABLED id=tableId123-previous-Link\n" +
-                        "        \"next\" [#/*/offset/4/count/5] mdi-arrow-right id=tableId123-next-Link\n"
+            SpreadsheetDataTableComponent.<String>with(
+                    ID_PREFIX, // id-prefix
+                    Lists.of(
+                        ColumnConfig.create("column-1A-name", "column-1A-title"),
+                        ColumnConfig.create("column-2B-name", "column-2B-title"),
+                        ColumnConfig.create("column-3C-name", "column-3C-title")
+                    ),
+                    (column, data) -> SpreadsheetTextComponent.with(
+                        Optional.of(
+                            CharSequences.repeating(
+                                data.charAt(column),
+                                3
+                            ).toString()
+                        )
+                    )
+                ).setValue(
+                    Optional.of(
+                        Lists.of(
+                            "ABC",
+                            "DEF",
+                            "GHI",
+                            "JKL",
+                            "MNO"
+                        )
+                    )
+                ).previousNextLinks(ID_PREFIX)
+                .refreshPreviousNextLinks(
+                    HistoryToken.spreadsheetListSelect(
+                        OptionalInt.of(0), // offset
+                        OptionalInt.of(5) // count
+                    ),
+                    100
+                ),
+            "SpreadsheetDataTableComponent\n" +
+                "  id=tableId123-Table\n" +
+                "  COLUMN(S)\n" +
+                "    column-1A-title\n" +
+                "    column-2B-title\n" +
+                "    column-3C-title\n" +
+                "  ROW(S)\n" +
+                "    ROW 0\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"AAA\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"BBB\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"CCC\"\n" +
+                "    ROW 1\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"DDD\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"EEE\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"FFF\"\n" +
+                "    ROW 2\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"GGG\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"HHH\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"III\"\n" +
+                "    ROW 3\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"JJJ\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"KKK\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"LLL\"\n" +
+                "    ROW 4\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"MMM\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"NNN\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"OOO\"\n" +
+                "  CHILDREN\n" +
+                "    SpreadsheetFlexLayout\n" +
+                "      ROW\n" +
+                "        mdi-arrow-left \"previous\" DISABLED id=tableId123-previous-Link\n" +
+                "        \"next\" [#/*/offset/4/count/5] mdi-arrow-right id=tableId123-next-Link\n"
         );
     }
 
     @Test
     public void testThreeColumnsIncludesRefreshedNextPrevNoNext() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
-                                ID_PREFIX, // id-prefix
-                                Lists.of(
-                                        ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                        ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                        ColumnConfig.create("column-3C-name", "column-3C-title")
-                                ),
-                                (column, data) -> SpreadsheetTextComponent.with(
-                                        Optional.of(
-                                                CharSequences.repeating(
-                                                        data.charAt(column),
-                                                        3
-                                                ).toString()
-                                        )
-                                )
-                        ).setValue(
-                                Optional.of(
-                                        Lists.of(
-                                                "ABC",
-                                                "DEF",
-                                                "GHI"
-                                        )
-                                )
-                        ).previousNextLinks(ID_PREFIX)
-                        .refreshPreviousNextLinks(
-                                HistoryToken.spreadsheetListSelect(
-                                        OptionalInt.of(16), // offset
-                                        OptionalInt.of(5) // count
-                                ),
-                                100
-                        ),
-                "SpreadsheetDataTableComponent\n" +
-                        "  id=tableId123-Table\n" +
-                        "  COLUMN(S)\n" +
-                        "    column-1A-title\n" +
-                        "    column-2B-title\n" +
-                        "    column-3C-title\n" +
-                        "  ROW(S)\n" +
-                        "    ROW 0\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"AAA\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"BBB\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"CCC\"\n" +
-                        "    ROW 1\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"DDD\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"EEE\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"FFF\"\n" +
-                        "    ROW 2\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"GGG\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"HHH\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"III\"\n" +
-                        "  CHILDREN\n" +
-                        "    SpreadsheetFlexLayout\n" +
-                        "      ROW\n" +
-                        "        mdi-arrow-left \"previous\" [#/*/offset/12/count/5] id=tableId123-previous-Link\n" +
-                        "        \"next\" DISABLED mdi-arrow-right id=tableId123-next-Link\n"
+            SpreadsheetDataTableComponent.<String>with(
+                    ID_PREFIX, // id-prefix
+                    Lists.of(
+                        ColumnConfig.create("column-1A-name", "column-1A-title"),
+                        ColumnConfig.create("column-2B-name", "column-2B-title"),
+                        ColumnConfig.create("column-3C-name", "column-3C-title")
+                    ),
+                    (column, data) -> SpreadsheetTextComponent.with(
+                        Optional.of(
+                            CharSequences.repeating(
+                                data.charAt(column),
+                                3
+                            ).toString()
+                        )
+                    )
+                ).setValue(
+                    Optional.of(
+                        Lists.of(
+                            "ABC",
+                            "DEF",
+                            "GHI"
+                        )
+                    )
+                ).previousNextLinks(ID_PREFIX)
+                .refreshPreviousNextLinks(
+                    HistoryToken.spreadsheetListSelect(
+                        OptionalInt.of(16), // offset
+                        OptionalInt.of(5) // count
+                    ),
+                    100
+                ),
+            "SpreadsheetDataTableComponent\n" +
+                "  id=tableId123-Table\n" +
+                "  COLUMN(S)\n" +
+                "    column-1A-title\n" +
+                "    column-2B-title\n" +
+                "    column-3C-title\n" +
+                "  ROW(S)\n" +
+                "    ROW 0\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"AAA\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"BBB\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"CCC\"\n" +
+                "    ROW 1\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"DDD\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"EEE\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"FFF\"\n" +
+                "    ROW 2\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"GGG\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"HHH\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"III\"\n" +
+                "  CHILDREN\n" +
+                "    SpreadsheetFlexLayout\n" +
+                "      ROW\n" +
+                "        mdi-arrow-left \"previous\" [#/*/offset/12/count/5] id=tableId123-previous-Link\n" +
+                "        \"next\" DISABLED mdi-arrow-right id=tableId123-next-Link\n"
         );
     }
 
     @Test
     public void testThreeColumnsIncludesRefreshedNextPrevWithBothPrevAndNext() {
         this.treePrintAndCheck(
-                SpreadsheetDataTableComponent.<String>with(
-                                ID_PREFIX, // id-prefix
-                                Lists.of(
-                                        ColumnConfig.create("column-1A-name", "column-1A-title"),
-                                        ColumnConfig.create("column-2B-name", "column-2B-title"),
-                                        ColumnConfig.create("column-3C-name", "column-3C-title")
-                                ),
-                                (column, data) -> SpreadsheetTextComponent.with(
-                                        Optional.of(
-                                                CharSequences.repeating(
-                                                        data.charAt(column),
-                                                        3
-                                                ).toString()
-                                        )
-                                )
-                        ).setValue(
-                                Optional.of(
-                                        Lists.of(
-                                                "ABC",
-                                                "DEF",
-                                                "GHI",
-                                                "JKL",
-                                                "MNO"
-                                        )
-                                )
-                        ).previousNextLinks(ID_PREFIX)
-                        .refreshPreviousNextLinks(
-                                HistoryToken.spreadsheetListSelect(
-                                        OptionalInt.of(16), // offset
-                                        OptionalInt.of(5) // count
-                                ),
-                                100
-                        ),
-                "SpreadsheetDataTableComponent\n" +
-                        "  id=tableId123-Table\n" +
-                        "  COLUMN(S)\n" +
-                        "    column-1A-title\n" +
-                        "    column-2B-title\n" +
-                        "    column-3C-title\n" +
-                        "  ROW(S)\n" +
-                        "    ROW 0\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"AAA\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"BBB\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"CCC\"\n" +
-                        "    ROW 1\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"DDD\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"EEE\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"FFF\"\n" +
-                        "    ROW 2\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"GGG\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"HHH\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"III\"\n" +
-                        "    ROW 3\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"JJJ\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"KKK\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"LLL\"\n" +
-                        "    ROW 4\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"MMM\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"NNN\"\n" +
-                        "      SpreadsheetTextComponent\n" +
-                        "        \"OOO\"\n" +
-                        "  CHILDREN\n" +
-                        "    SpreadsheetFlexLayout\n" +
-                        "      ROW\n" +
-                        "        mdi-arrow-left \"previous\" [#/*/offset/12/count/5] id=tableId123-previous-Link\n" +
-                        "        \"next\" [#/*/offset/20/count/5] mdi-arrow-right id=tableId123-next-Link\n"
+            SpreadsheetDataTableComponent.<String>with(
+                    ID_PREFIX, // id-prefix
+                    Lists.of(
+                        ColumnConfig.create("column-1A-name", "column-1A-title"),
+                        ColumnConfig.create("column-2B-name", "column-2B-title"),
+                        ColumnConfig.create("column-3C-name", "column-3C-title")
+                    ),
+                    (column, data) -> SpreadsheetTextComponent.with(
+                        Optional.of(
+                            CharSequences.repeating(
+                                data.charAt(column),
+                                3
+                            ).toString()
+                        )
+                    )
+                ).setValue(
+                    Optional.of(
+                        Lists.of(
+                            "ABC",
+                            "DEF",
+                            "GHI",
+                            "JKL",
+                            "MNO"
+                        )
+                    )
+                ).previousNextLinks(ID_PREFIX)
+                .refreshPreviousNextLinks(
+                    HistoryToken.spreadsheetListSelect(
+                        OptionalInt.of(16), // offset
+                        OptionalInt.of(5) // count
+                    ),
+                    100
+                ),
+            "SpreadsheetDataTableComponent\n" +
+                "  id=tableId123-Table\n" +
+                "  COLUMN(S)\n" +
+                "    column-1A-title\n" +
+                "    column-2B-title\n" +
+                "    column-3C-title\n" +
+                "  ROW(S)\n" +
+                "    ROW 0\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"AAA\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"BBB\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"CCC\"\n" +
+                "    ROW 1\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"DDD\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"EEE\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"FFF\"\n" +
+                "    ROW 2\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"GGG\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"HHH\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"III\"\n" +
+                "    ROW 3\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"JJJ\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"KKK\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"LLL\"\n" +
+                "    ROW 4\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"MMM\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"NNN\"\n" +
+                "      SpreadsheetTextComponent\n" +
+                "        \"OOO\"\n" +
+                "  CHILDREN\n" +
+                "    SpreadsheetFlexLayout\n" +
+                "      ROW\n" +
+                "        mdi-arrow-left \"previous\" [#/*/offset/12/count/5] id=tableId123-previous-Link\n" +
+                "        \"next\" [#/*/offset/20/count/5] mdi-arrow-right id=tableId123-next-Link\n"
         );
     }
 

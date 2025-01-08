@@ -38,8 +38,8 @@ import walkingkooka.text.printer.IndentingPrinter;
 import java.util.Objects;
 
 final class SpreadsheetAppLayout extends AppLayout implements
-        HistoryTokenAwareComponentLifecycle,
-        HtmlElementComponent<HTMLDivElement, SpreadsheetAppLayout> {
+    HistoryTokenAwareComponentLifecycle,
+    HtmlElementComponent<HTMLDivElement, SpreadsheetAppLayout> {
 
 
     // header = metadata toggle | clickable(editable) spreadsheet name
@@ -54,29 +54,29 @@ final class SpreadsheetAppLayout extends AppLayout implements
         final SpreadsheetAppLayout layout = new SpreadsheetAppLayout(context);
 
         layout.setOverFlowX("hidden")
-                .setOverFlowY("hidden");
+            .setOverFlowY("hidden");
 
         layout.getContent()
-                .setPadding("0px") // kills the dui-layout-content padding: 25px
-                .setOverFlowY("hidden") // stop scrollbars on the cell viewport
-                .appendChild(viewportComponent);
+            .setPadding("0px") // kills the dui-layout-content padding: 25px
+            .setOverFlowY("hidden") // stop scrollbars on the cell viewport
+            .appendChild(viewportComponent);
 
         layout.getNavBar()
-                .withTitle(
-                        (n, header) -> {
-                            header.appendChild(
-                                    AppHistoryTokenAnchorComponents.files()
-                            );
-                            header.appendChild(
-                                    AppHistoryTokenAnchorComponents.spreadsheetName(context)
-                            );
-                        }
-                ).getBody()
-                .appendChild(
-                        SpreadsheetToolbarComponent.with(
-                                SpreadsheetToolbarComponentContexts.appContext(context)
-                        )
-                );
+            .withTitle(
+                (n, header) -> {
+                    header.appendChild(
+                        AppHistoryTokenAnchorComponents.files()
+                    );
+                    header.appendChild(
+                        AppHistoryTokenAnchorComponents.spreadsheetName(context)
+                    );
+                }
+            ).getBody()
+            .appendChild(
+                SpreadsheetToolbarComponent.with(
+                    SpreadsheetToolbarComponentContexts.appContext(context)
+                )
+            );
 
         // right drawer.................................................................................................
         layout.appendRightDrawer();
@@ -88,8 +88,8 @@ final class SpreadsheetAppLayout extends AppLayout implements
         super();
         context.addHistoryTokenWatcher(this);
         Doms.setVisibility(
-                this.element(),
-                false
+            this.element(),
+            false
         );
 
         this.context = context;
@@ -97,28 +97,28 @@ final class SpreadsheetAppLayout extends AppLayout implements
 
     private void appendRightDrawer() {
         this.setRightDrawerSize(RightDrawerSize.XLARGE)
-                .getRightDrawerContent()
-                .appendChild(
-                        SpreadsheetMetadataHistoryTokenAwareComponentLifecycle.with(
-                                SpreadsheetAppLayoutDrawerComponentRight.with(
-                                        this,
-                                        SpreadsheetMetadataPanelComponent.with(
-                                                SpreadsheetMetadataPanelComponentContexts.appContext(context)
-                                        ).setCssText("padding-left: 5px; padding-bottom: var(--dui-right-drawer-padding-top);") // without this fix the bottom 64px are chopped and out of view
-                                ),
-                                this.context // HistoryTokenContext
-                        )
-                );
+            .getRightDrawerContent()
+            .appendChild(
+                SpreadsheetMetadataHistoryTokenAwareComponentLifecycle.with(
+                    SpreadsheetAppLayoutDrawerComponentRight.with(
+                        this,
+                        SpreadsheetMetadataPanelComponent.with(
+                            SpreadsheetMetadataPanelComponentContexts.appContext(context)
+                        ).setCssText("padding-left: 5px; padding-bottom: var(--dui-right-drawer-padding-top);") // without this fix the bottom 64px are chopped and out of view
+                    ),
+                    this.context // HistoryTokenContext
+                )
+            );
 
         this.onRightDrawerClosed(
-                this::appLayoutRightPanelClosed
+            this::appLayoutRightPanelClosed
         );
 
         this.setRightDrawerToggleIcon(
-                Icons.menu_open()
-                        .addClickListener(
-                                this::appLayoutRightToggleIconOnClick
-                        )
+            Icons.menu_open()
+                .addClickListener(
+                    this::appLayoutRightToggleIconOnClick
+                )
         );
     }
 
@@ -130,9 +130,9 @@ final class SpreadsheetAppLayout extends AppLayout implements
         final HistoryToken token = context.historyToken();
 
         context.pushHistoryToken(
-                this.isRightDrawerOpen() ?
-                        token.metadataHide() :
-                        token.metadataShow()
+            this.isRightDrawerOpen() ?
+                token.metadataHide() :
+                token.metadataShow()
         );
     }
 
@@ -146,8 +146,8 @@ final class SpreadsheetAppLayout extends AppLayout implements
             final AppContext context = this.context;
 
             context.pushHistoryToken(
-                    context.historyToken()
-                            .metadataHide()
+                context.historyToken()
+                    .metadataHide()
             );
         }
     }
@@ -159,7 +159,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
     @Override
     public boolean isOpen() {
         return false == Doms.isVisibilityHidden(
-                this.element()
+            this.element()
         );
     }
 
@@ -176,8 +176,8 @@ final class SpreadsheetAppLayout extends AppLayout implements
     @Override
     public void open(final RefreshContext context) {
         Doms.setVisibility(
-                this.element(),
-                true
+            this.element(),
+            true
         );
     }
 
@@ -194,8 +194,8 @@ final class SpreadsheetAppLayout extends AppLayout implements
     @Override
     public void close(final RefreshContext context) {
         Doms.setVisibility(
-                this.element(),
-                false
+            this.element(),
+            false
         );
     }
 

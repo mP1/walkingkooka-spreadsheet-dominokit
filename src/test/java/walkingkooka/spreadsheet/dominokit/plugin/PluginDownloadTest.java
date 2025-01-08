@@ -33,23 +33,23 @@ public final class PluginDownloadTest implements ClassTesting<PluginDownload> {
     @Test
     public void testExtractWithNullFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> PluginDownload.extract(null)
+            NullPointerException.class,
+            () -> PluginDownload.extract(null)
         );
     }
 
     @Test
     public void testExtract() {
         this.checkEquals(
-                PluginDownload.with(
-                        PluginName.with("TestPlugin123"),
-                        Optional.of(
-                                JarEntryInfoName.MANIFEST_MF
-                        )
-                ),
-                PluginDownload.extract(
-                        UrlPath.parse("/api/plugin/TestPlugin123/download/META-INF/MANIFEST.MF")
+            PluginDownload.with(
+                PluginName.with("TestPlugin123"),
+                Optional.of(
+                    JarEntryInfoName.MANIFEST_MF
                 )
+            ),
+            PluginDownload.extract(
+                UrlPath.parse("/api/plugin/TestPlugin123/download/META-INF/MANIFEST.MF")
+            )
         );
     }
 

@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class FakeSpreadsheetParserNameLinkListComponentContext extends FakeHistoryTokenContext
-        implements SpreadsheetParserNameLinkListComponentContext {
+    implements SpreadsheetParserNameLinkListComponentContext {
 
     @Override
     public Optional<SpreadsheetParserName> parserName() {

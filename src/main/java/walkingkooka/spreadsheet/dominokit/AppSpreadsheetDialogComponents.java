@@ -74,7 +74,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
     private static void columnAndRow(final AppContext context) {
         SpreadsheetColumnRowInsertCountDialogComponent.with(
-                SpreadsheetColumnRowInsertCountDialogComponentContexts.appContext(context)
+            SpreadsheetColumnRowInsertCountDialogComponentContexts.appContext(context)
         );
     }
 
@@ -85,29 +85,29 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
     private static void formatter(final AppContext context) {
         SpreadsheetFormatterSelectorDialogComponent.with(
-                SpreadsheetFormatterSelectorDialogComponentContexts.cell(context)
+            SpreadsheetFormatterSelectorDialogComponentContexts.cell(context)
         );
 
         SpreadsheetFormatterSelectorDialogComponent.with(
-                SpreadsheetFormatterSelectorDialogComponentContexts.metadata(context)
+            SpreadsheetFormatterSelectorDialogComponentContexts.metadata(context)
         );
     }
 
     private static void find(final AppContext context) {
         SpreadsheetFindDialogComponent.with(
-                SpreadsheetFindDialogComponentContexts.appContext(context)
+            SpreadsheetFindDialogComponentContexts.appContext(context)
         );
     }
 
     private static void label(final AppContext context) {
         SpreadsheetLabelMappingDialogComponent.with(
-                SpreadsheetLabelMappingDialogComponentContexts.appContext(context)
+            SpreadsheetLabelMappingDialogComponentContexts.appContext(context)
         );
     }
 
     private static void metadata(final AppContext context) {
         SpreadsheetComparatorNameListDialogComponent.with(
-                SpreadsheetComparatorNameListDialogComponentContexts.sortComparators(context)
+            SpreadsheetComparatorNameListDialogComponentContexts.sortComparators(context)
         );
 
         metadataPlugin(context);
@@ -115,73 +115,73 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
     private static void metadataPlugin(final AppContext context) {
         PluginNameSetDialogComponent.with(
-                PluginNameSetDialogComponentContexts.appContext(context)
+            PluginNameSetDialogComponentContexts.appContext(context)
         );
 
         PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.findFunctions(context)
+            PluginAliasSetLikeDialogComponentContexts.findFunctions(context)
         );
         PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.formulaFunctions(context)
+            PluginAliasSetLikeDialogComponentContexts.formulaFunctions(context)
         );
 
         PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.converters(context)
+            PluginAliasSetLikeDialogComponentContexts.converters(context)
         );
         PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.comparators(context)
+            PluginAliasSetLikeDialogComponentContexts.comparators(context)
         );
         PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.exporters(context)
+            PluginAliasSetLikeDialogComponentContexts.exporters(context)
         );
         PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.functions(context)
+            PluginAliasSetLikeDialogComponentContexts.functions(context)
         );
         PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.formatters(context)
+            PluginAliasSetLikeDialogComponentContexts.formatters(context)
         );
         PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.importers(context)
+            PluginAliasSetLikeDialogComponentContexts.importers(context)
         );
         PluginAliasSetLikeDialogComponent.with(
-                PluginAliasSetLikeDialogComponentContexts.parsers(context)
+            PluginAliasSetLikeDialogComponentContexts.parsers(context)
         );
     }
 
     private static void parser(final AppContext context) {
         SpreadsheetParserSelectorDialogComponent.with(
-                SpreadsheetParserSelectorDialogComponentContexts.cell(context)
+            SpreadsheetParserSelectorDialogComponentContexts.cell(context)
         );
 
         SpreadsheetParserSelectorDialogComponent.with(
-                SpreadsheetParserSelectorDialogComponentContexts.metadata(context)
+            SpreadsheetParserSelectorDialogComponentContexts.metadata(context)
         );
     }
 
     private static void plugin(final AppContext context) {
         PluginSetDialogComponent.with(
-                PluginSetDialogComponentContexts.appContext(context)
+            PluginSetDialogComponentContexts.appContext(context)
         );
         JarEntryInfoListDialogComponent.with(
-                JarEntryInfoListDialogComponentContexts.appContext(context)
+            JarEntryInfoListDialogComponentContexts.appContext(context)
         );
         PluginFileViewDialogComponent.with(
-                PluginFileViewDialogComponentContexts.appContext(context)
+            PluginFileViewDialogComponentContexts.appContext(context)
         );
         PluginUploadDialogComponent.with(
-                PluginUploadDialogComponentContexts.appContext(context)
+            PluginUploadDialogComponentContexts.appContext(context)
         );
     }
 
     private static void sort(final AppContext context) {
         SpreadsheetSortDialogComponent.with(
-                SpreadsheetSortDialogComponentContexts.appContext(context)
+            SpreadsheetSortDialogComponentContexts.appContext(context)
         );
     }
 
     private static void spreadsheet(final AppContext context) {
         SpreadsheetListDialogComponent.with(
-                SpreadsheetListDialogComponentContexts.appContext(context)
+            SpreadsheetListDialogComponentContexts.appContext(context)
         );
 
         spreadsheetName(context);
@@ -189,11 +189,11 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
     private static void spreadsheetName(final AppContext context) {
         SpreadsheetNameDialogComponent.with(
-                SpreadsheetNameDialogComponentContexts.spreadsheetListRename(context)
+            SpreadsheetNameDialogComponentContexts.spreadsheetListRename(context)
         );
 
         SpreadsheetNameDialogComponent.with(
-                SpreadsheetNameDialogComponentContexts.spreadsheetRename(context)
+            SpreadsheetNameDialogComponentContexts.spreadsheetRename(context)
         );
     }
 

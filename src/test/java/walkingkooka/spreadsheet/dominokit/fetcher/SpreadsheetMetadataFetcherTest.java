@@ -32,18 +32,18 @@ public final class SpreadsheetMetadataFetcherTest implements ClassTesting<Spread
     @Test
     public void testUrlWithNullFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetMetadataFetcher.url(null)
+            NullPointerException.class,
+            () -> SpreadsheetMetadataFetcher.url(null)
         );
     }
 
     @Test
     public void testUrl() {
         this.checkEquals(
-                Url.parseRelative("/api/spreadsheet/123"),
-                SpreadsheetMetadataFetcher.url(
-                        SpreadsheetId.with(0x123)
-                )
+            Url.parseRelative("/api/spreadsheet/123"),
+            SpreadsheetMetadataFetcher.url(
+                SpreadsheetId.with(0x123)
+            )
         );
     }
 
@@ -52,34 +52,34 @@ public final class SpreadsheetMetadataFetcherTest implements ClassTesting<Spread
     @Test
     public void testExtractSpreadsheetIdMissing() {
         this.extractSpreadsheetIdAndCheck(
-                "/api/spreadsheet",
-                null
+            "/api/spreadsheet",
+            null
         );
     }
 
     @Test
     public void testExtractSpreadsheetIdInvalid() {
         this.extractSpreadsheetIdAndCheck(
-                "/api/spreadsheet/!invalid",
-                null
+            "/api/spreadsheet/!invalid",
+            null
         );
     }
 
     @Test
     public void testExtractSpreadsheetId() {
         this.extractSpreadsheetIdAndCheck(
-                "/api/spreadsheet/123",
-                SpreadsheetId.parse("123")
+            "/api/spreadsheet/123",
+            SpreadsheetId.parse("123")
         );
     }
 
     private void extractSpreadsheetIdAndCheck(final String url,
                                               final SpreadsheetId expected) {
         this.checkEquals(
-                Optional.ofNullable(expected),
-                SpreadsheetMetadataFetcher.extractSpreadsheetId(
-                        Url.parseRelative(url)
-                )
+            Optional.ofNullable(expected),
+            SpreadsheetMetadataFetcher.extractSpreadsheetId(
+                Url.parseRelative(url)
+            )
         );
     }
 

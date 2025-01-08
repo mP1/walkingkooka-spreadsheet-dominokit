@@ -58,20 +58,20 @@ import java.util.Set;
  * A modal dialog that supports editing a {@link SpreadsheetFormatterSelector}.
  */
 public final class SpreadsheetFormatterSelectorDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher,
-        SpreadsheetFormatterFetcherWatcher,
-        NopSpreadsheetFormatterInfoSetFetcherWatcher,
-        SpreadsheetMetadataFetcherWatcher {
+    LoadedSpreadsheetMetadataRequired,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher,
+    SpreadsheetDeltaFetcherWatcher,
+    SpreadsheetFormatterFetcherWatcher,
+    NopSpreadsheetFormatterInfoSetFetcherWatcher,
+    SpreadsheetMetadataFetcherWatcher {
 
     /**
      * Creates a new {@link SpreadsheetFormatterSelectorDialogComponent}.
      */
     public static SpreadsheetFormatterSelectorDialogComponent with(final SpreadsheetFormatterSelectorDialogComponentContext context) {
         return new SpreadsheetFormatterSelectorDialogComponent(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -84,17 +84,17 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.tabs = context.shouldShowTabs() ?
-                SpreadsheetPatternKindTabsComponent.empty(
-                        ID + SpreadsheetElementIds.TABS + "-",
-                        SpreadsheetPatternKind.formatValues(),
-                        context
-                ) :
-                null;
+            SpreadsheetPatternKindTabsComponent.empty(
+                ID + SpreadsheetElementIds.TABS + "-",
+                SpreadsheetPatternKind.formatValues(),
+                context
+            ) :
+            null;
 
         this.formatterNames = SpreadsheetFormatterNameLinkListComponent.empty(ID + "-formatterNames-");
 
         this.table = SpreadsheetFormatterTableComponent.empty(
-                ID + "-"
+            ID + "-"
         );
 
         this.appender = AppendPluginSelectorTokenComponent.empty(ID + "-appender-");
@@ -131,10 +131,10 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
 
         SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
-                ID + SpreadsheetElementIds.DIALOG,
-                context.dialogTitle(),
-                true, // includeClose
-                context
+            ID + SpreadsheetElementIds.DIALOG,
+            context.dialogTitle(),
+            true, // includeClose
+            context
         );
 
         if (null != this.tabs) {
@@ -142,17 +142,17 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         }
 
         return dialog.appendChild(this.formatterNames)
-                .appendChild(this.table)
-                .appendChild(this.appender)
-                .appendChild(this.removeOrReplace)
-                .appendChild(this.textBox)
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(this.save)
-                                .appendChild(this.undo)
-                                .appendChild(this.clear)
-                                .appendChild(this.close)
-                );
+            .appendChild(this.table)
+            .appendChild(this.appender)
+            .appendChild(this.removeOrReplace)
+            .appendChild(this.textBox)
+            .appendChild(
+                SpreadsheetFlexLayout.row()
+                    .appendChild(this.save)
+                    .appendChild(this.undo)
+                    .appendChild(this.clear)
+                    .appendChild(this.close)
+            );
     }
 
     @Override
@@ -194,12 +194,12 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
      */
     private SpreadsheetFormatterSelectorComponent textBox() {
         return SpreadsheetFormatterSelectorComponent.empty()
-                .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-                .addKeyupListener(
-                        (e) -> this.onTextBox(this.text())
-                ).addChangeListener(
-                        (oldValue, newValue) -> this.onTextBox(this.text())
-                );
+            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
+            .addKeyupListener(
+                (e) -> this.onTextBox(this.text())
+            ).addChangeListener(
+                (oldValue, newValue) -> this.onTextBox(this.text())
+            );
     }
 
     /**
@@ -209,8 +209,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
 
         final SpreadsheetFormatterSelectorEdit edit = SpreadsheetFormatterSelectorEdit.parse(
-                text,
-                context
+            text,
+            context
         );
 
         // couldnt get edit in browser, try server
@@ -218,8 +218,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
             context.loadSpreadsheetFormattersEdit(text);
         } else {
             this.onSpreadsheetFormatterSelectorEdit(
-                    edit,
-                    context
+                edit,
+                context
             );
         }
     }
@@ -229,13 +229,13 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
      */
     private String text() {
         return this.textBox.stringValue()
-                .orElse("");
+            .orElse("");
     }
 
     // @VisibleForTesting
     void setText(final String text) {
         this.textBox.setStringValue(
-                Optional.of(text)
+            Optional.of(text)
         );
         this.onTextBox(text);
     }
@@ -253,8 +253,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                                                    final AppContext context) {
         if (this.isOpen()) {
             this.onSpreadsheetFormatterSelectorEdit(
-                    edit,
-                    this.context
+                edit,
+                this.context
             );
         }
     }
@@ -262,57 +262,57 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     private void onSpreadsheetFormatterSelectorEdit(final SpreadsheetFormatterSelectorEdit edit,
                                                     final SpreadsheetFormatterSelectorDialogComponentContext context) {
         this.formatterName = edit.selector()
-                .map(SpreadsheetFormatterSelector::name);
+            .map(SpreadsheetFormatterSelector::name);
 
         this.table.refresh(
-                edit.samples(),
-                context
+            edit.samples(),
+            context
         );
 
         final SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext appenderRemoveOrReplaceContext =
-                SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext.with(
-                        edit.selector()
-                                .map(SpreadsheetFormatterSelector::name)
-                                .orElse(null),
-                        context
-                );
+            SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext.with(
+                edit.selector()
+                    .map(SpreadsheetFormatterSelector::name)
+                    .orElse(null),
+                context
+            );
 
         this.appender.refresh(
-                edit.tokens(),
-                edit.next()
-                        .map(SpreadsheetFormatterSelectorToken::alternatives)
-                        .orElse(Lists.empty()),
-                appenderRemoveOrReplaceContext
+            edit.tokens(),
+            edit.next()
+                .map(SpreadsheetFormatterSelectorToken::alternatives)
+                .orElse(Lists.empty()),
+            appenderRemoveOrReplaceContext
         );
 
         this.removeOrReplace.refresh(
-                edit.tokens(),
-                appenderRemoveOrReplaceContext
+            edit.tokens(),
+            appenderRemoveOrReplaceContext
         );
 
         // clear or update the errors
         final String message = edit.message();
         final boolean hasNoError = CharSequences.isNullOrEmpty(message);
         this.textBox.setErrors(
-                hasNoError ?
-                        Lists.empty() :
-                        Lists.of(message)
+            hasNoError ?
+                Lists.empty() :
+                Lists.of(message)
         );
 
         // enable SAVE if no error exists
         final String text = this.text();
         if (text.isEmpty() || hasNoError) {
             this.save.setHistoryToken(
-                    Optional.of(
-                            context.historyToken()
-                                    .save(
-                                            Optional.of(
-                                                    edit.selector()
-                                                            .map(SpreadsheetFormatterSelector::toString)
-                                                            .orElse("")
-                                            )
-                                    )
-                    )
+                Optional.of(
+                    context.historyToken()
+                        .save(
+                            Optional.of(
+                                edit.selector()
+                                    .map(SpreadsheetFormatterSelector::toString)
+                                    .orElse("")
+                            )
+                        )
+                )
             );
         } else {
             this.save.setDisabled(true);
@@ -360,7 +360,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                                    final AppContext context) {
         this.refreshIfOpen(context);
     }
-    
+
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
@@ -395,7 +395,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     @Override
     public void openGiveFocus(final RefreshContext context) {
         context.giveFocus(
-                this.textBox::focus
+            this.textBox::focus
         );
     }
 
@@ -409,10 +409,10 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         this.setText(undo);
 
         this.undo.setHistoryToken(
-                Optional.of(
-                        context.historyToken()
-                                .save(undo)
-                )
+            Optional.of(
+                context.historyToken()
+                    .save(undo)
+            )
         );
 
         this.refreshTitleTabsClearClose();
@@ -424,7 +424,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         final HistoryToken historyToken = context.historyToken();
 
         this.dialog.setTitle(
-                context.dialogTitle()
+            context.dialogTitle()
         );
 
         if (null != this.tabs) {
@@ -432,23 +432,23 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         }
 
         this.formatterNames.refresh(
-                SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext.with(
-                        context, // HistoryTokenContext
-                        context, // SpreadsheetFormatterProvider,
-                        this.formatterName
-                )
+            SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext.with(
+                context, // HistoryTokenContext
+                context, // SpreadsheetFormatterProvider,
+                this.formatterName
+            )
         );
 
         this.clear.setHistoryToken(
-                Optional.of(
-                        historyToken.clearSave()
-                )
+            Optional.of(
+                historyToken.clearSave()
+            )
         );
 
         this.close.setHistoryToken(
-                Optional.of(
-                        historyToken.close()
-                )
+            Optional.of(
+                historyToken.close()
+            )
         );
     }
 

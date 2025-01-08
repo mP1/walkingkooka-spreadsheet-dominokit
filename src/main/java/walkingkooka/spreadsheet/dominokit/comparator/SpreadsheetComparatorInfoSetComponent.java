@@ -29,8 +29,8 @@ public final class SpreadsheetComparatorInfoSetComponent implements ValueSpreads
 
     private SpreadsheetComparatorInfoSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetComparatorInfoSet::parse,
-                SpreadsheetComparatorInfoSet::text
+            SpreadsheetComparatorInfoSet::parse,
+            SpreadsheetComparatorInfoSet::text
         );
     }
 

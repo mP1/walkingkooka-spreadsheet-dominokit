@@ -27,12 +27,12 @@ import java.util.Locale;
 import java.util.Objects;
 
 final class AppContextPluginSetDialogComponentContext implements PluginSetDialogComponentContext,
-        HistoryTokenContextDelegator,
-        HasPluginFetcherWatchersDelegator {
+    HistoryTokenContextDelegator,
+    HasPluginFetcherWatchersDelegator {
 
     static AppContextPluginSetDialogComponentContext with(final AppContext context) {
         return new AppContextPluginSetDialogComponentContext(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 

@@ -40,16 +40,16 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryTokenTestCase<T ext
     @Test
     public final void testHasSpreadsheetPatternKind() {
         this.hasSpreadsheetPatternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 
     @Override final T createHistoryToken(final SpreadsheetId id,
                                          final SpreadsheetName name) {
         return this.createHistoryToken(
-                id,
-                name,
-                SpreadsheetMetadataPropertyName.STYLE
+            id,
+            name,
+            SpreadsheetMetadataPropertyName.STYLE
         );
     }
 }

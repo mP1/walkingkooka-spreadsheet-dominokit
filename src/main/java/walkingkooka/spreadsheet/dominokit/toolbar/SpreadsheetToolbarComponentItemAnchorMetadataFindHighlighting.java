@@ -37,19 +37,19 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extend
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting(
-                context
+            context
         );
     }
 
     private SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting(final SpreadsheetToolbarComponentContext context) {
         super(
-                SpreadsheetToolbarComponent.findHighlightId(),
-                Optional.of(
-                        SpreadsheetIcons.highlight()
-                ),
-                "Highlight",
-                "Highlight", // let refresh load tooltip
-                context
+            SpreadsheetToolbarComponent.findHighlightId(),
+            Optional.of(
+                SpreadsheetIcons.highlight()
+            ),
+            "Highlight",
+            "Highlight", // let refresh load tooltip
+            context
         );
     }
 
@@ -67,19 +67,19 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataFindHighlighting extend
         final boolean enabled = FindHighlighting.isEnabled(this.context);
 
         this.setTooltipText(
-                FindHighlighting.label(false == enabled)
+            FindHighlighting.label(false == enabled)
         );
 
         this.anchor.setChecked(
-                enabled
+            enabled
         ).setHistoryToken(
-                Optional.of(
-                        context.historyToken()
-                                .setMetadataPropertyName(SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING)
-                                .save(
-                                        Optional.of(false == enabled)
-                                )
-                )
+            Optional.of(
+                context.historyToken()
+                    .setMetadataPropertyName(SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING)
+                    .save(
+                        Optional.of(false == enabled)
+                    )
+            )
         );
     }
 

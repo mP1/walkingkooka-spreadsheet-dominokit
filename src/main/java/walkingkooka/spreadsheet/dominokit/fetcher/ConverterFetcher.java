@@ -38,7 +38,7 @@ import java.util.Optional;
 public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
 
     private final static UrlPath CONVERTER = UrlPath.parse(
-            ConverterHateosResourceMappings.CONVERTER.value()
+        ConverterHateosResourceMappings.CONVERTER.value()
     );
 
     static {
@@ -51,28 +51,28 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
         Objects.requireNonNull(context, "context");
 
         return new ConverterFetcher(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     private ConverterFetcher(final ConverterFetcherWatcher watcher,
                              final AppContext context) {
         super(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     static RelativeUrl converter(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPath(CONVERTER);
+            .appendPath(CONVERTER);
     }
 
     // GET /api/spreadsheet/SpreadsheetId/converter/*
     public void infoSet(final SpreadsheetId id) {
         this.get(
-                converter(id)
+            converter(id)
         );
     }
 
@@ -90,13 +90,13 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
             case "ConverterInfoSet":
                 // GET http://server/api/spreadsheet/1/converter
                 this.watcher.onConverterInfoSet(
-                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(), // the request url
-                        this.parse(
-                                body.orElse(""),
-                                ConverterInfoSet.class
-                        ), // edit
-                        context
+                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                        .get(), // the request url
+                    this.parse(
+                        body.orElse(""),
+                        ConverterInfoSet.class
+                    ), // edit
+                    context
                 );
                 break;
             default:

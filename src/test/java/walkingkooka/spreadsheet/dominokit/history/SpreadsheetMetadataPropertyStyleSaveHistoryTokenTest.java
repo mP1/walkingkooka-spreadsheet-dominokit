@@ -37,13 +37,13 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
     @Test
     public void testWithNullValueFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        STYLE_PROPERTY_NAME,
-                        null
-                )
+            NullPointerException.class,
+            () -> SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
+                ID,
+                NAME,
+                STYLE_PROPERTY_NAME,
+                null
+            )
         );
     }
 
@@ -55,73 +55,73 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
     @Test
     public void testUrlFragmentFontFamilyWithoutValue() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.FONT_FAMILY,
-                        Optional.empty()
-                ),
-                "/123/SpreadsheetName456/spreadsheet/style/font-family/save/"
+            SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
+                ID,
+                NAME,
+                TextStylePropertyName.FONT_FAMILY,
+                Optional.empty()
+            ),
+            "/123/SpreadsheetName456/spreadsheet/style/font-family/save/"
         );
     }
 
     @Test
     public void testUrlFragmentFontFamily() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.FONT_FAMILY,
-                        Optional.of(
-                                FontFamily.with("TimesNewRoman")
-                        )
-                ),
-                "/123/SpreadsheetName456/spreadsheet/style/font-family/save/TimesNewRoman"
+            SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
+                ID,
+                NAME,
+                TextStylePropertyName.FONT_FAMILY,
+                Optional.of(
+                    FontFamily.with("TimesNewRoman")
+                )
+            ),
+            "/123/SpreadsheetName456/spreadsheet/style/font-family/save/TimesNewRoman"
         );
     }
 
     @Test
     public void testUrlFragmentFontStyle() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.FONT_STYLE,
-                        Optional.of(
-                                FontStyle.ITALIC
-                        )
-                ),
-                "/123/SpreadsheetName456/spreadsheet/style/font-style/save/ITALIC"
+            SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
+                ID,
+                NAME,
+                TextStylePropertyName.FONT_STYLE,
+                Optional.of(
+                    FontStyle.ITALIC
+                )
+            ),
+            "/123/SpreadsheetName456/spreadsheet/style/font-style/save/ITALIC"
         );
     }
 
     @Test
     public void testParseColor() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/style/color/save/#123456",
-                SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.COLOR,
-                        Optional.of(
-                                Color.parse("#123456")
-                        )
+            "/123/SpreadsheetName456/spreadsheet/style/color/save/#123456",
+            SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
+                ID,
+                NAME,
+                TextStylePropertyName.COLOR,
+                Optional.of(
+                    Color.parse("#123456")
                 )
+            )
         );
     }
 
     @Test
     public void testParseFontFamily() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/style/font-family/save/TimesNewRoman2",
-                SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.FONT_FAMILY,
-                        Optional.of(
-                                FontFamily.with("TimesNewRoman2")
-                        )
+            "/123/SpreadsheetName456/spreadsheet/style/font-family/save/TimesNewRoman2",
+            SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
+                ID,
+                NAME,
+                TextStylePropertyName.FONT_FAMILY,
+                Optional.of(
+                    FontFamily.with("TimesNewRoman2")
                 )
+            )
         );
     }
 
@@ -130,12 +130,12 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.metadataPropertyStyle(
-                        ID,
-                        NAME,
-                        STYLE_PROPERTY_NAME
-                )
+            this.createHistoryToken(),
+            HistoryToken.metadataPropertyStyle(
+                ID,
+                NAME,
+                STYLE_PROPERTY_NAME
+            )
         );
     }
 
@@ -144,12 +144,12 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
                                                                                final SpreadsheetName name,
                                                                                final SpreadsheetMetadataPropertyName<TextStyle> propertyName) {
         return SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                id,
-                name,
-                STYLE_PROPERTY_NAME,
-                Optional.of(
-                        PROPERTY_VALUE
-                )
+            id,
+            name,
+            STYLE_PROPERTY_NAME,
+            Optional.of(
+                PROPERTY_VALUE
+            )
         );
     }
 

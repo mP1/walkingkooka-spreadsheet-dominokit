@@ -30,7 +30,7 @@ import java.util.Objects;
  * A basic implementation of {@link SpreadsheetLabelMappingDialogComponentContext}.
  */
 final class AppContextSpreadsheetLabelMappingDialogComponentContext implements SpreadsheetLabelMappingDialogComponentContext,
-        SpreadsheetDialogComponentContextDelegator {
+    SpreadsheetDialogComponentContextDelegator {
 
     static AppContextSpreadsheetLabelMappingDialogComponentContext with(final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -50,12 +50,12 @@ final class AppContextSpreadsheetLabelMappingDialogComponentContext implements S
     public void loadLabel(final SpreadsheetLabelName name) {
         final AppContext context = this.context;
         context.spreadsheetDeltaFetcher()
-                .loadLabelMapping(
-                        context.historyToken()
-                                .cast(SpreadsheetIdHistoryToken.class)
-                                .id(),
-                        name
-                );
+            .loadLabelMapping(
+                context.historyToken()
+                    .cast(SpreadsheetIdHistoryToken.class)
+                    .id(),
+                name
+            );
     }
 
     // SpreadsheetDialogComponentContext................................................................................

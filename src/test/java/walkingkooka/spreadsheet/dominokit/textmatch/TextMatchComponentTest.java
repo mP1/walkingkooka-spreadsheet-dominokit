@@ -30,43 +30,43 @@ public final class TextMatchComponentTest implements ValueComponentTesting<HTMLF
     @Test
     public void testEmpty() {
         this.treePrintAndCheck(
-                TextMatchComponent.empty(),
-                "TextMatchComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      []\n"
+            TextMatchComponent.empty(),
+            "TextMatchComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      []\n"
         );
     }
 
     @Test
     public void testSetStringValueWithWhitespace() {
         this.treePrintAndCheck(
-                TextMatchComponent.empty()
-                        .setStringValue(
-                                Optional.of("   ")
-                        ),
-                "TextMatchComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [   ]\n"
+            TextMatchComponent.empty()
+                .setStringValue(
+                    Optional.of("   ")
+                ),
+            "TextMatchComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [   ]\n"
         );
     }
 
     @Test
     public void testSetStringNotEmpty() {
         this.treePrintAndCheck(
-                TextMatchComponent.empty()
-                        .setValue(
-                                Optional.of(
-                                        TextMatch.parse(
-                                                "starts* ends* *contains*"
-                                        )
-                                )
-                        ),
-                "TextMatchComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [starts* ends* *contains*]\n"
+            TextMatchComponent.empty()
+                .setValue(
+                    Optional.of(
+                        TextMatch.parse(
+                            "starts* ends* *contains*"
+                        )
+                    )
+                ),
+            "TextMatchComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [starts* ends* *contains*]\n"
         );
     }
 

@@ -42,13 +42,13 @@ final class HistoryTokenWatchersEvent implements Consumer<HistoryTokenWatcher> {
 
         try {
             watcher.onHistoryTokenChange(
-                    this.previous,
-                    this.context
+                this.previous,
+                this.context
             );
         } catch (final Exception cause) {
             this.context.error(
-                    "HistoryTokenWatchersEvent.accept exception: " + cause.getMessage(),
-                    cause
+                "HistoryTokenWatchersEvent.accept exception: " + cause.getMessage(),
+                cause
             );
         } finally {
             final long after = System.currentTimeMillis();

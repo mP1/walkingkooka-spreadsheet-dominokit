@@ -28,105 +28,105 @@ public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTe
     @Test
     public void testOnlyHomeNoCells() {
         this.computeAndCheck(
-                "A1:J10",
-                0, // columnCount
-                0, //rowCount
-                SpreadsheetViewportComponentThumbnails.with(
-                        0, // left
-                        100, // width
-                        0, // top
-                        100 // height
-                )
+            "A1:J10",
+            0, // columnCount
+            0, //rowCount
+            SpreadsheetViewportComponentThumbnails.with(
+                0, // left
+                100, // width
+                0, // top
+                100 // height
+            )
         );
     }
 
     @Test
     public void testHomeSomeCells() {
         this.computeAndCheck(
-                "A1:J10",
-                20, // columnCount
-                20, //rowCount
-                SpreadsheetViewportComponentThumbnails.with(
-                        0, // left
-                        50, // width
-                        0, // top
-                        50 // height
-                )
+            "A1:J10",
+            20, // columnCount
+            20, //rowCount
+            SpreadsheetViewportComponentThumbnails.with(
+                0, // left
+                50, // width
+                0, // top
+                50 // height
+            )
         );
     }
 
     @Test
     public void testHomeSomeCells2() {
         this.computeAndCheck(
-                "A1:J10",
-                10, // columnCount
-                20, //rowCount
-                SpreadsheetViewportComponentThumbnails.with(
-                        0, // left
-                        100, // width
-                        0, // top
-                        50 // height
-                )
+            "A1:J10",
+            10, // columnCount
+            20, //rowCount
+            SpreadsheetViewportComponentThumbnails.with(
+                0, // left
+                100, // width
+                0, // top
+                50 // height
+            )
         );
     }
 
     @Test
     public void testQuarterAcross() {
         this.computeAndCheck(
-                "D1:I12",
-                12, // columnCount
-                12, //rowCount
-                SpreadsheetViewportComponentThumbnails.with(
-                        25, // left
-                        50, // width
-                        0, // top
-                        100 // height
-                )
+            "D1:I12",
+            12, // columnCount
+            12, //rowCount
+            SpreadsheetViewportComponentThumbnails.with(
+                25, // left
+                50, // width
+                0, // top
+                100 // height
+            )
         );
     }
 
     @Test
     public void testQuarterDown() {
         this.computeAndCheck(
-                "A4:L9",
-                12, // columnCount
-                12, //rowCount
-                SpreadsheetViewportComponentThumbnails.with(
-                        0, // left
-                        100, // width
-                        25, // top
-                        50 // height
-                )
+            "A4:L9",
+            12, // columnCount
+            12, //rowCount
+            SpreadsheetViewportComponentThumbnails.with(
+                0, // left
+                100, // width
+                25, // top
+                50 // height
+            )
         );
     }
 
     @Test
     public void testHalfAcross() {
         this.computeAndCheck(
-                "g1:L12",
-                12, // columnCount
-                12, //rowCount
-                SpreadsheetViewportComponentThumbnails.with(
-                        50, // left
-                        50, // width
-                        0, // top
-                        100 // height
-                )
+            "g1:L12",
+            12, // columnCount
+            12, //rowCount
+            SpreadsheetViewportComponentThumbnails.with(
+                50, // left
+                50, // width
+                0, // top
+                100 // height
+            )
         );
     }
 
     @Test
     public void testHalfDown() {
         this.computeAndCheck(
-                "A7:L12",
-                12, // columnCount
-                12, //rowCount
-                SpreadsheetViewportComponentThumbnails.with(
-                        0, // left
-                        100, // width
-                        50, // top
-                        50 // height
-                )
+            "A7:L12",
+            12, // columnCount
+            12, //rowCount
+            SpreadsheetViewportComponentThumbnails.with(
+                0, // left
+                100, // width
+                50, // top
+                50 // height
+            )
         );
     }
 
@@ -135,10 +135,10 @@ public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTe
                                  final int rowCount,
                                  final SpreadsheetViewportComponentThumbnails expected) {
         this.computeAndCheck(
-                SpreadsheetSelection.parseCellRange(last),
-                columnCount,
-                rowCount,
-                expected
+            SpreadsheetSelection.parseCellRange(last),
+            columnCount,
+            rowCount,
+            expected
         );
     }
 
@@ -147,12 +147,12 @@ public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTe
                                  final int rowCount,
                                  final SpreadsheetViewportComponentThumbnails expected) {
         this.checkEquals(
-                expected,
-                SpreadsheetViewportComponentThumbnails.compute(
-                        last,
-                        columnCount,
-                        rowCount
-                )
+            expected,
+            SpreadsheetViewportComponentThumbnails.compute(
+                last,
+                columnCount,
+                rowCount
+            )
         );
     }
 

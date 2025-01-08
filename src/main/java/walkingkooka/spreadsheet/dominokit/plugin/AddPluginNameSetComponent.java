@@ -45,7 +45,7 @@ public final class AddPluginNameSetComponent implements HtmlElementComponent<HTM
      */
     public static AddPluginNameSetComponent empty(final String id) {
         return new AddPluginNameSetComponent(
-                CharSequences.failIfNullOrEmpty(id, "id")
+            CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
 
@@ -54,8 +54,8 @@ public final class AddPluginNameSetComponent implements HtmlElementComponent<HTM
 
         this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle("Add")
-                .appendChild(this.flex);
+            .setTitle("Add")
+            .appendChild(this.flex);
     }
 
     Optional<String> filterValue() {
@@ -99,12 +99,12 @@ public final class AddPluginNameSetComponent implements HtmlElementComponent<HTM
 
         // addAll should only contain $availablePluginNames after filtering...
         flex.appendChild(
-                this.anchor(
-                        "*",
-                        selectedPluginNames.concatAll(filtered),
-                        i,
-                        context
-                )
+            this.anchor(
+                "*",
+                selectedPluginNames.concatAll(filtered),
+                i,
+                context
+            )
         );
 
         i++;
@@ -114,12 +114,12 @@ public final class AddPluginNameSetComponent implements HtmlElementComponent<HTM
             // missing create a link for $name
             if (false == selectedPluginNames.contains(name)) {
                 flex.appendChild(
-                        this.anchor(
-                                name,
-                                selectedPluginNames.concat(name),
-                                i,
-                                context
-                        )
+                    this.anchor(
+                        name,
+                        selectedPluginNames.concat(name),
+                        i,
+                        context
+                    )
                 );
 
                 i++;
@@ -138,12 +138,12 @@ public final class AddPluginNameSetComponent implements HtmlElementComponent<HTM
                                                final int index,
                                                final AddPluginNameSetComponentContext context) {
         return this.anchor(
-                CaseKind.kebabToTitle(
-                        add.value()
-                ),
-                aliases,
-                index,
-                context
+            CaseKind.kebabToTitle(
+                add.value()
+            ),
+            aliases,
+            index,
+            context
         );
     }
 
@@ -155,11 +155,11 @@ public final class AddPluginNameSetComponent implements HtmlElementComponent<HTM
                                                final int index,
                                                final AddPluginNameSetComponentContext context) {
         return context.historyToken()
-                .saveLink(
-                        this.id + index,
-                        title,
-                        aliases.text()
-                );
+            .saveLink(
+                this.id + index,
+                title,
+                aliases.text()
+            );
     }
 
     /**

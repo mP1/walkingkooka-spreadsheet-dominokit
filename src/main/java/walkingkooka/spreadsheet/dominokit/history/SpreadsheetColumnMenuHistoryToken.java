@@ -38,9 +38,9 @@ public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryT
                                                   final SpreadsheetName name,
                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetColumnMenuHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -48,9 +48,9 @@ public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryT
                                               final SpreadsheetName name,
                                               final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -64,9 +64,9 @@ public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryT
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         ).menu();
     }
 

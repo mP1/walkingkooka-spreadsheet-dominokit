@@ -38,14 +38,14 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
         final String value = "#123456";
 
         this.saveAndCheck(
-                historyToken,
-                value,
-                HistoryToken.metadataPropertyStyleSave(
-                        ID,
-                        NAME,
-                        STYLE_PROPERTY_NAME,
-                        Optional.of(Color.parse(value))
-                )
+            historyToken,
+            value,
+            HistoryToken.metadataPropertyStyleSave(
+                ID,
+                NAME,
+                STYLE_PROPERTY_NAME,
+                Optional.of(Color.parse(value))
+            )
         );
     }
 
@@ -55,14 +55,14 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
         final String value = "";
 
         this.saveAndCheck(
-                historyToken,
-                value,
-                HistoryToken.metadataPropertyStyleSave(
-                        ID,
-                        NAME,
-                        STYLE_PROPERTY_NAME,
-                        Optional.empty()
-                )
+            historyToken,
+            value,
+            HistoryToken.metadataPropertyStyleSave(
+                ID,
+                NAME,
+                STYLE_PROPERTY_NAME,
+                Optional.empty()
+            )
         );
     }
 
@@ -76,59 +76,59 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
     @Test
     public void testUrlFragmentFontFamily() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.FONT_FAMILY
-                ),
-                "/123/SpreadsheetName456/spreadsheet/style/font-family"
+            SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                ID,
+                NAME,
+                TextStylePropertyName.FONT_FAMILY
+            ),
+            "/123/SpreadsheetName456/spreadsheet/style/font-family"
         );
     }
 
     @Test
     public void testUrlFragmentFontStyle() {
         this.urlFragmentAndCheck(
-                SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.FONT_STYLE
-                ),
-                "/123/SpreadsheetName456/spreadsheet/style/font-style"
+            SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                ID,
+                NAME,
+                TextStylePropertyName.FONT_STYLE
+            ),
+            "/123/SpreadsheetName456/spreadsheet/style/font-style"
         );
     }
 
     @Test
     public void testParseBackgroundColor() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/style/background-color",
-                SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.BACKGROUND_COLOR
-                )
+            "/123/SpreadsheetName456/spreadsheet/style/background-color",
+            SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                ID,
+                NAME,
+                TextStylePropertyName.BACKGROUND_COLOR
+            )
         );
     }
 
     @Test
     public void testParseFontFamily() {
         this.parseAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/style/font-family",
-                SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        TextStylePropertyName.FONT_FAMILY
-                )
+            "/123/SpreadsheetName456/spreadsheet/style/font-family",
+            SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                ID,
+                NAME,
+                TextStylePropertyName.FONT_FAMILY
+            )
         );
     }
 
     @Test
     public void testParseUnknown() {
         this.urlFragmentAndCheck(
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                ),
-                "/123/SpreadsheetName456"
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            ),
+            "/123/SpreadsheetName456"
         );
     }
 
@@ -144,9 +144,9 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
                                                                                  final SpreadsheetName name,
                                                                                  final SpreadsheetMetadataPropertyName<TextStyle> propertyName) {
         return SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
-                id,
-                name,
-                STYLE_PROPERTY_NAME
+            id,
+            name,
+            STYLE_PROPERTY_NAME
         );
     }
 

@@ -32,27 +32,27 @@ import java.util.Optional;
  * A link ui that may exist withing a toolbar, which actives the parser editor.
  */
 final class SpreadsheetToolbarComponentItemAnchorParser extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorParser>
-        implements SpreadsheetCellComponentLifecycle,
-        NopComponentLifecycleRefresh,
-        NopComponentLifecycleOpenGiveFocus {
+    implements SpreadsheetCellComponentLifecycle,
+    NopComponentLifecycleRefresh,
+    NopComponentLifecycleOpenGiveFocus {
 
     static SpreadsheetToolbarComponentItemAnchorParser with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorParser(
-                context
+            context
         );
     }
 
     private SpreadsheetToolbarComponentItemAnchorParser(final SpreadsheetToolbarComponentContext context) {
         super(
-                SpreadsheetToolbarComponent.parserId(),
-                Optional.of(
-                        SpreadsheetIcons.parser()
-                ),
-                "Parsing",
-                "Parser(s)...",
-                context
+            SpreadsheetToolbarComponent.parserId(),
+            Optional.of(
+                SpreadsheetIcons.parser()
+            ),
+            "Parsing",
+            "Parser(s)...",
+            context
         );
     }
 
@@ -61,22 +61,22 @@ final class SpreadsheetToolbarComponentItemAnchorParser extends SpreadsheetToolb
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
-                .anchoredSelectionHistoryTokenOrEmpty()
-                .map(
-                        t -> t.parser()
-                                .toolbar()
-                ).ifPresent(context::pushHistoryToken);
+            .anchoredSelectionHistoryTokenOrEmpty()
+            .map(
+                t -> t.parser()
+                    .toolbar()
+            ).ifPresent(context::pushHistoryToken);
     }
 
 
     @Override
     public void refresh(final RefreshContext context) {
         this.anchor.setHistoryToken(
-                context.historyToken()
-                        .anchoredSelectionHistoryTokenOrEmpty()
-                        .map(
-                                t -> t.parser()
-                        )
+            context.historyToken()
+                .anchoredSelectionHistoryTokenOrEmpty()
+                .map(
+                    t -> t.parser()
+                )
         );
     }
 }

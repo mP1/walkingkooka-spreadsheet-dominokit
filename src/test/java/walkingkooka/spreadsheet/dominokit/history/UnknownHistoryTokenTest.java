@@ -32,17 +32,17 @@ public final class UnknownHistoryTokenTest extends HistoryTokenTestCase<UnknownH
     @Test
     public void testIdName() {
         this.setIdAndNameAndCheck(
-                ID,
-                NAME,
-                HistoryToken.spreadsheetSelect(ID, NAME)
+            ID,
+            NAME,
+            HistoryToken.spreadsheetSelect(ID, NAME)
         );
     }
 
     @Test
     public void testViewportOrEmpty() {
         this.checkEquals(
-                Optional.empty(),
-                this.createHistoryToken().anchoredSelectionOrEmpty()
+            Optional.empty(),
+            this.createHistoryToken().anchoredSelectionOrEmpty()
         );
     }
 

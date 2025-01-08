@@ -35,15 +35,15 @@ import java.util.function.Function;
  * Decorations such as icon for the anchor must be set on the {@link HistoryTokenAnchorComponent} itself as no delegating methods are available.
  */
 public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent<HTMLAnchorElement, T, ValueHistoryTokenAnchorComponent<T>>,
-        AnchorComponentLikeDelegator<ValueHistoryTokenAnchorComponent<T>> {
+    AnchorComponentLikeDelegator<ValueHistoryTokenAnchorComponent<T>> {
 
     public static <T> ValueHistoryTokenAnchorComponent<T> with(final HistoryTokenAnchorComponent anchor,
                                                                final Function<HistoryTokenAnchorComponent, Optional<T>> getter,
                                                                final BiConsumer<Optional<T>, HistoryTokenAnchorComponent> setter) {
         return new ValueHistoryTokenAnchorComponent<>(
-                Objects.requireNonNull(anchor, "anchor"),
-                Objects.requireNonNull(getter, "getter"),
-                Objects.requireNonNull(setter, "setter")
+            Objects.requireNonNull(anchor, "anchor"),
+            Objects.requireNonNull(getter, "getter"),
+            Objects.requireNonNull(setter, "setter")
         );
     }
 
@@ -87,8 +87,8 @@ public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent
     @Override
     public ValueHistoryTokenAnchorComponent<T> setValue(final Optional<T> value) {
         this.setter.accept(
-                value,
-                this.anchor
+            value,
+            this.anchor
         );
         return this;
     }

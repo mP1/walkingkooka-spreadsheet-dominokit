@@ -37,24 +37,24 @@ public final class SpreadsheetSelectionSummary {
      * An empty {@link SpreadsheetSelectionSummary} which may be useful when a {@link SpreadsheetViewportCache} has no cells.
      */
     public final static SpreadsheetSelectionSummary EMPTY = new SpreadsheetSelectionSummary(
-            Optional.empty(),
-            Optional.empty(),
-            TextStyle.EMPTY
+        Optional.empty(),
+        Optional.empty(),
+        TextStyle.EMPTY
     );
 
     public static SpreadsheetSelectionSummary with(final Optional<SpreadsheetFormatterSelector> formatter,
                                                    final Optional<SpreadsheetParserSelector> parser,
                                                    final TextStyle style) {
         return new SpreadsheetSelectionSummary(
-                Objects.requireNonNull(formatter, "formatter"),
-                Objects.requireNonNull(parser, "parser"),
-                Objects.requireNonNull(style, "style")
+            Objects.requireNonNull(formatter, "formatter"),
+            Objects.requireNonNull(parser, "parser"),
+            Objects.requireNonNull(style, "style")
         );
     }
 
     private SpreadsheetSelectionSummary(final Optional<SpreadsheetFormatterSelector> formatter,
                                         final Optional<SpreadsheetParserSelector> parser,
-                                       final TextStyle style) {
+                                        final TextStyle style) {
         this.formatter = formatter;
         this.parser = parser;
         this.style = style;
@@ -83,30 +83,30 @@ public final class SpreadsheetSelectionSummary {
     @Override
     public int hashCode() {
         return Objects.hash(
-                this.formatter,
-                this.parser,
-                this.style
+            this.formatter,
+            this.parser,
+            this.style
         );
     }
 
     @Override
     public boolean equals(final Object other) {
         return this == other ||
-                other instanceof SpreadsheetSelectionSummary && this.equals0((SpreadsheetSelectionSummary) other);
+            other instanceof SpreadsheetSelectionSummary && this.equals0((SpreadsheetSelectionSummary) other);
     }
 
     private boolean equals0(final SpreadsheetSelectionSummary other) {
         return this.formatter.equals(other.formatter) &&
-                this.parser.equals(other.parser) &&
-                this.style.equals(other.style);
+            this.parser.equals(other.parser) &&
+            this.style.equals(other.style);
     }
 
     @Override
     public String toString() {
         return ToStringBuilder.empty()
-                .value(this.formatter)
-                .value(this.parser)
-                .value(this.style)
-                .build();
+            .value(this.formatter)
+            .value(this.parser)
+            .value(this.style)
+            .build();
     }
 }

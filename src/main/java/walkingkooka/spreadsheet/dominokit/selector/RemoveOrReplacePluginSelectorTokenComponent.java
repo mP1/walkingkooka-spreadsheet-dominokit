@@ -47,7 +47,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
      */
     public static <T extends PluginSelectorTokenLike<A>, A extends PluginSelectorTokenAlternativeLike> RemoveOrReplacePluginSelectorTokenComponent<T, A> empty(final String id) {
         return new RemoveOrReplacePluginSelectorTokenComponent<>(
-                CharSequences.failIfNullOrEmpty(id, "id")
+            CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
 
@@ -56,17 +56,17 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
 
         this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle("Remove / Replace component(s)")
-                .appendChild(this.flex);
+            .setTitle("Remove / Replace component(s)")
+            .appendChild(this.flex);
     }
 
     public void refresh(final List<T> tokens,
                         final RemoveOrReplacePluginSelectorTokenComponentContext context) {
         this.refresh0(
-                Lists.immutable(
-                        Objects.requireNonNull(tokens, "tokens")
-                ),
-                Objects.requireNonNull(context, "context")
+            Lists.immutable(
+                Objects.requireNonNull(tokens, "tokens")
+            ),
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -76,20 +76,20 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
 
         final ImmutableList<String> tokenText = Lists.immutable(
-                tokens.stream()
-                        .map(PluginSelectorTokenLike::text)
-                        .collect(Collectors.toList())
+            tokens.stream()
+                .map(PluginSelectorTokenLike::text)
+                .collect(Collectors.toList())
         );
 
         int i = 0;
         for (final T token : tokens) {
             flex.appendChild(
-                    this.anchor(
-                            token,
-                            tokenText,
-                            i,
-                            context
-                    )
+                this.anchor(
+                    token,
+                    tokenText,
+                    i,
+                    context
+                )
             );
             i++;
         }
@@ -107,24 +107,24 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
                                                final int index,
                                                final RemoveOrReplacePluginSelectorTokenComponentContext context) {
         final HistoryTokenAnchorComponent anchor = context.historyToken()
-                .saveLink(
-                        this.id + "remove-" + index,
-                        token.label(),
-                        context.saveText(
-                                tokens.deleteAtIndex(index)
-                                        .stream()
-                                        .collect(Collectors.joining(""))
-                        )
-                );
+            .saveLink(
+                this.id + "remove-" + index,
+                token.label(),
+                context.saveText(
+                    tokens.deleteAtIndex(index)
+                        .stream()
+                        .collect(Collectors.joining(""))
+                )
+            );
         final Collection<A> alternatives = token.alternatives();
 
         if (false == alternatives.isEmpty()) {
             this.contextMenuWithAlternatives(
-                    anchor,
-                    token,
-                    tokens,
-                    index,
-                    context
+                anchor,
+                token,
+                tokens,
+                index,
+                context
             );
         }
 
@@ -140,13 +140,13 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
                                              final int index,
                                              final RemoveOrReplacePluginSelectorTokenComponentContext context) {
         SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.wrap(
-                anchor,
-                context
+            anchor,
+            context
         );
         final HistoryToken historyToken = context.historyToken();
 
         final ImmutableList<A> alternatives = Lists.immutable(
-                token.alternatives()
+            token.alternatives()
         );
 
         final String id = anchor.id();
@@ -154,19 +154,19 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
         int i = 0;
         for (final A alternative : alternatives) {
             contextMenu = contextMenu.item(
-                    historyToken.save(
-                                    context.saveText(
-                                            tokens.replace(
-                                                            index,
-                                                            alternative.text()
-                                                    ).stream()
-                                                    .collect(Collectors.joining())
-                                    )
-                            )
-                            .contextMenuItem(
-                                    id + "-replace-" + i + SpreadsheetElementIds.MENU_ITEM,
-                                    alternative.label()
-                            )
+                historyToken.save(
+                        context.saveText(
+                            tokens.replace(
+                                    index,
+                                    alternative.text()
+                                ).stream()
+                                .collect(Collectors.joining())
+                        )
+                    )
+                    .contextMenuItem(
+                        id + "-replace-" + i + SpreadsheetElementIds.MENU_ITEM,
+                        alternative.label()
+                    )
             );
 
             i++;

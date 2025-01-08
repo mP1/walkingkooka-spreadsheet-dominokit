@@ -25,15 +25,14 @@ public abstract class PluginListHistoryTokenTestCase<T extends PluginListHistory
 
     final static OptionalInt COUNT = OptionalInt.of(23);
 
-    PluginListHistoryTokenTestCase(){
+    PluginListHistoryTokenTestCase() {
         super();
     }
 
-    @Override
-    final T createHistoryToken() {
+    @Override final T createHistoryToken() {
         return this.createHistoryToken(
-                OFFSET,
-                COUNT
+            OFFSET,
+            COUNT
         );
     }
 

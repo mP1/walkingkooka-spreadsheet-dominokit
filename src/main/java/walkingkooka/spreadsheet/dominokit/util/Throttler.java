@@ -59,13 +59,13 @@ public final class Throttler {
         // schedule another
         this.next = later;
         this.timerId = DomGlobal.setTimeout(
-                new SetTimeoutCallbackFn() {
-                    @Override
-                    public void onInvoke(final Object... ignored) {
-                        Throttler.this.onTimerExpire();
-                    }
-                },
-                this.delay
+            new SetTimeoutCallbackFn() {
+                @Override
+                public void onInvoke(final Object... ignored) {
+                    Throttler.this.onTimerExpire();
+                }
+            },
+            this.delay
         );
 
         return this;

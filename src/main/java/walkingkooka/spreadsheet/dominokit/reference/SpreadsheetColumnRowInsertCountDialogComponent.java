@@ -35,7 +35,7 @@ import java.util.OptionalInt;
  * A model dialog with a text field which accepts a count value, and when entered trigger the inserting of columns and rows.
  */
 public final class SpreadsheetColumnRowInsertCountDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired {
+    LoadedSpreadsheetMetadataRequired {
 
     /**
      * Creates a new {@link SpreadsheetColumnRowInsertCountDialogComponent}.
@@ -67,16 +67,16 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
         final SpreadsheetColumnRowInsertCountDialogComponentContext context = this.context;
 
         return SpreadsheetDialogComponent.with(
-                        ID + SpreadsheetElementIds.DIALOG,
-                        context.dialogTitle(),
-                        true, // includeClose
-                        context
-                ).appendChild(this.count)
-                .appendChild(
-                        SpreadsheetFlexLayout.row()
-                                .appendChild(this.go)
-                                .appendChild(this.close)
-                );
+                ID + SpreadsheetElementIds.DIALOG,
+                context.dialogTitle(),
+                true, // includeClose
+                context
+            ).appendChild(this.count)
+            .appendChild(
+                SpreadsheetFlexLayout.row()
+                    .appendChild(this.go)
+                    .appendChild(this.close)
+            );
     }
 
     private final SpreadsheetDialogComponent dialog;
@@ -103,15 +103,15 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
 
     private SpreadsheetIntegerBox count() {
         return SpreadsheetIntegerBox.empty()
-                .setId(ID_PREFIX + "count-TextBox")
-                .min(1)
-                .setLabel("Count")
-                .required()
-                .addKeyupListener(
-                        (e) -> this.refreshGo()
-                ).addChangeListener(
-                        (oldValue, newValue) -> this.refreshGo()
-                );
+            .setId(ID_PREFIX + "count-TextBox")
+            .min(1)
+            .setLabel("Count")
+            .required()
+            .addKeyupListener(
+                (e) -> this.refreshGo()
+            ).addChangeListener(
+                (oldValue, newValue) -> this.refreshGo()
+            );
     }
 
     private final SpreadsheetIntegerBox count;
@@ -122,10 +122,10 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
 
     private void refreshClose() {
         this.close.setHistoryToken(
-                Optional.of(
-                        this.context.historyToken()
-                                .close()
-                )
+            Optional.of(
+                this.context.historyToken()
+                    .close()
+            )
         );
     }
 
@@ -135,15 +135,15 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
 
     private void refreshGo() {
         this.go.setHistoryToken(
-                Optional.of(
-                        this.context.historyToken()
-                                .setCount(
-                                        OptionalInt.of(
-                                                this.count.value()
-                                                        .orElse(DEFAULT_COUNT)
-                                        )
-                                )
-                )
+            Optional.of(
+                this.context.historyToken()
+                    .setCount(
+                        OptionalInt.of(
+                            this.count.value()
+                                .orElse(DEFAULT_COUNT)
+                        )
+                    )
+            )
         );
     }
 
@@ -171,7 +171,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
     public void openGiveFocus(final RefreshContext context) {
         this.count.setValue(Optional.empty()); // clear old value
         context.giveFocus(
-                this.count::focus
+            this.count::focus
         );
     }
 

@@ -37,14 +37,14 @@ final class SpreadsheetTextBoxChangeListener implements ChangeListener<String> {
     public void onValueChanged(final String oldValue,
                                final String newValue) {
         this.listener.onValueChanged(
-                emptyToNull(oldValue),
-                emptyToNull(newValue)
+            emptyToNull(oldValue),
+            emptyToNull(newValue)
         );
     }
 
     private static Optional<String> emptyToNull(final String text) {
         return Optional.ofNullable(
-                "".equals(text) ? null : text
+            "".equals(text) ? null : text
         );
     }
 

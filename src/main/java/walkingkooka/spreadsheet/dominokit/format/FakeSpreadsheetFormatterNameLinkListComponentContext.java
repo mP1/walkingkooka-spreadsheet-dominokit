@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class FakeSpreadsheetFormatterNameLinkListComponentContext extends FakeHistoryTokenContext
-        implements SpreadsheetFormatterNameLinkListComponentContext {
+    implements SpreadsheetFormatterNameLinkListComponentContext {
 
     @Override
     public Optional<SpreadsheetFormatterName> formatterName() {

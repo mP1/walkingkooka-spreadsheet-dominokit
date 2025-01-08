@@ -40,11 +40,11 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSet extends AppContextPluginAliasSetLikeDialogComponentContext<SpreadsheetFormatterName,
-        SpreadsheetFormatterInfo,
-        SpreadsheetFormatterInfoSet,
-        SpreadsheetFormatterSelector,
-        SpreadsheetFormatterAlias,
-        SpreadsheetFormatterAliasSet> {
+    SpreadsheetFormatterInfo,
+    SpreadsheetFormatterInfoSet,
+    SpreadsheetFormatterSelector,
+    SpreadsheetFormatterAlias,
+    SpreadsheetFormatterAliasSet> {
 
     AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatterAliasSet(final AppContext context) {
         super(context);
@@ -64,63 +64,63 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetForm
 
     @Override final void loadPluginInfoSetLike0(final SpreadsheetId id) {
         this.context.spreadsheetFormatterFetcher()
-                .infoSet(id);
+            .infoSet(id);
     }
 
     @Override
     public final Runnable addProviderFetcherWatcher(final Consumer<SpreadsheetFormatterAliasSet> set) {
         return this.context.addSpreadsheetFormatterFetcherWatcher(
-                new SpreadsheetFormatterFetcherWatcher() {
-                    @Override
-                    public void onSpreadsheetFormatterInfoSet(final SpreadsheetId id,
-                                                              final SpreadsheetFormatterInfoSet infos,
-                                                              final AppContext context) {
-                        set.accept(infos.aliasSet());
-                    }
-
-                    @Override
-                    public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
-                                                                   final SpreadsheetFormatterSelectorEdit edit,
-                                                                   final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
-                                                                       final SpreadsheetFormatterSelectorMenuList menu,
-                                                                       final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onBegin(final HttpMethod method,
-                                        final Url url,
-                                        final Optional<FetcherRequestBody<?>> body,
-                                        final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onFailure(final HttpMethod method,
-                                          final AbsoluteOrRelativeUrl url,
-                                          final HttpStatus status,
-                                          final Headers headers,
-                                          final String body,
-                                          final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onError(final Object cause,
-                                        final AppContext context) {
-                        // nop
-                    }
-
-                    @Override
-                    public void onEmptyResponse(final AppContext context) {
-                        // nop
-                    }
+            new SpreadsheetFormatterFetcherWatcher() {
+                @Override
+                public void onSpreadsheetFormatterInfoSet(final SpreadsheetId id,
+                                                          final SpreadsheetFormatterInfoSet infos,
+                                                          final AppContext context) {
+                    set.accept(infos.aliasSet());
                 }
+
+                @Override
+                public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
+                                                               final SpreadsheetFormatterSelectorEdit edit,
+                                                               final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onSpreadsheetFormatterSelectorMenuList(final SpreadsheetId id,
+                                                                   final SpreadsheetFormatterSelectorMenuList menu,
+                                                                   final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onBegin(final HttpMethod method,
+                                    final Url url,
+                                    final Optional<FetcherRequestBody<?>> body,
+                                    final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onFailure(final HttpMethod method,
+                                      final AbsoluteOrRelativeUrl url,
+                                      final HttpStatus status,
+                                      final Headers headers,
+                                      final String body,
+                                      final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onError(final Object cause,
+                                    final AppContext context) {
+                    // nop
+                }
+
+                @Override
+                public void onEmptyResponse(final AppContext context) {
+                    // nop
+                }
+            }
         );
     }
 }

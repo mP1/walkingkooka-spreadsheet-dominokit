@@ -33,8 +33,8 @@ public final class SpreadsheetFormatterSelectorComponent implements ValueSpreads
 
     private SpreadsheetFormatterSelectorComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetFormatterSelector::parse,
-                SpreadsheetFormatterSelector::toString
+            SpreadsheetFormatterSelector::parse,
+            SpreadsheetFormatterSelector::toString
         );
     }
 

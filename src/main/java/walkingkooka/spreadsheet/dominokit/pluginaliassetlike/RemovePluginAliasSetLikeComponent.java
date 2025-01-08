@@ -41,25 +41,25 @@ import java.util.function.Predicate;
  * A component that contains a panel holding links of for each present {@link PluginAliasLike}, removing each from a {@link PluginAliasSetLike}.
  */
 public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable<N>,
-        I extends PluginInfoLike<I, N>,
-        IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
-        S extends PluginSelectorLike<N>,
-        A extends PluginAliasLike<N, S, A>,
-        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
-        implements HtmlElementComponent<HTMLDivElement, RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS>> {
+    I extends PluginInfoLike<I, N>,
+    IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
+    S extends PluginSelectorLike<N>,
+    A extends PluginAliasLike<N, S, A>,
+    AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
+    implements HtmlElementComponent<HTMLDivElement, RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS>> {
 
     /**
      * Creates an empty {@link RemovePluginAliasSetLikeComponent}.
      */
     public static <N extends Name & Comparable<N>,
-            I extends PluginInfoLike<I, N>,
-            IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
-            S extends PluginSelectorLike<N>,
-            A extends PluginAliasLike<N, S, A>,
-            AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
+        I extends PluginInfoLike<I, N>,
+        IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
+        S extends PluginSelectorLike<N>,
+        A extends PluginAliasLike<N, S, A>,
+        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>>
     RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS> empty(final String id) {
         return new RemovePluginAliasSetLikeComponent<>(
-                CharSequences.failIfNullOrEmpty(id, "id")
+            CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
 
@@ -68,8 +68,8 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
 
         this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle("Remove")
-                .appendChild(this.flex);
+            .setTitle("Remove")
+            .appendChild(this.flex);
     }
 
     RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS> setFilterValueChangeListener(final ChangeListener<Optional<String>> listener) {
@@ -86,7 +86,7 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
      * A {@link Predicate} which is used to filter links by testing the text against the given {@link Predicate}.
      */
     private Predicate<CharSequence> filter;
-    
+
     public void refresh(final AS aliases, // value from SpreadsheetMetadata
                         final AS providerAliases, // list of available aliases from provider
                         final RemovePluginAliasSetLikeComponentContext context) {
@@ -95,12 +95,12 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
         int i = 0;
 
         flex.appendChild(
-                this.anchor(
-                        "*",
-                        aliases,
-                        i,
-                        context
-                )
+            this.anchor(
+                "*",
+                aliases,
+                i,
+                context
+            )
         );
 
         i++;
@@ -113,12 +113,12 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
 
             if (aliases.containsAliasOrName(name) && (null == filter || filter.test(providerAlias.name().text()))) {
                 flex.appendChild(
-                        this.anchor(
-                                providerAlias,
-                                aliases.deleteAliasOrName(name),
-                                i,
-                                context
-                        )
+                    this.anchor(
+                        providerAlias,
+                        aliases.deleteAliasOrName(name),
+                        i,
+                        context
+                    )
                 );
 
                 i++;
@@ -141,13 +141,13 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
                                                final int index,
                                                final RemovePluginAliasSetLikeComponentContext context) {
         return this.anchor(
-                CaseKind.kebabToTitle(
-                        remove.name()
-                                .value()
-                ),
-                aliases,
-                index,
-                context
+            CaseKind.kebabToTitle(
+                remove.name()
+                    .value()
+            ),
+            aliases,
+            index,
+            context
         );
     }
 
@@ -159,11 +159,11 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
                                                final int index,
                                                final RemovePluginAliasSetLikeComponentContext context) {
         return context.historyToken()
-                .saveLink(
-                        this.id + index,
-                        title,
-                        aliases.text()
-                );
+            .saveLink(
+                this.id + index,
+                title,
+                aliases.text()
+            );
     }
 
     /**

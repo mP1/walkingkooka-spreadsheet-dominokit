@@ -33,10 +33,10 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector) {
         return new SpreadsheetCellFormatterSaveHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                spreadsheetFormatterSelector
+            id,
+            name,
+            anchoredSelection,
+            spreadsheetFormatterSelector
         );
     }
 
@@ -45,19 +45,19 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                spreadsheetFormatterSelector
+            id,
+            name,
+            anchoredSelection,
+            spreadsheetFormatterSelector
         );
     }
 
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellFormatterSelect(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
+            this.id(),
+            this.name(),
+            this.anchoredSelection()
         );
     }
 
@@ -66,24 +66,24 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormatterSaveHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                this.spreadsheetFormatterSelector
+            id,
+            name,
+            anchoredSelection,
+            this.spreadsheetFormatterSelector
         );
     }
 
     @Override
     HistoryToken save0(final String value) {
         return new SpreadsheetCellFormatterSaveHistoryToken(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                Optional.ofNullable(
-                        value.isEmpty() ?
-                                null :
-                                SpreadsheetFormatterSelector.parse(value)
-                )
+            this.id(),
+            this.name(),
+            this.anchoredSelection(),
+            Optional.ofNullable(
+                value.isEmpty() ?
+                    null :
+                    SpreadsheetFormatterSelector.parse(value)
+            )
         );
     }
 
@@ -99,10 +99,10 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
         context.pushHistoryToken(previous);
 
         context.spreadsheetDeltaFetcher()
-                .saveFormatter(
-                        this.id(),
-                        this.anchoredSelection().selection(),
-                        this.spreadsheetFormatterSelector
-                );
+            .saveFormatter(
+                this.id(),
+                this.anchoredSelection().selection(),
+                this.spreadsheetFormatterSelector
+            );
     }
 }

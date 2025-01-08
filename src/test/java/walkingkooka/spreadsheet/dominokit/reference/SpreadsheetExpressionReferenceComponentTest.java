@@ -30,118 +30,118 @@ public final class SpreadsheetExpressionReferenceComponentTest implements ValueC
     @Test
     public void testSetStringValueWithCell() {
         this.treePrintAndCheck(
-                SpreadsheetExpressionReferenceComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "A1"
-                                )
-                        ),
-                "SpreadsheetExpressionReferenceComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [A1]\n"
+            SpreadsheetExpressionReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "A1"
+                    )
+                ),
+            "SpreadsheetExpressionReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [A1]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithAbsoluteCell() {
         this.treePrintAndCheck(
-                SpreadsheetExpressionReferenceComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "$A$1"
-                                )
-                        ),
-                "SpreadsheetExpressionReferenceComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [$A$1]\n"
+            SpreadsheetExpressionReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "$A$1"
+                    )
+                ),
+            "SpreadsheetExpressionReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [$A$1]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithCellRange() {
         this.treePrintAndCheck(
-                SpreadsheetExpressionReferenceComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "A1:B2"
-                                )
-                        ),
-                "SpreadsheetExpressionReferenceComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [A1:B2]\n"
+            SpreadsheetExpressionReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "A1:B2"
+                    )
+                ),
+            "SpreadsheetExpressionReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [A1:B2]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithLabel() {
         this.treePrintAndCheck(
-                SpreadsheetExpressionReferenceComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "Label123"
-                                )
-                        ),
-                "SpreadsheetExpressionReferenceComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Label123]\n"
+            SpreadsheetExpressionReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "Label123"
+                    )
+                ),
+            "SpreadsheetExpressionReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Label123]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetExpressionReferenceComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "Invalid123!"
-                                )
-                        ),
-                "SpreadsheetExpressionReferenceComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [Invalid123!]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at 10\n"
+            SpreadsheetExpressionReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "Invalid123!"
+                    )
+                ),
+            "SpreadsheetExpressionReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Invalid123!]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 10\n"
         );
     }
 
     @Test
     public void testSetStringValueWithColumn() {
         this.treePrintAndCheck(
-                SpreadsheetExpressionReferenceComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "$A"
-                                )
-                        ),
-                "SpreadsheetExpressionReferenceComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [$A]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '$' at 0\n"
+            SpreadsheetExpressionReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "$A"
+                    )
+                ),
+            "SpreadsheetExpressionReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [$A]\n" +
+                "      Errors\n" +
+                "        Invalid character '$' at 0\n"
         );
     }
 
     @Test
     public void testSetStringValueWithRow() {
         this.treePrintAndCheck(
-                SpreadsheetExpressionReferenceComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "123"
-                                )
-                        ),
-                "SpreadsheetExpressionReferenceComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [123]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '1' at 0\n"
+            SpreadsheetExpressionReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "123"
+                    )
+                ),
+            "SpreadsheetExpressionReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [123]\n" +
+                "      Errors\n" +
+                "        Invalid character '1' at 0\n"
         );
     }
 

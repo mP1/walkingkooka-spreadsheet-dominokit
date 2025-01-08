@@ -32,11 +32,11 @@ import walkingkooka.text.HasText;
 import java.util.Objects;
 
 final class SpreadsheetComparatorNameListDialogComponentContextSortComparators implements SpreadsheetComparatorNameListDialogComponentContext,
-        SpreadsheetDialogComponentContextDelegator {
+    SpreadsheetDialogComponentContextDelegator {
 
     static SpreadsheetComparatorNameListDialogComponentContextSortComparators with(final AppContext context) {
         return new SpreadsheetComparatorNameListDialogComponentContextSortComparators(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
@@ -54,24 +54,24 @@ final class SpreadsheetComparatorNameListDialogComponentContextSortComparators i
     @Override
     public boolean isMatch(final HistoryToken token) {
         return token instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-                token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
-                        .propertyName()
-                        .equals(PROPERTY_NAME);
+            token.cast(SpreadsheetMetadataPropertySelectHistoryToken.class)
+                .propertyName()
+                .equals(PROPERTY_NAME);
     }
 
     @Override
     public String dialogTitle() {
         return CaseKind.kebabToTitle(
-                PROPERTY_NAME.text()
+            PROPERTY_NAME.text()
         );
     }
 
     @Override
     public String undo() {
         return this.context.spreadsheetMetadata()
-                .get(PROPERTY_NAME)
-                .map(HasText::text)
-                .orElse("");
+            .get(PROPERTY_NAME)
+            .map(HasText::text)
+            .orElse("");
     }
 
     @Override

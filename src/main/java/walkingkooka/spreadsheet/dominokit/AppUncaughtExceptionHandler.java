@@ -26,7 +26,7 @@ final class AppUncaughtExceptionHandler implements UncaughtExceptionHandler {
 
     static AppUncaughtExceptionHandler with(final LoggingContext loggingContext) {
         return new AppUncaughtExceptionHandler(
-                Objects.requireNonNull(loggingContext, "loggingContext")
+            Objects.requireNonNull(loggingContext, "loggingContext")
         );
     }
 

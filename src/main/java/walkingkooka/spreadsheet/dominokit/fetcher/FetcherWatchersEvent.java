@@ -34,10 +34,10 @@ abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consume
                                                                          final Optional<FetcherRequestBody<?>> body,
                                                                          final AppContext context) {
         return BeginFetcherWatchersEvent.with(
-                method,
-                url,
-                body,
-                context
+            method,
+            url,
+            body,
+            context
         );
     }
 
@@ -57,12 +57,12 @@ abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consume
                                                                              final String body,
                                                                              final AppContext context) {
         return FailureFetcherWatchersEvent.with(
-                method,
-                url,
-                status,
-                headers,
-                body,
-                context
+            method,
+            url,
+            status,
+            headers,
+            body,
+            context
         );
     }
 
@@ -76,8 +76,8 @@ abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consume
             this.fire(watcher);
         } catch (final Exception cause) {
             this.context.error(
-                    this.getClass().getSimpleName() + ".accept exception: " + cause.getMessage(),
-                    cause
+                this.getClass().getSimpleName() + ".accept exception: " + cause.getMessage(),
+                cause
             );
         }
     }

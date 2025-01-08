@@ -43,10 +43,10 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final OptionalInt count) {
         return new SpreadsheetRowInsertAfterHistoryToken(
-                id,
-                name,
-                anchoredSelection,
-                count
+            id,
+            name,
+            anchoredSelection,
+            count
         );
     }
 
@@ -55,17 +55,17 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final OptionalInt count) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                count
+            id,
+            name,
+            anchoredSelection,
+            count
         );
     }
 
     @Override
     UrlFragment rowUrlFragment() {
         return INSERT_AFTER.append(
-                this.countUrlFragment()
+            this.countUrlFragment()
         );
     }
 
@@ -74,9 +74,9 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         ).insertAfter(this.count());
     }
 
@@ -89,11 +89,11 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
             final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
             context.spreadsheetDeltaFetcher()
-                    .insertAfterRow(
-                            this.id(),
-                            selection,
-                            count.getAsInt()
-                    );
+                .insertAfterRow(
+                    this.id(),
+                    selection,
+                    count.getAsInt()
+                );
 
             context.pushHistoryToken(previous);
         }

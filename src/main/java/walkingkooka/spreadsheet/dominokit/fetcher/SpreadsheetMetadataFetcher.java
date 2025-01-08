@@ -69,7 +69,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
 
     static {
         SpreadsheetMetadataSet.with(
-                Sets.empty()
+            Sets.empty()
         ); // JSON register
     }
 
@@ -104,16 +104,16 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetMetadataFetcher(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     private SpreadsheetMetadataFetcher(final SpreadsheetMetadataFetcherWatcher watcher,
                                        final AppContext context) {
         super(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
@@ -122,8 +122,8 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
      */
     public void createSpreadsheetMetadata() {
         this.post(
-                API_BASE,
-                FetcherRequestBody.string("")
+            API_BASE,
+            FetcherRequestBody.string("")
         );
     }
 
@@ -132,7 +132,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
      */
     public void deleteSpreadsheetMetadata(final SpreadsheetId id) {
         this.delete(
-                url(id)
+            url(id)
         );
     }
 
@@ -145,21 +145,21 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
 
         if (offset.isPresent()) {
             query = query.addParameter(
-                    SpreadsheetUrlQueryParameters.OFFSET,
-                    String.valueOf(offset.getAsInt())
+                SpreadsheetUrlQueryParameters.OFFSET,
+                String.valueOf(offset.getAsInt())
             );
         }
 
         if (count.isPresent()) {
             query = query.addParameter(
-                    SpreadsheetUrlQueryParameters.COUNT,
-                    String.valueOf(count.getAsInt())
+                SpreadsheetUrlQueryParameters.COUNT,
+                String.valueOf(count.getAsInt())
             );
         }
 
         this.get(
-                API_BASE.appendPath(STAR)
-                        .setQuery(query)
+            API_BASE.appendPath(STAR)
+                .setQuery(query)
         );
     }
 
@@ -170,7 +170,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
      */
     public void loadSpreadsheetMetadata(final SpreadsheetId id) {
         this.get(
-                url(id)
+            url(id)
         );
     }
 
@@ -181,8 +181,8 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
                                   final SpreadsheetMetadataPropertyName<T> propertyName,
                                   final T propertyValue) {
         this.patchMetadata(
-                id,
-                propertyName.patch(propertyValue)
+            id,
+            propertyName.patch(propertyValue)
         );
     }
 
@@ -192,10 +192,10 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
     public void patchMetadata(final SpreadsheetId id,
                               final JsonNode node) {
         this.patch(
-                url(id),
-                this.toJson(
-                        node
-                )
+            url(id),
+            this.toJson(
+                node
+            )
         );
     }
 
@@ -204,10 +204,10 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
         Objects.requireNonNull(metadata, "metadata");
 
         this.patch(
-                url(id),
-                this.toJson(
-                        metadata
-                )
+            url(id),
+            this.toJson(
+                metadata
+            )
         );
     }
 
@@ -215,9 +215,9 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
         Objects.requireNonNull(id, "id");
 
         return API_BASE.appendPath(
-                UrlPath.parse(
-                        id.toString()
-                )
+            UrlPath.parse(
+                id.toString()
+            )
         );
     }
 
@@ -232,25 +232,25 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 watcher.onEmptyResponse(
-                        context
+                    context
                 );
                 break;
             case "SpreadsheetMetadata":
                 watcher.onSpreadsheetMetadata(
-                        this.parse(
-                                body.orElse(""),
-                                SpreadsheetMetadata.class
-                        ),
-                        context
+                    this.parse(
+                        body.orElse(""),
+                        SpreadsheetMetadata.class
+                    ),
+                    context
                 );
                 break;
             case "SpreadsheetMetadataSet":
                 watcher.onSpreadsheetMetadataSet(
-                        this.parse(
-                                body.orElse(""),
-                                SpreadsheetMetadataSet.class
-                        ),
-                        context
+                    this.parse(
+                        body.orElse(""),
+                        SpreadsheetMetadataSet.class
+                    ),
+                    context
                 );
                 break;
             default:

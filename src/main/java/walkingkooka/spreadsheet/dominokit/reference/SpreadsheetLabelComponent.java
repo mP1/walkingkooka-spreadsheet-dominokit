@@ -45,8 +45,8 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
 
     private SpreadsheetLabelComponent(final Context context) {
         this.suggestBox = SpreadsheetSuggestBoxComponent.with(
-                SpreadsheetSelection::labelName,
-                SpreadsheetLabelComponentSuggestStore.with(context)
+            SpreadsheetSelection::labelName,
+            SpreadsheetLabelComponentSuggestStore.with(context)
         );
 
         this.required();
@@ -253,7 +253,7 @@ public final class SpreadsheetLabelComponent implements ValueComponent<HTMLField
     @Override
     public String toString() {
         return this.value()
-                .map(HasText::text)
-                .orElse("");
+            .map(HasText::text)
+            .orElse("");
     }
 }

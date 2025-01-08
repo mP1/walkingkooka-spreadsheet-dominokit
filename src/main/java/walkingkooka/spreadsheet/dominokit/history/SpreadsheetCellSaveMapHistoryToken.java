@@ -48,19 +48,19 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                        final Map<SpreadsheetCellReference, V> values) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
 
         // complain if any of the same formulas are outside the selection range.
         final SpreadsheetSelection selection = anchoredSelection.selection();
         if (false == selection.isLabelName()) {
             final String outside = values.keySet()
-                    .stream()
-                    .filter(selection.negate())
-                    .map(SpreadsheetSelection::toString)
-                    .collect(Collectors.joining(", "));
+                .stream()
+                .filter(selection.negate())
+                .map(SpreadsheetSelection::toString)
+                .collect(Collectors.joining(", "));
             if (false == outside.isEmpty()) {
                 throw new IllegalArgumentException("Save value includes cells " + outside + " outside " + selection);
             }
@@ -81,12 +81,12 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
     @Override //
     final HistoryToken save0(final String value) {
         return this.replace(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                this.parseSaveValue(
-                        TextCursors.charSequence(value)
-                )
+            this.id(),
+            this.name(),
+            this.anchoredSelection(),
+            this.parseSaveValue(
+                TextCursors.charSequence(value)
+            )
         );
     }
 
@@ -102,11 +102,11 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
     static <VV> Map<SpreadsheetCellReference, VV> parseMap(final TextCursor cursor,
                                                            final Class<VV> valueType) {
         return UNMARSHALL_CONTEXT.unmarshallMap(
-                JsonNode.parse(
-                        parseAll(cursor)
-                ),
-                SpreadsheetCellReference.class, // key is always a cell
-                valueType
+            JsonNode.parse(
+                parseAll(cursor)
+            ),
+            SpreadsheetCellReference.class, // key is always a cell
+            valueType
         );
     }
 
@@ -119,16 +119,16 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
         final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
 
         for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
-                .objectOrFail().children()) {
+            .objectOrFail().children()) {
             values.put(
-                    SpreadsheetSelection.parseCell(
-                            keyAndValue.name()
-                                    .value()
-                    ),
-                    UNMARSHALL_CONTEXT.unmarshall(
-                            keyAndValue,
-                            valueType
-                    )
+                SpreadsheetSelection.parseCell(
+                    keyAndValue.name()
+                        .value()
+                ),
+                UNMARSHALL_CONTEXT.unmarshall(
+                    keyAndValue,
+                    valueType
+                )
             );
         }
 
@@ -144,18 +144,18 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
         final Map<SpreadsheetCellReference, Optional<VV>> values = Maps.sorted();
 
         for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
-                .objectOrFail().children()) {
+            .objectOrFail().children()) {
             values.put(
-                    SpreadsheetSelection.parseCell(
-                            keyAndValue.name()
-                                    .value()
-                    ),
-                    Optional.ofNullable(
-                            UNMARSHALL_CONTEXT.unmarshall(
-                                    keyAndValue,
-                                    valueType
-                            )
+                SpreadsheetSelection.parseCell(
+                    keyAndValue.name()
+                        .value()
+                ),
+                Optional.ofNullable(
+                    UNMARSHALL_CONTEXT.unmarshall(
+                        keyAndValue,
+                        valueType
                     )
+                )
             );
         }
 
@@ -166,17 +166,17 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
         final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
 
         for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
-                .objectOrFail().children()) {
+            .objectOrFail().children()) {
             values.put(
-                    SpreadsheetSelection.parseCell(
-                            keyAndValue.name()
-                                    .value()
-                    ),
-                    (VV) Optional.ofNullable(
-                            UNMARSHALL_CONTEXT.unmarshallWithType(
-                                    keyAndValue
-                            )
+                SpreadsheetSelection.parseCell(
+                    keyAndValue.name()
+                        .value()
+                ),
+                (VV) Optional.ofNullable(
+                    UNMARSHALL_CONTEXT.unmarshallWithType(
+                        keyAndValue
                     )
+                )
             );
         }
 
@@ -199,21 +199,21 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
         final List<JsonNode> children = Lists.array();
         for (final Entry<SpreadsheetCellReference, V> cellAndValue : this.value().entrySet()) {
             children.add(
-                    this.saveValueUrlFragmentValueToJson(
-                            cellAndValue.getValue()
-                    ).setName(
-                            JsonPropertyName.with(
-                                    cellAndValue.getKey()
-                                            .toStringMaybeStar()
-                            )
+                this.saveValueUrlFragmentValueToJson(
+                    cellAndValue.getValue()
+                ).setName(
+                    JsonPropertyName.with(
+                        cellAndValue.getKey()
+                            .toStringMaybeStar()
                     )
+                )
             );
         }
 
         return UrlFragment.with(
-                JsonNode.object()
-                        .setChildren(children)
-                        .toString()
+            JsonNode.object()
+                .setChildren(children)
+                .toString()
         );
     }
 

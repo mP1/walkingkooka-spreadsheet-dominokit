@@ -31,9 +31,9 @@ abstract class SpreadsheetRowInsertHistoryToken extends SpreadsheetRowHistoryTok
                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                      final OptionalInt count) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
         this.count = checkCount(count);
     }
@@ -44,11 +44,11 @@ abstract class SpreadsheetRowInsertHistoryToken extends SpreadsheetRowHistoryTok
         final OptionalInt count = this.count();
 
         return count.isPresent() ?
-                UrlFragment.SLASH.append(
-                        UrlFragment.with(
-                                String.valueOf(count.getAsInt())
-                        )
-                ) :
-                UrlFragment.EMPTY;
+            UrlFragment.SLASH.append(
+                UrlFragment.with(
+                    String.valueOf(count.getAsInt())
+                )
+            ) :
+            UrlFragment.EMPTY;
     }
 }

@@ -31,7 +31,7 @@ import walkingkooka.text.printer.TreePrintable;
  * A specialized {@link HistoryTokenAwareComponentLifecycle} that adds some basic support for {@link SpreadsheetDialogComponent}.
  */
 public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareComponentLifecycle,
-        TreePrintable {
+    TreePrintable {
 
     /**
      * Getter that returns the {@link SpreadsheetDialogComponent}. This is required by the other default methods.
@@ -48,13 +48,13 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
      */
     default HistoryTokenAnchorComponent anchor(final String text) {
         return HistoryTokenAnchorComponent.empty()
-                .setId(
-                        this.idPrefix() +
-                                CaseKind.TITLE.change(
-                                        text,
-                                        CaseKind.KEBAB
-                                ) + SpreadsheetElementIds.LINK)
-                .setTextContent(text);
+            .setId(
+                this.idPrefix() +
+                    CaseKind.TITLE.change(
+                        text,
+                        CaseKind.KEBAB
+                    ) + SpreadsheetElementIds.LINK)
+            .setTextContent(text);
     }
 
     /**
@@ -78,7 +78,7 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
     default void open(final RefreshContext context) {
         this.dialogReset();
         this.dialog()
-                .open();
+            .open();
     }
 
     /**
@@ -87,7 +87,7 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
     @Override
     default void close(final RefreshContext context) {
         this.dialog()
-                .close();
+            .close();
         this.dialogReset();
     }
 
@@ -109,7 +109,7 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
         printer.indent();
         {
             this.dialog()
-                    .printTree(printer);
+                .printTree(printer);
         }
         printer.outdent();
     }

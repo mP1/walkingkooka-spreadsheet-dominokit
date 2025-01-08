@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 
 public final class SpreadsheetParserFetcherWatchers extends FetcherWatchers<SpreadsheetParserFetcherWatcher>
-        implements SpreadsheetParserFetcherWatcher {
+    implements SpreadsheetParserFetcherWatcher {
 
     private SpreadsheetParserFetcherWatchers() {
         super();
@@ -38,11 +38,11 @@ public final class SpreadsheetParserFetcherWatchers extends FetcherWatchers<Spre
                                            final SpreadsheetParserInfoSet infos,
                                            final AppContext context) {
         this.fire(
-                SpreadsheetParserFetcherWatchersInfoSetEvent.with(
-                        id,
-                        infos,
-                        context
-                )
+            SpreadsheetParserFetcherWatchersInfoSetEvent.with(
+                id,
+                infos,
+                context
+            )
         );
     }
 
@@ -51,11 +51,11 @@ public final class SpreadsheetParserFetcherWatchers extends FetcherWatchers<Spre
                                                 final SpreadsheetParserSelectorEdit edit,
                                                 final AppContext context) {
         this.fire(
-                SpreadsheetParserFetcherWatchersEvent.with(
-                        id,
-                        edit,
-                        context
-                )
+            SpreadsheetParserFetcherWatchersEvent.with(
+                id,
+                edit,
+                context
+            )
         );
     }
 }

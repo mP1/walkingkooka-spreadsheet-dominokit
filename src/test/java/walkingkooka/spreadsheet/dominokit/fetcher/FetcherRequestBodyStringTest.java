@@ -26,15 +26,15 @@ import static org.junit.Assert.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class FetcherRequestBodyStringTest implements HashCodeEqualsDefinedTesting2<FetcherRequestBodyString>,
-        ClassTesting2<FetcherRequestBodyString> {
+    ClassTesting2<FetcherRequestBodyString> {
 
     // with.............................................................................................................
 
     @Test
     public void testWithNullFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> FetcherRequestBody.string(null)
+            NullPointerException.class,
+            () -> FetcherRequestBody.string(null)
         );
     }
 
@@ -59,7 +59,7 @@ public final class FetcherRequestBodyStringTest implements HashCodeEqualsDefined
     @Test
     public void testEqualsDifferentValue() {
         this.checkNotEquals(
-                FetcherRequestBodyString.with("different")
+            FetcherRequestBodyString.with("different")
         );
     }
 

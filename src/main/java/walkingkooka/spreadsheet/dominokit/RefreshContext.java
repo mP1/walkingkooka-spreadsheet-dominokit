@@ -22,6 +22,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
 public interface RefreshContext extends CanGiveFocus,
-        HistoryTokenContext,
-        LoggingContext {
+    HistoryTokenContext,
+    LoggingContext {
 }

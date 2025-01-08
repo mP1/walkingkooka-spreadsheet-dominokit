@@ -40,9 +40,9 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
                                                         final SpreadsheetName name,
                                                         final SpreadsheetLabelMapping mapping) {
         return new SpreadsheetLabelMappingSaveHistoryToken(
-                id,
-                name,
-                mapping
+            id,
+            name,
+            mapping
         );
     }
 
@@ -50,8 +50,8 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
                                                     final SpreadsheetName name,
                                                     final SpreadsheetLabelMapping mapping) {
         super(
-                id,
-                name
+            id,
+            name
         );
         this.mapping = Objects.requireNonNull(mapping, "mapping");
     }
@@ -59,7 +59,7 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     @Override
     public Optional<SpreadsheetLabelName> labelName() {
         return Optional.of(
-                this.mapping.label()
+            this.mapping.label()
         );
     }
 
@@ -71,12 +71,12 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
         final SpreadsheetLabelMapping mapping = this.mapping;
 
         return UrlFragment.with(
-                        mapping.label()
-                                .value()
+            mapping.label()
+                .value()
         ).appendSlashThen(
-                saveUrlFragment(
-                        mapping.target().toString())
-                );
+            saveUrlFragment(
+                mapping.target().toString())
+        );
     }
 
     @Override
@@ -89,9 +89,9 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return with(
-                id,
-                name,
-                this.mapping
+            id,
+            name,
+            this.mapping
         );
     }
 
@@ -110,9 +110,9 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
         context.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange0 save " + id + " " + mapping);
 
         context.spreadsheetDeltaFetcher()
-                .saveLabelMapping(
-                        id,
-                        mapping
-                );
+            .saveLabelMapping(
+                id,
+                mapping
+            );
     }
 }

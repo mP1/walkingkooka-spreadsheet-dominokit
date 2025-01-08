@@ -39,10 +39,10 @@ public interface UiFormattingContext extends HasLocale {
         Objects.requireNonNull(dateTime, "dateTime");
 
         return DateTimeFormatter.ofLocalizedDateTime(
-                FormatStyle.SHORT,
-                FormatStyle.SHORT
+            FormatStyle.SHORT,
+            FormatStyle.SHORT
         ).withLocale(
-                this.locale()
+            this.locale()
         ).format(dateTime);
     }
 }

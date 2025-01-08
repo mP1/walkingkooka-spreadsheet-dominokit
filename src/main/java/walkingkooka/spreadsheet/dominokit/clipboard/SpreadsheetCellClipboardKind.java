@@ -60,32 +60,32 @@ import java.util.function.Predicate;
  * which means the clipboard can only holds cells or components of a cell such as the formula text.
  */
 public enum SpreadsheetCellClipboardKind implements HasMediaType,
-        HasUrlFragment {
+    HasUrlFragment {
 
     /**
      * The clipboard value is {@link SpreadsheetCell}.
      */
     CELL(
-            SpreadsheetCell.class,
-            (c) -> c, // returns the entire cell
-            "cell"
+        SpreadsheetCell.class,
+        (c) -> c, // returns the entire cell
+        "cell"
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
                           final JsonNodeMarshallContext context) {
             return context.marshall(cell)
-                    .children()
-                    .get(0);
+                .children()
+                .get(0);
         }
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
                                    final AppContext context) {
             SpreadsheetCell cell = context.unmarshall(
-                            JsonNode.object()
-                                    .appendChild(node),
-                            SpreadsheetCell.class
-                    );
+                JsonNode.object()
+                    .appendChild(node),
+                SpreadsheetCell.class
+            );
             final SpreadsheetFormula formula = cell.formula();
 
             // if theres no token try and parse the formula text. This will be necessary because PASTE will
@@ -95,16 +95,16 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                     final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
                     cell = cell.setFormula(
-                            SpreadsheetFormula.parse(
-                                    TextCursors.charSequence(
-                                            formula.text()
-                                    ),
-                                    metadata.spreadsheetParser(
-                                            context, // SpreadsheetParserProvider
-                                            context
-                                    ),
-                                    metadata.spreadsheetParserContext(context)
-                            )
+                        SpreadsheetFormula.parse(
+                            TextCursors.charSequence(
+                                formula.text()
+                            ),
+                            metadata.spreadsheetParser(
+                                context, // SpreadsheetParserProvider
+                                context
+                            ),
+                            metadata.spreadsheetParserContext(context)
+                        )
                     );
                 } catch (final RuntimeException ignore) {
 
@@ -118,9 +118,9 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                       final SpreadsheetId id,
                                       final SpreadsheetCellRange range) {
             fetcher.saveCells(
-                    id,
-                    range.range(),
-                    range.value()
+                id,
+                range.range(),
+                range.value()
             );
         }
     },
@@ -129,18 +129,18 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      * The clipboard value is cells to {@link String formula text}.
      */
     FORMULA(
-            SpreadsheetFormula.class,
-            SpreadsheetCell::formula,
-            "formula"
+        SpreadsheetFormula.class,
+        SpreadsheetCell::formula,
+        "formula"
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
                           final JsonNodeMarshallContext context) {
             return JsonNode.string(
-                    cell.formula()
-                            .text()
+                cell.formula()
+                    .text()
             ).setName(
-                    propertyName(cell)
+                propertyName(cell)
             );
         }
 
@@ -150,19 +150,19 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
             final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
             return SpreadsheetSelection.parseCell(
-                    node.name()
-                            .value()
+                node.name()
+                    .value()
             ).setFormula(
-                    SpreadsheetFormula.parse(
-                            TextCursors.charSequence(
-                                    node.stringOrFail()
-                            ),
-                            metadata.spreadsheetParser(
-                                    context, // SpreadsheetParserProvider
-                                    context // ProviderContext
-                            ),
-                            metadata.spreadsheetParserContext(context)// parser context
-                    )
+                SpreadsheetFormula.parse(
+                    TextCursors.charSequence(
+                        node.stringOrFail()
+                    ),
+                    metadata.spreadsheetParser(
+                        context, // SpreadsheetParserProvider
+                        context // ProviderContext
+                    ),
+                    metadata.spreadsheetParserContext(context)// parser context
+                )
             );
         }
 
@@ -171,12 +171,12 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                       final SpreadsheetId id,
                                       final SpreadsheetCellRange range) {
             fetcher.patchCellsFormula(
-                    id,
-                    range.range(),
-                    toMap(
-                            range,
-                            SpreadsheetCell::formula
-                    )
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    SpreadsheetCell::formula
+                )
             );
         }
     },
@@ -185,17 +185,17 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      * The clipboard value is cells to {@link SpreadsheetFormatterSelector}.
      */
     FORMATTER(
-            SpreadsheetFormatterSelector.class,
-            SpreadsheetCell::formatter,
-            "formatter"
+        SpreadsheetFormatterSelector.class,
+        SpreadsheetCell::formatter,
+        "formatter"
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
                           final JsonNodeMarshallContext context) {
             return marshallCellToOptionalValue(
-                    cell,
-                    cell.formatter(),
-                    context
+                cell,
+                cell.formatter(),
+                context
             );
         }
 
@@ -203,17 +203,17 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         SpreadsheetCell unmarshall(final JsonNode node,
                                    final AppContext context) {
             return SpreadsheetSelection.parseCell(
-                    node.name()
-                            .value()
+                node.name()
+                    .value()
             ).setFormula(
-                    SpreadsheetFormula.EMPTY
+                SpreadsheetFormula.EMPTY
             ).setFormatter(
-                    Optional.ofNullable(
-                            context.unmarshall(
-                                            node,
-                                            SpreadsheetFormatterSelector.class
-                                    )
+                Optional.ofNullable(
+                    context.unmarshall(
+                        node,
+                        SpreadsheetFormatterSelector.class
                     )
+                )
             );
         }
 
@@ -222,12 +222,12 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                       final SpreadsheetId id,
                                       final SpreadsheetCellRange range) {
             fetcher.patchCellsFormatter(
-                    id,
-                    range.range(),
-                    toMap(
-                            range,
-                            SpreadsheetCell::formatter
-                    )
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    SpreadsheetCell::formatter
+                )
             );
         }
     },
@@ -236,17 +236,17 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      * The clipboard value is a cells to {@link SpreadsheetParserSelector}.
      */
     PARSER(
-            SpreadsheetParserSelector.class,
-            SpreadsheetCell::parser,
-            "parser"
+        SpreadsheetParserSelector.class,
+        SpreadsheetCell::parser,
+        "parser"
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
                           final JsonNodeMarshallContext context) {
             return marshallCellToOptionalValue(
-                    cell,
-                    cell.parser(),
-                    context
+                cell,
+                cell.parser(),
+                context
             );
         }
 
@@ -254,17 +254,17 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         SpreadsheetCell unmarshall(final JsonNode node,
                                    final AppContext context) {
             return SpreadsheetSelection.parseCell(
-                    node.name()
-                            .value()
+                node.name()
+                    .value()
             ).setFormula(
-                    SpreadsheetFormula.EMPTY
+                SpreadsheetFormula.EMPTY
             ).setParser(
-                    Optional.ofNullable(
-                            context.unmarshall(
-                                            node,
-                                            SpreadsheetParserSelector.class
-                                    )
+                Optional.ofNullable(
+                    context.unmarshall(
+                        node,
+                        SpreadsheetParserSelector.class
                     )
+                )
             );
         }
 
@@ -273,12 +273,12 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                       final SpreadsheetId id,
                                       final SpreadsheetCellRange range) {
             fetcher.patchCellsParser(
-                    id,
-                    range.range(),
-                    toMap(
-                            range,
-                            SpreadsheetCell::parser
-                    )
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    SpreadsheetCell::parser
+                )
             );
         }
     },
@@ -287,30 +287,30 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      * The clipboard value is cells to {@link TextStyle}.
      */
     STYLE(
-            TextStyle.class,
-            SpreadsheetCell::style,
-            "style"
+        TextStyle.class,
+        SpreadsheetCell::style,
+        "style"
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
                           final JsonNodeMarshallContext context) {
             return context.marshall(cell.style())
-                    .setName(propertyName(cell));
+                .setName(propertyName(cell));
         }
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
                                    final AppContext context) {
             return SpreadsheetSelection.parseCell(
-                    node.name()
-                            .value()
+                node.name()
+                    .value()
             ).setFormula(
-                    SpreadsheetFormula.EMPTY
+                SpreadsheetFormula.EMPTY
             ).setStyle(
-                    context.unmarshall(
-                                    node,
-                                    TextStyle.class
-                            )
+                context.unmarshall(
+                    node,
+                    TextStyle.class
+                )
             );
         }
 
@@ -319,12 +319,12 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                       final SpreadsheetId id,
                                       final SpreadsheetCellRange range) {
             fetcher.patchCellsStyle(
-                    id,
-                    range.range(),
-                    toMap(
-                            range,
-                            SpreadsheetCell::style
-                    )
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    SpreadsheetCell::style
+                )
             );
         }
     },
@@ -333,17 +333,17 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      * The clipboard value is a formatted text.
      */
     FORMATTED_VALUE(
-            TextNode.class,
-            SpreadsheetCell::formattedValue,
-            "formatted-value"
+        TextNode.class,
+        SpreadsheetCell::formattedValue,
+        "formatted-value"
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
                           final JsonNodeMarshallContext context) {
             return marshallCellToOptionalTypeValue(
-                    cell,
-                    cell.formattedValue(),
-                    context
+                cell,
+                cell.formattedValue(),
+                context
             );
         }
 
@@ -351,14 +351,14 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         SpreadsheetCell unmarshall(final JsonNode node,
                                    final AppContext context) {
             return SpreadsheetSelection.parseCell(
-                    node.name()
-                            .value()
+                node.name()
+                    .value()
             ).setFormula(
-                    SpreadsheetFormula.EMPTY
+                SpreadsheetFormula.EMPTY
             ).setFormattedValue(
-                    Optional.ofNullable(
-                            context.unmarshallWithType(node)
-                    )
+                Optional.ofNullable(
+                    context.unmarshallWithType(node)
+                )
             );
         }
 
@@ -374,21 +374,21 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                                         final Optional<?> value,
                                                         final JsonNodeMarshallContext context) {
         return value.map(context::marshall)
-                .orElse(JsonNode.nullNode())
-                .setName(propertyName(cell));
+            .orElse(JsonNode.nullNode())
+            .setName(propertyName(cell));
     }
 
     private static JsonNode marshallCellToOptionalTypeValue(final SpreadsheetCell cell,
                                                             final Optional<?> value,
                                                             final JsonNodeMarshallContext context) {
         return value.map(context::marshallWithType)
-                .orElse(JsonNode.nullNode())
-                .setName(propertyName(cell));
+            .orElse(JsonNode.nullNode())
+            .setName(propertyName(cell));
     }
 
     private static JsonPropertyName propertyName(final SpreadsheetCell cell) {
         return JsonPropertyName.with(
-                cell.reference().toString()
+            cell.reference().toString()
         );
     }
 
@@ -396,9 +396,9 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                                  final Function<SpreadsheetCell, Object> valueExtractor,
                                  final String urlFragment) {
         this.mediaType = MediaType.APPLICATION_JSON.setSuffix(
-                Optional.of(
-                        type.getName()
-                )
+            Optional.of(
+                type.getName()
+            )
         );
         this.mediaTypeClass = type;
 
@@ -407,8 +407,8 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         this.urlFragment = UrlFragment.parse(urlFragment);
 
         this.predicate = this.name().equals("CELL") ?
-                Predicates.always() :
-                Predicate.isEqual(this);
+            Predicates.always() :
+            Predicate.isEqual(this);
     }
 
     /**
@@ -460,8 +460,8 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         final Map<SpreadsheetCellReference, T> map = Maps.sorted();
         for (final SpreadsheetCell cell : range.value()) {
             map.put(
-                    cell.reference(),
-                    valueExtractor.apply(cell)
+                cell.reference(),
+                valueExtractor.apply(cell)
             );
         }
 
@@ -504,9 +504,9 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         Objects.requireNonNull(string, "string");
 
         return Arrays.stream(values())
-                .filter(e -> e.urlFragment.value().equals(string))
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Invalid SpreadsheetCellClipboardKind: " + CharSequences.quote(string)));
+            .filter(e -> e.urlFragment.value().equals(string))
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("Invalid SpreadsheetCellClipboardKind: " + CharSequences.quote(string)));
     }
 
     /**
@@ -517,9 +517,9 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         Objects.requireNonNull(mediaType, "mediaType");
 
         return Arrays.stream(values())
-                .filter(e -> e.mediaType.equals(mediaType))
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Unknown MediaType: " + mediaType));
+            .filter(e -> e.mediaType.equals(mediaType))
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("Unknown MediaType: " + mediaType));
     }
 
     /**
@@ -530,11 +530,11 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     }
 
     private final static List<SpreadsheetCellClipboardKind> VALUES = Lists.of(
-            CELL,
-            FORMULA,
-            FORMATTER,
-            PARSER,
-            STYLE,
-            FORMATTED_VALUE
+        CELL,
+        FORMULA,
+        FORMATTER,
+        PARSER,
+        STYLE,
+        FORMATTED_VALUE
     );
 }

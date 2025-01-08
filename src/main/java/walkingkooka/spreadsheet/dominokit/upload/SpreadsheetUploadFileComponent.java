@@ -50,24 +50,24 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
 
     public static SpreadsheetUploadFileComponent empty(final String id) {
         return new SpreadsheetUploadFileComponent()
-                .setId(id);
+            .setId(id);
     }
 
     private SpreadsheetUploadFileComponent() {
         super();
         this.defaultFileUploadDecoration = DefaultFileUploadDecoration.create()
-                .setIcon(Icons.upload().addCss(dui_font_size_12, dui_fg_accent))
-                .addCss(dui_m_b_4);
+            .setIcon(Icons.upload().addCss(dui_font_size_12, dui_fg_accent))
+            .addCss(dui_m_b_4);
         this.label = "";
         this.helperText = Optional.empty();
 
         this.fileUpload = FileUpload.create(SpreadsheetUploadFileComponent::forFile)
-                .setDecoration(this.defaultFileUploadDecoration)
-                .manualUpload() // no auto upload
-                .setMultiUpload(false)
-                .setMaxAllowedUploads(1)
-                .setShowPreview(true)
-                .onAddFile(this::onFileItem);
+            .setDecoration(this.defaultFileUploadDecoration)
+            .manualUpload() // no auto upload
+            .setMultiUpload(false)
+            .setMaxAllowedUploads(1)
+            .setShowPreview(true)
+            .onAddFile(this::onFileItem);
 
         this.value = Optional.empty(); // no file
     }
@@ -75,8 +75,8 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     private static IsFilePreview<?> forFile(final FileItem fileItem,
                                             final FileUpload fileUpload) {
         return new DefaultFilePreview(
-                fileItem,
-                fileUpload
+            fileItem,
+            fileUpload
         );
     }
 
@@ -88,7 +88,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     @Override
     public SpreadsheetUploadFileComponent setId(final String id) {
         this.fileUpload.setId(
-                Objects.requireNonNull(id, "id")
+            Objects.requireNonNull(id, "id")
         );
         return this;
     }
@@ -121,7 +121,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
         Objects.requireNonNull(text, "text");
 
         this.defaultFileUploadDecoration.setDescription(
-                text.orElse("")
+            text.orElse("")
         );
         this.helperText = text;
 
@@ -147,7 +147,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
 
         final Optional<BrowserFile> oldValue = this.value;
         if (false == oldValue.equals(value)) {
-            if(value.isPresent()) {
+            if (value.isPresent()) {
                 throw new UnsupportedOperationException();
             } else {
                 this.value = value;
@@ -155,8 +155,8 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
             }
 
             this.fireChangeListeners(
-                    oldValue,
-                    value
+                oldValue,
+                value
             );
         }
         return this;
@@ -191,18 +191,18 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
         {
             final Optional<BrowserFile> oldValue = this.value;
             final Optional<BrowserFile> newValue = Optional.of(
-                    BrowserFile.base64(
-                            file.name,
-                            DataUrl.parseData(
-                                    fileReader.result.asString()
-                            ).data()
-                    )
+                BrowserFile.base64(
+                    file.name,
+                    DataUrl.parseData(
+                        fileReader.result.asString()
+                    ).data()
+                )
             );
             this.value = newValue;
 
             this.fireChangeListeners(
-                    oldValue, // oldValue
-                    newValue
+                oldValue, // oldValue
+                newValue
             );
             return null;
         };
@@ -215,8 +215,8 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
                                      final Optional<BrowserFile> newValue) {
         for (final ChangeListener<Optional<BrowserFile>> listener : this.changeListener) {
             listener.onValueChanged(
-                    oldValue,
-                    newValue
+                oldValue,
+                newValue
             );
         }
     }
@@ -226,8 +226,8 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     @Override
     public SpreadsheetUploadFileComponent addFocusListener(final EventListener listener) {
         this.fileUpload.addEventListener(
-                EventType.focus,
-                listener
+            EventType.focus,
+            listener
         );
         return this;
     }
@@ -235,7 +235,7 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     @Override
     public SpreadsheetUploadFileComponent focus() {
         this.fileUpload.element()
-                .focus();
+            .focus();
         return this;
     }
 

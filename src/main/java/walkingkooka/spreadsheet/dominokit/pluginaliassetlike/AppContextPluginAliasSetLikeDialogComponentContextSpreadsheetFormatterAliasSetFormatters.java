@@ -41,7 +41,7 @@ final class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetFormatt
     @Override
     public SpreadsheetFormatterAliasSet providerAliasSetLike() {
         return this.context.systemSpreadsheetProvider()
-                .spreadsheetFormatterInfos()
-                .aliasSet();
+            .spreadsheetFormatterInfos()
+            .aliasSet();
     }
 }

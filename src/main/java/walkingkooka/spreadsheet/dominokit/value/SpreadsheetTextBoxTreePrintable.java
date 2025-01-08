@@ -47,11 +47,11 @@ public interface SpreadsheetTextBoxTreePrintable<V extends ValueComponent<HTMLFi
             }
 
             components.add(
-                    "[" +
-                            this.value()
-                                    .map(Object::toString)
-                                    .orElse("") +
-                            "]"
+                "[" +
+                    this.value()
+                        .map(Object::toString)
+                        .orElse("") +
+                    "]"
             );
 
             final String id = this.id();
@@ -73,8 +73,8 @@ public interface SpreadsheetTextBoxTreePrintable<V extends ValueComponent<HTMLFi
             }
 
             printer.println(
-                    components.stream()
-                            .collect(Collectors.joining(" "))
+                components.stream()
+                    .collect(Collectors.joining(" "))
             );
 
             this.treePrintAlternateValues(printer);

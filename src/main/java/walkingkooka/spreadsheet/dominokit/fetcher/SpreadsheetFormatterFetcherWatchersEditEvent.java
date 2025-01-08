@@ -30,9 +30,9 @@ final class SpreadsheetFormatterFetcherWatchersEditEvent extends FetcherWatchers
                                                              final SpreadsheetFormatterSelectorEdit edit,
                                                              final AppContext context) {
         return new SpreadsheetFormatterFetcherWatchersEditEvent(
-                id,
-                edit,
-                context
+            id,
+            edit,
+            context
         );
     }
 
@@ -47,9 +47,9 @@ final class SpreadsheetFormatterFetcherWatchersEditEvent extends FetcherWatchers
     @Override
     void fire(final SpreadsheetFormatterFetcherWatcher watcher) {
         watcher.onSpreadsheetFormatterSelectorEdit(
-                this.id,
-                this.edit,
-                this.context
+            this.id,
+            this.edit,
+            this.context
         );
     }
 

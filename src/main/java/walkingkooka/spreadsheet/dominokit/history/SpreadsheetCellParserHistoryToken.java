@@ -40,7 +40,7 @@ public abstract class SpreadsheetCellParserHistoryToken extends SpreadsheetCellH
     @Override // /cell/A1/parser/
     final UrlFragment cellUrlFragment() {
         return PARSER.appendSlashThen(
-                this.parserUrlFragment()
+            this.parserUrlFragment()
         );
     }
 

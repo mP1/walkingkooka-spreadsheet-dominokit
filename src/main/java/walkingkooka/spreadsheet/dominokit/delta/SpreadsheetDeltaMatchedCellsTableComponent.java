@@ -42,24 +42,24 @@ import java.util.Optional;
  * A table that displays matched cells in {@link SpreadsheetDelta} as a table
  */
 public final class SpreadsheetDeltaMatchedCellsTableComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetDeltaMatchedCellsTableComponent>,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher {
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher,
+    SpreadsheetDeltaFetcherWatcher {
 
     public static SpreadsheetDeltaMatchedCellsTableComponent with(final String id,
                                                                   final SpreadsheetDeltaMatchedCellsTableComponentContext context) {
         return new SpreadsheetDeltaMatchedCellsTableComponent(
-                CharSequences.failIfNullOrEmpty(id, "id"),
-                Objects.requireNonNull(context, "context")
+            CharSequences.failIfNullOrEmpty(id, "id"),
+            Objects.requireNonNull(context, "context")
         );
     }
 
     private SpreadsheetDeltaMatchedCellsTableComponent(final String id,
                                                        final SpreadsheetDeltaMatchedCellsTableComponentContext context) {
         this.dataTable = SpreadsheetDataTableComponent.with(
-                id + "cells-", // id-prefix
-                columnConfigs(), // column configs
-                SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer.with(context)
+            id + "cells-", // id-prefix
+            columnConfigs(), // column configs
+            SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer.with(context)
         ).bodyScrollPlugin();
 
         context.addSpreadsheetDeltaFetcherWatcher(this);
@@ -73,31 +73,31 @@ public final class SpreadsheetDeltaMatchedCellsTableComponent implements HtmlEle
      */
     private static List<ColumnConfig<SpreadsheetCell>> columnConfigs() {
         return Lists.of(
-                columnConfig(
-                        "Cell",
-                        CellTextAlign.LEFT
-                ),
+            columnConfig(
+                "Cell",
+                CellTextAlign.LEFT
+            ),
 
-                columnConfig(
-                        "Formula",
-                        CellTextAlign.LEFT
-                ),
-                columnConfig(
-                        "Formatted",
-                        CellTextAlign.LEFT
-                ),
-                columnConfig(
-                        "Value",
-                        CellTextAlign.LEFT
-                )
+            columnConfig(
+                "Formula",
+                CellTextAlign.LEFT
+            ),
+            columnConfig(
+                "Formatted",
+                CellTextAlign.LEFT
+            ),
+            columnConfig(
+                "Value",
+                CellTextAlign.LEFT
+            )
         );
     }
 
     private static ColumnConfig<SpreadsheetCell> columnConfig(final String title,
                                                               final CellTextAlign cellTextAlign) {
         return ColumnConfig.<SpreadsheetCell>create(
-                title.toLowerCase(),
-                title
+            title.toLowerCase(),
+            title
         ).setTextAlign(cellTextAlign);
     }
 
@@ -115,7 +115,7 @@ public final class SpreadsheetDeltaMatchedCellsTableComponent implements HtmlEle
         cells.addAll(delta.cells());
 
         this.dataTable.setValue(
-                Optional.of(cells)
+            Optional.of(cells)
         );
     }
 

@@ -36,10 +36,10 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
                                                                         final TextStylePropertyName<T> stylePropertyName,
                                                                         final Optional<T> stylePropertyValue) {
         return new SpreadsheetMetadataPropertyStyleSaveHistoryToken<>(
-                id,
-                name,
-                stylePropertyName,
-                stylePropertyValue
+            id,
+            name,
+            stylePropertyName,
+            stylePropertyValue
         );
     }
 
@@ -48,9 +48,9 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
                                                              final TextStylePropertyName<T> stylePropertyName,
                                                              final Optional<T> stylePropertyValue) {
         super(
-                id,
-                name,
-                stylePropertyName
+            id,
+            name,
+            stylePropertyName
         );
 
         this.stylePropertyValue = Objects.requireNonNull(stylePropertyValue, "stylePropertyValue");
@@ -65,16 +65,16 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
     @Override
     UrlFragment styleUrlFragment() {
         return saveUrlFragment(
-                this.stylePropertyValue()
+            this.stylePropertyValue()
         );
     }
 
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.metadataPropertyStyle(
-                this.id(),
-                this.name(),
-                this.stylePropertyName()
+            this.id(),
+            this.name(),
+            this.stylePropertyName()
         );
     }
 
@@ -83,10 +83,10 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return with(
-                id,
-                name,
-                this.stylePropertyName(),
-                this.stylePropertyValue()
+            id,
+            name,
+            this.stylePropertyName(),
+            this.stylePropertyValue()
         );
     }
 
@@ -97,15 +97,15 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
 
         // PATCH metadata with style property+value
         context.spreadsheetMetadataFetcher()
-                .patchMetadata(
-                        this.id(),
-                        SpreadsheetMetadata.EMPTY.set(
-                                SpreadsheetMetadataPropertyName.STYLE,
-                                TextStyle.EMPTY.setOrRemove(
-                                        this.stylePropertyName(),
-                                        this.stylePropertyValue().orElse(null)
-                                )
-                        )
-                );
+            .patchMetadata(
+                this.id(),
+                SpreadsheetMetadata.EMPTY.set(
+                    SpreadsheetMetadataPropertyName.STYLE,
+                    TextStyle.EMPTY.setOrRemove(
+                        this.stylePropertyName(),
+                        this.stylePropertyValue().orElse(null)
+                    )
+                )
+            );
     }
 }

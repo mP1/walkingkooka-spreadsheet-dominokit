@@ -31,7 +31,7 @@ final class SchedulerCanGiveFocus implements CanGiveFocus {
 
     static SchedulerCanGiveFocus with(final LoggingContext loggingContext) {
         return new SchedulerCanGiveFocus(
-                Objects.requireNonNull(loggingContext, "loggingContext")
+            Objects.requireNonNull(loggingContext, "loggingContext")
         );
     }
 
@@ -55,7 +55,7 @@ final class SchedulerCanGiveFocus implements CanGiveFocus {
         this.giveFocus = giveFocus;
 
         Scheduler.get()
-                .scheduleDeferred(this::giveFocus0);
+            .scheduleDeferred(this::giveFocus0);
     }
 
     /**

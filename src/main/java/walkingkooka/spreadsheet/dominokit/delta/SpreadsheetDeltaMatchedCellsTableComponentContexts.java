@@ -29,8 +29,8 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentContexts implements
     public static SpreadsheetDeltaMatchedCellsTableComponentContext basic(final HistoryTokenContext historyTokenContext,
                                                                           final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
         return BasicSpreadsheetDeltaMatchedCellsTableComponentContext.with(
-                historyTokenContext,
-                hasSpreadsheetDeltaFetcherWatchers
+            historyTokenContext,
+            hasSpreadsheetDeltaFetcherWatchers
         );
     }
 

@@ -31,16 +31,16 @@ public final class SpreadsheetRenameSelectHistoryToken extends SpreadsheetRename
     static SpreadsheetRenameSelectHistoryToken with(final SpreadsheetId id,
                                                     final SpreadsheetName name) {
         return new SpreadsheetRenameSelectHistoryToken(
-                id,
-                name
+            id,
+            name
         );
     }
 
     private SpreadsheetRenameSelectHistoryToken(final SpreadsheetId id,
                                                 final SpreadsheetName name) {
         super(
-                id,
-                name
+            id,
+            name
         );
     }
 
@@ -53,17 +53,17 @@ public final class SpreadsheetRenameSelectHistoryToken extends SpreadsheetRename
     HistoryToken replaceIdAndName(final SpreadsheetId id,
                                   final SpreadsheetName name) {
         return new SpreadsheetRenameSelectHistoryToken(
-                id,
-                name
+            id,
+            name
         );
     }
 
     @Override //
     HistoryToken save0(final String value) {
         return HistoryToken.spreadsheetRenameSave(
-                this.id(),
-                this.name(),
-                SpreadsheetName.with(value)
+            this.id(),
+            this.name(),
+            SpreadsheetName.with(value)
         );
     }
 

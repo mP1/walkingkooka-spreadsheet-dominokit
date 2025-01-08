@@ -39,9 +39,9 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
                                                  final SpreadsheetName name,
                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowDeleteHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -49,9 +49,9 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
                                              final SpreadsheetName name,
                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -65,9 +65,9 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         ).delete();
     }
 
@@ -75,13 +75,13 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         context.pushHistoryToken(
-                context.historyToken()
-                        .setAnchoredSelection(Optional.empty())
+            context.historyToken()
+                .setAnchoredSelection(Optional.empty())
         );
         context.spreadsheetDeltaFetcher()
-                .deleteDelta(
-                        this.id(),
-                        this.anchoredSelection().selection()
-                );
+            .deleteDelta(
+                this.id(),
+                this.anchoredSelection().selection()
+            );
     }
 }

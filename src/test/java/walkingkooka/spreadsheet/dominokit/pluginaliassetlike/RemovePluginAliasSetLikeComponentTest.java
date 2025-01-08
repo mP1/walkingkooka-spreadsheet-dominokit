@@ -34,20 +34,20 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
 public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementComponentTesting<RemovePluginAliasSetLikeComponent<ExpressionFunctionName,
-        ExpressionFunctionInfo,
-        ExpressionFunctionInfoSet,
-        ExpressionFunctionSelector,
-        ExpressionFunctionAlias,
-        ExpressionFunctionAliasSet>,
-        HTMLDivElement> {
+    ExpressionFunctionInfo,
+    ExpressionFunctionInfoSet,
+    ExpressionFunctionSelector,
+    ExpressionFunctionAlias,
+    ExpressionFunctionAliasSet>,
+    HTMLDivElement> {
 
     private final static RemovePluginAliasSetLikeComponentContext CONTEXT = new FakeRemovePluginAliasSetLikeComponentContext() {
         @Override
         public HistoryToken historyToken() {
             return HistoryToken.metadataPropertySelect(
-                    SpreadsheetId.with(1),
-                    SpreadsheetName.with("SpreadsheetName123"),
-                    SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS
+                SpreadsheetId.with(1),
+                SpreadsheetName.with("SpreadsheetName123"),
+                SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS
             );
         }
     };
@@ -56,15 +56,15 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
     public void testRefreshNoneRemovable() {
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
-                ExpressionFunctionAliasSet.EMPTY, // present
-                ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.EMPTY, // present
+            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
+            CONTEXT
         );
 
         // all disabled no need to create any remove links
         this.treePrintAndCheck(
-                component,
-                "RemovePluginAliasSetLikeComponent\n"
+            component,
+            "RemovePluginAliasSetLikeComponent\n"
         );
     }
 
@@ -72,22 +72,22 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
     public void testRefreshSomeRemovable() {
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
-                ExpressionFunctionAliasSet.parse("name1, name2"), // present
-                ExpressionFunctionAliasSet.parse("name1, name2, name3, name4"), // provider
-                this.context()
+            ExpressionFunctionAliasSet.parse("name1, name2"), // present
+            ExpressionFunctionAliasSet.parse("name1, name2, name3, name4"), // provider
+            this.context()
         );
 
         this.treePrintAndCheck(
-                component,
-                "RemovePluginAliasSetLikeComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Remove\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name2] id=base-id-123-remove-1-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1] id=base-id-123-remove-2-Link\n"
+            component,
+            "RemovePluginAliasSetLikeComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Remove\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2] id=base-id-123-remove-0-Link\n" +
+                "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name2] id=base-id-123-remove-1-Link\n" +
+                "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1] id=base-id-123-remove-2-Link\n"
         );
     }
 
@@ -95,24 +95,24 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
     public void testRefreshAllRemovable() {
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
-                ExpressionFunctionAliasSet.parse("name1, name2, name3"), // present
-                ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // present
+            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
+            CONTEXT
         );
 
         // all disabled no need to create any enable links
         this.treePrintAndCheck(
-                component,
-                "RemovePluginAliasSetLikeComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Remove\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name2,%20name3] id=base-id-123-remove-1-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name3] id=base-id-123-remove-2-Link\n" +
-                        "            \"Name3\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2] id=base-id-123-remove-3-Link\n"
+            component,
+            "RemovePluginAliasSetLikeComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Remove\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=base-id-123-remove-0-Link\n" +
+                "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name2,%20name3] id=base-id-123-remove-1-Link\n" +
+                "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name3] id=base-id-123-remove-2-Link\n" +
+                "            \"Name3\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/name1,%20name2] id=base-id-123-remove-3-Link\n"
         );
     }
 
@@ -121,23 +121,23 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.setFilter((t) -> t.toString().contains("name"));
         component.refresh(
-                ExpressionFunctionAliasSet.parse("name1, name2, missing3"), // present
-                ExpressionFunctionAliasSet.parse("name1, name2, missing3"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.parse("name1, name2, missing3"), // present
+            ExpressionFunctionAliasSet.parse("name1, name2, missing3"), // provider
+            CONTEXT
         );
 
         // all disabled no need to create any enable links
         this.treePrintAndCheck(
-                component,
-                "RemovePluginAliasSetLikeComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Remove\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/missing3,%20name1,%20name2] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/missing3,%20name2] id=base-id-123-remove-1-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/missing3,%20name1] id=base-id-123-remove-2-Link\n"
+            component,
+            "RemovePluginAliasSetLikeComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Remove\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/missing3,%20name1,%20name2] id=base-id-123-remove-0-Link\n" +
+                "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/missing3,%20name2] id=base-id-123-remove-1-Link\n" +
+                "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/missing3,%20name1] id=base-id-123-remove-2-Link\n"
         );
     }
 
@@ -145,22 +145,22 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
     public void testRefreshAllRemovableIncludesAliases() {
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
-                ExpressionFunctionAliasSet.parse("alias1 name1"), // present
-                ExpressionFunctionAliasSet.parse("name1"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.parse("alias1 name1"), // present
+            ExpressionFunctionAliasSet.parse("name1"), // provider
+            CONTEXT
         );
 
         // all disabled no need to create any enable links
         this.treePrintAndCheck(
-                component,
-                "RemovePluginAliasSetLikeComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Remove\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias1%20name1] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/] id=base-id-123-remove-1-Link\n"
+            component,
+            "RemovePluginAliasSetLikeComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Remove\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias1%20name1] id=base-id-123-remove-0-Link\n" +
+                "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/] id=base-id-123-remove-1-Link\n"
         );
     }
 
@@ -168,22 +168,22 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
     public void testRefreshAllRemovableIncludesAliases2() {
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
-                ExpressionFunctionAliasSet.parse("alias1 name1"), // present
-                ExpressionFunctionAliasSet.parse("name1, name2"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.parse("alias1 name1"), // present
+            ExpressionFunctionAliasSet.parse("name1, name2"), // provider
+            CONTEXT
         );
 
         // all disabled no need to create any enable links
         this.treePrintAndCheck(
-                component,
-                "RemovePluginAliasSetLikeComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Remove\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias1%20name1] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/] id=base-id-123-remove-1-Link\n"
+            component,
+            "RemovePluginAliasSetLikeComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Remove\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias1%20name1] id=base-id-123-remove-0-Link\n" +
+                "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/] id=base-id-123-remove-1-Link\n"
         );
     }
 
@@ -191,24 +191,24 @@ public final class RemovePluginAliasSetLikeComponentTest implements HtmlElementC
     public void testRefreshAllRemovableIncludesAliases3() {
         final RemovePluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> component = RemovePluginAliasSetLikeComponent.empty("base-id-123-remove-");
         component.refresh(
-                ExpressionFunctionAliasSet.parse("name1, alias2 name2, alias3 name3 https://example.com/name3"), // present
-                ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
-                CONTEXT
+            ExpressionFunctionAliasSet.parse("name1, alias2 name2, alias3 name3 https://example.com/name3"), // present
+            ExpressionFunctionAliasSet.parse("name1, name2, name3"), // provider
+            CONTEXT
         );
 
         // all disabled no need to create any enable links
         this.treePrintAndCheck(
-                component,
-                "RemovePluginAliasSetLikeComponent\n" +
-                        "  SpreadsheetCard\n" +
-                        "    Card\n" +
-                        "      Remove\n" +
-                        "        SpreadsheetFlexLayout\n" +
-                        "          ROW\n" +
-                        "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias2%20name2,%20alias3%20name3%20https://example.com/name3%20,%20name1] id=base-id-123-remove-0-Link\n" +
-                        "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias2%20name2,%20alias3%20name3%20https://example.com/name3] id=base-id-123-remove-1-Link\n" +
-                        "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias3%20name3%20https://example.com/name3%20,%20name1] id=base-id-123-remove-2-Link\n" +
-                        "            \"Name3\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias2%20name2,%20name1] id=base-id-123-remove-3-Link\n"
+            component,
+            "RemovePluginAliasSetLikeComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      Remove\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"*\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias2%20name2,%20alias3%20name3%20https://example.com/name3%20,%20name1] id=base-id-123-remove-0-Link\n" +
+                "            \"Name1\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias2%20name2,%20alias3%20name3%20https://example.com/name3] id=base-id-123-remove-1-Link\n" +
+                "            \"Name2\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias3%20name3%20https://example.com/name3%20,%20name1] id=base-id-123-remove-2-Link\n" +
+                "            \"Name3\" [#/1/SpreadsheetName123/spreadsheet/formula-functions/save/alias2%20name2,%20name1] id=base-id-123-remove-3-Link\n"
         );
     }
 

@@ -45,7 +45,7 @@ public final class RemovePluginNameSetComponent implements HtmlElementComponent<
      */
     public static RemovePluginNameSetComponent empty(final String id) {
         return new RemovePluginNameSetComponent(
-                CharSequences.failIfNullOrEmpty(id, "id")
+            CharSequences.failIfNullOrEmpty(id, "id")
         );
     }
 
@@ -54,8 +54,8 @@ public final class RemovePluginNameSetComponent implements HtmlElementComponent<
 
         this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle("Remove")
-                .appendChild(this.flex);
+            .setTitle("Remove")
+            .appendChild(this.flex);
     }
 
     RemovePluginNameSetComponent setFilterValueChangeListener(final ChangeListener<Optional<String>> listener) {
@@ -81,12 +81,12 @@ public final class RemovePluginNameSetComponent implements HtmlElementComponent<
         int i = 0;
 
         flex.appendChild(
-                this.anchor(
-                        "*",
-                        aliases,
-                        i,
-                        context
-                )
+            this.anchor(
+                "*",
+                aliases,
+                i,
+                context
+            )
         );
 
         i++;
@@ -98,12 +98,12 @@ public final class RemovePluginNameSetComponent implements HtmlElementComponent<
 
             if (aliases.contains(name) && (null == filter || filter.test(name.text()))) {
                 flex.appendChild(
-                        this.anchor(
-                                name,
-                                aliases.delete(name),
-                                i,
-                                context
-                        )
+                    this.anchor(
+                        name,
+                        aliases.delete(name),
+                        i,
+                        context
+                    )
                 );
 
                 i++;
@@ -126,12 +126,12 @@ public final class RemovePluginNameSetComponent implements HtmlElementComponent<
                                                final int index,
                                                final RemovePluginNameSetComponentContext context) {
         return this.anchor(
-                CaseKind.kebabToTitle(
-                        remove.value()
-                ),
-                aliases,
-                index,
-                context
+            CaseKind.kebabToTitle(
+                remove.value()
+            ),
+            aliases,
+            index,
+            context
         );
     }
 
@@ -143,11 +143,11 @@ public final class RemovePluginNameSetComponent implements HtmlElementComponent<
                                                final int index,
                                                final RemovePluginNameSetComponentContext context) {
         return context.historyToken()
-                .saveLink(
-                        this.id + index,
-                        title,
-                        aliases.text()
-                );
+            .saveLink(
+                this.id + index,
+                title,
+                aliases.text()
+            );
     }
 
     /**

@@ -27,8 +27,8 @@ public final class AppContextSpreadsheetFormatterSelectorDialogComponentContextC
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(null)
+            NullPointerException.class,
+            () -> AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(null)
         );
     }
 

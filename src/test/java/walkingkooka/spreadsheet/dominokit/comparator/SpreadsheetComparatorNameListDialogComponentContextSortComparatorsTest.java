@@ -27,8 +27,8 @@ public final class SpreadsheetComparatorNameListDialogComponentContextSortCompar
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> SpreadsheetComparatorNameListDialogComponentContextSortComparators.with(null)
+            NullPointerException.class,
+            () -> SpreadsheetComparatorNameListDialogComponentContextSortComparators.with(null)
         );
     }
 

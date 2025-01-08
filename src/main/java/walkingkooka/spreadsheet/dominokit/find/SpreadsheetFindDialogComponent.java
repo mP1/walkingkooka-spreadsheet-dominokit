@@ -57,7 +57,7 @@ import java.util.function.Function;
  * A modal dialog that provides form elements to perform a find with a table showing the matching cells.
  */
 public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogComponentLifecycle,
-        LoadedSpreadsheetMetadataRequired {
+    LoadedSpreadsheetMetadataRequired {
 
     /**
      * Creates a new {@link SpreadsheetFindDialogComponent}.
@@ -90,11 +90,11 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.close = this.closeAnchor();
 
         this.table = SpreadsheetDeltaMatchedCellsTableComponent.with(
-                ID,
-                SpreadsheetDeltaMatchedCellsTableComponentContexts.basic(
-                        context, // HistoryTokenContext
-                        context //
-                )
+            ID,
+            SpreadsheetDeltaMatchedCellsTableComponentContexts.basic(
+                context, // HistoryTokenContext
+                context //
+            )
         );
 
         this.dialog = this.dialogCreate();
@@ -112,39 +112,39 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         final HistoryTokenContext context = this.context;
 
         return SpreadsheetDialogComponent.with(
-                ID + SpreadsheetElementIds.DIALOG,
-                "Find",
-                true, // includeClose
-                context
+            ID + SpreadsheetElementIds.DIALOG,
+            "Find",
+            true, // includeClose
+            context
         ).appendChild(
-                SpreadsheetFindDialogComponentGridLayout.empty()
-                        .setLeft(
-                                Lists.of(
-                                        this.cellRange,
-                                        this.path,
-                                        this.valueType,
-                                        this.formula,
-                                        this.formatter,
-                                        this.parser,
-                                        this.style,
-                                        this.value,
-                                        this.formattedValue,
-                                        this.query
-                                )
-                        ).setContent(
-                                Lists.of(
-                                        this.table.setCssText("margin-left: 5px")
-                                )
-                        ).setFooter(
-                                Lists.of(
-                                        SpreadsheetFlexLayout.row()
-                                                .appendChild(this.find)
-                                                .appendChild(this.reset)
-                                                .appendChild(this.loadHighlightingQuery)
-                                                .appendChild(this.saveAsHighlightingQuery)
-                                                .appendChild(this.close)
-                                )
-                        )
+            SpreadsheetFindDialogComponentGridLayout.empty()
+                .setLeft(
+                    Lists.of(
+                        this.cellRange,
+                        this.path,
+                        this.valueType,
+                        this.formula,
+                        this.formatter,
+                        this.parser,
+                        this.style,
+                        this.value,
+                        this.formattedValue,
+                        this.query
+                    )
+                ).setContent(
+                    Lists.of(
+                        this.table.setCssText("margin-left: 5px")
+                    )
+                ).setFooter(
+                    Lists.of(
+                        SpreadsheetFlexLayout.row()
+                            .appendChild(this.find)
+                            .appendChild(this.reset)
+                            .appendChild(this.loadHighlightingQuery)
+                            .appendChild(this.saveAsHighlightingQuery)
+                            .appendChild(this.close)
+                    )
+                )
         );
     }
 
@@ -159,10 +159,10 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetCellRangeReferenceComponent cellRange() {
         return SpreadsheetCellRangeReferenceComponent.empty()
-                .setId(ID_PREFIX + "cell-range" + SpreadsheetElementIds.TEXT_BOX)
-                .setLabel("Cell Range")
-                .addChangeListener(this::onCellRangeValueChange)
-                .required();
+            .setId(ID_PREFIX + "cell-range" + SpreadsheetElementIds.TEXT_BOX)
+            .setLabel("Cell Range")
+            .addChangeListener(this::onCellRangeValueChange)
+            .required();
     }
 
     /**
@@ -171,13 +171,13 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     private void onCellRangeValueChange(final Optional<SpreadsheetCellRangeReference> oldCellRange,
                                         final Optional<SpreadsheetCellRangeReference> newCellRange) {
         this.setAndRefresh(
-                t -> t.setAnchoredSelection(
-                        newCellRange.map(
-                                SpreadsheetSelection::setDefaultAnchor
-                        )
-                ).setQuery(
-                        t.query()
+            t -> t.setAnchoredSelection(
+                newCellRange.map(
+                    SpreadsheetSelection::setDefaultAnchor
                 )
+            ).setQuery(
+                t.query()
+            )
         );
     }
 
@@ -187,18 +187,18 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetCellRangeReferencePathComponent path() {
         return SpreadsheetCellRangeReferencePathComponent.empty()
-                .setId(ID_PREFIX + "cell-range-path" + SpreadsheetElementIds.SELECT)
-                .setLabel("Cell Range Path")
-                .addChangeListener(this::onCellRangePathValueChange);
+            .setId(ID_PREFIX + "cell-range-path" + SpreadsheetElementIds.SELECT)
+            .setLabel("Cell Range Path")
+            .addChangeListener(this::onCellRangePathValueChange);
     }
 
     private void onCellRangePathValueChange(final Optional<SpreadsheetCellRangeReferencePath> oldPath,
                                             final Optional<SpreadsheetCellRangeReferencePath> newPath) {
         this.setAndRefresh(
-                t -> t.setQuery(
-                        t.query()
-                                .setPath(newPath)
-                )
+            t -> t.setQuery(
+                t.query()
+                    .setPath(newPath)
+            )
         );
     }
 
@@ -211,23 +211,23 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      */
     private SpreadsheetFormulaComponent query() {
         return SpreadsheetFormulaComponent.empty(
-                        SpreadsheetFormulaComponentFunctions.expressionParser(
-                                this::spreadsheetParserContext
-                        )
-                ).setId("query-TextBox")
-                .setLabel("Query")
-                .addChangeListener(this::onQueryChange);
+                SpreadsheetFormulaComponentFunctions.expressionParser(
+                    this::spreadsheetParserContext
+                )
+            ).setId("query-TextBox")
+            .setLabel("Query")
+            .addChangeListener(this::onQueryChange);
     }
 
     private void onQueryChange(final Optional<SpreadsheetFormula> oldFormula,
                                final Optional<SpreadsheetFormula> newFormula) {
         this.setAndRefresh(
-                t -> t.setQuery(
-                        t.query()
-                                .setQuery(
-                                        newFormula.map(f -> SpreadsheetCellQuery.parse(f.text()))
-                                )
-                )
+            t -> t.setQuery(
+                t.query()
+                    .setQuery(
+                        newFormula.map(f -> SpreadsheetCellQuery.parse(f.text()))
+                    )
+            )
         );
     }
 
@@ -240,18 +240,18 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     private void refreshQueryFromWizardFields(final Optional<?> old,
                                               final Optional<?> newAlsoIgnored) {
         this.query.setValue(
-                SpreadsheetFindDialogComponentQuery.query(
-                        this.context.historyToken()
-                                .cast(SpreadsheetCellFindHistoryToken.class)
-                                .query()
-                                .query(),
-                        this.formula.value(),
-                        this.formatter.value(),
-                        this.parser.value(),
-                        this.style.value(),
-                        this.value.value(),
-                        this.formattedValue.value()
-                )
+            SpreadsheetFindDialogComponentQuery.query(
+                this.context.historyToken()
+                    .cast(SpreadsheetCellFindHistoryToken.class)
+                    .query()
+                    .query(),
+                this.formula.value(),
+                this.formatter.value(),
+                this.parser.value(),
+                this.style.value(),
+                this.value.value(),
+                this.formattedValue.value()
+            )
         );
     }
 
@@ -259,18 +259,18 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetValueTypeComponent valueType() {
         return SpreadsheetValueTypeComponent.empty()
-                .setId(ID_PREFIX + "value-type" + SpreadsheetElementIds.SELECT)
-                .setLabel("Value type")
-                .addChangeListener(this::onValueTypeChange);
+            .setId(ID_PREFIX + "value-type" + SpreadsheetElementIds.SELECT)
+            .setLabel("Value type")
+            .addChangeListener(this::onValueTypeChange);
     }
 
     private void onValueTypeChange(final Optional<String> oldValue,
                                    final Optional<String> newValue) {
         this.setAndRefresh(
-                t -> t.setQuery(
-                        t.query()
-                                .setValueType(newValue)
-                )
+            t -> t.setQuery(
+                t.query()
+                    .setValueType(newValue)
+            )
         );
     }
 
@@ -294,8 +294,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         HistoryToken token;
         try {
             token = updater.apply(
-                    context.historyToken()
-                            .cast(SpreadsheetCellFindHistoryToken.class)
+                context.historyToken()
+                    .cast(SpreadsheetCellFindHistoryToken.class)
             );
         } catch (final Exception ignore) {
             token = null;
@@ -311,7 +311,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private TextMatchComponent formula() {
         return textMatchComponent(
-                "Formula"
+            "Formula"
         );
     }
 
@@ -321,7 +321,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private TextMatchComponent formatter() {
         return textMatchComponent(
-                "Formatter"
+            "Formatter"
         );
     }
 
@@ -331,7 +331,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private TextMatchComponent parser() {
         return textMatchComponent(
-                "Parser"
+            "Parser"
         );
     }
 
@@ -341,7 +341,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private TextMatchComponent style() {
         return textMatchComponent(
-                "Style"
+            "Style"
         );
     }
 
@@ -351,11 +351,11 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private SpreadsheetConditionRightParserTokenComponent value() {
         return SpreadsheetConditionRightParserTokenComponent.empty(
-                        this::spreadsheetParserContext
-                ).setId(ID_PREFIX + "value" + SpreadsheetElementIds.TEXT_BOX)
-                .setLabel("Value")
-                .optional()
-                .addChangeListener(this::onValueValueChange);
+                this::spreadsheetParserContext
+            ).setId(ID_PREFIX + "value" + SpreadsheetElementIds.TEXT_BOX)
+            .setLabel("Value")
+            .optional()
+            .addChangeListener(this::onValueValueChange);
     }
 
     private void onValueValueChange(final Optional<SpreadsheetConditionRightParserToken> old,
@@ -369,7 +369,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private TextMatchComponent formattedValue() {
         return textMatchComponent(
-                "Formatted"
+            "Formatted"
         );
     }
 
@@ -383,22 +383,22 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      */
     private TextMatchComponent textMatchComponent(final String label) {
         return TextMatchComponent.empty()
-                .setId(
-                        ID_PREFIX +
-                                CaseKind.TITLE.change(
-                                        label,
-                                        CaseKind.KEBAB
-                                ) +
-                                SpreadsheetElementIds.TEXT_BOX
-                ).setLabel(label)
-                .addChangeListener(this::refreshQueryFromWizardFields);
+            .setId(
+                ID_PREFIX +
+                    CaseKind.TITLE.change(
+                        label,
+                        CaseKind.KEBAB
+                    ) +
+                    SpreadsheetElementIds.TEXT_BOX
+            ).setLabel(label)
+            .addChangeListener(this::refreshQueryFromWizardFields);
     }
 
     // find.............................................................................................................
 
     private void refreshFind(final SpreadsheetCellFindHistoryToken token) {
         this.find.setHistoryToken(
-                Optional.of(token)
+            Optional.of(token)
         );
     }
 
@@ -408,16 +408,16 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private void refreshReset(final SpreadsheetCellFindHistoryToken token) {
         this.reset.setHistoryToken(
-                Optional.of(
-                        token.setQuery(
-                                token.query()
-                                        .setPath(
-                                                Optional.empty()
-                                        ).setValueType(
-                                                Optional.empty()
-                                        )
+            Optional.of(
+                token.setQuery(
+                    token.query()
+                        .setPath(
+                            Optional.empty()
+                        ).setValueType(
+                            Optional.empty()
                         )
                 )
+            )
         );
     }
 
@@ -435,16 +435,16 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         final SpreadsheetCellQuery highlightingQuery = metadata.get(SpreadsheetMetadataPropertyName.FIND_QUERY).orElse(null);
 
         this.loadHighlightingQuery.setHistoryToken(
-                Optional.ofNullable(
-                        null != highlightingQuery ?
-                                token.setQuery(
-                                        token.query()
-                                                .setQuery(
-                                                        Optional.of(highlightingQuery)
-                                                )
-                                ) :
-                                null
-                )
+            Optional.ofNullable(
+                null != highlightingQuery ?
+                    token.setQuery(
+                        token.query()
+                            .setQuery(
+                                Optional.of(highlightingQuery)
+                            )
+                    ) :
+                    null
+            )
         );
     }
 
@@ -457,15 +457,15 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      */
     private void refreshSaveAsHighlightingQuery(final SpreadsheetCellFindHistoryToken token) {
         final Optional<SpreadsheetCellQuery> query = token.query()
-                .query();
+            .query();
 
         this.saveAsHighlightingQuery.setHistoryToken(
-                Optional.ofNullable(
-                        query.isPresent() ?
-                                token.setMetadataPropertyName(SpreadsheetMetadataPropertyName.FIND_QUERY)
-                                        .save(query) :
-                                null
-                )
+            Optional.ofNullable(
+                query.isPresent() ?
+                    token.setMetadataPropertyName(SpreadsheetMetadataPropertyName.FIND_QUERY)
+                        .save(query) :
+                    null
+            )
         );
     }
 
@@ -496,8 +496,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
         return token.getClass()
-                .getSimpleName()
-                .contains("Save");
+            .getSimpleName()
+            .contains("Save");
     }
 
     @Override
@@ -513,7 +513,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     @Override
     public void openGiveFocus(final RefreshContext context) {
         context.giveFocus(
-                this.cellRange::focus
+            this.cellRange::focus
         );
     }
 
@@ -523,36 +523,36 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     @Override
     public void refresh(final RefreshContext context) {
         final SpreadsheetCellFindHistoryToken token = context.historyToken()
-                .cast(SpreadsheetCellFindHistoryToken.class);
+            .cast(SpreadsheetCellFindHistoryToken.class);
 
         this.cellRange.setValue(
-                Optional.of(
-                        token.anchoredSelection()
-                                .selection()
-                                .toCellRange()
-                )
+            Optional.of(
+                token.anchoredSelection()
+                    .selection()
+                    .toCellRange()
+            )
         );
 
         final SpreadsheetCellFindQuery find = token.query();
 
         this.path.setValue(
-                find.path()
+            find.path()
         );
         this.valueType.setValue(
-                find.valueType()
+            find.valueType()
         );
 
         this.value.validate();
 
         final Optional<SpreadsheetCellQuery> maybeQuery = find.query();
         this.query.setStringValue(
-                maybeQuery.map(SpreadsheetCellQuery::text)
+            maybeQuery.map(SpreadsheetCellQuery::text)
         );
         final SpreadsheetCellQuery query = maybeQuery.orElse(null);
         if (null != query) {
             SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor.refresh(
-                    query.parserToken(),
-                    this
+                query.parserToken(),
+                this
             );
         }
 
@@ -573,17 +573,17 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         final SpreadsheetFindDialogComponentContext context = this.context;
 
         final SpreadsheetCellFindHistoryToken historyToken = context.historyToken()
-                .cast(SpreadsheetCellFindHistoryToken.class);
+            .cast(SpreadsheetCellFindHistoryToken.class);
 
         final SpreadsheetId id = historyToken.id();
         final SpreadsheetCellRangeReference cells = historyToken.anchoredSelection()
-                .selection()
-                .toCellRange();
+            .selection()
+            .toCellRange();
 
         context.findCells(
-                id,
-                cells,
-                historyToken.query()
+            id,
+            cells,
+            historyToken.query()
         );
     }
 

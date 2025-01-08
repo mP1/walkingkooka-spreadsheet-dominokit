@@ -33,13 +33,13 @@ public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetLi
 
     static SpreadsheetListRenameSelectHistoryToken with(final SpreadsheetId id) {
         return new SpreadsheetListRenameSelectHistoryToken(
-                id
+            id
         );
     }
 
     private SpreadsheetListRenameSelectHistoryToken(final SpreadsheetId id) {
         super(
-                id
+            id
         );
     }
 
@@ -56,8 +56,8 @@ public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetLi
     @Override
     HistoryToken save0(final String value) {
         return HistoryToken.spreadsheetListRenameSave(
-                this.id(),
-                SpreadsheetName.with(value)
+            this.id(),
+            SpreadsheetName.with(value)
         );
     }
 
@@ -69,7 +69,7 @@ public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetLi
         switch (component) {
             case SAVE_STRING:
                 historyToken = this.save(
-                        parseComponentOrEmpty(cursor)
+                    parseComponentOrEmpty(cursor)
                 );
                 break;
             default:

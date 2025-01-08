@@ -44,9 +44,9 @@ final class SpreadsheetFormulaComponentExpressionParserFunction implements Funct
     @Override
     public SpreadsheetFormula apply(final String text) {
         return SpreadsheetFormula.parse(
-                TextCursors.charSequence(text),
-                SpreadsheetParsers.expression(),
-                this.context.get()
+            TextCursors.charSequence(text),
+            SpreadsheetParsers.expression(),
+            this.context.get()
         );
     }
 

@@ -34,32 +34,32 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
         checkContext(context);
 
         return new SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount(
-                context
+            context
         );
     }
 
     private SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount(final SpreadsheetMetadataPanelComponentContext context) {
         super(
-                SpreadsheetMetadataPropertyName.GENERAL_NUMBER_FORMAT_DIGIT_COUNT,
-                context
+            SpreadsheetMetadataPropertyName.GENERAL_NUMBER_FORMAT_DIGIT_COUNT,
+            context
         );
 
         final UListElement list = this.uListElement();
 
         final IntegerBox integerBox = this.integerBox()
-                .setMinValue(0)
-                .setStep(1);
+            .setMinValue(0)
+            .setStep(1);
         this.integerBox = integerBox;
 
         list.appendChild(
-                liElement()
-                        .appendChild(integerBox)
+            liElement()
+                .appendChild(integerBox)
         );
 
         final HistoryTokenAnchorComponent defaultValueAnchor = this.defaultValueAnchor();
         list.appendChild(
-                liElement()
-                        .appendChild(defaultValueAnchor)
+            liElement()
+                .appendChild(defaultValueAnchor)
         );
         this.defaultValueAnchor = defaultValueAnchor;
 
@@ -80,16 +80,16 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
 
         this.integerBox.setValue(
-                metadata.getIgnoringDefaults(this.propertyName)
-                        .orElse(null)
+            metadata.getIgnoringDefaults(this.propertyName)
+                .orElse(null)
         );
 
         this.refreshDefaultValue(
-                this.defaultValueAnchor,
-                metadata.defaults()
-                        .get(propertyName)
-                        .map(Object::toString)
-                        .orElse("")
+            this.defaultValueAnchor,
+            metadata.defaults()
+                .get(propertyName)
+                .map(Object::toString)
+                .orElse("")
         );
     }
 

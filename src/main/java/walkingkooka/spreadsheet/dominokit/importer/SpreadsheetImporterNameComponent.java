@@ -34,8 +34,8 @@ public final class SpreadsheetImporterNameComponent implements ValueSpreadsheetT
 
     private SpreadsheetImporterNameComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetImporterName::with,
-                SpreadsheetImporterName::toString
+            SpreadsheetImporterName::with,
+            SpreadsheetImporterName::toString
         );
     }
 

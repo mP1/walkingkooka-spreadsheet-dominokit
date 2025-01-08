@@ -33,8 +33,8 @@ public final class PluginSaveHistoryToken extends PluginNameHistoryToken impleme
     static PluginSaveHistoryToken with(final PluginName name,
                                        final String value) {
         return new PluginSaveHistoryToken(
-                Objects.requireNonNull(name, "name"),
-                Objects.requireNonNull(value, "value")
+            Objects.requireNonNull(name, "name"),
+            Objects.requireNonNull(value, "value")
         );
     }
 
@@ -66,8 +66,8 @@ public final class PluginSaveHistoryToken extends PluginNameHistoryToken impleme
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.pluginListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
+            OptionalInt.empty(), // offset
+            OptionalInt.empty() // count
         );
     }
 

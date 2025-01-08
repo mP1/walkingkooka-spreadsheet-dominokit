@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 
 public final class ExpressionFunctionFetcherWatchers extends FetcherWatchers<ExpressionFunctionFetcherWatcher>
-        implements ExpressionFunctionFetcherWatcher {
+    implements ExpressionFunctionFetcherWatcher {
 
     private ExpressionFunctionFetcherWatchers() {
         super();
@@ -37,11 +37,11 @@ public final class ExpressionFunctionFetcherWatchers extends FetcherWatchers<Exp
                                             final ExpressionFunctionInfoSet infos,
                                             final AppContext context) {
         this.fire(
-                ExpressionFunctionFetcherWatchersInfoSetEvent.with(
-                        id,
-                        infos,
-                        context
-                )
+            ExpressionFunctionFetcherWatchersInfoSetEvent.with(
+                id,
+                infos,
+                context
+            )
         );
     }
 }

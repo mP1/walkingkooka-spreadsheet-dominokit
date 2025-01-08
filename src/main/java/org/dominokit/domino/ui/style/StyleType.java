@@ -21,33 +21,47 @@ package org.dominokit.domino.ui.style;
  * <p>Each enum value represent a different css class to style the element
  */
 public enum StyleType {
-  /** a default style that indicate no special information */
-  DEFAULT("default"),
-  /** marks an element as a primary. */
-  PRIMARY("primary"),
-  /** indicates a success operation */
-  SUCCESS("success"),
-  /** mark an element as one that has some information */
-  INFO("info"),
-  /** mark an element as one that requires user attention */
-  WARNING("warning"),
-  /** indicates an error or something went wrong */
-  DANGER("danger");
+    /**
+     * a default style that indicate no special information
+     */
+    DEFAULT("default"),
+    /**
+     * marks an element as a primary.
+     */
+    PRIMARY("primary"),
+    /**
+     * indicates a success operation
+     */
+    SUCCESS("success"),
+    /**
+     * mark an element as one that has some information
+     */
+    INFO("info"),
+    /**
+     * mark an element as one that requires user attention
+     */
+    WARNING("warning"),
+    /**
+     * indicates an error or something went wrong
+     */
+    DANGER("danger");
 
-  private final String style;
+    private final String style;
 
-  /** @param style String css class name */
-  StyleType(String style) {
-    this.style = style;
-  }
+    /**
+     * @param style String css class name
+     */
+    StyleType(String style) {
+        this.style = style;
+    }
 
-  /** @return the css class name that represent the informative style. */
-  /**
-   * Getter for the field <code>style</code>.
-   *
-   * @return a {@link String} object
-   */
-  public String getStyle() {
-    return style;
-  }
+    /** @return the css class name that represent the informative style. */
+    /**
+     * Getter for the field <code>style</code>.
+     *
+     * @return a {@link String} object
+     */
+    public String getStyle() {
+        return style;
+    }
 }

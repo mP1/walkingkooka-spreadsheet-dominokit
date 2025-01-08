@@ -29,8 +29,8 @@ public final class SpreadsheetComparatorAliasSetComponent implements ValueSpread
 
     private SpreadsheetComparatorAliasSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetComparatorAliasSet::parse,
-                SpreadsheetComparatorAliasSet::text
+            SpreadsheetComparatorAliasSet::parse,
+            SpreadsheetComparatorAliasSet::text
         );
     }
 

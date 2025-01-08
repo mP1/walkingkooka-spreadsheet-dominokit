@@ -51,30 +51,30 @@ import java.util.Optional;
  * Provides a text box which supports editing of a formula belonging to a cell.
  */
 public final class SpreadsheetViewportFormulaComponent implements HtmlElementComponent<HTMLFieldSetElement, SpreadsheetViewportFormulaComponent>,
-        HistoryTokenAwareComponentLifecycle,
-        NopFetcherWatcher,
-        NopEmptyResponseFetcherWatcher,
-        SpreadsheetDeltaFetcherWatcher,
-        LoadedSpreadsheetMetadataRequired {
+    HistoryTokenAwareComponentLifecycle,
+    NopFetcherWatcher,
+    NopEmptyResponseFetcherWatcher,
+    SpreadsheetDeltaFetcherWatcher,
+    LoadedSpreadsheetMetadataRequired {
 
     public static SpreadsheetViewportFormulaComponent with(final AppContext context) {
         return new SpreadsheetViewportFormulaComponent(
-                Objects.requireNonNull(context, "context")
+            Objects.requireNonNull(context, "context")
         );
     }
 
     private SpreadsheetViewportFormulaComponent(final AppContext context) {
         this.formula = SpreadsheetFormulaComponent.empty(
-                        SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(context)
-                ).alwaysShowHelperText()
-                .hideMarginBottom()
-                .removeBorders()
-                .addFocusListener(this::onFocus)
-                .addKeydownListener(
-                        (event) -> onKeyDownEvent(
-                                Js.cast(event)
-                        )
-                ).setDisabled(true);
+                SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(context)
+            ).alwaysShowHelperText()
+            .hideMarginBottom()
+            .removeBorders()
+            .addFocusListener(this::onFocus)
+            .addKeydownListener(
+                (event) -> onKeyDownEvent(
+                    Js.cast(event)
+                )
+            ).setDisabled(true);
         this.context = context;
 
         context.addHistoryTokenWatcher(this);
@@ -88,7 +88,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
         context.debug("SpreadsheetViewportFormulaComponent.onFocus " + historyToken.anchoredSelectionOrEmpty());
 
         context.pushHistoryToken(
-                historyToken.formula()
+            historyToken.formula()
         );
     }
 
@@ -101,12 +101,12 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
                 // if cell then edit formula
                 context.pushHistoryToken(
-                        context.historyToken()
-                                .formula()
-                                .save(
-                                        this.formula.stringValue()
-                                                .orElse("")
-                                )
+                    context.historyToken()
+                        .formula()
+                        .save(
+                            this.formula.stringValue()
+                                .orElse("")
+                        )
                 );
                 break;
             case Escape:
@@ -177,13 +177,13 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
     @Override
     public void refresh(final RefreshContext context) {
         final SpreadsheetCellHistoryToken token = context.historyToken()
-                .cast(SpreadsheetCellHistoryToken.class);
+            .cast(SpreadsheetCellHistoryToken.class);
         final SpreadsheetFormulaComponent formula = this.formula;
         final SpreadsheetSelection notLabelSelection = this.context.spreadsheetViewportCache()
-                .resolveIfLabel(
-                        token.anchoredSelection()
-                                .selection()
-                );
+            .resolveIfLabel(
+                token.anchoredSelection()
+                    .selection()
+            );
         final boolean isCellReference = notLabelSelection.isCellReference();
         formula.setEnabled(isCellReference);
 
@@ -193,8 +193,8 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
             // if cell selection changed reload formula text
             if (false == notLabelSelection.equalsIgnoreReferenceKind(this.selectedCell)) {
                 this.refreshFormula(
-                        selectedCell,
-                        context
+                    selectedCell,
+                    context
                 );
             } else {
                 final SpreadsheetViewportCache cache = this.context.spreadsheetViewportCache();
@@ -210,13 +210,13 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
                 context.debug("SpreadsheetViewportFormulaComponent.refresh formula cell: " + cell);
                 if (null != cell) {
                     formula.setStringValue(
-                            cell.map(c -> c.formula().text())
+                        cell.map(c -> c.formula().text())
                     ).setHelperText(
-                            cell.flatMap(
-                                    c -> c.formula()
-                                            .error()
-                                            .map(SpreadsheetError::message)
-                            )
+                        cell.flatMap(
+                            c -> c.formula()
+                                .error()
+                                .map(SpreadsheetError::message)
+                        )
                     );
                 }
             }
@@ -252,11 +252,11 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
         final SpreadsheetFormulaComponent formula = this.formula;
         formula.setStringValue(text);
         formula.setHelperText(
-                cell.flatMap(
-                        c -> c.formula()
-                                .error()
-                                .map(SpreadsheetError::message)
-                )
+            cell.flatMap(
+                c -> c.formula()
+                    .error()
+                    .map(SpreadsheetError::message)
+            )
         );
         formula.validate();
         this.undoText = text;
@@ -271,8 +271,8 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
     public void close(final RefreshContext context) {
         this.open = false;
         this.formula.disabled()
-                .clearValue()
-                .clearHelperText();
+            .clearValue()
+            .clearHelperText();
 
         this.selectedCell = null;
         this.previousHistoryToken = null;

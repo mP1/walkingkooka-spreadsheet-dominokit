@@ -48,9 +48,9 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
                                                             final List<ColumnConfig<T>> columnConfigs,
                                                             final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer) {
         return new SpreadsheetDataTableComponent<>(
-                id,
-                columnConfigs,
-                cellRenderer
+            id,
+            columnConfigs,
+            cellRenderer
         );
     }
 
@@ -64,19 +64,19 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         final LocalListDataStore<T> localListDataStore = new LocalListDataStore<>();
 
         this.table = new DataTable<>(
-                tableConfig(
-                        Objects.requireNonNull(
-                                Lists.immutable(columnConfigs),
-                                "tableConfigs"
-                        ),
-                        Objects.requireNonNull(
-                                cellRenderer,
-                                "cellRenderer"
-                        )
+            tableConfig(
+                Objects.requireNonNull(
+                    Lists.immutable(columnConfigs),
+                    "tableConfigs"
                 ),
-                localListDataStore
+                Objects.requireNonNull(
+                    cellRenderer,
+                    "cellRenderer"
+                )
+            ),
+            localListDataStore
         ).setId(
-                CharSequences.subSequence(id, 0, -1) + SpreadsheetElementIds.TABLE
+            CharSequences.subSequence(id, 0, -1) + SpreadsheetElementIds.TABLE
         );
         this.dataStore = localListDataStore;
 
@@ -98,13 +98,13 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
 
         for (final ColumnConfig<T> columnConfig : columnConfigs) {
             tableConfig.addColumn(
-                    // overwrite the original cellrenderer
-                    columnConfig.setCellRenderer(
-                            SpreadsheetDataTableComponentDataTableCellRenderer.with(
-                                    i,
-                                    cellRenderer
-                            )
+                // overwrite the original cellrenderer
+                columnConfig.setCellRenderer(
+                    SpreadsheetDataTableComponentDataTableCellRenderer.with(
+                        i,
+                        cellRenderer
                     )
+                )
             );
 
             i++;
@@ -145,9 +145,9 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
     @Override
     public Optional<List<T>> value() {
         return Optional.of(
-                Lists.immutable(
-                        this.dataStore.getRecords()
-                )
+            Lists.immutable(
+                this.dataStore.getRecords()
+            )
         );
     }
 
@@ -156,8 +156,8 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         Objects.requireNonNull(value, "value");
 
         this.dataStore.setData(
-                value.map(Lists::immutable)
-                        .orElse(Lists.empty())
+            value.map(Lists::immutable)
+                .orElse(Lists.empty())
         );
         return this;
     }
@@ -186,7 +186,7 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
     @Override
     public SpreadsheetDataTableComponent<T> appendChild(final IsElement<?> child) {
         this.table.element()
-                .appendChild(child.element());
+            .appendChild(child.element());
         return this;
     }
 
@@ -194,14 +194,14 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
     public SpreadsheetDataTableComponent<T> removeChild(final int index) {
         final IsElement<?> child = this.children.remove(index);
         this.table.element()
-                .removeChild(child.element());
+            .removeChild(child.element());
         return this;
     }
 
     @Override
     public List<IsElement<?>> children() {
         return Lists.immutable(
-                this.children
+            this.children
         );
     }
 
@@ -230,9 +230,9 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
         this.next.setCssText("float=right");
 
         this.appendChild(
-                SpreadsheetFlexLayout.row()
-                        .appendChild(this.previous)
-                        .appendChild(this.next)
+            SpreadsheetFlexLayout.row()
+                .appendChild(this.previous)
+                .appendChild(this.next)
         );
 
         return this;
@@ -263,7 +263,7 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
     @Override
     public SpreadsheetDataTableComponent<T> hideHeaders() {
         this.table.headerElement()
-                .hide();
+            .hide();
         this.headersHidden = true;
         return this;
     }
@@ -275,12 +275,12 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
     @Override
     public SpreadsheetDataTableComponent<T> bodyScrollPlugin() {
         this.plugins.add(
-                SpreadsheetDataTableComponentLike.bodyScrollPluginText()
+            SpreadsheetDataTableComponentLike.bodyScrollPluginText()
         );
         this.table.getTableConfig()
-                .addPlugin(
-                        new BodyScrollPlugin<>()
-                );
+            .addPlugin(
+                new BodyScrollPlugin<>()
+            );
         return this;
     }
 
@@ -288,18 +288,18 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
     public SpreadsheetDataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
                                                              final String title) {
         this.plugins.add(
-                SpreadsheetDataTableComponentLike.emptyStatePluginText(
-                        icon,
-                        title
-                )
+            SpreadsheetDataTableComponentLike.emptyStatePluginText(
+                icon,
+                title
+            )
         );
         this.table.getTableConfig()
-                .addPlugin(
-                        EmptyStatePlugin.create(
-                                icon,
-                                title
-                        )
-                );
+            .addPlugin(
+                EmptyStatePlugin.create(
+                    icon,
+                    title
+                )
+            );
         return this;
     }
 
@@ -310,12 +310,12 @@ public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTa
     @Override
     public void printTree(final IndentingPrinter printer) {
         this.printTreeTable(
-                this.table.getTableConfig()
-                        .getColumns(),
-                this.headersHidden,
-                this.cellRenderer,
-                this.plugins,
-                printer
+            this.table.getTableConfig()
+                .getColumns(),
+            this.headersHidden,
+            this.cellRenderer,
+            this.plugins,
+            printer
         );
     }
 

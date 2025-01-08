@@ -31,7 +31,7 @@ public final class PluginSelectHistoryToken extends PluginNameHistoryToken {
 
     static PluginSelectHistoryToken with(final PluginName name) {
         return new PluginSelectHistoryToken(
-                Objects.requireNonNull(name, "name")
+            Objects.requireNonNull(name, "name")
         );
     }
 
@@ -54,8 +54,8 @@ public final class PluginSelectHistoryToken extends PluginNameHistoryToken {
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.pluginListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
+            OptionalInt.empty(), // offset
+            OptionalInt.empty() // count
         );
     }
 

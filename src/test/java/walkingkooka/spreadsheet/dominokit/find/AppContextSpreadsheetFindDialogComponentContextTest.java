@@ -27,8 +27,8 @@ public final class AppContextSpreadsheetFindDialogComponentContextTest implement
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> AppContextSpreadsheetFindDialogComponentContext.with(null)
+            NullPointerException.class,
+            () -> AppContextSpreadsheetFindDialogComponentContext.with(null)
         );
     }
 

@@ -17,18 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-public interface HasPluginFetcherWatchersDelegator extends HasPluginFetcherWatchers{
+public interface HasPluginFetcherWatchersDelegator extends HasPluginFetcherWatchers {
 
     @Override
     default Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {
         return this.hasPluginFetcherWatchers()
-                .addPluginFetcherWatcher(watcher);
+            .addPluginFetcherWatcher(watcher);
     }
 
     @Override
-    default Runnable addPluginFetcherWatcherOnce(final PluginFetcherWatcher watcher){
+    default Runnable addPluginFetcherWatcherOnce(final PluginFetcherWatcher watcher) {
         return this.hasPluginFetcherWatchers()
-                .addPluginFetcherWatcherOnce(watcher);
+            .addPluginFetcherWatcherOnce(watcher);
     }
 
 

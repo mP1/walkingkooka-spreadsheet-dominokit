@@ -32,10 +32,10 @@ final class SpreadsheetDeltaFetcherWatchersEvent extends FetcherWatchersEvent<Sp
                                                      final SpreadsheetDelta delta,
                                                      final AppContext context) {
         return new SpreadsheetDeltaFetcherWatchersEvent(
-                method,
-                url,
-                delta,
-                context
+            method,
+            url,
+            delta,
+            context
         );
     }
 
@@ -52,10 +52,10 @@ final class SpreadsheetDeltaFetcherWatchersEvent extends FetcherWatchersEvent<Sp
     @Override
     void fire(final SpreadsheetDeltaFetcherWatcher watcher) {
         watcher.onSpreadsheetDelta(
-                this.method,
-                this.url,
-                this.delta,
-                this.context
+            this.method,
+            this.url,
+            this.delta,
+            this.context
         );
     }
 

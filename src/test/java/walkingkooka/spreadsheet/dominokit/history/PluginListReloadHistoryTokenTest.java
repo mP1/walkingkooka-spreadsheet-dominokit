@@ -26,55 +26,55 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testParseInvalidOffset() {
         this.parseAndCheck(
-                "/plugin/*/offset/X/reload",
-                HistoryToken.pluginListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "/plugin/*/offset/X/reload",
+            HistoryToken.pluginListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParseReload() {
         this.parseAndCheck(
-                "/plugin/*/reload",
-                PluginListReloadHistoryToken.with(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            "/plugin/*/reload",
+            PluginListReloadHistoryToken.with(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParseOffset() {
         this.parseAndCheck(
-                "/plugin/*/offset/10/reload",
-                PluginListReloadHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.empty() // count
-                )
+            "/plugin/*/offset/10/reload",
+            PluginListReloadHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testParseCount() {
         this.parseAndCheck(
-                "/plugin/*/count/20/reload",
-                PluginListReloadHistoryToken.with(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.of(20) // count
-                )
+            "/plugin/*/count/20/reload",
+            PluginListReloadHistoryToken.with(
+                OptionalInt.empty(), // offset
+                OptionalInt.of(20) // count
+            )
         );
     }
 
     @Test
     public void testParseOffsetAndCount() {
         this.parseAndCheck(
-                "/plugin/*/offset/10/count/20/reload",
-                PluginListReloadHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.of(20) // count
-                )
+            "/plugin/*/offset/10/count/20/reload",
+            PluginListReloadHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.of(20) // count
+            )
         );
     }
 
@@ -86,44 +86,44 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testUrlFragmentOffset() {
         this.urlFragmentAndCheck(
-                PluginListReloadHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.empty() // count
-                ),
-                "/plugin/*/offset/10/reload"
+            PluginListReloadHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.empty() // count
+            ),
+            "/plugin/*/offset/10/reload"
         );
     }
 
     @Test
     public void testUrlFragmentOffsetAndCount() {
         this.urlFragmentAndCheck(
-                PluginListReloadHistoryToken.with(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.of(20) // count
-                ),
-                "/plugin/*/offset/10/count/20/reload"
+            PluginListReloadHistoryToken.with(
+                OptionalInt.of(10), // offset
+                OptionalInt.of(20) // count
+            ),
+            "/plugin/*/offset/10/count/20/reload"
         );
     }
 
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.pluginListSelect(
-                        OFFSET,
-                        COUNT
-                )
+            this.createHistoryToken(),
+            HistoryToken.pluginListSelect(
+                OFFSET,
+                COUNT
+            )
         );
     }
 
     @Test
     public void testReload() {
         this.reloadAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.pluginListReload(
-                        OFFSET,
-                        COUNT
-                )
+            this.createHistoryToken(),
+            HistoryToken.pluginListReload(
+                OFFSET,
+                COUNT
+            )
         );
     }
 
@@ -131,8 +131,8 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
     PluginListReloadHistoryToken createHistoryToken(final OptionalInt offset,
                                                     final OptionalInt count) {
         return PluginListReloadHistoryToken.with(
-                offset,
-                count
+            offset,
+            count
         );
     }
 

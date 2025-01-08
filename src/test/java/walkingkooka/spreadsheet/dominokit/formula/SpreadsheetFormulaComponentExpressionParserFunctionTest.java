@@ -29,22 +29,22 @@ import walkingkooka.util.FunctionTesting;
 import java.util.Optional;
 
 public final class SpreadsheetFormulaComponentExpressionParserFunctionTest implements FunctionTesting<SpreadsheetFormulaComponentExpressionParserFunction,
-        String,
-        SpreadsheetFormula>,
-        SpreadsheetMetadataTesting,
-        TreePrintableTesting {
+    String,
+    SpreadsheetFormula>,
+    SpreadsheetMetadataTesting,
+    TreePrintableTesting {
 
     @Test
     public void testApplyExpressionWithExpressionParser() {
         final String text = "1+2";
 
         this.applyAndCheck(
-                text,
-                SpreadsheetFormula.parse(
-                        TextCursors.charSequence(text),
-                        SpreadsheetParsers.expression(),
-                        SPREADSHEET_PARSER_CONTEXT
-                )
+            text,
+            SpreadsheetFormula.parse(
+                TextCursors.charSequence(text),
+                SpreadsheetParsers.expression(),
+                SPREADSHEET_PARSER_CONTEXT
+            )
         );
     }
 
@@ -53,15 +53,15 @@ public final class SpreadsheetFormulaComponentExpressionParserFunctionTest imple
         final String text = "400+";
 
         this.applyAndCheck(
-                text,
-                SpreadsheetFormula.EMPTY.setText(text)
-                        .setValue(
-                                Optional.of(
-                                        SpreadsheetErrorKind.ERROR.setMessage(
-                                                "End of text at (5,1) \"400+\" expected BINARY_SUB_EXPRESSION"
-                                        )
-                                )
+            text,
+            SpreadsheetFormula.EMPTY.setText(text)
+                .setValue(
+                    Optional.of(
+                        SpreadsheetErrorKind.ERROR.setMessage(
+                            "End of text at (5,1) \"400+\" expected BINARY_SUB_EXPRESSION"
                         )
+                    )
+                )
         );
     }
 
@@ -70,22 +70,22 @@ public final class SpreadsheetFormulaComponentExpressionParserFunctionTest imple
         final String text = "<999";
 
         this.applyAndCheck(
-                text,
-                SpreadsheetFormula.EMPTY.setText(text)
-                        .setValue(
-                                Optional.of(
-                                        SpreadsheetErrorKind.ERROR.setMessage(
-                                                "Invalid character \'<\' at (1,1) \"<999\" expected EXPRESSION_OPT"
-                                        )
-                                )
+            text,
+            SpreadsheetFormula.EMPTY.setText(text)
+                .setValue(
+                    Optional.of(
+                        SpreadsheetErrorKind.ERROR.setMessage(
+                            "Invalid character \'<\' at (1,1) \"<999\" expected EXPRESSION_OPT"
                         )
+                    )
+                )
         );
     }
 
     @Override
     public SpreadsheetFormulaComponentExpressionParserFunction createFunction() {
         return SpreadsheetFormulaComponentExpressionParserFunction.with(
-                () -> SPREADSHEET_PARSER_CONTEXT
+            () -> SPREADSHEET_PARSER_CONTEXT
         );
     }
 

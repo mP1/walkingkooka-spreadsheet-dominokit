@@ -37,9 +37,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                                 final SpreadsheetName name,
                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
 
         final SpreadsheetSelection selection = anchoredSelection.selection();
@@ -60,20 +60,20 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
     @Override //
     final HistoryToken setSortEdit0(final String comparators) {
         return HistoryToken.cellSortEdit(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                comparators
+            this.id(),
+            this.name(),
+            this.anchoredSelection(),
+            comparators
         );
     }
 
     @Override //
     final HistoryToken setSortSave0(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
         return HistoryToken.cellSortSave(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                comparators
+            this.id(),
+            this.name(),
+            this.anchoredSelection(),
+            comparators
         );
     }
 
@@ -108,8 +108,8 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 break;
             case MENU_STRING:
                 result = this.menu(
-                        Optional.empty(), // no selection
-                        SpreadsheetLabelNameResolvers.fake()
+                    Optional.empty(), // no selection
+                    SpreadsheetLabelNameResolvers.fake()
                 );
                 break;
             case PARSER_STRING:
@@ -151,7 +151,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             String component = parseComponentOrNull(cursor);
             if (null != component) {
                 token = cell.setCellCopy(
-                        SpreadsheetCellClipboardKind.parse(component)
+                    SpreadsheetCellClipboardKind.parse(component)
                 );
             }
         }
@@ -168,7 +168,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             String component = parseComponentOrNull(cursor);
             if (null != component) {
                 token = cell.setCellPaste(
-                        SpreadsheetCellClipboardKind.parse(component)
+                    SpreadsheetCellClipboardKind.parse(component)
                 );
             }
         }
@@ -185,7 +185,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             String component = parseComponentOrNull(cursor);
             if (null != component) {
                 token = cell.setCellCut(
-                        SpreadsheetCellClipboardKind.parse(component)
+                    SpreadsheetCellClipboardKind.parse(component)
                 );
             }
         }
@@ -198,15 +198,15 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         cursor.end();
 
         final String queryText = save.textBetween()
-                .toString();
+            .toString();
 
         return this.setQuery(
-                SpreadsheetCellFindQuery.parse(queryText)
+            SpreadsheetCellFindQuery.parse(queryText)
         );
     }
 
     private static String parseComponentOrNull(final TextCursor cursor) {
         return parseComponent(cursor)
-                .orElse(null);
+            .orElse(null);
     }
 }

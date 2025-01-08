@@ -45,7 +45,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
  * A textbox that adds a few extras that should be common to all text boxes.
  */
 public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
-        SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String> {
+    SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String> {
 
     public static SpreadsheetTextBox empty() {
         return new SpreadsheetTextBox();
@@ -58,7 +58,7 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     @Override
     public SpreadsheetTextBox addChangeListener(final ChangeListener<Optional<String>> listener) {
         this.textBox.addChangeListener(
-                SpreadsheetTextBoxChangeListener.with(listener)
+            SpreadsheetTextBoxChangeListener.with(listener)
         );
         return this;
     }
@@ -67,10 +67,10 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     public SpreadsheetTextBox addFocusListener(final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
         this.textBox.getInputElement()
-                .addEventListener(
-                        EventType.focus,
-                        listener::handleEvent
-                );
+            .addEventListener(
+                EventType.focus,
+                listener::handleEvent
+            );
         return this;
     }
 
@@ -79,8 +79,8 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         Objects.requireNonNull(listener, "listener");
 
         this.textBox.addEventListener(
-                EventType.keydown,
-                listener
+            EventType.keydown,
+            listener
         );
         return this;
     }
@@ -90,38 +90,38 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         Objects.requireNonNull(listener, "listener");
 
         this.textBox.addEventListener(
-                EventType.keyup,
-                listener
+            EventType.keyup,
+            listener
         );
         return this;
     }
 
     public SpreadsheetTextBox autocompleteOff() {
         this.textBox.getInputElement()
-                .element()
-                .autocomplete = "off";
+            .element()
+            .autocomplete = "off";
         return this;
     }
 
     public SpreadsheetTextBox clearIcon() {
         this.textBox.apply(
-                self -> self.appendChild(
-                        PostfixAddOn.of(
-                                SpreadsheetIcons.textBoxClear()
-                                        .clickable()
-                                        .addClickListener(
-                                                event -> this.textBox.clear()
-                                        )
+            self -> self.appendChild(
+                PostfixAddOn.of(
+                    SpreadsheetIcons.textBoxClear()
+                        .clickable()
+                        .addClickListener(
+                            event -> this.textBox.clear()
                         )
                 )
+            )
         );
         return this;
     }
 
     public SpreadsheetTextBox disableSpellcheck() {
         this.textBox.getInputElement()
-                .element()
-                .spellcheck = false;
+            .element()
+            .spellcheck = false;
         return this;
     }
 
@@ -135,37 +135,37 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         final TextBox textBox = this.textBox;
 
         textBox.addEventListener(
-                EventType.keydown.getName(),
-                (final Event event) -> {
-                    final KeyboardEvent keyboardEvent = Js.cast(event);
-                    switch (Key.fromEvent(keyboardEvent)) {
-                        case Enter:
-                            event.preventDefault();
-                            textBox.triggerChangeListeners(
-                                    textBox.getValue(), // old ???
-                                    textBox.getValue()// new
-                            );
-                            break;
-                        default:
-                            // ignore other keys
-                            break;
-                    }
+            EventType.keydown.getName(),
+            (final Event event) -> {
+                final KeyboardEvent keyboardEvent = Js.cast(event);
+                switch (Key.fromEvent(keyboardEvent)) {
+                    case Enter:
+                        event.preventDefault();
+                        textBox.triggerChangeListeners(
+                            textBox.getValue(), // old ???
+                            textBox.getValue()// new
+                        );
+                        break;
+                    default:
+                        // ignore other keys
+                        break;
                 }
+            }
         );
         return this;
     }
 
     public SpreadsheetTextBox magnifyingGlassIcon() {
         this.textBox.apply(
-                self -> self.appendChild(
-                        PostfixAddOn.of(
-                                SpreadsheetIcons.textBoxMagnifyGlass()
-                                        .clickable()
-                                        .addClickListener(
-                                                event -> this.textBox.focus()
-                                        )
+            self -> self.appendChild(
+                PostfixAddOn.of(
+                    SpreadsheetIcons.textBoxMagnifyGlass()
+                        .clickable()
+                        .addClickListener(
+                            event -> this.textBox.focus()
                         )
                 )
+            )
         );
         return this;
     }
@@ -173,8 +173,8 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     @Override
     public SpreadsheetTextBox alwaysShowHelperText() {
         final DominoElement<Element> element = elements.elementOf(
-                this.textBox.element()
-                        .firstElementChild
+            this.textBox.element()
+                .firstElementChild
         );
         element.setHeight(HELPER_TEXT_HEIGHT);
         return this;
@@ -185,7 +185,7 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         Objects.requireNonNull(text, "text");
 
         this.textBox.setHelperText(
-                text.orElse(null)
+            text.orElse(null)
         );
         return this;
     }
@@ -193,7 +193,7 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     @Override
     public Optional<String> helperText() {
         return Optional.ofNullable(
-                this.textBox.getHelperText()
+            this.textBox.getHelperText()
         );
     }
 
@@ -206,23 +206,23 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     @Override
     public SpreadsheetTextBox removeBorders() {
         this.textBox.getInputElement()
-                .parent()
-                .setBorder("0")
-                .setCssProperty("border-radius", 0);
+            .parent()
+            .setBorder("0")
+            .setCssProperty("border-radius", 0);
         return this;
     }
 
     @Override
     public SpreadsheetTextBox setId(final String id) {
         this.textBox.getInputElement()
-                .setId(id);
+            .setId(id);
         return this;
     }
 
     @Override
     public String id() {
         return this.textBox.getInputElement()
-                .getId();
+            .getId();
     }
 
     @Override
@@ -241,7 +241,7 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         textBox.setAutoValidation(true);
         textBox.getValidators().clear();
         textBox.addValidator(
-                SpreadsheetTextBoxValidator.with(validator)
+            SpreadsheetTextBoxValidator.with(validator)
         );
         return this;
     }
@@ -260,8 +260,8 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         Objects.requireNonNull(value, "value");
 
         this.textBox.withValue(
-                value.orElse(null),
-                true // silent dont fire change listeners.
+            value.orElse(null),
+            true // silent dont fire change listeners.
         );
         return this;
     }
@@ -269,9 +269,9 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     @Override //
     public Optional<String> value() {
         return Optional.ofNullable(
-                CharSequences.nullToEmpty(
-                        this.textBox.getValue()
-                ).toString()
+            CharSequences.nullToEmpty(
+                this.textBox.getValue()
+            ).toString()
         );
     }
 
@@ -312,7 +312,7 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
     @Override
     public List<String> errors() {
         return Lists.readOnly(
-                this.textBox.getErrors()
+            this.textBox.getErrors()
         );
     }
 
@@ -321,7 +321,7 @@ public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElem
         Objects.requireNonNull(errors, "errors");
 
         this.textBox.invalidate(
-                Lists.immutable(errors)
+            Lists.immutable(errors)
         );
         return this;
     }

@@ -37,22 +37,22 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends Spreadsh
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorTextStyleClear(
-                context
+            context
         );
     }
 
     private SpreadsheetToolbarComponentItemAnchorTextStyleClear(final SpreadsheetToolbarComponentContext context) {
         super(
-                SpreadsheetToolbarComponent.id(
-                        PROPERTY,
-                        Optional.empty()
-                ),
-                Optional.of(
-                        SpreadsheetIcons.clearStyle()
-                ),
-                "Clear styling",
-                "Clear styling",
-                context
+            SpreadsheetToolbarComponent.id(
+                PROPERTY,
+                Optional.empty()
+            ),
+            Optional.of(
+                SpreadsheetIcons.clearStyle()
+            ),
+            "Clear styling",
+            "Clear styling",
+            context
         );
     }
 
@@ -66,10 +66,10 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends Spreadsh
         final HistoryTokenContext context = this.context;
 
         context.historyToken()
-                .anchoredSelectionHistoryTokenOrEmpty()
-                .map(
-                        t -> t.style(PROPERTY)
-                ).ifPresent(context::pushHistoryToken);
+            .anchoredSelectionHistoryTokenOrEmpty()
+            .map(
+                t -> t.style(PROPERTY)
+            ).ifPresent(context::pushHistoryToken);
     }
 
     /**
@@ -78,14 +78,14 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends Spreadsh
     @Override
     public void refresh(final RefreshContext context) {
         this.anchor.setChecked(true)
-                .setHistoryToken(
+            .setHistoryToken(
                 context.historyToken()
-                        .anchoredSelectionHistoryTokenOrEmpty()
-                        .map(
-                                t -> t.style(PROPERTY)
-                                        .clearSave()
-                        )
-        );
+                    .anchoredSelectionHistoryTokenOrEmpty()
+                    .map(
+                        t -> t.style(PROPERTY)
+                            .clearSave()
+                    )
+            );
     }
 
     private static final TextStylePropertyName<Void> PROPERTY = TextStylePropertyName.ALL;

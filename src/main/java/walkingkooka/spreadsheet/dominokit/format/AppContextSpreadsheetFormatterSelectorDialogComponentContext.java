@@ -39,10 +39,10 @@ import java.time.LocalDateTime;
  * An base class capturing most of the requirements for {@link SpreadsheetFormatterSelectorDialogComponentContext}
  */
 abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext implements SpreadsheetFormatterSelectorDialogComponentContext,
-        SpreadsheetDialogComponentContextDelegator,
-        SpreadsheetFormatterContextDelegator,
-        SpreadsheetFormatterProviderDelegator,
-        ProviderContextDelegator {
+    SpreadsheetDialogComponentContextDelegator,
+    SpreadsheetFormatterContextDelegator,
+    SpreadsheetFormatterProviderDelegator,
+    ProviderContextDelegator {
 
     AppContextSpreadsheetFormatterSelectorDialogComponentContext(final AppContext context) {
         super();
@@ -97,13 +97,13 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
     @Override
     public final void loadSpreadsheetFormattersEdit(final String text) {
         this.throttler.add(
-                () -> this.context.spreadsheetFormatterFetcher()
-                        .edit(
-                                this.context.historyToken()
-                                        .cast(SpreadsheetIdHistoryToken.class)
-                                        .id(), // id
-                                text
-                        )
+            () -> this.context.spreadsheetFormatterFetcher()
+                .edit(
+                    this.context.historyToken()
+                        .cast(SpreadsheetIdHistoryToken.class)
+                        .id(), // id
+                    text
+                )
         );
     }
 

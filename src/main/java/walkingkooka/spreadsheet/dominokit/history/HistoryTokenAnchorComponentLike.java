@@ -36,8 +36,8 @@ import java.util.Optional;
  * Defines the public methods for a {@link HistoryTokenAnchorComponent}.
  */
 abstract class HistoryTokenAnchorComponentLike implements AnchorComponentLike<HistoryTokenAnchorComponent>,
-        SpreadsheetContextMenuTarget<HTMLAnchorElement>,
-        SpreadsheetTooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent>{
+    SpreadsheetContextMenuTarget<HTMLAnchorElement>,
+    SpreadsheetTooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent> {
 
     HistoryTokenAnchorComponentLike() {
         super();
@@ -53,11 +53,11 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponentLike<Hi
         final Url url = this.href();
 
         return Optional.ofNullable(
-                url instanceof HasUrlFragment ?
-                        HistoryToken.parse(
-                                ((HasUrlFragment) url).urlFragment()
-                        ) :
-                        null
+            url instanceof HasUrlFragment ?
+                HistoryToken.parse(
+                    ((HasUrlFragment) url).urlFragment()
+                ) :
+                null
         );
     }
 
@@ -68,11 +68,11 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponentLike<Hi
         final HistoryToken historyTokenOrNull = historyToken.orElse(null);
 
         return this.setHref(
-                null == historyTokenOrNull ?
-                        null :
-                        Url.parseAbsoluteOrRelative(
-                                "" + Url.FRAGMENT_START + historyTokenOrNull.urlFragment()
-                        )
+            null == historyTokenOrNull ?
+                null :
+                Url.parseAbsoluteOrRelative(
+                    "" + Url.FRAGMENT_START + historyTokenOrNull.urlFragment()
+                )
         );
     }
 
@@ -81,14 +81,14 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponentLike<Hi
      */
     public final HistoryTokenAnchorComponent addPushHistoryToken(final HistoryTokenContext context) {
         return this.addClickAndKeydownEnterListener(
-                (e) -> {
-                    e.preventDefault();
+            (e) -> {
+                e.preventDefault();
 
-                    this.historyToken()
-                            .ifPresent(
-                                    context::pushHistoryToken
-                            );
-                }
+                this.historyToken()
+                    .ifPresent(
+                        context::pushHistoryToken
+                    );
+            }
         );
     }
 
@@ -111,7 +111,7 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponentLike<Hi
             {
                 printer.lineStart();
                 tooltip.get()
-                        .printTree(printer);
+                    .printTree(printer);
             }
             printer.outdent();
         }
@@ -123,7 +123,7 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponentLike<Hi
             {
                 printer.lineStart();
                 menu.get()
-                        .printTree(printer);
+                    .printTree(printer);
             }
             printer.outdent();
         }
@@ -149,19 +149,19 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponentLike<Hi
         }
 
         return ToStringBuilder.empty()
-                .disable(ToStringBuilderOption.QUOTE)
-                .enable(ToStringBuilderOption.SKIP_IF_DEFAULT_VALUE)
-                .value(this.iconBefore().map(Icon::getName))
-                .enable(ToStringBuilderOption.QUOTE)
-                .value(this.textContent())
-                .disable(ToStringBuilderOption.QUOTE)
-                .value(disabled)
-                .value(hrefString)
-                .value(this.target())
-                .value(this.isChecked() ? "CHECKED" : "")
-                .value(this.iconAfter().map(Icon::getName))
-                .label("id")
-                .value(this.id())
-                .build();
+            .disable(ToStringBuilderOption.QUOTE)
+            .enable(ToStringBuilderOption.SKIP_IF_DEFAULT_VALUE)
+            .value(this.iconBefore().map(Icon::getName))
+            .enable(ToStringBuilderOption.QUOTE)
+            .value(this.textContent())
+            .disable(ToStringBuilderOption.QUOTE)
+            .value(disabled)
+            .value(hrefString)
+            .value(this.target())
+            .value(this.isChecked() ? "CHECKED" : "")
+            .value(this.iconAfter().map(Icon::getName))
+            .label("id")
+            .value(this.id())
+            .build();
     }
 }

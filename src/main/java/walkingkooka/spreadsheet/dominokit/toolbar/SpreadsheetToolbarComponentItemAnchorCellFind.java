@@ -32,26 +32,26 @@ import java.util.Objects;
 import java.util.Optional;
 
 final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorCellFind>
-        implements NopComponentLifecycleOpenGiveFocus,
-        NopComponentLifecycleRefresh {
+    implements NopComponentLifecycleOpenGiveFocus,
+    NopComponentLifecycleRefresh {
 
     static SpreadsheetToolbarComponentItemAnchorCellFind with(final SpreadsheetToolbarComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetToolbarComponentItemAnchorCellFind(
-                context
+            context
         );
     }
 
     private SpreadsheetToolbarComponentItemAnchorCellFind(final SpreadsheetToolbarComponentContext context) {
         super(
-                SpreadsheetToolbarComponent.findCellsId(),
-                Optional.of(
-                        SpreadsheetIcons.cellsFind()
-                ),
-                "Find",
-                "Find cells...",
-                context
+            SpreadsheetToolbarComponent.findCellsId(),
+            Optional.of(
+                SpreadsheetIcons.cellsFind()
+            ),
+            "Find",
+            "Find cells...",
+            context
         );
     }
 
@@ -69,7 +69,7 @@ final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToo
         final HistoryToken historyToken = context.historyToken();
 
         AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelectionOrEmpty()
-                .orElse(null);
+            .orElse(null);
         if (null != anchoredSpreadsheetSelection) {
             final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
             if (false == selection.isCellReference() && false == selection.isCellRangeReference()) {
@@ -82,13 +82,13 @@ final class SpreadsheetToolbarComponentItemAnchorCellFind extends SpreadsheetToo
         }
 
         this.anchor.setHistoryToken(
-                Optional.of(
-                        historyToken.setAnchoredSelection(
-                                Optional.of(anchoredSpreadsheetSelection)
-                        ).setQuery(
-                                SpreadsheetCellFindQuery.empty()
-                        )
+            Optional.of(
+                historyToken.setAnchoredSelection(
+                    Optional.of(anchoredSpreadsheetSelection)
+                ).setQuery(
+                    SpreadsheetCellFindQuery.empty()
                 )
+            )
         );
     }
 

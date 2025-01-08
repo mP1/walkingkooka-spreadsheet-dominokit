@@ -144,7 +144,9 @@ public enum Key {
         }
     }
 
-    /** Returns the key for the specified event or {@link #Unidentified} if no matching event could be found. */
+    /**
+     * Returns the key for the specified event or {@link #Unidentified} if no matching event could be found.
+     */
     public static Key fromEvent(KeyboardEvent event) {
         return keys.getOrDefault(event.key, Unidentified);
     }
@@ -161,12 +163,16 @@ public enum Key {
         this.alternatives = alternatives;
     }
 
-    /** Whether the event is a keyboard event and matches to the key of the event. */
+    /**
+     * Whether the event is a keyboard event and matches to the key of the event.
+     */
     public boolean match(Event event) {
         return event instanceof KeyboardEvent && match(((KeyboardEvent) event));
     }
 
-    /** Whether the event matches to the key of the event. */
+    /**
+     * Whether the event matches to the key of the event.
+     */
     public boolean match(KeyboardEvent event) {
         if (key.equals(event.key)) {
             return true;

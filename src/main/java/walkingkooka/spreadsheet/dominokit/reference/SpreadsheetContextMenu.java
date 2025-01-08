@@ -47,8 +47,8 @@ public final class SpreadsheetContextMenu implements TreePrintable {
         Objects.requireNonNull(context, "context");
 
         final SpreadsheetContextMenu contextMenu = SpreadsheetContextMenuNative.empty(
-                target,
-                context
+            target,
+            context
         );
         target.setSpreadsheetContextMenu(contextMenu);
         return contextMenu;
@@ -57,8 +57,8 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     static SpreadsheetContextMenu with(final Menu<Void> menu,
                                        final HistoryTokenContext context) {
         return new SpreadsheetContextMenu(
-                menu,
-                context
+            menu,
+            context
         );
     }
 
@@ -76,10 +76,10 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     public SpreadsheetContextMenu subMenu(final String id,
                                           final String text) {
         return this.subMenu(
-                id,
-                text,
-                Optional.empty(), // icon
-                Optional.empty() // badge
+            id,
+            text,
+            Optional.empty(), // icon
+            Optional.empty() // badge
         );
     }
 
@@ -90,10 +90,10 @@ public final class SpreadsheetContextMenu implements TreePrintable {
                                           final String text,
                                           final Icon<?> icon) {
         return this.subMenu(
-                id,
-                text,
-                Optional.of(icon),
-                Optional.empty()
+            id,
+            text,
+            Optional.of(icon),
+            Optional.empty()
         );
     }
 
@@ -104,10 +104,10 @@ public final class SpreadsheetContextMenu implements TreePrintable {
                                           final String text,
                                           final String badge) {
         return this.subMenu(
-                id,
-                text,
-                Optional.empty(),
-                Optional.of(badge)
+            id,
+            text,
+            Optional.empty(),
+            Optional.of(badge)
         );
     }
 
@@ -121,10 +121,10 @@ public final class SpreadsheetContextMenu implements TreePrintable {
         CharSequences.failIfNullOrEmpty(id, "id");
         if (false == id.endsWith(SpreadsheetElementIds.SUB_MENU)) {
             throw new IllegalArgumentException(
-                    "Invalid subMenu id " +
-                            CharSequences.quote(id) +
-                            " missing " +
-                            CharSequences.quote(SpreadsheetElementIds.SUB_MENU)
+                "Invalid subMenu id " +
+                    CharSequences.quote(id) +
+                    " missing " +
+                    CharSequences.quote(SpreadsheetElementIds.SUB_MENU)
             );
         }
 
@@ -133,18 +133,18 @@ public final class SpreadsheetContextMenu implements TreePrintable {
         this.addSeparatorIfNecessary();
 
         final Menu<Void> subMenu = SpreadsheetContextMenuNative.addSubMenu(
-                id,
-                text,
-                icon,
-                badge,
-                this
+            id,
+            text,
+            icon,
+            badge,
+            this
         );
         this.allowSeparator = true;
         this.empty = false;
 
         return new SpreadsheetContextMenu(
-                subMenu,
-                this.context
+            subMenu,
+            this.context
         );
     }
 
@@ -159,24 +159,24 @@ public final class SpreadsheetContextMenu implements TreePrintable {
                                                   final String key,
                                                   final SpreadsheetSelectionMenuContext context) {
         final boolean set = context.isChecked(
-                stylePropertyName,
-                stylePropertyValue
+            stylePropertyName,
+            stylePropertyValue
         );
         return this.item(
-                this.context.historyToken()
-                        .style(stylePropertyName)
-                        .save(
-                                Optional.ofNullable(
-                                        set ?
-                                                null :
-                                                stylePropertyValue
-                                )
-                        ).contextMenuItem(
-                                id,
-                                text
-                        ).icon(icon)
-                        .checked(set)
-                        .key(key)
+            this.context.historyToken()
+                .style(stylePropertyName)
+                .save(
+                    Optional.ofNullable(
+                        set ?
+                            null :
+                            stylePropertyValue
+                    )
+                ).contextMenuItem(
+                    id,
+                    text
+                ).icon(icon)
+                .checked(set)
+                .key(key)
         );
     }
 
@@ -189,8 +189,8 @@ public final class SpreadsheetContextMenu implements TreePrintable {
         this.addSeparatorIfNecessary();
 
         SpreadsheetContextMenuNative.menuAppendChildSpreadsheetContextMenuItem(
-                item,
-                this
+            item,
+            this
         );
         this.allowSeparator = true;
         this.empty = false;
@@ -207,8 +207,8 @@ public final class SpreadsheetContextMenu implements TreePrintable {
         this.addSeparatorIfNecessary();
 
         SpreadsheetContextMenuNative.menuAppendChildIsElement(
-                component,
-                this
+            component,
+            this
         );
 
         this.allowSeparator = true;
@@ -266,9 +266,9 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     public SpreadsheetContextMenu focus() {
         this.menu.open(true);
         this.context.addHistoryTokenWatcherOnce(
-                (final HistoryToken previous,
-                 final AppContext context) ->
-                        SpreadsheetContextMenu.this.close()
+            (final HistoryToken previous,
+             final AppContext context) ->
+                SpreadsheetContextMenu.this.close()
         );
         return this;
     }
@@ -296,8 +296,8 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     @Override
     public void printTree(final IndentingPrinter printer) {
         TreePrintable.printTreeOrToString(
-                this.menu,
-                printer
+            this.menu,
+            printer
         );
     }
 }

@@ -32,8 +32,8 @@ public final class FindHighlighting implements PublicStaticHelper {
         Objects.requireNonNull(context, "context");
 
         return context.spreadsheetMetadata()
-                .get(SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING)
-                .orElse(false);
+            .get(SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING)
+            .orElse(false);
     }
 
     /**
@@ -41,8 +41,8 @@ public final class FindHighlighting implements PublicStaticHelper {
      */
     public static String label(final boolean enabled) {
         return enabled ?
-                "Enable cell highlighting" :
-                "Disable cell highlighting";
+            "Enable cell highlighting" :
+            "Disable cell highlighting";
     }
 
     /**

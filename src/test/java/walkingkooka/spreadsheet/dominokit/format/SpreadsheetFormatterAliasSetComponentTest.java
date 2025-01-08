@@ -32,42 +32,42 @@ public final class SpreadsheetFormatterAliasSetComponentTest implements ValueCom
         final SpreadsheetFormatterAliasSet alias = SpreadsheetFormatterAliasSet.parse("alias1 plugin1, plugin2");
 
         this.checkEquals(
-                alias,
-                SpreadsheetFormatterAliasSet.parse(alias.text())
+            alias,
+            SpreadsheetFormatterAliasSet.parse(alias.text())
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                SpreadsheetFormatterAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "alias1 formatter1, formatter2"
-                                )
-                        ),
-                "SpreadsheetFormatterAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [alias1 formatter1, formatter2]\n"
+            SpreadsheetFormatterAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "alias1 formatter1, formatter2"
+                    )
+                ),
+            "SpreadsheetFormatterAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [alias1 formatter1, formatter2]\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                SpreadsheetFormatterAliasSetComponent.empty()
-                        .setStringValue(
-                                Optional.of(
-                                        "alias1 formatter1, 9"
-                                )
-                        ),
-                "SpreadsheetFormatterAliasSetComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [alias1 formatter1, 9]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '9' at 19\n"
+            SpreadsheetFormatterAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "alias1 formatter1, 9"
+                    )
+                ),
+            "SpreadsheetFormatterAliasSetComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [alias1 formatter1, 9]\n" +
+                "      Errors\n" +
+                "        Invalid character '9' at 19\n"
         );
     }
 

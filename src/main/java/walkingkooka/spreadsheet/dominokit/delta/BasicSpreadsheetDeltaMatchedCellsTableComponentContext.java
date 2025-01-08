@@ -25,14 +25,14 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import java.util.Objects;
 
 final class BasicSpreadsheetDeltaMatchedCellsTableComponentContext implements SpreadsheetDeltaMatchedCellsTableComponentContext,
-        HistoryTokenContextDelegator,
-        HasSpreadsheetDeltaFetcherWatchers {
+    HistoryTokenContextDelegator,
+    HasSpreadsheetDeltaFetcherWatchers {
 
     static BasicSpreadsheetDeltaMatchedCellsTableComponentContext with(final HistoryTokenContext historyTokenContext,
                                                                        final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
         return new BasicSpreadsheetDeltaMatchedCellsTableComponentContext(
-                Objects.requireNonNull(historyTokenContext, "historyTokenContext"),
-                Objects.requireNonNull(hasSpreadsheetDeltaFetcherWatchers, "hasSpreadsheetDeltaFetcherWatchers")
+            Objects.requireNonNull(historyTokenContext, "historyTokenContext"),
+            Objects.requireNonNull(hasSpreadsheetDeltaFetcherWatchers, "hasSpreadsheetDeltaFetcherWatchers")
         );
     }
 

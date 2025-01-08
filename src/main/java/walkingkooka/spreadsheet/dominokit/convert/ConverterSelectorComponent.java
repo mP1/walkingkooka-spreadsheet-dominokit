@@ -33,8 +33,8 @@ public final class ConverterSelectorComponent implements ValueSpreadsheetTextBox
 
     private ConverterSelectorComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                ConverterSelector::parse,
-                ConverterSelector::toString
+            ConverterSelector::parse,
+            ConverterSelector::toString
         );
     }
 

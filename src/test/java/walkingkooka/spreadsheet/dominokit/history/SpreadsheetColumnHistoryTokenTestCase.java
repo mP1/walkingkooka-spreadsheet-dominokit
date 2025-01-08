@@ -41,40 +41,40 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     @Test
     public final void testWithCellFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.A1.setDefaultAnchor(),
-                "Got A1 expected column or column-range"
+            SpreadsheetSelection.A1.setDefaultAnchor(),
+            "Got A1 expected column or column-range"
         );
     }
 
     @Test
     public final void testWithCellRangeFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.parseCellRange("A1:A2").setDefaultAnchor(),
-                "Got A1:A2 expected column or column-range"
+            SpreadsheetSelection.parseCellRange("A1:A2").setDefaultAnchor(),
+            "Got A1:A2 expected column or column-range"
         );
     }
 
     @Test
     public final void testWithLabelFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.labelName("Label123").setDefaultAnchor(),
-                "Got Label123 expected column or column-range"
+            SpreadsheetSelection.labelName("Label123").setDefaultAnchor(),
+            "Got Label123 expected column or column-range"
         );
     }
 
     @Test
     public final void testWithRowFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.parseRow("1").setDefaultAnchor(),
-                "Got 1 expected column or column-range"
+            SpreadsheetSelection.parseRow("1").setDefaultAnchor(),
+            "Got 1 expected column or column-range"
         );
     }
 
     @Test
     public final void testWithRowRangeFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor(),
-                "Got 1:2 expected column or column-range"
+            SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor(),
+            "Got 1:2 expected column or column-range"
         );
     }
 
@@ -83,12 +83,12 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     @Test
     public final void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.column(
-                        ID,
-                        NAME,
-                        SELECTION
-                )
+            this.createHistoryToken(),
+            HistoryToken.column(
+                ID,
+                NAME,
+                SELECTION
+            )
         );
     }
 
@@ -99,27 +99,27 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         final AnchoredSpreadsheetSelection selection = COLUMN.setDefaultAnchor();
 
         this.freezeOrEmptyAndCheck(
-                selection,
-                HistoryToken.columnFreeze(
-                        ID,
-                        NAME,
-                        selection
-                )
+            selection,
+            HistoryToken.columnFreeze(
+                ID,
+                NAME,
+                selection
+            )
         );
     }
 
     @Test
     public final void testFreezeOrEmptyColumnRange() {
         final AnchoredSpreadsheetSelection selection = SpreadsheetSelection.parseColumnRange("A:B")
-                .setAnchor(SpreadsheetViewportAnchor.RIGHT);
+            .setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
         this.freezeOrEmptyAndCheck(
-                selection,
-                HistoryToken.columnFreeze(
-                        ID,
-                        NAME,
-                        selection
-                )
+            selection,
+            HistoryToken.columnFreeze(
+                ID,
+                NAME,
+                selection
+            )
         );
     }
 
@@ -135,15 +135,15 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         final SpreadsheetColumnReference column = COLUMN;
 
         this.menuAndCheck(
-                this.createHistoryToken(
-                        column.setDefaultAnchor()
-                ),
-                column,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        column.setDefaultAnchor()
-                )
+            this.createHistoryToken(
+                column.setDefaultAnchor()
+            ),
+            column,
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                column.setDefaultAnchor()
+            )
         );
     }
 
@@ -152,15 +152,15 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         final SpreadsheetColumnReference column = COLUMN.add(1);
 
         this.menuAndCheck(
-                this.createHistoryToken(
-                        COLUMN.setDefaultAnchor()
-                ),
-                column,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        column.setDefaultAnchor()
-                )
+            this.createHistoryToken(
+                COLUMN.setDefaultAnchor()
+            ),
+            column,
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                column.setDefaultAnchor()
+            )
         );
     }
 
@@ -168,16 +168,16 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     @Test
     public final void testMenuColumnRangeWithColumnInside() {
         final AnchoredSpreadsheetSelection selection = SpreadsheetSelection.parseColumnRange("A:C")
-                .setAnchor(SpreadsheetViewportAnchor.RIGHT);
+            .setAnchor(SpreadsheetViewportAnchor.RIGHT);
 
         this.menuAndCheck(
-                this.createHistoryToken(selection),
-                SpreadsheetSelection.parseColumn("B"),
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        selection
-                )
+            this.createHistoryToken(selection),
+            SpreadsheetSelection.parseColumn("B"),
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                selection
+            )
         );
     }
 
@@ -186,15 +186,15 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         final SpreadsheetColumnReference column = SpreadsheetSelection.parseColumn("Z");
 
         this.menuAndCheck(
-                this.createHistoryToken(
-                        SpreadsheetSelection.parseColumnRange("A:C").setDefaultAnchor()
-                ),
-                column,
-                HistoryToken.columnMenu(
-                        ID,
-                        NAME,
-                        column.setDefaultAnchor()
-                )
+            this.createHistoryToken(
+                SpreadsheetSelection.parseColumnRange("A:C").setDefaultAnchor()
+            ),
+            column,
+            HistoryToken.columnMenu(
+                ID,
+                NAME,
+                column.setDefaultAnchor()
+            )
         );
     }
 
@@ -208,7 +208,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     @Test
     public final void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 
@@ -217,29 +217,29 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     final void urlFragmentAndCheck(final SpreadsheetColumnReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(
-                        reference.setDefaultAnchor()
-                ),
-                expected
+            this.createHistoryToken(
+                reference.setDefaultAnchor()
+            ),
+            expected
         );
     }
 
     final void urlFragmentAndCheck(final SpreadsheetColumnRangeReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(
-                        reference.setDefaultAnchor()
-                ),
-                expected
+            this.createHistoryToken(
+                reference.setDefaultAnchor()
+            ),
+            expected
         );
     }
 
     @Override final T createHistoryToken(final SpreadsheetId id,
                                          final SpreadsheetName name) {
         return this.createHistoryToken(
-                id,
-                name,
-                SELECTION
+            id,
+            name,
+            SELECTION
         );
     }
 }

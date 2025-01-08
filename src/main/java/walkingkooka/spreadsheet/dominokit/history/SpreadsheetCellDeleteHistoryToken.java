@@ -39,9 +39,9 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
                                                   final SpreadsheetName name,
                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellDeleteHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -49,9 +49,9 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
                                               final SpreadsheetName name,
                                               final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -70,9 +70,9 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         ).delete();
     }
 
@@ -85,9 +85,9 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
-                .deleteDelta(
-                        this.id(),
-                        this.anchoredSelection().selection()
-                );
+            .deleteDelta(
+                this.id(),
+                this.anchoredSelection().selection()
+            );
     }
 }

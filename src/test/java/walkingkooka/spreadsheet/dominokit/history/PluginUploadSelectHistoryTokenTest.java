@@ -33,21 +33,21 @@ public final class PluginUploadSelectHistoryTokenTest extends PluginHistoryToken
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.pluginListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            this.createHistoryToken(),
+            HistoryToken.pluginListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public void testClose() {
         this.closeAndCheck(
-                HistoryToken.pluginListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            HistoryToken.pluginListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 

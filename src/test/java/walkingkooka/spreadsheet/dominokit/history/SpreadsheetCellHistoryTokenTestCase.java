@@ -46,32 +46,32 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     @Test
     public final void testWithColumnFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.parseColumn("A").setDefaultAnchor(),
-                "Got A expected cell, cell-range or label"
+            SpreadsheetSelection.parseColumn("A").setDefaultAnchor(),
+            "Got A expected cell, cell-range or label"
         );
     }
 
     @Test
     public final void testWithColumnRangeFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.parseColumnRange("B:C").setDefaultAnchor(),
-                "Got B:C expected cell, cell-range or label"
+            SpreadsheetSelection.parseColumnRange("B:C").setDefaultAnchor(),
+            "Got B:C expected cell, cell-range or label"
         );
     }
 
     @Test
     public final void testWithRowFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.parseRow("1").setDefaultAnchor(),
-                "Got 1 expected cell, cell-range or label"
+            SpreadsheetSelection.parseRow("1").setDefaultAnchor(),
+            "Got 1 expected cell, cell-range or label"
         );
     }
 
     @Test
     public final void testWithRowRangeFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor(),
-                "Got 1:2 expected cell, cell-range or label"
+            SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor(),
+            "Got 1:2 expected cell, cell-range or label"
         );
     }
 
@@ -82,27 +82,27 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
 
         this.freezeOrEmptyAndCheck(
-                selection,
-                HistoryToken.cellFreeze(
-                        ID,
-                        NAME,
-                        selection
-                )
+            selection,
+            HistoryToken.cellFreeze(
+                ID,
+                NAME,
+                selection
+            )
         );
     }
 
     @Test
     public final void testFreezeOrEmptyCellRange() {
         final AnchoredSpreadsheetSelection selection = SpreadsheetSelection.parseCellRange("A1:B2")
-                .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
+            .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         this.freezeOrEmptyAndCheck(
-                selection,
-                HistoryToken.cellFreeze(
-                        ID,
-                        NAME,
-                        selection
-                )
+            selection,
+            HistoryToken.cellFreeze(
+                ID,
+                NAME,
+                selection
+            )
         );
     }
 
@@ -111,14 +111,14 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     @Test
     public final void testSetFind() {
         this.setFindAndCheck(
-                this.createHistoryToken(),
-                SpreadsheetCellFindQuery.empty(), // query
-                HistoryToken.cellFind(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor(),
-                        SpreadsheetCellFindQuery.empty()
-                )
+            this.createHistoryToken(),
+            SpreadsheetCellFindQuery.empty(), // query
+            HistoryToken.cellFind(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetCellFindQuery.empty()
+            )
         );
     }
 
@@ -129,12 +129,12 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         final T token = this.createHistoryToken();
 
         this.checkEquals(
-                HistoryToken.cellFormula(
-                        ID,
-                        NAME,
-                        SELECTION
-                ),
-                token.formula()
+            HistoryToken.cellFormula(
+                ID,
+                NAME,
+                SELECTION
+            ),
+            token.formula()
         );
     }
 
@@ -145,15 +145,15 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
 
         this.menuAndCheck(
-                this.createHistoryToken(
-                        cell.setDefaultAnchor()
-                ),
-                cell,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        cell.setDefaultAnchor()
-                )
+            this.createHistoryToken(
+                cell.setDefaultAnchor()
+            ),
+            cell,
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                cell.setDefaultAnchor()
+            )
         );
     }
 
@@ -162,31 +162,31 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("B2");
 
         this.menuAndCheck(
-                this.createHistoryToken(
-                        SpreadsheetSelection.A1.setDefaultAnchor()
-                ),
-                cell,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        cell.setDefaultAnchor()
-                )
+            this.createHistoryToken(
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            cell,
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                cell.setDefaultAnchor()
+            )
         );
     }
 
     @Test
     public final void testMenuCellRangeMenuWithCellInside() {
         final AnchoredSpreadsheetSelection selection = SpreadsheetSelection.parseCellRange("A1:C3")
-                .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
+            .setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT);
 
         this.menuAndCheck(
-                this.createHistoryToken(selection),
-                SpreadsheetSelection.parseCell("B2"),
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        selection
-                )
+            this.createHistoryToken(selection),
+            SpreadsheetSelection.parseCell("B2"),
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                selection
+            )
         );
     }
 
@@ -195,15 +195,15 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("Z99");
 
         this.menuAndCheck(
-                this.createHistoryToken(
-                        SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor()
-                ),
-                cell,
-                HistoryToken.cellMenu(
-                        ID,
-                        NAME,
-                        cell.setDefaultAnchor()
-                )
+            this.createHistoryToken(
+                SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor()
+            ),
+            cell,
+            HistoryToken.cellMenu(
+                ID,
+                NAME,
+                cell.setDefaultAnchor()
+            )
         );
     }
 
@@ -220,19 +220,19 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     final void urlFragmentAndCheck(final SpreadsheetExpressionReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(
-                        reference.setDefaultAnchor()
-                ),
-                expected
+            this.createHistoryToken(
+                reference.setDefaultAnchor()
+            ),
+            expected
         );
     }
 
     @Override final T createHistoryToken(final SpreadsheetId id,
                                          final SpreadsheetName name) {
         return this.createHistoryToken(
-                id,
-                name,
-                CELL.setDefaultAnchor()
+            id,
+            name,
+            CELL.setDefaultAnchor()
         );
     }
 }

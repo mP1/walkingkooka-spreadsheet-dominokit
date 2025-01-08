@@ -34,24 +34,24 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
-                RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/B2:C3/top-left/menu"
+            RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/menu"
         );
     }
 
     @Test
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
-                SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-                "/123/SpreadsheetName456/cell/*/top-left/menu"
+            SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+            "/123/SpreadsheetName456/cell/*/top-left/menu"
         );
     }
 
     @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/cell/Label123/menu"
+            LABEL,
+            "/123/SpreadsheetName456/cell/Label123/menu"
         );
     }
 
@@ -60,12 +60,12 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.cell(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            this.createHistoryToken(),
+            HistoryToken.cell(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
@@ -74,12 +74,12 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
     @Test
     public void testFormatter() {
         this.formatterAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.cellFormatterSelect(
-                        ID,
-                        NAME,
-                        CELL.setDefaultAnchor()
-                )
+            this.createHistoryToken(),
+            HistoryToken.cellFormatterSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
         );
     }
 
@@ -90,9 +90,9 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
                                                        final SpreadsheetName name,
                                                        final AnchoredSpreadsheetSelection selection) {
         return SpreadsheetCellMenuHistoryToken.with(
-                id,
-                name,
-                selection
+            id,
+            name,
+            selection
         );
     }
 

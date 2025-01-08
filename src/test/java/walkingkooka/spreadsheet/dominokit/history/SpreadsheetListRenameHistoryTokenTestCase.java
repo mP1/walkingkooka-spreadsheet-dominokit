@@ -30,24 +30,24 @@ public abstract class SpreadsheetListRenameHistoryTokenTestCase<T extends Spread
     @Test
     public final void testClose() {
         this.closeAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.spreadsheetListSelect(
-                        OptionalInt.empty(), // from
-                        OptionalInt.empty() // count
-                )
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetListSelect(
+                OptionalInt.empty(), // from
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Test
     public final void testSetIdAndName() {
         this.setIdAndNameAndCheck(
-                this.createHistoryToken(),
+            this.createHistoryToken(),
+            ID,
+            NAME,
+            HistoryToken.spreadsheetSelect(
                 ID,
-                NAME,
-                HistoryToken.spreadsheetSelect(
-                        ID,
-                        NAME
-                )
+                NAME
+            )
         );
     }
 }

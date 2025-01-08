@@ -30,7 +30,7 @@ final class FetcherRequestBodyFile extends FetcherRequestBody<BrowserFile> {
 
     static FetcherRequestBodyFile with(final BrowserFile file) {
         return new FetcherRequestBodyFile(
-                Objects.requireNonNull(file, "file")
+            Objects.requireNonNull(file, "file")
         );
     }
 
@@ -43,9 +43,9 @@ final class FetcherRequestBodyFile extends FetcherRequestBody<BrowserFile> {
                      final RequestInit requestInit,
                      final Runnable doFetch) {
         this.file.handleFetch(
-                headers,
-                requestInit,
-                doFetch
+            headers,
+            requestInit,
+            doFetch
         );
     }
 
@@ -69,7 +69,7 @@ final class FetcherRequestBodyFile extends FetcherRequestBody<BrowserFile> {
     @Override
     public boolean equals(final Object other) {
         return this == other ||
-                (other instanceof FetcherRequestBodyFile && this.equals0((FetcherRequestBodyFile) other));
+            (other instanceof FetcherRequestBodyFile && this.equals0((FetcherRequestBodyFile) other));
     }
 
     private boolean equals0(final FetcherRequestBodyFile other) {

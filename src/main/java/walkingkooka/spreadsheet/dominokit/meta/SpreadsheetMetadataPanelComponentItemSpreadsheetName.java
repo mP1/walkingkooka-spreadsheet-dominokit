@@ -33,7 +33,7 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends Spreads
         checkContext(context);
 
         return new SpreadsheetMetadataPanelComponentItemSpreadsheetName(
-                context
+            context
         );
     }
 
@@ -41,26 +41,26 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends Spreads
 
     private SpreadsheetMetadataPanelComponentItemSpreadsheetName(final SpreadsheetMetadataPanelComponentContext context) {
         super(
-                PROPERTY_NAME,
-                context
+            PROPERTY_NAME,
+            context
         );
 
         final UListElement list = this.uListElement();
         this.list = list;
 
         this.spreadsheetNameComponent = SpreadsheetNameComponent.empty()
-                .setId(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-TextBox")
-                .addChangeListener(
-                        (oldValue, newValue) -> this.save(
-                                newValue.map(SpreadsheetName::value)
-                                        .orElse("")
-                        )
-                );
+            .setId(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-TextBox")
+            .addChangeListener(
+                (oldValue, newValue) -> this.save(
+                    newValue.map(SpreadsheetName::value)
+                        .orElse("")
+                )
+            );
         list.appendChild(
-                this.liElement()
-                        .appendChild(
-                                this.spreadsheetNameComponent
-                        )
+            this.liElement()
+                .appendChild(
+                    this.spreadsheetNameComponent
+                )
         );
     }
 
@@ -74,8 +74,8 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends Spreads
     @Override
     public void refresh(final RefreshContext context) {
         this.spreadsheetNameComponent.setValue(
-                this.context.spreadsheetMetadata()
-                        .get(this.propertyName)
+            this.context.spreadsheetMetadata()
+                .get(this.propertyName)
         );
     }
 

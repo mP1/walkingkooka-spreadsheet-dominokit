@@ -29,8 +29,8 @@ public final class SpreadsheetFormatterInfoSetComponent implements ValueSpreadsh
 
     private SpreadsheetFormatterInfoSetComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetFormatterInfoSet::parse,
-                SpreadsheetFormatterInfoSet::text
+            SpreadsheetFormatterInfoSet::parse,
+            SpreadsheetFormatterInfoSet::text
         );
     }
 

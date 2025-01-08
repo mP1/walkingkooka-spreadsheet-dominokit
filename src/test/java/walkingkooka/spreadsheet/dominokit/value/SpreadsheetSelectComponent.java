@@ -35,8 +35,8 @@ import java.util.Optional;
  * A select component with a few helpers to assist with build and working with values.
  */
 public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLFieldSetElement, T, SpreadsheetSelectComponent<T>>,
-        SpreadsheetTextBoxTreePrintable<SpreadsheetSelectComponent<T>, T>,
-        TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetSelectComponent<T>> {
+    SpreadsheetTextBoxTreePrintable<SpreadsheetSelectComponent<T>, T>,
+    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetSelectComponent<T>> {
 
     public static <T> SpreadsheetSelectComponent<T> empty() {
         return new SpreadsheetSelectComponent<>();
@@ -192,13 +192,13 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
      * Appends a new value to the drop down.
      */
     public SpreadsheetSelectComponent<T> appendValue(final String text,
-                                                                                              final T value) {
+                                                     final T value) {
         checkText(text);
         checkValue(value);
 
         return this.appendValue(
-                text,
-                Optional.of(value)
+            text,
+            Optional.of(value)
         );
     }
 
@@ -206,13 +206,13 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
      * Appends a new value to the drop down.
      */
     public SpreadsheetSelectComponent<T> appendValue(final String text,
-                                                                                              final Optional<T> value) {
+                                                     final Optional<T> value) {
         checkText(text);
         checkValue(value);
 
         this.textToValue.put(
-                text,
-                value
+            text,
+            value
         );
         return this;
     }
@@ -251,11 +251,11 @@ public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLF
         {
             for (final Entry<String, Optional<T>> textAndValue : this.textToValue.entrySet()) {
                 printer.println(
-                        textAndValue.getKey() +
-                                "=" +
-                                textAndValue.getValue()
-                                        .map(Object::toString)
-                                        .orElse("")
+                    textAndValue.getKey() +
+                        "=" +
+                        textAndValue.getValue()
+                            .map(Object::toString)
+                            .orElse("")
                 );
             }
         }

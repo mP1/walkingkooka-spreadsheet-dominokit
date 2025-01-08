@@ -52,9 +52,9 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         Objects.requireNonNull(element, "element");
 
         return new HistoryTokenAnchorComponent(
-                AnchorElement.of(
-                        element
-                )
+            AnchorElement.of(
+                element
+            )
         );
     }
 
@@ -100,7 +100,7 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         //
         // element.cursor with !important is ignored, the only form that works is appending to cssText
         style.cssText = style.cssText +
-                (disabled ? ";cursor: not-allowed !important" : ";cursor: pointer !important");
+            (disabled ? ";cursor: not-allowed !important" : ";cursor: pointer !important");
 
         this.iconBefore = null;
         this.iconAfter = null;
@@ -138,16 +138,16 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     public Url href() {
         final String href = this.element().href;
         return CharSequences.isNullOrEmpty(href) ?
-                null :
-                Url.parseAbsoluteOrRelative(href);
+            null :
+            Url.parseAbsoluteOrRelative(href);
     }
 
     @Override
     public HistoryTokenAnchorComponent setHref(final Url url) {
         this.element().href =
-                null == url ?
-                        "" :
-                        url.toString();
+            null == url ?
+                "" :
+                url.toString();
         return this.setDisabled(null == url);
     }
 
@@ -187,8 +187,8 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     @Override
     public HistoryTokenAnchorComponent setTarget(final String target) {
         this.element.setAttribute(
-                TARGET,
-                target
+            TARGET,
+            target
         );
         return this;
     }
@@ -226,14 +226,14 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         final Icon<?> oldBeforeIcon = this.iconBefore;
         if (null != oldBeforeIcon) {
             anchorElement.removeChild(
-                    oldBeforeIcon.element()
+                oldBeforeIcon.element()
             );
         }
 
         if (icon.isPresent()) {
             final Icon<?> newIcon = icon.get();
             anchorElement.insertFirst(
-                    newIcon.element()
+                newIcon.element()
             );
             this.iconBefore = newIcon;
 
@@ -262,14 +262,14 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         final Icon<?> oldIconAfter = this.iconAfter;
         if (null != oldIconAfter) {
             anchorElement.removeChild(
-                    oldIconAfter.element()
+                oldIconAfter.element()
             );
         }
 
         if (icon.isPresent()) {
             final Icon<?> newIcon = icon.get();
             anchorElement.appendChild(
-                    newIcon.element()
+                newIcon.element()
             );
             this.iconBefore = newIcon;
 
@@ -287,8 +287,8 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     @Override
     public HistoryTokenAnchorComponent addClickListener(final EventListener listener) {
         this.element.addEventListener(
-                EventType.click.getName(),
-                this.disabledAwareEventListener(listener)
+            EventType.click.getName(),
+            this.disabledAwareEventListener(listener)
         );
         return this;
     }
@@ -296,8 +296,8 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     @Override
     public HistoryTokenAnchorComponent addFocusListener(final EventListener listener) {
         this.element.addEventListener(
-                EventType.focus.getName(),
-                this.disabledAwareEventListener(listener)
+            EventType.focus.getName(),
+            this.disabledAwareEventListener(listener)
         );
         return this;
     }
@@ -305,8 +305,8 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     @Override
     public HistoryTokenAnchorComponent addKeydownListener(final EventListener listener) {
         this.element.addEventListener(
-                EventType.keydown.getName(),
-                this.disabledAwareEventListener(listener)
+            EventType.keydown.getName(),
+            this.disabledAwareEventListener(listener)
         );
         return this;
     }

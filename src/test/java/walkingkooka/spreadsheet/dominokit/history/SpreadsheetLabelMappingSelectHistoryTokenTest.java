@@ -32,9 +32,9 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     @Test
     public void testWithEmptyLabel() {
         final SpreadsheetLabelMappingSelectHistoryToken token = SpreadsheetLabelMappingSelectHistoryToken.with(
-                ID,
-                NAME,
-                Optional.empty()
+            ID,
+            NAME,
+            Optional.empty()
         );
         this.checkEquals(ID, token.id(), "id");
         this.checkEquals(NAME, token.name(), "name");
@@ -44,20 +44,20 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     @Test
     public void testUrlFragmentWithLabel() {
         this.urlFragmentAndCheck(
-                LABEL,
-                "/123/SpreadsheetName456/label/Label123"
+            LABEL,
+            "/123/SpreadsheetName456/label/Label123"
         );
     }
 
     @Test
     public void testUrlFragmentWithoutLabel() {
         this.urlFragmentAndCheck(
-                SpreadsheetLabelMappingSelectHistoryToken.with(
-                        ID,
-                        NAME,
-                        Optional.empty()
-                ),
-                "/123/SpreadsheetName456/label"
+            SpreadsheetLabelMappingSelectHistoryToken.with(
+                ID,
+                NAME,
+                Optional.empty()
+            ),
+            "/123/SpreadsheetName456/label"
         );
     }
 
@@ -74,12 +74,12 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         final Optional<SpreadsheetLabelName> labelName = token.labelName();
 
         this.deleteAndCheck(
-                token,
-                HistoryToken.labelMappingDelete(
-                        token.id(),
-                        token.name(),
-                        labelName.get()
-                )
+            token,
+            HistoryToken.labelMappingDelete(
+                token.id(),
+                token.name(),
+                labelName.get()
+            )
         );
     }
 
@@ -90,14 +90,14 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("B2");
 
         this.saveAndCheck(
-                this.createHistoryToken(),
-                cell.toString(),
-                HistoryToken.labelMappingSave(
-                        token.id(),
-                        token.name(),
-                        labelName.get()
-                                .mapping(cell)
-                )
+            this.createHistoryToken(),
+            cell.toString(),
+            HistoryToken.labelMappingSave(
+                token.id(),
+                token.name(),
+                labelName.get()
+                    .mapping(cell)
+            )
         );
     }
 
@@ -108,14 +108,14 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         final SpreadsheetCellRangeReference cells = SpreadsheetSelection.parseCellRange("C3:D4");
 
         this.saveAndCheck(
-                this.createHistoryToken(),
-                cells.toString(),
-                HistoryToken.labelMappingSave(
-                        token.id(),
-                        token.name(),
-                        labelName.get()
-                                .mapping(cells)
-                )
+            this.createHistoryToken(),
+            cells.toString(),
+            HistoryToken.labelMappingSave(
+                token.id(),
+                token.name(),
+                labelName.get()
+                    .mapping(cells)
+            )
         );
     }
 
@@ -124,9 +124,9 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
                                                                  final SpreadsheetName name,
                                                                  final SpreadsheetLabelName label) {
         return SpreadsheetLabelMappingSelectHistoryToken.with(
-                id,
-                name,
-                Optional.of(label)
+            id,
+            name,
+            Optional.of(label)
         );
     }
 

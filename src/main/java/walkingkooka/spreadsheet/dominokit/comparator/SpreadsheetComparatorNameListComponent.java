@@ -29,8 +29,8 @@ public final class SpreadsheetComparatorNameListComponent implements ValueSpread
 
     private SpreadsheetComparatorNameListComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-                SpreadsheetComparatorNameList::parse,
-                SpreadsheetComparatorNameList::text
+            SpreadsheetComparatorNameList::parse,
+            SpreadsheetComparatorNameList::text
         );
     }
 

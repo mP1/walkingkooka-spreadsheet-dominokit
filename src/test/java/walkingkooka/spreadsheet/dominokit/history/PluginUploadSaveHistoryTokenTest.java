@@ -27,46 +27,46 @@ public final class PluginUploadSaveHistoryTokenTest extends PluginHistoryTokenTe
     @Test
     public void testParseSaveMissingType() {
         this.parseAndCheck(
-                "/plugin-upload/save/",
-                HistoryToken.pluginUploadSelect()
+            "/plugin-upload/save/",
+            HistoryToken.pluginUploadSelect()
         );
     }
 
     @Test
     public void testParseNotBase64() {
         this.parseAndCheck(
-                "/plugin-upload/save/???/Filename123",
-                HistoryToken.pluginUploadSelect()
+            "/plugin-upload/save/???/Filename123",
+            HistoryToken.pluginUploadSelect()
         );
     }
 
     @Test
     public void testParseWithoutFileContent() {
         this.parseAndCheck(
-                "/plugin-upload/save/base64/Filename123",
-                PluginUploadSaveHistoryToken.with(
-                        BrowserFile.base64("Filename123", "")
-                )
+            "/plugin-upload/save/base64/Filename123",
+            PluginUploadSaveHistoryToken.with(
+                BrowserFile.base64("Filename123", "")
+            )
         );
     }
 
     @Test
     public void testParseWithEmptyFileContent() {
         this.parseAndCheck(
-                "/plugin-upload/save/base64/Filename123/",
-                PluginUploadSaveHistoryToken.with(
-                        BrowserFile.base64("Filename123", "")
-                )
+            "/plugin-upload/save/base64/Filename123/",
+            PluginUploadSaveHistoryToken.with(
+                BrowserFile.base64("Filename123", "")
+            )
         );
     }
 
     @Test
     public void testParseWithFileContent() {
         this.parseAndCheck(
-                "/plugin-upload/save/base64/Filename123/FileContent456",
-                PluginUploadSaveHistoryToken.with(
-                        BrowserFile.base64("Filename123", "FileContent456")
-                )
+            "/plugin-upload/save/base64/Filename123/FileContent456",
+            PluginUploadSaveHistoryToken.with(
+                BrowserFile.base64("Filename123", "FileContent456")
+            )
         );
     }
 
@@ -80,10 +80,10 @@ public final class PluginUploadSaveHistoryTokenTest extends PluginHistoryTokenTe
     @Test
     public void testUrlFragmentWithEmptyFileContent() {
         this.urlFragmentAndCheck(
-                PluginUploadSaveHistoryToken.with(
-                        BrowserFile.base64("Filename123", "")
-                ),
-                "/plugin-upload/save/base64/Filename123");
+            PluginUploadSaveHistoryToken.with(
+                BrowserFile.base64("Filename123", "")
+            ),
+            "/plugin-upload/save/base64/Filename123");
     }
 
     // clearAction.....................................................................................................
@@ -91,25 +91,25 @@ public final class PluginUploadSaveHistoryTokenTest extends PluginHistoryTokenTe
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.pluginUploadSelect()
+            this.createHistoryToken(),
+            HistoryToken.pluginUploadSelect()
         );
     }
 
     @Test
     public void testClose() {
         this.closeAndCheck(
-                HistoryToken.pluginUploadSelect()
+            HistoryToken.pluginUploadSelect()
         );
     }
 
     @Override
     PluginUploadSaveHistoryToken createHistoryToken() {
         return PluginUploadSaveHistoryToken.with(
-                BrowserFile.base64(
-                        "Filename123",
-                        "FileContent456"
-                )
+            BrowserFile.base64(
+                "Filename123",
+                "FileContent456"
+            )
         );
     }
 

@@ -32,21 +32,21 @@ import walkingkooka.text.printer.TreePrintable;
 import java.util.Optional;
 
 public final class SpreadsheetDialogComponentLifecycleTestingTest implements SpreadsheetDialogComponentLifecycleTesting<TestSpreadsheetDialogComponentLifecycle,
-        TestSpreadsheetDialogComponentLifecycleContext> {
+    TestSpreadsheetDialogComponentLifecycleContext> {
 
     @Test
     public void testAnchor() {
         this.treePrintAndCheck(
-                new TestSpreadsheetDialogComponentLifecycle().anchor("Hello"),
-                "\"Hello\" DISABLED id=id123-hello-Link"
+            new TestSpreadsheetDialogComponentLifecycle().anchor("Hello"),
+            "\"Hello\" DISABLED id=id123-hello-Link"
         );
     }
 
     @Test
     public void testAnchorWithMultiWordText() {
         this.treePrintAndCheck(
-                new TestSpreadsheetDialogComponentLifecycle().anchor("Hello goodbye"),
-                "\"Hello goodbye\" DISABLED id=id123-hello-goodbye-Link"
+            new TestSpreadsheetDialogComponentLifecycle().anchor("Hello goodbye"),
+            "\"Hello goodbye\" DISABLED id=id123-hello-goodbye-Link"
         );
     }
 
@@ -56,29 +56,29 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
     public void testNoMatchedOnHistoryTokenChangeAndCheck() {
         final TestSpreadsheetDialogComponentLifecycle table = new TestSpreadsheetDialogComponentLifecycle();
         this.onHistoryTokenChangeAndCheck(
-                table,
-                new FakeAppContext() {
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.unknown(
-                                UrlFragment.parse("/unknown!")
-                        );
-                    }
-                },
-                "TestSpreadsheetDialogComponentLifecycle\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    Title456\n" +
-                        "    id=id123 includeClose=true CLOSED\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        [NOT onGiveFocus]\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        [NOT refreshed]\n"
+            table,
+            new FakeAppContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.unknown(
+                        UrlFragment.parse("/unknown!")
+                    );
+                }
+            },
+            "TestSpreadsheetDialogComponentLifecycle\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Title456\n" +
+                "    id=id123 includeClose=true CLOSED\n" +
+                "      SpreadsheetTextBox\n" +
+                "        [NOT onGiveFocus]\n" +
+                "      SpreadsheetTextBox\n" +
+                "        [NOT refreshed]\n"
         );
 
         // dialog never opened or closed
         this.checkEquals(
-                0,
-                table.dialogReset
+            0,
+            table.dialogReset
         );
     }
 
@@ -86,27 +86,27 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
     public void testMatchedOnHistoryTokenChangeAndCheck() {
         final TestSpreadsheetDialogComponentLifecycle table = new TestSpreadsheetDialogComponentLifecycle();
         this.onHistoryTokenChangeAndCheck(
-                table,
-                new FakeAppContext() {
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HISTORY_TOKEN;
-                    }
-                },
-                "TestSpreadsheetDialogComponentLifecycle\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    Title456\n" +
-                        "    id=id123 includeClose=true\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        [onGiveFocus]\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        [refreshed]\n"
+            table,
+            new FakeAppContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return HISTORY_TOKEN;
+                }
+            },
+            "TestSpreadsheetDialogComponentLifecycle\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Title456\n" +
+                "    id=id123 includeClose=true\n" +
+                "      SpreadsheetTextBox\n" +
+                "        [onGiveFocus]\n" +
+                "      SpreadsheetTextBox\n" +
+                "        [refreshed]\n"
         );
 
         // dialog should be opened but never closed.
         this.checkEquals(
-                1,
-                table.dialogReset
+            1,
+            table.dialogReset
         );
     }
 
@@ -115,73 +115,73 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         final TestSpreadsheetDialogComponentLifecycle table = new TestSpreadsheetDialogComponentLifecycle();
 
         this.onHistoryTokenChangeAndCheck(
-                table,
-                new FakeAppContext() {
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HISTORY_TOKEN;
-                    }
-                },
-                "TestSpreadsheetDialogComponentLifecycle\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    Title456\n" +
-                        "    id=id123 includeClose=true\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        [onGiveFocus]\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        [refreshed]\n"
+            table,
+            new FakeAppContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return HISTORY_TOKEN;
+                }
+            },
+            "TestSpreadsheetDialogComponentLifecycle\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Title456\n" +
+                "    id=id123 includeClose=true\n" +
+                "      SpreadsheetTextBox\n" +
+                "        [onGiveFocus]\n" +
+                "      SpreadsheetTextBox\n" +
+                "        [refreshed]\n"
         );
 
         // dialog should be opened but never closed.
         this.checkEquals(
-                1,
-                table.dialogReset
+            1,
+            table.dialogReset
         );
 
         this.onHistoryTokenChangeAndCheck(
-                table,
-                new FakeAppContext() {
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString("/unknown");
-                    }
-                },
-                "TestSpreadsheetDialogComponentLifecycle\n" +
-                        "  SpreadsheetDialogComponent\n" +
-                        "    Title456\n" +
-                        "    id=id123 includeClose=true CLOSED\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        [onGiveFocus]\n" +
-                        "      SpreadsheetTextBox\n" +
-                        "        [refreshed]\n"
+            table,
+            new FakeAppContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.parseString("/unknown");
+                }
+            },
+            "TestSpreadsheetDialogComponentLifecycle\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Title456\n" +
+                "    id=id123 includeClose=true CLOSED\n" +
+                "      SpreadsheetTextBox\n" +
+                "        [onGiveFocus]\n" +
+                "      SpreadsheetTextBox\n" +
+                "        [refreshed]\n"
         );
 
         // dialog should now be closed
         this.checkEquals(
-                2,
-                table.dialogReset
+            2,
+            table.dialogReset
         );
     }
 
     final static class TestSpreadsheetDialogComponentLifecycle implements SpreadsheetDialogComponentLifecycle,
-            TreePrintable {
+        TreePrintable {
 
         TestSpreadsheetDialogComponentLifecycle() {
             this.onGiveFocus = SpreadsheetTextBox.empty()
-                    .setValue(
-                            Optional.of("NOT onGiveFocus")
-                    );
+                .setValue(
+                    Optional.of("NOT onGiveFocus")
+                );
             this.refreshed = SpreadsheetTextBox.empty()
-                    .setValue(
-                            Optional.of("NOT refreshed")
-                    );
+                .setValue(
+                    Optional.of("NOT refreshed")
+                );
             this.dialog = SpreadsheetDialogComponent.with(
-                            "id123",
-                            "Title456",
-                            true, // includeClose
-                            HistoryTokenContexts.fake()
-                    ).appendChild(this.onGiveFocus)
-                    .appendChild(this.refreshed);
+                    "id123",
+                    "Title456",
+                    true, // includeClose
+                    HistoryTokenContexts.fake()
+                ).appendChild(this.onGiveFocus)
+                .appendChild(this.refreshed);
         }
 
         @Override
@@ -194,7 +194,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         @Override
         public void openGiveFocus(final RefreshContext context) {
             this.onGiveFocus.setValue(
-                    Optional.of("onGiveFocus")
+                Optional.of("onGiveFocus")
             );
         }
 
@@ -213,7 +213,7 @@ public final class SpreadsheetDialogComponentLifecycleTestingTest implements Spr
         @Override
         public void refresh(final RefreshContext context) {
             this.refreshed.setValue(
-                    Optional.of("refreshed")
+                Optional.of("refreshed")
             );
         }
 

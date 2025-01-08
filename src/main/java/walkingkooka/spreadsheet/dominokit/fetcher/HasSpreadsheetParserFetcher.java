@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-public interface HasSpreadsheetParserFetcher extends HasSpreadsheetParserFetcherWatchers{
+public interface HasSpreadsheetParserFetcher extends HasSpreadsheetParserFetcherWatchers {
 
     SpreadsheetParserFetcher spreadsheetParserFetcher();
 }

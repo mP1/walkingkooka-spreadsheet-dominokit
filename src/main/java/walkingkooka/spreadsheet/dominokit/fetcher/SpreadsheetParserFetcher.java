@@ -44,8 +44,8 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
 
         try {
             SpreadsheetParserSelectorEdit.parse(
-                    null,
-                    null
+                null,
+                null
             );
         } catch (final NullPointerException ignore) {
             // nop
@@ -58,16 +58,16 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetParserFetcher(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     private SpreadsheetParserFetcher(final SpreadsheetParserFetcherWatcher watcher,
                                      final AppContext context) {
         super(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
@@ -75,25 +75,25 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
     public void edit(final SpreadsheetId id,
                      final String selector) {
         this.post(
-                parser(id)
-                        .appendPath(EDIT),
-                FetcherRequestBody.string(
-                        JsonNode.string(selector)
-                                .toString()
-                )
+            parser(id)
+                .appendPath(EDIT),
+            FetcherRequestBody.string(
+                JsonNode.string(selector)
+                    .toString()
+            )
         );
     }
 
     // /api/spreadsheet/1/parser/*/edit
 
     private final static UrlPath EDIT = UrlPath.parse(
-            "/*/" + SpreadsheetServerLinkRelations.EDIT
+        "/*/" + SpreadsheetServerLinkRelations.EDIT
     );
 
     // GET /api/spreadsheet/SpreadsheetId/parser/*
     public void infoSet(final SpreadsheetId id) {
         this.get(
-                parser(id)
+            parser(id)
         );
     }
 
@@ -101,9 +101,9 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
 
     static RelativeUrl parser(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPathName(
-                        SpreadsheetParserName.HATEOS_RESOURCE_NAME.toUrlPathName()
-                );
+            .appendPathName(
+                SpreadsheetParserName.HATEOS_RESOURCE_NAME.toUrlPathName()
+            );
     }
 
     // Fetcher..........................................................................................................
@@ -122,25 +122,25 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
             case "SpreadsheetParserInfoSet":
                 // GET http://server/api/spreadsheet/1/parser
                 this.watcher.onSpreadsheetParserInfoSet(
-                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(), // the request url
-                        this.parse(
-                                body.orElse(""),
-                                SpreadsheetParserInfoSet.class
-                        ), // edit
-                        context
+                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                        .get(), // the request url
+                    this.parse(
+                        body.orElse(""),
+                        SpreadsheetParserInfoSet.class
+                    ), // edit
+                    context
                 );
                 break;
             case "SpreadsheetParserSelectorEdit":
                 // http://server/api/spreadsheet/1/parser/*/edit
                 this.watcher.onSpreadsheetParserSelectorEdit(
-                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(), // the request url
-                        this.parse(
-                                body.orElse(""),
-                                SpreadsheetParserSelectorEdit.class
-                        ), // edit
-                        context
+                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                        .get(), // the request url
+                    this.parse(
+                        body.orElse(""),
+                        SpreadsheetParserSelectorEdit.class
+                    ), // edit
+                    context
                 );
                 break;
             default:

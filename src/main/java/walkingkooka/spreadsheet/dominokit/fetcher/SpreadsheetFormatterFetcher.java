@@ -45,8 +45,8 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
     static {
         try {
             SpreadsheetFormatterSelectorEdit.parse(
-                    null,
-                    null
+                null,
+                null
             );
         } catch (final NullPointerException ignore) {
             // nop
@@ -54,12 +54,12 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
 
         // force json unmarshaller to register
         SpreadsheetFormatterSelectorMenuList.with(
-                Lists.of(
-                        SpreadsheetFormatterSelectorMenu.with(
-                                "Label",
-                                SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT
-                        )
+            Lists.of(
+                SpreadsheetFormatterSelectorMenu.with(
+                    "Label",
+                    SpreadsheetFormatterSelector.DEFAULT_TEXT_FORMAT
                 )
+            )
         ); // force JSON registry
     }
 
@@ -69,16 +69,16 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetFormatterFetcher(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     private SpreadsheetFormatterFetcher(final SpreadsheetFormatterFetcherWatcher watcher,
                                         final AppContext context) {
         super(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
@@ -86,45 +86,45 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
     public void edit(final SpreadsheetId id,
                      final String selector) {
         this.post(
-                formatter(id)
-                        .appendPath(EDIT),
-                FetcherRequestBody.string(
-                        JsonNode.string(selector)
-                                .toString()
-                )
+            formatter(id)
+                .appendPath(EDIT),
+            FetcherRequestBody.string(
+                JsonNode.string(selector)
+                    .toString()
+            )
         );
     }
 
     private final static UrlPath EDIT = UrlPath.parse(
-            "/*/" + SpreadsheetServerLinkRelations.EDIT
+        "/*/" + SpreadsheetServerLinkRelations.EDIT
     );
 
     // GET /api/spreadsheet/SpreadsheetId/formatter/*
     public void infoSet(final SpreadsheetId id) {
         this.get(
-                formatter(id)
+            formatter(id)
         );
     }
 
     // GET /api/spreadsheet/SpreadsheetId/formatter/*/menu
     public void menu(final SpreadsheetId id) {
         this.get(
-                formatter(id)
-                        .appendPath(MENU)
+            formatter(id)
+                .appendPath(MENU)
         );
     }
 
     private final static UrlPath MENU = UrlPath.parse(
-            "/*/" + SpreadsheetServerLinkRelations.MENU
+        "/*/" + SpreadsheetServerLinkRelations.MENU
     );
 
     // api/spreadsheet/SpreadsheetId/formatter
 
     static RelativeUrl formatter(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPathName(
-                        SpreadsheetFormatterName.HATEOS_RESOURCE_NAME.toUrlPathName()
-                );
+            .appendPathName(
+                SpreadsheetFormatterName.HATEOS_RESOURCE_NAME.toUrlPathName()
+            );
     }
 
     // Fetcher..........................................................................................................
@@ -143,37 +143,37 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
             case "SpreadsheetFormatterInfoSet":
                 // GET http://server/api/spreadsheet/1/formatter
                 this.watcher.onSpreadsheetFormatterInfoSet(
-                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(), // the request formatter
-                        this.parse(
-                                body.orElse(""),
-                                SpreadsheetFormatterInfoSet.class
-                        ), // edit
-                        context
+                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                        .get(), // the request formatter
+                    this.parse(
+                        body.orElse(""),
+                        SpreadsheetFormatterInfoSet.class
+                    ), // edit
+                    context
                 );
                 break;
             case "SpreadsheetFormatterSelectorEdit":
                 // http://server/api/spreadsheet/1/formatter/*/edit
                 this.watcher.onSpreadsheetFormatterSelectorEdit(
-                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(), // the request formatter
-                        this.parse(
-                                body.orElse(""),
-                                SpreadsheetFormatterSelectorEdit.class
-                        ), // edit
-                        context
+                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                        .get(), // the request formatter
+                    this.parse(
+                        body.orElse(""),
+                        SpreadsheetFormatterSelectorEdit.class
+                    ), // edit
+                    context
                 );
                 break;
             case "SpreadsheetFormatterSelectorMenuList":
                 // http://server/api/spreadsheet/1/formatter/*/menu
                 this.watcher.onSpreadsheetFormatterSelectorMenuList(
-                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(), // the request formatter
-                        this.parse(
-                                body.orElse(""),
-                                SpreadsheetFormatterSelectorMenuList.class
-                        ), // menu
-                        context
+                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                        .get(), // the request formatter
+                    this.parse(
+                        body.orElse(""),
+                        SpreadsheetFormatterSelectorMenuList.class
+                    ), // menu
+                    context
                 );
                 break;
             default:

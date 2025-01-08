@@ -24,14 +24,14 @@ import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelector
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 
 final class SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext implements AppendPluginSelectorTokenComponentContext,
-        RemoveOrReplacePluginSelectorTokenComponentContext,
-        HistoryTokenContextDelegator {
+    RemoveOrReplacePluginSelectorTokenComponentContext,
+    HistoryTokenContextDelegator {
 
     static SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext with(final SpreadsheetParserName name,
                                                                                                                                      final HistoryTokenContext context) {
         return new SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext(
-                name,
-                context
+            name,
+            context
         );
     }
 
@@ -46,9 +46,9 @@ final class SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRe
         final SpreadsheetParserName name = this.name;
 
         return null == name ?
-                text :
-                name.setValueText(text)
-                        .toString();
+            text :
+            name.setValueText(text)
+                .toString();
     }
 
     private final SpreadsheetParserName name;

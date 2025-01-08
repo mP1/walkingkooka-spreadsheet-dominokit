@@ -53,19 +53,19 @@ final class SpreadsheetFormulaComponentValidator implements Validator<Optional<S
 
         try {
             final SpreadsheetFormula formula = this.parser.apply(
-                    value.orElse("")
+                value.orElse("")
             );
             message = formula.error()
-                    .map(SpreadsheetError::message)
-                    .orElse(
-                            null
-                    );
+                .map(SpreadsheetError::message)
+                .orElse(
+                    null
+                );
         } catch (final Exception fail) {
             message = fail.getMessage();
         }
         return CharSequences.isNullOrEmpty(message) ?
-                ValidationResult.valid() :
-                ValidationResult.invalid(message);
+            ValidationResult.valid() :
+            ValidationResult.invalid(message);
     }
 
     private final Function<String, SpreadsheetFormula> parser;

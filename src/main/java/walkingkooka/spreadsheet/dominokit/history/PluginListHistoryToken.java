@@ -46,9 +46,9 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
     @Override //
     final UrlFragment pluginUrlFragment() {
         return countAndOffsetUrlFragment(
-                this.offset,
-                this.count,
-                this.pluginListUrlFragment()
+            this.offset,
+            this.count,
+            this.pluginListUrlFragment()
         );
     }
 
@@ -67,7 +67,7 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
                 break;
             default:
                 historyToken = pluginSelect(
-                        PluginName.with(component)
+                    PluginName.with(component)
                 );
                 break;
         }
@@ -77,13 +77,13 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
 
     final void loadPlugins(final HasPluginFetcher fetcher) {
         fetcher.pluginFetcher()
-                .filter(
-                        "*", // query
-                        this.count()
-                                .orElse(DEFAULT_OFFSET),
-                        this.count()
-                                .orElse(DEFAULT_COUNT)
-                );
+            .filter(
+                "*", // query
+                this.count()
+                    .orElse(DEFAULT_OFFSET),
+                this.count()
+                    .orElse(DEFAULT_COUNT)
+            );
     }
 
     private final static int DEFAULT_OFFSET = 0;

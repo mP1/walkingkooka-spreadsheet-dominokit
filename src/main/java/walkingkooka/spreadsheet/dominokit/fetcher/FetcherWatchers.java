@@ -40,8 +40,8 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
      */
     public final Runnable add(final W watcher) {
         return this.addWatcher(
-                watcher,
-                this.watchers
+            watcher,
+            this.watchers
         );
     }
 
@@ -50,8 +50,8 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
      */
     public final Runnable addOnce(final W watcher) {
         final Runnable remover = this.addWatcher(
-                watcher,
-                this.onceWatchers
+            watcher,
+            this.onceWatchers
         );
         this.onceRemovers.add(remover);
         return remover;
@@ -60,7 +60,7 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
     private Runnable addWatcher(final W watcher,
                                 final Watchers<FetcherWatchersEvent<W>> watchers) {
         return watchers.add(
-                (e) -> e.accept(watcher)
+            (e) -> e.accept(watcher)
         );
     }
 
@@ -73,10 +73,10 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
                               final AppContext context) {
         // cant use fire because it removes one shot watchers...
         final FetcherWatchersEvent<W> event = FetcherWatchersEvent.begin(
-                method,
-                url,
-                body,
-                context
+            method,
+            url,
+            body,
+            context
         );
         this.onceWatchers.accept(event);
         this.watchers.accept(event);
@@ -90,14 +90,14 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
                                 final String body,
                                 final AppContext context) {
         this.fire(
-                FetcherWatchersEvent.failure(
-                        method,
-                        url,
-                        status,
-                        headers,
-                        body,
-                        context
-                )
+            FetcherWatchersEvent.failure(
+                method,
+                url,
+                status,
+                headers,
+                body,
+                context
+            )
         );
     }
 
@@ -105,19 +105,19 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
     public final void onError(final Object cause,
                               final AppContext context) {
         this.fire(
-                FetcherWatchersEvent.error(
-                        cause,
-                        context
-                )
+            FetcherWatchersEvent.error(
+                cause,
+                context
+            )
         );
     }
 
     @Override
     public final void onEmptyResponse(final AppContext context) {
         this.fire(
-                FetcherWatchersEvent.empty(
-                        context
-                )
+            FetcherWatchersEvent.empty(
+                context
+            )
         );
     }
 
@@ -130,6 +130,7 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
             this.onceRemovers.clear();
         }
     }
+
     private final Watchers<FetcherWatchersEvent<W>> watchers = Watchers.create();
 
     private final Watchers<FetcherWatchersEvent<W>> onceWatchers = Watchers.create();

@@ -21,12 +21,12 @@ public interface HasSpreadsheetDeltaFetcherWatchersDelegator extends HasSpreadsh
 
     @Override default Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.hasSpreadsheetDeltaFetcherWatchers()
-                .addSpreadsheetDeltaFetcherWatcher(watcher);
+            .addSpreadsheetDeltaFetcherWatcher(watcher);
     }
 
     @Override default Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.hasSpreadsheetDeltaFetcherWatchers()
-                .addSpreadsheetDeltaFetcherWatcherOnce(watcher);
+            .addSpreadsheetDeltaFetcherWatcherOnce(watcher);
     }
 
     HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers();

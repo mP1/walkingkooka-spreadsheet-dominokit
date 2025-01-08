@@ -27,59 +27,59 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import java.util.Optional;
 
 public final class SpreadsheetFormulaComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetFormula, SpreadsheetFormulaComponent>,
-        SpreadsheetMetadataTesting {
+    SpreadsheetMetadataTesting {
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setStringValue(
-                                Optional.of(
-                                        "1+2"
-                                )
-                        ),
-                "SpreadsheetFormulaComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [1+2]\n"
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "1+2"
+                    )
+                ),
+            "SpreadsheetFormulaComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [1+2]\n"
         );
     }
 
     @Test
     public void testSetStringValueGetValue() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setStringValue(
-                                Optional.of(
-                                        "1+2"
-                                )
-                        ).value(),
-                "Formula\n" +
-                        "  token:\n" +
-                        "    SpreadsheetAddition \"1+2\"\n" +
-                        "      SpreadsheetNumber \"1\"\n" +
-                        "        SpreadsheetDigits \"1\" \"1\"\n" +
-                        "      SpreadsheetPlusSymbol \"+\" \"+\"\n" +
-                        "      SpreadsheetNumber \"2\"\n" +
-                        "        SpreadsheetDigits \"2\" \"2\"\n"
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "1+2"
+                    )
+                ).value(),
+            "Formula\n" +
+                "  token:\n" +
+                "    SpreadsheetAddition \"1+2\"\n" +
+                "      SpreadsheetNumber \"1\"\n" +
+                "        SpreadsheetDigits \"1\" \"1\"\n" +
+                "      SpreadsheetPlusSymbol \"+\" \"+\"\n" +
+                "      SpreadsheetNumber \"2\"\n" +
+                "        SpreadsheetDigits \"2\" \"2\"\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-                this.createComponent()
-                        .setStringValue(
-                                Optional.of(
-                                        "1+!!!"
-                                )
-                        ),
-                "SpreadsheetFormulaComponent\n" +
-                        "  ValueSpreadsheetTextBox\n" +
-                        "    SpreadsheetTextBox\n" +
-                        "      [1+!!!]\n" +
-                        "      Errors\n" +
-                        "        Invalid character '!' at (3,1) \"1+!!!\" expected BINARY_SUB_EXPRESSION\n"
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "1+!!!"
+                    )
+                ),
+            "SpreadsheetFormulaComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [1+!!!]\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at (3,1) \"1+!!!\" expected BINARY_SUB_EXPRESSION\n"
         );
     }
 
@@ -88,9 +88,9 @@ public final class SpreadsheetFormulaComponentTest implements ValueComponentTest
     @Override
     public SpreadsheetFormulaComponent createComponent() {
         return SpreadsheetFormulaComponent.empty(
-                SpreadsheetFormulaComponentFunctions.expressionParser(
-                        () -> SPREADSHEET_PARSER_CONTEXT
-                )
+            SpreadsheetFormulaComponentFunctions.expressionParser(
+                () -> SPREADSHEET_PARSER_CONTEXT
+            )
         );
     }
 

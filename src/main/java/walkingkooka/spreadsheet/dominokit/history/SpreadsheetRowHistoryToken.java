@@ -34,9 +34,9 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
                                final SpreadsheetName name,
                                final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
 
         final SpreadsheetSelection selection = anchoredSelection.selection();
@@ -63,10 +63,10 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
 
         if (historyToken instanceof SpreadsheetRowSortHistoryToken) {
             historyToken = HistoryToken.rowSortSave(
-                    this.id(),
-                    this.name(),
-                    this.anchoredSelection(),
-                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
+                this.id(),
+                this.name(),
+                this.anchoredSelection(),
+                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
             );
         }
 
@@ -78,20 +78,20 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
     @Override //
     final HistoryToken setSortEdit0(final String comparators) {
         return HistoryToken.rowSortEdit(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                comparators
+            this.id(),
+            this.name(),
+            this.anchoredSelection(),
+            comparators
         );
     }
 
     @Override //
     final HistoryToken setSortSave0(final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparators) {
         return HistoryToken.rowSortSave(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                comparators
+            this.id(),
+            this.name(),
+            this.anchoredSelection(),
+            comparators
         );
     }
 
@@ -114,18 +114,18 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
                 break;
             case INSERT_AFTER_STRING:
                 result = this.insertAfter(
-                        parseCount(cursor)
+                    parseCount(cursor)
                 );
                 break;
             case INSERT_BEFORE_STRING:
                 result = this.insertBefore(
-                        parseCount(cursor)
+                    parseCount(cursor)
                 );
                 break;
             case MENU_STRING:
                 result = this.menu(
-                        Optional.empty(), // no selection
-                        SpreadsheetLabelNameResolvers.fake()
+                    Optional.empty(), // no selection
+                    SpreadsheetLabelNameResolvers.fake()
                 );
                 break;
             case SORT_STRING:

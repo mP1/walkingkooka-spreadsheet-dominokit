@@ -41,40 +41,40 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     @Test
     public final void testWithCellFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.A1.setDefaultAnchor(),
-                "Got A1 expected row or row-range"
+            SpreadsheetSelection.A1.setDefaultAnchor(),
+            "Got A1 expected row or row-range"
         );
     }
 
     @Test
     public final void testWithCellRangeFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.parseCellRange("A1:A2").setDefaultAnchor(),
-                "Got A1:A2 expected row or row-range"
+            SpreadsheetSelection.parseCellRange("A1:A2").setDefaultAnchor(),
+            "Got A1:A2 expected row or row-range"
         );
     }
 
     @Test
     public final void testWithLabelFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.labelName("Label123").setDefaultAnchor(),
-                "Got Label123 expected row or row-range"
+            SpreadsheetSelection.labelName("Label123").setDefaultAnchor(),
+            "Got Label123 expected row or row-range"
         );
     }
 
     @Test
     public final void testWithColumnFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.parseColumn("A").setDefaultAnchor(),
-                "Got A expected row or row-range"
+            SpreadsheetSelection.parseColumn("A").setDefaultAnchor(),
+            "Got A expected row or row-range"
         );
     }
 
     @Test
     public final void testWithColumnRangeFails() {
         this.createHistoryTokenFails(
-                SpreadsheetSelection.parseColumnRange("A:B").setDefaultAnchor(),
-                "Got A:B expected row or row-range"
+            SpreadsheetSelection.parseColumnRange("A:B").setDefaultAnchor(),
+            "Got A:B expected row or row-range"
         );
     }
 
@@ -83,12 +83,12 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     @Test
     public final void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.row(
-                        ID,
-                        NAME,
-                        SELECTION
-                )
+            this.createHistoryToken(),
+            HistoryToken.row(
+                ID,
+                NAME,
+                SELECTION
+            )
         );
     }
 
@@ -99,27 +99,27 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         final AnchoredSpreadsheetSelection selection = ROW.setDefaultAnchor();
 
         this.freezeOrEmptyAndCheck(
-                selection,
-                HistoryToken.rowFreeze(
-                        ID,
-                        NAME,
-                        selection
-                )
+            selection,
+            HistoryToken.rowFreeze(
+                ID,
+                NAME,
+                selection
+            )
         );
     }
 
     @Test
     public final void testFreezeOrEmptyRowRange() {
         final AnchoredSpreadsheetSelection selection = SpreadsheetSelection.parseRowRange("1:2")
-                .setAnchor(SpreadsheetViewportAnchor.BOTTOM);
+            .setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
         this.freezeOrEmptyAndCheck(
-                selection,
-                HistoryToken.rowFreeze(
-                        ID,
-                        NAME,
-                        selection
-                )
+            selection,
+            HistoryToken.rowFreeze(
+                ID,
+                NAME,
+                selection
+            )
         );
     }
 
@@ -145,15 +145,15 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         final SpreadsheetRowReference row = ROW;
 
         this.menuAndCheck(
-                this.createHistoryToken(
-                        row.setDefaultAnchor()
-                ),
-                row,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        row.setDefaultAnchor()
-                )
+            this.createHistoryToken(
+                row.setDefaultAnchor()
+            ),
+            row,
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                row.setDefaultAnchor()
+            )
         );
     }
 
@@ -162,15 +162,15 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         final SpreadsheetRowReference row = ROW.add(1);
 
         this.menuAndCheck(
-                this.createHistoryToken(
-                        ROW.setDefaultAnchor()
-                ),
-                row,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        row.setDefaultAnchor()
-                )
+            this.createHistoryToken(
+                ROW.setDefaultAnchor()
+            ),
+            row,
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                row.setDefaultAnchor()
+            )
         );
     }
 
@@ -179,15 +179,15 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         final SpreadsheetRowRangeReference range = SpreadsheetSelection.parseRowRange("1:3");
 
         this.menuAndCheck(
-                this.createHistoryToken(
-                        range.setDefaultAnchor()
-                ),
-                SpreadsheetSelection.parseRow("2"),
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        range.setDefaultAnchor()
-                )
+            this.createHistoryToken(
+                range.setDefaultAnchor()
+            ),
+            SpreadsheetSelection.parseRow("2"),
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                range.setDefaultAnchor()
+            )
         );
     }
 
@@ -196,15 +196,15 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         final SpreadsheetRowReference row = SpreadsheetSelection.parseRow("99");
 
         this.menuAndCheck(
-                this.createHistoryToken(
-                        SpreadsheetSelection.parseRowRange("1:3").setDefaultAnchor()
-                ),
-                row,
-                HistoryToken.rowMenu(
-                        ID,
-                        NAME,
-                        row.setDefaultAnchor()
-                )
+            this.createHistoryToken(
+                SpreadsheetSelection.parseRowRange("1:3").setDefaultAnchor()
+            ),
+            row,
+            HistoryToken.rowMenu(
+                ID,
+                NAME,
+                row.setDefaultAnchor()
+            )
         );
     }
 
@@ -213,7 +213,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     @Test
     public void testPatternKind() {
         this.patternKindAndCheck(
-                this.createHistoryToken()
+            this.createHistoryToken()
         );
     }
 
@@ -222,29 +222,29 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     final void urlFragmentAndCheck(final SpreadsheetRowReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(
-                        reference.setDefaultAnchor()
-                ),
-                expected
+            this.createHistoryToken(
+                reference.setDefaultAnchor()
+            ),
+            expected
         );
     }
 
     final void urlFragmentAndCheck(final SpreadsheetRowRangeReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(
-                this.createHistoryToken(
-                        reference.setDefaultAnchor()
-                ),
-                expected
+            this.createHistoryToken(
+                reference.setDefaultAnchor()
+            ),
+            expected
         );
     }
 
     @Override final T createHistoryToken(final SpreadsheetId id,
                                          final SpreadsheetName name) {
         return this.createHistoryToken(
-                id,
-                name,
-                SELECTION
+            id,
+            name,
+            SELECTION
         );
     }
 }

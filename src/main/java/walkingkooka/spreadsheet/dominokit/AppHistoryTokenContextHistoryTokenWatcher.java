@@ -42,12 +42,12 @@ import java.util.Optional;
  * Combines the responsibilities and features relating to History events.
  */
 final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenContext,
-        HistoryTokenWatcher,
-        LoggingContextDelegator {
+    HistoryTokenWatcher,
+    LoggingContextDelegator {
 
     static AppHistoryTokenContextHistoryTokenWatcher with(final AppContext appContext) {
         return new AppHistoryTokenContextHistoryTokenWatcher(
-                Objects.requireNonNull(appContext, "appContext")
+            Objects.requireNonNull(appContext, "appContext")
         );
     }
 
@@ -61,10 +61,10 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
         this.addHistoryTokenWatcher(this);
 
         DomGlobal.self.addEventListener(
-                EventType.hashchange.getName(),
-                event -> this.onHistoryTokenChange(
-                        this.historyToken()
-                )
+            EventType.hashchange.getName(),
+            event -> this.onHistoryTokenChange(
+                this.historyToken()
+            )
         );
     }
 
@@ -81,8 +81,8 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
 
             } else {
                 this.historyWatchers.onHistoryTokenChange(
-                        previousToken,
-                        this.appContext
+                    previousToken,
+                    this.appContext
                 );
             }
         }
@@ -125,8 +125,8 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
 
         try {
             this.historyWatchers.onHistoryTokenChange(
-                    previous,
-                    this.appContext
+                previous,
+                this.appContext
             );
         } finally {
             this.firePrevious = null;
@@ -154,16 +154,16 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
         final HistoryToken historyToken = context.historyToken();
         if (false == historyToken.shouldIgnore()) {
             patchMetadataIfSelectionChanged(
-                    historyToken,
-                    context
+                historyToken,
+                context
             );
         }
 
         this.firePrevious = previous;
         try {
             historyToken.onHistoryTokenChange(
-                    previous,
-                    context
+                previous,
+                context
             );
         } finally {
             this.firePrevious = null;
@@ -193,28 +193,28 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
             final Optional<AnchoredSpreadsheetSelection> selection = historyToken.anchoredSelectionOrEmpty();
 
             final Optional<AnchoredSpreadsheetSelection> previousSelection = context.spreadsheetMetadata()
-                    .get(SpreadsheetMetadataPropertyName.VIEWPORT)
-                    .flatMap(SpreadsheetViewport::anchoredSelection);
+                .get(SpreadsheetMetadataPropertyName.VIEWPORT)
+                .flatMap(SpreadsheetViewport::anchoredSelection);
             if (false == selection.equals(previousSelection)) {
 
                 context.debug("App.patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
 
                 // initially metadata will be empty because it has not yet loaded, context.viewport below will fail.
                 if (context.spreadsheetMetadata()
-                        .get(SpreadsheetMetadataPropertyName.VIEWPORT)
-                        .isPresent()) {
+                    .get(SpreadsheetMetadataPropertyName.VIEWPORT)
+                    .isPresent()) {
                     final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) historyToken;
                     context.spreadsheetMetadataFetcher()
-                            .patchMetadata(
-                                    spreadsheetIdHistoryToken.id(),
-                                    SpreadsheetMetadataPropertyName.VIEWPORT.patch(
-                                            selection.map(
-                                                    s -> context.viewport(
-                                                            Optional.of(s)
-                                                    )
-                                            ).orElse(null)
+                        .patchMetadata(
+                            spreadsheetIdHistoryToken.id(),
+                            SpreadsheetMetadataPropertyName.VIEWPORT.patch(
+                                selection.map(
+                                    s -> context.viewport(
+                                        Optional.of(s)
                                     )
-                            );
+                                ).orElse(null)
+                            )
+                        );
                 }
             }
         }

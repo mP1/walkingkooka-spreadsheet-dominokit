@@ -30,23 +30,23 @@ public final class PluginSelectAnchorComponentTest implements HtmlElementCompone
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-                PluginSelectAnchorComponent.empty("plugin-select-anchor-id")
-                        .setTextContent("View123!"),
-                "\"View123!\" DISABLED id=plugin-select-anchor-id"
+            PluginSelectAnchorComponent.empty("plugin-select-anchor-id")
+                .setTextContent("View123!"),
+            "\"View123!\" DISABLED id=plugin-select-anchor-id"
         );
     }
 
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-                PluginSelectAnchorComponent.empty("plugin-select-anchor-id")
-                        .setTextContent("View456!")
-                        .setValue(
-                                Optional.of(
-                                        PluginName.with("PluginName456")
-                                )
-                        ),
-                "\"View456!\" [#/plugin/PluginName456] id=plugin-select-anchor-id"
+            PluginSelectAnchorComponent.empty("plugin-select-anchor-id")
+                .setTextContent("View456!")
+                .setValue(
+                    Optional.of(
+                        PluginName.with("PluginName456")
+                    )
+                ),
+            "\"View456!\" [#/plugin/PluginName456] id=plugin-select-anchor-id"
         );
     }
 

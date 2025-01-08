@@ -48,18 +48,18 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
                                     final SpreadsheetName name,
                                     final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
     @Override
     public final HistoryToken clearAction() {
         return HistoryToken.cell(
-                this.id(),
-                this.name(),
-                this.anchoredSelection()
+            this.id(),
+            this.name(),
+            this.anchoredSelection()
         );
     }
 
@@ -68,19 +68,19 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
                                                       final SpreadsheetName name,
                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return this.replace(
-                id,
-                name,
-                anchoredSelection,
-                this.value()
+            id,
+            name,
+            anchoredSelection,
+            this.value()
         );
     }
 
     static Set<SpreadsheetCell> parseCells(final TextCursor cursor) {
         return UNMARSHALL_CONTEXT.unmarshallSet(
-                JsonNode.parse(
-                        parseAll(cursor)
-                ),
-                SpreadsheetCell.class
+            JsonNode.parse(
+                parseAll(cursor)
+            ),
+            SpreadsheetCell.class
         );
     }
 
@@ -91,11 +91,11 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     static <VV> Map<SpreadsheetCellReference, VV> parseMap(final TextCursor cursor,
                                                            final Class<VV> valueType) {
         return UNMARSHALL_CONTEXT.unmarshallMap(
-                JsonNode.parse(
-                        parseAll(cursor)
-                ),
-                SpreadsheetCellReference.class, // key is always a cell
-                valueType
+            JsonNode.parse(
+                parseAll(cursor)
+            ),
+            SpreadsheetCellReference.class, // key is always a cell
+            valueType
         );
     }
 
@@ -103,14 +103,14 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
         final Map<SpreadsheetCellReference, VV> values = Maps.sorted();
 
         for (final JsonNode keyAndValue : JsonNode.parse(parseAll(cursor))
-                .objectOrFail().children()) {
+            .objectOrFail().children()) {
             values.put(
-                    SpreadsheetSelection.parseCell(keyAndValue.name().value()),
-                    (VV) Optional.ofNullable(
-                            UNMARSHALL_CONTEXT.unmarshallWithType(
-                                    keyAndValue
-                            )
+                SpreadsheetSelection.parseCell(keyAndValue.name().value()),
+                (VV) Optional.ofNullable(
+                    UNMARSHALL_CONTEXT.unmarshallWithType(
+                        keyAndValue
                     )
+                )
             );
         }
 
@@ -118,8 +118,8 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     }
 
     final static JsonNodeUnmarshallContext UNMARSHALL_CONTEXT = JsonNodeUnmarshallContexts.basic(
-            ExpressionNumberKind.BIG_DECIMAL,
-            MathContext.DECIMAL64
+        ExpressionNumberKind.BIG_DECIMAL,
+        MathContext.DECIMAL64
     );
 
     /**
@@ -136,9 +136,9 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     @Override//
     final UrlFragment cellUrlFragment() {
         return saveUrlFragment(
-                this.urlFragmentSaveEntity()
+            this.urlFragmentSaveEntity()
         ).appendSlashThen(
-                this.urlFragmentSaveValue()
+            this.urlFragmentSaveValue()
         );
     }
 

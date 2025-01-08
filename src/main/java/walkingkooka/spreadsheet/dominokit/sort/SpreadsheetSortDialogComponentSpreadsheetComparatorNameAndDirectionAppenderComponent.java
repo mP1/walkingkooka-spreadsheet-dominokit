@@ -49,8 +49,8 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
     static SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent empty(final String id,
                                                                                                       final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
         return new SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent(
-                id,
-                setter
+            id,
+            setter
         );
     }
 
@@ -58,8 +58,8 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
                                                                                                  final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
         this.flex = SpreadsheetFlexLayout.row();
         this.root = SpreadsheetCard.empty()
-                .setTitle("Append comparator(s)")
-                .appendChild(this.flex);
+            .setTitle("Append comparator(s)")
+            .appendChild(this.flex);
 
         this.id = id;
         this.setter = setter;
@@ -79,9 +79,9 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
             copy.addAll(spreadsheetComparatorNameAndDirections);
 
             this.refresh0(
-                    columnOrRow.get(),
-                    copy,
-                    context
+                columnOrRow.get(),
+                copy,
+                context
             );
         }
     }
@@ -96,8 +96,8 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
         final String idPrefix = this.id;
 
         final Set<SpreadsheetComparatorName> existing = spreadsheetComparatorNameAndDirections.stream()
-                .map(SpreadsheetComparatorNameAndDirection::name)
-                .collect(Collectors.toSet());
+            .map(SpreadsheetComparatorNameAndDirection::name)
+            .collect(Collectors.toSet());
 
         final int addIndex = spreadsheetComparatorNameAndDirections.size();
         int i = 0;
@@ -110,22 +110,22 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionA
             }
 
             spreadsheetComparatorNameAndDirections.add(
-                    comparatorName.setDirection(SpreadsheetComparatorDirection.DEFAULT)
+                comparatorName.setDirection(SpreadsheetComparatorDirection.DEFAULT)
             );
 
             final SpreadsheetColumnOrRowSpreadsheetComparatorNames append = SpreadsheetColumnOrRowSpreadsheetComparatorNames.with(
-                    columnOrRow,
-                    spreadsheetComparatorNameAndDirections
+                columnOrRow,
+                spreadsheetComparatorNameAndDirections
             );
 
             flex.appendChild(
-                    historyToken.link(idPrefix + "append-" + i)
-                            .setTextContent(comparatorName.toString())
-                            .setHistoryToken(
-                                    Optional.of(
-                                            setter.apply(append)
-                                    )
-                            )
+                historyToken.link(idPrefix + "append-" + i)
+                    .setTextContent(comparatorName.toString())
+                    .setHistoryToken(
+                        Optional.of(
+                            setter.apply(append)
+                        )
+                    )
             );
 
             spreadsheetComparatorNameAndDirections.remove(addIndex);

@@ -144,10 +144,10 @@ abstract class SpreadsheetTextViewComponentLike implements ValueComponent<HTMLDi
         printer.indent();
         {
             printer.println(
-                    CharSequences.quoteAndEscape(
-                            this.value()
-                                    .orElse("")
-                    )
+                CharSequences.quoteAndEscape(
+                    this.value()
+                        .orElse("")
+                )
             );
         }
         printer.outdent();

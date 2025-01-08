@@ -34,9 +34,9 @@ public final class SpreadsheetCellFormatterUnselectHistoryToken extends Spreadsh
                                                              final SpreadsheetName name,
                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormatterUnselectHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -44,10 +44,10 @@ public final class SpreadsheetCellFormatterUnselectHistoryToken extends Spreadsh
                                                          final SpreadsheetName name,
                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-                id,
-                name,
-                anchoredSelection,
-                Optional.empty() // SpreadsheetFormatterSelector
+            id,
+            name,
+            anchoredSelection,
+            Optional.empty() // SpreadsheetFormatterSelector
         );
     }
 
@@ -61,9 +61,9 @@ public final class SpreadsheetCellFormatterUnselectHistoryToken extends Spreadsh
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormatterUnselectHistoryToken(
-                id,
-                name,
-                anchoredSelection
+            id,
+            name,
+            anchoredSelection
         );
     }
 

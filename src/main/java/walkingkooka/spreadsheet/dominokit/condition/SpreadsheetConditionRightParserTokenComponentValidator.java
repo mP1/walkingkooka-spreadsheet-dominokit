@@ -32,7 +32,7 @@ final class SpreadsheetConditionRightParserTokenComponentValidator implements Va
 
     static SpreadsheetConditionRightParserTokenComponentValidator with(final SpreadsheetConditionRightParserTokenComponentConditionFunction parser) {
         return new SpreadsheetConditionRightParserTokenComponentValidator(
-                Objects.requireNonNull(parser, "parser")
+            Objects.requireNonNull(parser, "parser")
         );
     }
 
@@ -46,7 +46,7 @@ final class SpreadsheetConditionRightParserTokenComponentValidator implements Va
 
         try {
             this.parser.apply(
-                    text.orElse("")
+                text.orElse("")
             );
 
             message = null;
@@ -56,8 +56,8 @@ final class SpreadsheetConditionRightParserTokenComponentValidator implements Va
             message = fail.getMessage();
         }
         return CharSequences.isNullOrEmpty(message) ?
-                ValidationResult.valid() :
-                ValidationResult.invalid(message);
+            ValidationResult.valid() :
+            ValidationResult.invalid(message);
     }
 
     private final SpreadsheetConditionRightParserTokenComponentConditionFunction parser;

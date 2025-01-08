@@ -33,37 +33,37 @@ final class SpreadsheetViewportComponentThumbnails {
         final SpreadsheetCellReference topLeft = last.begin();
 
         final float left = topLeft.column()
-                .value();
+            .value();
         final float top = topLeft.row()
-                .value();
+            .value();
 
         final SpreadsheetCellReference bottomRight = last.end();
         final float width = bottomRight.column()
-                .value() -
-                left +
-                1;
+            .value() -
+            left +
+            1;
         final float right = Math.max(
-                left + width,
-                columnCount
+            left + width,
+            columnCount
         );
 
         final float height = bottomRight.row()
-                .value() -
-                top +
-                1;
+            .value() -
+            top +
+            1;
         final float bottom = Math.max(
-                top + height,
-                rowCount
+            top + height,
+            rowCount
         );
 
         final float horizontalMultiplier = 100 / right;
         final float verticalMultiplier = 100 / bottom;
 
         return with(
-                left * horizontalMultiplier,// left
-                width * horizontalMultiplier,// width
-                top * verticalMultiplier,// top
-                height * verticalMultiplier// height
+            left * horizontalMultiplier,// left
+            width * horizontalMultiplier,// width
+            top * verticalMultiplier,// top
+            height * verticalMultiplier// height
         );
     }
 
@@ -72,10 +72,10 @@ final class SpreadsheetViewportComponentThumbnails {
                                                        final float top,
                                                        final float height) {
         return new SpreadsheetViewportComponentThumbnails(
-                left,
-                width,
-                top,
-                height
+            left,
+            width,
+            top,
+            height
         );
     }
 
@@ -92,10 +92,10 @@ final class SpreadsheetViewportComponentThumbnails {
     @Override
     public int hashCode() {
         return Objects.hash(
-                this.left,
-                this.width,
-                this.top,
-                this.height
+            this.left,
+            this.width,
+            this.top,
+            this.height
         );
     }
 
@@ -106,9 +106,9 @@ final class SpreadsheetViewportComponentThumbnails {
 
     private boolean equals0(final SpreadsheetViewportComponentThumbnails other) {
         return this.left == other.left &&
-                this.width == other.width &&
-                this.top == other.top &&
-                this.height == other.height;
+            this.width == other.width &&
+            this.top == other.top &&
+            this.height == other.height;
     }
 
     final float left;

@@ -32,10 +32,10 @@ public class Menu<V> implements TreePrintable {
 
     public static <V> Menu<V> empty() {
         return new Menu<>(
-                null,
-                null,
-                Optional.empty(),
-                Optional.empty()
+            null,
+            null,
+            Optional.empty(),
+            Optional.empty()
         );
     }
 
@@ -44,10 +44,10 @@ public class Menu<V> implements TreePrintable {
                                      final Optional<Icon<?>> icon,
                                      final Optional<String> badge) {
         return new Menu<>(
-                id,
-                text,
-                icon,
-                badge
+            id,
+            text,
+            icon,
+            badge
         );
     }
 
@@ -118,8 +118,8 @@ public class Menu<V> implements TreePrintable {
             for (final Object child : this.children) {
                 printer.lineStart();
                 TreePrintable.printTreeOrToString(
-                        child,
-                        printer
+                    child,
+                    printer
                 );
             }
         }

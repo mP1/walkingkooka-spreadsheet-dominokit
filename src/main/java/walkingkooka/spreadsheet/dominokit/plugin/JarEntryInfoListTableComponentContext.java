@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.UiFormattingContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
 public interface JarEntryInfoListTableComponentContext extends HistoryTokenContext,
-        UiFormattingContext {
+    UiFormattingContext {
 
     /**
      * The {@link PluginName} of the enclosing plugin that contains this JAR file.

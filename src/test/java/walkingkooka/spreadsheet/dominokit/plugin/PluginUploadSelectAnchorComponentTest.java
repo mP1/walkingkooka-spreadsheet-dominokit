@@ -27,29 +27,29 @@ public final class PluginUploadSelectAnchorComponentTest implements HtmlElementC
     @Test
     public void testSetIdSetTextContent() {
         this.treePrintAndCheck(
-                PluginUploadSelectAnchorComponent.empty("Upload123")
-                        .setTextContent("Upload123!"),
-                "\"Upload123!\" DISABLED id=Upload123"
+            PluginUploadSelectAnchorComponent.empty("Upload123")
+                .setTextContent("Upload123!"),
+            "\"Upload123!\" DISABLED id=Upload123"
         );
     }
 
     @Test
     public void testSetDisabledFalse() {
         this.treePrintAndCheck(
-                PluginUploadSelectAnchorComponent.empty("Upload123")
-                        .setTextContent("Upload123!")
-                        .setDisabled(false),
-                "\"Upload123!\" [#/plugin-upload] id=Upload123"
+            PluginUploadSelectAnchorComponent.empty("Upload123")
+                .setTextContent("Upload123!")
+                .setDisabled(false),
+            "\"Upload123!\" [#/plugin-upload] id=Upload123"
         );
     }
 
     @Test
     public void testSetDisabledTrue() {
         this.treePrintAndCheck(
-                PluginUploadSelectAnchorComponent.empty("Upload123")
-                        .setTextContent("Upload123!")
-                        .setDisabled(true),
-                "\"Upload123!\" DISABLED id=Upload123"
+            PluginUploadSelectAnchorComponent.empty("Upload123")
+                .setTextContent("Upload123!")
+                .setDisabled(true),
+            "\"Upload123!\" DISABLED id=Upload123"
         );
     }
 

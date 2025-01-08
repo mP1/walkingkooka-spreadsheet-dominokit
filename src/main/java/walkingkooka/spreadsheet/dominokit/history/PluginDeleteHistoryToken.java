@@ -31,7 +31,7 @@ public final class PluginDeleteHistoryToken extends PluginNameHistoryToken {
 
     static PluginDeleteHistoryToken with(final PluginName name) {
         return new PluginDeleteHistoryToken(
-                Objects.requireNonNull(name, "name")
+            Objects.requireNonNull(name, "name")
         );
     }
 
@@ -54,8 +54,8 @@ public final class PluginDeleteHistoryToken extends PluginNameHistoryToken {
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.pluginListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
+            OptionalInt.empty(), // offset
+            OptionalInt.empty() // count
         );
     }
 
@@ -63,8 +63,8 @@ public final class PluginDeleteHistoryToken extends PluginNameHistoryToken {
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.pluginFetcher()
-                .deletePlugin(this.name());
-context.warn(this.toString() + " push prevuous " + previous.toString());
+            .deletePlugin(this.name());
+        context.warn(this.toString() + " push prevuous " + previous.toString());
         context.pushHistoryToken(previous);
     }
 }

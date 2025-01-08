@@ -43,7 +43,7 @@ final class SpreadsheetLabelComponentSuggestStore implements SuggestionsStore<St
     public void find(final String searchValue,
                      final Consumer<SuggestOption<String>> handler) {
         handler.accept(
-                SuggestOption.create(searchValue)
+            SuggestOption.create(searchValue)
         );
     }
 
@@ -51,9 +51,9 @@ final class SpreadsheetLabelComponentSuggestStore implements SuggestionsStore<St
     public void filter(final String filter,
                        final SuggestionsHandler<String, SpanElement, SuggestOption<String>> handler) {
         handler.onSuggestionsReady(
-                Lists.of(
-                        SuggestOption.create(filter)
-                )
+            Lists.of(
+                SuggestOption.create(filter)
+            )
         );
     }
 

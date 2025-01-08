@@ -31,11 +31,11 @@ public final class PluginSaveHistoryTokenTest extends PluginNameHistoryTokenTest
     @Test
     public void testWithNullSaveFails() {
         assertThrows(
-                NullPointerException.class,
-                () -> PluginSaveHistoryToken.with(
-                        PLUGIN_NAME,
-                        null
-                )
+            NullPointerException.class,
+            () -> PluginSaveHistoryToken.with(
+                PLUGIN_NAME,
+                null
+            )
         );
     }
 
@@ -51,19 +51,19 @@ public final class PluginSaveHistoryTokenTest extends PluginNameHistoryTokenTest
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
-                this.createHistoryToken(),
-                HistoryToken.pluginListSelect(
-                        OptionalInt.empty(), // offset
-                        OptionalInt.empty() // count
-                )
+            this.createHistoryToken(),
+            HistoryToken.pluginListSelect(
+                OptionalInt.empty(), // offset
+                OptionalInt.empty() // count
+            )
         );
     }
 
     @Override
     PluginSaveHistoryToken createHistoryToken(final PluginName name) {
         return PluginSaveHistoryToken.with(
-                name,
-                "value123"
+            name,
+            "value123"
         );
     }
 

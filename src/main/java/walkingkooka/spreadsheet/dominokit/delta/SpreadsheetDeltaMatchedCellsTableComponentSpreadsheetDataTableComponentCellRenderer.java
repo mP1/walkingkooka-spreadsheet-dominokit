@@ -66,49 +66,49 @@ final class SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableCompon
         final HistoryToken historyToken = this.context.historyToken();
 
         return HistoryTokenAnchorComponent.empty()
-                .setTextContent(cell.reference().text())
-                .setHistoryToken(
-                        Optional.of(
-                                historyToken.clearSelection()
-                                        .setAnchoredSelection(
-                                                Optional.of(
-                                                        cell.reference()
-                                                                .setDefaultAnchor()
-                                                )
-                                        )
+            .setTextContent(cell.reference().text())
+            .setHistoryToken(
+                Optional.of(
+                    historyToken.clearSelection()
+                        .setAnchoredSelection(
+                            Optional.of(
+                                cell.reference()
+                                    .setDefaultAnchor()
+                            )
                         )
-                );
+                )
+            );
     }
 
     private HistoryTokenAnchorComponent renderCellFormula(final SpreadsheetCell cell) {
         final HistoryToken historyToken = this.context.historyToken();
 
         return HistoryTokenAnchorComponent.empty()
-                .setTextContent(cell.formula().text())
-                .setHistoryToken(
-                        Optional.of(
-                                historyToken.clearSelection()
-                                        .setAnchoredSelection(
-                                                Optional.of(
-                                                        cell.reference()
-                                                                .setDefaultAnchor()
-                                                )
-                                        ).formula()
-                        )
-                );
+            .setTextContent(cell.formula().text())
+            .setHistoryToken(
+                Optional.of(
+                    historyToken.clearSelection()
+                        .setAnchoredSelection(
+                            Optional.of(
+                                cell.reference()
+                                    .setDefaultAnchor()
+                            )
+                        ).formula()
+                )
+            );
     }
 
     private SpreadsheetTextNodeComponent renderCellFormattedValue(final SpreadsheetCell cell) {
         return SpreadsheetTextNodeComponent.with(
-                cell.formattedValue()
+            cell.formattedValue()
         );
     }
 
     private SpreadsheetTextComponent renderCellValue(final SpreadsheetCell cell) {
         return SpreadsheetTextComponent.with(
-                cell.formula()
-                        .value()
-                        .map(Object::toString)
+            cell.formula()
+                .value()
+                .map(Object::toString)
         );
     }
 

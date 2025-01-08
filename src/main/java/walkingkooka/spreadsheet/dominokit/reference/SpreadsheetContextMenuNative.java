@@ -53,15 +53,15 @@ final class SpreadsheetContextMenuNative {
                                         final HistoryTokenContext context) {
         final Element element = target.element();
         final Menu<Void> menu = Menu.<Void>create()
-                .setContextMenu(true)
-                .setDropDirection(new MouseBestFitDirection())
-                .setTargetElement(element);
+            .setContextMenu(true)
+            .setDropDirection(new MouseBestFitDirection())
+            .setTargetElement(element);
         new DominoElement<>(element)
-                .setDropMenu(menu);
+            .setDropMenu(menu);
 
         return SpreadsheetContextMenu.with(
-                menu,
-                context
+            menu,
+            context
         );
     }
 
@@ -73,31 +73,31 @@ final class SpreadsheetContextMenuNative {
         final Menu<Void> subMenu = Menu.create();
 
         AbstractMenuItem<Void> menuItem = MenuItem.<Void>create(text)
-                .setId(id);
+            .setId(id);
         if (icon.isPresent()) {
             menuItem = menuItem.appendChild(
-                    PrefixAddOn.of(
-                            icon.get()
-                                    .addCss(dui_font_size_5)
-                    )
+                PrefixAddOn.of(
+                    icon.get()
+                        .addCss(dui_font_size_5)
+                )
             );
         }
 
         if (badge.isPresent()) {
             menuItem.appendChild(
-                    PostfixAddOn.of(
-                            Badge.create(
-                                    badge.get()
-                            ).addCss(
-                                    dui_bg_orange,
-                                    dui_rounded_full
-                            )
+                PostfixAddOn.of(
+                    Badge.create(
+                        badge.get()
+                    ).addCss(
+                        dui_bg_orange,
+                        dui_rounded_full
                     )
+                )
             );
         }
 
         menu.menu.appendChild(
-                menuItem.setMenu(subMenu)
+            menuItem.setMenu(subMenu)
         );
 
         return subMenu;
@@ -106,34 +106,34 @@ final class SpreadsheetContextMenuNative {
     static void menuAppendChildSpreadsheetContextMenuItem(final SpreadsheetContextMenuItem item,
                                                           final SpreadsheetContextMenu menu) {
         HistoryTokenMenuItem menuItem = menu.context.menuItem(
-                item.id,
-                item.text,
-                item.historyToken
+            item.id,
+            item.text,
+            item.historyToken
         );
         if (item.icon.isPresent()) {
             menuItem.appendChild(
-                    PrefixAddOn.of(
-                            item.icon.get()
-                                    .addCss(dui_font_size_5)
-                    )
+                PrefixAddOn.of(
+                    item.icon.get()
+                        .addCss(dui_font_size_5)
+                )
             );
         }
 
         if (item.badge.isPresent()) {
             menuItem.appendChild(
-                    PostfixAddOn.of(
-                            Badge.create(
-                                    item.badge.get()
-                            )
+                PostfixAddOn.of(
+                    Badge.create(
+                        item.badge.get()
                     )
+                )
             );
         }
 
         if (item.checked) {
             menuItem.appendChild(
-                    PostfixAddOn.of(
-                            SpreadsheetIcons.checked()
-                    )
+                PostfixAddOn.of(
+                    SpreadsheetIcons.checked()
+                )
             );
         }
 
@@ -145,7 +145,7 @@ final class SpreadsheetContextMenuNative {
     static void menuAppendChildIsElement(final IsElement<?> isElement,
                                          final SpreadsheetContextMenu menu) {
         menu.menu.appendChild(
-                isElement.element()
+            isElement.element()
         );
     }
 

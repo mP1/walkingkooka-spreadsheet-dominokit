@@ -45,28 +45,28 @@ public final class SpreadsheetExporterFetcher extends Fetcher<SpreadsheetExporte
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetExporterFetcher(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     private SpreadsheetExporterFetcher(final SpreadsheetExporterFetcherWatcher watcher,
                                        final AppContext context) {
         super(
-                watcher,
-                context
+            watcher,
+            context
         );
     }
 
     static RelativeUrl exporter(final SpreadsheetId id) {
         return SpreadsheetMetadataFetcher.url(id)
-                .appendPathName(SpreadsheetExporterName.HATEOS_RESOURCE_NAME.toUrlPathName());
+            .appendPathName(SpreadsheetExporterName.HATEOS_RESOURCE_NAME.toUrlPathName());
     }
 
     // GET /api/spreadsheet/SpreadsheetId/exporter/*
     public void infoSet(final SpreadsheetId id) {
         this.get(
-                exporter(id)
+            exporter(id)
         );
     }
 
@@ -84,13 +84,13 @@ public final class SpreadsheetExporterFetcher extends Fetcher<SpreadsheetExporte
             case "SpreadsheetExporterInfoSet":
                 // GET http://server/api/spreadsheet/1/exporter
                 this.watcher.onSpreadsheetExporterInfoSet(
-                        SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
-                                .get(), // the request url
-                        this.parse(
-                                body.orElse(""),
-                                SpreadsheetExporterInfoSet.class
-                        ), // edit
-                        context
+                    SpreadsheetMetadataFetcher.extractSpreadsheetId(url)
+                        .get(), // the request url
+                    this.parse(
+                        body.orElse(""),
+                        SpreadsheetExporterInfoSet.class
+                    ), // edit
+                    context
                 );
                 break;
             default:

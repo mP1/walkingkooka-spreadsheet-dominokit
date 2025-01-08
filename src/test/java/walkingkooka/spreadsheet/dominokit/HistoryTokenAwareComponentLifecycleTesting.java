@@ -33,10 +33,10 @@ public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTok
                                               final AppContext context,
                                               final String expected) {
         onHistoryTokenChangeAndCheck(
-                component,
-                component,
-                context,
-                expected
+            component,
+            component,
+            context,
+            expected
         );
     }
 
@@ -45,11 +45,11 @@ public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTok
                                               final AppContext context,
                                               final String expected) {
         onHistoryTokenChangeAndCheck(
-                component,
-                watcher,
-                NOT_MATCHED,
-                context,
-                expected
+            component,
+            watcher,
+            NOT_MATCHED,
+            context,
+            expected
         );
     }
 
@@ -58,11 +58,11 @@ public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTok
                                               final AppContext context,
                                               final String expected) {
         this.onHistoryTokenChangeAndCheck(
-                component,
-                component,
-                previous,
-                context,
-                expected
+            component,
+            component,
+            previous,
+            context,
+            expected
         );
     }
 
@@ -72,12 +72,12 @@ public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTok
                                               final AppContext context,
                                               final String expected) {
         watcher.onHistoryTokenChange(
-                previous,
-                context
+            previous,
+            context
         );
         this.treePrintAndCheck(
-                component,
-                expected
+            component,
+            expected
         );
     }
 }

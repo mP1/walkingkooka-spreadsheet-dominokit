@@ -58,7 +58,7 @@ public final class SpreadsheetTextNodeComponent implements SpreadsheetTextNodeCo
     @Override public Node node() {
         if (null == this.node) {
             this.node = Doms.node(
-                    this.value.orElse(TextNode.EMPTY_TEXT)
+                this.value.orElse(TextNode.EMPTY_TEXT)
             );
         }
         return this.node;
@@ -71,6 +71,6 @@ public final class SpreadsheetTextNodeComponent implements SpreadsheetTextNodeCo
     @Override
     public String toString() {
         return this.value.map(TextNode::text)
-                .orElse("");
+            .orElse("");
     }
 }
