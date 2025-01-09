@@ -22,6 +22,8 @@ import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.Value;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.set.Sets;
+import walkingkooka.collect.set.SortedSets;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
@@ -39,6 +41,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -662,7 +665,26 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         return this.createHistoryToken();
     }
 
-    // ClassTesting.....................................................................................................
+    // Class............................................................................................................
+
+    @Test
+    public final void testAncestorClassesArePublic() {
+        Set<String> nonPublic = SortedSets.tree();
+
+        Class<?> type = this.type();
+        while (type != HistoryToken.class) {
+            if (false == JavaVisibility.PUBLIC.equals(JavaVisibility.of(type))) {
+                nonPublic.add(type.getSimpleName());
+            }
+
+            type = type.getSuperclass();
+        }
+
+        this.checkEquals(
+            Sets.empty(),
+            nonPublic
+        );
+    }
 
     @Override
     public final JavaVisibility typeVisibility() {
