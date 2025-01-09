@@ -550,7 +550,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
     @Test
-    public final void testSetSaveValueNullFails() {
+    public final void testSetSaveValueNullStringFails() {
         final T token = this.createHistoryToken();
         assertThrows(
             NullPointerException.class,
@@ -576,6 +576,41 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
 
     final void setSaveValueAndCheck(final HistoryToken token,
                                     final String save,
+                                    final HistoryToken expected) {
+        this.checkEquals(
+            expected,
+            token.setSaveValue(save),
+            () -> token + " setSaveValue " + save
+        );
+    }
+
+    @Test
+    public final void testSetSaveValueNullOptionalFails() {
+        final T token = this.createHistoryToken();
+        assertThrows(
+            NullPointerException.class,
+            () -> token.setSaveValue((Optional<?>) null)
+        );
+    }
+
+    final void setSaveValueAndCheck(final Optional<?> save) {
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            save
+        );
+    }
+
+    final void setSaveValueAndCheck(final HistoryToken token,
+                                    final Optional<?> save) {
+        this.setSaveValueAndCheck(
+            token,
+            save,
+            token
+        );
+    }
+
+    final void setSaveValueAndCheck(final HistoryToken token,
+                                    final Optional<?> save,
                                     final HistoryToken expected) {
         this.checkEquals(
             expected,
