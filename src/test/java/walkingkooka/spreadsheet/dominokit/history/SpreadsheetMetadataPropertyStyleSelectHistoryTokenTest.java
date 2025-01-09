@@ -30,7 +30,7 @@ import java.util.Optional;
 
 public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extends SpreadsheetMetadataPropertyStyleHistoryTokenTestCase<SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color>, Color> {
 
-    // save.............................................................................................................
+    // saveValue........................................................................................................
 
     @Test
     public void testSaveStyle() {

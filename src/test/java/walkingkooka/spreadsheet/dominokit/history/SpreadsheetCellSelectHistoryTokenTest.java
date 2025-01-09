@@ -187,7 +187,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     // save.........................................................................................................
 
     @Test
-    public void testSave() {
+    public void testSaveValue() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final String formulaText = "=1";
         final HistoryToken historyToken = HistoryToken.cell(ID, NAME, selection);

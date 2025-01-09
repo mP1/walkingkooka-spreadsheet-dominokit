@@ -169,7 +169,7 @@ public final class SpreadsheetRowSortEditHistoryTokenTest extends SpreadsheetRow
     }
 
     @Test
-    public void testSave() {
+    public void testSaveValue() {
         final String saveText = "1=text";
 
         this.saveValueAndCheck(
