@@ -172,7 +172,7 @@ public final class SpreadsheetRowSortEditHistoryTokenTest extends SpreadsheetRow
     public void testSetSaveValue() {
         final String saveText = "1=text";
 
-        this.saveValueAndCheck(
+        this.setSaveValueAndCheck(
             this.createHistoryToken(),
             saveText,
             SpreadsheetRowSortSaveHistoryToken.with(
@@ -190,7 +190,7 @@ public final class SpreadsheetRowSortEditHistoryTokenTest extends SpreadsheetRow
         final AnchoredSpreadsheetSelection anchored = SpreadsheetSelection.parseRowRange("1:2")
             .setDefaultAnchor();
 
-        this.saveValueAndCheck(
+        this.setSaveValueAndCheck(
             SpreadsheetRowSortEditHistoryToken.with(
                 ID,
                 NAME,

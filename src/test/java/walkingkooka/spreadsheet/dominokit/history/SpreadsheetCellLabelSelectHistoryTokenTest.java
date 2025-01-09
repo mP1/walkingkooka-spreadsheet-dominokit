@@ -69,7 +69,7 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
 
     @Test
     public void testSetSaveValueWithEmpty() {
-        this.saveValueAndCheck(
+        this.setSaveValueAndCheck(
             this.createHistoryToken(),
             ""
         );
@@ -79,7 +79,7 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
     public void testSetSaveValueNonEmpty() {
         final String labelName = "Hello";
 
-        this.saveValueAndCheck(
+        this.setSaveValueAndCheck(
             this.createHistoryToken(),
             labelName,
             HistoryToken.cellLabelSave(
