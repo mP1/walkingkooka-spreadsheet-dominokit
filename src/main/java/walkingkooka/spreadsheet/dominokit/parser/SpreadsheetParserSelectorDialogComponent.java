@@ -434,7 +434,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
 
         this.clear.setHistoryToken(
             Optional.of(
-                historyToken.clearSave()
+                historyToken.clearSaveValue()
             )
         );
 

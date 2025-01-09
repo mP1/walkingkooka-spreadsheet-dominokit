@@ -441,7 +441,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
         this.clear.setHistoryToken(
             Optional.of(
-                historyToken.clearSave()
+                historyToken.clearSaveValue()
             )
         );
 

@@ -160,7 +160,7 @@ public final class SpreadsheetMetadataColorPickerComponent implements Spreadshee
 
         this.clearAnchor.setHistoryToken(
             Optional.of(
-                token.clearSave()
+                token.clearSaveValue()
             )
         );
     }
