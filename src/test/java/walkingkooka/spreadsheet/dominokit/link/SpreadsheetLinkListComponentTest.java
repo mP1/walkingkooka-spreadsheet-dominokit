@@ -167,7 +167,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
                 }
 
                 @Override
-                public String saveText(final String text) {
+                public String saveValueText(final String text) {
                     return "save " + text;
                 }
 

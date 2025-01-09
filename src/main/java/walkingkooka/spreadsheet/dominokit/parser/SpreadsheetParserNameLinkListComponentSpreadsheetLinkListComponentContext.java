@@ -56,7 +56,7 @@ final class SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentCo
     private final Optional<SpreadsheetParserName> name;
 
     @Override
-    public String saveText(final String text) {
+    public String saveValueText(final String text) {
         return text; // will be a SpreadsheetParserName
     }
 

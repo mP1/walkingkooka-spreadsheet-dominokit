@@ -27,7 +27,7 @@ public class FakeSpreadsheetLinkListComponentContext extends FakeHistoryTokenCon
     }
 
     @Override
-    public String saveText(final String text) {
+    public String saveValueText(final String text) {
         throw new UnsupportedOperationException();
     }
 }
