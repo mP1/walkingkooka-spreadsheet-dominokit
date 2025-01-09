@@ -805,9 +805,9 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * {@see SpreadsheetLabelMappingSelectHistoryToken}
      */
-    public static SpreadsheetLabelMappingSelectHistoryToken labelMapping(final SpreadsheetId id,
-                                                                         final SpreadsheetName name,
-                                                                         final Optional<SpreadsheetLabelName> label) {
+    public static SpreadsheetLabelMappingSelectHistoryToken labelMappingSelect(final SpreadsheetId id,
+                                                                               final SpreadsheetName name,
+                                                                               final Optional<SpreadsheetLabelName> label) {
         return SpreadsheetLabelMappingSelectHistoryToken.with(
             id,
             name,
@@ -2244,7 +2244,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                     // present -> cellLabelSave
                     // missing -> cellLabelSelect
                     token = label.isPresent() ?
-                        HistoryToken.labelMapping(
+                        HistoryToken.labelMappingSelect(
                             id,
                             name,
                             label
@@ -2257,7 +2257,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 }
 
             } else {
-                token = labelMapping(
+                token = labelMappingSelect(
                     id,
                     name,
                     label

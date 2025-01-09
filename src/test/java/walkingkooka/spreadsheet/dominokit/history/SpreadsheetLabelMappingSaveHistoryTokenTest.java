@@ -51,7 +51,7 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
     public void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
-            HistoryToken.labelMapping(
+            HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
                 Optional.of(LABEL)
