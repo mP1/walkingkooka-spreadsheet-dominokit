@@ -56,7 +56,7 @@ final class SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponen
     private final Optional<SpreadsheetFormatterName> name;
 
     @Override
-    public String saveText(final String text) {
+    public String saveValueText(final String text) {
         return text; // will be a SpreadsheetFormatterName
     }
 

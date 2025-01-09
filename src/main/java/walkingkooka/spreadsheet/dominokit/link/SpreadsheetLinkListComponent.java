@@ -107,7 +107,7 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
         return historyToken.saveLink(
             this.id + index,
             this.labelMaker.apply(text),
-            context.saveText(text)
+            context.saveValueText(text)
         ).setDisabled(context.isDisabled(text));
     }
 
