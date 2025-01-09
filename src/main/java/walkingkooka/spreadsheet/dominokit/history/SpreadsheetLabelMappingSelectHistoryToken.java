@@ -95,7 +95,7 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
                 this.id(),
                 this.name(),
                 labelName.get()
-                    .mapping(
+                    .setLabelMappingTarget(
                         SpreadsheetSelection.parseExpressionReference(value)
                     )
             ) :

@@ -313,7 +313,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 )
             ).setLabels(
                 Sets.of(
-                    label.mapping(cellReference)
+                    label.setLabelMappingTarget(cellReference)
                 )
             ),
             AppContexts.fake()

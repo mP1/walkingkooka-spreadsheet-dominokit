@@ -131,7 +131,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
                 token.id(),
                 token.name(),
                 labelName.get()
-                    .mapping(cell)
+                    .setLabelMappingTarget(cell)
             )
         );
     }
@@ -149,7 +149,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
                 token.id(),
                 token.name(),
                 labelName.get()
-                    .mapping(cells)
+                    .setLabelMappingTarget(cells)
             )
         );
     }

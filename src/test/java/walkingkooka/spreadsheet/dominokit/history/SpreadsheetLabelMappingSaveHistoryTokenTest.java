@@ -61,7 +61,7 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
             SpreadsheetLabelMappingSaveHistoryToken.with(
                 ID,
                 NAME,
-                LABEL.mapping(SpreadsheetSelection.parseCellRange("B2:C3"))
+                LABEL.setLabelMappingTarget(SpreadsheetSelection.parseCellRange("B2:C3"))
             ),
             "/123/SpreadsheetName456/label/Label123/save/B2:C3"
         );
@@ -86,7 +86,7 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
         return SpreadsheetLabelMappingSaveHistoryToken.with(
             id,
             name,
-            label.mapping(TARGET)
+            label.setLabelMappingTarget(TARGET)
         );
     }
 
