@@ -1113,7 +1113,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
     public void testMetadataDateDialogClose() {
         final SpreadsheetMetadataPropertyName<SpreadsheetParserSelector> property = SpreadsheetMetadataPropertyName.DATE_PARSER;
 
-        this.historyTokenCloseDialogAndCheck(
+        this.closeAndCheck(
             HistoryToken.metadataPropertySelect(
                 SPREADSHEET_ID,
                 NAME,
@@ -1170,7 +1170,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
     @Test
     public void testCellDateDialogClose() {
-        this.historyTokenCloseDialogAndCheck(
+        this.closeAndCheck(
             HistoryToken.cellParserSelect(
                 SPREADSHEET_ID,
                 NAME,
