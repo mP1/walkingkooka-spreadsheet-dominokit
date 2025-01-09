@@ -58,6 +58,17 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
         );
     }
 
+    // labelName........................................................................................................
+
+    @Test
+    public void testLabelName() {
+        this.checkEquals(
+            this.createHistoryToken()
+                .labelName(),
+            Optional.of(LABEL)
+        );
+    }
+
     // setLabelName.....................................................................................................
 
     @Test
