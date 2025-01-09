@@ -83,7 +83,7 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends Spreadsh
                     .anchoredSelectionHistoryTokenOrEmpty()
                     .map(
                         t -> t.style(PROPERTY)
-                            .clearSave()
+                            .clearSaveValue()
                     )
             );
     }

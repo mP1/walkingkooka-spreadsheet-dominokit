@@ -381,7 +381,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                    final SpreadsheetSelectionMenuContext context) {
         menu.item(
             historyToken.style(TextStylePropertyName.ALL)
-                .clearSave()
+                .clearSaveValue()
                 .contextMenuItem(
                     context.idPrefix() + "clear-style" + SpreadsheetElementIds.MENU_ITEM,
                     "Clear style"
@@ -529,7 +529,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             "Text case"
         ).item(
             historyToken.style(TextStylePropertyName.TEXT_TRANSFORM)
-                .clearSave()
+                .clearSaveValue()
                 .contextMenuItem(
                     context.idPrefix() + "normal" + SpreadsheetElementIds.MENU_ITEM,
                     "Normal"
@@ -734,7 +734,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         styleSubMenu.item(
             context.historyToken()
                 .style(propertyName)
-                .clearSave()
+                .clearSaveValue()
                 .contextMenuItem(
                     idPrefix + "-clear" + SpreadsheetElementIds.MENU_ITEM, // id
                     "Clear"
@@ -790,7 +790,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         borderWidthSubMenu.item(
             context.historyToken()
                 .style(propertyName)
-                .clearSave()
+                .clearSaveValue()
                 .contextMenuItem(
                     idPrefix + "-clear" + SpreadsheetElementIds.MENU_ITEM, // id
                     "Clear"

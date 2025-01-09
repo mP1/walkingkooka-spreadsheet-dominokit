@@ -201,7 +201,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T> implements ComponentRefr
             Optional.of(
                 context.historyToken()
                     .setMetadataPropertyName(propertyName)
-                    .clearSave()
+                    .clearSaveValue()
             )
         );
 

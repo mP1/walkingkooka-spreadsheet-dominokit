@@ -251,7 +251,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
 
         this.clear.setHistoryToken(
             Optional.of(
-                historyToken.clearSave()
+                historyToken.clearSaveValue()
             )
         );
 
