@@ -99,6 +99,8 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
+        context.pushHistoryToken(previous);
+
         context.spreadsheetDeltaFetcher()
             .saveLabelMapping(
                 this.id(),
