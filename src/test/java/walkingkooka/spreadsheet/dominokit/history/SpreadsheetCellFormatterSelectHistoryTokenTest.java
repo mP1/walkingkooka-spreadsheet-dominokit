@@ -82,10 +82,10 @@ public final class SpreadsheetCellFormatterSelectHistoryTokenTest extends Spread
         );
     }
 
-    // save.............................................................................................................
+    // saveValue........................................................................................................
 
     @Test
-    public void testSave() {
+    public void testSaveValue() {
         final SpreadsheetFormatPattern pattern = SpreadsheetPattern.parseTimeFormatPattern("hh:mm");
         final SpreadsheetFormatterSelector selector = pattern.spreadsheetFormatterSelector();
 
@@ -102,7 +102,7 @@ public final class SpreadsheetCellFormatterSelectHistoryTokenTest extends Spread
     }
 
     @Test
-    public void testSaveEmpty() {
+    public void testSaveValueWithEmpty() {
         this.saveValueAndCheck(
             this.createHistoryToken(),
             "",

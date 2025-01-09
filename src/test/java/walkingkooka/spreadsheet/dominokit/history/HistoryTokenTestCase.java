@@ -460,7 +460,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     // setSave..........................................................................................................
 
     @Test
-    public final void testSaveNullFails() {
+    public final void testSaveValueNullFails() {
         final T token = this.createHistoryToken();
         assertThrows(
             NullPointerException.class,
