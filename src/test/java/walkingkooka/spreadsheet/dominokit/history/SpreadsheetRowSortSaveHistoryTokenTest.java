@@ -95,7 +95,7 @@ public final class SpreadsheetRowSortSaveHistoryTokenTest extends SpreadsheetRow
     }
 
     @Test
-    public void testSaveValue() {
+    public void testSetSaveValue() {
         final String saveText = "A=text";
 
         this.saveValueAndCheck(

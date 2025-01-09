@@ -84,7 +84,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     }
 
     @Test
-    public void testSaveCell() {
+    public void testSetSaveValueCell() {
         final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
         final Optional<SpreadsheetLabelName> labelName = token.labelName();
         final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("B2");
@@ -102,7 +102,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     }
 
     @Test
-    public void testSaveCellRange() {
+    public void testSetSaveValueCellRange() {
         final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
         final Optional<SpreadsheetLabelName> labelName = token.labelName();
         final SpreadsheetCellRangeReference cells = SpreadsheetSelection.parseCellRange("C3:D4");

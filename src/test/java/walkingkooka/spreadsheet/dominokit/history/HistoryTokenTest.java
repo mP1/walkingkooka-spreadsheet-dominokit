@@ -1466,10 +1466,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // saveValue........................................................................................................
+    // setSaveValue.....................................................................................................
 
     @Test
-    public void testSaveWithNotSpreadsheetNameHistoryTokenSubclass() {
+    public void testSetSaveValueWithNotSpreadsheetNameHistoryTokenSubclass() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(

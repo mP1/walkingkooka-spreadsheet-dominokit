@@ -87,7 +87,7 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
     // saveValue........................................................................................................
 
     @Test
-    public void testSaveValue() {
+    public void testSetSaveValue() {
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseTimeParsePattern("hh:mm");
         final SpreadsheetParserSelector selector = pattern.spreadsheetParserSelector();
 
@@ -104,7 +104,7 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
     }
 
     @Test
-    public void testSaveValueWithEmpty() {
+    public void testSetSaveValueWithEmpty() {
         this.saveValueAndCheck(
             this.createHistoryToken(),
             "",

@@ -28,7 +28,7 @@ public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends Spreadsh
     // save.........................................................................................................
 
     @Test
-    public void testSaveValue() {
+    public void testSetSaveValue() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final String formulaText = "=1";
         final HistoryToken historyToken = HistoryToken.cellFormula(ID, NAME, selection);
