@@ -191,7 +191,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     public void testParsePathInvalidOffset() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/!invalid",
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 SELECTION
@@ -217,7 +217,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     public void testParsePathOffsetInvalidCount() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/0/count/!invalid",
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 SELECTION
@@ -413,7 +413,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     public void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor()
@@ -427,7 +427,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     public void testClose() {
         this.closeAndCheck(
             this.createHistoryToken(),
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor()

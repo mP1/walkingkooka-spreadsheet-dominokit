@@ -172,7 +172,7 @@ public final class SpreadsheetCellSortEditHistoryTokenTest extends SpreadsheetCe
     public void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 SELECTION

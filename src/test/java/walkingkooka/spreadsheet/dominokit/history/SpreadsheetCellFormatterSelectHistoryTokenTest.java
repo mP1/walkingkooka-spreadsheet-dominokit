@@ -74,7 +74,7 @@ public final class SpreadsheetCellFormatterSelectHistoryTokenTest extends Spread
     @Test
     public void testClose() {
         this.closeAndCheck(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 SELECTION

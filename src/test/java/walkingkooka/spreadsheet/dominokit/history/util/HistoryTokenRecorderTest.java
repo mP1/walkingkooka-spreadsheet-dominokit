@@ -106,7 +106,7 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                     CELL.setDefaultAnchor(),
                     Optional.of(keep1)
                 ),
-                HistoryToken.cell(
+                HistoryToken.cellSelect(
                     ID,
                     NAME,
                     CELL.setDefaultAnchor()
@@ -143,7 +143,7 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
         final SpreadsheetFormatterSelector keep2 = SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN
             .spreadsheetFormatterSelector();
 
-        final HistoryToken ignore1 = HistoryToken.cell(
+        final HistoryToken ignore1 = HistoryToken.cellSelect(
             ID,
             NAME,
             CELL.setDefaultAnchor()
@@ -224,7 +224,7 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
                     CELL.setDefaultAnchor(),
                     Optional.of(keep3)
                 ),
-                HistoryToken.cell(
+                HistoryToken.cellSelect(
                     ID,
                     NAME,
                     CELL.setDefaultAnchor()

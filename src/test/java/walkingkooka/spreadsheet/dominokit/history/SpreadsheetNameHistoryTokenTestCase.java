@@ -42,7 +42,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
         this.setAnchoredSelectionAndCheck(
             this.createHistoryToken(),
             different,
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 different

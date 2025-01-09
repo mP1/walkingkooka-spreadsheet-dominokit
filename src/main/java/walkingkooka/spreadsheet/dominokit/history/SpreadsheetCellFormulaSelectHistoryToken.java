@@ -66,7 +66,7 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
-        return cell(
+        return cellSelect(
             id,
             name,
             anchoredSelection
