@@ -2065,7 +2065,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         return Optional.ofNullable(token);
     }
 
-    public final HistoryToken label() {
+    public final HistoryToken labelMapping() {
         HistoryToken historyToken = this;
 
         if (this instanceof SpreadsheetCellHistoryToken) {

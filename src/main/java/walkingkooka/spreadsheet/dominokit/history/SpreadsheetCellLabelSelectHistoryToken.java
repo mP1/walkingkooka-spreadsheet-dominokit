@@ -69,7 +69,7 @@ public final class SpreadsheetCellLabelSelectHistoryToken extends SpreadsheetCel
             id,
             name,
             anchoredSelection
-        ).label();
+        ).labelMapping();
     }
 
     // /1/SpreadsheetName/cell/A1

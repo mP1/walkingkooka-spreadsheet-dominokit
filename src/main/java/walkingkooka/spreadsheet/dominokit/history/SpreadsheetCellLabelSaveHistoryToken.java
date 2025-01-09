@@ -87,7 +87,7 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
             id,
             name,
             anchoredSelection
-        ).label()
+        ).labelMapping()
             .setSaveValue(
                 Optional.of(this.labelName)
             );
