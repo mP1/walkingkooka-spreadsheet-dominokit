@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * Deletes the given spreadsheet mapping.
@@ -55,12 +54,8 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
         this.labelName = Objects.requireNonNull(labelName, "labelName");
     }
 
-    @Override
-    public Optional<SpreadsheetLabelName> labelName() {
-        return Optional.of(this.labelName);
-    }
-
-    private final SpreadsheetLabelName labelName;
+    // @see HistoryToken.labelName
+    final SpreadsheetLabelName labelName;
 
     // /Label123/delete
     @Override

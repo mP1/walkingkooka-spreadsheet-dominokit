@@ -41,6 +41,33 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         this.checkEquals(Optional.empty(), token.labelName(), "labelName");
     }
 
+    // label............................................................................................................
+
+    @Test
+    public void testLabelNameWhenMissing() {
+        this.labelNameAndCheck(
+            SpreadsheetLabelMappingSelectHistoryToken.with(
+                ID,
+                NAME,
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testLabelNameWhenPresent() {
+        this.labelNameAndCheck(
+            SpreadsheetLabelMappingSelectHistoryToken.with(
+                ID,
+                NAME,
+                Optional.of(LABEL)
+            ),
+            LABEL
+        );
+    }
+
+    // hasUrlFragment...................................................................................................
+
     @Test
     public void testUrlFragmentWithLabel() {
         this.urlFragmentAndCheck(

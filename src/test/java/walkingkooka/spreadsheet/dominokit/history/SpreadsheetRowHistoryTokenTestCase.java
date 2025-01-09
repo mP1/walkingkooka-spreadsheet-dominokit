@@ -125,6 +125,15 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
+    // label............................................................................................................
+
+    @Test
+    public final void testLabelName() {
+        this.labelNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // setLabel.........................................................................................................
 
     @Test

@@ -28,6 +28,14 @@ import java.util.Optional;
 public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingSaveHistoryToken> {
 
     @Test
+    public void testLabelName() {
+        this.labelNameAndCheck(
+            this.createHistoryToken(),
+            LABEL
+        );
+    }
+
+    @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(
             LABEL,

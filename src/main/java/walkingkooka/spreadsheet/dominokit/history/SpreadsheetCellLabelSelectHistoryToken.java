@@ -22,9 +22,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
-
-import java.util.Optional;
 
 /**
  * A request to edit a label belonging to a cell selection.
@@ -48,11 +45,6 @@ public final class SpreadsheetCellLabelSelectHistoryToken extends SpreadsheetCel
                                                    final SpreadsheetName name,
                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         super(id, name, anchoredSelection);
-    }
-
-    @Override
-    public Optional<SpreadsheetLabelName> labelName() {
-        return Optional.empty();
     }
 
     // /1/SpreadsheetName/cell/A1/label

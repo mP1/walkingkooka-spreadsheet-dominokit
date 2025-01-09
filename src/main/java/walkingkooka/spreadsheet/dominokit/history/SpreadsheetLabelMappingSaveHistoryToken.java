@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * Saves or updates a new or existing {@link SpreadsheetLabelMapping}.
@@ -61,13 +60,6 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     @Override
     public SpreadsheetLabelName value() {
         return this.mapping.label();
-    }
-
-    @Override
-    public Optional<SpreadsheetLabelName> labelName() {
-        return Optional.of(
-            this.mapping.label()
-        );
     }
 
     private final SpreadsheetLabelMapping mapping;
