@@ -661,9 +661,9 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * {@see SpreadsheetColumnSelectHistoryToken}
      */
-    public static SpreadsheetColumnSelectHistoryToken column(final SpreadsheetId id,
-                                                             final SpreadsheetName name,
-                                                             final AnchoredSpreadsheetSelection anchoredSelection) {
+    public static SpreadsheetColumnSelectHistoryToken columnSelect(final SpreadsheetId id,
+                                                                   final SpreadsheetName name,
+                                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetColumnSelectHistoryToken.with(
             id,
             name,
@@ -1155,7 +1155,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 break;
             }
             if (selection.isColumnReference() || selection.isColumnRangeReference()) {
-                historyToken = column(
+                historyToken = columnSelect(
                     id,
                     name,
                     anchoredSelection
