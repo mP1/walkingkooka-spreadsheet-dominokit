@@ -39,9 +39,9 @@ public interface HistoryTokenTesting extends Testing {
         );
     }
 
-    default void historyTokenSaveValueAndCheck(final HistoryToken selected,
-                                               final Optional<?> saveValue,
-                                               final HistoryToken saved) {
+    default void setSaveValueAndCheck(final HistoryToken selected,
+                                      final Optional<?> saveValue,
+                                      final HistoryToken saved) {
         this.checkEquals(
             saved,
             selected.setSaveValue(saveValue),

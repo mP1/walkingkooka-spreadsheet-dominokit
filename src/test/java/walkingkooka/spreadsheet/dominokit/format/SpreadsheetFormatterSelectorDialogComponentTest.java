@@ -1348,7 +1348,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
         final SpreadsheetFormatterSelector value = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
             .spreadsheetFormatterSelector();
 
-        this.historyTokenSaveValueAndCheck(
+        this.setSaveValueAndCheck(
             HistoryToken.metadataPropertySelect(
                 SPREADSHEET_ID,
                 NAME,
@@ -1405,7 +1405,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
         final SpreadsheetFormatterSelector value = SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
             .spreadsheetFormatterSelector();
 
-        this.historyTokenSaveValueAndCheck(
+        this.setSaveValueAndCheck(
             HistoryToken.cellFormatterSelect(
                 SPREADSHEET_ID,
                 NAME,
