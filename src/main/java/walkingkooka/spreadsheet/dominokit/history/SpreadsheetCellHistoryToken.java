@@ -80,8 +80,8 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
     // parse............................................................................................................
 
     @Override
-    HistoryToken parse0(final String component,
-                        final TextCursor cursor) {
+    final HistoryToken parse0(final String component,
+                              final TextCursor cursor) {
         final HistoryToken result;
 
         switch (component) {
