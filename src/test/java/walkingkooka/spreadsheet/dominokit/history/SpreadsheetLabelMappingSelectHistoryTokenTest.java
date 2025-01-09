@@ -41,6 +41,11 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         this.checkEquals(Optional.empty(), token.labelName(), "labelName");
     }
 
+    @Test
+    public void testLabelMappingTarget() {
+        this.labelMappingTargetAndCheck(this.createHistoryToken());
+    }
+
     // label............................................................................................................
 
     @Test

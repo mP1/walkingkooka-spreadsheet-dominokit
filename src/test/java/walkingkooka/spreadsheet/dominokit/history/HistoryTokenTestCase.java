@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -252,6 +253,32 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // labelMappingTarget...............................................................................................
+
+    final void labelMappingTargetAndCheck(final HistoryToken token) {
+        this.labelMappingTargetAndCheck(
+            token,
+            Optional.empty()
+        );
+    }
+
+    final void labelMappingTargetAndCheck(final HistoryToken token,
+                                          final SpreadsheetExpressionReference expected) {
+        this.labelMappingTargetAndCheck(
+            token,
+            Optional.of(expected)
+        );
+    }
+
+    final void labelMappingTargetAndCheck(final HistoryToken token,
+                                          final Optional<SpreadsheetExpressionReference> expected) {
+        this.checkEquals(
+            expected,
+            token.labelMappingTarget(),
+            token::toString
+        );
+    }
+    
     // setLabel.........................................................................................................
 
     final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");

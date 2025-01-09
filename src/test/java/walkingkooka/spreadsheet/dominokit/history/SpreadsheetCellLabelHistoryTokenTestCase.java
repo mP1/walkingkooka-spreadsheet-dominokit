@@ -32,6 +32,8 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
         );
     }
 
+    // close............................................................................................................
+
     @Test
     public final void testClose() {
         this.closeAndCheck(
@@ -41,6 +43,44 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
                 NAME,
                 SELECTION
             )
+        );
+    }
+
+    // labelMappingTarget...............................................................................................
+
+    @Test
+    public final void testLabelMappingTargetWhenCell() {
+        this.labelMappingTargetAndCheck(
+            this.createHistoryToken(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            ),
+            CELL
+        );
+    }
+
+    @Test
+    public final void testLabelMappingTargetWhenCellRange() {
+        this.labelMappingTargetAndCheck(
+            this.createHistoryToken(
+                ID,
+                NAME,
+                RANGE.setDefaultAnchor()
+            ),
+            RANGE
+        );
+    }
+
+    @Test
+    public final void testLabelMappingTargetWhenLabel() {
+        this.labelMappingTargetAndCheck(
+            this.createHistoryToken(
+                ID,
+                NAME,
+                LABEL.setDefaultAnchor()
+            ),
+            LABEL
         );
     }
 }

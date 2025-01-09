@@ -34,6 +34,8 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
         super();
     }
 
+    abstract public void testLabelMappingTarget();
+
     // close............................................................................................................
 
     @Test

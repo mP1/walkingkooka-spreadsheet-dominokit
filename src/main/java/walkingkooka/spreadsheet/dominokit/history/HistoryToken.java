@@ -44,6 +44,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
@@ -2201,6 +2202,30 @@ public abstract class HistoryToken implements HasUrlFragment,
             this.patternKind()
                 .map(kind)
                 .orElse(false);
+    }
+
+    // labelMapping.....................................................................................................
+
+    /**
+     * Getter that returns a {@link SpreadsheetLabelMapping#target()} if this token has one.
+     */
+    public final Optional<SpreadsheetExpressionReference> labelMappingTarget() {
+        SpreadsheetExpressionReference target = null;
+
+        if (this instanceof SpreadsheetCellLabelHistoryToken) {
+            target = this.cast(SpreadsheetCellLabelHistoryToken.class)
+                .anchoredSelection()
+                .selection()
+                .toExpressionReference();
+        } else {
+            if (this instanceof SpreadsheetLabelMappingSaveHistoryToken) {
+                target = this.cast(SpreadsheetLabelMappingSaveHistoryToken.class)
+                    .mapping
+                    .target();
+            }
+        }
+
+        return Optional.ofNullable(target);
     }
 
     // labelName........................................................................................................
