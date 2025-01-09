@@ -75,7 +75,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
         final AppContext context = appContext("/1/SpreadsheetName111/label");
 
         final SpreadsheetLabelMappingDialogComponent dialog = this.dialog(
-            spreadsheetListComponentContext(context)
+            context(context)
         );
 
         // initially empty
@@ -138,7 +138,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
         final AppContext context = appContext("/1/SpreadsheetName111/label/Label999");
 
         final SpreadsheetLabelMappingDialogComponent dialog = this.dialog(
-            spreadsheetListComponentContext(context)
+            context(context)
         );
 
         // initially empty
@@ -260,14 +260,14 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                                               final String expected) {
         this.onHistoryTokenChangeAndCheck(
             this.dialog(
-                this.spreadsheetListComponentContext(context)
+                this.context(context)
             ),
             context,
             expected
         );
     }
 
-    private SpreadsheetLabelMappingDialogComponentContext spreadsheetListComponentContext(final AppContext context) {
+    private SpreadsheetLabelMappingDialogComponentContext context(final AppContext context) {
         return SpreadsheetLabelMappingDialogComponentContexts.appContext(context);
     }
 
