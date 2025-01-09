@@ -1152,7 +1152,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
     public void testMetadataDateDialogRemove() {
         final SpreadsheetMetadataPropertyName<SpreadsheetParserSelector> property = SpreadsheetMetadataPropertyName.DATE_PARSER;
 
-        this.historyTokenRemoveValueAndCheck(
+        this.setSaveValueAndCheck(
             HistoryToken.metadataPropertySelect(
                 SPREADSHEET_ID,
                 NAME,
@@ -1207,7 +1207,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
 
     @Test
     public void testCellDateDialogRemove() {
-        this.historyTokenRemoveValueAndCheck(
+        this.setSaveValueAndCheck(
             HistoryToken.cellParserSelect(
                 SPREADSHEET_ID,
                 NAME,
