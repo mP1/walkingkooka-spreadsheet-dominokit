@@ -1923,7 +1923,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             if (this instanceof SpreadsheetCellFormatterHistoryToken || this instanceof SpreadsheetCellParserHistoryToken) {
                 historyToken = this.clearSave();
             } else {
-                if (this instanceof SpreadsheetCellHistoryToken) {
+                if (this instanceof SpreadsheetCellHistoryToken && false == this instanceof SpreadsheetCellLabelHistoryToken) {
                     final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
 
                     historyToken = cellDelete(

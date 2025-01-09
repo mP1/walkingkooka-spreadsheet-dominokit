@@ -26,6 +26,13 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     }
 
     @Test
+    public final void testSetDelete() {
+        this.deleteAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
+    @Test
     public final void testClose() {
         this.closeAndCheck(
             this.createHistoryToken(),
