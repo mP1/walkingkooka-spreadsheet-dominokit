@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -26,7 +27,8 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCellParserHistoryToken {
+public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCellParserHistoryToken
+    implements Value<Optional<SpreadsheetParserSelector>> {
 
     static SpreadsheetCellParserSaveHistoryToken with(final SpreadsheetId id,
                                                       final SpreadsheetName name,
@@ -50,6 +52,11 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
             anchoredSelection,
             spreadsheetParserSelector
         );
+    }
+
+    @Override
+    public Optional<SpreadsheetParserSelector> value() {
+        return this.spreadsheetParserSelector();
     }
 
     @Override
@@ -90,7 +97,7 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
     // cell/A1/parser/save/SpreadsheetParserSelector
     @Override //
     UrlFragment parserUrlFragment() {
-        return saveUrlFragment(this.spreadsheetParserSelector);
+        return saveUrlFragment(this.value());
     }
 
     @Override

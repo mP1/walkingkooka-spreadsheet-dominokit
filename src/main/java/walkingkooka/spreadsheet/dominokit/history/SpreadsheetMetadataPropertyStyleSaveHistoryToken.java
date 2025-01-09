@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -29,7 +30,8 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Objects;
 import java.util.Optional;
 
-public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends SpreadsheetMetadataPropertyStyleHistoryToken<T> {
+public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends SpreadsheetMetadataPropertyStyleHistoryToken<T>
+implements Value<Optional<T>>  {
 
     static <T> SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> with(final SpreadsheetId id,
                                                                         final SpreadsheetName name,
@@ -56,7 +58,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
         this.stylePropertyValue = Objects.requireNonNull(stylePropertyValue, "stylePropertyValue");
     }
 
-    public Optional<T> stylePropertyValue() {
+    @Override
+    public Optional<T> value() {
         return this.stylePropertyValue;
     }
 
@@ -65,7 +68,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
     @Override
     UrlFragment styleUrlFragment() {
         return saveUrlFragment(
-            this.stylePropertyValue()
+            this.value()
         );
     }
 
@@ -86,7 +89,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
             id,
             name,
             this.stylePropertyName(),
-            this.stylePropertyValue()
+            this.value()
         );
     }
 
@@ -103,7 +106,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
                     SpreadsheetMetadataPropertyName.STYLE,
                     TextStyle.EMPTY.setOrRemove(
                         this.stylePropertyName(),
-                        this.stylePropertyValue().orElse(null)
+                        this.value()
+                            .orElse(null)
                     )
                 )
             );

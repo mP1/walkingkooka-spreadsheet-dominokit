@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -33,7 +34,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
  * /spreadsheet-id/spreadsheet-name/column/column or column-range/sort/save/SpreadsheetColumnOrRowSpreadsheetComparatorsList#text
  * </pre>
  */
-public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColumnSortHistoryToken {
+public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColumnSortHistoryToken implements Value<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList>  {
 
     static SpreadsheetColumnSortSaveHistoryToken with(final SpreadsheetId id,
                                                       final SpreadsheetName name,
@@ -66,7 +67,8 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
         this.comparatorNames = comparatorNames;
     }
 
-    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames() {
+    @Override
+    public SpreadsheetColumnOrRowSpreadsheetComparatorNamesList value() {
         return this.comparatorNames;
     }
 
@@ -74,7 +76,7 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
 
     @Override
     UrlFragment sortUrlFragment() {
-        return saveUrlFragment(this.comparatorNames);
+        return saveUrlFragment(this.value());
     }
 
     @Override

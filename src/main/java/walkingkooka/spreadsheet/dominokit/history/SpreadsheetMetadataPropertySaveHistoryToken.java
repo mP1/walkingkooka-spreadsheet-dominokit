@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -27,7 +28,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import java.util.Objects;
 import java.util.Optional;
 
-public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends SpreadsheetMetadataPropertyHistoryToken<T> {
+public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends SpreadsheetMetadataPropertyHistoryToken<T> implements Value<Optional<T>> {
 
     static <T> SpreadsheetMetadataPropertySaveHistoryToken<T> with(final SpreadsheetId id,
                                                                    final SpreadsheetName name,
@@ -54,7 +55,8 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
         this.propertyValue = Objects.requireNonNull(propertyValue, "propertyValue");
     }
 
-    public Optional<T> propertyValue() {
+    @Override
+    public Optional<T> value() {
         return this.propertyValue;
     }
 
@@ -63,7 +65,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     @Override
     UrlFragment metadataPropertyUrlFragment() {
         return saveUrlFragment(
-            this.propertyValue()
+            this.value()
         );
     }
 
@@ -84,7 +86,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
             id,
             name,
             this.propertyName(),
-            this.propertyValue()
+            this.value()
         );
     }
 
@@ -111,7 +113,8 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
             .patchMetadata(
                 id,
                 propertyName.patch(
-                    this.propertyValue().orElse(null)
+                    this.value()
+                        .orElse(null)
                 )
             );
     }
