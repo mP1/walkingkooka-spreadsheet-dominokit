@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Cast;
+import walkingkooka.Value;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
@@ -2720,6 +2722,20 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         return token;
+    }
+
+    /**
+     * If this is a {@link HistoryToken} with a save value that will be returned.
+     */
+    public final <T> Optional<T> saveValue() {
+        T value = null;
+
+        if (this instanceof Value) {
+            final Value<T> hasValue = Cast.to(this);
+            value = hasValue.value();
+        }
+
+        return Optional.ofNullable(value);
     }
 
     /**
