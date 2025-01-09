@@ -2203,6 +2203,33 @@ public abstract class HistoryToken implements HasUrlFragment,
                 .orElse(false);
     }
 
+    // labelName........................................................................................................
+
+    /**
+     * Getter that returns any {@link SpreadsheetLabelName} value from the given {@link HistoryToken}.
+     */
+    public final Optional<SpreadsheetLabelName> labelName() {
+        SpreadsheetLabelName labelName = null;
+
+        if(this instanceof SpreadsheetCellLabelSaveHistoryToken) {
+            labelName = this.cast(SpreadsheetCellLabelSaveHistoryToken.class).labelName;
+        } else {
+            if(this instanceof SpreadsheetLabelMappingDeleteHistoryToken) {
+                labelName = this.cast(SpreadsheetLabelMappingDeleteHistoryToken.class).labelName;
+            } else {
+                if(this instanceof SpreadsheetLabelMappingSaveHistoryToken) {
+                    labelName = this.cast(SpreadsheetLabelMappingSaveHistoryToken.class).value();
+                } else {
+                    if(this instanceof SpreadsheetLabelMappingSelectHistoryToken) {
+                        labelName = this.cast(SpreadsheetLabelMappingSelectHistoryToken.class).labelName.orElse(null);
+                    }
+                }
+            }
+        }
+
+        return Optional.ofNullable(labelName);
+    }
+
     /**
      * Sets or replaces the current {@link SpreadsheetLabelName} otherwise returns this.
      */

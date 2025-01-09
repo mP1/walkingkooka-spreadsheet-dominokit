@@ -62,12 +62,8 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
         return this.labelName;
     }
 
-    @Override
-    public Optional<SpreadsheetLabelName> labelName() {
-        return Optional.of(this.labelName);
-    }
-
-    private final SpreadsheetLabelName labelName;
+    // HistoryToken.labelName
+    final SpreadsheetLabelName labelName;
 
     // /1/SpreadsheetName/cell/A1/label/save/Label222
     @Override

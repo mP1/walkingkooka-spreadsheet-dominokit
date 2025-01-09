@@ -256,6 +256,30 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
 
     final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
 
+    final void labelNameAndCheck(final HistoryToken token) {
+        this.labelNameAndCheck(
+            token,
+            Optional.empty()
+        );
+    }
+
+    final void labelNameAndCheck(final HistoryToken token,
+                                 final SpreadsheetLabelName labelName) {
+        this.labelNameAndCheck(
+            token,
+            Optional.of(labelName)
+        );
+    }
+
+    final void labelNameAndCheck(final HistoryToken token,
+                                 final Optional<SpreadsheetLabelName> labelName) {
+        this.checkEquals(
+            labelName,
+            token.labelName(),
+            token::toString
+        );
+    }
+
     @Test
     public final void testSetLabelNameWithNullFails() {
         assertThrows(

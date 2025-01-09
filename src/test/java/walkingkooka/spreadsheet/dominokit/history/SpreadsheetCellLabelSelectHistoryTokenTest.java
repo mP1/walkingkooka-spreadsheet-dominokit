@@ -27,6 +27,16 @@ import java.util.Optional;
 
 public final class SpreadsheetCellLabelSelectHistoryTokenTest extends SpreadsheetCellLabelHistoryTokenTestCase<SpreadsheetCellLabelSelectHistoryToken> {
 
+    // labelName........................................................................................................
+
+    @Test
+    public void testLabelName() {
+        this.labelNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
+
     @Test
     public void testSetLabelName() {
         this.setLabelNameAndCheck(

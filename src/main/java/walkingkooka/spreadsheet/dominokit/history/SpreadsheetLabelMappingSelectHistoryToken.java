@@ -56,12 +56,8 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
         this.labelName = Objects.requireNonNull(labelName, "labelName");
     }
 
-    @Override
-    public Optional<SpreadsheetLabelName> labelName() {
-        return this.labelName;
-    }
-
-    private final Optional<SpreadsheetLabelName> labelName;
+    // @see HistoryToken.labelName
+    final Optional<SpreadsheetLabelName> labelName;
 
     //
     // Label123

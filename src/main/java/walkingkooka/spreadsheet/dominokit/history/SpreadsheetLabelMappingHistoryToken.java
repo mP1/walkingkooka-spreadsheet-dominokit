@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.text.cursor.TextCursor;
 
@@ -45,11 +44,6 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
             this.labelUrlFragment()
         );
     }
-
-    /**
-     * Getter that returns the {@link SpreadsheetLabelName}.
-     */
-    abstract public Optional<SpreadsheetLabelName> labelName();
 
     abstract UrlFragment labelUrlFragment();
 
