@@ -98,7 +98,7 @@ public final class SpreadsheetColumnSortSaveHistoryTokenTest extends Spreadsheet
     public void testSave() {
         final String saveText = "A=text";
 
-        this.saveAndCheck(
+        this.saveValueAndCheck(
             this.createHistoryToken(),
             saveText,
             SpreadsheetColumnSortSaveHistoryToken.with(

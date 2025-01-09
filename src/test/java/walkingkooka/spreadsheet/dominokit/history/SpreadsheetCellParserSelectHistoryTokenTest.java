@@ -91,7 +91,7 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
         final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseTimeParsePattern("hh:mm");
         final SpreadsheetParserSelector selector = pattern.spreadsheetParserSelector();
 
-        this.saveAndCheck(
+        this.saveValueAndCheck(
             this.createHistoryToken(),
             selector.text(),
             HistoryToken.cellParserSave(
@@ -105,7 +105,7 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
 
     @Test
     public void testSaveEmpty() {
-        this.saveAndCheck(
+        this.saveValueAndCheck(
             this.createHistoryToken(),
             "",
             HistoryToken.cellParserSave(

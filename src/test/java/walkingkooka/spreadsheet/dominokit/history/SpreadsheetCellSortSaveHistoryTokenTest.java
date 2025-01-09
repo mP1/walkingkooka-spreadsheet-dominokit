@@ -122,7 +122,7 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
     public void testSave() {
         final String saveText = "A=text";
 
-        this.saveAndCheck(
+        this.saveValueAndCheck(
             this.createHistoryToken(),
             saveText,
             SpreadsheetCellSortSaveHistoryToken.with(

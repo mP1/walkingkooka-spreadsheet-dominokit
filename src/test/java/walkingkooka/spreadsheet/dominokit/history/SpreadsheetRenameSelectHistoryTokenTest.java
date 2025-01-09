@@ -62,7 +62,7 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
     public void testSave() {
         final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
 
-        this.saveAndCheck(
+        this.saveValueAndCheck(
             this.createHistoryToken(),
             renameTo.toString(),
             HistoryToken.spreadsheetRenameSave(

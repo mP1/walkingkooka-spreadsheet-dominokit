@@ -37,7 +37,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
         final SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color> historyToken = this.createHistoryToken();
         final String value = "#123456";
 
-        this.saveAndCheck(
+        this.saveValueAndCheck(
             historyToken,
             value,
             HistoryToken.metadataPropertyStyleSave(
@@ -54,7 +54,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
         final SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color> historyToken = this.createHistoryToken();
         final String value = "";
 
-        this.saveAndCheck(
+        this.saveValueAndCheck(
             historyToken,
             value,
             HistoryToken.metadataPropertyStyleSave(
