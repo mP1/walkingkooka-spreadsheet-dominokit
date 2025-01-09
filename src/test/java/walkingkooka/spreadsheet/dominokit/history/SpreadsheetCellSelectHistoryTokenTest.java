@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellSelectHistoryToken> {
@@ -154,6 +156,21 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
                 ID,
                 NAME,
                 CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    // setLabel.........................................................................................................
+
+    @Test
+    public void testSetLabelName() {
+        this.setLabelNameAndCheck(
+            this.createHistoryToken(),
+            LABEL,
+            HistoryToken.labelMapping(
+                ID,
+                NAME,
+                Optional.of(LABEL)
             )
         );
     }

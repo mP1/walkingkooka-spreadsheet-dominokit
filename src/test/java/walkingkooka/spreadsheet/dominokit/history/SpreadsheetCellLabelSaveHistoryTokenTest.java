@@ -25,7 +25,40 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class SpreadsheetCellLabelSelectHistoryTokenTest extends SpreadsheetCellLabelHistoryTokenTestCase<SpreadsheetCellLabelSelectHistoryToken> {
+import static org.junit.Assert.assertThrows;
+
+public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetCellLabelHistoryTokenTestCase<SpreadsheetCellLabelSaveHistoryToken> {
+
+    // with.............................................................................................................
+
+    @Test
+    public void testWithNullLabelFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetCellLabelSaveHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                null
+            )
+        );
+    }
+
+    // parse............................................................................................................
+
+    @Test
+    public void testParseMissingLabelNameFails() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/cell/A1/label/save",
+            HistoryToken.cellLabelSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    // setLabelName.....................................................................................................
 
     @Test
     public void testSetLabelName() {
@@ -61,7 +94,12 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
     public void testSaveEmpty() {
         this.saveAndCheck(
             this.createHistoryToken(),
-            ""
+            "",
+            HistoryToken.cellLabelSelect(
+                ID,
+                NAME,
+                SELECTION
+            )
         );
     }
 
@@ -81,28 +119,31 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
         );
     }
 
+    // HasUrlFragment...................................................................................................
+
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-            "/123/SpreadsheetName456/cell/A1/label"
+            "/123/SpreadsheetName456/cell/A1/label/save/Label123"
         );
     }
 
     @Override
-    SpreadsheetCellLabelSelectHistoryToken createHistoryToken(final SpreadsheetId id,
+    SpreadsheetCellLabelSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                               final SpreadsheetName name,
                                                               final AnchoredSpreadsheetSelection anchoredSelection) {
-        return SpreadsheetCellLabelSelectHistoryToken.with(
+        return SpreadsheetCellLabelSaveHistoryToken.with(
             id,
             name,
-            anchoredSelection
+            anchoredSelection,
+            LABEL
         );
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetCellLabelSelectHistoryToken> type() {
-        return SpreadsheetCellLabelSelectHistoryToken.class;
+    public Class<SpreadsheetCellLabelSaveHistoryToken> type() {
+        return SpreadsheetCellLabelSaveHistoryToken.class;
     }
 }

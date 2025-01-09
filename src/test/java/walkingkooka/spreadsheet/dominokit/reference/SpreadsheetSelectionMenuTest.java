@@ -256,7 +256,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/label] id=test-label-create-MenuItem\n"
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n"
         );
     }
 
@@ -469,7 +469,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/label] id=test-label-create-MenuItem\n"
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n"
         );
     }
 
@@ -677,7 +677,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/label] id=test-label-create-MenuItem\n"
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n"
         );
     }
 
@@ -900,7 +900,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/label] id=test-label-create-MenuItem\n"
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n"
         );
     }
 
@@ -1136,7 +1136,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/label] id=test-label-create-MenuItem\n"
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n"
         );
     }
 
@@ -1433,7 +1433,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Label123 (B2)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/label] id=test-label-create-MenuItem\n"
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/label] id=test-label-create-MenuItem\n"
         );
     }
 

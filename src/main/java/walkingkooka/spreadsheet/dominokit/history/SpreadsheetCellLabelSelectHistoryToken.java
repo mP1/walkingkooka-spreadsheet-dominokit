@@ -22,6 +22,9 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+
+import java.util.Optional;
 
 /**
  * A request to edit a label belonging to a cell selection.
@@ -47,10 +50,32 @@ public final class SpreadsheetCellLabelSelectHistoryToken extends SpreadsheetCel
         super(id, name, anchoredSelection);
     }
 
+    @Override
+    public Optional<SpreadsheetLabelName> labelName() {
+        return Optional.empty();
+    }
+
     // /1/SpreadsheetName/cell/A1/label
     @Override
     UrlFragment cellLabelUrlFragment() {
         return UrlFragment.EMPTY;
+    }
+
+    @Override //
+    HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
+                                                final SpreadsheetName name,
+                                                final AnchoredSpreadsheetSelection anchoredSelection) {
+        return selection(
+            id,
+            name,
+            anchoredSelection
+        ).label();
+    }
+
+    // /1/SpreadsheetName/cell/A1
+    @Override
+    public HistoryToken clearAction() {
+        return this;
     }
 
     @Override

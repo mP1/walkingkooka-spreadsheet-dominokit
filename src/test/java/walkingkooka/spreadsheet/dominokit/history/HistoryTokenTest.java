@@ -2693,6 +2693,31 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellCellSaveEmptyLabel() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/label/save/",
+            HistoryToken.cellLabelSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellCellSaveLabel() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/label/save/Label123",
+            HistoryToken.cellLabelSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                LABEL
+            )
+        );
+    }
+
     // cell/menu........................................................................................................
 
     @Test

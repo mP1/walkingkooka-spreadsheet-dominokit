@@ -422,6 +422,21 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetCellLabelSaveHistoryToken}
+     */
+    public static SpreadsheetCellLabelSaveHistoryToken cellLabelSave(final SpreadsheetId id,
+                                                                     final SpreadsheetName name,
+                                                                     final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                     final SpreadsheetLabelName label) {
+        return SpreadsheetCellLabelSaveHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            label
+        );
+    }
+
+    /**
      * {@see SpreadsheetCellLabelSelectHistoryToken}
      */
     public static SpreadsheetCellLabelSelectHistoryToken cellLabelSelect(final SpreadsheetId id,
@@ -1566,7 +1581,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         if (this instanceof SpreadsheetCellLabelHistoryToken) {
-            closed = this.clearAction();
+            final SpreadsheetCellLabelHistoryToken cellLabelSelectHistoryToken = this.cast(SpreadsheetCellLabelHistoryToken.class);
+            closed = cellLabelSelectHistoryToken.selectionSelect();
         }
 
         if (this instanceof SpreadsheetCellSortHistoryToken || this instanceof SpreadsheetColumnSortHistoryToken || this instanceof SpreadsheetRowSortHistoryToken) {
@@ -2194,11 +2210,59 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            token = labelMapping(
-                spreadsheetNameHistoryToken.id(),
-                spreadsheetNameHistoryToken.name(),
-                label
-            );
+            final SpreadsheetId id = spreadsheetNameHistoryToken.id();
+            final SpreadsheetName name = spreadsheetNameHistoryToken.name();
+
+            if (this instanceof SpreadsheetCellHistoryToken) {
+                final AnchoredSpreadsheetSelection selection = token.cast(SpreadsheetCellHistoryToken.class)
+                    .anchoredSelection();
+
+                if (this instanceof SpreadsheetCellLabelHistoryToken) {
+                    final SpreadsheetCellLabelHistoryToken cellLabelHistoryToken = this.cast(SpreadsheetCellLabelHistoryToken.class);
+
+                    // if equal return this,
+                    // present -> cellLabelSave
+                    // missing -> cellLabelSelect
+                    token = cellLabelHistoryToken.labelName()
+                        .equals(label) ?
+                        this :
+                        label.isPresent() ?
+                            HistoryToken.cellLabelSave(
+                                id,
+                                name,
+                                selection,
+                                label.get()
+                            ) :
+                            HistoryToken.cellLabelSelect(
+                                id,
+                                name,
+                                selection
+                            );
+                } else {
+                    // its ok the cell selection is lost as we wish to edit the label not the cell w/ a label.
+
+                    // present -> cellLabelSave
+                    // missing -> cellLabelSelect
+                    token = label.isPresent() ?
+                        HistoryToken.labelMapping(
+                            id,
+                            name,
+                            label
+                        ) :
+                        HistoryToken.cellLabelSelect(
+                            id,
+                            name,
+                            selection
+                        );
+                }
+
+            } else {
+                token = labelMapping(
+                    id,
+                    name,
+                    label
+                );
+            }
         }
 
         return token;
