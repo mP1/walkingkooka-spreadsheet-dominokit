@@ -3319,7 +3319,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         context.pushHistoryToken(
-            HistoryToken.labelMapping(
+            HistoryToken.labelMappingSelect(
                 ID1,
                 NAME,
                 Optional.of(

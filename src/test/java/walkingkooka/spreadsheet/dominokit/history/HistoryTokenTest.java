@@ -81,7 +81,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     private final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
 
-    private static final SpreadsheetLabelMappingSelectHistoryToken LABEL_MAPPING_HHT = HistoryToken.labelMapping(
+    private static final SpreadsheetLabelMappingSelectHistoryToken LABEL_MAPPING_HHT = HistoryToken.labelMappingSelect(
         ID,
         NAME,
         Optional.of(LABEL)
@@ -750,7 +750,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             historyToken.setLabelName(
                 Optional.of(LABEL)
             ),
-            HistoryToken.labelMapping(
+            HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
                 Optional.of(LABEL)
@@ -3783,7 +3783,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelMissingName() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label",
-            HistoryToken.labelMapping(
+            HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
                 Optional.empty()
@@ -3875,7 +3875,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelSaveMissingReference() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/Label123/save",
-            HistoryToken.labelMapping(
+            HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
                 Optional.of(LABEL)
@@ -3887,7 +3887,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelSaveInvalidReference() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/Label123/save/!invalid",
-            HistoryToken.labelMapping(
+            HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
                 Optional.of(LABEL)

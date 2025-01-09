@@ -167,7 +167,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         this.setLabelNameAndCheck(
             this.createHistoryToken(),
             LABEL,
-            HistoryToken.labelMapping(
+            HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
                 Optional.of(LABEL)

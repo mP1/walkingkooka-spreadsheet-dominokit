@@ -132,7 +132,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         this.setLabelNameAndCheck(
             this.createHistoryToken(),
             LABEL,
-            HistoryToken.labelMapping(
+            HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
                 Optional.of(LABEL)
