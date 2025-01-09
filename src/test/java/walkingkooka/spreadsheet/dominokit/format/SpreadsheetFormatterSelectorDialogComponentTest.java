@@ -1329,7 +1329,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
     public void testMetadataDateDialogClose() {
         final SpreadsheetMetadataPropertyName<SpreadsheetFormatterSelector> property = SpreadsheetMetadataPropertyName.DATE_FORMATTER;
 
-        this.historyTokenCloseDialogAndCheck(
+        this.closeAndCheck(
             HistoryToken.metadataPropertySelect(
                 SPREADSHEET_ID,
                 NAME,
@@ -1386,7 +1386,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
 
     @Test
     public void testCellDateDialogClose() {
-        this.historyTokenCloseDialogAndCheck(
+        this.closeAndCheck(
             HistoryToken.cellFormatterSelect(
                 SPREADSHEET_ID,
                 NAME,

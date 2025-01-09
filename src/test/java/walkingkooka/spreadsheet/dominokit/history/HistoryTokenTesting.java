@@ -24,8 +24,8 @@ import java.util.Optional;
 
 public interface HistoryTokenTesting extends Testing {
 
-    default void historyTokenCloseDialogAndCheck(final HistoryToken opened,
-                                                 final HistoryToken closed) {
+    default void closeAndCheck(final HistoryToken opened,
+                               final HistoryToken closed) {
         this.checkEquals(
             closed,
             opened.close(),
