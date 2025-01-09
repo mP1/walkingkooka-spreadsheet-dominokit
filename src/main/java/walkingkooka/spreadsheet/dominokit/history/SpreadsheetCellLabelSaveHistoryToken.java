@@ -107,7 +107,7 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
         context.spreadsheetDeltaFetcher()
             .saveLabelMapping(
                 this.id(),
-                this.labelName.mapping(
+                this.labelName.setLabelMappingTarget(
                     this.anchoredSelection()
                         .selection()
                         .toExpressionReference()

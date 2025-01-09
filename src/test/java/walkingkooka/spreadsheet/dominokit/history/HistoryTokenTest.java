@@ -3902,7 +3902,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             HistoryToken.labelMappingSave(
                 ID,
                 NAME,
-                LABEL.mapping(CELL)
+                LABEL.setLabelMappingTarget(CELL)
             )
         );
     }
@@ -3914,7 +3914,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             HistoryToken.labelMappingSave(
                 ID,
                 NAME,
-                LABEL.mapping(CELL_RANGE)
+                LABEL.setLabelMappingTarget(CELL_RANGE)
             )
         );
     }
@@ -3926,7 +3926,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             HistoryToken.labelMappingSave(
                 ID,
                 NAME,
-                LABEL.mapping(
+                LABEL.setLabelMappingTarget(
                     SpreadsheetSelection.labelName("Label456")
                 )
             )
