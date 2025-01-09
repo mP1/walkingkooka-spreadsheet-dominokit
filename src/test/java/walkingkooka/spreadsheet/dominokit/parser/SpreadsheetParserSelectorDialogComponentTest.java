@@ -1132,7 +1132,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
         final SpreadsheetParserSelector value = SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
             .spreadsheetParserSelector();
 
-        this.historyTokenSaveValueAndCheck(
+        this.setSaveValueAndCheck(
             HistoryToken.metadataPropertySelect(
                 SPREADSHEET_ID,
                 NAME,
@@ -1189,7 +1189,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
         final SpreadsheetParserSelector value = SpreadsheetPattern.parseDateParsePattern("dd/mm/yyyy")
             .spreadsheetParserSelector();
 
-        this.historyTokenSaveValueAndCheck(
+        this.setSaveValueAndCheck(
             HistoryToken.cellParserSelect(
                 SPREADSHEET_ID,
                 NAME,
