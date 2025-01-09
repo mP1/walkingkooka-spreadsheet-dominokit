@@ -54,20 +54,4 @@ public interface HistoryTokenTesting extends Testing {
             () -> "selected " + selected + " must be different from saved " + saved
         );
     }
-
-    default void historyTokenRemoveValueAndCheck(final HistoryToken selected,
-                                                 final Optional<?> removeValue,
-                                                 final HistoryToken removed) {
-        this.checkEquals(
-            removed,
-            selected.setSaveValue(removeValue),
-            () -> selected + " remove " + CharSequences.quoteIfChars(removeValue.orElse(null))
-        );
-
-        this.checkNotEquals(
-            selected,
-            removed,
-            () -> "opened " + selected + " must be different from removed " + removed
-        );
-    }
 }
