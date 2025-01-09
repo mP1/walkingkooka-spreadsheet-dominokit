@@ -30,6 +30,7 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Map;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -211,6 +212,30 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
                 cellToStyle
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/style/" + marshallMap(cellToStyle)
+        );
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithDifferentStyle() {
+        final Map<SpreadsheetCellReference, TextStyle> value = Maps.of(
+            CELL,
+            TextStyle.EMPTY.set(
+                TextStylePropertyName.COLOR,
+                Color.parse("#999")
+            )
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            SpreadsheetCellSaveStyleHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
         );
     }
 

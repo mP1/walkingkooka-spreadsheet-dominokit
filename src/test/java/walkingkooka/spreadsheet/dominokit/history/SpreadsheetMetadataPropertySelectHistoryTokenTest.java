@@ -286,7 +286,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
                 NAME,
                 propertyName
             ),
-            value.toString(),
+            Optional.of(value),
             HistoryToken.metadataPropertySave(
                 ID,
                 NAME,
@@ -308,7 +308,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
                 NAME,
                 propertyName
             ),
-            "",
+            Optional.empty(),
             HistoryToken.metadataPropertySave(
                 ID,
                 NAME,
@@ -324,7 +324,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
 
         this.setSaveValueAndCheck(
             this.createHistoryToken(),
-            kind.name(),
+            Optional.of(kind),
             HistoryToken.metadataPropertySave(
                 ID,
                 NAME,
@@ -340,7 +340,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     public void testSetSaveValueExpressionNumberKindEmpty() {
         this.setSaveValueAndCheck(
             this.createHistoryToken(),
-            "",
+            Optional.empty(),
             HistoryToken.metadataPropertySave(
                 ID,
                 NAME,

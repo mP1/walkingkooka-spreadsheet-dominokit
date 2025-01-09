@@ -596,6 +596,14 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    final void setSaveValueFails(final Optional<?> value) {
+        final T token = this.createHistoryToken();
+        assertThrows(
+            RuntimeException.class, // InvalidArgumentException | ClassCastException
+            () -> token.setSaveValue(value)
+        );
+    }
+
     final void setSaveValueAndCheck(final Optional<?> save) {
         this.setSaveValueAndCheck(
             this.createHistoryToken(),

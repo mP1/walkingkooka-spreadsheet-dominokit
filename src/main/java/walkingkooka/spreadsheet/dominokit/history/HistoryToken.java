@@ -53,7 +53,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.CharacterConstant;
-import walkingkooka.text.HasText;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.text.cursor.TextCursors;
@@ -2798,29 +2797,263 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * if possible creates a save, otherwise returns this.
+     * if possible creates a save history token, otherwise returns this. For {@link HistoryToken} that do not support saving,
+     * the value is ignored and this is returned.
      */
     public final HistoryToken setSaveValue(final Optional<?> value) {
         Objects.requireNonNull(value, "value");
 
-        String stringValue = "";
+        final Object valueOrNull = value.orElse(null);
 
-        if (value.isPresent()) {
-            final Object valueNotNull = value.get();
-            if (valueNotNull instanceof HasText) {
-                final HasText hasText = (HasText) valueNotNull;
-                stringValue = hasText.text();
-            } else {
-                if (valueNotNull instanceof Enum) {
-                    final Enum<?> enumm = (Enum<?>) valueNotNull;
-                    stringValue = enumm.name();
-                } else {
-                    stringValue = valueNotNull.toString();
+        HistoryToken historyToken = this;
+
+        if (this instanceof PluginHistoryToken) {
+            if (this instanceof PluginSelectHistoryToken || this instanceof PluginSaveHistoryToken) {
+                final PluginNameHistoryToken pluginNameHistoryToken = this.cast(PluginNameHistoryToken.class);
+
+                historyToken = HistoryToken.pluginSave(
+                    pluginNameHistoryToken.name(),
+                    (String) valueOrNull
+                );
+            }
+            if (this instanceof PluginUploadHistoryToken) {
+                historyToken = HistoryToken.pluginUploadSave(
+                    (BrowserFile) valueOrNull
+                );
+            }
+        }
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken nameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+
+            final SpreadsheetId id = nameHistoryToken.id();
+            final SpreadsheetName name = nameHistoryToken.name();
+
+            if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+                final AnchoredSpreadsheetSelection spreadsheetSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
+                    .anchoredSelection();
+
+                if (this instanceof SpreadsheetCellHistoryToken) {
+                    if (this instanceof SpreadsheetCellSelectHistoryToken || this instanceof SpreadsheetCellSaveHistoryToken) {
+                        if (valueOrNull instanceof Set) {
+                            historyToken = HistoryToken.cellSaveCell(
+                                id,
+                                name,
+                                spreadsheetSelection,
+                                Cast.to(valueOrNull) // Set<SpreadsheetCell>
+                            );
+                        } else {
+                            if (valueOrNull instanceof Map) {
+                                final Map<?, ?> map = Cast.to(valueOrNull);
+                                if (false == map.isEmpty()) {
+                                    final int cssSaveFormatter = 1;
+                                    final int cssSaveFormula = 2;
+                                    final int cssSaveParser = 4;
+                                    final int cssSaveStyle = 8;
+                                    int cellSaveMode = cssSaveFormatter | cssSaveFormula | cssSaveParser | cssSaveStyle;
+
+                                    for (final Object mapValue : map.values()) {
+                                        // ignore nulls
+                                        if (mapValue instanceof Optional) {
+                                            final Optional<?> mapValueOptional = (Optional<?>) mapValue;
+                                            if (mapValueOptional.isPresent()) {
+                                                Object mapValueOptionalValue = mapValueOptional.get();
+                                                if (mapValueOptionalValue instanceof SpreadsheetFormatterSelector) {
+                                                    cellSaveMode = cssSaveFormatter & cellSaveMode;
+                                                } else {
+                                                    if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
+                                                        cellSaveMode = cssSaveParser & cellSaveMode;
+                                                    } else {
+                                                        cellSaveMode = 0;
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            if (mapValue instanceof String) {
+                                                cellSaveMode = cssSaveFormula & cellSaveMode;
+                                            } else {
+                                                if (mapValue instanceof TextStyle) {
+                                                    cellSaveMode = cssSaveStyle & cellSaveMode;
+                                                } else {
+                                                    cellSaveMode = 0;
+                                                    break;
+                                                }
+                                            }
+                                        }
+
+                                        if (0 == cellSaveMode) {
+                                            break;
+                                        }
+                                    }
+                                    switch (cellSaveMode) {
+                                        case cssSaveFormatter:
+                                            historyToken = HistoryToken.cellSaveFormatter(
+                                                id,
+                                                name,
+                                                spreadsheetSelection,
+                                                Cast.to(valueOrNull)
+                                            );
+                                            break;
+                                        case cssSaveFormula:
+                                            historyToken = HistoryToken.cellSaveFormula(
+                                                id,
+                                                name,
+                                                spreadsheetSelection,
+                                                Cast.to(valueOrNull)
+                                            );
+                                            break;
+                                        case cssSaveParser:
+                                            historyToken = HistoryToken.cellSaveParser(
+                                                id,
+                                                name,
+                                                spreadsheetSelection,
+                                                Cast.to(valueOrNull)
+                                            );
+                                            break;
+                                        case cssSaveStyle:
+                                            historyToken = HistoryToken.cellSaveStyle(
+                                                id,
+                                                name,
+                                                spreadsheetSelection,
+                                                Cast.to(valueOrNull)
+                                            );
+                                            break;
+                                        default:
+                                            throw new IllegalArgumentException("Invalid value");
+                                    }
+                                }
+                            } else {
+                                throw new IllegalArgumentException("Invalid value");
+                            }
+                        }
+                    }
+
+                    if (this instanceof SpreadsheetCellFormatterHistoryToken) {
+                        if(null != valueOrNull && false == valueOrNull instanceof SpreadsheetFormatterSelector) {
+                            throw new IllegalArgumentException("Invalid value");
+                        }
+
+                        historyToken = HistoryToken.cellFormatterSave(
+                            id,
+                            name,
+                            spreadsheetSelection,
+                            Cast.to(value)
+                        );
+                    }
+
+                    if (this instanceof SpreadsheetCellFormulaHistoryToken) {
+                        historyToken = HistoryToken.cellFormulaSave(
+                            id,
+                            name,
+                            spreadsheetSelection,
+                            CharSequences.nullToEmpty((String) valueOrNull)
+                                .toString()
+                        );
+                    }
+
+                    if (this instanceof SpreadsheetCellLabelHistoryToken) {
+                        historyToken = HistoryToken.cellLabelSave(
+                            id,
+                            name,
+                            spreadsheetSelection,
+                            Cast.to(valueOrNull)
+                        );
+                    }
+
+                    if (this instanceof SpreadsheetCellParserHistoryToken) {
+                        if(null != valueOrNull && false == valueOrNull instanceof SpreadsheetParserSelector) {
+                            throw new IllegalArgumentException("Invalid value");
+                        }
+
+                        historyToken = HistoryToken.cellParserSave(
+                            id,
+                            name,
+                            spreadsheetSelection,
+                            Cast.to(value)
+                        );
+                    }
+
+                    if (this instanceof SpreadsheetCellSortHistoryToken) {
+                        historyToken = HistoryToken.cellSortSave(
+                            id,
+                            name,
+                            spreadsheetSelection,
+                            Cast.to(valueOrNull)
+                        );
+                    }
+
+                    if (this instanceof SpreadsheetCellStyleHistoryToken) {
+                        historyToken = HistoryToken.cellStyleSave(
+                            id,
+                            name,
+                            spreadsheetSelection,
+                            historyToken.cast(SpreadsheetCellStyleHistoryToken.class)
+                                .propertyName(),
+                            value
+                        );
+                    }
+                }
+
+                if (this instanceof SpreadsheetColumnSortHistoryToken) {
+                    if (null != valueOrNull) {
+                        historyToken = HistoryToken.columnSortSave(
+                            id,
+                            name,
+                            spreadsheetSelection,
+                            Cast.to(valueOrNull)
+                        );
+                    }
+                }
+
+                if (this instanceof SpreadsheetRowSortHistoryToken) {
+                    if (null != valueOrNull) {
+                        historyToken = HistoryToken.rowSortSave(
+                            id,
+                            name,
+                            spreadsheetSelection,
+                            Cast.to(valueOrNull)
+                        );
+                    }
+                }
+            }
+
+            if (this instanceof SpreadsheetLabelMappingSelectHistoryToken || this instanceof SpreadsheetLabelMappingSaveHistoryToken) {
+                if (null != valueOrNull) {
+                    historyToken = HistoryToken.labelMappingSave(
+                        id,
+                        name,
+                        this.cast(SpreadsheetLabelMappingHistoryToken.class)
+                            .labelName()
+                            .get()
+                            .setLabelMappingTarget((SpreadsheetExpressionReference) valueOrNull)
+                    );
+                }
+            }
+
+            if (this instanceof SpreadsheetMetadataHistoryToken) {
+                if (this instanceof SpreadsheetMetadataPropertySelectHistoryToken || this instanceof SpreadsheetMetadataPropertySaveHistoryToken) {
+                    historyToken = HistoryToken.metadataPropertySave(
+                        id,
+                        name,
+                        historyToken.cast(SpreadsheetMetadataPropertyHistoryToken.class)
+                            .propertyName(),
+                        value
+                    );
+                }
+
+                if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
+                    historyToken = HistoryToken.metadataPropertyStyleSave(
+                        id,
+                        name,
+                        historyToken.cast(SpreadsheetMetadataPropertyStyleHistoryToken.class)
+                            .stylePropertyName(),
+                        value
+                    );
                 }
             }
         }
 
-        return this.setSaveValue(stringValue);
+        return historyToken;
     }
 
     /**

@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends SpreadsheetCellStyleHistoryToken<Color>> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
     final static TextStylePropertyName<Color> PROPERTY_NAME = TextStylePropertyName.COLOR;
@@ -40,6 +42,51 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
     public final void testPatternKind() {
         this.patternKindAndCheck(
             this.createHistoryToken()
+        );
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public final void testSetSaveValueWithInvalidOptionalValueFails() {
+        this.setSaveValueFails(
+            Optional.of(this)
+        );
+    }
+
+    @Test
+    public final void testSetSaveValueWithEmpty() {
+        final Optional<Color> value = Optional.empty();
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            value,
+            HistoryToken.cellStyleSave(
+                ID,
+                NAME,
+                SELECTION,
+                PROPERTY_NAME,
+                value
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSaveValueWithNonEmpty() {
+        final Optional<Color> value = Optional.of(
+            Color.parse("#999")
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            value,
+            HistoryToken.cellStyleSave(
+                ID,
+                NAME,
+                SELECTION,
+                PROPERTY_NAME,
+                value
+            )
         );
     }
 

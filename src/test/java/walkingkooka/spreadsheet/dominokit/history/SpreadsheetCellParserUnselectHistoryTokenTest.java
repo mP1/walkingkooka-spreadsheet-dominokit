@@ -71,22 +71,6 @@ public final class SpreadsheetCellParserUnselectHistoryTokenTest extends Spreads
         this.closeAndCheck();
     }
 
-    // saveValue........................................................................................................
-
-    @Test
-    public void testSetSaveValue() {
-        this.setSaveValueAndCheck(
-            "dd/mm/yyyy"
-        );
-    }
-
-    @Test
-    public void testSetSaveValueWithEmpty() {
-        this.setSaveValueAndCheck(
-            ""
-        );
-    }
-
     @Override
     SpreadsheetCellParserUnselectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                  final SpreadsheetName name,

@@ -158,6 +158,42 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
         );
     }
 
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithEmptyValue() {
+        final Optional<Color> value = Optional.empty();
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            value,
+            HistoryToken.metadataPropertyStyleSave(
+                ID,
+                NAME,
+                STYLE_PROPERTY_NAME,
+                value
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithValue() {
+        final Optional<Color> value = Optional.of(
+            Color.parse("#999")
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            value,
+            HistoryToken.metadataPropertyStyleSave(
+                ID,
+                NAME,
+                STYLE_PROPERTY_NAME,
+                value
+            )
+        );
+    }
+
     @Override
     SpreadsheetMetadataPropertyStyleSaveHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
                                                                                final SpreadsheetName name,

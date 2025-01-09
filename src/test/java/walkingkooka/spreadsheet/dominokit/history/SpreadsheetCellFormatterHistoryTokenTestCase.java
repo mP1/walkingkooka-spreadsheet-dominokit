@@ -17,11 +17,57 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+
+import java.util.Optional;
+
 public abstract class SpreadsheetCellFormatterHistoryTokenTestCase<T extends SpreadsheetCellFormatterHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
     SpreadsheetCellFormatterHistoryTokenTestCase() {
         super();
     }
 
+    // setSaveValue.....................................................................................................
 
+    @Test
+    public final void testSetSaveValueWithInvalidOptionalValueFails() {
+        this.setSaveValueFails(
+            Optional.of(this)
+        );
+    }
+
+    @Test
+    public final void testSetSaveValueWithEmpty() {
+        final Optional<SpreadsheetFormatterSelector> value = Optional.empty();
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            value,
+            HistoryToken.cellFormatterSave(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSaveValueWithNonEmpty() {
+        final Optional<SpreadsheetFormatterSelector> value = Optional.of(
+            SpreadsheetFormatterSelector.parse("different")
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            value,
+            HistoryToken.cellFormatterSave(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
+        );
+    }
 }

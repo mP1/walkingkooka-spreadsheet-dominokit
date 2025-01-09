@@ -280,6 +280,29 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
         );
     }
 
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithDifferentFormatter() {
+        final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> value = Maps.of(
+            CELL,
+            Optional.of(
+                SpreadsheetFormatterSelector.parse("different")
+            )
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            SpreadsheetCellSaveFormatterHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
+        );
+    }
+
     @Override
     SpreadsheetCellSaveFormatterHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                 final SpreadsheetName name,

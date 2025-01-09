@@ -18,6 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import java.util.Optional;
 
 public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends SpreadsheetCellLabelHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
@@ -83,6 +87,38 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
                 LABEL.setDefaultAnchor()
             ),
             LABEL
+        );
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public final void testSetSaveValueWithInvalidOptionalValueFails() {
+        this.setSaveValueFails(
+            Optional.of(this)
+        );
+    }
+
+    @Test
+    public final void testSetSaveValueWithEmptyLabelName() {
+        this.setSaveValueFails(
+            Optional.empty()
+        );
+    }
+
+    @Test
+    public final void testSetSaveValueWithDifferentLabelName() {
+        final SpreadsheetLabelName value = SpreadsheetSelection.labelName("Different");
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            HistoryToken.cellLabelSave(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
         );
     }
 }

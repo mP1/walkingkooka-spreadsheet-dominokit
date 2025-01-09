@@ -20,14 +20,9 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetFormatPattern;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
-
-import java.util.Optional;
 
 public final class SpreadsheetCellFormatterSelectHistoryTokenTest extends SpreadsheetCellFormatterHistoryTokenTestCase<SpreadsheetCellFormatterSelectHistoryToken> {
 
@@ -78,39 +73,6 @@ public final class SpreadsheetCellFormatterSelectHistoryTokenTest extends Spread
                 ID,
                 NAME,
                 SELECTION
-            )
-        );
-    }
-
-    // saveValue........................................................................................................
-
-    @Test
-    public void testSetSaveValue() {
-        final SpreadsheetFormatPattern pattern = SpreadsheetPattern.parseTimeFormatPattern("hh:mm");
-        final SpreadsheetFormatterSelector selector = pattern.spreadsheetFormatterSelector();
-
-        this.setSaveValueAndCheck(
-            this.createHistoryToken(),
-            selector.text(),
-            HistoryToken.cellFormatterSave(
-                ID,
-                NAME,
-                SELECTION,
-                Optional.of(selector)
-            )
-        );
-    }
-
-    @Test
-    public void testSetSaveValueWithEmpty() {
-        this.setSaveValueAndCheck(
-            this.createHistoryToken(),
-            "",
-            HistoryToken.cellFormatterSave(
-                ID,
-                NAME,
-                SELECTION,
-                Optional.empty()
             )
         );
     }

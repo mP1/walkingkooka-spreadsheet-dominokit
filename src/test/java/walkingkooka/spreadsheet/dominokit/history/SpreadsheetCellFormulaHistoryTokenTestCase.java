@@ -19,6 +19,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Optional;
+
 public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends SpreadsheetCellFormulaHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
     SpreadsheetCellFormulaHistoryTokenTestCase() {
@@ -31,6 +33,47 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
     public final void testPatternKind() {
         this.patternKindAndCheck(
             this.createHistoryToken()
+        );
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public final void testSetSaveValueWithInvalidOptionalValueFails() {
+        this.setSaveValueFails(
+            Optional.of(this)
+        );
+    }
+
+    @Test
+    public final void testSetSaveValueWithEmptyFormula() {
+        final String value = "";
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.empty(),
+            HistoryToken.cellFormulaSave(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSaveValueWithDifferentFormula() {
+        final String value = "different";
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            HistoryToken.cellFormulaSave(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
         );
     }
 }
