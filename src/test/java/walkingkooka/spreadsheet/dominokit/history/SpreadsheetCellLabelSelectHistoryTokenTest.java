@@ -31,6 +31,18 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
         );
     }
 
+    @Test
+    public void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SELECTION
+            )
+        );
+    }
+
     @Override
     SpreadsheetCellLabelSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                               final SpreadsheetName name,
