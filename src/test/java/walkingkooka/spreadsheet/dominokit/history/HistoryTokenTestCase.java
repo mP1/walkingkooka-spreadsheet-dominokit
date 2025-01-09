@@ -487,6 +487,18 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     // setSave..........................................................................................................
 
     @Test
+    public final void testSaveValueEmptyWhenNotImplementingValue() {
+        final T token = this.createHistoryToken();
+
+        if (false == (token instanceof Value)) {
+            this.checkEquals(
+                Optional.empty(),
+                token.saveValue()
+            );
+        }
+    }
+
+    @Test
     public final void testSetSaveValueNullFails() {
         final T token = this.createHistoryToken();
         assertThrows(
