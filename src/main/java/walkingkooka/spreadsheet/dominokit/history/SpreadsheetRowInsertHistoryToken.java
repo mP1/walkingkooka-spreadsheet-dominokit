@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.OptionalInt;
 
-abstract class SpreadsheetRowInsertHistoryToken extends SpreadsheetRowHistoryToken {
+abstract public class SpreadsheetRowInsertHistoryToken extends SpreadsheetRowHistoryToken {
 
     SpreadsheetRowInsertHistoryToken(final SpreadsheetId id,
                                      final SpreadsheetName name,
