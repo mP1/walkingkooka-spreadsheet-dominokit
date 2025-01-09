@@ -307,7 +307,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         this.reset.setHistoryToken(
             Optional.of(
                 this.context.historyToken()
-                    .save(aliases.text())
+                    .setSaveValue(aliases.text())
             )
         );
     }
@@ -348,7 +348,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
         this.save.setHistoryToken(
             Optional.of(
-                historyToken.save(
+                historyToken.setSaveValue(
                     metadataAliases.text()
                 )
             )

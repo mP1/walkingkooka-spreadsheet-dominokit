@@ -76,7 +76,7 @@ final class SpreadsheetToolbarComponentItemAnchorMetadataHideZeroValues extends 
             Optional.of(
                 context.historyToken()
                     .setMetadataPropertyName(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
-                    .save(
+                    .setSaveValue(
                         Optional.of(
                             false == HideZeroValues.isHideZeroValues(this.context) // if hide=true then click makes hide=false
                         )

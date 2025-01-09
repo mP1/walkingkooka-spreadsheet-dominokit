@@ -68,7 +68,7 @@ public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetLi
 
         switch (component) {
             case SAVE_STRING:
-                historyToken = this.save(
+                historyToken = this.setSaveValue(
                     parseComponentOrEmpty(cursor)
                 );
                 break;

@@ -154,7 +154,7 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
         int i = 0;
         for (final A alternative : alternatives) {
             contextMenu = contextMenu.item(
-                historyToken.save(
+                historyToken.setSaveValue(
                         context.saveText(
                             tokens.replace(
                                     index,

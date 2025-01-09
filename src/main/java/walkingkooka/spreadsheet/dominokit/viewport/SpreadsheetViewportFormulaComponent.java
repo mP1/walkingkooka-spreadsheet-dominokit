@@ -103,7 +103,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
                 context.pushHistoryToken(
                     context.historyToken()
                         .formula()
-                        .save(
+                        .setSaveValue(
                             this.formula.stringValue()
                                 .orElse("")
                         )
