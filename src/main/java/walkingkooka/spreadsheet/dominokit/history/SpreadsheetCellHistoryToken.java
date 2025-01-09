@@ -106,6 +106,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             case FORMULA_STRING:
                 result = this.formula();
                 break;
+            case LABEL_STRING:
+                result = this.label();
+                break;
             case MENU_STRING:
                 result = this.menu(
                     Optional.empty(), // no selection
