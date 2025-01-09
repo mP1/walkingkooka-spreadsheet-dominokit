@@ -43,7 +43,7 @@ public abstract class SpreadsheetColumnSortHistoryTokenTestCase<T extends Spread
     public final void testClose() {
         this.closeAndCheck(
             this.createHistoryToken(),
-            HistoryToken.column(
+            HistoryToken.columnSelect(
                 ID,
                 NAME,
                 COLUMN.setDefaultAnchor()

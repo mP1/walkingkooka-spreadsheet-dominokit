@@ -77,7 +77,7 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
     public void testParseColumnMissingCount() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/column/B",
-            HistoryToken.column(
+            HistoryToken.columnSelect(
                 ID,
                 NAME,
                 SpreadsheetSelection.parseColumn("B").setDefaultAnchor()
@@ -89,7 +89,7 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
     public void testParseColumnZeroCount() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/column/C/insertBefore/0",
-            HistoryToken.column(
+            HistoryToken.columnSelect(
                 ID,
                 NAME,
                 SpreadsheetSelection.parseColumn("C").setDefaultAnchor()
@@ -117,7 +117,7 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
     public void testClose() {
         this.closeAndCheck(
             this.createHistoryToken(),
-            HistoryToken.column(
+            HistoryToken.columnSelect(
                 ID,
                 NAME,
                 COLUMN.setDefaultAnchor()

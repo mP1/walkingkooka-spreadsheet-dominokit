@@ -53,7 +53,7 @@ public final class SpreadsheetColumnSortSaveHistoryTokenTest extends Spreadsheet
     public void testParseInvalidComparator() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/column/A/sort/save/!invalid",
-            HistoryToken.column(
+            HistoryToken.columnSelect(
                 ID,
                 NAME,
                 COLUMN.setDefaultAnchor()
@@ -65,7 +65,7 @@ public final class SpreadsheetColumnSortSaveHistoryTokenTest extends Spreadsheet
     public void testParseInvalidComparatorColumn() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/column/A/sort/save/Z=text",
-            HistoryToken.column(
+            HistoryToken.columnSelect(
                 ID,
                 NAME,
                 COLUMN.setDefaultAnchor()

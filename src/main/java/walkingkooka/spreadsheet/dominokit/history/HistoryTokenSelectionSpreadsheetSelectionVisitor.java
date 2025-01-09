@@ -80,7 +80,7 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
 
     private void setColumn(final SpreadsheetSelection selection) {
         this.setSelectionToken(
-            HistoryToken.column(
+            HistoryToken.columnSelect(
                 this.id,
                 this.name,
                 selection.setAnchor(this.anchor)

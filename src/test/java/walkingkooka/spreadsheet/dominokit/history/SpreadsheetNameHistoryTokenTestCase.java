@@ -58,7 +58,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
         this.setAnchoredSelectionAndCheck(
             this.createHistoryToken(),
             different,
-            HistoryToken.column(
+            HistoryToken.columnSelect(
                 ID,
                 NAME,
                 different
