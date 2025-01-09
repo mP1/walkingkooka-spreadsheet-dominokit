@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -32,7 +33,7 @@ import java.util.Objects;
  * /spreadsheet-id/spreadsheet-name/cell/cell-or-cell-range-or-label/formula/save/new-formula-expression-here
  * </pre>
  */
-public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCellFormulaHistoryToken {
+public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCellFormulaHistoryToken implements Value<String> {
 
     static SpreadsheetCellFormulaSaveHistoryToken with(final SpreadsheetId id,
                                                        final SpreadsheetName name,
@@ -59,7 +60,8 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
         this.text = Objects.requireNonNull(text, "text");
     }
 
-    public String text() {
+    @Override
+    public String value() {
         return this.text;
     }
 

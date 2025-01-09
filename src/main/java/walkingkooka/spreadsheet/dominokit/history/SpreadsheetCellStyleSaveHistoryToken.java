@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -36,7 +37,8 @@ import java.util.Optional;
  * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/style/{@link TextStylePropertyName}/save/value-as-text
  * </pre>
  */
-final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCellStyleHistoryToken<T> {
+final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCellStyleHistoryToken<T>
+    implements Value<Optional<T>> {
 
     static <T> SpreadsheetCellStyleSaveHistoryToken<T> with(final SpreadsheetId id,
                                                             final SpreadsheetName name,
@@ -66,7 +68,8 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
         this.propertyValue = Objects.requireNonNull(propertyValue, "propertyValue");
     }
 
-    public Optional<T> propertyValue() {
+    @Override
+    public Optional<T> value() {
         return this.propertyValue;
     }
 
@@ -74,7 +77,9 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
 
     @Override
     UrlFragment styleUrlFragment() {
-        return saveUrlFragment(this.propertyValue());
+        return saveUrlFragment(
+            this.value()
+        );
     }
 
     @Override //
@@ -88,7 +93,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
         ).style(
             this.propertyName()
         ).setSaveValue(
-            this.propertyValue()
+            this.value()
         );
     }
 
@@ -108,14 +113,14 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                 this.anchoredSelection()
                     .selection(),
                 this.propertyName(),
-                this.propertyValue()
+                this.value()
             );
     }
 
     public TextStyleProperty<T> textStyleProperty() {
         return TextStyleProperty.with(
             this.propertyName(),
-            this.propertyValue()
+            this.value()
         );
     }
 }

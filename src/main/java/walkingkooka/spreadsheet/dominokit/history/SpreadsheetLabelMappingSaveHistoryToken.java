@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
@@ -34,7 +35,8 @@ import java.util.Optional;
  * /spreadsheet-id/spreadsheet-name/label/selected-label-name/save/target-cell-or-cell-range-or-another-label
  * </pre>
  */
-public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLabelMappingHistoryToken {
+public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLabelMappingHistoryToken
+    implements Value<SpreadsheetLabelName> {
 
     static SpreadsheetLabelMappingSaveHistoryToken with(final SpreadsheetId id,
                                                         final SpreadsheetName name,
@@ -54,6 +56,11 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
             name
         );
         this.mapping = Objects.requireNonNull(mapping, "mapping");
+    }
+
+    @Override
+    public SpreadsheetLabelName value() {
+        return this.mapping.label();
     }
 
     @Override

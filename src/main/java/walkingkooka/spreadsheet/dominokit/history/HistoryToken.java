@@ -2811,7 +2811,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 final SpreadsheetMetadataPropertySaveHistoryToken<SpreadsheetFormatterSelector> metadataSave = this.cast(SpreadsheetMetadataPropertySaveHistoryToken.class);
                 final SpreadsheetMetadataPropertyName<?> propertyName = metadataSave.propertyName();
                 spreadsheetFormatterSelector = propertyName.isSpreadsheetFormatterSelector() ?
-                    metadataSave.propertyValue() :
+                    metadataSave.value() :
                     Optional.empty();
             }
         }
@@ -2830,7 +2830,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 final SpreadsheetMetadataPropertySaveHistoryToken<SpreadsheetParserSelector> metadataSave = this.cast(SpreadsheetMetadataPropertySaveHistoryToken.class);
                 final SpreadsheetMetadataPropertyName<?> propertyName = metadataSave.propertyName();
                 spreadsheetParserSelector = propertyName.isSpreadsheetParserSelector() ?
-                    metadataSave.propertyValue() :
+                    metadataSave.value() :
                     Optional.empty();
             }
         }

@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
@@ -28,7 +29,8 @@ import java.util.Objects;
 /**
  * A history token that saves the given file.
  */
-public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken {
+public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
+    implements Value<BrowserFile> {
 
     /**
      * Factory
@@ -44,7 +46,8 @@ public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
         this.file = file;
     }
 
-    public BrowserFile file() {
+    @Override
+    public BrowserFile value() {
         return this.file;
     }
 

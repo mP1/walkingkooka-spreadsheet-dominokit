@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
+import walkingkooka.Value;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
@@ -455,6 +456,32 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             token.reload(),
             token::toString
         );
+    }
+
+    // value............................................................................................................
+
+    @Test
+    public final void testSaveXXXHistoryTokenImplementsValue() {
+        final Class<T> type = this.type();
+        if (type.getSimpleName().contains("Save")) {
+            this.checkEquals(
+                true,
+                Value.class.isAssignableFrom(type),
+                () -> type.getName() + " should implement " + Value.class.getName()
+            );
+        }
+    }
+
+    @Test
+    public final void testImplementValueShouldIncludeSaveInClassName() {
+        final Class<T> type = this.type();
+        if (type.isAssignableFrom(Value.class)) {
+            this.checkEquals(
+                true,
+                type.getSimpleName().contains("Save"),
+                () -> "Missing save in class name " + type.getName()
+            );
+        }
     }
 
     // setSave..........................................................................................................
