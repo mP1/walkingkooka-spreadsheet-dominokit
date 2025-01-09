@@ -40,7 +40,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         final String value = "#123456";
         final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, selection, propertyName);
 
-        this.saveValueAndCheck(
+        this.setSaveValueAndCheck(
             historyToken,
             value,
             HistoryToken.cellStyleSave(
@@ -60,7 +60,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         final String value = "";
         final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, selection, propertyName);
 
-        this.saveValueAndCheck(
+        this.setSaveValueAndCheck(
             historyToken,
             value,
             HistoryToken.cellStyleSave(

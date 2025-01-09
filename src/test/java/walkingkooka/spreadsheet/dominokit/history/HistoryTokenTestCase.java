@@ -558,25 +558,25 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
-    final void saveValueAndCheck(final String save) {
-        this.saveValueAndCheck(
+    final void setSaveValueAndCheck(final String save) {
+        this.setSaveValueAndCheck(
             this.createHistoryToken(),
             save
         );
     }
 
-    final void saveValueAndCheck(final HistoryToken token,
-                                 final String save) {
-        this.saveValueAndCheck(
+    final void setSaveValueAndCheck(final HistoryToken token,
+                                    final String save) {
+        this.setSaveValueAndCheck(
             token,
             save,
             token
         );
     }
 
-    final void saveValueAndCheck(final HistoryToken token,
-                                 final String save,
-                                 final HistoryToken expected) {
+    final void setSaveValueAndCheck(final HistoryToken token,
+                                    final String save,
+                                    final HistoryToken expected) {
         this.checkEquals(
             expected,
             token.setSaveValue(save),

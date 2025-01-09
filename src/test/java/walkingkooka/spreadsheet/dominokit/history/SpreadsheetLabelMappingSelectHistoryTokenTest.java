@@ -122,7 +122,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         final Optional<SpreadsheetLabelName> labelName = token.labelName();
         final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("B2");
 
-        this.saveValueAndCheck(
+        this.setSaveValueAndCheck(
             this.createHistoryToken(),
             cell.toString(),
             HistoryToken.labelMappingSave(
@@ -140,7 +140,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         final Optional<SpreadsheetLabelName> labelName = token.labelName();
         final SpreadsheetCellRangeReference cells = SpreadsheetSelection.parseCellRange("C3:D4");
 
-        this.saveValueAndCheck(
+        this.setSaveValueAndCheck(
             this.createHistoryToken(),
             cells.toString(),
             HistoryToken.labelMappingSave(
