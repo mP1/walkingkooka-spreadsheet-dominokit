@@ -2492,7 +2492,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellLabel() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellLabelName() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/Label123",
             HistoryToken.cell(
@@ -2654,6 +2654,46 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             )
         );
     }
+
+    // cell/label.......................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellCellReferenceLabel() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/label",
+            HistoryToken.cellLabelSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellCellRangeLabel() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/B2:C3/label",
+            HistoryToken.cellLabelSelect(
+                ID,
+                NAME,
+                CELL_RANGE.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellCellRangeBottomLeftLabel() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/B2:C3/bottom-left/label",
+            HistoryToken.cellLabelSelect(
+                ID,
+                NAME,
+                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_LEFT)
+            )
+        );
+    }
+
+    // cell/menu........................................................................................................
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellMenu() {

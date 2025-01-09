@@ -422,6 +422,19 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetCellLabelSelectHistoryToken}
+     */
+    public static SpreadsheetCellLabelSelectHistoryToken cellLabelSelect(final SpreadsheetId id,
+                                                                         final SpreadsheetName name,
+                                                                         final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellLabelSelectHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+
+    /**
      * {@see SpreadsheetCellMenuHistoryToken}
      */
     public static SpreadsheetCellMenuHistoryToken cellMenu(final SpreadsheetId id,
@@ -2028,6 +2041,22 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         return Optional.ofNullable(token);
+    }
+
+    public final HistoryToken label() {
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = cellLabelSelect(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection()
+            );
+        }
+
+        return historyToken;
     }
 
     /**
