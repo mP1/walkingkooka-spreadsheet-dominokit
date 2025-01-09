@@ -48,6 +48,29 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         this.labelMappingTargetAndCheck(this.createHistoryToken());
     }
 
+    // setLabelMappingTarget............................................................................................
+
+    @Test
+    public void testSetLabelMappingTargetWithCell() {
+        this.setLabelMappingTargetAndCheck(
+            SpreadsheetSelection.A1
+        );
+    }
+
+    @Test
+    public void testSetLabelMappingTargetWithCellRange() {
+        this.setLabelMappingTargetAndCheck(
+            SpreadsheetSelection.parseCellRange("B2:C3")
+        );
+    }
+
+    @Test
+    public void testSetLabelMappingTargetWithLabel() {
+        this.setLabelMappingTargetAndCheck(
+            SpreadsheetSelection.labelName("Label999")
+        );
+    }
+
     // label............................................................................................................
 
     @Test

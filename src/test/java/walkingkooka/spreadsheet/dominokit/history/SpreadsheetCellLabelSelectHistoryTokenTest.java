@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
@@ -47,6 +48,42 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
                 NAME,
                 SELECTION,
                 LABEL
+            )
+        );
+    }
+
+    // setLabelMappingTarget............................................................................................
+
+    @Override
+    void setLabelMappingTargetAndCheck(final SpreadsheetExpressionReference target) {
+        this.setLabelMappingTargetAndCheck(
+            HistoryToken.cellLabelSelect(
+                ID,
+                NAME,
+                target.setDefaultAnchor()
+            ),
+            target
+        );
+    }
+
+    @Override
+    void setLabelMappingTargetAndCheck(final SpreadsheetExpressionReference selection,
+                                       final SpreadsheetExpressionReference target) {
+        this.checkNotEquals(
+            selection,
+            target
+        );
+        this.setLabelMappingTargetAndCheck(
+            HistoryToken.cellLabelSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            ),
+            target,
+            HistoryToken.cellLabelSelect(
+                ID,
+                NAME,
+                target.setDefaultAnchor()
             )
         );
     }

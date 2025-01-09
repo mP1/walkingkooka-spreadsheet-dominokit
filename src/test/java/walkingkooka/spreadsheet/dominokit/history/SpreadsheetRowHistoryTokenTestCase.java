@@ -125,6 +125,13 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
+    // setLabelMappingTarget............................................................................................
+
+    @Test
+    public final void testSetLabelMappingTarget() {
+        this.setLabelMappingTargetAndCheck();
+    }
+
     // label............................................................................................................
 
     @Test

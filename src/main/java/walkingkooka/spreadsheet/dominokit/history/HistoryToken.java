@@ -2227,6 +2227,56 @@ public abstract class HistoryToken implements HasUrlFragment,
         return Optional.ofNullable(target);
     }
 
+    /**
+     * Would be setter that only sets/replaces/adds the given {@link SpreadsheetExpressionReference} target if the
+     * history token holds a label mapping.
+     */
+    public final HistoryToken setLabelMappingTarget(final Optional<SpreadsheetExpressionReference> labelMappingTarget) {
+        Objects.requireNonNull(labelMappingTarget, "labelMappingTarget");
+
+        HistoryToken afterSet = null;
+
+        if (this instanceof SpreadsheetCellLabelHistoryToken) {
+            if (labelMappingTarget.isPresent()) {
+                final SpreadsheetExpressionReference target = labelMappingTarget.get();
+
+                final SpreadsheetCellLabelHistoryToken cellLabelHistoryToken = this.cast(SpreadsheetCellLabelHistoryToken.class);
+                final SpreadsheetId id = cellLabelHistoryToken.id();
+                final SpreadsheetName name = cellLabelHistoryToken.name();
+
+                final AnchoredSpreadsheetSelection anchoredSelection = cellLabelHistoryToken.anchoredSelection();
+                if (false == target.equals(anchoredSelection.selection())) {
+                    if (this instanceof SpreadsheetCellLabelSelectHistoryToken) {
+                        afterSet = HistoryToken.cellLabelSelect(
+                            id,
+                            name,
+                            target.setDefaultAnchor()
+                        );
+                    } else {
+                        if (this instanceof SpreadsheetCellLabelSaveHistoryToken) {
+                            afterSet = HistoryToken.cellLabelSave(
+                                id,
+                                name,
+                                target.setDefaultAnchor(),
+                                this.cast(SpreadsheetCellLabelSaveHistoryToken.class).labelName
+                            );
+                        }
+                    }
+                }
+            }
+        } else {
+            if (this instanceof SpreadsheetLabelMappingHistoryToken) {
+                afterSet = this.setSaveValue(labelMappingTarget);
+            }
+        }
+
+        return null != afterSet ?
+            this.equals(afterSet) ?
+                this :
+                afterSet :
+            this;
+    }
+
     // labelName........................................................................................................
 
     /**
