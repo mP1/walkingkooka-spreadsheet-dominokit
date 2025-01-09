@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
@@ -34,8 +33,6 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
     final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 
     final static SpreadsheetCellRangeReference RANGE = SpreadsheetSelection.parseCellRange("B2:C3");
-
-    final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
 
     final static AnchoredSpreadsheetSelection SELECTION = CELL.setDefaultAnchor();
 

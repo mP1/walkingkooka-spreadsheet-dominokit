@@ -32,6 +32,8 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -238,6 +240,38 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             expected,
             token.formatter(),
             () -> token + " formatter"
+        );
+    }
+
+    // setLabel.........................................................................................................
+
+    final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
+
+    @Test
+    public final void testSetLabelNameWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createHistoryToken().setLabelName(null)
+        );
+    }
+
+    final void setLabelNameAndCheck(final HistoryToken historyToken,
+                                    final SpreadsheetLabelName labelName,
+                                    final HistoryToken expected) {
+        this.setLabelNameAndCheck(
+            historyToken,
+            Optional.of(labelName),
+            expected
+        );
+    }
+
+    final void setLabelNameAndCheck(final HistoryToken historyToken,
+                                    final Optional<SpreadsheetLabelName> labelName,
+                                    final HistoryToken expected) {
+        this.checkEquals(
+            expected,
+            historyToken.setLabelName(labelName),
+            historyToken::toString
         );
     }
 

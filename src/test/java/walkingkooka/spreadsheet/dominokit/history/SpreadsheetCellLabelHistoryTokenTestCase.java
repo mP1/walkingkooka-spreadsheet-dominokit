@@ -17,9 +17,23 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
+
 public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends SpreadsheetCellLabelHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
     SpreadsheetCellLabelHistoryTokenTestCase() {
         super();
+    }
+
+    @Test
+    public final void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cell(
+                ID,
+                NAME,
+                SELECTION
+            )
+        );
     }
 }
