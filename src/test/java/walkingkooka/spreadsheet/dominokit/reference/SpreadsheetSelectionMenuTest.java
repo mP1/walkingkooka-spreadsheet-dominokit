@@ -1727,7 +1727,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
     @Test
     public void testRow() {
-        final SpreadsheetRowHistoryToken token = HistoryToken.row(
+        final SpreadsheetRowHistoryToken token = HistoryToken.rowSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.parseRow("3").setDefaultAnchor()
@@ -1823,7 +1823,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
     @Test
     public void testRowRangeAnchorTop() {
-        final SpreadsheetRowHistoryToken token = HistoryToken.row(
+        final SpreadsheetRowHistoryToken token = HistoryToken.rowSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.parseRowRange("3:4").setAnchor(SpreadsheetViewportAnchor.TOP)
@@ -1919,7 +1919,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
     @Test
     public void testRowRangeAnchorBottom() {
-        final SpreadsheetRowHistoryToken token = HistoryToken.row(
+        final SpreadsheetRowHistoryToken token = HistoryToken.rowSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.parseRowRange("3:4").setAnchor(SpreadsheetViewportAnchor.BOTTOM)

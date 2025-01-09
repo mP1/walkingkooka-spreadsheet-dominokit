@@ -115,7 +115,7 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
 
     private void setRow(final SpreadsheetSelection selection) {
         this.setSelectionToken(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 this.id,
                 this.name,
                 selection.setAnchor(this.anchor)

@@ -43,7 +43,7 @@ public abstract class SpreadsheetRowSortHistoryTokenTestCase<T extends Spreadshe
     public final void testClose() {
         this.closeAndCheck(
             this.createHistoryToken(),
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()

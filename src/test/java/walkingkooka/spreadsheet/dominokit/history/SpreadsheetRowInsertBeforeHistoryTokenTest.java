@@ -77,7 +77,7 @@ public final class SpreadsheetRowInsertBeforeHistoryTokenTest extends Spreadshee
     public void testParseRowMissingCount() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/row/5",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 SpreadsheetSelection.parseRow("5").setDefaultAnchor()
@@ -89,7 +89,7 @@ public final class SpreadsheetRowInsertBeforeHistoryTokenTest extends Spreadshee
     public void testParseRowZeroCount() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/row/6/insertBefore/0",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 SpreadsheetSelection.parseRow("6").setDefaultAnchor()
@@ -117,7 +117,7 @@ public final class SpreadsheetRowInsertBeforeHistoryTokenTest extends Spreadshee
     public void testClose() {
         this.closeAndCheck(
             this.createHistoryToken(),
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
