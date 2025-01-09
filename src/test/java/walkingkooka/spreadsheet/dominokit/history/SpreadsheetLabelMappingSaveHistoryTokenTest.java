@@ -20,12 +20,24 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
 public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingSaveHistoryToken> {
+
+    private final static SpreadsheetExpressionReference TARGET = CELL;
+
+    @Test
+    @Override
+    public void testLabelMappingTarget() {
+        this.labelMappingTargetAndCheck(
+            this.createHistoryToken(),
+            TARGET
+        );
+    }
 
     @Test
     public void testLabelName() {
@@ -74,7 +86,7 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
         return SpreadsheetLabelMappingSaveHistoryToken.with(
             id,
             name,
-            label.mapping(CELL)
+            label.mapping(TARGET)
         );
     }
 

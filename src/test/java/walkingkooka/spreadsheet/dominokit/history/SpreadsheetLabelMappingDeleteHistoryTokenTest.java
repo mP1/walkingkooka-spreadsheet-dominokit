@@ -27,6 +27,11 @@ import java.util.Optional;
 public final class SpreadsheetLabelMappingDeleteHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingDeleteHistoryToken> {
 
     @Test
+    public void testLabelMappingTarget() {
+        this.labelMappingTargetAndCheck(this.createHistoryToken());
+    }
+
+    @Test
     public void testLabelName() {
         this.labelNameAndCheck(
             this.createHistoryToken(),
