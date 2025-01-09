@@ -25,8 +25,10 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
         super();
     }
 
+    // delete...........................................................................................................
+
     @Test
-    public final void testSetDelete() {
+    public final void testDelete() {
         this.deleteAndCheck(
             this.createHistoryToken()
         );
