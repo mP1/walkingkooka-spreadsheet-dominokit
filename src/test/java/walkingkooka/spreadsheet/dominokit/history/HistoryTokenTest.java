@@ -64,14 +64,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");
 
-    private static final SpreadsheetSelectHistoryToken SPREADSHEET_ID_SPREADSHEET_NAME_HHT = HistoryToken.spreadsheetSelect(
+    private static final SpreadsheetSelectHistoryToken SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN = HistoryToken.spreadsheetSelect(
         ID,
         NAME
     );
 
     private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 
-    private static final SpreadsheetCellSelectHistoryToken CELL_HHT = HistoryToken.cell(
+    private static final SpreadsheetCellSelectHistoryToken CELL_TOKEN = HistoryToken.cell(
         ID,
         NAME,
         CELL.setDefaultAnchor()
@@ -81,7 +81,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     private final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
 
-    private static final SpreadsheetLabelMappingSelectHistoryToken LABEL_MAPPING_HHT = HistoryToken.labelMappingSelect(
+    private static final SpreadsheetLabelMappingSelectHistoryToken LABEL_MAPPING_TOKEN = HistoryToken.labelMappingSelect(
         ID,
         NAME,
         Optional.of(LABEL)
@@ -2415,7 +2415,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetName() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456",
-            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
         );
     }
 
@@ -2445,7 +2445,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameUnknown() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/Unknown",
-            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
         );
     }
 
@@ -2455,7 +2455,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameCellMissingReference() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell",
-            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
         );
     }
 
@@ -2463,7 +2463,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameCellInvalidReference() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/!!!",
-            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
         );
     }
 
@@ -2471,7 +2471,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameCellInvalidReference2() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/!!!/cell/A1",
-            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
         );
     }
 
@@ -2479,7 +2479,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameCellCellReference() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1",
-            CELL_HHT
+            CELL_TOKEN
         );
     }
 
@@ -2487,7 +2487,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameCellInvalidAnchor() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1/bottom-left",
-            CELL_HHT
+            CELL_TOKEN
         );
     }
 
@@ -2555,7 +2555,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameCellInvalidAction() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1/!invalid",
-            CELL_HHT
+            CELL_TOKEN
         );
     }
 
@@ -2997,7 +2997,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameCellStyleMissingStyleProperty() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1/style",
-            CELL_HHT
+            CELL_TOKEN
         );
     }
 
@@ -3005,7 +3005,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameCellStyleInvalidPropertyName() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1/style/!invalid",
-            CELL_HHT
+            CELL_TOKEN
         );
     }
 
@@ -3058,7 +3058,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameColumnMissingReference() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/column",
-            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
         );
     }
 
@@ -3066,7 +3066,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameColumnInvalidReference() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/column/!invalid",
-            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
         );
     }
 
@@ -3074,7 +3074,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameColumnInvalidReference2() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/column/!invalid/column/A",
-            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
         );
     }
 
@@ -3410,7 +3410,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowMissingReference() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row",
-            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
         );
     }
 
@@ -3418,7 +3418,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowInvalidReference() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/A1",
-            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
         );
     }
 
@@ -3426,7 +3426,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowInvalidReference2() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/123456789/row/1",
-            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
         );
     }
 
@@ -3795,7 +3795,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelInvalid() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/!!/cell/A1",
-            SPREADSHEET_ID_SPREADSHEET_NAME_HHT
+            SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN
         );
     }
 
@@ -3803,7 +3803,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelLabelReference() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/Label123",
-            LABEL_MAPPING_HHT
+            LABEL_MAPPING_TOKEN
         );
     }
 
@@ -3811,7 +3811,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelInvalidAction() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/Label123/!invalid",
-            LABEL_MAPPING_HHT
+            LABEL_MAPPING_TOKEN
         );
     }
 
@@ -3819,7 +3819,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelClear() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/Label123/clear",
-            LABEL_MAPPING_HHT
+            LABEL_MAPPING_TOKEN
         );
     }
 
@@ -3839,7 +3839,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelFreeze() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/Label123/freeze",
-            LABEL_MAPPING_HHT
+            LABEL_MAPPING_TOKEN
         );
     }
 
@@ -3847,7 +3847,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelMenu() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/Label123/menu",
-            LABEL_MAPPING_HHT
+            LABEL_MAPPING_TOKEN
         );
     }
 
@@ -3855,7 +3855,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelUnfreeze() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/Label123/unfreeze",
-            LABEL_MAPPING_HHT
+            LABEL_MAPPING_TOKEN
         );
     }
 
@@ -3937,7 +3937,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelFormula() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/Label123",
-            LABEL_MAPPING_HHT
+            LABEL_MAPPING_TOKEN
         );
     }
 
@@ -3945,7 +3945,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelPattern() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/Label123/formatter/yymmdd",
-            LABEL_MAPPING_HHT
+            LABEL_MAPPING_TOKEN
         );
     }
 
@@ -3953,7 +3953,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameLabelStyle() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/Label123/style",
-            LABEL_MAPPING_HHT
+            LABEL_MAPPING_TOKEN
         );
     }
 
