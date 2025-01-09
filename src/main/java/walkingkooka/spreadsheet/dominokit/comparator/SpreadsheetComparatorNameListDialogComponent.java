@@ -136,7 +136,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
         this.save.setHistoryToken(
             Optional.of(
                 this.context.historyToken()
-                    .save(text)
+                    .setSaveValue(text)
             )
         );
     }
@@ -233,7 +233,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
         this.undo.setHistoryToken(
             Optional.of(
                 context.historyToken()
-                    .save(undo)
+                    .setSaveValue(undo)
             )
         );
 

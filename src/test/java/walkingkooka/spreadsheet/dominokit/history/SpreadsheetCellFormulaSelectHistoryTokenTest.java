@@ -34,7 +34,7 @@ public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends Spreadsh
         final HistoryToken historyToken = HistoryToken.cellFormula(ID, NAME, selection);
 
         this.checkEquals(
-            historyToken.save(formulaText),
+            historyToken.setSaveValue(formulaText),
             HistoryToken.cellFormulaSave(
                 ID,
                 NAME,

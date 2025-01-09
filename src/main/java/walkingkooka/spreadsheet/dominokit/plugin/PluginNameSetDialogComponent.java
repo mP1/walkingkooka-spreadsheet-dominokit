@@ -350,7 +350,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
         this.reset.setHistoryToken(
             Optional.of(
                 this.context.historyToken()
-                    .save(plugins.text())
+                    .setSaveValue(plugins.text())
             )
         );
     }
@@ -391,7 +391,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
 
         this.save.setHistoryToken(
             Optional.of(
-                historyToken.save(
+                historyToken.setSaveValue(
                     currentPluginNames.text()
                 )
             )

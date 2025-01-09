@@ -130,7 +130,7 @@ final class SpreadsheetSelectionMenuFormatter {
                         spreadsheetFormatterSelectorMenu.label()
                     ).historyToken(
                         Optional.of(
-                            historyToken.save(
+                            historyToken.setSaveValue(
                                 spreadsheetFormatterSelectorMenu.selector()
                                     .toString()
                             )
@@ -179,7 +179,7 @@ final class SpreadsheetSelectionMenuFormatter {
                         label + " " + text
                 ).historyToken(
                     Optional.of(
-                        historyToken.save(
+                        historyToken.setSaveValue(
                             selector.text()
                         )
                     )

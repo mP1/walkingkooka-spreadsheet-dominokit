@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 public interface RemoveOrReplacePluginSelectorTokenComponentContext extends HistoryTokenContext {
 
     /**
-     * Builds the save text that will be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#save(String)}.
+     * Builds the save text that will be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSaveValue(String)}.
      */
     String saveText(final String text);
 }

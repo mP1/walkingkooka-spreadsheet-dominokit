@@ -1473,7 +1473,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-            historyToken.save("save-value"),
+            historyToken.setSaveValue("save-value"),
             historyToken
         );
     }

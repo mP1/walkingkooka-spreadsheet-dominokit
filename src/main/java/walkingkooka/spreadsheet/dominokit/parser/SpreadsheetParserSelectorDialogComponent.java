@@ -305,7 +305,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
             this.save.setHistoryToken(
                 Optional.of(
                     context.historyToken()
-                        .save(
+                        .setSaveValue(
                             Optional.of(
                                 edit.selector()
                                     .map(SpreadsheetParserSelector::toString)
@@ -404,7 +404,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         this.undo.setHistoryToken(
             Optional.of(
                 context.historyToken()
-                    .save(undo)
+                    .setSaveValue(undo)
             )
         );
 
