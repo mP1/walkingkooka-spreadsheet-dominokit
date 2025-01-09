@@ -34,7 +34,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     // save.........................................................................................................
 
     @Test
-    public void testSaveStyle() {
+    public void testSetSaveValueStyle() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
         final String value = "#123456";
@@ -54,7 +54,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     }
 
     @Test
-    public void testSaveStyleWithEmptyText() {
+    public void testSetSaveValueStyleWithEmptyText() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
         final String value = "";

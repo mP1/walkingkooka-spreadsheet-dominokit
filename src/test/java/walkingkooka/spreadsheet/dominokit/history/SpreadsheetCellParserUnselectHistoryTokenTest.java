@@ -74,14 +74,14 @@ public final class SpreadsheetCellParserUnselectHistoryTokenTest extends Spreads
     // saveValue........................................................................................................
 
     @Test
-    public void testSaveValue() {
+    public void testSetSaveValue() {
         this.saveValueAndCheck(
             "dd/mm/yyyy"
         );
     }
 
     @Test
-    public void testSaveValueWithEmpty() {
+    public void testSetSaveValueWithEmpty() {
         this.saveValueAndCheck(
             ""
         );

@@ -461,7 +461,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     // value............................................................................................................
 
     @Test
-    public final void testSaveXXXHistoryTokenImplementsValue() {
+    public final void testSetSaveValueXXXHistoryTokenImplementsValue() {
         final Class<T> type = this.type();
         if (type.getSimpleName().contains("Save")) {
             this.checkEquals(
@@ -487,7 +487,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     // setSave..........................................................................................................
 
     @Test
-    public final void testSaveValueNullFails() {
+    public final void testSetSaveValueNullFails() {
         final T token = this.createHistoryToken();
         assertThrows(
             NullPointerException.class,
