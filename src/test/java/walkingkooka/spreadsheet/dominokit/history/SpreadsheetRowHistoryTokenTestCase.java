@@ -86,7 +86,7 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
     public final void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 SELECTION

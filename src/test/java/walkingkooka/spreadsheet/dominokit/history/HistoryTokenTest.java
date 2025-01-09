@@ -327,7 +327,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testClearRow() {
         final AnchoredSpreadsheetSelection selection = ROW.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.row(ID, NAME, selection);
+        final HistoryToken historyToken = HistoryToken.rowSelect(ID, NAME, selection);
 
         this.checkEquals(
             historyToken.clear(),
@@ -418,7 +418,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetCellCopyWithRowHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.row(
+        final HistoryToken historyToken = HistoryToken.rowSelect(
             ID,
             NAME,
             ROW.setDefaultAnchor()
@@ -509,7 +509,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetCellCutWithRowHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.row(
+        final HistoryToken historyToken = HistoryToken.rowSelect(
             ID,
             NAME,
             ROW.setDefaultAnchor()
@@ -600,7 +600,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     @Test
     public void testSetCellPasteWithRowHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.row(
+        final HistoryToken historyToken = HistoryToken.rowSelect(
             ID,
             NAME,
             ROW.setDefaultAnchor()
@@ -657,7 +657,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testDeleteRow() {
         final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.rowSelect(ID, NAME, viewport);
 
         this.checkEquals(
             historyToken.delete(),
@@ -716,7 +716,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testFreezeRow() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseRow("1")
             .setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.rowSelect(ID, NAME, viewport);
 
         this.checkEquals(
             historyToken.freeze(),
@@ -934,7 +934,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection row = ROW.setDefaultAnchor();
 
         this.menuAndCheck(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 row
@@ -952,7 +952,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection range = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP);
 
         this.menuAndCheck(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 range
@@ -970,7 +970,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final AnchoredSpreadsheetSelection range = ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
         this.menuAndCheck(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 range
@@ -1139,7 +1139,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testMenuWithRowRangeSelectAndColumnSelection() {
         this.menuAndCheck(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
@@ -1266,7 +1266,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testMenuWithRowSelectAndSameRowSelection() {
         this.menuAndCheck(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
@@ -1285,7 +1285,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetRowReference differentRow = SpreadsheetSelection.parseRow("2");
 
         this.menuAndCheck(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
@@ -1305,7 +1305,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             .setAnchor(SpreadsheetViewportAnchor.BOTTOM);
 
         this.menuAndCheck(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 range
@@ -1324,7 +1324,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetRowReference differentRow = SpreadsheetSelection.parseRow("3");
 
         this.menuAndCheck(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor()
@@ -1577,7 +1577,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final String comparatorNames = "1=text UP";
 
         this.setSortEdit(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
@@ -1597,7 +1597,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final String comparatorNames = "2=text UP";
 
         this.setSortEdit(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW_RANGE.setDefaultAnchor()
@@ -1721,7 +1721,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("11=text UP");
 
         this.setSortSave(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
@@ -1741,7 +1741,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("22=text UP;33=text DOWN");
 
         this.setSortSave(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW_RANGE.setDefaultAnchor()
@@ -1828,7 +1828,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testStyleRow() {
         final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
-        final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.rowSelect(ID, NAME, viewport);
 
         assertSame(
             historyToken.style(property),
@@ -1883,7 +1883,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testUnfreezeRow() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseRow("1")
             .setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.row(ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.rowSelect(ID, NAME, viewport);
 
         this.checkEquals(
             historyToken.unfreeze(),
@@ -2008,7 +2008,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
 
         this.checkEquals(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 row
@@ -2028,7 +2028,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
 
         this.checkEquals(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 row
@@ -2142,7 +2142,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testAnchoredSelectionHistoryTokenOrEmptyRow() {
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
@@ -2160,7 +2160,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 NAME,
                 viewport
             ),
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 viewport
@@ -2171,7 +2171,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     @Test
     public void testAnchoredSelectionHistoryTokenOrEmptyRowRange() {
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW_RANGE.setDefaultAnchor()
@@ -3434,7 +3434,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowRowReference() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/11",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
@@ -3446,7 +3446,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowInvalidAnchor() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/11/bottom-left",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
@@ -3458,7 +3458,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeMissingAnchor() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/22:33",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
@@ -3470,7 +3470,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeTop() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/22:33/top",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP)
@@ -3482,7 +3482,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeBottom() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/22:33/bottom",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
@@ -3494,7 +3494,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeInvalidAnchor() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/22:33/top-left",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
@@ -3506,7 +3506,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowInvalidAction() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/11/!invalid",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
@@ -3542,7 +3542,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowFreezeInvalidFails() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/11/freeze",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
@@ -3566,7 +3566,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeFreezeInvalidFails() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/22:33/freeze",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW_RANGE.setDefaultAnchor()
@@ -3685,7 +3685,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowUnfreezeInvalid() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/11/unfreeze",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
@@ -3709,7 +3709,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowRangeUnfreezeInvalid() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/22:33/unfreeze",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW_RANGE.setDefaultAnchor()
@@ -3745,7 +3745,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowFormula() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/11",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
@@ -3757,7 +3757,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowPattern() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/11/formatter/yymmdd",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
@@ -3769,7 +3769,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSpreadsheetIdSpreadsheetNameRowStyle() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/row/11/style",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()

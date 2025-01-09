@@ -993,9 +993,9 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * {@see SpreadsheetRowSelectHistoryToken}
      */
-    public static SpreadsheetRowSelectHistoryToken row(final SpreadsheetId id,
-                                                       final SpreadsheetName name,
-                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
+    public static SpreadsheetRowSelectHistoryToken rowSelect(final SpreadsheetId id,
+                                                             final SpreadsheetName name,
+                                                             final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetRowSelectHistoryToken.with(
             id,
             name,
@@ -1163,7 +1163,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 break;
             }
             if (selection.isRowReference() || selection.isRowRangeReference()) {
-                historyToken = row(
+                historyToken = rowSelect(
                     id,
                     name,
                     anchoredSelection

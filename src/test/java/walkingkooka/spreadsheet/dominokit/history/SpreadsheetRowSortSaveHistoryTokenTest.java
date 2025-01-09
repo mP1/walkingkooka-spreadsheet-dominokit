@@ -53,7 +53,7 @@ public final class SpreadsheetRowSortSaveHistoryTokenTest extends SpreadsheetRow
     public void testParseInvalidComparator() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/row/1/sort/save/!invalid",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
@@ -65,7 +65,7 @@ public final class SpreadsheetRowSortSaveHistoryTokenTest extends SpreadsheetRow
     public void testParseInvalidComparatorRow() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/row/1/sort/save/99=text",
-            HistoryToken.row(
+            HistoryToken.rowSelect(
                 ID,
                 NAME,
                 ROW.setDefaultAnchor()
