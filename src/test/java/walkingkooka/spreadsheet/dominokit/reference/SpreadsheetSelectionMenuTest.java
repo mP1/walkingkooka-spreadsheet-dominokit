@@ -63,7 +63,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
     @Test
     public void testCell() {
-        final SpreadsheetCellHistoryToken token = HistoryToken.cell(
+        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.A1.setDefaultAnchor()
@@ -262,7 +262,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
     @Test
     public void testCellRecentSpreadsheetFormatterSelector() {
-        final SpreadsheetCellHistoryToken token = HistoryToken.cell(
+        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.A1.setDefaultAnchor()
@@ -475,7 +475,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
     @Test
     public void testCellRecentSpreadsheetParserSelector() {
-        final SpreadsheetCellHistoryToken token = HistoryToken.cell(
+        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.A1.setDefaultAnchor()
@@ -684,7 +684,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
     @Test
     public void testCellRecentTextStyleProperties() {
-        final SpreadsheetCellHistoryToken token = HistoryToken.cell(
+        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.A1.setDefaultAnchor()
@@ -906,7 +906,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
     @Test
     public void testCellRecentSpreadsheetFormatterSelectorAndSpreadsheetParserSelectorAndSpreadsheetFormatterSelectorMenus() {
-        final SpreadsheetCellHistoryToken token = HistoryToken.cell(
+        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.A1.setDefaultAnchor()
@@ -1142,7 +1142,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
     @Test
     public void testCellRange() {
-        final SpreadsheetCellHistoryToken token = HistoryToken.cell(
+        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.parseCellRange("B2:C3")

@@ -81,7 +81,7 @@ public final class SpreadsheetCellFreezeHistoryTokenTest extends SpreadsheetCell
     public void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor()

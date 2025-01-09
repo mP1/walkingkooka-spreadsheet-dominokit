@@ -36,7 +36,7 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     public final void testClose() {
         this.closeAndCheck(
             this.createHistoryToken(),
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 SELECTION

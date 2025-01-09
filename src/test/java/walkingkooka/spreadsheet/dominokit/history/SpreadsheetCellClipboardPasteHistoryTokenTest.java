@@ -30,7 +30,7 @@ public final class SpreadsheetCellClipboardPasteHistoryTokenTest extends Spreads
     public void testParseUnknownKind() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/paste/?unknown",
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor()

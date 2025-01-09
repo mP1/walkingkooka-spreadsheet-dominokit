@@ -52,7 +52,7 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
     public void testParseInvalidComparator() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/sort/save/!invalid",
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor()
@@ -64,7 +64,7 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
     public void testParseInvalidComparatorColumn() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/sort/save/Z=text",
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor()
@@ -76,7 +76,7 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
     public void testParseInvalidComparatorRow() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/sort/save/99=text",
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor()
@@ -110,7 +110,7 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
     public void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor()

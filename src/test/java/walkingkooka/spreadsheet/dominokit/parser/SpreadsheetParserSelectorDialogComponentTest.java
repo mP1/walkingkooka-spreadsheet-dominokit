@@ -1176,7 +1176,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 NAME,
                 CELL
             ),
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 NAME,
                 CELL

@@ -51,7 +51,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
 
     @Test
     public void testBuildColumn() {
-        final SpreadsheetCellHistoryToken token = HistoryToken.cell(
+        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.A1.setDefaultAnchor()
@@ -117,7 +117,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
 
     @Test
     public void testBuildRow() {
-        final SpreadsheetCellHistoryToken token = HistoryToken.cell(
+        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.parseCell("A12").setDefaultAnchor()
@@ -183,7 +183,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
 
     @Test
     public void testBuildCellColumn() {
-        final SpreadsheetCellHistoryToken token = HistoryToken.cell(
+        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.parseCell("B2").setDefaultAnchor()
@@ -249,7 +249,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
 
     @Test
     public void testBuildCellColumnLimitedComparatorNames() {
-        final SpreadsheetCellHistoryToken token = HistoryToken.cell(
+        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
             SpreadsheetId.with(1), // id
             SpreadsheetName.with("SpreadsheetName-1"), // name
             SpreadsheetSelection.parseCell("B2").setDefaultAnchor()

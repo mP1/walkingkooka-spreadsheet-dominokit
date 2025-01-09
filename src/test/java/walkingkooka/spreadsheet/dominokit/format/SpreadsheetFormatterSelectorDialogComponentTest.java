@@ -1392,7 +1392,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 NAME,
                 CELL
             ),
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 NAME,
                 CELL

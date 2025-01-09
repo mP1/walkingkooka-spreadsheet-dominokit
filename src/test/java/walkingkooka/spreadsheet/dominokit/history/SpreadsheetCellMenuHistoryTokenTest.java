@@ -61,7 +61,7 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
     public void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor()

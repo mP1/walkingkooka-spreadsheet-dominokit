@@ -256,9 +256,9 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * {@see SpreadsheetCellSelectHistoryToken}
      */
-    public static SpreadsheetCellSelectHistoryToken cell(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
-                                                         final AnchoredSpreadsheetSelection anchoredSelection) {
+    public static SpreadsheetCellSelectHistoryToken cellSelect(final SpreadsheetId id,
+                                                               final SpreadsheetName name,
+                                                               final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellSelectHistoryToken.with(
             id,
             name,
@@ -1147,7 +1147,7 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         for (; ; ) {
             if (selection.isCellReference() || selection.isCellRangeReference() || selection.isLabelName()) {
-                historyToken = cell(
+                historyToken = cellSelect(
                     id,
                     name,
                     anchoredSelection
@@ -1603,7 +1603,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         if (this instanceof SpreadsheetCellFormatterSelectHistoryToken) {
             final SpreadsheetCellFormatterSelectHistoryToken formatter = (SpreadsheetCellFormatterSelectHistoryToken) this;
 
-            closed = cell(
+            closed = cellSelect(
                 formatter.id(),
                 formatter.name(),
                 formatter.anchoredSelection()
@@ -1623,7 +1623,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         if (this instanceof SpreadsheetCellParserSelectHistoryToken) {
             final SpreadsheetCellParserSelectHistoryToken parser = (SpreadsheetCellParserSelectHistoryToken) this;
 
-            closed = cell(
+            closed = cellSelect(
                 parser.id(),
                 parser.name(),
                 parser.anchoredSelection()

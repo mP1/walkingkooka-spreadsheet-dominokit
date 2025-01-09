@@ -190,7 +190,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     public void testSaveValue() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final String formulaText = "=1";
-        final HistoryToken historyToken = HistoryToken.cell(ID, NAME, selection);
+        final HistoryToken historyToken = HistoryToken.cellSelect(ID, NAME, selection);
 
         assertSame(
             historyToken.setSaveValue(formulaText),

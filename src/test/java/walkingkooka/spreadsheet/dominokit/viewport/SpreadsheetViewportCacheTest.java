@@ -2762,7 +2762,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         context.pushHistoryToken(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID1,
                 NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
@@ -2787,7 +2787,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID1,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
@@ -2847,7 +2847,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID1,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
@@ -2897,7 +2897,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID1,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
@@ -2957,7 +2957,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID1,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
@@ -3007,7 +3007,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID1,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
@@ -3081,7 +3081,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID1,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
@@ -3136,7 +3136,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID1,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
@@ -3193,7 +3193,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID1,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
@@ -3241,7 +3241,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
         context.pushHistoryToken(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID1,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A2:B2")
@@ -3271,7 +3271,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID1,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
@@ -3340,7 +3340,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
 
         context.pushHistoryToken(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID1,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
@@ -3433,7 +3433,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         cache.spreadsheetId = ID1;
 
         context.pushHistoryToken(
-            HistoryToken.cell(
+            HistoryToken.cellSelect(
                 ID1,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
