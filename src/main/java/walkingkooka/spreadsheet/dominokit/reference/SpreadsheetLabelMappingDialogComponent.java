@@ -133,7 +133,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private SpreadsheetLabelComponent label(final Context context) {
         return SpreadsheetLabelComponent.with(context)
-            .setId(ID_PREFIX + "label-TextBox")
+            .setId(ID_PREFIX + "label" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Label")
             .required()
             .addChangeListener(
@@ -150,7 +150,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
      */
     private SpreadsheetExpressionReferenceComponent target() {
         return SpreadsheetExpressionReferenceComponent.empty()
-            .setId(ID_PREFIX + "target-TextBox")
+            .setId(ID_PREFIX + "target" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Cell, cell range or Label")
             .addChangeListener(
                 (oldValue, newValue) -> this.refreshLinksAndLoadLabels()
