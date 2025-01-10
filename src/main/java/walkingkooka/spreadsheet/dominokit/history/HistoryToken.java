@@ -2805,7 +2805,7 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         final Object valueOrNull = value.orElse(null);
 
-        HistoryToken historyToken = this;
+        HistoryToken historyToken = null;
 
         if (this instanceof PluginHistoryToken) {
             if (this instanceof PluginSelectHistoryToken || this instanceof PluginSaveHistoryToken) {
@@ -2987,7 +2987,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                             id,
                             name,
                             spreadsheetSelection,
-                            historyToken.cast(SpreadsheetCellStyleHistoryToken.class)
+                            this.cast(SpreadsheetCellStyleHistoryToken.class)
                                 .propertyName(),
                             value
                         );
@@ -3035,7 +3035,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                     historyToken = HistoryToken.metadataPropertySave(
                         id,
                         name,
-                        historyToken.cast(SpreadsheetMetadataPropertyHistoryToken.class)
+                        this.cast(SpreadsheetMetadataPropertyHistoryToken.class)
                             .propertyName(),
                         value
                     );
@@ -3045,7 +3045,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                     historyToken = HistoryToken.metadataPropertyStyleSave(
                         id,
                         name,
-                        historyToken.cast(SpreadsheetMetadataPropertyStyleHistoryToken.class)
+                        this.cast(SpreadsheetMetadataPropertyStyleHistoryToken.class)
                             .stylePropertyName(),
                         value
                     );
@@ -3053,7 +3053,12 @@ public abstract class HistoryToken implements HasUrlFragment,
             }
         }
 
-        return historyToken;
+        // if historyToken is equal to this, return this, dont want to return a new instance if its equal
+        return null != historyToken ?
+            this.equals(historyToken) ?
+                this :
+                historyToken :
+            this;
     }
 
     /**

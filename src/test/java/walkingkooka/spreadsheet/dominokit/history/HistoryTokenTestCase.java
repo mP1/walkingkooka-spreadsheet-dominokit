@@ -580,11 +580,19 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     final void setSaveValueAndCheck(final HistoryToken token,
                                     final String save,
                                     final HistoryToken expected) {
-        this.checkEquals(
-            expected,
-            token.setSaveValue(save),
-            () -> token + " setSaveValue " + save
-        );
+        if (token.equals(expected)) {
+            assertSame(
+                expected,
+                token.setSaveValue(save),
+                () -> token + " setSaveValue " + save + " should have returned same not different instance"
+            );
+        } else {
+            this.checkEquals(
+                expected,
+                token.setSaveValue(save),
+                () -> token + " setSaveValue " + save
+            );
+        }
     }
 
     @Test
@@ -623,12 +631,28 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     final void setSaveValueAndCheck(final HistoryToken token,
                                     final Optional<?> save,
                                     final HistoryToken expected) {
-        this.checkEquals(
-            expected,
-            token.setSaveValue(save),
-            () -> token + " setSaveValue " + save
-        );
+        if (token.equals(expected)) {
+            assertSame(
+                expected,
+                token.setSaveValue(save),
+                () -> token + " setSaveValue " + save + " should have returned same not different instance"
+            );
+        } else {
+            this.checkEquals(
+                expected,
+                token.setSaveValue(save),
+                () -> token + " setSaveValue " + save
+            );
+
+            assertSame(
+                expected,
+                expected.setSaveValue(save),
+                () -> token + " setSaveValue " + save + " should have returned same not different instance"
+            );
+        }
     }
+
+    static int q = 0;
 
     // equals...........................................................................................................
 
