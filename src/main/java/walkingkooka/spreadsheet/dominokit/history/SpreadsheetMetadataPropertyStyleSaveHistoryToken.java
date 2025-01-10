@@ -56,6 +56,8 @@ implements Value<Optional<T>>  {
         );
 
         this.stylePropertyValue = Objects.requireNonNull(stylePropertyValue, "stylePropertyValue");
+
+        stylePropertyValue.ifPresent(stylePropertyName::check);
     }
 
     @Override

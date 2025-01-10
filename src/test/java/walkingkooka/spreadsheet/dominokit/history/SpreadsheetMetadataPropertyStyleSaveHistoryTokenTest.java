@@ -34,6 +34,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends SpreadsheetMetadataPropertyStyleHistoryTokenTestCase<SpreadsheetMetadataPropertyStyleSaveHistoryToken<Color>, Color> {
 
+    // with.............................................................................................................
+
     @Test
     public void testWithNullValueFails() {
         assertThrows(
@@ -46,6 +48,23 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
             )
         );
     }
+
+    @Test
+    public void testWithIncompatibleValueFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
+                ID,
+                NAME,
+                STYLE_PROPERTY_NAME,
+                Cast.to(
+                    Optional.of(this)
+                )
+            )
+        );
+    }
+
+    // HasUrlFragment...................................................................................................
 
     @Test
     public void testUrlFragmentColor() {
