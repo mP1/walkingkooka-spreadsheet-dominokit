@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 
+import java.util.Optional;
+
 public final class PluginUploadSaveHistoryTokenTest extends PluginHistoryTokenTestCase<PluginUploadSaveHistoryToken> {
 
     // parse............................................................................................................
@@ -100,6 +102,34 @@ public final class PluginUploadSaveHistoryTokenTest extends PluginHistoryTokenTe
     public void testClose() {
         this.closeAndCheck(
             HistoryToken.pluginUploadSelect()
+        );
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithInvalidOptionalValueFails() {
+        this.setSaveValueFails(
+            Optional.of(this)
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithEmptyFails() {
+        this.setSaveValueFails(Optional.empty());
+    }
+
+    @Test
+    public void testSetSaveValueWithNotEmpty() {
+        final BrowserFile file = BrowserFile.base64(
+            "Different",
+            "FileContent456"
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(file),
+            HistoryToken.pluginUploadSave(file)
         );
     }
 

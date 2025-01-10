@@ -30,10 +30,10 @@ import java.util.Optional;
 
 public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extends SpreadsheetMetadataPropertyStyleHistoryTokenTestCase<SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color>, Color> {
 
-    // saveValue........................................................................................................
+    // setSaveValue.....................................................................................................
 
     @Test
-    public void testSetSaveValueStyle() {
+    public void testSetSaveValueStyleWithString() {
         final SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color> historyToken = this.createHistoryToken();
         final String value = "#123456";
 
@@ -62,6 +62,42 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
                 NAME,
                 STYLE_PROPERTY_NAME,
                 Optional.empty()
+            )
+        );
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithEmptyValue() {
+        final Optional<Color> value = Optional.empty();
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            value,
+            HistoryToken.metadataPropertyStyleSave(
+                ID,
+                NAME,
+                STYLE_PROPERTY_NAME,
+                value
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithValue() {
+        final Optional<Color> value = Optional.of(
+            Color.parse("#999")
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            value,
+            HistoryToken.metadataPropertyStyleSave(
+                ID,
+                NAME,
+                STYLE_PROPERTY_NAME,
+                value
             )
         );
     }

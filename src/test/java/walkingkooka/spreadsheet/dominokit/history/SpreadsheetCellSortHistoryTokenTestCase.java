@@ -22,6 +22,8 @@ import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetCompara
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Optional;
+
 public abstract class SpreadsheetCellSortHistoryTokenTestCase<T extends SpreadsheetCellSortHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
     final static String COMPARATOR_NAMES_LIST_STRING = "A=day-of-month UP,month-of-year UP,year DOWN";
@@ -47,6 +49,40 @@ public abstract class SpreadsheetCellSortHistoryTokenTestCase<T extends Spreadsh
                 ID,
                 NAME,
                 CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public final void testSetSaveValueWithInvalidOptionalValueFails() {
+        this.setSaveValueFails(
+            Optional.of(this)
+        );
+    }
+
+    @Test
+    public final void testSetSaveValueWithEmpty() {
+        final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> value = Optional.empty();
+
+        this.setSaveValueFails(
+            value
+        );
+    }
+
+    @Test
+    public final void testSetSaveValueWithNonEmpty() {
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList value = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=different");
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            HistoryToken.cellSortSave(
+                ID,
+                NAME,
+                SELECTION,
+                value
             )
         );
     }

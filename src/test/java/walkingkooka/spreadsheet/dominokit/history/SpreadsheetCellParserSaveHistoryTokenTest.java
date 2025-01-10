@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetParsePattern;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
@@ -123,39 +122,6 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
                 ID,
                 NAME,
                 SELECTION
-            )
-        );
-    }
-
-    // saveValue........................................................................................................
-
-    @Test
-    public void testSetSaveValue() {
-        final SpreadsheetParsePattern pattern = SpreadsheetPattern.parseTimeParsePattern("hh:mm");
-        final SpreadsheetParserSelector selector = pattern.spreadsheetParserSelector();
-
-        this.setSaveValueAndCheck(
-            this.createHistoryToken(),
-            selector.text(),
-            HistoryToken.cellParserSave(
-                ID,
-                NAME,
-                SELECTION,
-                Optional.of(selector)
-            )
-        );
-    }
-
-    @Test
-    public void testSetSaveValueWithEmpty() {
-        this.setSaveValueAndCheck(
-            this.createHistoryToken(),
-            "",
-            HistoryToken.cellParserSave(
-                ID,
-                NAME,
-                SELECTION,
-                Optional.empty()
             )
         );
     }

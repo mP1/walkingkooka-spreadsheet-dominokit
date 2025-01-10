@@ -47,6 +47,62 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
         );
     }
 
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithInvalidOptionalValueFails() {
+        this.setSaveValueFails(
+            Optional.of(this)
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithDifferentCell() {
+        final SpreadsheetExpressionReference value = SpreadsheetSelection.parseCell("Z9");
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            HistoryToken.labelMappingSave(
+                ID,
+                NAME,
+                LABEL.setLabelMappingTarget(value)
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithDifferentCellRange() {
+        final SpreadsheetExpressionReference value = SpreadsheetSelection.parseCellRange("A1:Z9");
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            HistoryToken.labelMappingSave(
+                ID,
+                NAME,
+                LABEL.setLabelMappingTarget(value)
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithDifferentLabel() {
+        final SpreadsheetExpressionReference value = SpreadsheetSelection.labelName("Different");
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            HistoryToken.labelMappingSave(
+                ID,
+                NAME,
+                LABEL.setLabelMappingTarget(value)
+            )
+        );
+    }
+
+    // urlFragment......................................................................................................
+
     @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(

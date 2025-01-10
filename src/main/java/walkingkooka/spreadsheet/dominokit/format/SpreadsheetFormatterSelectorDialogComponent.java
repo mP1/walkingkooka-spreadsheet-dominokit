@@ -306,11 +306,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
                 Optional.of(
                     context.historyToken()
                         .setSaveValue(
-                            Optional.of(
-                                edit.selector()
-                                    .map(SpreadsheetFormatterSelector::toString)
-                                    .orElse("")
-                            )
+                            edit.selector()
                         )
                 )
             );

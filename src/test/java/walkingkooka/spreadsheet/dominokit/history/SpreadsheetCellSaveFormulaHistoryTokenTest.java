@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Map;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -183,6 +184,27 @@ public final class SpreadsheetCellSaveFormulaHistoryTokenTest extends Spreadshee
                 cellToFormulaText
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/formula/" + marshallMap(cellToFormulaText)
+        );
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithDifferentFormula() {
+        final Map<SpreadsheetCellReference, String> value = Maps.of(
+            CELL,
+            "different"
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            HistoryToken.cellSaveFormula(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
         );
     }
 

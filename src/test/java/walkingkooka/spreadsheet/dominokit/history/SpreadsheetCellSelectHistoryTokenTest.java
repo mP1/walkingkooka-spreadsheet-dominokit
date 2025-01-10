@@ -18,13 +18,25 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.map.Maps;
+import walkingkooka.collect.set.Sets;
+import walkingkooka.color.Color;
+import walkingkooka.spreadsheet.SpreadsheetCell;
+import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
+import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
@@ -156,6 +168,109 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
                 ID,
                 NAME,
                 CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithDifferentCell() {
+        final Set<SpreadsheetCell> value = Sets.of(
+            CELL.setFormula(SpreadsheetFormula.EMPTY.setText("different"))
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            HistoryToken.cellSaveCell(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithDifferentFormatter() {
+        final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> value = Maps.of(
+            CELL,
+            Optional.of(
+                SpreadsheetFormatterSelector.parse("different")
+            )
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            HistoryToken.cellSaveFormatter(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithDifferentFormula() {
+        final Map<SpreadsheetCellReference, String> value = Maps.of(
+            CELL,
+            "different"
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            HistoryToken.cellSaveFormula(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithDifferentParser() {
+        final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> value = Maps.of(
+            CELL,
+            Optional.of(
+                SpreadsheetParserSelector.parse("different")
+            )
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            HistoryToken.cellSaveParser(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithDifferentStyle() {
+        final Map<SpreadsheetCellReference, TextStyle> value = Maps.of(
+            CELL,
+            TextStyle.EMPTY.set(
+                TextStylePropertyName.COLOR,
+                Color.parse("#999")
+            )
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            HistoryToken.cellSaveStyle(
+                ID,
+                NAME,
+                SELECTION,
+                value
             )
         );
     }

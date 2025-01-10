@@ -278,6 +278,29 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
         );
     }
 
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithDifferentParser() {
+        final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> value = Maps.of(
+            CELL,
+            Optional.of(
+                SpreadsheetParserSelector.parse("different")
+            )
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            SpreadsheetCellSaveParserHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
+        );
+    }
+
     @Override
     SpreadsheetCellSaveParserHistoryToken createHistoryToken(final SpreadsheetId id,
                                                              final SpreadsheetName name,

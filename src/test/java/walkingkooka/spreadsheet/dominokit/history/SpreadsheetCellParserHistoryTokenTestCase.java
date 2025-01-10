@@ -17,9 +17,57 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+
+import java.util.Optional;
+
 public abstract class SpreadsheetCellParserHistoryTokenTestCase<T extends SpreadsheetCellParserHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
     SpreadsheetCellParserHistoryTokenTestCase() {
         super();
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public final void testSetSaveValueWithInvalidOptionalValueFails() {
+        this.setSaveValueFails(
+            Optional.of(this)
+        );
+    }
+
+    @Test
+    public final void testSetSaveValueWithEmpty() {
+        final Optional<SpreadsheetParserSelector> value = Optional.empty();
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            value,
+            HistoryToken.cellParserSave(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSaveValueWithNonEmpty() {
+        final Optional<SpreadsheetParserSelector> value = Optional.of(
+            SpreadsheetParserSelector.parse("different")
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            value,
+            HistoryToken.cellParserSave(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
+        );
     }
 }

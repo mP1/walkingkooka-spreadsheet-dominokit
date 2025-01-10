@@ -306,11 +306,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
                 Optional.of(
                     context.historyToken()
                         .setSaveValue(
-                            Optional.of(
-                                edit.selector()
-                                    .map(SpreadsheetParserSelector::toString)
-                                    .orElse("")
-                            )
+                            edit.selector()
                         )
                 )
             );

@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
@@ -79,24 +78,6 @@ public final class SpreadsheetCellFormatterUnselectHistoryTokenTest extends Spre
         this.deleteAndCheck(
             this.createHistoryToken(),
             this.createHistoryToken()
-        );
-    }
-
-    // saveValue........................................................................................................
-
-    @Test
-    public void testSetSaveValue() {
-        this.setSaveValueAndCheck(
-            SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
-                .spreadsheetFormatterSelector()
-                .toString()
-        );
-    }
-
-    @Test
-    public void testSetSaveValueWithEmpty() {
-        this.setSaveValueAndCheck(
-            ""
         );
     }
 

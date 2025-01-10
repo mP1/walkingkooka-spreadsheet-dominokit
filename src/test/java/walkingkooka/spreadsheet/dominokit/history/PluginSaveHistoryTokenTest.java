@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.plugin.PluginName;
 
+import java.util.Optional;
 import java.util.OptionalInt;
 
 import static org.junit.Assert.assertThrows;
@@ -55,6 +56,36 @@ public final class PluginSaveHistoryTokenTest extends PluginNameHistoryTokenTest
             HistoryToken.pluginListSelect(
                 OptionalInt.empty(), // offset
                 OptionalInt.empty() // count
+            )
+        );
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithInvalidOptionalValueFails() {
+        this.setSaveValueFails(
+            Optional.of(this)
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithEmptyFails() {
+        this.setSaveValueFails(
+            Optional.empty()
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithNotEmpty() {
+        final String value = "Hello";
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            HistoryToken.pluginSave(
+                PLUGIN_NAME,
+                value
             )
         );
     }

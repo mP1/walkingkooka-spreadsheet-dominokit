@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -199,6 +200,27 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
         return MARSHALL_CONTEXT.marshallCollection(
             cells
         ).toString();
+    }
+
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithDifferentCell() {
+        final Set<SpreadsheetCell> value = Sets.of(
+            CELL
+                .setFormula(SpreadsheetFormula.EMPTY.setText("different"))
+        );
+
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            Optional.of(value),
+            SpreadsheetCellSaveCellHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                value
+            )
+        );
     }
 
     @Override
