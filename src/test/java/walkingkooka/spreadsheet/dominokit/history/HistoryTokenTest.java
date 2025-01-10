@@ -3804,6 +3804,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelEmptyName() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/label/",
+            HistoryToken.labelMappingSelect(
+                ID,
+                NAME,
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelInvalid() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/!!/cell/A1",

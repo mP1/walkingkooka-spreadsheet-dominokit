@@ -173,8 +173,12 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     private HistoryToken parseLabel(final TextCursor cursor) {
         final Optional<String> label = parseComponent(cursor);
+
+        // filter required because paths like /spreadsheet-id/SpreadsheetName/label/ (notice trailing slash)
+        // will mean $label will be empty and result in SpreadsheetSelection.labelName throwing a EmptyTextException
         return this.setLabelName(
-            label.map(SpreadsheetSelection::labelName)
+            label.filter(t -> t.length() > 0)
+                .map(SpreadsheetSelection::labelName)
         );
     }
 
