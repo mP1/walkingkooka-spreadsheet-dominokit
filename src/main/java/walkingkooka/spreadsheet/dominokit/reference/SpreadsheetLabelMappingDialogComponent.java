@@ -17,8 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
-import walkingkooka.Cast;
-import walkingkooka.Context;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -32,11 +30,13 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSaveHistoryToken;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -66,8 +66,8 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     private SpreadsheetLabelMappingDialogComponent(final SpreadsheetLabelMappingDialogComponentContext context) {
         this.context = context;
 
-        this.label = label(context);
-        this.target = this.target();
+        this.labelName = labelName(context);
+        this.labelMappingTarget = this.labelMappingTarget();
 
         this.save = this.anchor("Save");
         this.undo = this.anchor("Undo");
@@ -79,10 +79,8 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
 
-        this.undoLabel = Optional.empty();
-        this.undoTarget = Optional.empty();
-
-        this.loadLabel = false;
+        this.undoLabelName = Optional.empty();
+        this.undoLabelMappingTarget = Optional.empty();
     }
 
     // dialog...........................................................................................................
@@ -98,8 +96,8 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                 "Label",
                 true, // includeClose
                 context
-            ).appendChild(this.label)
-            .appendChild(this.target)
+            ).appendChild(this.labelName)
+            .appendChild(this.labelMappingTarget)
             .appendChild(
                 SpreadsheetFlexLayout.row()
                     .appendChild(this.save)
@@ -131,52 +129,87 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     // SpreadsheetLabelComponent........................................................................................
 
-    private SpreadsheetLabelComponent label(final Context context) {
+    private SpreadsheetLabelComponent labelName(final HistoryTokenContext context) {
         return SpreadsheetLabelComponent.with(context)
             .setId(ID_PREFIX + "label" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Label")
             .required()
             .addChangeListener(
-                (oldValue, newValue) -> this.refreshLinksAndLoadLabels()
+                (oldValue, newValue) -> {
+                    // history change will trigger a load label if necessary
+                    this.loaded = null;
+
+                    final HistoryToken historyToken = context.historyToken();
+                    if(historyToken instanceof SpreadsheetLabelMappingHistoryToken) {
+                        context.pushHistoryToken(
+                            historyToken.setLabelName(newValue)
+                        );
+                    } else {
+                        this.labelName.setValue(newValue);
+                        this.refreshLinks();
+                    }
+                }
             );
     }
 
-    private final SpreadsheetLabelComponent label;
+    private final SpreadsheetLabelComponent labelName;
 
-    // target...................................................................................................
+    // labelMappingTarget...............................................................................................
 
     /**
      * Creates the {@link walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference} text box and installs a value change listener.
      */
-    private SpreadsheetExpressionReferenceComponent target() {
+    private SpreadsheetExpressionReferenceComponent labelMappingTarget() {
         return SpreadsheetExpressionReferenceComponent.empty()
             .setId(ID_PREFIX + "target" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Cell, cell range or Label")
             .addChangeListener(
-                (oldValue, newValue) -> this.refreshLinksAndLoadLabels()
+                (oldValue, newValue) -> {
+                    this.onLabelMappingTargetNewValue(newValue);
+                }
             ).addKeyupListener(
-                (e) -> this.refreshLinksAndLoadLabels()
+                (e) -> {
+                    this.onLabelMappingTargetNewValue(
+                        this.labelMappingTarget.value()
+                    );
+                }
             );
     }
 
-    private final SpreadsheetExpressionReferenceComponent target;
+    private final SpreadsheetExpressionReferenceComponent labelMappingTarget;
+
+    private void onLabelMappingTargetNewValue(final Optional<SpreadsheetExpressionReference> newValue) {
+        final HistoryToken historyToken = context.historyToken();
+        if(historyToken instanceof SpreadsheetCellLabelHistoryToken) {
+            context.pushHistoryToken(
+                historyToken.setLabelMappingTarget(newValue)
+            );
+        } else {
+            this.labelMappingTarget.setValue(newValue);
+            this.refreshLinks();
+        }
+    }
+
+    // save.............................................................................................................
 
     private void refreshSave() {
-        final Optional<SpreadsheetLabelName> label = this.label.value();
-        final Optional<SpreadsheetExpressionReference> target = this.target.value();
+        final Optional<SpreadsheetLabelName> label = this.labelName.value();
+        final Optional<SpreadsheetExpressionReference> target = this.labelMappingTarget.value();
 
         this.save.setHistoryToken(
             Optional.ofNullable(
                 label.isPresent() && target.isPresent() ?
                     this.context.historyToken()
                         .setLabelName(label)
-                        .setSaveValue(target) :
+                        .setLabelMappingTarget(target) :
                     null
             )
         );
     }
 
     private final HistoryTokenAnchorComponent save;
+
+    // undo.............................................................................................................
 
     /**
      * Refreshes the UNDO link with the undo label + target.
@@ -185,29 +218,30 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         this.undo.setHistoryToken(
             Optional.of(
                 this.context.historyToken()
-                    .setLabelName(
-                        this.undoLabel
-                    ).setSaveValue(
-                        this.undoTarget
-                    )
+                    .setLabelName(this.undoLabelName)
+                    .setLabelMappingTarget(this.undoLabelMappingTarget)
             )
         );
     }
 
     private final HistoryTokenAnchorComponent undo;
 
-    private Optional<SpreadsheetLabelName> undoLabel;
+    private Optional<SpreadsheetLabelName> undoLabelName;
 
-    private Optional<SpreadsheetExpressionReference> undoTarget;
+    private Optional<SpreadsheetExpressionReference> undoLabelMappingTarget;
+
+    // delete...........................................................................................................
 
     private void refreshDelete() {
-        final Optional<SpreadsheetLabelName> label = this.label.value();
+        final Optional<SpreadsheetLabelName> label = this.labelName.value();
 
+        final HistoryToken historyToken = this.context.historyToken();
+
+        // dont enable when SpreadsheetCellLabelHistoryToken
         this.delete.setHistoryToken(
             Optional.ofNullable(
-                label.isPresent() ?
-                    this.context.historyToken()
-                        .setLabelName(label)
+                label.isPresent() && historyToken instanceof SpreadsheetLabelMappingHistoryToken ?
+                    historyToken.setLabelName(label)
                         .delete() :
                     null
             )
@@ -234,49 +268,25 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     // save should not open or close the dialog.
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
-        return false == this.isMatch(token) && token instanceof SpreadsheetLabelMappingHistoryToken;
+        return token instanceof SpreadsheetCellLabelSaveHistoryToken ||
+            token instanceof SpreadsheetLabelMappingSaveHistoryToken;
     }
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetLabelMappingSelectHistoryToken;
+        return token instanceof SpreadsheetCellLabelHistoryToken ||
+            token instanceof SpreadsheetLabelMappingHistoryToken;
     }
 
     @Override
     public void dialogReset() {
-        // NOP
+        this.loaded = null;
     }
 
     @Override
     public void openGiveFocus(final RefreshContext context) {
-        boolean loadLabel = false;
-
-        try {
-            final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
-                .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
-            this.label.setValue(
-                token.labelName()
-            );
-            this.target.setValue(
-                Cast.to(
-                    token.anchoredSelectionOrEmpty()
-                        .map(AnchoredSpreadsheetSelection::selection)
-                )
-            );
-            loadLabel = token.labelName()
-                .isPresent();
-        } catch (final RuntimeException ignore) {
-            this.label.clearValue();
-            this.target.clearValue();
-
-            loadLabel = false;
-        }
-
-        this.loadLabel = loadLabel;
-        this.loaded = null;
-
         context.giveFocus(
-            this.label::focus
+            this.labelName::focus
         );
     }
 
@@ -285,59 +295,103 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
      */
     @Override
     public void refresh(final RefreshContext context) {
-        this.refreshLinksAndLoadLabels();
+        this.refreshLabelNameAndLabelMappingTarget();
+        this.loadLabelMappingIfNecessary();
+
+        this.refreshLinks();
     }
 
-    private void refreshLinksAndLoadLabels() {
-        this.refreshLabelAndTarget();
+    /**
+     * Refreshes all links.
+     */
+    private void refreshLinks() {
         this.refreshSave();
         this.refreshUndo();
         this.refreshDelete();
         this.refreshClose();
-
-        this.loadLabelIfNecessary();
     }
 
-    private void loadLabelIfNecessary() {
-        if (this.loadLabel) {
-            this.loadLabel = false;
+    /**
+     * If the current history token is {@link SpreadsheetLabelMappingHistoryToken} with a {@link SpreadsheetLabelName},
+     * and it has not been yet loaded, load it.<br>
+     * If the history token is {@link SpreadsheetCellLabelHistoryToken} the label is never loaded.
+     */
+    private void loadLabelMappingIfNecessary() {
+        final SpreadsheetLabelMappingDialogComponentContext context = this.context;
+        final HistoryToken historyToken = this.context.historyToken();
 
-            final SpreadsheetLabelMappingDialogComponentContext context = this.context;
-            SpreadsheetLabelName labelName = null;
-            try {
-                final SpreadsheetLabelMappingSelectHistoryToken token = context.historyToken()
-                    .cast(SpreadsheetLabelMappingSelectHistoryToken.class);
-                final Optional<SpreadsheetLabelName> maybeLabelName = token.labelName();
-                if (maybeLabelName.isPresent()) {
-                    labelName = maybeLabelName.get();
+        if (null == this.loaded) {
+            if (historyToken instanceof SpreadsheetLabelMappingHistoryToken) {
+                SpreadsheetLabelName labelName = null;
+                try {
+                    final Optional<SpreadsheetLabelName> maybeLabelName = historyToken.labelName();
+                    if (maybeLabelName.isPresent()) {
+                        labelName = maybeLabelName.get();
 
-                    context.loadLabel(labelName);
+                        context.loadLabel(labelName);
+                    }
+
+                } catch (final RuntimeException ignore) {
+                    context.error("Unable to load label " + labelName);
                 }
-
-            } catch (final RuntimeException ignore) {
-                context.error("Unable to load label " + labelName);
             }
         }
     }
 
-    private boolean loadLabel;
+    /**
+     * Refreshes the label and label mapping target from the loaded {@link SpreadsheetLabelMapping} or
+     * {@link HistoryToken}
+     */
+    private void refreshLabelNameAndLabelMappingTarget() {
+        final Optional<SpreadsheetLabelMapping> loaded = this.loaded;
 
-    private void refreshLabelAndTarget() {
-        final SpreadsheetLabelMapping loaded = this.loaded;
+        final SpreadsheetLabelComponent labelNameComponent = this.labelName;
+        final SpreadsheetExpressionReferenceComponent labelMappingTargetComponent = this.labelMappingTarget;
 
         if (null != loaded) {
-            this.loaded = null;
+            if (loaded.isPresent()) {
+                labelNameComponent.setValue(
+                    loaded.map(SpreadsheetLabelMapping::label)
+                );
+                labelMappingTargetComponent.setValue(
+                    loaded.map(SpreadsheetLabelMapping::target)
+                );
+            }
 
-            this.label.setValue(
-                Optional.of(loaded.label())
-            );
-            this.target.setValue(
-                Optional.of(loaded.target())
-            );
+            this.loaded = Optional.empty();
+        } else {
+            final HistoryToken token = context.historyToken();
+
+            if (token instanceof SpreadsheetCellLabelHistoryToken) {
+                final Optional<SpreadsheetExpressionReference> historyLabelMappingTarget = token.labelMappingTarget();
+                final Optional<SpreadsheetExpressionReference> componentLabelMappingTarget = labelMappingTargetComponent.value();
+
+                if (false == historyLabelMappingTarget.equals(componentLabelMappingTarget)) {
+                    labelMappingTargetComponent.setValue(
+                        historyLabelMappingTarget
+                    );
+                    labelNameComponent.clearValue();
+                }
+            }
+
+            if (token instanceof SpreadsheetLabelMappingHistoryToken) {
+                final Optional<SpreadsheetLabelName> historyLabelName = token.labelName();
+                final Optional<SpreadsheetLabelName> componentLabelName = labelNameComponent.value();
+
+                if (false == historyLabelName.equals(componentLabelName)) {
+                    labelNameComponent.setValue(
+                        historyLabelName
+                    );
+                    labelMappingTargetComponent.clearValue();
+                }
+            }
         }
     }
 
-    private SpreadsheetLabelMapping loaded;
+    /**
+     * When null indicates that when a label is available it should be loaded.
+     */
+    private Optional<SpreadsheetLabelMapping> loaded;
 
     // SpreadsheetDeltaFetcherWatcher...................................................................................
 
@@ -347,39 +401,35 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
         if (this.isOpen()) {
-            final Optional<SpreadsheetLabelName> undoLabel;
-            final Optional<SpreadsheetExpressionReference> undoTarget;
-
             if (HttpMethod.GET.equals(method) || HttpMethod.POST.equals(method)) {
                 final Set<SpreadsheetLabelMapping> mappings = delta.labels();
+
+                SpreadsheetLabelMapping mapping = null;
+                Optional<SpreadsheetLabelName> undoLabelName = null;
+                Optional<SpreadsheetExpressionReference> undoLabelMappingTarget = null;
+
                 switch (mappings.size()) {
                     case 1:
-                        final SpreadsheetLabelMapping mapping = mappings.iterator()
+                        mapping = mappings.iterator()
                             .next();
-
-                        undoLabel = Optional.of(
+                        undoLabelName = Optional.of(
                             mapping.label()
                         );
-                        undoTarget = Optional.of(
+                        undoLabelMappingTarget = Optional.of(
                             mapping.target()
                         );
-
-                        this.loaded = mapping;
                         break;
                     default:
-                        undoLabel = Optional.empty();
-                        undoTarget = Optional.empty();
+                        undoLabelName = Optional.empty();
+                        undoLabelMappingTarget = Optional.empty();
                         break;
                 }
-            } else {
-                undoLabel = Optional.empty();
-                undoTarget = Optional.empty();
+                this.loaded = Optional.ofNullable(mapping); // label does not exist
+                this.undoLabelName = undoLabelName;
+                this.undoLabelMappingTarget = undoLabelMappingTarget;
+
+                this.refreshIfOpen(context);
             }
-
-            this.undoLabel = undoLabel;
-            this.undoTarget = undoTarget;
-
-            this.refreshLinksAndLoadLabels();
         }
     }
 
