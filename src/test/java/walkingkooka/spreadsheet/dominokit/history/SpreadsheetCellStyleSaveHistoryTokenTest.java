@@ -36,6 +36,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetCellStyleHistoryTokenTestCase<SpreadsheetCellStyleSaveHistoryToken<Color>> {
 
+    // with.............................................................................................................
+
     @Test
     public void testWithNullPropertyValueFails() {
         assertThrows(
@@ -49,6 +51,26 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
             )
         );
     }
+
+    @Test
+    public void testWithIncompatiblePropertyValueFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> SpreadsheetCellStyleSaveHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                TextStylePropertyName.COLOR,
+                Cast.to(
+                    Optional.of(
+                        this
+                    )
+                )
+            )
+        );
+    }
+
+    // HasUrlFragment...................................................................................................
 
     @Test
     public void testUrlFragmentCellAll() {
