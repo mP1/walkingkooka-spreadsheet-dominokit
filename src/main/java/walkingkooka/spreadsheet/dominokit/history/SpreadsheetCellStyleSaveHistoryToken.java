@@ -67,7 +67,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
         );
         this.propertyValue = Objects.requireNonNull(propertyValue, "propertyValue");
 
-        propertyValue.ifPresent(propertyName::check);
+        propertyValue.ifPresent(propertyName::checkValue);
     }
 
     @Override
