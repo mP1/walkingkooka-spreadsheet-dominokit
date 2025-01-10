@@ -41,9 +41,90 @@ import java.util.Locale;
 public final class SpreadsheetLabelMappingDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetLabelMappingDialogComponent,
     SpreadsheetLabelMappingDialogComponentContext> {
 
+    // http://localhost:12345/index.html#/1/Untitled/cell/A1/label
+    @Test
+    public void testCellCellReferenceLabelHistoryToken() {
+        this.onHistoryTokenChangeAndCheck(
+            "/1/SpreadsheetName111/cell/A1/label",
+            "SpreadsheetLabelMappingDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Label\n" +
+                "    id=labelMapping-Dialog includeClose=true\n" +
+                "      SpreadsheetLabelComponent\n" +
+                "        SpreadsheetSuggestBoxComponent\n" +
+                "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
+                "          Errors\n" +
+                "            Empty \"Label\"\n" +
+                "      SpreadsheetExpressionReferenceComponent\n" +
+                "        ValueSpreadsheetTextBox\n" +
+                "          SpreadsheetTextBox\n" +
+                "            Cell, cell range or Label [A1] id=labelMapping-target-TextBox\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
+                "          \"Undo\" [#/1/SpreadsheetName111/cell/A1/label] id=labelMapping-undo-Link\n" +
+                "          \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
+                "          \"Close\" [#/1/SpreadsheetName111/cell/A1] id=labelMapping-close-Link\n"
+        );
+    }
+
+    // http://localhost:12345/index.html#/1/Untitled/cell/B2:C3/label
+    @Test
+    public void testCellCellRangeLabelHistoryToken() {
+        this.onHistoryTokenChangeAndCheck(
+            "/1/SpreadsheetName111/cell/A1/label",
+            "SpreadsheetLabelMappingDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Label\n" +
+                "    id=labelMapping-Dialog includeClose=true\n" +
+                "      SpreadsheetLabelComponent\n" +
+                "        SpreadsheetSuggestBoxComponent\n" +
+                "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
+                "          Errors\n" +
+                "            Empty \"Label\"\n" +
+                "      SpreadsheetExpressionReferenceComponent\n" +
+                "        ValueSpreadsheetTextBox\n" +
+                "          SpreadsheetTextBox\n" +
+                "            Cell, cell range or Label [A1] id=labelMapping-target-TextBox\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
+                "          \"Undo\" [#/1/SpreadsheetName111/cell/A1/label] id=labelMapping-undo-Link\n" +
+                "          \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
+                "          \"Close\" [#/1/SpreadsheetName111/cell/A1] id=labelMapping-close-Link\n"
+        );
+    }
+
+    // http://localhost:12345/index.html#/1/Untitled/cell/Label123/label
+    @Test
+    public void testCellCellLabelLabelHistoryToken() {
+        this.onHistoryTokenChangeAndCheck(
+            "/1/SpreadsheetName111/cell/A1/label",
+            "SpreadsheetLabelMappingDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Label\n" +
+                "    id=labelMapping-Dialog includeClose=true\n" +
+                "      SpreadsheetLabelComponent\n" +
+                "        SpreadsheetSuggestBoxComponent\n" +
+                "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
+                "          Errors\n" +
+                "            Empty \"Label\"\n" +
+                "      SpreadsheetExpressionReferenceComponent\n" +
+                "        ValueSpreadsheetTextBox\n" +
+                "          SpreadsheetTextBox\n" +
+                "            Cell, cell range or Label [A1] id=labelMapping-target-TextBox\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
+                "          \"Undo\" [#/1/SpreadsheetName111/cell/A1/label] id=labelMapping-undo-Link\n" +
+                "          \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
+                "          \"Close\" [#/1/SpreadsheetName111/cell/A1] id=labelMapping-close-Link\n"
+        );
+    }
+
     // http://localhost:12345/index.html#/1/Untitled/label
     @Test
-    public void testEmpty() {
+    public void testLabelMappingHistoryToken() {
         this.onHistoryTokenChangeAndCheck(
             "/1/SpreadsheetName111/label",
             "SpreadsheetLabelMappingDialogComponent\n" +
@@ -71,7 +152,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
     }
 
     @Test
-    public void testCreateWithoutLabelAndSaved() {
+    public void testLabelMappingHistoryTokenMissingLabelName() {
         final AppContext context = appContext("/1/SpreadsheetName111/label");
 
         final SpreadsheetLabelMappingDialogComponent dialog = this.dialog(
@@ -134,7 +215,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
     }
 
     @Test
-    public void testCreateWithLabelAndSaved() {
+    public void testLabelMappingHistoryTokenWithLabelName() {
         final AppContext context = appContext("/1/SpreadsheetName111/label/Label999");
 
         final SpreadsheetLabelMappingDialogComponent dialog = this.dialog(
@@ -162,7 +243,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "        ROW\n" +
                 "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
                 "          \"Undo\" [#/1/SpreadsheetName111/label] id=labelMapping-undo-Link\n" +
-                "          \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
+                "          \"Delete\" [#/1/SpreadsheetName111/label/Label999/delete] id=labelMapping-delete-Link\n" +
                 "          \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
         );
 
