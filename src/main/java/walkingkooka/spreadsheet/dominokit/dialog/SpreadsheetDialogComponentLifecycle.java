@@ -97,7 +97,11 @@ public interface SpreadsheetDialogComponentLifecycle extends HistoryTokenAwareCo
     }
 
     /**
-     * Callback that is called when a dialog is opened and closed, providing an opportunity to reset state etc.
+     * Callback that is called as the first step when a dialog is opened and closed.
+     * This should be used to reset state.
+     * <br>
+     * After this is returns eventually the {@link #refresh(RefreshContext)} and {@link #openGiveFocus(RefreshContext)}
+     * in that order are called.
      */
     void dialogReset();
 
