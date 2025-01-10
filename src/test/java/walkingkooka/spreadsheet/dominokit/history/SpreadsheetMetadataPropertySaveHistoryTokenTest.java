@@ -33,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends SpreadsheetMetadataPropertyHistoryTokenTestCase<SpreadsheetMetadataPropertySaveHistoryToken<ExpressionNumberKind>, ExpressionNumberKind> {
 
-    // HasUrlFragment...................................................................................................
+    // with.............................................................................................................
 
     @Test
     public void testWithNullValueFails() {
@@ -47,6 +47,21 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
             )
         );
     }
+
+    @Test
+    public void testWithIncompatibleValueFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> SpreadsheetMetadataPropertySaveHistoryToken.with(
+                ID,
+                NAME,
+                SpreadsheetMetadataPropertyName.EXPRESSION_NUMBER_KIND,
+                Cast.to(Optional.of("Hello"))
+            )
+        );
+    }
+
+    // HasUrlFragment...................................................................................................
 
     @Test
     public void testUrlFragmentExpressionNumberKind() {

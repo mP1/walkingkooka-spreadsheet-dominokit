@@ -53,6 +53,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
         );
 
         this.propertyValue = Objects.requireNonNull(propertyValue, "propertyValue");
+        propertyValue.ifPresent(propertyName::checkValue);
     }
 
     @Override
