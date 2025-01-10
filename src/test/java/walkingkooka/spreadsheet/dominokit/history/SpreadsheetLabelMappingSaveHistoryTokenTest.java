@@ -39,6 +39,31 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
         );
     }
 
+    // setLabelMappingTarget............................................................................................
+
+    @Test
+    public void testSetLabelMappingTargetWithCell() {
+        this.setLabelMappingTargetAndCheck(
+            SpreadsheetSelection.parseCell("Z99")
+        );
+    }
+
+    @Test
+    public void testSetLabelMappingTargetWithCellRange() {
+        this.setLabelMappingTargetAndCheck(
+            SpreadsheetSelection.parseCellRange("B2:C3")
+        );
+    }
+
+    @Test
+    public void testSetLabelMappingTargetWithLabel() {
+        this.setLabelMappingTargetAndCheck(
+            SpreadsheetSelection.labelName("Label999")
+        );
+    }
+
+    // labelName........................................................................................................
+
     @Test
     public void testLabelName() {
         this.labelNameAndCheck(

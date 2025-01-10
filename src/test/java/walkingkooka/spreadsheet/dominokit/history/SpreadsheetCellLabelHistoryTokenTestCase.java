@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -89,6 +90,57 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
             LABEL
         );
     }
+
+    // setLabelMappingTarget............................................................................................
+
+    @Test
+    public final void testSetLabelMappingTargetWhenCellWithSameCell() {
+        this.setLabelMappingTargetAndCheck(CELL);
+    }
+
+    @Test
+    public final void testSetLabelMappingTargetWhenCellRangeWithSameCellRange() {
+        this.setLabelMappingTargetAndCheck(RANGE);
+    }
+
+    @Test
+    public final void testSetLabelMappingTargetWhenLabelWithSameLabel() {
+        this.setLabelMappingTargetAndCheck(
+            LABEL
+        );
+    }
+
+    abstract void setLabelMappingTargetAndCheck(final SpreadsheetExpressionReference target);
+
+    @Test
+    public final void testSetLabelMappingTargetWhenCellWithDifferentCell() {
+        this.setLabelMappingTargetAndCheck(
+            CELL,
+            CELL.addColumn(10)
+        );
+    }
+
+    @Test
+    public final void testSetLabelMappingTargetWhenCellRangeWithDifferentCellRange() {
+        this.setLabelMappingTargetAndCheck(
+            RANGE,
+            RANGE.add(
+                10,
+                10
+            )
+        );
+    }
+
+    @Test
+    public final void testSetLabelMappingTargetWhenLabelWithDifferentLabel() {
+        this.setLabelMappingTargetAndCheck(
+            LABEL,
+            SpreadsheetSelection.labelName("Different")
+        );
+    }
+
+    abstract void setLabelMappingTargetAndCheck(final SpreadsheetExpressionReference selection,
+                                                final SpreadsheetExpressionReference target);
 
     // setSaveValue.....................................................................................................
 

@@ -21,6 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
@@ -80,6 +82,47 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
                 NAME,
                 SELECTION,
                 LABEL
+            )
+        );
+    }
+
+    // setLabelMappingTarget............................................................................................
+
+    private final static SpreadsheetLabelName NOT_TARGET_LABEL = SpreadsheetSelection.labelName("NotTargetLabel");
+
+    @Override
+    void setLabelMappingTargetAndCheck(final SpreadsheetExpressionReference target) {
+        this.setLabelMappingTargetAndCheck(
+            HistoryToken.cellLabelSave(
+                ID,
+                NAME,
+                target.setDefaultAnchor(),
+                NOT_TARGET_LABEL
+            ),
+            target
+        );
+    }
+
+    @Override
+    void setLabelMappingTargetAndCheck(final SpreadsheetExpressionReference selection,
+                                       final SpreadsheetExpressionReference target) {
+        this.checkNotEquals(
+            selection,
+            target
+        );
+        this.setLabelMappingTargetAndCheck(
+            HistoryToken.cellLabelSave(
+                ID,
+                NAME,
+                selection.setDefaultAnchor(),
+                NOT_TARGET_LABEL
+            ),
+            target,
+            HistoryToken.cellLabelSave(
+                ID,
+                NAME,
+                target.setDefaultAnchor(),
+                NOT_TARGET_LABEL
             )
         );
     }
