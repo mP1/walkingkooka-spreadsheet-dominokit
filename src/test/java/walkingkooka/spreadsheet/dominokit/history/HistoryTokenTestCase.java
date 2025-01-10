@@ -515,7 +515,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     // value............................................................................................................
 
     @Test
-    public final void testSetSaveValueXXXHistoryTokenImplementsValue() {
+    public final void testClassXXXSaveHistoryTokenImplementsValue() {
         final Class<T> type = this.type();
         if (type.getSimpleName().contains("Save")) {
             this.checkEquals(
@@ -527,7 +527,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
     @Test
-    public final void testImplementValueShouldIncludeSaveInClassName() {
+    public final void testClassImplementValueShouldIncludeSaveInClassName() {
         final Class<T> type = this.type();
         if (type.isAssignableFrom(Value.class)) {
             this.checkEquals(
