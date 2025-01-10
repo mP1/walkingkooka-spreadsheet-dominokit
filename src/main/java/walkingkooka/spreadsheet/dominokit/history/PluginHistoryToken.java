@@ -43,13 +43,20 @@ public abstract class PluginHistoryToken extends HistoryToken {
 
     @Override
     public final UrlFragment urlFragment() {
-        // special-case PluginUploadHistoryToken because it is not prefixed by #/plugin
-        return this instanceof PluginUploadHistoryToken ?
-            this.pluginUrlFragment() :
-            UrlFragment.SLASH.append(
-                HistoryToken.PLUGIN
-            ).appendSlashThen(this.pluginUrlFragment());
+        if (null == this.urlFragment) {
+            // special-case PluginUploadHistoryToken because it is not prefixed by #/plugin
+            this.urlFragment = this instanceof PluginUploadHistoryToken ?
+                this.pluginUrlFragment() :
+                UrlFragment.SLASH.append(
+                    HistoryToken.PLUGIN
+                ).appendSlashThen(this.pluginUrlFragment());
+        }
+
+        return this.urlFragment;
     }
+
+    // cache initially null
+    private UrlFragment urlFragment;
 
     abstract UrlFragment pluginUrlFragment();
 }
