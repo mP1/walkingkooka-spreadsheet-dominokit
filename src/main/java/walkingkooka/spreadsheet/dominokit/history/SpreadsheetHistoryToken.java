@@ -32,10 +32,15 @@ public abstract class SpreadsheetHistoryToken extends HistoryToken {
 
     @Override
     public final UrlFragment urlFragment() {
-        return UrlFragment.SLASH.append(
-            this.spreadsheetUrlFragment()
-        );
+        if (null == this.urlFragment) {
+            this.urlFragment = UrlFragment.SLASH.append(
+                this.spreadsheetUrlFragment()
+            );
+        }
+        return this.urlFragment;
     }
+
+    private UrlFragment urlFragment;
 
     abstract UrlFragment spreadsheetUrlFragment();
 }

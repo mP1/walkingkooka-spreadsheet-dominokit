@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
 
+import static org.junit.Assert.assertSame;
+
 public abstract class SpreadsheetHistoryTokenTestCase<T extends SpreadsheetHistoryToken> extends HistoryTokenTestCase<T> {
 
     SpreadsheetHistoryTokenTestCase() {
@@ -50,6 +52,17 @@ public abstract class SpreadsheetHistoryTokenTestCase<T extends SpreadsheetHisto
             token,
             HistoryToken.parse(fragment),
             () -> "parse " + fragment
+        );
+    }
+
+    // urlFragment......................................................................................................
+
+    @Test
+    public final void testUrlFragmentCached() {
+        final T token = this.createHistoryToken();
+        assertSame(
+            token.urlFragment(),
+            token.urlFragment()
         );
     }
 }
