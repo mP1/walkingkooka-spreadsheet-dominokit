@@ -2670,6 +2670,18 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellCellReferenceLabelSlash() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/label/",
+            HistoryToken.cellLabelSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellCellRangeLabel() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/B2:C3/label",
