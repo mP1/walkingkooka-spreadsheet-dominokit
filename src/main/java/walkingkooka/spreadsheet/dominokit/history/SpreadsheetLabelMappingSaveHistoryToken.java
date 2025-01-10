@@ -105,14 +105,10 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
                                final AppContext context) {
         context.pushHistoryToken(previous);
 
-        final SpreadsheetId id = this.id();
-        final SpreadsheetLabelMapping mapping = this.mapping;
-        context.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange0 save " + id + " " + mapping);
-
         context.spreadsheetDeltaFetcher()
             .saveLabelMapping(
-                id,
-                mapping
+                this.id(),
+                this.mapping
             );
     }
 }
