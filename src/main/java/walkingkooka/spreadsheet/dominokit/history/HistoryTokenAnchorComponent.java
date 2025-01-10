@@ -88,8 +88,12 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
         final HTMLAnchorElement element = this.element();
 
+        // if disabled remove href and tabIndex
         if (disabled) {
             element.removeAttribute("href"); // cant assign null, because href will still be present and isDisabled() wll be confused and report false
+            element.removeAttribute("tabindex");
+        } else {
+            element.tabIndex = this.tabIndex;
         }
 
         final CSSStyleDeclaration style = element.style;
@@ -168,14 +172,17 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     @Override
     public int tabIndex() {
-        return this.element().tabIndex;
+        return this.tabIndex;
     }
 
     @Override
     public HistoryTokenAnchorComponent setTabIndex(final int tabIndex) {
         this.element.setTabIndex(tabIndex);
+        this.tabIndex = tabIndex;
         return this;
     }
+
+    private int tabIndex;
 
     // target.........................................................................................................
 
