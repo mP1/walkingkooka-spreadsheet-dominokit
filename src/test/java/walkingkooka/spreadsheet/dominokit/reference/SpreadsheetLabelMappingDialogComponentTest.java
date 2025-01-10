@@ -235,7 +235,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
 
             @Override
             public Locale locale() {
-                return Locale.forLanguageTag("EN-AU");
+                return SpreadsheetMetadataTesting.LOCALE;
             }
 
             @Override
