@@ -58,7 +58,7 @@ public final class SpreadsheetFormulaComponentExpressionParserFunctionTest imple
                 .setValue(
                     Optional.of(
                         SpreadsheetErrorKind.ERROR.setMessage(
-                            "End of text at (5,1) \"400+\" expected BINARY_SUB_EXPRESSION"
+                            "End of text at (5,1) expected BINARY_SUB_EXPRESSION"
                         )
                     )
                 )
@@ -75,7 +75,7 @@ public final class SpreadsheetFormulaComponentExpressionParserFunctionTest imple
                 .setValue(
                     Optional.of(
                         SpreadsheetErrorKind.ERROR.setMessage(
-                            "Invalid character \'<\' at (1,1) \"<999\" expected EXPRESSION_OPT"
+                            "Invalid character \'<\' at (1,1) expected EXPRESSION_OPT"
                         )
                     )
                 )

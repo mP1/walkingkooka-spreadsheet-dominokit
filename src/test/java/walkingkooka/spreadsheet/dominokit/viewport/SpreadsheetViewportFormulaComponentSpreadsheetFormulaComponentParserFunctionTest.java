@@ -94,7 +94,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             SpreadsheetFormula.EMPTY.setText(text)
                 .setValue(
                     Optional.of(
-                        SpreadsheetErrorKind.ERROR.setMessage("End of text at (4,1) \"=1+\" expected BINARY_SUB_EXPRESSION")
+                        SpreadsheetErrorKind.ERROR.setMessage("End of text at (4,1) expected BINARY_SUB_EXPRESSION")
                     )
                 )
         );
