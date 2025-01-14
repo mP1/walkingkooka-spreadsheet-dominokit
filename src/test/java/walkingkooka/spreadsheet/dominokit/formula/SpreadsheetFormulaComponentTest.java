@@ -79,7 +79,7 @@ public final class SpreadsheetFormulaComponentTest implements ValueComponentTest
                 "    SpreadsheetTextBox\n" +
                 "      [1+!!!]\n" +
                 "      Errors\n" +
-                "        Invalid character '!' at (3,1) \"1+!!!\" expected BINARY_SUB_EXPRESSION\n"
+                "        Invalid character '!' at (3,1) expected BINARY_SUB_EXPRESSION\n"
         );
     }
 
