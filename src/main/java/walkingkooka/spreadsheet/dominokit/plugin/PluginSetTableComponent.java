@@ -23,11 +23,11 @@ import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginListHistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.TableComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextAlign;
 
@@ -39,7 +39,7 @@ import java.util.Optional;
 /**
  * A table that lists all the entries from a {@link PluginSet}.
  */
-final class PluginSetTableComponent implements HtmlElementComponent<HTMLDivElement, PluginSetTableComponent> {
+final class PluginSetTableComponent implements TableComponent<PluginSetTableComponent> {
 
     /**
      * Creates an empty {@link PluginSetTableComponent}.

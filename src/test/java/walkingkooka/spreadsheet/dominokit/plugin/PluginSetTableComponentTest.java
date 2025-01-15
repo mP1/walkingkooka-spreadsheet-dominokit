@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Binary;
 import walkingkooka.collect.map.Maps;
@@ -28,14 +27,14 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.TableComponentTesting;
 
 import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.OptionalInt;
 
-public final class PluginSetTableComponentTest implements HtmlElementComponentTesting<PluginSetTableComponent, HTMLDivElement>,
+public final class PluginSetTableComponentTest implements TableComponentTesting<PluginSetTableComponent>,
     JarFileTesting {
 
     private final static String ID_PREFIX = "Table123-";
