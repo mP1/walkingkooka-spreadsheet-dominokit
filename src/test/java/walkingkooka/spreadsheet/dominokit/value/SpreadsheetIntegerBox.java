@@ -143,6 +143,11 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     }
 
     @Override
+    public SpreadsheetIntegerBox addClickListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
     public SpreadsheetIntegerBox addFocusListener(final EventListener listener) {
         return this;
     }

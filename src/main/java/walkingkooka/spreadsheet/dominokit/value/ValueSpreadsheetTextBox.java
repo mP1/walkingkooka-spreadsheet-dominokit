@@ -220,6 +220,12 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
     }
 
     @Override
+    public ValueSpreadsheetTextBox<T> addClickListener(final EventListener listener) {
+        this.textBox.addClickListener(listener);
+        return this;
+    }
+    
+    @Override
     public ValueSpreadsheetTextBox<T> addFocusListener(final EventListener listener) {
         this.textBox.addFocusListener(listener);
         return this;

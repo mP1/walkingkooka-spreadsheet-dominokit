@@ -157,6 +157,11 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
             }
 
             @Override
+            public TestValueComponent addClickListener(final EventListener listener) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
             public TestValueComponent addFocusListener(final EventListener listener) {
                 throw new UnsupportedOperationException();
             }

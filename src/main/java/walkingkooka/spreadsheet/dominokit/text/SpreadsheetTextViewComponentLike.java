@@ -98,6 +98,11 @@ abstract class SpreadsheetTextViewComponentLike implements FormValueComponent<HT
     }
 
     @Override
+    public final SpreadsheetTextViewComponent addClickListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public final SpreadsheetTextViewComponent addFocusListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }

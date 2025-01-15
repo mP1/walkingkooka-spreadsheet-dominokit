@@ -80,6 +80,11 @@ abstract class SpreadsheetUploadFileComponentLike implements FormValueComponent<
     }
 
     @Override
+    public final SpreadsheetUploadFileComponent addClickListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public final SpreadsheetUploadFileComponent addKeydownListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }

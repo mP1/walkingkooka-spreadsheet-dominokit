@@ -164,6 +164,14 @@ final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFiel
     }
 
     @Override
+    public SpreadsheetValueTypeComponent addClickListener(final EventListener listener) {
+        this.select.addClickListener(
+            listener
+        );
+        return this;
+    }
+    
+    @Override
     public SpreadsheetValueTypeComponent addFocusListener(final EventListener listener) {
         this.select.addFocusListener(
             listener

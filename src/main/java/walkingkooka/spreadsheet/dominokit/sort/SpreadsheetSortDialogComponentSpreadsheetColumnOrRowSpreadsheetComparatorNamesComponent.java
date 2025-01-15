@@ -311,6 +311,12 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
     }
 
     @Override
+    public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addClickListener(final EventListener listener) {
+        this.names.addClickListener(listener);
+        return this;
+    }
+
+    @Override
     public SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addFocusListener(final EventListener listener) {
         this.names.addFocusListener(listener);
         return this;

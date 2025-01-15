@@ -160,6 +160,11 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
+    public SpreadsheetTextBox addClickListener(final EventListener listener) {
+        return this;
+    }
+    
+    @Override
     public SpreadsheetTextBox addFocusListener(final EventListener listener) {
         return this;
     }
