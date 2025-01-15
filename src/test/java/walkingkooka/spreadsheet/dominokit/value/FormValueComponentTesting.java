@@ -18,48 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
-
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public interface FormValueComponentTesting<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>>
-    extends HtmlElementComponentTesting<C, E> {
-
-    // value............................................................................................................
-
-    default void valueAndCheck(final C component) {
-        this.valueAndCheck(
-            component,
-            Optional.empty()
-        );
-    }
-
-    default void valueAndCheck(final C component,
-                               final V expected) {
-        this.valueAndCheck(
-            component,
-            Optional.of(expected)
-        );
-    }
-
-    default void valueAndCheck(final C component,
-                               final Optional<V> expected) {
-        this.checkEquals(
-            expected,
-            component.value()
-        );
-    }
-
-    // setValue.........................................................................................................
-
-    default void setValueWithNullFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> this.createComponent().setValue(null)
-        );
-    }
-
-    C createComponent();
+    extends ValueComponentTesting<E, V, C> {
 }
