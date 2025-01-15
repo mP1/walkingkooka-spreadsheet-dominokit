@@ -20,12 +20,12 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 import org.junit.jupiter.api.Test;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeTesting;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 import java.util.Optional;
 
-public final class PluginDownloadAnchorComponentTest implements AnchorComponentLikeTesting<PluginDownloadAnchorComponent, PluginDownload> {
+public final class PluginDownloadAnchorComponentTest implements AnchorComponentTesting<PluginDownloadAnchorComponent, PluginDownload> {
 
     @Test
     public void testClearValue() {

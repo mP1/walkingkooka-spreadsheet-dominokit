@@ -19,14 +19,14 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.plugin.AnchorComponentLikeDelegatorTest.TestAnchorComponentLikeDelegator;
+import walkingkooka.spreadsheet.dominokit.plugin.AnchorComponentDelegatorTest.TestAnchorComponentDelegator;
 
 import java.util.Optional;
 
-public final class AnchorComponentLikeDelegatorTest implements ClassTesting<TestAnchorComponentLikeDelegator> {
+public final class AnchorComponentDelegatorTest implements ClassTesting<TestAnchorComponentDelegator> {
 
     @Override
     public void testTestNaming() {
@@ -36,8 +36,8 @@ public final class AnchorComponentLikeDelegatorTest implements ClassTesting<Test
     // class............................................................................................................
 
     @Override
-    public Class<TestAnchorComponentLikeDelegator> type() {
-        return TestAnchorComponentLikeDelegator.class;
+    public Class<TestAnchorComponentDelegator> type() {
+        return TestAnchorComponentDelegator.class;
     }
 
     @Override
@@ -45,10 +45,10 @@ public final class AnchorComponentLikeDelegatorTest implements ClassTesting<Test
         return JavaVisibility.PACKAGE_PRIVATE;
     }
 
-    final static class TestAnchorComponentLikeDelegator implements AnchorComponentLikeDelegator<TestAnchorComponentLikeDelegator, Void> {
+    final static class TestAnchorComponentDelegator implements AnchorComponentDelegator<TestAnchorComponentDelegator, Void> {
 
         @Override
-        public TestAnchorComponentLikeDelegator setValue(final Optional<Void> value) {
+        public TestAnchorComponentDelegator setValue(final Optional<Void> value) {
             throw new UnsupportedOperationException();
         }
 
@@ -58,7 +58,7 @@ public final class AnchorComponentLikeDelegatorTest implements ClassTesting<Test
         }
 
         @Override
-        public AnchorComponentLike<?, ?> anchorComponentLike() {
+        public AnchorComponent<?, ?> anchorComponent() {
             return HistoryTokenAnchorComponent.empty();
         }
     }

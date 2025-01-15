@@ -28,7 +28,7 @@ import java.util.Optional;
 /**
  * Defines some operations common to all anchor and anchor like components.
  */
-public interface AnchorComponentLike<A extends AnchorComponentLike<A, T>, T> extends ValueComponent<HTMLAnchorElement, T, A> {
+public interface AnchorComponent<A extends AnchorComponent<A, T>, T> extends ValueComponent<HTMLAnchorElement, T, A> {
 
     default boolean isDisabled() {
         return null == this.href();

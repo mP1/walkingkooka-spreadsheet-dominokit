@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -30,7 +30,7 @@ import java.util.Optional;
 /**
  * An anchor that maps to {@link walkingkooka.spreadsheet.dominokit.history.PluginUploadSaveHistoryToken}.
  */
-public final class PluginUploadSaveAnchorComponent implements AnchorComponentLikeDelegator<PluginUploadSaveAnchorComponent, BrowserFile> {
+public final class PluginUploadSaveAnchorComponent implements AnchorComponentDelegator<PluginUploadSaveAnchorComponent, BrowserFile> {
 
     public static PluginUploadSaveAnchorComponent empty(final String id) {
         return new PluginUploadSaveAnchorComponent()
@@ -61,10 +61,10 @@ public final class PluginUploadSaveAnchorComponent implements AnchorComponentLik
             .map(h -> h.cast(PluginUploadSaveHistoryToken.class).value());
     }
 
-    // AnchorComponentLikeDelegator.....................................................................................
+    // AnchorComponentDelegator.....................................................................................
 
     @Override
-    public AnchorComponentLike<?, ?> anchorComponentLike() {
+    public AnchorComponent<?, ?> anchorComponent() {
         return this.component;
     }
 

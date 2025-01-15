@@ -29,119 +29,119 @@ import walkingkooka.text.printer.IndentingPrinter;
 import java.util.Objects;
 import java.util.Optional;
 
-public interface AnchorComponentLikeDelegator<A extends AnchorComponentLike<A, T>, T> extends AnchorComponentLike<A, T>,
+public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> extends AnchorComponent<A, T>,
     HtmlElementComponentDelegator<HTMLAnchorElement, A> {
 
     @Override
     default boolean isDisabled() {
-        return this.anchorComponentLike()
+        return this.anchorComponent()
             .isDisabled();
     }
 
     @Override
     default A setDisabled(final boolean disabled) {
-        this.anchorComponentLike()
+        this.anchorComponent()
             .setDisabled(disabled);
         return (A) this;
     }
 
     @Override
     default boolean isChecked() {
-        return this.anchorComponentLike().isChecked();
+        return this.anchorComponent().isChecked();
     }
 
     @Override
     default A setChecked(final boolean checked) {
-        this.anchorComponentLike()
+        this.anchorComponent()
             .setChecked(checked);
         return (A) this;
     }
 
     @Override
     default Url href() {
-        return this.anchorComponentLike()
+        return this.anchorComponent()
             .href();
     }
 
     @Override
     default A setHref(final Url url) {
-        this.anchorComponentLike()
+        this.anchorComponent()
             .setHref(url);
         return (A) this;
     }
 
     @Override
     default String id() {
-        return this.anchorComponentLike()
+        return this.anchorComponent()
             .id();
     }
 
     @Override
     default A setId(final String id) {
-        this.anchorComponentLike()
+        this.anchorComponent()
             .setId(id);
         return (A) this;
     }
 
     @Override
     default int tabIndex() {
-        return this.anchorComponentLike()
+        return this.anchorComponent()
             .tabIndex();
     }
 
     @Override
     default A setTabIndex(final int tabIndex) {
-        this.anchorComponentLike()
+        this.anchorComponent()
             .setTabIndex(tabIndex);
         return (A) this;
     }
 
     @Override
     default String target() {
-        return this.anchorComponentLike()
+        return this.anchorComponent()
             .target();
     }
 
     @Override
     default A setTarget(final String target) {
-        this.anchorComponentLike()
+        this.anchorComponent()
             .setTarget(target);
         return (A) this;
     }
 
     @Override
     default String textContent() {
-        return this.anchorComponentLike()
+        return this.anchorComponent()
             .textContent();
     }
 
     @Override
     default A setTextContent(final String text) {
-        this.anchorComponentLike()
+        this.anchorComponent()
             .setTextContent(text);
         return (A) this;
     }
 
     @Override
     default Optional<Icon<?>> iconBefore() {
-        return this.anchorComponentLike()
+        return this.anchorComponent()
             .iconBefore();
     }
 
     @Override
     default A setIconBefore(final Optional<Icon<?>> icon) {
-        this.anchorComponentLike().setIconBefore(icon);
+        this.anchorComponent().setIconBefore(icon);
         return (A) this;
     }
 
     @Override
     default Optional<Icon<?>> iconAfter() {
-        return this.anchorComponentLike().iconAfter();
+        return this.anchorComponent().iconAfter();
     }
 
     @Override
     default A setIconAfter(final Optional<Icon<?>> icon) {
-        this.anchorComponentLike().setIconAfter(icon);
+        this.anchorComponent().setIconAfter(icon);
         return (A) this;
     }
 
@@ -157,35 +157,35 @@ public interface AnchorComponentLikeDelegator<A extends AnchorComponentLike<A, T
 
     @Override
     default A addClickListener(final EventListener listener) {
-        this.anchorComponentLike()
+        this.anchorComponent()
             .addClickListener(listener);
         return (A) this;
     }
 
     @Override
     default A addKeydownListener(final EventListener listener) {
-        this.anchorComponentLike()
+        this.anchorComponent()
             .addKeydownListener(listener);
         return (A) this;
     }
 
     @Override
     default A addKeyupListener(final EventListener listener) {
-        this.anchorComponentLike()
+        this.anchorComponent()
             .addKeyupListener(listener);
         return (A) this;
     }
 
     @Override
     default A addClickAndKeydownEnterListener(final EventListener listener) {
-        this.anchorComponentLike()
+        this.anchorComponent()
             .addClickAndKeydownEnterListener(listener);
         return (A) this;
     }
 
     @Override
     default A focus() {
-        this.anchorComponentLike()
+        this.anchorComponent()
             .focus();
         return (A) this;
     }
@@ -195,19 +195,19 @@ public interface AnchorComponentLikeDelegator<A extends AnchorComponentLike<A, T
     @Override
     default void printTree(final IndentingPrinter printer) {
         // continuing the anchor tradition, delegate to the anchor#printTree and do not print this#class#simpleName
-        this.anchorComponentLike()
+        this.anchorComponent()
             .printTree(printer);
     }
 
     /**
-     * The {@link AnchorComponentLike} delegate target.
+     * The {@link AnchorComponent} delegate target.
      */
-    AnchorComponentLike<?, ?> anchorComponentLike();
+    AnchorComponent<?, ?> anchorComponent();
 
     // HtmlElementComponent.............................................................................................
 
     @Override
     default HtmlElementComponent<HTMLAnchorElement, ?> htmlElementComponent() {
-        return this.anchorComponentLike();
+        return this.anchorComponent();
     }
 }

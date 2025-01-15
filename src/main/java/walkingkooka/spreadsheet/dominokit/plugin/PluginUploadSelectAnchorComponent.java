@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSelectHistoryToken;
@@ -28,7 +28,7 @@ import java.util.Optional;
 /**
  * An anchor that when clicked displays a file browser to select a file to upload.
  */
-public final class PluginUploadSelectAnchorComponent implements AnchorComponentLikeDelegator<PluginUploadSelectAnchorComponent, Boolean> {
+public final class PluginUploadSelectAnchorComponent implements AnchorComponentDelegator<PluginUploadSelectAnchorComponent, Boolean> {
 
     public static PluginUploadSelectAnchorComponent empty(final String id) {
         return new PluginUploadSelectAnchorComponent()
@@ -71,10 +71,10 @@ public final class PluginUploadSelectAnchorComponent implements AnchorComponentL
        );
     }
 
-    // AnchorComponentLikeDelegator.....................................................................................
+    // AnchorComponentDelegator.....................................................................................
 
     @Override
-    public AnchorComponentLike<?, ?> anchorComponentLike() {
+    public AnchorComponent<?, ?> anchorComponent() {
         return this.component;
     }
 
