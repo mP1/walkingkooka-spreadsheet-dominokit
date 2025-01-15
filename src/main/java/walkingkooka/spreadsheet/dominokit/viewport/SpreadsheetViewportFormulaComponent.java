@@ -225,9 +225,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
             this.selectedCell = selectedCell;
         } else {
             // not a cell selection clear the formula & helper & error messages.
-            formula.setStringValue(Optional.empty());
-            formula.clearErrors();
-            formula.clearHelperText();
+            formula.clear();
 
             this.selectedCell = null;
         }
