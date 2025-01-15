@@ -46,6 +46,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Provides a text box which supports editing of a formula belonging to a cell.
@@ -209,14 +210,9 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
                 context.debug("SpreadsheetViewportFormulaComponent.refresh formula cell: " + cell);
                 if (null != cell) {
-                    formula.setStringValue(
-                        cell.map(c -> c.formula().text())
-                    ).setHelperText(
-                        cell.flatMap(
-                            c -> c.formula()
-                                .error()
-                                .map(SpreadsheetError::message)
-                        )
+                    this.refreshFormula(
+                        selectedCell,
+                        context
                     );
                 }
             }
@@ -228,9 +224,11 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
             this.selectedCell = selectedCell;
         } else {
-            // not a cell selection clear the formula & error messages.
+            // not a cell selection clear the formula & helper & error messages.
             formula.setStringValue(Optional.empty());
-            formula.setHelperText(Optional.empty());
+            formula.clearErrors();
+            formula.clearHelperText();
+
             this.selectedCell = null;
         }
 
@@ -251,14 +249,15 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
         final SpreadsheetFormulaComponent formula = this.formula;
         formula.setStringValue(text);
-        formula.setHelperText(
+        formula.setErrors(
             cell.flatMap(
                 c -> c.formula()
                     .error()
                     .map(SpreadsheetError::message)
-            )
+            ).stream()
+                .collect(Collectors.toList())
         );
-        formula.validate();
+
         this.undoText = text;
     }
 
