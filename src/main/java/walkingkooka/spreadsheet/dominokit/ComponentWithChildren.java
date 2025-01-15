@@ -103,7 +103,7 @@ public interface ComponentWithChildren<C extends HtmlElementComponent<E, C>, E e
     }
 
     /**
-     * Helper that requests each child if possible to call {@link HistoryTokenAwareComponentLifecycle#refreshIfOpen(AppContext)}.
+     * Helper that requests each child if possible to call {@link HistoryTokenAwareComponentLifecycle#refreshIfOpen(RefreshContext)}.
      */
     default void refreshChildrenIfOpen(final AppContext context) {
         for (final IsElement<?> component : this.children()) {
