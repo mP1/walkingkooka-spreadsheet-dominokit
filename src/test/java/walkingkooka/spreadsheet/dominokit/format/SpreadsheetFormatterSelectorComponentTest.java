@@ -20,12 +20,12 @@ package walkingkooka.spreadsheet.dominokit.format;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 
 import java.util.Optional;
 
-public final class SpreadsheetFormatterSelectorComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetFormatterSelector, SpreadsheetFormatterSelectorComponent> {
+public final class SpreadsheetFormatterSelectorComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetFormatterSelector, SpreadsheetFormatterSelectorComponent> {
 
     @Test
     public void testSetStringValue() {

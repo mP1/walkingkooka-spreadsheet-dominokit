@@ -20,13 +20,13 @@ package walkingkooka.spreadsheet.dominokit.function;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
 
 import java.util.Optional;
 
-public final class ExpressionFunctionInfoSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, ExpressionFunctionInfoSet, ExpressionFunctionInfoSetComponent> {
+public final class ExpressionFunctionInfoSetComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ExpressionFunctionInfoSet, ExpressionFunctionInfoSetComponent> {
 
     @Test
     public void testParseAndText() {

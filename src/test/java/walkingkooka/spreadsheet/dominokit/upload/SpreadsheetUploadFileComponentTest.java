@@ -21,11 +21,11 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetUploadFileComponentTest implements ValueComponentTesting<HTMLDivElement, BrowserFile, SpreadsheetUploadFileComponent> {
+public final class SpreadsheetUploadFileComponentTest implements FormValueComponentTesting<HTMLDivElement, BrowserFile, SpreadsheetUploadFileComponent> {
 
     @Test
     public void testClearValueAndTreePrint() {

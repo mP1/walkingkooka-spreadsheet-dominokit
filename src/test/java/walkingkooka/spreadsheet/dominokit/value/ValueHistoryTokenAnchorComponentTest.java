@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertThrows;
 
-public final class ValueHistoryTokenAnchorComponentTest implements ValueComponentTesting<HTMLAnchorElement, JarEntryInfoName, ValueHistoryTokenAnchorComponent<JarEntryInfoName>> {
+public final class ValueHistoryTokenAnchorComponentTest implements FormValueComponentTesting<HTMLAnchorElement, JarEntryInfoName, ValueHistoryTokenAnchorComponent<JarEntryInfoName>> {
 
     private final static PluginName PLUGIN_NAME = PluginName.with("TestPluginName123");
 

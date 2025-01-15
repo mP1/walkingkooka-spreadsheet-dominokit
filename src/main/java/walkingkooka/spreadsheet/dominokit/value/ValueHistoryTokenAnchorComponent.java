@@ -34,7 +34,7 @@ import java.util.function.Function;
  * A ValueComponent that wraps a {@link HistoryTokenAnchorComponent}, adding additional support for setting a value via a function.
  * Decorations such as icon for the anchor must be set on the {@link HistoryTokenAnchorComponent} itself as no delegating methods are available.
  */
-public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent<HTMLAnchorElement, T, ValueHistoryTokenAnchorComponent<T>>,
+public final class ValueHistoryTokenAnchorComponent<T> implements FormValueComponent<HTMLAnchorElement, T, ValueHistoryTokenAnchorComponent<T>>,
     AnchorComponentLikeDelegator<ValueHistoryTokenAnchorComponent<T>> {
 
     public static <T> ValueHistoryTokenAnchorComponent<T> with(final HistoryTokenAnchorComponent anchor,

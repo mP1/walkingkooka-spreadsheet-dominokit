@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.upload;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Base class that captures the common methods between the real and test implementation/sub-classes.
  */
-abstract class SpreadsheetUploadFileComponentLike implements ValueComponent<HTMLDivElement, BrowserFile, SpreadsheetUploadFileComponent> {
+abstract class SpreadsheetUploadFileComponentLike implements FormValueComponent<HTMLDivElement, BrowserFile, SpreadsheetUploadFileComponent> {
 
     SpreadsheetUploadFileComponentLike() {
         super();

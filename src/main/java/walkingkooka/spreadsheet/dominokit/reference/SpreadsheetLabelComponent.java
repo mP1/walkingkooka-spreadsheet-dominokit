@@ -21,8 +21,8 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Context;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetSuggestBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
@@ -35,7 +35,7 @@ import java.util.Optional;
 /**
  * A text box component that includes support for finding a label.
  */
-public final class SpreadsheetLabelComponent implements ValueComponent<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetLabelComponent> {
+public final class SpreadsheetLabelComponent implements FormValueComponent<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetLabelComponent> {
 
     public static SpreadsheetLabelComponent with(final Context context) {
         Objects.requireNonNull(context, "context");

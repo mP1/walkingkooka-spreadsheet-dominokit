@@ -32,7 +32,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -44,9 +44,9 @@ import java.util.Optional;
 import java.util.OptionalInt;
 
 /**
- * A {@link ValueComponent} wrapper around a {@link DataTable}.
+ * A {@link FormValueComponent} wrapper around a {@link DataTable}.
  */
-public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponent<T>>,
+public interface SpreadsheetDataTableComponentLike<T> extends FormValueComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponent<T>>,
     ComponentWithChildren<SpreadsheetDataTableComponent<T>, HTMLDivElement>,
     TreePrintable {
 

@@ -26,7 +26,7 @@ import walkingkooka.reflect.JavaVisibility;
 
 import java.util.Optional;
 
-public final class SpreadsheetTextBoxTest implements ValueComponentTesting<HTMLFieldSetElement, String, SpreadsheetTextBox> {
+public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<HTMLFieldSetElement, String, SpreadsheetTextBox> {
 
     @Test
     public void testOptionalValidationPass() {

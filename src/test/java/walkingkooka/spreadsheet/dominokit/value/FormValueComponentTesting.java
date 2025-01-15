@@ -24,7 +24,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public interface ValueComponentTesting<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
+public interface FormValueComponentTesting<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>>
     extends HtmlElementComponentTesting<C, E> {
 
     // value............................................................................................................

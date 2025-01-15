@@ -30,7 +30,7 @@ import java.util.Optional;
  * A helper interface that implements delegator methods for a wrapped {@link ValueSpreadsheetTextBox}.
  */
 public interface ValueSpreadsheetTextBoxWrapper<C extends ValueSpreadsheetTextBoxWrapper<C, V>, V>
-    extends ValueComponent<HTMLFieldSetElement, V, C> {
+    extends FormValueComponent<HTMLFieldSetElement, V, C> {
 
     @Override
     default C setId(final String id) {

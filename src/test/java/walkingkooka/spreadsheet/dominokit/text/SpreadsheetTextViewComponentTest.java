@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.text;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetTextViewComponentTest implements ValueComponentTesting<HTMLDivElement, String, SpreadsheetTextViewComponent> {
+public final class SpreadsheetTextViewComponentTest implements FormValueComponentTesting<HTMLDivElement, String, SpreadsheetTextViewComponent> {
 
     @Test
     public void testClearValueAndTreePrint() {

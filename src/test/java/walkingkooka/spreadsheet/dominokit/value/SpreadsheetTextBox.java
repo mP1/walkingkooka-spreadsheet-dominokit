@@ -35,7 +35,7 @@ import java.util.Optional;
  * A mock of main/SpreadsheetTextBox with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
  * {@link SpreadsheetTextBox}.
  */
-public final class SpreadsheetTextBox implements ValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
+public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSetElement, String, SpreadsheetTextBox>,
     SpreadsheetTextBoxTreePrintable<SpreadsheetTextBox, String>,
     TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetTextBox>,
     ValidatorHelper {

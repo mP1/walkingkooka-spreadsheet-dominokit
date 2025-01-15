@@ -22,11 +22,11 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
 
-public final class ConverterInfoSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, ConverterInfoSet, ConverterInfoSetComponent> {
+public final class ConverterInfoSetComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ConverterInfoSet, ConverterInfoSetComponent> {
 
     @Test
     public void testParseAndText() {

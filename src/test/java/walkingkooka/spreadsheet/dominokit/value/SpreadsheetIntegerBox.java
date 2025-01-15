@@ -34,7 +34,7 @@ import java.util.Optional;
  * A mock of main/SpreadsheetIntegerBox with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
  * {@link SpreadsheetIntegerBox}.
  */
-public final class SpreadsheetIntegerBox implements ValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox>,
+public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox>,
     SpreadsheetTextBoxTreePrintable<SpreadsheetIntegerBox, Integer>,
     TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetIntegerBox> {
 

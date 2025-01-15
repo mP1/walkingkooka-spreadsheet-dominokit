@@ -21,7 +21,7 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -31,7 +31,7 @@ import java.util.Optional;
 /**
  * A barebones component that may be used to display text. Many methods such as support for listeners etc all throw {@link UnsupportedOperationException}.
  */
-abstract class SpreadsheetTextViewComponentLike implements ValueComponent<HTMLDivElement, String, SpreadsheetTextViewComponent> {
+abstract class SpreadsheetTextViewComponentLike implements FormValueComponent<HTMLDivElement, String, SpreadsheetTextViewComponent> {
 
     SpreadsheetTextViewComponentLike() {
         super();

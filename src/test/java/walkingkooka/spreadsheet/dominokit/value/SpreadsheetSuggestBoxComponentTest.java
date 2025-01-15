@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-public final class SpreadsheetSuggestBoxComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, SpreadsheetSuggestBoxComponent<SpreadsheetCellReference>> {
+public final class SpreadsheetSuggestBoxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, SpreadsheetSuggestBoxComponent<SpreadsheetCellReference>> {
 
     private final static SuggestionsStore<String, SpanElement, SuggestOption<String>> SUGGESTIONS_STORE = new SuggestionsStore<>() {
 

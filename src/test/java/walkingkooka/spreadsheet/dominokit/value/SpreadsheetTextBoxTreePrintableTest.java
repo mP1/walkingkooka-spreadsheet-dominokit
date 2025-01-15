@@ -75,7 +75,7 @@ public final class SpreadsheetTextBoxTreePrintableTest implements TreePrintableT
 
     @Test
     public void testTreePrintAlternateValuesAndErrors() {
-        class TestValueComponent implements ValueComponent<HTMLFieldSetElement, String, TestValueComponent>,
+        class TestValueComponent implements FormValueComponent<HTMLFieldSetElement, String, TestValueComponent>,
             SpreadsheetTextBoxTreePrintable<TestValueComponent, String>,
             TestHtmlElementComponent<HTMLFieldSetElement, TestValueComponent> {
             @Override

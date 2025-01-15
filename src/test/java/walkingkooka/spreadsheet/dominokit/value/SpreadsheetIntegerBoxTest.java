@@ -23,7 +23,7 @@ import walkingkooka.reflect.JavaVisibility;
 
 import java.util.Optional;
 
-public final class SpreadsheetIntegerBoxTest implements ValueComponentTesting<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox> {
+public final class SpreadsheetIntegerBoxTest implements FormValueComponentTesting<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox> {
 
     @Test
     public void testTreePrint() {

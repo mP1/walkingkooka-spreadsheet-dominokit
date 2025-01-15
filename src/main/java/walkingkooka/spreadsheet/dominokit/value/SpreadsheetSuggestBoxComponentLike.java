@@ -25,7 +25,7 @@ import java.util.Optional;
 /**
  * A text box component that includes support for finding a label.
  */
-public interface SpreadsheetSuggestBoxComponentLike<T extends HasText> extends ValueComponent<HTMLFieldSetElement, T, SpreadsheetSuggestBoxComponent<T>>,
+public interface SpreadsheetSuggestBoxComponentLike<T extends HasText> extends FormValueComponent<HTMLFieldSetElement, T, SpreadsheetSuggestBoxComponent<T>>,
     SpreadsheetTextBoxTreePrintable<SpreadsheetSuggestBoxComponent<T>, T> {
 
     SpreadsheetSuggestBoxComponent<T> setStringValue(final Optional<String> value);
