@@ -17,13 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.TableComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfo;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
@@ -35,7 +34,7 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.OptionalLong;
 
-public final class JarEntryInfoListTableComponentTest implements HtmlElementComponentTesting<JarEntryInfoListTableComponent, HTMLDivElement>,
+public final class JarEntryInfoListTableComponentTest implements TableComponentTesting<JarEntryInfoListTableComponent>,
     SpreadsheetMetadataTesting {
 
     private final static String ID_PREFIX = "Table123-";

@@ -25,11 +25,11 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.value.TableComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -41,7 +41,7 @@ import java.util.Optional;
 /**
  * A table that displays matched cells in {@link SpreadsheetDelta} as a table
  */
-public final class SpreadsheetDeltaMatchedCellsTableComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetDeltaMatchedCellsTableComponent>,
+public final class SpreadsheetDeltaMatchedCellsTableComponent implements TableComponent<SpreadsheetDeltaMatchedCellsTableComponent>,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
     SpreadsheetDeltaFetcherWatcher {

@@ -19,21 +19,19 @@ package walkingkooka.spreadsheet.dominokit.format;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.TableComponentTesting;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.List;
 
-public final class SpreadsheetFormatterTableComponentTest implements ClassTesting<SpreadsheetFormatterTableComponent>,
-    SpreadsheetMetadataTesting,
-    TreePrintableTesting {
+public final class SpreadsheetFormatterTableComponentTest implements TableComponentTesting<SpreadsheetFormatterTableComponent>,
+    SpreadsheetMetadataTesting {
 
     @Test
     public void testRefresh() {

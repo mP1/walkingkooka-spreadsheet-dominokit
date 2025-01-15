@@ -21,9 +21,9 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
+import walkingkooka.spreadsheet.dominokit.value.TableComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -36,7 +36,7 @@ import java.util.Optional;
 /**
  * A table that displays {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSample} with one per row.
  */
-public final class SpreadsheetFormatterTableComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetFormatterTableComponent> {
+public final class SpreadsheetFormatterTableComponent implements TableComponent<SpreadsheetFormatterTableComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetFormatterTableComponent}.

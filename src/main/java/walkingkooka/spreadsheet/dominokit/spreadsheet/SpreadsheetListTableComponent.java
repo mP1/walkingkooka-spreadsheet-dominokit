@@ -21,11 +21,11 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.TableComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextAlign;
@@ -37,7 +37,7 @@ import java.util.Optional;
 /**
  * A datatable where each row contains a single spreadsheet, showing various metadata items such as creator, timestamps and links for actions.
  */
-final class SpreadsheetListTableComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetListTableComponent> {
+final class SpreadsheetListTableComponent implements TableComponent<SpreadsheetListTableComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetListTableComponent}.

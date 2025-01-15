@@ -21,10 +21,10 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
+import walkingkooka.spreadsheet.dominokit.value.TableComponent;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfo;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -38,7 +38,7 @@ import java.util.Optional;
  * A table that lists all the entries from a {@link JarEntryInfoList}.
  * No previous or next paging links are provided, it is assumed the table will scroll.
  */
-final class JarEntryInfoListTableComponent implements HtmlElementComponent<HTMLDivElement, JarEntryInfoListTableComponent> {
+final class JarEntryInfoListTableComponent implements TableComponent<JarEntryInfoListTableComponent> {
 
     /**
      * Creates an empty {@link JarEntryInfoListTableComponent}.
