@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.plugin.PluginName;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -32,8 +30,7 @@ import java.util.Optional;
 /**
  * Creates a {@link PluginDeleteAnchorComponent}.
  */
-public final class PluginDeleteAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, PluginDeleteAnchorComponent>,
-    AnchorComponentLikeDelegator<PluginDeleteAnchorComponent> {
+public final class PluginDeleteAnchorComponent implements AnchorComponentLikeDelegator<PluginDeleteAnchorComponent> {
 
     public static PluginDeleteAnchorComponent empty(final String id) {
         return new PluginDeleteAnchorComponent()
