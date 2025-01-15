@@ -125,7 +125,7 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
 
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
-    // TODO add DELETE, RENAME links
+    // TODO add RENAME links
     private SpreadsheetDialogComponent dialogCreate(final JarEntryInfoListDialogComponentContext context) {
         return SpreadsheetDialogComponent.with(
                 ID + SpreadsheetElementIds.DIALOG, // id
