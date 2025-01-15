@@ -211,7 +211,7 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
      */
     @Override
     public void dialogReset() {
-        this.table.setList(JarEntryInfoList.EMPTY);
+        this.table.clear();
         this.pluginName = null;
         this.list = JarEntryInfoList.EMPTY;
     }
@@ -234,7 +234,9 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
                 .map(PluginName::value)
                 .orElse("Loading...")
         );
-        this.table.setList(this.list);
+        this.table.setValue(
+            Optional.of(this.list)
+        );
 
         this.refreshDelete();
         this.refreshDownload();

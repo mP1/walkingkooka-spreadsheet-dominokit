@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.plugin.PluginName;
@@ -34,7 +35,7 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.OptionalLong;
 
-public final class JarEntryInfoListTableComponentTest implements TableComponentTesting<JarEntryInfoListTableComponent>,
+public final class JarEntryInfoListTableComponentTest implements TableComponentTesting<HTMLDivElement, JarEntryInfoList, JarEntryInfoListTableComponent>,
     SpreadsheetMetadataTesting {
 
     private final static String ID_PREFIX = "Table123-";
@@ -43,7 +44,21 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
     public void testEmpty() {
         this.treePrintAndCheck(
             this.createComponent(),
-            "JarEntryInfoListTableComponent\n"
+            "JarEntryInfoListTableComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      SpreadsheetDataTableComponent\n" +
+                "        id=Table123-Table\n" +
+                "        COLUMN(S)\n" +
+                "          Name\n" +
+                "          Size(Compressed)\n" +
+                "          Method\n" +
+                "          CRC\n" +
+                "          Created\n" +
+                "          Last modified by\n" +
+                "          Links\n" +
+                "        PLUGINS\n" +
+                "          EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n"
         );
     }
 
@@ -51,17 +66,19 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
     public void testOneRow() {
         this.treePrintAndCheck(
             this.createComponent()
-                .setList(
-                    JarEntryInfoList.with(
-                        Lists.of(
-                            this.jarEntryInfo(
-                                "/META/MANIFEST.MF", // filename
-                                100, // size
-                                50, // compressedSize
-                                1, // method
-                                0x12345678, // crc
-                                "1999-12-31T12:58:59", // created
-                                "2000-01-02T12:58:59" // last mod
+                .setValue(
+                    Optional.of(
+                        JarEntryInfoList.with(
+                            Lists.of(
+                                this.jarEntryInfo(
+                                    "/META/MANIFEST.MF", // filename
+                                    100, // size
+                                    50, // compressedSize
+                                    1, // method
+                                    0x12345678, // crc
+                                    "1999-12-31T12:58:59", // created
+                                    "2000-01-02T12:58:59" // last mod
+                                )
                             )
                         )
                     )
@@ -106,17 +123,19 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
     public void testOneRowMissingOptionalValues() {
         this.treePrintAndCheck(
             this.createComponent()
-                .setList(
-                    JarEntryInfoList.with(
-                        Lists.of(
-                            this.jarEntryInfo(
-                                "/dir1/file2.txt", // filename
-                                0, // size
-                                0, // compressedSize
-                                0, // method
-                                0, // crc
-                                "", // created
-                                "" // last mod
+                .setValue(
+                    Optional.of(
+                        JarEntryInfoList.with(
+                            Lists.of(
+                                this.jarEntryInfo(
+                                    "/dir1/file2.txt", // filename
+                                    0, // size
+                                    0, // compressedSize
+                                    0, // method
+                                    0, // crc
+                                    "", // created
+                                    "" // last mod
+                                )
                             )
                         )
                     )
@@ -161,26 +180,28 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
     public void testTwoRowsSecondMissingOptionalValues() {
         this.treePrintAndCheck(
             this.createComponent()
-                .setList(
-                    JarEntryInfoList.with(
-                        Lists.of(
-                            this.jarEntryInfo(
-                                "/META/MANIFEST.MF", // filename
-                                100, // size
-                                50, // compressedSize
-                                1, // method
-                                0x12345678, // crc
-                                "1999-12-31T12:58:59", // created
-                                "2000-01-02T12:58:59" // last mod
-                            ),
-                            this.jarEntryInfo(
-                                "/dir1/file2.txt", // filename
-                                0, // size
-                                0, // compressedSize
-                                0, // method
-                                0, // crc
-                                "", // created
-                                "" // last mod
+                .setValue(
+                    Optional.of(
+                        JarEntryInfoList.with(
+                            Lists.of(
+                                this.jarEntryInfo(
+                                    "/META/MANIFEST.MF", // filename
+                                    100, // size
+                                    50, // compressedSize
+                                    1, // method
+                                    0x12345678, // crc
+                                    "1999-12-31T12:58:59", // created
+                                    "2000-01-02T12:58:59" // last mod
+                                ),
+                                this.jarEntryInfo(
+                                    "/dir1/file2.txt", // filename
+                                    0, // size
+                                    0, // compressedSize
+                                    0, // method
+                                    0, // crc
+                                    "", // created
+                                    "" // last mod
+                                )
                             )
                         )
                     )
@@ -238,7 +259,8 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
         );
     }
 
-    private JarEntryInfoListTableComponent createComponent() {
+    @Override
+    public JarEntryInfoListTableComponent createComponent() {
         return JarEntryInfoListTableComponent.empty(
             ID_PREFIX,
             context()

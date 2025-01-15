@@ -170,8 +170,12 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
                                          final AppContext context) {
         if (this.isOpen()) {
-            this.table.setMetadata(
-                new ArrayList<>(metadatas)
+            this.table.setValue(
+                Optional.ofNullable(
+                    metadatas.isEmpty() ?
+                        null :
+                        new ArrayList<>(metadatas)
+                )
             );
             this.table.refresh(
                 context.historyToken()

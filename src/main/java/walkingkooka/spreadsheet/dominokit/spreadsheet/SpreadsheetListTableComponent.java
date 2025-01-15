@@ -37,7 +37,7 @@ import java.util.Optional;
 /**
  * A datatable where each row contains a single spreadsheet, showing various metadata items such as creator, timestamps and links for actions.
  */
-final class SpreadsheetListTableComponent implements TableComponent<SpreadsheetListTableComponent> {
+final class SpreadsheetListTableComponent implements TableComponent<HTMLDivElement, List<SpreadsheetMetadata>, SpreadsheetListTableComponent> {
 
     /**
      * Creates an empty {@link SpreadsheetListTableComponent}.
@@ -56,7 +56,7 @@ final class SpreadsheetListTableComponent implements TableComponent<SpreadsheetL
                                           final SpreadsheetListDialogComponentContext context) {
         this.card = SpreadsheetCard.empty();
 
-        this.table = SpreadsheetDataTableComponent.with(
+        this.dataTable = SpreadsheetDataTableComponent.with(
             id,
             columnConfigs(),
             SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRenderer.with(
@@ -69,7 +69,7 @@ final class SpreadsheetListTableComponent implements TableComponent<SpreadsheetL
         );
 
         this.card.appendChild(
-            this.table.previousNextLinks(id)
+            this.dataTable.previousNextLinks(id)
         );
     }
 
@@ -121,20 +121,28 @@ final class SpreadsheetListTableComponent implements TableComponent<SpreadsheetL
             );
     }
 
-    private final SpreadsheetDataTableComponent<SpreadsheetMetadata> table;
+    private final SpreadsheetDataTableComponent<SpreadsheetMetadata> dataTable;
 
-    SpreadsheetListTableComponent setMetadata(final List<SpreadsheetMetadata> metadatas) {
-        this.table.setValue(
-            Optional.of(
-                metadatas
-            )
-        );
+    @Override
+    public SpreadsheetListTableComponent focus() {
+        this.dataTable.focus();
+        return this;
+    }
+
+    @Override
+    public Optional<List<SpreadsheetMetadata>> value() {
+        return this.dataTable.value();
+    }
+
+    @Override
+    public SpreadsheetListTableComponent setValue(final Optional<List<SpreadsheetMetadata>> metadatas) {
+        this.dataTable.setValue(metadatas);
 
         return this;
     }
 
     void refresh(final SpreadsheetListHistoryToken historyToken) {
-        this.table.refreshPreviousNextLinks(
+        this.dataTable.refreshPreviousNextLinks(
             historyToken,
             DEFAULT_COUNT
         );

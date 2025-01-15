@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.format;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
-import walkingkooka.Value;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
@@ -37,8 +36,7 @@ import java.util.Optional;
 /**
  * A table that displays {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSample} with one per row.
  */
-public final class SpreadsheetFormatterTableComponent implements TableComponent<SpreadsheetFormatterTableComponent>,
-    Value<Optional<List<SpreadsheetFormatterSample>>> {
+public final class SpreadsheetFormatterTableComponent implements TableComponent<HTMLDivElement, List<SpreadsheetFormatterSample>, SpreadsheetFormatterTableComponent>  {
 
     /**
      * Creates an empty {@link SpreadsheetFormatterTableComponent}.
@@ -101,12 +99,20 @@ public final class SpreadsheetFormatterTableComponent implements TableComponent<
     }
 
     @Override
+    public SpreadsheetFormatterTableComponent focus() {
+        this.dataTable.focus();
+        return this;
+    }
+
+    @Override
     public Optional<List<SpreadsheetFormatterSample>> value() {
         return this.samples;
     }
 
-    public void setValue(final Optional<List<SpreadsheetFormatterSample>> samples) {
+    @Override
+    public SpreadsheetFormatterTableComponent setValue(final Optional<List<SpreadsheetFormatterSample>> samples) {
         this.samples = Objects.requireNonNull(samples, "samples");
+        return this;
     }
 
     private Optional<List<SpreadsheetFormatterSample>> samples;

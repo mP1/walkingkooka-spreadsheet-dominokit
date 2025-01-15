@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
+import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
@@ -38,7 +39,7 @@ import java.util.Optional;
  * A table that lists all the entries from a {@link JarEntryInfoList}.
  * No previous or next paging links are provided, it is assumed the table will scroll.
  */
-final class JarEntryInfoListTableComponent implements TableComponent<JarEntryInfoListTableComponent> {
+final class JarEntryInfoListTableComponent implements TableComponent<HTMLDivElement, JarEntryInfoList, JarEntryInfoListTableComponent> {
 
     /**
      * Creates an empty {@link JarEntryInfoListTableComponent}.
@@ -126,16 +127,27 @@ final class JarEntryInfoListTableComponent implements TableComponent<JarEntryInf
             );
     }
 
-    private final SpreadsheetDataTableComponent<JarEntryInfo> table;
+    @Override
+    public Optional<JarEntryInfoList> value() {
+        return this.table.value()
+            .map(JarEntryInfoList::with);
+    }
 
-    JarEntryInfoListTableComponent setList(final JarEntryInfoList list) {
+    @Override
+    public JarEntryInfoListTableComponent setValue(final Optional<JarEntryInfoList> list) {
         this.table.setValue(
-            Optional.of(
-                list
-            )
+            Cast.to(list)
         );
         return this;
     }
+
+    @Override
+    public JarEntryInfoListTableComponent focus() {
+        this.table.focus();
+        return this;
+    }
+
+    private final SpreadsheetDataTableComponent<JarEntryInfo> table;
 
     // setCssText.......................................................................................................
 

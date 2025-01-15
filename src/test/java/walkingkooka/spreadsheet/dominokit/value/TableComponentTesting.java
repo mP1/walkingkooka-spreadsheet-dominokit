@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import walkingkooka.spreadsheet.dominokit.ComponentTesting;
+import elemental2.dom.HTMLElement;
 
-public interface TableComponentTesting<C extends TableComponent<C>> extends ComponentTesting<C> {
+public interface TableComponentTesting<E extends HTMLElement, V, C extends TableComponent<E, V, C>> extends ValueComponentTesting<E, V, C> {
 }

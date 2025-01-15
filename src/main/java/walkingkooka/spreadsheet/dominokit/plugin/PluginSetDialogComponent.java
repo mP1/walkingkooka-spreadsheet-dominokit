@@ -168,7 +168,13 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
     @Override
     public void onPluginSet(final PluginSet plugins,
                             final AppContext context) {
-        this.table.setSet(plugins);
+        this.table.setValue(
+            Optional.ofNullable(
+                plugins.isEmpty() ?
+                    null :
+                plugins
+            )
+        );
         this.refreshIfOpen(context);
     }
 
@@ -186,7 +192,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
 
     @Override
     public void dialogReset() {
-        this.table.setSet(PluginSet.EMPTY);
+        this.table.clearValue();
         this.uploadAnchor.setDisabled(true);
     }
 

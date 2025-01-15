@@ -17,12 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.delta;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
@@ -36,10 +38,11 @@ import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements TableComponentTesting<SpreadsheetDeltaMatchedCellsTableComponent> {
+public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements TableComponentTesting<HTMLDivElement, Set<SpreadsheetCell>, SpreadsheetDeltaMatchedCellsTableComponent> {
 
     // with.............................................................................................................
 
@@ -231,6 +234,14 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Tab
         this.treePrintAndCheck(
             component,
             expected
+        );
+    }
+
+    @Override
+    public SpreadsheetDeltaMatchedCellsTableComponent createComponent() {
+        return SpreadsheetDeltaMatchedCellsTableComponent.with(
+            "id-",
+            SpreadsheetDeltaMatchedCellsTableComponentContexts.fake()
         );
     }
 
