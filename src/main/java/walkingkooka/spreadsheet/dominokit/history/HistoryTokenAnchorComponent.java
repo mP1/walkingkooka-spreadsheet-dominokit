@@ -301,51 +301,52 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     @Override
     public HistoryTokenAnchorComponent addClickListener(final EventListener listener) {
-        this.element.addEventListener(
-            EventType.click.getName(),
-            this.disabledAwareEventListener(listener)
+        return this.addEventListener(
+            EventType.click,
+            listener
         );
-        return this;
     }
 
     @Override
     public HistoryTokenAnchorComponent addFocusListener(final EventListener listener) {
-        this.element.addEventListener(
-            EventType.focus.getName(),
-            this.disabledAwareEventListener(listener)
+        return this.addEventListener(
+            EventType.focus,
+            listener
         );
-        return this;
     }
 
     @Override
     public HistoryTokenAnchorComponent addKeyupListener(final EventListener listener) {
-        this.element.addEventListener(
-            EventType.keydown.getName(),
-            this.disabledAwareEventListener(listener)
+        return this.addEventListener(
+            EventType.keyup,
+            listener
         );
-        return this;
     }
 
     @Override
     public HistoryTokenAnchorComponent addKeydownListener(final EventListener listener) {
-        this.element.addEventListener(
-            EventType.keydown.getName(),
-            this.disabledAwareEventListener(listener)
+        return this.addEventListener(
+            EventType.keydown,
+            listener
         );
-        return this;
     }
 
     /**
      * If this anchor is disabled calls {@link Event#preventDefault()} and skips calling the given {@link EventListener}.
      */
-    private EventListener disabledAwareEventListener(final EventListener listener) {
-        return (e) -> {
-            if (this.isDisabled()) {
-                e.preventDefault();
-            } else {
-                listener.handleEvent(e);
+    private HistoryTokenAnchorComponent addEventListener(final EventType eventType,
+                                                         final EventListener listener) {
+        this.element.addEventListener(
+            eventType,
+            (e) -> {
+                if (this.isDisabled()) {
+                    e.preventDefault();
+                } else {
+                    listener.handleEvent(e);
+                }
             }
-        };
+        );
+        return this;
     }
 
     /**
