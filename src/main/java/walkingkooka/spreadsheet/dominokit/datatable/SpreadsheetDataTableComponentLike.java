@@ -26,13 +26,13 @@ import org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin;
 import org.dominokit.domino.ui.datatable.plugins.summary.EmptyStatePlugin;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -46,73 +46,11 @@ import java.util.OptionalInt;
 /**
  * A {@link FormValueComponent} wrapper around a {@link DataTable}.
  */
-public interface SpreadsheetDataTableComponentLike<T> extends FormValueComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponent<T>>,
+public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponent<T>>,
     ComponentWithChildren<SpreadsheetDataTableComponent<T>, HTMLDivElement>,
     TreePrintable {
 
     @Override SpreadsheetDataTableComponent<T> setCssText(final String css);
-
-    // label............................................................................................................
-
-    @Override
-    default SpreadsheetDataTableComponent<T> setLabel(final String label) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default String label() {
-        throw new UnsupportedOperationException();
-    }
-
-    // helperText.......................................................................................................
-
-    @Override
-    default SpreadsheetDataTableComponent<T> alwaysShowHelperText() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default Optional<String> helperText() {
-        return Optional.empty();
-    }
-
-    @Override
-    default SpreadsheetDataTableComponent<T> setHelperText(final Optional<String> text) {
-        throw new UnsupportedOperationException();
-    }
-
-    // validate.........................................................................................................
-
-    @Override
-    default SpreadsheetDataTableComponent<T> validate() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetDataTableComponent<T> optional() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetDataTableComponent<T> required() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default boolean isRequired() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default List<String> errors() {
-        return Lists.empty();
-    }
-
-    @Override
-    default SpreadsheetDataTableComponent<T> setErrors(final List<String> errors) {
-        throw new UnsupportedOperationException();
-    }
-
     // events...........................................................................................................
 
     @Override
