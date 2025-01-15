@@ -24,7 +24,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A {@link ValueComponent} that holds text within a {@link TextNode}
+ * A {@link FormValueComponent} that holds text within a {@link TextNode}
  */
 public final class SpreadsheetTextNodeComponent implements SpreadsheetTextNodeComponentLike {
 

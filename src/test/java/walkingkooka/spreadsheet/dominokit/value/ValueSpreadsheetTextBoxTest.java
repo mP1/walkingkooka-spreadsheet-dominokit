@@ -29,7 +29,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class ValueSpreadsheetTextBoxTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, ValueSpreadsheetTextBox<SpreadsheetCellReference>> {
+public final class ValueSpreadsheetTextBoxTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, ValueSpreadsheetTextBox<SpreadsheetCellReference>> {
 
     @Test
     public void testWithNullParserFunctionFails() {

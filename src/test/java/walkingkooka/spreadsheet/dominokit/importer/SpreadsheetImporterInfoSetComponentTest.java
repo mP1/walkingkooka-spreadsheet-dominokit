@@ -20,13 +20,13 @@ package walkingkooka.spreadsheet.dominokit.importer;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterInfoSet;
 import walkingkooka.spreadsheet.importer.SpreadsheetImporterProviders;
 
 import java.util.Optional;
 
-public final class SpreadsheetImporterInfoSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetImporterInfoSet, SpreadsheetImporterInfoSetComponent> {
+public final class SpreadsheetImporterInfoSetComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetImporterInfoSet, SpreadsheetImporterInfoSetComponent> {
 
     @Test
     public void testParseAndText() {

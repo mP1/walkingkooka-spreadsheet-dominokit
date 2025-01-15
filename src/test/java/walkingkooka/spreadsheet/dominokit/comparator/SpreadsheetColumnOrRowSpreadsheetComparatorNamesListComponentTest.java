@@ -21,11 +21,11 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
 
-public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetColumnOrRowSpreadsheetComparatorNamesList, SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent> {
+public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetColumnOrRowSpreadsheetComparatorNamesList, SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent> {
 
     @Test
     public void testStringStringMissingEqualsValidationFailure() {

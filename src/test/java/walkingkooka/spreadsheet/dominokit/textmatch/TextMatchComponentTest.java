@@ -20,12 +20,12 @@ package walkingkooka.spreadsheet.dominokit.textmatch;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
 
 import java.util.Optional;
 
-public final class TextMatchComponentTest implements ValueComponentTesting<HTMLFieldSetElement, TextMatch, TextMatchComponent> {
+public final class TextMatchComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, TextMatch, TextMatchComponent> {
 
     @Test
     public void testEmpty() {

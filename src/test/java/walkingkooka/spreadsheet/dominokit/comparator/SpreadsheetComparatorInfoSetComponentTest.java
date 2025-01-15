@@ -22,11 +22,11 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviders;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetComparatorInfoSetComponentTest implements ValueComponentTesting<HTMLFieldSetElement, SpreadsheetComparatorInfoSet, SpreadsheetComparatorInfoSetComponent> {
+public final class SpreadsheetComparatorInfoSetComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetComparatorInfoSet, SpreadsheetComparatorInfoSetComponent> {
 
     @Test
     public void testParseAndText() {

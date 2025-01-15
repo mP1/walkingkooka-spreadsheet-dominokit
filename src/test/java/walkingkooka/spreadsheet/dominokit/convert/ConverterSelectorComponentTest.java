@@ -21,11 +21,11 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
 
-public final class ConverterSelectorComponentTest implements ValueComponentTesting<HTMLFieldSetElement, ConverterSelector, ConverterSelectorComponent> {
+public final class ConverterSelectorComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ConverterSelector, ConverterSelectorComponent> {
 
     @Test
     public void testSetStringValue() {

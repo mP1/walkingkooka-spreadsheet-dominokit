@@ -34,7 +34,7 @@ import java.util.Optional;
 /**
  * A select component with a few helpers to assist with build and working with values.
  */
-public final class SpreadsheetSelectComponent<T> implements ValueComponent<HTMLFieldSetElement, T, SpreadsheetSelectComponent<T>>,
+public final class SpreadsheetSelectComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, SpreadsheetSelectComponent<T>>,
     SpreadsheetTextBoxTreePrintable<SpreadsheetSelectComponent<T>, T> {
 
     public static <T> SpreadsheetSelectComponent<T> empty() {

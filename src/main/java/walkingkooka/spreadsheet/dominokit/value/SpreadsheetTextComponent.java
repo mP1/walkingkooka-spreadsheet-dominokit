@@ -31,9 +31,9 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A {@link ValueComponent} that holds text within a text node. This will need to be special cased by SpreadsheetDataTable.
+ * A {@link FormValueComponent} that holds text within a text node. This will need to be special cased by SpreadsheetDataTable.
  */
-public final class SpreadsheetTextComponent implements ValueComponent<HTMLDivElement, String, SpreadsheetTextComponent> {
+public final class SpreadsheetTextComponent implements FormValueComponent<HTMLDivElement, String, SpreadsheetTextComponent> {
 
     public static SpreadsheetTextComponent with(final Optional<String> value) {
         return new SpreadsheetTextComponent(value);

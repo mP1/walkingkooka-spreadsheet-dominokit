@@ -24,7 +24,7 @@ import walkingkooka.reflect.JavaVisibility;
 
 import java.util.Optional;
 
-public final class SpreadsheetSelectComponentTest implements ValueComponentTesting<HTMLFieldSetElement, String, SpreadsheetSelectComponent<String>> {
+public final class SpreadsheetSelectComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, String, SpreadsheetSelectComponent<String>> {
 
     @Test
     public void testTreePrint() {

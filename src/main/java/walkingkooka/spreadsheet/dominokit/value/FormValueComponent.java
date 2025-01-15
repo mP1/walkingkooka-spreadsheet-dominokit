@@ -29,7 +29,7 @@ import java.util.Optional;
 /**
  * A component that supports entering or selecting a value.
  */
-public interface ValueComponent<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
+public interface FormValueComponent<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>>
     extends HtmlElementComponent<E, C>,
     ComponentWithErrors<C>,
     Value<Optional<V>> {
