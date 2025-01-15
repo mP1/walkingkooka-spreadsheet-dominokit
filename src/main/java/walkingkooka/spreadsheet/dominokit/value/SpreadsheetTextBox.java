@@ -65,43 +65,42 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
 
     @Override
     public SpreadsheetTextBox addClickListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-        this.textBox.getInputElement()
-            .addEventListener(
-                EventType.click,
-                listener::handleEvent
-            );
-        return this;
+        return this.addEventListener(
+            EventType.click,
+            listener
+        );
     }
     
     @Override
     public SpreadsheetTextBox addFocusListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-        this.textBox.getInputElement()
-            .addEventListener(
-                EventType.focus,
-                listener::handleEvent
-            );
-        return this;
+        return this.addEventListener(
+            EventType.focus,
+            listener
+        );
     }
 
     @Override
     public SpreadsheetTextBox addKeydownListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.textBox.addEventListener(
+        return this.addEventListener(
             EventType.keydown,
             listener
         );
-        return this;
     }
 
     @Override
     public SpreadsheetTextBox addKeyupListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.keyup,
+            listener
+        );
+    }
+
+    private SpreadsheetTextBox addEventListener(final EventType eventType,
+                                                final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.textBox.addEventListener(
-            EventType.keyup,
+            eventType,
             listener
         );
         return this;
