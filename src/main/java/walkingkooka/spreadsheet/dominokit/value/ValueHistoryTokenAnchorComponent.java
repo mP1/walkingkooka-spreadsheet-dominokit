@@ -20,11 +20,9 @@ package walkingkooka.spreadsheet.dominokit.value;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.BiConsumer;
@@ -34,7 +32,7 @@ import java.util.function.Function;
  * A ValueComponent that wraps a {@link HistoryTokenAnchorComponent}, adding additional support for setting a value via a function.
  * Decorations such as icon for the anchor must be set on the {@link HistoryTokenAnchorComponent} itself as no delegating methods are available.
  */
-public final class ValueHistoryTokenAnchorComponent<T> implements FormValueComponent<HTMLAnchorElement, T, ValueHistoryTokenAnchorComponent<T>>,
+public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent<HTMLAnchorElement, T, ValueHistoryTokenAnchorComponent<T>>,
     AnchorComponentLikeDelegator<ValueHistoryTokenAnchorComponent<T>> {
 
     public static <T> ValueHistoryTokenAnchorComponent<T> with(final HistoryTokenAnchorComponent anchor,
@@ -67,17 +65,6 @@ public final class ValueHistoryTokenAnchorComponent<T> implements FormValueCompo
     }
 
     @Override
-    public String label() {
-        return "";
-    }
-
-    @Override
-    public ValueHistoryTokenAnchorComponent<T> setLabel(final String label) {
-        throw new UnsupportedOperationException();
-    }
-
-
-    @Override
     public Optional<T> value() {
         return this.getter.apply(this.anchor);
     }
@@ -96,26 +83,6 @@ public final class ValueHistoryTokenAnchorComponent<T> implements FormValueCompo
     private final BiConsumer<Optional<T>, HistoryTokenAnchorComponent> setter;
 
     @Override
-    public ValueHistoryTokenAnchorComponent<T> validate() {
-        return this;
-    }
-
-    @Override
-    public ValueHistoryTokenAnchorComponent<T> optional() {
-        return this;
-    }
-
-    @Override
-    public ValueHistoryTokenAnchorComponent<T> required() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean isRequired() {
-        return false;
-    }
-
-    @Override
     public boolean isDisabled() {
         return false;
     }
@@ -124,21 +91,6 @@ public final class ValueHistoryTokenAnchorComponent<T> implements FormValueCompo
     public ValueHistoryTokenAnchorComponent<T> setDisabled(final boolean disabled) {
         this.anchor.setDisabled(disabled);
         return this;
-    }
-
-    @Override
-    public ValueHistoryTokenAnchorComponent<T> alwaysShowHelperText() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<String> helperText() {
-        return Optional.empty();
-    }
-
-    @Override
-    public ValueHistoryTokenAnchorComponent<T> setHelperText(final Optional<String> text) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -170,16 +122,6 @@ public final class ValueHistoryTokenAnchorComponent<T> implements FormValueCompo
 
     @Override
     public ValueHistoryTokenAnchorComponent<T> removeBorders() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public List<String> errors() {
-        return Lists.of();
-    }
-
-    @Override
-    public ValueHistoryTokenAnchorComponent<T> setErrors(final List<String> errors) {
         throw new UnsupportedOperationException();
     }
 
