@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeTesting;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 
 import java.util.Optional;
 
-public final class PluginUploadSaveAnchorComponentTest implements AnchorComponentLikeTesting<PluginUploadSaveAnchorComponent, BrowserFile> {
+public final class PluginUploadSaveAnchorComponentTest implements AnchorComponentTesting<PluginUploadSaveAnchorComponent, BrowserFile> {
 
     @Test
     public void testClearValue() {

@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 
 import java.util.Objects;
@@ -31,7 +31,7 @@ import java.util.function.Function;
  * A ValueComponent that wraps a {@link HistoryTokenAnchorComponent}, adding additional support for setting a value via a function.
  * Decorations such as icon for the anchor must be set on the {@link HistoryTokenAnchorComponent} itself as no delegating methods are available.
  */
-public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponentLikeDelegator<ValueHistoryTokenAnchorComponent<T>, T> {
+public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponentDelegator<ValueHistoryTokenAnchorComponent<T>, T> {
 
     public static <T> ValueHistoryTokenAnchorComponent<T> with(final HistoryTokenAnchorComponent anchor,
                                                                final Function<HistoryTokenAnchorComponent, Optional<T>> getter,
@@ -133,10 +133,10 @@ public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponen
         return this;
     }
 
-    // AnchorComponentLikeDelegator......................................................................................
+    // AnchorComponentDelegator......................................................................................
 
     @Override
-    public AnchorComponentLike<?, ?> anchorComponentLike() {
+    public AnchorComponent<?, ?> anchorComponent() {
         return this.anchor;
     }
 

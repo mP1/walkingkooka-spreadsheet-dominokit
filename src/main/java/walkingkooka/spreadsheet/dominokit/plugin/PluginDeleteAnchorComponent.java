@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginDeleteHistoryToken;
@@ -30,7 +30,7 @@ import java.util.Optional;
 /**
  * Creates a {@link PluginDeleteAnchorComponent}.
  */
-public final class PluginDeleteAnchorComponent implements AnchorComponentLikeDelegator<PluginDeleteAnchorComponent, PluginName> {
+public final class PluginDeleteAnchorComponent implements AnchorComponentDelegator<PluginDeleteAnchorComponent, PluginName> {
 
     public static PluginDeleteAnchorComponent empty(final String id) {
         return new PluginDeleteAnchorComponent()
@@ -71,10 +71,10 @@ public final class PluginDeleteAnchorComponent implements AnchorComponentLikeDel
         return this;
     }
 
-    // AnchorComponentLikeDelegator......................................................................................
+    // AnchorComponentDelegator......................................................................................
 
     @Override
-    public AnchorComponentLike<?, PluginName> anchorComponentLike() {
+    public AnchorComponent<?, PluginName> anchorComponent() {
         return this.component;
     }
 

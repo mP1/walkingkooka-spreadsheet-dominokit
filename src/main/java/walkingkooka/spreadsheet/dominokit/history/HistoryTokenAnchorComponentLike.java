@@ -23,7 +23,7 @@ import walkingkooka.ToStringBuilder;
 import walkingkooka.ToStringBuilderOption;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.Url;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuTarget;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
@@ -35,7 +35,7 @@ import java.util.Optional;
 /**
  * Defines the public methods for a {@link HistoryTokenAnchorComponent}.
  */
-abstract class HistoryTokenAnchorComponentLike implements AnchorComponentLike<HistoryTokenAnchorComponent, HistoryToken>,
+abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<HistoryTokenAnchorComponent, HistoryToken>,
     SpreadsheetContextMenuTarget<HTMLAnchorElement>,
     SpreadsheetTooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent> {
 
