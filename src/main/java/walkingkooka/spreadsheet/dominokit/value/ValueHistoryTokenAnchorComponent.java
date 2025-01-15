@@ -18,8 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
-import elemental2.dom.HTMLAnchorElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 
@@ -32,8 +31,7 @@ import java.util.function.Function;
  * A ValueComponent that wraps a {@link HistoryTokenAnchorComponent}, adding additional support for setting a value via a function.
  * Decorations such as icon for the anchor must be set on the {@link HistoryTokenAnchorComponent} itself as no delegating methods are available.
  */
-public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent<HTMLAnchorElement, T, ValueHistoryTokenAnchorComponent<T>>,
-    AnchorComponentLikeDelegator<ValueHistoryTokenAnchorComponent<T>> {
+public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponentLikeDelegator<ValueHistoryTokenAnchorComponent<T>, T> {
 
     public static <T> ValueHistoryTokenAnchorComponent<T> with(final HistoryTokenAnchorComponent anchor,
                                                                final Function<HistoryTokenAnchorComponent, Optional<T>> getter,
@@ -94,16 +92,11 @@ public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent
     }
 
     @Override
-    public ValueHistoryTokenAnchorComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
-        return this;
-    }
-
-    @Override
     public ValueHistoryTokenAnchorComponent<T> addClickListener(final EventListener listener) {
         this.anchor.addClickListener(listener);
         return this;
     }
-    
+
     @Override
     public ValueHistoryTokenAnchorComponent<T> addFocusListener(final EventListener listener) {
         this.anchor.addFocusListener(listener);
@@ -118,17 +111,20 @@ public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent
 
     @Override
     public ValueHistoryTokenAnchorComponent<T> addKeyupListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
+        this.anchor.addKeyupListener(listener);
+        return this;
     }
 
     @Override
     public ValueHistoryTokenAnchorComponent<T> hideMarginBottom() {
-        throw new UnsupportedOperationException();
+        this.anchor.hideMarginBottom();
+        return this;
     }
 
     @Override
     public ValueHistoryTokenAnchorComponent<T> removeBorders() {
-        throw new UnsupportedOperationException();
+        this.anchor.removeBorders();
+        return this;
     }
 
     @Override
@@ -140,7 +136,7 @@ public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent
     // AnchorComponentLikeDelegator......................................................................................
 
     @Override
-    public HistoryTokenAnchorComponent anchorComponentLike() {
+    public AnchorComponentLike<?, ?> anchorComponentLike() {
         return this.anchor;
     }
 

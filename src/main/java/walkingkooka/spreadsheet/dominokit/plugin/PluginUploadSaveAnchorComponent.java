@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.history.PluginUploadSaveHistoryToken;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -29,7 +30,7 @@ import java.util.Optional;
 /**
  * An anchor that maps to {@link walkingkooka.spreadsheet.dominokit.history.PluginUploadSaveHistoryToken}.
  */
-public final class PluginUploadSaveAnchorComponent implements AnchorComponentLikeDelegator<PluginUploadSaveAnchorComponent> {
+public final class PluginUploadSaveAnchorComponent implements AnchorComponentLikeDelegator<PluginUploadSaveAnchorComponent, BrowserFile> {
 
     public static PluginUploadSaveAnchorComponent empty(final String id) {
         return new PluginUploadSaveAnchorComponent()
@@ -41,10 +42,7 @@ public final class PluginUploadSaveAnchorComponent implements AnchorComponentLik
             .setDisabled(true);
     }
 
-    public PluginUploadSaveAnchorComponent clearValue() {
-        return this.setValue(Optional.empty());
-    }
-
+    @Override
     public PluginUploadSaveAnchorComponent setValue(final Optional<BrowserFile> file) {
         Objects.requireNonNull(file, "file");
 
@@ -56,10 +54,17 @@ public final class PluginUploadSaveAnchorComponent implements AnchorComponentLik
         return this;
     }
 
+    @Override
+    public Optional<BrowserFile> value() {
+        return this.component.value()
+            .filter(h -> h instanceof PluginUploadSaveHistoryToken)
+            .map(h -> h.cast(PluginUploadSaveHistoryToken.class).value());
+    }
+
     // AnchorComponentLikeDelegator.....................................................................................
 
     @Override
-    public AnchorComponentLike<?> anchorComponentLike() {
+    public AnchorComponentLike<?, ?> anchorComponentLike() {
         return this.component;
     }
 

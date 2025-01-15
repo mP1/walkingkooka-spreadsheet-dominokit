@@ -35,12 +35,24 @@ import java.util.Optional;
 /**
  * Defines the public methods for a {@link HistoryTokenAnchorComponent}.
  */
-abstract class HistoryTokenAnchorComponentLike implements AnchorComponentLike<HistoryTokenAnchorComponent>,
+abstract class HistoryTokenAnchorComponentLike implements AnchorComponentLike<HistoryTokenAnchorComponent, HistoryToken>,
     SpreadsheetContextMenuTarget<HTMLAnchorElement>,
     SpreadsheetTooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent> {
 
     HistoryTokenAnchorComponentLike() {
         super();
+    }
+
+    // Value............................................................................................................
+
+    @Override
+    public final Optional<HistoryToken> value() {
+        return this.historyToken();
+    }
+
+    @Override
+    public final HistoryTokenAnchorComponent setValue(final Optional<HistoryToken> value) {
+        return this.setHistoryToken(value);
     }
 
     // historyToken....................................................................................................

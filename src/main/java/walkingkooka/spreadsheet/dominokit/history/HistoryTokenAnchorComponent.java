@@ -25,6 +25,7 @@ import org.dominokit.domino.ui.elements.AnchorElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.ElementsFactory;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
@@ -291,6 +292,13 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     // events..........................................................................................................
 
+
+    @Override
+    public HistoryTokenAnchorComponent addChangeListener(final ChangeListener<Optional<HistoryToken>> listener) {
+        Objects.requireNonNull(listener, "listener");
+        throw new UnsupportedOperationException();
+    }
+
     @Override
     public HistoryTokenAnchorComponent addClickListener(final EventListener listener) {
         this.element.addEventListener(
@@ -304,6 +312,15 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     public HistoryTokenAnchorComponent addFocusListener(final EventListener listener) {
         this.element.addEventListener(
             EventType.focus.getName(),
+            this.disabledAwareEventListener(listener)
+        );
+        return this;
+    }
+
+    @Override
+    public HistoryTokenAnchorComponent addKeyupListener(final EventListener listener) {
+        this.element.addEventListener(
+            EventType.keydown.getName(),
             this.disabledAwareEventListener(listener)
         );
         return this;

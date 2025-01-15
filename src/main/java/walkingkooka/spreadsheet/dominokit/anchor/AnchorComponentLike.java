@@ -21,14 +21,14 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.net.Url;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 
 import java.util.Optional;
 
 /**
  * Defines some operations common to all anchor and anchor like components.
  */
-public interface AnchorComponentLike<A extends AnchorComponentLike<A>> extends HtmlElementComponent<HTMLAnchorElement, A> {
+public interface AnchorComponentLike<A extends AnchorComponentLike<A, T>, T> extends ValueComponent<HTMLAnchorElement, T, A> {
 
     default boolean isDisabled() {
         return null == this.href();
@@ -93,18 +93,24 @@ public interface AnchorComponentLike<A extends AnchorComponentLike<A>> extends H
     A setIconAfter(final Optional<Icon<?>> icon);
 
     // events...........................................................................................................
-    A addClickListener(final EventListener listener);
 
-    A addFocusListener(final EventListener listener);
-
-    A addKeydownListener(final EventListener listener);
+    @Override
+    default A addFocusListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
 
     /**
      * Adds a {@link EventListener} that receives click and keydown with ENTER events.
      */
     A addClickAndKeydownEnterListener(final EventListener listener);
 
-    // focus............................................................................................................
+    @Override
+    default A hideMarginBottom() {
+        throw new UnsupportedOperationException();
+    }
 
-    A focus();
+    @Override
+    default A removeBorders() {
+        throw new UnsupportedOperationException();
+    }
 }

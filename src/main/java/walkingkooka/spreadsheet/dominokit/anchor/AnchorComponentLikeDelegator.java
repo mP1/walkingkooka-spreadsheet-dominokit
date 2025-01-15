@@ -20,14 +20,16 @@ package walkingkooka.spreadsheet.dominokit.anchor;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.Objects;
 import java.util.Optional;
 
-public interface AnchorComponentLikeDelegator<A extends AnchorComponentLike<A>> extends AnchorComponentLike<A>,
+public interface AnchorComponentLikeDelegator<A extends AnchorComponentLike<A, T>, T> extends AnchorComponentLike<A, T>,
     HtmlElementComponentDelegator<HTMLAnchorElement, A> {
 
     @Override
@@ -143,16 +145,20 @@ public interface AnchorComponentLikeDelegator<A extends AnchorComponentLike<A>> 
         return (A) this;
     }
 
-    @Override default A addClickListener(final EventListener listener) {
-        this.anchorComponentLike()
-            .addClickListener(listener);
+    /**
+     * Anchors dont fire change listeners, therefore any listener will never receive any events.
+     */
+    @Override
+    default A addChangeListener(final ChangeListener<Optional<T>> listener) {
+        Objects.requireNonNull(listener, "listener");
+
         return (A) this;
     }
 
     @Override
-    default A addFocusListener(final EventListener listener) {
+    default A addClickListener(final EventListener listener) {
         this.anchorComponentLike()
-            .addFocusListener(listener);
+            .addClickListener(listener);
         return (A) this;
     }
 
@@ -160,6 +166,13 @@ public interface AnchorComponentLikeDelegator<A extends AnchorComponentLike<A>> 
     default A addKeydownListener(final EventListener listener) {
         this.anchorComponentLike()
             .addKeydownListener(listener);
+        return (A) this;
+    }
+
+    @Override
+    default A addKeyupListener(final EventListener listener) {
+        this.anchorComponentLike()
+            .addKeyupListener(listener);
         return (A) this;
     }
 
@@ -189,7 +202,7 @@ public interface AnchorComponentLikeDelegator<A extends AnchorComponentLike<A>> 
     /**
      * The {@link AnchorComponentLike} delegate target.
      */
-    AnchorComponentLike<?> anchorComponentLike();
+    AnchorComponentLike<?, ?> anchorComponentLike();
 
     // HtmlElementComponent.............................................................................................
 

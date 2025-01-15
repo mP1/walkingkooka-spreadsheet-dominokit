@@ -21,13 +21,14 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.history.PluginUploadSelectHistoryToken;
 
 import java.util.Optional;
 
 /**
  * An anchor that when clicked displays a file browser to select a file to upload.
  */
-public final class PluginUploadSelectAnchorComponent implements AnchorComponentLikeDelegator<PluginUploadSelectAnchorComponent> {
+public final class PluginUploadSelectAnchorComponent implements AnchorComponentLikeDelegator<PluginUploadSelectAnchorComponent, Boolean> {
 
     public static PluginUploadSelectAnchorComponent empty(final String id) {
         return new PluginUploadSelectAnchorComponent()
@@ -51,10 +52,29 @@ public final class PluginUploadSelectAnchorComponent implements AnchorComponentL
         return this;
     }
 
+    @Override
+    public Optional<Boolean> value() {
+        final HistoryToken historyToken = this.component.historyToken()
+            .orElse(null);
+
+        return Optional.ofNullable(
+            historyToken instanceof PluginUploadSelectHistoryToken ?
+            Boolean.TRUE :
+            null
+        );
+    }
+
+    @Override
+    public PluginUploadSelectAnchorComponent setValue(final Optional<Boolean> value) {
+       return this.setDisabled(
+           value.orElse(false)
+       );
+    }
+
     // AnchorComponentLikeDelegator.....................................................................................
 
     @Override
-    public AnchorComponentLike<?> anchorComponentLike() {
+    public AnchorComponentLike<?, ?> anchorComponentLike() {
         return this.component;
     }
 

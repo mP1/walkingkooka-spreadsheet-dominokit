@@ -17,18 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeTesting;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 
 import java.util.Optional;
 
-public final class PluginUploadSaveAnchorComponentTest implements HtmlElementComponentTesting<PluginUploadSaveAnchorComponent, HTMLAnchorElement> {
+public final class PluginUploadSaveAnchorComponentTest implements AnchorComponentLikeTesting<PluginUploadSaveAnchorComponent, BrowserFile> {
 
     @Test
-    public void testClearFile() {
+    public void testClearValue() {
         this.treePrintAndCheck(
             PluginUploadSaveAnchorComponent.empty("lost")
                 .setId("Upload123")
@@ -71,6 +70,11 @@ public final class PluginUploadSaveAnchorComponentTest implements HtmlElementCom
                 ).clearValue(),
             "\"Upload789!\" DISABLED id=Upload789"
         );
+    }
+
+    @Override
+    public PluginUploadSaveAnchorComponent createComponent() {
+        return PluginUploadSaveAnchorComponent.empty("test-999");
     }
 
     // class............................................................................................................
