@@ -54,6 +54,11 @@ public interface TableComponent<E extends HTMLElement, V, C extends TableCompone
     }
 
     @Override
+    default C addClickListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     default C addFocusListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }

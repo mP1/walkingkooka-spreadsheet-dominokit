@@ -180,6 +180,12 @@ public final class SpreadsheetLabelComponent implements FormValueComponent<HTMLF
     }
 
     @Override
+    public SpreadsheetLabelComponent addClickListener(final EventListener listener) {
+        this.suggestBox.addClickListener(listener);
+        return this;
+    }
+
+    @Override
     public SpreadsheetLabelComponent addFocusListener(final EventListener listener) {
         this.suggestBox.addFocusListener(listener);
         return this;

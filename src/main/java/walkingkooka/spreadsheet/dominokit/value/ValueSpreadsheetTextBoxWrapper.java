@@ -133,6 +133,13 @@ public interface ValueSpreadsheetTextBoxWrapper<C extends ValueSpreadsheetTextBo
     }
 
     @Override
+    default C addClickListener(final EventListener listener) {
+        this.parserSpreadsheetTextBox()
+            .addClickListener(listener);
+        return (C) this;
+    }
+    
+    @Override
     default C addFocusListener(final EventListener listener) {
         this.parserSpreadsheetTextBox()
             .addFocusListener(listener);

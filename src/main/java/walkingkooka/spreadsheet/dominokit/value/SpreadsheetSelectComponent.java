@@ -216,6 +216,15 @@ public final class SpreadsheetSelectComponent<T> implements FormValueComponent<H
     }
 
     @Override
+    public SpreadsheetSelectComponent<T> addClickListener(final EventListener listener) {
+        this.select.addEventListener(
+            EventType.click,
+            listener
+        );
+        return this;
+    }
+
+    @Override
     public SpreadsheetSelectComponent<T> addFocusListener(final EventListener listener) {
         this.select.addEventListener(
             EventType.focus,

@@ -275,6 +275,15 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
     }
 
     @Override
+    public SpreadsheetSuggestBoxComponent<T> addClickListener(final EventListener listener) {
+        this.suggestBox.addEventListener(
+            EventType.click,
+            listener
+        );
+        return this;
+    }
+
+    @Override
     public SpreadsheetSuggestBoxComponent<T> addFocusListener(final EventListener listener) {
         this.suggestBox.addEventListener(
             EventType.focus,

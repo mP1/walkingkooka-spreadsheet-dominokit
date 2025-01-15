@@ -99,6 +99,12 @@ public final class ValueHistoryTokenAnchorComponent<T> implements ValueComponent
     }
 
     @Override
+    public ValueHistoryTokenAnchorComponent<T> addClickListener(final EventListener listener) {
+        this.anchor.addClickListener(listener);
+        return this;
+    }
+    
+    @Override
     public ValueHistoryTokenAnchorComponent<T> addFocusListener(final EventListener listener) {
         this.anchor.addFocusListener(listener);
         return this;

@@ -68,6 +68,8 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
         return this.clearValue();
     }
 
+    C addClickListener(final EventListener listener);
+
     C addChangeListener(final ChangeListener<Optional<V>> listener);
 
     C addFocusListener(final EventListener listener);
