@@ -97,6 +97,15 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
         return this.setHelperText(Optional.empty());
     }
 
+    /**
+     * Clears the value, helper text and errors. Useful when resetting a component to look empty.
+     */
+    default C clear() {
+        return this.clearValue()
+            .clearHelperText()
+            .clearErrors();
+    }
+
     C addChangeListener(final ChangeListener<Optional<V>> listener);
 
     C addFocusListener(final EventListener listener);
