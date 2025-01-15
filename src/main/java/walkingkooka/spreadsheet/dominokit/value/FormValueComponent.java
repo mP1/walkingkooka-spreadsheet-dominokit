@@ -17,12 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.Value;
 import walkingkooka.spreadsheet.dominokit.ComponentWithErrors;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 
 import java.util.Optional;
 
@@ -30,13 +26,8 @@ import java.util.Optional;
  * A component that supports entering or selecting a value.
  */
 public interface FormValueComponent<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>>
-    extends HtmlElementComponent<E, C>,
-    ComponentWithErrors<C>,
-    Value<Optional<V>> {
-
-    C setId(final String id);
-
-    String id();
+    extends ValueComponent<E, V, C>,
+    ComponentWithErrors<C> {
 
     C setLabel(final String label);
 
@@ -47,12 +38,6 @@ public interface FormValueComponent<E extends HTMLElement, V, C extends FormValu
      */
     Optional<String> helperText();
 
-    C setValue(final Optional<V> value);
-
-    default C clearValue() {
-        return this.setValue(Optional.empty());
-    }
-
     C validate();
 
     C optional();
@@ -60,24 +45,6 @@ public interface FormValueComponent<E extends HTMLElement, V, C extends FormValu
     C required();
 
     boolean isRequired();
-
-    boolean isDisabled();
-
-    default C enabled() {
-        return this.setEnabled(true);
-    }
-
-    default C setEnabled(final boolean enabled) {
-        return this.setDisabled(
-            false == enabled
-        );
-    }
-
-    default C disabled() {
-        return this.setDisabled(true);
-    }
-
-    C setDisabled(final boolean disabled);
 
     /**
      * The normal domino-kit behaviour is to only show helper text where validation error text appears, as necessary.
@@ -106,22 +73,8 @@ public interface FormValueComponent<E extends HTMLElement, V, C extends FormValu
             .clearErrors();
     }
 
-    C addChangeListener(final ChangeListener<Optional<V>> listener);
-
-    C addFocusListener(final EventListener listener);
-
-    C addKeydownListener(final EventListener listener);
-
-    C addKeyupListener(final EventListener listener);
-
     /**
      * Constant height for containers holding helper text.
      */
     String HELPER_TEXT_HEIGHT = "4em";
-
-    C hideMarginBottom();
-
-    C removeBorders();
-
-    C focus();
 }
