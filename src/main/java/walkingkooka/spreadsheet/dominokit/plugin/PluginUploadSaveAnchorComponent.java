@@ -17,8 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import elemental2.dom.HTMLAnchorElement;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLike;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
@@ -31,8 +29,7 @@ import java.util.Optional;
 /**
  * An anchor that maps to {@link walkingkooka.spreadsheet.dominokit.history.PluginUploadSaveHistoryToken}.
  */
-public final class PluginUploadSaveAnchorComponent implements HtmlElementComponent<HTMLAnchorElement, PluginUploadSaveAnchorComponent>,
-    AnchorComponentLikeDelegator<PluginUploadSaveAnchorComponent> {
+public final class PluginUploadSaveAnchorComponent implements AnchorComponentLikeDelegator<PluginUploadSaveAnchorComponent> {
 
     public static PluginUploadSaveAnchorComponent empty(final String id) {
         return new PluginUploadSaveAnchorComponent()
