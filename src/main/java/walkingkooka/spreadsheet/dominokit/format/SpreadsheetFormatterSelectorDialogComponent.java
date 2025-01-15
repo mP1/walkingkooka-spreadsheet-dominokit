@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComp
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorToken;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorTokenAlternative;
@@ -50,6 +51,7 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdi
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.text.CharSequences;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -264,10 +266,16 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
         this.formatterName = edit.selector()
             .map(SpreadsheetFormatterSelector::name);
 
-        this.table.refresh(
-            edit.samples(),
-            context
+        final List<SpreadsheetFormatterSample> samples = edit.samples();
+        this.table.setValue(
+            Optional.ofNullable(
+                samples.isEmpty() ?
+                    null :
+                    samples
+            )
         );
+
+        this.table.refresh(context);
 
         final SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext appenderRemoveOrReplaceContext =
             SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext.with(

@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.format;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
+import walkingkooka.Value;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
@@ -36,7 +37,8 @@ import java.util.Optional;
 /**
  * A table that displays {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSample} with one per row.
  */
-public final class SpreadsheetFormatterTableComponent implements TableComponent<SpreadsheetFormatterTableComponent> {
+public final class SpreadsheetFormatterTableComponent implements TableComponent<SpreadsheetFormatterTableComponent>,
+    Value<Optional<List<SpreadsheetFormatterSample>>> {
 
     /**
      * Creates an empty {@link SpreadsheetFormatterTableComponent}.
@@ -98,17 +100,23 @@ public final class SpreadsheetFormatterTableComponent implements TableComponent<
             );
     }
 
-    public void refresh(final List<SpreadsheetFormatterSample> samples,
-                        final SpreadsheetFormatterTableComponentContext context) {
-        Objects.requireNonNull(samples, "samples");
+    @Override
+    public Optional<List<SpreadsheetFormatterSample>> value() {
+        return this.samples;
+    }
 
+    public void setValue(final Optional<List<SpreadsheetFormatterSample>> samples) {
+        this.samples = Objects.requireNonNull(samples, "samples");
+    }
+
+    private Optional<List<SpreadsheetFormatterSample>> samples;
+
+    public void refresh(final SpreadsheetFormatterTableComponentContext context) {
         this.cellRenderer.context = Objects.requireNonNull(context, "context");
-        this.dataTable.setValue(
-            Optional.of(samples)
-        );
+        this.dataTable.setValue(this.samples);
 
         // manually show/hide depending on samples. Card will never be empty because SpreadsheetDataTableComponent is never empty
-        if (samples.isEmpty()) {
+        if (this.samples.isEmpty()) {
             this.card.hide();
         } else {
             this.card.show();
