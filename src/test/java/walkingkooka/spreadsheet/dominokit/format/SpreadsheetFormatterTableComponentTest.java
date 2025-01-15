@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
@@ -31,7 +32,7 @@ import walkingkooka.tree.text.TextNode;
 import java.util.List;
 import java.util.Optional;
 
-public final class SpreadsheetFormatterTableComponentTest implements TableComponentTesting<SpreadsheetFormatterTableComponent>,
+public final class SpreadsheetFormatterTableComponentTest implements TableComponentTesting<HTMLDivElement, List<SpreadsheetFormatterSample>, SpreadsheetFormatterTableComponent>,
     SpreadsheetMetadataTesting {
 
     @Test
@@ -129,6 +130,13 @@ public final class SpreadsheetFormatterTableComponentTest implements TableCompon
         this.treePrintAndCheck(
             component,
             expected
+        );
+    }
+
+    @Override
+    public SpreadsheetFormatterTableComponent createComponent() {
+        return SpreadsheetFormatterTableComponent.empty(
+            "id123-"
         );
     }
 

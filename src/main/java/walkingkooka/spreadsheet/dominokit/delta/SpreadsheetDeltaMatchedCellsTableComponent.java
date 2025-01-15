@@ -34,14 +34,17 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * A table that displays matched cells in {@link SpreadsheetDelta} as a table
  */
-public final class SpreadsheetDeltaMatchedCellsTableComponent implements TableComponent<SpreadsheetDeltaMatchedCellsTableComponent>,
+public final class SpreadsheetDeltaMatchedCellsTableComponent implements TableComponent<HTMLDivElement, Set<SpreadsheetCell>, SpreadsheetDeltaMatchedCellsTableComponent>,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
     SpreadsheetDeltaFetcherWatcher {
@@ -101,6 +104,31 @@ public final class SpreadsheetDeltaMatchedCellsTableComponent implements TableCo
         ).setTextAlign(cellTextAlign);
     }
 
+    @Override
+    public SpreadsheetDeltaMatchedCellsTableComponent focus() {
+        this.dataTable.focus();
+        return this;
+    }
+
+    // value............................................................................................................
+
+    @Override
+    public Optional<Set<SpreadsheetCell>> value() {
+        return this.dataTable.value()
+            .map(TreeSet::new);
+    }
+
+    @Override
+    public SpreadsheetDeltaMatchedCellsTableComponent setValue(final Optional<Set<SpreadsheetCell>> value) {
+        Objects.requireNonNull(value, "value");
+
+        this.dataTable.setValue(
+            value.map(ArrayList::new)
+        );
+
+        return this;
+    }
+
     // SpreadsheetDeltaWatcher.........................................................................................
 
     /**
@@ -111,11 +139,10 @@ public final class SpreadsheetDeltaMatchedCellsTableComponent implements TableCo
                                    final AbsoluteOrRelativeUrl url,
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
-        final List<SpreadsheetCell> cells = Lists.array();
-        cells.addAll(delta.cells());
-
-        this.dataTable.setValue(
-            Optional.of(cells)
+        this.setValue(
+            Optional.of(
+                delta.cells()
+            )
         );
     }
 

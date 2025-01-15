@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.datatable;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
@@ -25,14 +24,13 @@ import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin;
 import org.dominokit.domino.ui.datatable.plugins.summary.EmptyStatePlugin;
 import org.dominokit.domino.ui.icons.Icon;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.TableComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -46,46 +44,13 @@ import java.util.OptionalInt;
 /**
  * A {@link FormValueComponent} wrapper around a {@link DataTable}.
  */
-public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponent<T>>,
+public interface SpreadsheetDataTableComponentLike<T> extends TableComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponent<T>>,
     ComponentWithChildren<SpreadsheetDataTableComponent<T>, HTMLDivElement>,
     TreePrintable {
 
-    @Override SpreadsheetDataTableComponent<T> setCssText(final String css);
-    // events...........................................................................................................
-
-    @Override
-    default SpreadsheetDataTableComponent<T> addChangeListener(final ChangeListener<Optional<List<T>>> listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetDataTableComponent<T> addFocusListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetDataTableComponent<T> addKeydownListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetDataTableComponent<T> addKeyupListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetDataTableComponent<T> hideMarginBottom() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetDataTableComponent<T> removeBorders() {
-        throw new UnsupportedOperationException();
-    }
-
     @Override
     default SpreadsheetDataTableComponent<T> focus() {
-        throw new UnsupportedOperationException();
+        return (SpreadsheetDataTableComponent<T>)this;
     }
 
     // prev/next links..................................................................................................

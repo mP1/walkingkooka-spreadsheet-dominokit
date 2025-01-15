@@ -17,11 +17,64 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import elemental2.dom.HTMLDivElement;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
+import elemental2.dom.EventListener;
+import elemental2.dom.HTMLElement;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+
+import java.util.Optional;
 
 /**
- * Base interface for all table {@link HtmlElementComponent}.
+ * Base interface for all table {@link ValueComponent}.
  */
-public interface TableComponent<C extends HtmlElementComponent<HTMLDivElement, C>> extends HtmlElementComponent<HTMLDivElement, C> {
+public interface TableComponent<E extends HTMLElement, V, C extends TableComponent<E, V, C>> extends ValueComponent<E, V, C> {
+
+    @Override
+    default String id() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default C setId(final String id) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default boolean isDisabled() {
+        return false;
+    }
+
+    @Override
+    default C setDisabled(final boolean disabled) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default C addChangeListener(final ChangeListener<Optional<V>> listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default C addFocusListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default C addKeydownListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default C addKeyupListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default C hideMarginBottom() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default C removeBorders() {
+        throw new UnsupportedOperationException();
+    }
 }

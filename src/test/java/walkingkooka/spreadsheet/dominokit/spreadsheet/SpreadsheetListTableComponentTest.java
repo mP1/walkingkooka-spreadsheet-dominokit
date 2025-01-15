@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
@@ -30,9 +31,11 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
-public final class SpreadsheetListTableComponentTest implements TableComponentTesting<SpreadsheetListTableComponent>,
+public final class SpreadsheetListTableComponentTest implements TableComponentTesting<HTMLDivElement, List<SpreadsheetMetadata>, SpreadsheetListTableComponent>,
     SpreadsheetMetadataTesting {
 
     private final static String ID = "Table123-";
@@ -45,7 +48,25 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 context("/")
             ),
             "/",
-            "SpreadsheetListTableComponent\n"
+            "SpreadsheetListTableComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      SpreadsheetDataTableComponent\n" +
+                "        id=Table123-Table\n" +
+                "        COLUMN(S)\n" +
+                "          Name\n" +
+                "          Created by\n" +
+                "          Created\n" +
+                "          Last modified by\n" +
+                "          Last modified\n" +
+                "          Links\n" +
+                "        CHILDREN\n" +
+                "          SpreadsheetFlexLayout\n" +
+                "            ROW\n" +
+                "              mdi-arrow-left \"previous\" DISABLED id=Table123-previous-Link\n" +
+                "              \"next\" DISABLED mdi-arrow-right id=Table123-next-Link\n" +
+                "        PLUGINS\n" +
+                "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );
     }
 
@@ -55,11 +76,13 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
             SpreadsheetListTableComponent.empty(
                 ID,
                 context("/")
-            ).setMetadata(
-                Lists.of(
-                    spreadsheetMetadata(1, "Spreadsheet111"),
-                    spreadsheetMetadata(2, "Spreadsheet222"),
-                    spreadsheetMetadata(3, "Spreadsheet333")
+            ).setValue(
+                Optional.of(
+                    Lists.of(
+                        spreadsheetMetadata(1, "Spreadsheet111"),
+                        spreadsheetMetadata(2, "Spreadsheet222"),
+                        spreadsheetMetadata(3, "Spreadsheet333")
+                    )
                 )
             ),
             "/",
@@ -134,11 +157,13 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
             SpreadsheetListTableComponent.empty(
                 ID,
                 context("/offset/1/count/2")
-            ).setMetadata(
-                Lists.of(
-                    spreadsheetMetadata(1, "Spreadsheet111"),
-                    spreadsheetMetadata(2, "Spreadsheet222"),
-                    spreadsheetMetadata(3, "Spreadsheet333")
+            ).setValue(
+                Optional.of(
+                    Lists.of(
+                        spreadsheetMetadata(1, "Spreadsheet111"),
+                        spreadsheetMetadata(2, "Spreadsheet222"),
+                        spreadsheetMetadata(3, "Spreadsheet333")
+                    )
                 )
             ),
             "/*/offset/1/count/2",
@@ -213,11 +238,13 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
             SpreadsheetListTableComponent.empty(
                 ID,
                 context("/")
-            ).setMetadata(
-                Lists.of(
-                    spreadsheetMetadata(1, "Spreadsheet111"),
-                    spreadsheetMetadata(2, "Spreadsheet222"),
-                    spreadsheetMetadata(3, "Spreadsheet333")
+            ).setValue(
+                Optional.of(
+                    Lists.of(
+                        spreadsheetMetadata(1, "Spreadsheet111"),
+                        spreadsheetMetadata(2, "Spreadsheet222"),
+                        spreadsheetMetadata(3, "Spreadsheet333")
+                    )
                 )
             ),
             "/*/count/2",
@@ -286,6 +313,14 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
         );
     }
 
+    @Override
+    public SpreadsheetListTableComponent createComponent() {
+        return SpreadsheetListTableComponent.empty(
+            ID,
+            context("/")
+        );
+    }
+
     private static FakeSpreadsheetListDialogComponentContext context(final String historyToken) {
         return new FakeSpreadsheetListDialogComponentContext() {
             @Override
@@ -336,6 +371,8 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
             LocalDateTime.of(2000, 1, 31, 12, 58, 59)
         );
     }
+
+    // class............................................................................................................
 
     @Override
     public Class<SpreadsheetListTableComponent> type() {

@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Binary;
 import walkingkooka.collect.map.Maps;
@@ -32,9 +33,10 @@ import walkingkooka.spreadsheet.dominokit.value.TableComponentTesting;
 
 import java.time.LocalDateTime;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.OptionalInt;
 
-public final class PluginSetTableComponentTest implements TableComponentTesting<PluginSetTableComponent>,
+public final class PluginSetTableComponentTest implements TableComponentTesting<HTMLDivElement, PluginSet, PluginSetTableComponent>,
     JarFileTesting {
 
     private final static String ID_PREFIX = "Table123-";
@@ -43,7 +45,24 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
     public void testEmpty() {
         this.treePrintAndCheck(
             this.createComponent(),
-            "PluginSetTableComponent\n"
+            "PluginSetTableComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      SpreadsheetDataTableComponent\n" +
+                "        id=Table123-Table\n" +
+                "        COLUMN(S)\n" +
+                "          Name\n" +
+                "          Filename\n" +
+                "          User\n" +
+                "          Timestamp\n" +
+                "          Links\n" +
+                "        CHILDREN\n" +
+                "          SpreadsheetFlexLayout\n" +
+                "            ROW\n" +
+                "              mdi-arrow-left \"previous\" DISABLED id=Table123-previous-Link\n" +
+                "              \"next\" DISABLED mdi-arrow-right id=Table123-next-Link\n" +
+                "        PLUGINS\n" +
+                "          EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n"
         );
     }
 
@@ -51,20 +70,22 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
     public void testSeveralRows() {
         this.treePrintAndCheck(
             this.createComponent()
-                .setSet(
-                    PluginSet.with(
-                        SortedSets.of(
-                            this.plugin(
-                                "TestPlugin111",
-                                "filename111.jar",
-                                "user111@example.com",
-                                "1999-12-31T12:58:59"
-                            ),
-                            this.plugin(
-                                "TestPlugin222",
-                                "filename222.jar",
-                                "user222@example.com",
-                                "2000-01-01T12:58:59"
+                .setValue(
+                    Optional.of(
+                        PluginSet.with(
+                            SortedSets.of(
+                                this.plugin(
+                                    "TestPlugin111",
+                                    "filename111.jar",
+                                    "user111@example.com",
+                                    "1999-12-31T12:58:59"
+                                ),
+                                this.plugin(
+                                    "TestPlugin222",
+                                    "filename222.jar",
+                                    "user222@example.com",
+                                    "2000-01-01T12:58:59"
+                                )
                             )
                         )
                     )
@@ -123,32 +144,34 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
     public void testSeveralRowsWithRefreshPreviousNext() {
         this.treePrintAndCheck(
             this.createComponent()
-                .setSet(
-                    PluginSet.with(
-                        SortedSets.of(
-                            this.plugin(
-                                "TestPlugin111",
-                                "filename111.jar",
-                                "user111@example.com",
-                                "2000-01-01T12:58:59"
-                            ),
-                            this.plugin(
-                                "TestPlugin222",
-                                "filename222.jar",
-                                "user222@example.com",
-                                "2000-01-02T12:58:59"
-                            ),
-                            this.plugin(
-                                "TestPlugin333",
-                                "filename333.jar",
-                                "user333@example.com",
-                                "2000-03-03T12:58:59"
-                            ),
-                            this.plugin(
-                                "TestPlugin444",
-                                "filename444.jar",
-                                "user444@example.com",
-                                "2000-04-04T12:58:59"
+                .setValue(
+                    Optional.of(
+                        PluginSet.with(
+                            SortedSets.of(
+                                this.plugin(
+                                    "TestPlugin111",
+                                    "filename111.jar",
+                                    "user111@example.com",
+                                    "2000-01-01T12:58:59"
+                                ),
+                                this.plugin(
+                                    "TestPlugin222",
+                                    "filename222.jar",
+                                    "user222@example.com",
+                                    "2000-01-02T12:58:59"
+                                ),
+                                this.plugin(
+                                    "TestPlugin333",
+                                    "filename333.jar",
+                                    "user333@example.com",
+                                    "2000-03-03T12:58:59"
+                                ),
+                                this.plugin(
+                                    "TestPlugin444",
+                                    "filename444.jar",
+                                    "user444@example.com",
+                                    "2000-04-04T12:58:59"
+                                )
                             )
                         )
                     )
@@ -236,7 +259,8 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
         );
     }
 
-    private PluginSetTableComponent createComponent() {
+    @Override
+    public PluginSetTableComponent createComponent() {
         return PluginSetTableComponent.empty(
             ID_PREFIX,
             context()

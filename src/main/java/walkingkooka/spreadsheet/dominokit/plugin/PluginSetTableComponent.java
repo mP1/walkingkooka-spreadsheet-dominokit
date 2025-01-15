@@ -35,11 +35,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.TreeSet;
 
 /**
  * A table that lists all the entries from a {@link PluginSet}.
  */
-final class PluginSetTableComponent implements TableComponent<PluginSetTableComponent> {
+final class PluginSetTableComponent implements TableComponent<HTMLDivElement, PluginSet, PluginSetTableComponent> {
 
     /**
      * Creates an empty {@link PluginSetTableComponent}.
@@ -56,7 +57,7 @@ final class PluginSetTableComponent implements TableComponent<PluginSetTableComp
                                     final PluginSetTableComponentContext context) {
         this.card = SpreadsheetCard.empty();
 
-        this.table = SpreadsheetDataTableComponent.with(
+        this.dataTable = SpreadsheetDataTableComponent.with(
             id,
             columnConfigs(),
             PluginSetTableComponentSpreadsheetDataTableComponentCellRenderer.with(
@@ -69,7 +70,7 @@ final class PluginSetTableComponent implements TableComponent<PluginSetTableComp
         );
 
         this.card.appendChild(
-            this.table.previousNextLinks(id)
+            this.dataTable.previousNextLinks(id)
         );
     }
 
@@ -116,19 +117,31 @@ final class PluginSetTableComponent implements TableComponent<PluginSetTableComp
             );
     }
 
-    private final SpreadsheetDataTableComponent<Plugin> table;
+    private final SpreadsheetDataTableComponent<Plugin> dataTable;
 
-    PluginSetTableComponent setSet(final PluginSet set) {
-        this.table.setValue(
-            Optional.of(
-                new ArrayList<>(set)
-            )
+    @Override
+    public PluginSetTableComponent focus() {
+        this.dataTable.focus();
+        return this;
+    }
+
+
+    @Override
+    public Optional<PluginSet> value() {
+        return this.dataTable.value()
+            .map(v -> PluginSet.with(new TreeSet<>(v)));
+    }
+
+    @Override
+    public PluginSetTableComponent setValue(final Optional<PluginSet> set) {
+        this.dataTable.setValue(
+            set.map(ArrayList::new)
         );
         return this;
     }
 
     PluginSetTableComponent refresh(final PluginListHistoryToken historyToken) {
-        this.table.refreshPreviousNextLinks(
+        this.dataTable.refreshPreviousNextLinks(
             historyToken,
             DEFAULT_COUNT
         );
