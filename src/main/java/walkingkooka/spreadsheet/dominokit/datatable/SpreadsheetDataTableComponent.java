@@ -42,7 +42,7 @@ import java.util.Optional;
 /**
  * A {@link FormValueComponent} wrapper around a {@link DataTable}.
  */
-public final class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableComponentLike<T> {
+public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTableComponentLike<T> {
 
     public static <T> SpreadsheetDataTableComponent<T> with(final String id,
                                                             final List<ColumnConfig<T>> columnConfigs,
