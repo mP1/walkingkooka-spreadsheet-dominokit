@@ -92,8 +92,6 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
     public void refresh(final AS aliases, // value from SpreadsheetMetadata
                         final AS providerAliases, // list of available aliases from provider
                         final AddPluginAliasSetLikeComponentContext context) {
-        this.root.hide();
-
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
         int i = 0;
 
