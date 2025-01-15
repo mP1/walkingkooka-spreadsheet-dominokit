@@ -30,7 +30,7 @@ import java.util.Optional;
 /**
  * Creates a {@link PluginDeleteAnchorComponent}.
  */
-public final class PluginDeleteAnchorComponent implements AnchorComponentLikeDelegator<PluginDeleteAnchorComponent> {
+public final class PluginDeleteAnchorComponent implements AnchorComponentLikeDelegator<PluginDeleteAnchorComponent, PluginName> {
 
     public static PluginDeleteAnchorComponent empty(final String id) {
         return new PluginDeleteAnchorComponent()
@@ -60,22 +60,22 @@ public final class PluginDeleteAnchorComponent implements AnchorComponentLikeDel
         );
     }
 
+    @Override
+    public Optional<PluginName> value() {
+        return this.component.value();
+    }
+
+    @Override
+    public PluginDeleteAnchorComponent setValue(final Optional<PluginName> value) {
+        this.component.setValue(value);
+        return this;
+    }
+
     // AnchorComponentLikeDelegator......................................................................................
 
     @Override
-    public AnchorComponentLike<?> anchorComponentLike() {
+    public AnchorComponentLike<?, PluginName> anchorComponentLike() {
         return this.component;
-    }
-
-    // HtmlElementComponent.............................................................................................
-
-    /**
-     * Setter that updates the wrapped anchor with the {@link PluginName}.
-     */
-    public PluginDeleteAnchorComponent setValue(final Optional<PluginName> value) {
-        this.component.setValue(value);
-
-        return this;
     }
 
     // @VisibleForTesting

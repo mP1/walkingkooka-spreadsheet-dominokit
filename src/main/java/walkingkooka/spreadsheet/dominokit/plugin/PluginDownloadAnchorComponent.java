@@ -31,7 +31,7 @@ import java.util.Optional;
 /**
  * An anchor that uses given {@link PluginName} and {@link JarEntryInfoName} to set the HREF to download the plugin archive or a file within.
  */
-public final class PluginDownloadAnchorComponent implements AnchorComponentLikeDelegator<PluginDownloadAnchorComponent> {
+public final class PluginDownloadAnchorComponent implements AnchorComponentLikeDelegator<PluginDownloadAnchorComponent, PluginDownload> {
 
     public static PluginDownloadAnchorComponent empty(final String id) {
         return new PluginDownloadAnchorComponent()
@@ -73,22 +73,22 @@ public final class PluginDownloadAnchorComponent implements AnchorComponentLikeD
         );
     }
 
+    @Override
+    public PluginDownloadAnchorComponent setValue(final Optional<PluginDownload> value) {
+        this.component.setValue(value);
+        return this;
+    }
+
+    @Override
+    public Optional<PluginDownload> value() {
+        return this.component.value();
+    }
+
     // AnchorComponentLikeDelegator......................................................................................
 
     @Override
-    public AnchorComponentLike<?> anchorComponentLike() {
+    public AnchorComponentLike<?, PluginDownload> anchorComponentLike() {
         return this.component;
-    }
-
-    // HtmlElementComponent.............................................................................................
-
-    /**
-     * Setter that updates the wrapped anchor with the new plugin name and filename.
-     */
-    public PluginDownloadAnchorComponent setValue(final Optional<PluginDownload> value) {
-        this.component.setValue(value);
-
-        return this;
     }
 
     private final ValueHistoryTokenAnchorComponent<PluginDownload> component;

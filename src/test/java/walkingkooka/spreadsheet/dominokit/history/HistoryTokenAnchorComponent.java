@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
@@ -204,6 +205,11 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     // events..........................................................................................................
 
     @Override
+    public HistoryTokenAnchorComponent addChangeListener(ChangeListener<Optional<HistoryToken>> listener) {
+        return this;
+    }
+
+    @Override
     public HistoryTokenAnchorComponent addClickListener(final EventListener listener) {
         return this;
     }
@@ -215,6 +221,11 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     @Override
     public HistoryTokenAnchorComponent addKeydownListener(final EventListener listener) {
+        return this;
+    }
+
+    @Override
+    public HistoryTokenAnchorComponent addKeyupListener(final EventListener listener) {
         return this;
     }
 

@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeTesting;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 import java.util.Optional;
 
-public final class PluginDownloadAnchorComponentTest implements HtmlElementComponentTesting<PluginDownloadAnchorComponent, HTMLAnchorElement> {
+public final class PluginDownloadAnchorComponentTest implements AnchorComponentLikeTesting<PluginDownloadAnchorComponent, PluginDownload> {
 
     @Test
     public void testClearValue() {
@@ -71,6 +70,11 @@ public final class PluginDownloadAnchorComponentTest implements HtmlElementCompo
                 ),
             "\"Download789!\" [/api/plugin/PluginName789/download/META-INF/MANIFEST.MF] id=Download789"
         );
+    }
+
+    @Override
+    public PluginDownloadAnchorComponent createComponent() {
+        return PluginDownloadAnchorComponent.empty("Test999");
     }
 
     // class............................................................................................................

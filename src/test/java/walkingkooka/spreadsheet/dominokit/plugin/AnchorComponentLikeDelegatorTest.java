@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.AnchorComponentLikeDelegatorTest.TestAnchorComponentLikeDelegator;
 
+import java.util.Optional;
+
 public final class AnchorComponentLikeDelegatorTest implements ClassTesting<TestAnchorComponentLikeDelegator> {
 
     @Override
@@ -43,10 +45,20 @@ public final class AnchorComponentLikeDelegatorTest implements ClassTesting<Test
         return JavaVisibility.PACKAGE_PRIVATE;
     }
 
-    final static class TestAnchorComponentLikeDelegator implements AnchorComponentLikeDelegator<TestAnchorComponentLikeDelegator> {
+    final static class TestAnchorComponentLikeDelegator implements AnchorComponentLikeDelegator<TestAnchorComponentLikeDelegator, Void> {
 
         @Override
-        public AnchorComponentLike<?> anchorComponentLike() {
+        public TestAnchorComponentLikeDelegator setValue(final Optional<Void> value) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public Optional<Void> value() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public AnchorComponentLike<?, ?> anchorComponentLike() {
             return HistoryTokenAnchorComponent.empty();
         }
     }

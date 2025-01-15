@@ -17,12 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentLikeTesting;
 
-public final class PluginUploadSelectAnchorComponentTest implements HtmlElementComponentTesting<PluginUploadSelectAnchorComponent, HTMLAnchorElement> {
+import java.util.Optional;
+
+public final class PluginUploadSelectAnchorComponentTest implements AnchorComponentLikeTesting<PluginUploadSelectAnchorComponent, Boolean> {
 
     @Test
     public void testSetIdSetTextContent() {
@@ -51,6 +52,47 @@ public final class PluginUploadSelectAnchorComponentTest implements HtmlElementC
                 .setDisabled(true),
             "\"Upload123!\" DISABLED id=Upload123"
         );
+    }
+
+    @Test
+    public void testSetValueWithTrue() {
+        this.treePrintAndCheck(
+            PluginUploadSelectAnchorComponent.empty("Upload123")
+                .setTextContent("Upload123!")
+                .setValue(
+                    Optional.of(true)
+                ),
+            "\"Upload123!\" DISABLED id=Upload123"
+        );
+    }
+
+
+    @Test
+    public void testSetValueWithFalse() {
+        this.treePrintAndCheck(
+            PluginUploadSelectAnchorComponent.empty("Upload123")
+                .setTextContent("Upload123!")
+                .setValue(
+                    Optional.of(false)
+                ),
+            "\"Upload123!\" [#/plugin-upload] id=Upload123"
+        );
+    }
+
+
+    @Test
+    public void testClearValue() {
+        this.treePrintAndCheck(
+            PluginUploadSelectAnchorComponent.empty("Upload123")
+                .setTextContent("Upload123!")
+                .clearValue(),
+            "\"Upload123!\" [#/plugin-upload] id=Upload123"
+        );
+    }
+
+    @Override
+    public PluginUploadSelectAnchorComponent createComponent() {
+        return PluginUploadSelectAnchorComponent.empty("Test999");
     }
 
     // class............................................................................................................
