@@ -82,43 +82,42 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
 
     @Override
     public SpreadsheetIntegerBox addClickListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.integerBox.addEventListener(
+        return this.addEventListener(
             EventType.click,
             listener
         );
-        return this;
     }
 
     @Override
     public SpreadsheetIntegerBox addFocusListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-        this.integerBox.getInputElement()
-            .addEventListener(
-                EventType.focus,
-                listener::handleEvent
-            );
-        return this;
+        return this.addEventListener(
+            EventType.focus,
+            listener
+        );
     }
 
     @Override
     public SpreadsheetIntegerBox addKeydownListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.integerBox.addEventListener(
+        return this.addEventListener(
             EventType.keydown,
             listener
         );
-        return this;
     }
 
     @Override
     public SpreadsheetIntegerBox addKeyupListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.keyup,
+            listener
+        );
+    }
+
+    private SpreadsheetIntegerBox addEventListener(final EventType eventType,
+                                                final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.integerBox.addEventListener(
-            EventType.keyup,
+            eventType,
             listener
         );
         return this;
