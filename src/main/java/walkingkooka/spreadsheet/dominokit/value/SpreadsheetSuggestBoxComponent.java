@@ -276,39 +276,42 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> addClickListener(final EventListener listener) {
-        this.suggestBox.addEventListener(
+        return this.addEventListener(
             EventType.click,
             listener
         );
-        return this;
     }
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> addFocusListener(final EventListener listener) {
-        this.suggestBox.addEventListener(
+        return this.addEventListener(
             EventType.focus,
             listener
         );
-        return this;
     }
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> addKeydownListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.suggestBox.addEventListener(
+        return this.addEventListener(
             EventType.keydown,
             listener
         );
-        return this;
     }
 
     @Override
     public SpreadsheetSuggestBoxComponent<T> addKeyupListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.keyup,
+            listener
+        );
+    }
+
+    private SpreadsheetSuggestBoxComponent<T> addEventListener(final EventType eventType,
+                                                final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
         this.suggestBox.addEventListener(
-            EventType.keyup,
+            eventType,
             listener
         );
         return this;
