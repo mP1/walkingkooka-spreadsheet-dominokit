@@ -69,7 +69,6 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                User\n" +
                 "                Timestamp\n" +
                 "                Links\n" +
-                "              ROW(S)\n" +
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
@@ -111,7 +110,6 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                User\n" +
                 "                Timestamp\n" +
                 "                Links\n" +
-                "              ROW(S)\n" +
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
@@ -237,7 +235,6 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                User\n" +
                 "                Timestamp\n" +
                 "                Links\n" +
-                "              ROW(S)\n" +
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +

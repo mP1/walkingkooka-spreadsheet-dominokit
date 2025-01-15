@@ -90,7 +90,6 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Tab
                 "      Formula\n" +
                 "      Formatted\n" +
                 "      Value\n" +
-                "    ROW(S)\n" +
                 "    PLUGINS\n" +
                 "      BodyScrollPlugin\n"
         );
