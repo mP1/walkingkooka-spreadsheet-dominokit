@@ -36,8 +36,8 @@ import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 import java.util.Optional;
-import java.util.SortedSet;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * A component that contains a card filled with links of {@link PluginAliasLike}.
@@ -102,16 +102,11 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
         AS filtered;
 
         if (null != filter) {
-
-            SortedSet<A> a = SortedSets.tree();
-
-            for (final A providerAlias : providerAliases) {
-                if (filter.test(providerAlias.name().text())) {
-                    a.add(providerAlias);
-                }
-            }
-
-            filtered = providerAliases.setElements(a);
+            filtered = providerAliases.setElements(
+                providerAliases.stream()
+                    .filter(a -> filter.test(a.name().text()))
+                    .collect(Collectors.toCollection(SortedSets::tree))
+            );
         } else {
             filtered = providerAliases;
         }
