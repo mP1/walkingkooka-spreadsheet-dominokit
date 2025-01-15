@@ -97,13 +97,15 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
 
     @Override
     default C hideMarginBottom() {
-        this.hideMarginBottom();
+        this.valueComponent()
+            .hideMarginBottom();
         return (C) this;
     }
 
     @Override
     default C removeBorders() {
-        this.removeBorders();
+        this.valueComponent()
+            .removeBorders();
         return (C) this;
     }
 
