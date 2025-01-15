@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.List;
+import java.util.Optional;
 
 public final class SpreadsheetFormatterTableComponentTest implements TableComponentTesting<SpreadsheetFormatterTableComponent>,
     SpreadsheetMetadataTesting {
@@ -102,8 +103,16 @@ public final class SpreadsheetFormatterTableComponentTest implements TableCompon
         final SpreadsheetFormatterTableComponent component = SpreadsheetFormatterTableComponent.empty(
             "id123-"
         );
+
+        component.setValue(
+            Optional.ofNullable(
+                samples.isEmpty() ?
+                    null :
+                    samples
+            )
+        );
+
         component.refresh(
-            samples,
             new FakeSpreadsheetFormatterTableComponentContext() {
                 @Override
                 public HistoryToken historyToken() {

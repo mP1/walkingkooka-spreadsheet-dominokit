@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.dominokit.patternkind.SpreadsheetPatternKindTabs
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.format.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPatternKind;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
@@ -50,6 +51,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorTokenAlternative
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.text.CharSequences;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -260,8 +262,15 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
         this.parserName = edit.selector()
             .map(SpreadsheetParserSelector::name);
 
+        final List<SpreadsheetFormatterSample> samples = edit.samples();
+        this.table.setValue(
+            Optional.ofNullable(
+                samples.isEmpty() ?
+                    null :
+                    samples
+            )
+        );
         this.table.refresh(
-            edit.samples(),
             SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableComponentContext.with(
                 edit.selector()
                     .orElse(null),
