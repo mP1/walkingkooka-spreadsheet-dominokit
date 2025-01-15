@@ -243,7 +243,7 @@ public interface SpreadsheetDataTableComponentLike<T> extends ValueComponent<HTM
             }
 
             final Optional<List<T>> maybeValues = this.value();
-            if (maybeValues.isPresent()) {
+            if (maybeValues.map(v -> v.size() > 0).orElse(false)) {
                 printer.println("ROW(S)");
                 printer.indent();
                 {

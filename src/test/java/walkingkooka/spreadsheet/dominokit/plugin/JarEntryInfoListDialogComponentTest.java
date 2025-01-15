@@ -64,7 +64,6 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "                Created\n" +
                 "                Last modified by\n" +
                 "                Links\n" +
-                "              ROW(S)\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                 "      SpreadsheetFlexLayout\n" +
@@ -104,7 +103,6 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "                Created\n" +
                 "                Last modified by\n" +
                 "                Links\n" +
-                "              ROW(S)\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                 "      SpreadsheetFlexLayout\n" +
@@ -143,7 +141,6 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "                Created\n" +
                 "                Last modified by\n" +
                 "                Links\n" +
-                "              ROW(S)\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                 "      SpreadsheetFlexLayout\n" +
@@ -184,7 +181,6 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "                Created\n" +
                 "                Last modified by\n" +
                 "                Links\n" +
-                "              ROW(S)\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                 "      SpreadsheetFlexLayout\n" +
@@ -296,7 +292,6 @@ public final class JarEntryInfoListDialogComponentTest implements SpreadsheetDia
                 "                Created\n" +
                 "                Last modified by\n" +
                 "                Links\n" +
-                "              ROW(S)\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n" +
                 "      SpreadsheetFlexLayout\n" +
