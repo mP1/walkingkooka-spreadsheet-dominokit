@@ -44,20 +44,23 @@ import java.util.OptionalInt;
 /**
  * A {@link FormValueComponent} wrapper around a {@link DataTable}.
  */
-public interface SpreadsheetDataTableComponentLike<T> extends TableComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponent<T>>,
-    ComponentWithChildren<SpreadsheetDataTableComponent<T>, HTMLDivElement>,
-    TreePrintable {
+abstract class SpreadsheetDataTableComponentLike<T> implements TableComponent<HTMLDivElement, List<T>, SpreadsheetDataTableComponent<T>>,
+    ComponentWithChildren<SpreadsheetDataTableComponent<T>, HTMLDivElement> {
+
+    SpreadsheetDataTableComponentLike() {
+        super();
+    }
 
     @Override
-    default SpreadsheetDataTableComponent<T> focus() {
+    public final SpreadsheetDataTableComponent<T> focus() {
         return (SpreadsheetDataTableComponent<T>)this;
     }
 
     // prev/next links..................................................................................................
 
-    SpreadsheetDataTableComponent<T> previousNextLinks(final String idPrefix);
+    public abstract SpreadsheetDataTableComponent<T> previousNextLinks(final String idPrefix);
 
-    default HistoryTokenAnchorComponent previous(final String idPrefix) {
+    final HistoryTokenAnchorComponent previous(final String idPrefix) {
         return HistoryTokenAnchorComponent.empty()
             .setId(idPrefix + "previous" + SpreadsheetElementIds.LINK)
             .setTextContent("previous")
@@ -68,7 +71,7 @@ public interface SpreadsheetDataTableComponentLike<T> extends TableComponent<HTM
             );
     }
 
-    default HistoryTokenAnchorComponent next(final String idPrefix) {
+    final HistoryTokenAnchorComponent next(final String idPrefix) {
         return HistoryTokenAnchorComponent.empty()
             .setId(idPrefix + "next" + SpreadsheetElementIds.LINK)
             .setTextContent("next")
@@ -79,16 +82,16 @@ public interface SpreadsheetDataTableComponentLike<T> extends TableComponent<HTM
             );
     }
 
-    SpreadsheetDataTableComponent<T> setPrevious(final Optional<HistoryToken> historyToken);
+    public abstract SpreadsheetDataTableComponent<T> setPrevious(final Optional<HistoryToken> historyToken);
 
-    SpreadsheetDataTableComponent<T> setNext(final Optional<HistoryToken> historyToken);
+    public abstract SpreadsheetDataTableComponent<T> setNext(final Optional<HistoryToken> historyToken);
 
     /**
      * Updates the previous and next links using the history token to fetch the offset and count.
      * Note the next link will include the last row of the current view, and the previous link will include the first row of the current view.
      */
-    default SpreadsheetDataTableComponent<T> refreshPreviousNextLinks(final HistoryToken historyToken,
-                                                                      final int defaultCount) {
+    public final SpreadsheetDataTableComponent<T> refreshPreviousNextLinks(final HistoryToken historyToken,
+                                                                           final int defaultCount) {
         final int offset = historyToken.offset()
             .orElse(0);
         final int count = historyToken.count()
@@ -130,14 +133,14 @@ public interface SpreadsheetDataTableComponentLike<T> extends TableComponent<HTM
 
     // header...........................................................................................................
 
-    SpreadsheetDataTableComponent<T> hideHeaders();
+    public abstract SpreadsheetDataTableComponent<T> hideHeaders();
 
     // plugins..........................................................................................................
 
     /**
      * Registers the {@link org.dominokit.domino.ui.datatable.plugins.pagination.BodyScrollPlugin}
      */
-    SpreadsheetDataTableComponent<T> bodyScrollPlugin();
+    public abstract SpreadsheetDataTableComponent<T> bodyScrollPlugin();
 
     /**
      * Prepares text for the {@link BodyScrollPlugin} which will be printed by {@link #printTreeTable(List, boolean, SpreadsheetDataTableComponentCellRenderer, List, IndentingPrinter)}.
@@ -149,8 +152,8 @@ public interface SpreadsheetDataTableComponentLike<T> extends TableComponent<HTM
     /**
      * Registers a plugin which will display an ICON and the given TITLE when the table is empty.
      */
-    SpreadsheetDataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
-                                                      final String title);
+    public abstract SpreadsheetDataTableComponent<T> emptyStatePlugin(final Icon<?> icon,
+                                                                      final String title);
 
     /**
      * Prepares text for the {@link EmptyStatePlugin} which will be printed by {@link #printTreeTable(List, boolean, SpreadsheetDataTableComponentCellRenderer, List, IndentingPrinter)}.
@@ -169,17 +172,17 @@ public interface SpreadsheetDataTableComponentLike<T> extends TableComponent<HTM
      * A table is never empty, best to show columns or any empty state plugin etc even when there are no rows.
      */
     @Override
-    default boolean isEmpty() {
+    public final boolean isEmpty() {
         return false == this.value().isPresent();
     }
 
     // TreePrintable....................................................................................................
 
-    default void printTreeTable(final List<ColumnConfig<T>> columnConfigs,
-                                final boolean headersHidden,
-                                final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer,
-                                final List<String> plugins,
-                                final IndentingPrinter printer) {
+    final void printTreeTable(final List<ColumnConfig<T>> columnConfigs,
+                              final boolean headersHidden,
+                              final SpreadsheetDataTableComponentCellRenderer<T> cellRenderer,
+                              final List<String> plugins,
+                              final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {

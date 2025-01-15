@@ -33,8 +33,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-public class SpreadsheetDataTableComponent<T> implements SpreadsheetDataTableComponentLike<T>,
-    TestHtmlElementComponent<HTMLDivElement, SpreadsheetDataTableComponent<T>> {
+public class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTableComponentLike<T>
+    implements TestHtmlElementComponent<HTMLDivElement, SpreadsheetDataTableComponent<T>> {
 
     public static <T> SpreadsheetDataTableComponent<T> with(final String id,
                                                             final List<ColumnConfig<T>> columnConfigs,
