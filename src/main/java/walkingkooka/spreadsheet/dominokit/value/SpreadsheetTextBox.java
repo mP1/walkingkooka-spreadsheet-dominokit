@@ -132,10 +132,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
     }
 
     public SpreadsheetTextBox enterFiresValueChange() {
-        final TextBox textBox = this.textBox;
-
-        textBox.addEventListener(
-            EventType.keydown.getName(),
+        return this.addKeydownListener(
             (final Event event) -> {
                 final KeyboardEvent keyboardEvent = Js.cast(event);
                 switch (Key.fromEvent(keyboardEvent)) {
@@ -152,7 +149,6 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
                 }
             }
         );
-        return this;
     }
 
     public SpreadsheetTextBox magnifyingGlassIcon() {
