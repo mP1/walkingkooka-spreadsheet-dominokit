@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * A very basic attempt at re-creating the old DominoUI 1.x FlexLayout.
  */
-public class SpreadsheetFlexLayout implements SpreadsheetFlexLayoutLike {
+public class SpreadsheetFlexLayout extends SpreadsheetFlexLayoutLike {
 
     private final static CssClass GAP = SpacingCss.dui_gap_1;
 

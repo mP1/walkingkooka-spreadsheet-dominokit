@@ -24,30 +24,34 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
 /**
- * Defines the public API for {@link SpreadsheetFlexLayout}. Used to keep the main/text versions in sync.
+ * Defines the public API for {@link SpreadsheetFlexLayout}. Used to keep the main/test versions in sync.
  */
-public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout>,
+abstract class SpreadsheetFlexLayoutLike implements HtmlElementComponent<HTMLDivElement, SpreadsheetFlexLayout>,
     ComponentWithChildren<SpreadsheetFlexLayout, HTMLDivElement> {
 
-    SpreadsheetFlexLayout setId(final String id);
+    SpreadsheetFlexLayoutLike() {
+        super();
+    }
 
-    String id();
+    abstract public SpreadsheetFlexLayout setId(final String id);
+
+    abstract public String id();
 
     /**
      * Returns true if this flex is COLUMN otherwise returns false for ROW.
      */
-    boolean isColumn();
+    public abstract boolean isColumn();
 
     /**
      * Sets the style property display to block. Normally a {@link SpreadsheetFlexLayout} display=flex with a few additional
      * flex properties.
      */
-    SpreadsheetFlexLayout displayBlock();
+    public abstract SpreadsheetFlexLayout displayBlock();
 
     // CanBeEmpty.......................................................................................................
 
     @Override
-    default boolean isEmpty() {
+    public final boolean isEmpty() {
         return this.isEmptyIfChildrenAreEmpty();
     }
 
@@ -61,7 +65,7 @@ public interface SpreadsheetFlexLayoutLike extends HtmlElementComponent<HTMLDivE
     //      SpreadsheetTextBox
     //        [Value222]
     @Override
-    default void printTree(final IndentingPrinter printer) {
+    public final void printTree(final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
