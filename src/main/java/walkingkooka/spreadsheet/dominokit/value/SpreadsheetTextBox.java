@@ -99,10 +99,11 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
                                                 final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
 
-        this.textBox.addEventListener(
-            eventType,
-            listener
-        );
+        this.textBox.getInputElement()
+            .addEventListener(
+                eventType,
+                listener
+            );
         return this;
     }
 
