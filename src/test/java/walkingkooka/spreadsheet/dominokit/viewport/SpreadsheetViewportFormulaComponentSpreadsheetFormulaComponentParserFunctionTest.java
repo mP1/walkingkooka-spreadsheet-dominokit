@@ -94,7 +94,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             SpreadsheetFormula.EMPTY.setText(text)
                 .setValue(
                     Optional.of(
-                        SpreadsheetErrorKind.ERROR.setMessage("End of text at (4,1) expected BINARY_SUB_EXPRESSION")
+                        SpreadsheetErrorKind.ERROR.setMessage("End of text at (4,1) expected (LAMBDA_FUNCTION | NAMED_FUNCTION | SPREADSHEETLABELNAME | (CELL, [WHITESPACE], ':', [WHITESPACE], CELL) | CELL | GROUP | NEGATIVE | \"#.#E+#;#.#%;#.#;#%;#\" | TEXT | (\"#NULL!\" | \"#DIV/0!\" | \"#VALUE!\" | \"#REF!\" | \"#NAME?\" | \"#NAME?\" | \"#NUM!\" | \"#N/A\" | \"#ERROR\" | \"#SPILL!\" | \"#CALC!\"))")
                     )
                 )
         );
@@ -122,7 +122,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                     METADATA
                 )
             ),
-            "31/12/2023"
+            "2023/12/31"
         );
     }
 
@@ -135,7 +135,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                     METADATA
                 )
             ),
-            "31/12/2023, 12:58:59 AM"
+            "2023/12/31 12:58"
         );
     }
 
