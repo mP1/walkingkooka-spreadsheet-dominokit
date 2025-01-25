@@ -94,9 +94,11 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
             SpreadsheetFormula.EMPTY.setText(text)
                 .setValue(
                     Optional.of(
-                        SpreadsheetErrorKind.ERROR.setMessage("End of text at (4,1) expected (LAMBDA_FUNCTION | NAMED_FUNCTION | LABEL | (CELL, [WHITESPACE], \":\", [WHITESPACE], CELL) | CELL | GROUP | NEGATIVE | \"#.#E+#;#.#%;#.#;#%;#\" | TEXT | (\"#NULL!\" | \"#DIV/0!\" | \"#VALUE!\" | \"#REF!\" | \"#NAME?\" | \"#NAME?\" | \"#NUM!\" | \"#N/A\" | \"#ERROR\" | \"#SPILL!\" | \"#CALC!\"))")
-                    )
+                        SpreadsheetErrorKind.ERROR.setMessage(
+                            "End of text at (4,1) expected LAMBDA_FUNCTION | NAMED_FUNCTION | LABEL | CELL, [WHITESPACE], \":\", [WHITESPACE], CELL | CELL | GROUP | NEGATIVE | \"#.#E+#;#.#%;#.#;#%;#\" | TEXT | \"#NULL!\" | \"#DIV/0!\" | \"#VALUE!\" | \"#REF!\" | \"#NAME?\" | \"#NAME?\" | \"#NUM!\" | \"#N/A\" | \"#ERROR\" | \"#SPILL!\" | \"#CALC!\""
+                        )
                 )
+            )
         );
     }
 
