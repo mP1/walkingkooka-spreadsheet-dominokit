@@ -22,11 +22,11 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightParserToken;
+import walkingkooka.spreadsheet.parser.ConditionRightSpreadsheetParserToken;
 
 import java.util.Optional;
 
-public final class SpreadsheetConditionRightParserTokenComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetConditionRightParserToken, SpreadsheetConditionRightParserTokenComponent>,
+public final class ConditionRightSpreadsheetParserTokenComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ConditionRightSpreadsheetParserToken, ConditionRightSpreadsheetParserTokenComponent>,
     SpreadsheetMetadataTesting {
 
     @Test
@@ -38,7 +38,7 @@ public final class SpreadsheetConditionRightParserTokenComponentTest implements 
                         "< 123"
                     )
                 ),
-            "SpreadsheetConditionRightParserTokenComponent\n" +
+            "ConditionRightSpreadsheetParserTokenComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [< 123]\n"
@@ -54,7 +54,7 @@ public final class SpreadsheetConditionRightParserTokenComponentTest implements 
                         "1+2"
                     )
                 ),
-            "SpreadsheetConditionRightParserTokenComponent\n" +
+            "ConditionRightSpreadsheetParserTokenComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [1+2]\n" +
@@ -66,8 +66,8 @@ public final class SpreadsheetConditionRightParserTokenComponentTest implements 
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetConditionRightParserTokenComponent createComponent() {
-        return SpreadsheetConditionRightParserTokenComponent.empty(
+    public ConditionRightSpreadsheetParserTokenComponent createComponent() {
+        return ConditionRightSpreadsheetParserTokenComponent.empty(
             () -> SPREADSHEET_PARSER_CONTEXT
         );
     }
@@ -75,8 +75,8 @@ public final class SpreadsheetConditionRightParserTokenComponentTest implements 
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetConditionRightParserTokenComponent> type() {
-        return SpreadsheetConditionRightParserTokenComponent.class;
+    public Class<ConditionRightSpreadsheetParserTokenComponent> type() {
+        return ConditionRightSpreadsheetParserTokenComponent.class;
     }
 
     @Override

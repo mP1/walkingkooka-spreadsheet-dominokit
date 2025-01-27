@@ -24,9 +24,9 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.expression.SpreadsheetFunctionName;
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
-import walkingkooka.spreadsheet.parser.SpreadsheetConditionParserToken;
-import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightParserToken;
-import walkingkooka.spreadsheet.parser.SpreadsheetFunctionParserToken;
+import walkingkooka.spreadsheet.parser.ConditionRightSpreadsheetParserToken;
+import walkingkooka.spreadsheet.parser.ConditionSpreadsheetParserToken;
+import walkingkooka.spreadsheet.parser.FunctionSpreadsheetParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserToken;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.parser.ParserToken;
@@ -51,7 +51,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
                                               final Optional<TextMatch> formatter,
                                               final Optional<TextMatch> parser,
                                               final Optional<TextMatch> style,
-                                              final Optional<SpreadsheetConditionRightParserToken> value,
+                                              final Optional<ConditionRightSpreadsheetParserToken> value,
                                               final Optional<TextMatch> formattedValue) {
         ParserToken token = query.map(
             q -> q.parserToken()
@@ -240,7 +240,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
      * Attempts to replace an old cellValue call with a new or updates the expression with an OR.
      */
     private static ParserToken replaceCellValueOr(final ParserToken old,
-                                                  final Optional<SpreadsheetConditionRightParserToken> conditionRight,
+                                                  final Optional<ConditionRightSpreadsheetParserToken> conditionRight,
                                                   final List<SpreadsheetParserToken> or) {
         return replaceCellValueOr0(
             old,
@@ -250,7 +250,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
     }
 
     private static ParserToken replaceCellValueOr0(final ParserToken old,
-                                                   final SpreadsheetConditionRightParserToken conditionRight,
+                                                   final ConditionRightSpreadsheetParserToken conditionRight,
                                                    final List<SpreadsheetParserToken> or) {
         ParserToken token = old;
         if (null == old) {
@@ -294,7 +294,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
      * cellValue() < 10
      * </pre>
      */
-    private static SpreadsheetConditionParserToken cellValue(final SpreadsheetConditionRightParserToken conditionRight) {
+    private static ConditionSpreadsheetParserToken cellValue(final ConditionRightSpreadsheetParserToken conditionRight) {
         return conditionRight.setConditionLeft(
             CELL_VALUE_FUNCTION
         );
@@ -323,7 +323,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
         "()"
     );
 
-    private final static SpreadsheetFunctionParserToken CELL_VALUE_FUNCTION = SpreadsheetParserToken.namedFunction(
+    private final static FunctionSpreadsheetParserToken CELL_VALUE_FUNCTION = SpreadsheetParserToken.namedFunction(
         Lists.of(
             CELL_VALUE_FUNCTION_NAME,
             EMPTY_PARAMETER_LIST

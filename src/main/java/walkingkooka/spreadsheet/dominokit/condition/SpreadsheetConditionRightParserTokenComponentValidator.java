@@ -28,15 +28,15 @@ import java.util.Optional;
 /**
  * A {@link Validator} that parsers given text into a condition.
  */
-final class SpreadsheetConditionRightParserTokenComponentValidator implements Validator<Optional<String>> {
+final class ConditionRightSpreadsheetParserTokenComponentValidator implements Validator<Optional<String>> {
 
-    static SpreadsheetConditionRightParserTokenComponentValidator with(final SpreadsheetConditionRightParserTokenComponentConditionFunction parser) {
-        return new SpreadsheetConditionRightParserTokenComponentValidator(
+    static ConditionRightSpreadsheetParserTokenComponentValidator with(final ConditionRightSpreadsheetParserTokenComponentConditionFunction parser) {
+        return new ConditionRightSpreadsheetParserTokenComponentValidator(
             Objects.requireNonNull(parser, "parser")
         );
     }
 
-    private SpreadsheetConditionRightParserTokenComponentValidator(final SpreadsheetConditionRightParserTokenComponentConditionFunction parser) {
+    private ConditionRightSpreadsheetParserTokenComponentValidator(final ConditionRightSpreadsheetParserTokenComponentConditionFunction parser) {
         this.parser = parser;
     }
 
@@ -60,7 +60,7 @@ final class SpreadsheetConditionRightParserTokenComponentValidator implements Va
             ValidationResult.invalid(message);
     }
 
-    private final SpreadsheetConditionRightParserTokenComponentConditionFunction parser;
+    private final ConditionRightSpreadsheetParserTokenComponentConditionFunction parser;
 
     @Override
     public String toString() {

@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
-import walkingkooka.spreadsheet.parser.SpreadsheetNamedFunctionParserToken;
+import walkingkooka.spreadsheet.parser.NamedFunctionSpreadsheetParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserToken;
 import walkingkooka.text.cursor.parser.ParserToken;
 import walkingkooka.tree.expression.ExpressionFunctionName;
@@ -63,7 +63,7 @@ final class SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredi
             final SpreadsheetParserToken spreadsheetParserToken = token.cast(SpreadsheetParserToken.class);
 
             if (spreadsheetParserToken.isNamedFunction()) {
-                final SpreadsheetNamedFunctionParserToken namedFunction = (SpreadsheetNamedFunctionParserToken) spreadsheetParserToken;
+                final NamedFunctionSpreadsheetParserToken namedFunction = (NamedFunctionSpreadsheetParserToken) spreadsheetParserToken;
                 final ExpressionFunctionName functionName = namedFunction.functionName()
                     .toExpressionFunctionName();
 
@@ -96,7 +96,7 @@ final class SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredi
         boolean test = false;
 
         if (token.isNamedFunction()) {
-            final SpreadsheetNamedFunctionParserToken namedFunction = (SpreadsheetNamedFunctionParserToken) token;
+            final NamedFunctionSpreadsheetParserToken namedFunction = (NamedFunctionSpreadsheetParserToken) token;
             final ExpressionFunctionName functionName = namedFunction.functionName()
                 .toExpressionFunctionName();
 

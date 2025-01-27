@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.parser.SpreadsheetConditionRightParserToken;
+import walkingkooka.spreadsheet.parser.ConditionRightSpreadsheetParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursors;
@@ -635,7 +635,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
                     ).parseText(
                         value,
                         SPREADSHEET_PARSER_CONTEXT
-                    ).cast(SpreadsheetConditionRightParserToken.class)
+                    ).cast(ConditionRightSpreadsheetParserToken.class)
             ),
             textMatch(formattedValue),
             expected
@@ -655,7 +655,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
                                final Optional<TextMatch> formatter,
                                final Optional<TextMatch> parser,
                                final Optional<TextMatch> style,
-                               final Optional<SpreadsheetConditionRightParserToken> value,
+                               final Optional<ConditionRightSpreadsheetParserToken> value,
                                final Optional<TextMatch> formattedValue,
                                final String expected) {
         this.checkEquals(
