@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.condition;
 
-import walkingkooka.spreadsheet.parser.ConditionRightSpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.ConditionRightSpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
-import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 
 import java.util.Objects;
 import java.util.function.Function;

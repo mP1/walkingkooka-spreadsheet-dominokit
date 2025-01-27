@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.formula;
 
 import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
-import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 import walkingkooka.text.cursor.TextCursors;
 
 import java.util.Objects;

@@ -22,9 +22,9 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.predicate.PredicateTesting2;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.formula.SpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserToken;
-import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 import walkingkooka.text.cursor.parser.ParserToken;
 
 public final class SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicateTest implements PredicateTesting2<SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate, ParserToken>,
