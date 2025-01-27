@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.formula.ConditionRightEqualsSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.ConditionRightSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParserToken;
-import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.text.Indentation;
@@ -37,10 +37,10 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetParserComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetFormulaParserToken, SpreadsheetParserComponent>,
+public final class SpreadsheetFormulaParserComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetFormulaParserToken, SpreadsheetFormulaParserComponent>,
     SpreadsheetMetadataTesting {
 
-    private final static SpreadsheetParser SPREADSHEET_PARSER = SpreadsheetParsers.conditionRight(
+    private final static SpreadsheetParser SPREADSHEET_PARSER = SpreadsheetFormulaParsers.conditionRight(
         METADATA_EN_AU.spreadsheetParser(
             SPREADSHEET_PARSER_PROVIDER,
             PROVIDER_CONTEXT
@@ -53,7 +53,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
     public void testEmptyNullParserFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetParserComponent.empty(
+            () -> SpreadsheetFormulaParserComponent.empty(
                 null,
                 SPREADSHEET_PARSER_CONTEXT
             )
@@ -64,7 +64,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
     public void testEmptyNullSpreadsheetParserContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetParserComponent.empty(
+            () -> SpreadsheetFormulaParserComponent.empty(
                 SPREADSHEET_PARSER,
                 null
             )
@@ -208,7 +208,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
 
     private void valueAndCheck(final String text,
                                final Optional<ConditionRightSpreadsheetFormulaParserToken> expected) {
-        final SpreadsheetParserComponent component = createComponent()
+        final SpreadsheetFormulaParserComponent component = createComponent()
             .setStringValue(
                 Optional.of(text)
             );
@@ -228,7 +228,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
     public void testTreePrintWithEmptyText() {
         this.treePrintAndCheck(
             this.createComponent(),
-            "SpreadsheetParserComponent\n" +
+            "SpreadsheetFormulaParserComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
                 "    SpreadsheetTextBox\n" +
                 "      []\n" +
@@ -246,7 +246,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
                         "=1+2"
                     )
                 ),
-            "SpreadsheetParserComponent\n" +
+            "SpreadsheetFormulaParserComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [=1+2]\n"
@@ -262,7 +262,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
                         ">3"
                     )
                 ),
-            "SpreadsheetParserComponent\n" +
+            "SpreadsheetFormulaParserComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [>3]\n"
@@ -278,7 +278,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
                         "=\"Hello\""
                     )
                 ),
-            "SpreadsheetParserComponent\n" +
+            "SpreadsheetFormulaParserComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [=\"Hello\"]\n"
@@ -294,7 +294,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
                         "=123.0"
                     )
                 ),
-            "SpreadsheetParserComponent\n" +
+            "SpreadsheetFormulaParserComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [=123.0]\n"
@@ -310,7 +310,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
                         "=1999/12/31"
                     )
                 ),
-            "SpreadsheetParserComponent\n" +
+            "SpreadsheetFormulaParserComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [=1999/12/31]\n"
@@ -326,7 +326,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
                         "=1999/12/31 12:58"
                     )
                 ),
-            "SpreadsheetParserComponent\n" +
+            "SpreadsheetFormulaParserComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [=1999/12/31 12:58]\n"
@@ -342,7 +342,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
                         "=12:58:59"
                     )
                 ),
-            "SpreadsheetParserComponent\n" +
+            "SpreadsheetFormulaParserComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [=12:58:59]\n"
@@ -358,7 +358,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
                         "=1.25+"
                     )
                 ),
-            "SpreadsheetParserComponent\n" +
+            "SpreadsheetFormulaParserComponent\n" +
                 "  ValueSpreadsheetTextBox\n" +
                 "    SpreadsheetTextBox\n" +
                 "      [=1.25+]\n" +
@@ -370,8 +370,8 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetParserComponent createComponent() {
-        return SpreadsheetParserComponent.empty(
+    public SpreadsheetFormulaParserComponent createComponent() {
+        return SpreadsheetFormulaParserComponent.empty(
             SPREADSHEET_PARSER,
             SPREADSHEET_PARSER_CONTEXT
         );
@@ -380,8 +380,8 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetParserComponent> type() {
-        return SpreadsheetParserComponent.class;
+    public Class<SpreadsheetFormulaParserComponent> type() {
+        return SpreadsheetFormulaParserComponent.class;
     }
 
     @Override

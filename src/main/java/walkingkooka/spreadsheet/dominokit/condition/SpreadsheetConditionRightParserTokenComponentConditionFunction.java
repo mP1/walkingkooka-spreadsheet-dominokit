@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.condition;
 
 import walkingkooka.spreadsheet.formula.ConditionRightSpreadsheetFormulaParserToken;
-import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 
 import java.util.Objects;
@@ -42,8 +42,8 @@ final class ConditionRightSpreadsheetFormulaParserTokenComponentConditionFunctio
 
     @Override
     public ConditionRightSpreadsheetFormulaParserToken apply(final String text) {
-        return SpreadsheetParsers.conditionRight(
-            SpreadsheetParsers.expression()
+        return SpreadsheetFormulaParsers.conditionRight(
+            SpreadsheetFormulaParsers.expression()
         ).parseText(
             text,
             this.context.get()

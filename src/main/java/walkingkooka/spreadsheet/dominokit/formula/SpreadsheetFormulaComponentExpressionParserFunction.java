@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.formula;
 
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.text.cursor.TextCursors;
 
@@ -45,7 +45,7 @@ final class SpreadsheetFormulaComponentExpressionParserFunction implements Funct
     public SpreadsheetFormula apply(final String text) {
         return SpreadsheetFormula.parse(
             TextCursors.charSequence(text),
-            SpreadsheetParsers.expression(),
+            SpreadsheetFormulaParsers.expression(),
             this.context.get()
         );
     }

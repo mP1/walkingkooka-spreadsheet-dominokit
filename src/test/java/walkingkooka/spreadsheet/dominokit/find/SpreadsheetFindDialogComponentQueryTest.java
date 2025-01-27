@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
 import walkingkooka.spreadsheet.formula.ConditionRightSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursors;
@@ -630,8 +630,8 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             Optional.ofNullable(
                 CharSequences.isNullOrEmpty(value) ?
                     null :
-                    SpreadsheetParsers.conditionRight(
-                        SpreadsheetParsers.expression()
+                    SpreadsheetFormulaParsers.conditionRight(
+                        SpreadsheetFormulaParsers.expression()
                     ).parseText(
                         value,
                         SPREADSHEET_PARSER_CONTEXT
@@ -696,7 +696,7 @@ public final class SpreadsheetFindDialogComponentQueryTest implements PublicStat
             SpreadsheetFormula.EMPTY :
             SpreadsheetFormula.parse(
                 TextCursors.charSequence(text),
-                SpreadsheetParsers.expression(),
+                SpreadsheetFormulaParsers.expression(),
                 SPREADSHEET_PARSER_CONTEXT
             );
     }
