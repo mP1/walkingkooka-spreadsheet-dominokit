@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
-import walkingkooka.spreadsheet.parser.SpreadsheetConditionParserToken;
-import walkingkooka.spreadsheet.parser.SpreadsheetNamedFunctionParserToken;
+import walkingkooka.spreadsheet.parser.ConditionSpreadsheetParserToken;
+import walkingkooka.spreadsheet.parser.NamedFunctionSpreadsheetParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserToken;
 import walkingkooka.text.cursor.parser.ParserToken;
 import walkingkooka.tree.expression.ExpressionFunctionName;
@@ -53,7 +53,7 @@ final class SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserT
             final SpreadsheetParserToken spreadsheetParserToken = token.cast(SpreadsheetParserToken.class);
 
             if (spreadsheetParserToken.isCondition()) {
-                final SpreadsheetConditionParserToken condition = (SpreadsheetConditionParserToken) spreadsheetParserToken;
+                final ConditionSpreadsheetParserToken condition = (ConditionSpreadsheetParserToken) spreadsheetParserToken;
 
                 test = this.isCellValueFunction(
                     condition.left()
@@ -68,7 +68,7 @@ final class SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserT
         boolean test = false;
 
         if (token.isNamedFunction()) {
-            final SpreadsheetNamedFunctionParserToken namedFunction = (SpreadsheetNamedFunctionParserToken) token;
+            final NamedFunctionSpreadsheetParserToken namedFunction = (NamedFunctionSpreadsheetParserToken) token;
             final ExpressionFunctionName functionName = namedFunction.functionName()
                 .toExpressionFunctionName();
 
