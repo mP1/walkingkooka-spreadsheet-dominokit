@@ -56,12 +56,12 @@ public final class SpreadsheetFormulaComponentTest implements FormValueComponent
                 ).value(),
             "Formula\n" +
                 "  token:\n" +
-                "    AdditionSpreadsheet \"1+2\"\n" +
-                "      NumberSpreadsheet \"1\"\n" +
-                "        DigitsSpreadsheet \"1\" \"1\"\n" +
-                "      PlusSymbolSpreadsheet \"+\" \"+\"\n" +
-                "      NumberSpreadsheet \"2\"\n" +
-                "        DigitsSpreadsheet \"2\" \"2\"\n"
+                "    AdditionSpreadsheetFormula \"1+2\"\n" +
+                "      NumberSpreadsheetFormula \"1\"\n" +
+                "        DigitsSpreadsheetFormula \"1\" \"1\"\n" +
+                "      PlusSymbolSpreadsheetFormula \"+\" \"+\"\n" +
+                "      NumberSpreadsheetFormula \"2\"\n" +
+                "        DigitsSpreadsheetFormula \"2\" \"2\"\n"
         );
     }
 

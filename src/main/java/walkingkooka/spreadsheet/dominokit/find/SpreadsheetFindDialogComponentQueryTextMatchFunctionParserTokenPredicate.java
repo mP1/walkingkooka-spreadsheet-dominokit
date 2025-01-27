@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
-import walkingkooka.spreadsheet.formula.NamedFunctionSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.SpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.NamedFunctionSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParserToken;
 import walkingkooka.text.cursor.parser.ParserToken;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 
@@ -59,11 +59,11 @@ final class SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredi
     public boolean test(final ParserToken token) {
         boolean test = false;
 
-        if (token instanceof SpreadsheetParserToken) {
-            final SpreadsheetParserToken spreadsheetParserToken = token.cast(SpreadsheetParserToken.class);
+        if (token instanceof SpreadsheetFormulaParserToken) {
+            final SpreadsheetFormulaParserToken spreadsheetParserToken = token.cast(SpreadsheetFormulaParserToken.class);
 
             if (spreadsheetParserToken.isNamedFunction()) {
-                final NamedFunctionSpreadsheetParserToken namedFunction = (NamedFunctionSpreadsheetParserToken) spreadsheetParserToken;
+                final NamedFunctionSpreadsheetFormulaParserToken namedFunction = (NamedFunctionSpreadsheetFormulaParserToken) spreadsheetParserToken;
                 final ExpressionFunctionName functionName = namedFunction.functionName()
                     .toExpressionFunctionName();
 
@@ -75,11 +75,11 @@ final class SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredi
                         case 2:
                             test = isCellGetterFunction(
                                 parameters.get(0)
-                                    .cast(SpreadsheetParserToken.class)
+                                    .cast(SpreadsheetFormulaParserToken.class)
                             ) ||
                                 isCellGetterFunction(
                                     parameters.get(1)
-                                        .cast(SpreadsheetParserToken.class)
+                                        .cast(SpreadsheetFormulaParserToken.class)
                                 );
                             break;
                         default:
@@ -92,11 +92,11 @@ final class SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredi
         return test;
     }
 
-    private boolean isCellGetterFunction(final SpreadsheetParserToken token) {
+    private boolean isCellGetterFunction(final SpreadsheetFormulaParserToken token) {
         boolean test = false;
 
         if (token.isNamedFunction()) {
-            final NamedFunctionSpreadsheetParserToken namedFunction = (NamedFunctionSpreadsheetParserToken) token;
+            final NamedFunctionSpreadsheetFormulaParserToken namedFunction = (NamedFunctionSpreadsheetFormulaParserToken) token;
             final ExpressionFunctionName functionName = namedFunction.functionName()
                 .toExpressionFunctionName();
 

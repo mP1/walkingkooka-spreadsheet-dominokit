@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
-import walkingkooka.spreadsheet.formula.ConditionSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.NamedFunctionSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.SpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.ConditionSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.NamedFunctionSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParserToken;
 import walkingkooka.text.cursor.parser.ParserToken;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 
@@ -49,11 +49,11 @@ final class SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserT
     public boolean test(final ParserToken token) {
         boolean test = false;
 
-        if (token instanceof SpreadsheetParserToken) {
-            final SpreadsheetParserToken spreadsheetParserToken = token.cast(SpreadsheetParserToken.class);
+        if (token instanceof SpreadsheetFormulaParserToken) {
+            final SpreadsheetFormulaParserToken spreadsheetParserToken = token.cast(SpreadsheetFormulaParserToken.class);
 
             if (spreadsheetParserToken.isCondition()) {
-                final ConditionSpreadsheetParserToken condition = (ConditionSpreadsheetParserToken) spreadsheetParserToken;
+                final ConditionSpreadsheetFormulaParserToken condition = (ConditionSpreadsheetFormulaParserToken) spreadsheetParserToken;
 
                 test = this.isCellValueFunction(
                     condition.left()
@@ -64,11 +64,11 @@ final class SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserT
         return test;
     }
 
-    private boolean isCellValueFunction(final SpreadsheetParserToken token) {
+    private boolean isCellValueFunction(final SpreadsheetFormulaParserToken token) {
         boolean test = false;
 
         if (token.isNamedFunction()) {
-            final NamedFunctionSpreadsheetParserToken namedFunction = (NamedFunctionSpreadsheetParserToken) token;
+            final NamedFunctionSpreadsheetFormulaParserToken namedFunction = (NamedFunctionSpreadsheetFormulaParserToken) token;
             final ExpressionFunctionName functionName = namedFunction.functionName()
                 .toExpressionFunctionName();
 

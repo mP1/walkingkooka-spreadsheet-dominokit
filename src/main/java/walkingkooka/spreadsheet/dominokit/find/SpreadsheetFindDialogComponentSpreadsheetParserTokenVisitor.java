@@ -19,17 +19,17 @@ package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
-import walkingkooka.spreadsheet.formula.ConditionSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.EqualsSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.GreaterThanEqualsSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.GreaterThanSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.LessThanEqualsSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.LessThanSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.NamedFunctionSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.NotEqualsSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.SpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.SpreadsheetParserTokenVisitor;
-import walkingkooka.spreadsheet.formula.TextSpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.ConditionSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.EqualsSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.GreaterThanEqualsSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.GreaterThanSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.LessThanEqualsSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.LessThanSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.NamedFunctionSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.NotEqualsSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParserTokenVisitor;
+import walkingkooka.spreadsheet.formula.TextSpreadsheetFormulaParserToken;
 import walkingkooka.text.cursor.parser.ParserToken;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.visit.Visiting;
@@ -38,18 +38,18 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * A {@link SpreadsheetParserTokenVisitor} that visits a token and attempts to find functions composed of a textMatch
+ * A {@link SpreadsheetFormulaParserTokenVisitor} that visits a token and attempts to find functions composed of a textMatch
  * with a cellXXX getter and string literal and a cellValue() within a comparison.
  */
-final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends SpreadsheetParserTokenVisitor {
+final class SpreadsheetFindDialogComponentSpreadsheetFormulaParserTokenVisitor extends SpreadsheetFormulaParserTokenVisitor {
 
-    static void refresh(final SpreadsheetParserToken query,
+    static void refresh(final SpreadsheetFormulaParserToken query,
                         final SpreadsheetFindDialogComponent wizard) {
-        new SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor(wizard)
+        new SpreadsheetFindDialogComponentSpreadsheetFormulaParserTokenVisitor(wizard)
             .accept(query);
     }
 
-    SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor(final SpreadsheetFindDialogComponent wizard) {
+    SpreadsheetFindDialogComponentSpreadsheetFormulaParserTokenVisitor(final SpreadsheetFindDialogComponent wizard) {
         super();
         this.wizard = wizard;
     }
@@ -60,13 +60,13 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
     // and the other parameter is a String literal,
     // extract the string literal.
     @Override
-    protected Visiting startVisit(final NamedFunctionSpreadsheetParserToken token) {
+    protected Visiting startVisit(final NamedFunctionSpreadsheetFormulaParserToken token) {
         this.tryRefreshTextMatch(token);
 
         return Visiting.CONTINUE;
     }
 
-    private void tryRefreshTextMatch(final NamedFunctionSpreadsheetParserToken token) {
+    private void tryRefreshTextMatch(final NamedFunctionSpreadsheetFormulaParserToken token) {
         final ExpressionFunctionName functionName = token.functionName()
             .toExpressionFunctionName();
 
@@ -78,9 +78,9 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
                 case 2:
                     this.textMatchFunctionParameters(
                         parameters.get(0)
-                            .cast(SpreadsheetParserToken.class),
+                            .cast(SpreadsheetFormulaParserToken.class),
                         parameters.get(1)
-                            .cast(SpreadsheetParserToken.class)
+                            .cast(SpreadsheetFormulaParserToken.class)
                     );
                     break;
                 default:
@@ -90,8 +90,8 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
     }
 
     // textMatch( cellXXX(), StringLiteral)
-    private void textMatchFunctionParameters(final SpreadsheetParserToken left,
-                                             final SpreadsheetParserToken right) {
+    private void textMatchFunctionParameters(final SpreadsheetFormulaParserToken left,
+                                             final SpreadsheetFormulaParserToken right) {
         for (; ; ) {
             final SpreadsheetFindDialogComponent wizard = this.wizard;
 
@@ -115,8 +115,8 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
         }
     }
 
-    private boolean isCellGetterAndTextMatch(final SpreadsheetParserToken left,
-                                             final SpreadsheetParserToken right,
+    private boolean isCellGetterAndTextMatch(final SpreadsheetFormulaParserToken left,
+                                             final SpreadsheetFormulaParserToken right,
                                              final ExpressionFunctionName functionName,
                                              final TextMatchComponent component) {
         return this.isCellGetterAndTextMatch0(
@@ -132,8 +132,8 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
         );
     }
 
-    private boolean isCellGetterAndTextMatch0(final SpreadsheetParserToken left,
-                                              final SpreadsheetParserToken right,
+    private boolean isCellGetterAndTextMatch0(final SpreadsheetFormulaParserToken left,
+                                              final SpreadsheetFormulaParserToken right,
                                               final ExpressionFunctionName functionName,
                                               final TextMatchComponent component) {
         boolean updated = false;
@@ -152,11 +152,11 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
         return updated;
     }
 
-    private Optional<String> stringLiteral(final SpreadsheetParserToken token) {
+    private Optional<String> stringLiteral(final SpreadsheetFormulaParserToken token) {
         String string = null;
 
         if (token.isText()) {
-            string = token.cast(TextSpreadsheetParserToken.class)
+            string = token.cast(TextSpreadsheetFormulaParserToken.class)
                 .textValue();
         }
 
@@ -166,55 +166,55 @@ final class SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor extends 
     // condition........................................................................................................
 
     @Override
-    protected Visiting startVisit(final EqualsSpreadsheetParserToken token) {
+    protected Visiting startVisit(final EqualsSpreadsheetFormulaParserToken token) {
         return this.condition(token);
     }
 
     @Override
-    protected Visiting startVisit(final GreaterThanSpreadsheetParserToken token) {
+    protected Visiting startVisit(final GreaterThanSpreadsheetFormulaParserToken token) {
         return this.condition(token);
     }
 
     @Override
-    protected Visiting startVisit(final GreaterThanEqualsSpreadsheetParserToken token) {
+    protected Visiting startVisit(final GreaterThanEqualsSpreadsheetFormulaParserToken token) {
         return this.condition(token);
     }
 
     @Override
-    protected Visiting startVisit(final LessThanSpreadsheetParserToken token) {
+    protected Visiting startVisit(final LessThanSpreadsheetFormulaParserToken token) {
         return this.condition(token);
     }
 
     @Override
-    protected Visiting startVisit(final LessThanEqualsSpreadsheetParserToken token) {
+    protected Visiting startVisit(final LessThanEqualsSpreadsheetFormulaParserToken token) {
         return this.condition(token);
     }
 
     @Override
-    protected Visiting startVisit(final NotEqualsSpreadsheetParserToken token) {
+    protected Visiting startVisit(final NotEqualsSpreadsheetFormulaParserToken token) {
         return this.condition(token);
     }
 
-    private Visiting condition(final ConditionSpreadsheetParserToken token) {
+    private Visiting condition(final ConditionSpreadsheetFormulaParserToken token) {
         if (this.isCellGetterFunction(token.left(), SpreadsheetExpressionFunctions.CELL_VALUE)) {
             this.wizard.value.setValue(
                 Optional.of(
-                    token.toConditionRightSpreadsheetParserToken()
+                    token.toConditionRightSpreadsheetFormulaParserToken()
                 )
             );
         }
-        return Visiting.SKIP; // no need to visit child tokens within ConditionSpreadsheetParserToken
+        return Visiting.SKIP; // no need to visit child tokens within ConditionSpreadsheetFormulaParserToken
     }
 
     /**
      * Tests if the given token is a function call to the given getter.
      */
-    private boolean isCellGetterFunction(final SpreadsheetParserToken token,
+    private boolean isCellGetterFunction(final SpreadsheetFormulaParserToken token,
                                          final ExpressionFunctionName getter) {
         boolean test = false;
 
         if (token.isNamedFunction()) {
-            final NamedFunctionSpreadsheetParserToken namedFunction = (NamedFunctionSpreadsheetParserToken) token;
+            final NamedFunctionSpreadsheetFormulaParserToken namedFunction = (NamedFunctionSpreadsheetFormulaParserToken) token;
             final ExpressionFunctionName functionName = namedFunction.functionName()
                 .toExpressionFunctionName();
 
