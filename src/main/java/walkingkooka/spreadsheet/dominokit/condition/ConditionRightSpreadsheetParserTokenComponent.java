@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.condition;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
-import walkingkooka.spreadsheet.parser.ConditionRightSpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.ConditionRightSpreadsheetParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.text.HasText;
 

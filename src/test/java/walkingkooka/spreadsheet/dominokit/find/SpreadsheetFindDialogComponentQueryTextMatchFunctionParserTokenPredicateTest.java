@@ -23,9 +23,9 @@ import walkingkooka.predicate.PredicateTesting;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
+import walkingkooka.spreadsheet.formula.SpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserToken;
-import walkingkooka.spreadsheet.parser.SpreadsheetParsers;
 
 public final class SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredicateTest implements PredicateTesting,
     ToStringTesting<SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredicate>,

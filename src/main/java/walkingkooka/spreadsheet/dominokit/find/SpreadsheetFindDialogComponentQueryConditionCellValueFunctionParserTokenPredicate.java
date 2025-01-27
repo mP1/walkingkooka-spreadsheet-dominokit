@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
-import walkingkooka.spreadsheet.parser.ConditionSpreadsheetParserToken;
-import walkingkooka.spreadsheet.parser.NamedFunctionSpreadsheetParserToken;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.ConditionSpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.NamedFunctionSpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetParserToken;
 import walkingkooka.text.cursor.parser.ParserToken;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 
