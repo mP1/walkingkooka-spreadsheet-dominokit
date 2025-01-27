@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.formula;
 
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 
 import java.util.function.Function;

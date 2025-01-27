@@ -72,7 +72,7 @@ import java.util.stream.Collectors;
  * JSON Holding formulas
  * <pre>
  * {
- *   "mediaType": "application/json+walkingkooka.spreadsheet.SpreadsheetFormula",
+ *   "mediaType": "application/json+walkingkooka.spreadsheet.formula.SpreadsheetFormula",
  *   "cell-range": "A1",
  *   "value": {
  *     "A1": ""

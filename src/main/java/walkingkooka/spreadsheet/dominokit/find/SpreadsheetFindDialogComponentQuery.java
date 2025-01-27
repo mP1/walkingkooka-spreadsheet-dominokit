@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.expression.SpreadsheetFunctionName;
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
@@ -27,6 +26,7 @@ import walkingkooka.spreadsheet.expression.function.TextMatch;
 import walkingkooka.spreadsheet.formula.ConditionRightSpreadsheetParserToken;
 import walkingkooka.spreadsheet.formula.ConditionSpreadsheetParserToken;
 import walkingkooka.spreadsheet.formula.FunctionSpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.formula.SpreadsheetParserToken;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.parser.ParserToken;
