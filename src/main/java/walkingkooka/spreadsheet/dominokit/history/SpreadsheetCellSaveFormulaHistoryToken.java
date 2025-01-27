@@ -19,10 +19,10 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.collect.map.Maps;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.text.cursor.TextCursor;

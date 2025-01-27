@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.formula;
 
-import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.text.HasText;
 
 import java.util.function.Function;

@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.formula;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetErrorKind;
-import walkingkooka.spreadsheet.SpreadsheetFormula;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.text.cursor.TextCursors;

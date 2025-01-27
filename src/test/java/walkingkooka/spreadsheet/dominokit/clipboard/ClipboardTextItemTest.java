@@ -28,10 +28,10 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetCellRange;
-import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
@@ -339,7 +339,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
             ClipboardTextItem.with(
                 TYPES,
                 "{\n" +
-                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.formula.SpreadsheetFormula\",\n" +
                     "  \"cell-range\": \"A1\",\n" +
                     "  \"value\": {}\n" +
                     "}"
@@ -364,7 +364,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
             ClipboardTextItem.with(
                 TYPES,
                 "{\n" +
-                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.formula.SpreadsheetFormula\",\n" +
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
                     "    \"A1\": \"=1\",\n" +
@@ -386,7 +386,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
             ClipboardTextItem.with(
                 TYPES,
                 "{\n" +
-                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetFormula\",\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.formula.SpreadsheetFormula\",\n" +
                     "  \"cell-range\": \"A1\",\n" +
                     "  \"value\": {\n" +
                     "    \"A1\": \"\"\n" +

@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.SpreadsheetFormula;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
