@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.formula;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetErrorKind;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.text.printer.TreePrintableTesting;
@@ -42,7 +42,7 @@ public final class SpreadsheetFormulaComponentExpressionParserFunctionTest imple
             text,
             SpreadsheetFormula.parse(
                 TextCursors.charSequence(text),
-                SpreadsheetParsers.expression(),
+                SpreadsheetFormulaParsers.expression(),
                 SPREADSHEET_PARSER_CONTEXT
             )
         );

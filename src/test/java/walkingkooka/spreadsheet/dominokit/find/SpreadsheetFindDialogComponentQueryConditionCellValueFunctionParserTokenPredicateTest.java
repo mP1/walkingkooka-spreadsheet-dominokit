@@ -23,7 +23,7 @@ import walkingkooka.predicate.PredicateTesting2;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParserToken;
-import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.text.cursor.parser.ParserToken;
 
@@ -130,7 +130,7 @@ public final class SpreadsheetFindDialogComponentQueryConditionCellValueFunction
     }
 
     private SpreadsheetFormulaParserToken token(final String text) {
-        return SpreadsheetParsers.expression()
+        return SpreadsheetFormulaParsers.expression()
             .parseText(
                 text,
                 SPREADSHEET_PARSER_CONTEXT

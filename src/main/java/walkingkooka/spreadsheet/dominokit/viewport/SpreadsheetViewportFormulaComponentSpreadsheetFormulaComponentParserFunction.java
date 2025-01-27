@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
@@ -75,7 +75,7 @@ final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParser
 
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
         if (null == parser) {
-            parser = SpreadsheetParsers.valueOrExpression(
+            parser = SpreadsheetFormulaParsers.valueOrExpression(
                 metadata.spreadsheetParser(
                     context, // SpreadsheetParserProvider
                     context // ProviderContext

@@ -24,7 +24,7 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParserToken;
-import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 public final class SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTokenPredicateTest implements PredicateTesting,
@@ -89,7 +89,7 @@ public final class SpreadsheetFindDialogComponentQueryTextMatchFunctionParserTok
     }
 
     private SpreadsheetFormulaParserToken token(final String text) {
-        return SpreadsheetParsers.expression()
+        return SpreadsheetFormulaParsers.expression()
             .parseText(
                 text,
                 SPREADSHEET_PARSER_CONTEXT
