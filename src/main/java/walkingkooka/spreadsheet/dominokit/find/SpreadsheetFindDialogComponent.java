@@ -21,7 +21,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.condition.ConditionRightSpreadsheetParserTokenComponent;
+import walkingkooka.spreadsheet.dominokit.condition.ConditionRightSpreadsheetFormulaParserTokenComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaMatchedCellsTableComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaMatchedCellsTableComponentContexts;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
@@ -38,7 +38,7 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetCellRangeReferenc
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
-import walkingkooka.spreadsheet.formula.ConditionRightSpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.ConditionRightSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -349,8 +349,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     // value............................................................................................................
 
-    private ConditionRightSpreadsheetParserTokenComponent value() {
-        return ConditionRightSpreadsheetParserTokenComponent.empty(
+    private ConditionRightSpreadsheetFormulaParserTokenComponent value() {
+        return ConditionRightSpreadsheetFormulaParserTokenComponent.empty(
                 this::spreadsheetParserContext
             ).setId(ID_PREFIX + "value" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Value")
@@ -358,12 +358,12 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
             .addChangeListener(this::onValueValueChange);
     }
 
-    private void onValueValueChange(final Optional<ConditionRightSpreadsheetParserToken> old,
-                                    final Optional<ConditionRightSpreadsheetParserToken> newTextMatch) {
+    private void onValueValueChange(final Optional<ConditionRightSpreadsheetFormulaParserToken> old,
+                                    final Optional<ConditionRightSpreadsheetFormulaParserToken> newTextMatch) {
 
     }
 
-    final ConditionRightSpreadsheetParserTokenComponent value;
+    final ConditionRightSpreadsheetFormulaParserTokenComponent value;
 
     // formattedValue...................................................................................................
 
@@ -550,7 +550,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         );
         final SpreadsheetCellQuery query = maybeQuery.orElse(null);
         if (null != query) {
-            SpreadsheetFindDialogComponentSpreadsheetParserTokenVisitor.refresh(
+            SpreadsheetFindDialogComponentSpreadsheetFormulaParserTokenVisitor.refresh(
                 query.parserToken(),
                 this
             );

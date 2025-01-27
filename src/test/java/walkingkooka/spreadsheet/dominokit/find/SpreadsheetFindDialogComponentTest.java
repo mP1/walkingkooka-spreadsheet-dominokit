@@ -116,7 +116,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [] id=find-value-TextBox\n" +
@@ -217,7 +217,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [] id=find-value-TextBox\n" +
@@ -318,7 +318,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [] id=find-value-TextBox\n" +
@@ -417,7 +417,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [] id=find-value-TextBox\n" +
@@ -518,7 +518,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [] id=find-value-TextBox\n" +
@@ -630,7 +630,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [] id=find-value-TextBox\n" +
@@ -729,7 +729,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [] id=find-value-TextBox\n" +
@@ -828,7 +828,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [] id=find-value-TextBox\n" +
@@ -927,7 +927,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [] id=find-value-TextBox\n" +
@@ -1026,7 +1026,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [] id=find-value-TextBox\n" +
@@ -1125,7 +1125,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [] id=find-value-TextBox\n" +
@@ -1224,7 +1224,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [*style*] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [] id=find-value-TextBox\n" +
@@ -1323,7 +1323,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [<999] id=find-value-TextBox\n" +
@@ -1422,7 +1422,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [] id=find-value-TextBox\n" +
@@ -1521,7 +1521,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Style [*style*] id=find-style-TextBox\n" +
-                "          ConditionRightSpreadsheetParserTokenComponent\n" +
+                "          ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "            ValueSpreadsheetTextBox\n" +
                 "              SpreadsheetTextBox\n" +
                 "                Value [<10] id=find-value-TextBox\n" +

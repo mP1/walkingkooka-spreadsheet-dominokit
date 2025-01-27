@@ -22,9 +22,9 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
-import walkingkooka.spreadsheet.formula.ConditionRightEqualsSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.ConditionRightSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.SpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.ConditionRightEqualsSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.ConditionRightSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetParsers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
@@ -37,7 +37,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetParserComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetParserToken, SpreadsheetParserComponent>,
+public final class SpreadsheetParserComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetFormulaParserToken, SpreadsheetParserComponent>,
     SpreadsheetMetadataTesting {
 
     private final static SpreadsheetParser SPREADSHEET_PARSER = SpreadsheetParsers.conditionRight(
@@ -91,11 +91,11 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
     public void testValueWithString() {
         this.valueAndCheck(
             "=\"Hello\"",
-            SpreadsheetParserToken.text(
+            SpreadsheetFormulaParserToken.text(
                 Lists.of(
-                    SpreadsheetParserToken.doubleQuoteSymbol("\"", "\""),
-                    SpreadsheetParserToken.textLiteral("Hello", "Hello"),
-                    SpreadsheetParserToken.doubleQuoteSymbol("\"", "\"")
+                    SpreadsheetFormulaParserToken.doubleQuoteSymbol("\"", "\""),
+                    SpreadsheetFormulaParserToken.textLiteral("Hello", "Hello"),
+                    SpreadsheetFormulaParserToken.doubleQuoteSymbol("\"", "\"")
                 ),
                 "\"Hello\""
             )
@@ -106,11 +106,11 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
     public void testValueWithNumber() {
         this.valueAndCheck(
             "=123.5",
-            SpreadsheetParserToken.number(
+            SpreadsheetFormulaParserToken.number(
                 Lists.of(
-                    SpreadsheetParserToken.digits("123", "123"),
-                    SpreadsheetParserToken.decimalSeparatorSymbol(".", "."),
-                    SpreadsheetParserToken.digits("5", "5")
+                    SpreadsheetFormulaParserToken.digits("123", "123"),
+                    SpreadsheetFormulaParserToken.decimalSeparatorSymbol(".", "."),
+                    SpreadsheetFormulaParserToken.digits("5", "5")
                 ),
                 "123.5"
             )
@@ -121,13 +121,13 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
     public void testValueWithDate() {
         this.valueAndCheck(
             "=1999/12/31",
-            SpreadsheetParserToken.date(
+            SpreadsheetFormulaParserToken.date(
                 Lists.of(
-                    SpreadsheetParserToken.year(1999, "1999"),
-                    SpreadsheetParserToken.textLiteral("/", "/"),
-                    SpreadsheetParserToken.monthNumber(12, "12"),
-                    SpreadsheetParserToken.textLiteral("/", "/"),
-                    SpreadsheetParserToken.dayNumber(31, "31")
+                    SpreadsheetFormulaParserToken.year(1999, "1999"),
+                    SpreadsheetFormulaParserToken.textLiteral("/", "/"),
+                    SpreadsheetFormulaParserToken.monthNumber(12, "12"),
+                    SpreadsheetFormulaParserToken.textLiteral("/", "/"),
+                    SpreadsheetFormulaParserToken.dayNumber(31, "31")
                 ),
                 "1999/12/31"
             )
@@ -138,17 +138,17 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
     public void testValueWithDateTime() {
         this.valueAndCheck(
             "=1999/12/31 12:58",
-            SpreadsheetParserToken.dateTime(
+            SpreadsheetFormulaParserToken.dateTime(
                 Lists.of(
-                    SpreadsheetParserToken.year(1999, "1999"),
-                    SpreadsheetParserToken.textLiteral("/", "/"),
-                    SpreadsheetParserToken.monthNumber(12, "12"),
-                    SpreadsheetParserToken.textLiteral("/", "/"),
-                    SpreadsheetParserToken.dayNumber(31, "31"),
-                    SpreadsheetParserToken.whitespace(" ", " "),
-                    SpreadsheetParserToken.hour(12, "12"),
-                    SpreadsheetParserToken.textLiteral(":", ":"),
-                    SpreadsheetParserToken.minute(58, "58")
+                    SpreadsheetFormulaParserToken.year(1999, "1999"),
+                    SpreadsheetFormulaParserToken.textLiteral("/", "/"),
+                    SpreadsheetFormulaParserToken.monthNumber(12, "12"),
+                    SpreadsheetFormulaParserToken.textLiteral("/", "/"),
+                    SpreadsheetFormulaParserToken.dayNumber(31, "31"),
+                    SpreadsheetFormulaParserToken.whitespace(" ", " "),
+                    SpreadsheetFormulaParserToken.hour(12, "12"),
+                    SpreadsheetFormulaParserToken.textLiteral(":", ":"),
+                    SpreadsheetFormulaParserToken.minute(58, "58")
                 ),
                 "1999/12/31 12:58"
             )
@@ -159,13 +159,13 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
     public void testValueWithTime() {
         this.valueAndCheck(
             "=12:58:59",
-            SpreadsheetParserToken.time(
+            SpreadsheetFormulaParserToken.time(
                 Lists.of(
-                    SpreadsheetParserToken.hour(12, "12"),
-                    SpreadsheetParserToken.textLiteral(":", ":"),
-                    SpreadsheetParserToken.minute(58, "58"),
-                    SpreadsheetParserToken.textLiteral(":", ":"),
-                    SpreadsheetParserToken.seconds(59, "59")
+                    SpreadsheetFormulaParserToken.hour(12, "12"),
+                    SpreadsheetFormulaParserToken.textLiteral(":", ":"),
+                    SpreadsheetFormulaParserToken.minute(58, "58"),
+                    SpreadsheetFormulaParserToken.textLiteral(":", ":"),
+                    SpreadsheetFormulaParserToken.seconds(59, "59")
                 ),
                 "12:58:59"
             )
@@ -183,7 +183,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
                                final ParserToken... expected) {
         final List<ParserToken> tokens = Lists.array();
         tokens.add(
-            SpreadsheetParserToken.equalsSymbol("=", "=")
+            SpreadsheetFormulaParserToken.equalsSymbol("=", "=")
         );
         tokens.addAll(
             Lists.of(expected)
@@ -191,7 +191,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
 
         this.valueAndCheck(
             text,
-            SpreadsheetParserToken.conditionRightEquals(
+            SpreadsheetFormulaParserToken.conditionRightEquals(
                 tokens,
                 text
             )
@@ -199,7 +199,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
     }
 
     private void valueAndCheck(final String text,
-                               final ConditionRightEqualsSpreadsheetParserToken expected) {
+                               final ConditionRightEqualsSpreadsheetFormulaParserToken expected) {
         this.valueAndCheck(
             text,
             Optional.of(expected)
@@ -207,7 +207,7 @@ public final class SpreadsheetParserComponentTest implements FormValueComponentT
     }
 
     private void valueAndCheck(final String text,
-                               final Optional<ConditionRightSpreadsheetParserToken> expected) {
+                               final Optional<ConditionRightSpreadsheetFormulaParserToken> expected) {
         final SpreadsheetParserComponent component = createComponent()
             .setStringValue(
                 Optional.of(text)

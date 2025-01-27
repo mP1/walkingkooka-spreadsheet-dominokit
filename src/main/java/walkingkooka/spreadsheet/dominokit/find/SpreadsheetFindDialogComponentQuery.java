@@ -23,11 +23,11 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.expression.SpreadsheetFunctionName;
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
-import walkingkooka.spreadsheet.formula.ConditionRightSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.ConditionSpreadsheetParserToken;
-import walkingkooka.spreadsheet.formula.FunctionSpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.ConditionRightSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.ConditionSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.FunctionSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.spreadsheet.formula.SpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParserToken;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.parser.ParserToken;
 import walkingkooka.tree.expression.ExpressionFunctionName;
@@ -51,13 +51,13 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
                                               final Optional<TextMatch> formatter,
                                               final Optional<TextMatch> parser,
                                               final Optional<TextMatch> style,
-                                              final Optional<ConditionRightSpreadsheetParserToken> value,
+                                              final Optional<ConditionRightSpreadsheetFormulaParserToken> value,
                                               final Optional<TextMatch> formattedValue) {
         ParserToken token = query.map(
             q -> q.parserToken()
         ).orElse(null);
 
-        final List<SpreadsheetParserToken> or = Lists.array();
+        final List<SpreadsheetFormulaParserToken> or = Lists.array();
 
         token = replaceTextMatchOr(
             token, // old
@@ -110,7 +110,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
             null != token ?
                 SpreadsheetFormula.EMPTY.setToken(
                     Optional.ofNullable(
-                        token.cast(SpreadsheetParserToken.class)
+                        token.cast(SpreadsheetFormulaParserToken.class)
                     )
                 ).setText(
                     null != token ?
@@ -127,7 +127,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
     private static ParserToken replaceTextMatchOr(final ParserToken old,
                                                   final Optional<TextMatch> textMatch,
                                                   final ExpressionFunctionName cellPropertyGetter,
-                                                  final List<SpreadsheetParserToken> or) {
+                                                  final List<SpreadsheetFormulaParserToken> or) {
         return replaceTextMatchOr0(
             old,
             textMatch.orElse(null),
@@ -139,7 +139,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
     private static ParserToken replaceTextMatchOr0(final ParserToken old,
                                                    final TextMatch textMatch,
                                                    final ExpressionFunctionName cellPropertyGetter,
-                                                   final List<SpreadsheetParserToken> or) {
+                                                   final List<SpreadsheetFormulaParserToken> or) {
         ParserToken token = old;
 
         if (null == old) {
@@ -183,7 +183,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
     }
 
     /**
-     * Factory that creates an {@link SpreadsheetParserToken} holding a textMatch function call.
+     * Factory that creates an {@link SpreadsheetFormulaParserToken} holding a textMatch function call.
      * <pre>
      * textMatch(
      *   value,
@@ -191,7 +191,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
      * )
      * </pre>
      */
-    private static SpreadsheetParserToken textMatch(final TextMatch textMatch,
+    private static SpreadsheetFormulaParserToken textMatch(final TextMatch textMatch,
                                                     final ExpressionFunctionName cellPropertyGetter) {
         final String textMatchString = textMatch.text();
         final String quotedTextMatch = CharSequences.escape(
@@ -201,15 +201,15 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
         final String cellPropertyGetterName = cellPropertyGetter.value();
         final String textMatchFunction = TEXT_MATCH_FUNCTION_NAME + "(\"" + quotedTextMatch + "\"," + cellPropertyGetterName + "())";
 
-        return SpreadsheetParserToken.namedFunction(
+        return SpreadsheetFormulaParserToken.namedFunction(
             Lists.of(
                 TEXT_MATCH_FUNCTION_NAME,
-                SpreadsheetParserToken.functionParameters(
+                SpreadsheetFormulaParserToken.functionParameters(
                     Lists.of(
-                        SpreadsheetParserToken.text(
+                        SpreadsheetFormulaParserToken.text(
                             Lists.of(
                                 DOUBLE_QUOTE_SYMBOL,
-                                SpreadsheetParserToken.textLiteral(
+                                SpreadsheetFormulaParserToken.textLiteral(
                                     quotedTextMatch,
                                     textMatchString
                                 ),
@@ -217,7 +217,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
                             ),
                             "" + '"' + quotedTextMatch + '"'
                         ),
-                        SpreadsheetParserToken.namedFunction(
+                        SpreadsheetFormulaParserToken.namedFunction(
                             Lists.of(
                                 functionName(cellPropertyGetter),
                                 EMPTY_PARAMETER_LIST
@@ -232,7 +232,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
         );
     }
 
-    private final static SpreadsheetParserToken TEXT_MATCH_FUNCTION_NAME = functionName(
+    private final static SpreadsheetFormulaParserToken TEXT_MATCH_FUNCTION_NAME = functionName(
         SpreadsheetExpressionFunctions.TEXT_MATCH
     );
 
@@ -240,8 +240,8 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
      * Attempts to replace an old cellValue call with a new or updates the expression with an OR.
      */
     private static ParserToken replaceCellValueOr(final ParserToken old,
-                                                  final Optional<ConditionRightSpreadsheetParserToken> conditionRight,
-                                                  final List<SpreadsheetParserToken> or) {
+                                                  final Optional<ConditionRightSpreadsheetFormulaParserToken> conditionRight,
+                                                  final List<SpreadsheetFormulaParserToken> or) {
         return replaceCellValueOr0(
             old,
             conditionRight.orElse(null),
@@ -250,8 +250,8 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
     }
 
     private static ParserToken replaceCellValueOr0(final ParserToken old,
-                                                   final ConditionRightSpreadsheetParserToken conditionRight,
-                                                   final List<SpreadsheetParserToken> or) {
+                                                   final ConditionRightSpreadsheetFormulaParserToken conditionRight,
+                                                   final List<SpreadsheetFormulaParserToken> or) {
         ParserToken token = old;
         if (null == old) {
             if (null != conditionRight) {
@@ -289,41 +289,41 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
     }
 
     /**
-     * Factory that creates an {@link SpreadsheetParserToken} with the given condition as the right half.
+     * Factory that creates an {@link SpreadsheetFormulaParserToken} with the given condition as the right half.
      * <pre>
      * cellValue() < 10
      * </pre>
      */
-    private static ConditionSpreadsheetParserToken cellValue(final ConditionRightSpreadsheetParserToken conditionRight) {
+    private static ConditionSpreadsheetFormulaParserToken cellValue(final ConditionRightSpreadsheetFormulaParserToken conditionRight) {
         return conditionRight.setConditionLeft(
             CELL_VALUE_FUNCTION
         );
     }
 
-    private final static SpreadsheetParserToken CELL_VALUE_FUNCTION_NAME = functionName(
+    private final static SpreadsheetFormulaParserToken CELL_VALUE_FUNCTION_NAME = functionName(
         SpreadsheetExpressionFunctions.CELL_VALUE
     );
 
-    private static SpreadsheetParserToken functionName(final ExpressionFunctionName name) {
+    private static SpreadsheetFormulaParserToken functionName(final ExpressionFunctionName name) {
         final String text = name.text();
 
-        return SpreadsheetParserToken.functionName(
+        return SpreadsheetFormulaParserToken.functionName(
             SpreadsheetFunctionName.with(text),
             text
         );
     }
 
-    private final static SpreadsheetParserToken DOUBLE_QUOTE_SYMBOL = SpreadsheetParserToken.doubleQuoteSymbol("\"", "\"");
+    private final static SpreadsheetFormulaParserToken DOUBLE_QUOTE_SYMBOL = SpreadsheetFormulaParserToken.doubleQuoteSymbol("\"", "\"");
 
-    private final static SpreadsheetParserToken EMPTY_PARAMETER_LIST = SpreadsheetParserToken.functionParameters(
+    private final static SpreadsheetFormulaParserToken EMPTY_PARAMETER_LIST = SpreadsheetFormulaParserToken.functionParameters(
         Lists.<ParserToken>of(
-            SpreadsheetParserToken.parenthesisOpenSymbol("(", "("),
-            SpreadsheetParserToken.parenthesisCloseSymbol(")", ")")
+            SpreadsheetFormulaParserToken.parenthesisOpenSymbol("(", "("),
+            SpreadsheetFormulaParserToken.parenthesisCloseSymbol(")", ")")
         ),
         "()"
     );
 
-    private final static FunctionSpreadsheetParserToken CELL_VALUE_FUNCTION = SpreadsheetParserToken.namedFunction(
+    private final static FunctionSpreadsheetFormulaParserToken CELL_VALUE_FUNCTION = SpreadsheetFormulaParserToken.namedFunction(
         Lists.of(
             CELL_VALUE_FUNCTION_NAME,
             EMPTY_PARAMETER_LIST
@@ -339,7 +339,7 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
     // 1, 2, 3
     // or(old, or(1, or(2,3)))
     private static ParserToken or(final ParserToken token,
-                                  final List<SpreadsheetParserToken> ors) {
+                                  final List<SpreadsheetFormulaParserToken> ors) {
         ParserToken out = token;
 
         if (false == ors.isEmpty()) {
@@ -360,10 +360,10 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
      */
     private static ParserToken or(final ParserToken left,
                                   final ParserToken right) {
-        return SpreadsheetParserToken.namedFunction(
+        return SpreadsheetFormulaParserToken.namedFunction(
             Lists.of(
                 OR_FUNCTION_NAME,
-                SpreadsheetParserToken.functionParameters(
+                SpreadsheetFormulaParserToken.functionParameters(
                     Lists.of(
                         left,
                         COMMA,
@@ -376,12 +376,12 @@ final class SpreadsheetFindDialogComponentQuery implements PublicStaticHelper {
         );
     }
 
-    private final static SpreadsheetParserToken OR_FUNCTION_NAME = SpreadsheetParserToken.functionName(
+    private final static SpreadsheetFormulaParserToken OR_FUNCTION_NAME = SpreadsheetFormulaParserToken.functionName(
         SpreadsheetFunctionName.with("OR"),
         "OR"
     );
 
-    private final static SpreadsheetParserToken COMMA = SpreadsheetParserToken.valueSeparatorSymbol(",", ",");
+    private final static SpreadsheetFormulaParserToken COMMA = SpreadsheetFormulaParserToken.valueSeparatorSymbol(",", ",");
 
     /**
      * Stop creation

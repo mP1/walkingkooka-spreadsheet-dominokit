@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
-import walkingkooka.spreadsheet.formula.SpreadsheetParserToken;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.text.cursor.parser.ParserToken;
@@ -30,7 +30,7 @@ import java.util.Objects;
 /**
  * A text box that supports entry of a condition with a value or expression. It returns a {@link ParserToken}.
  */
-public final class SpreadsheetParserComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetParserComponent, SpreadsheetParserToken> {
+public final class SpreadsheetParserComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetParserComponent, SpreadsheetFormulaParserToken> {
 
     public static SpreadsheetParserComponent empty(final SpreadsheetParser parser,
                                                    final SpreadsheetParserContext context) {
@@ -46,7 +46,7 @@ public final class SpreadsheetParserComponent implements ValueSpreadsheetTextBox
             (text) -> parser.parseText(
                 text,
                 context
-            ).cast(SpreadsheetParserToken.class),
+            ).cast(SpreadsheetFormulaParserToken.class),
             Object::toString
         );
     }
@@ -54,11 +54,11 @@ public final class SpreadsheetParserComponent implements ValueSpreadsheetTextBox
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetParserToken> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetFormulaParserToken> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<SpreadsheetParserToken> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetFormulaParserToken> textBox;
 
     // Object...........................................................................................................
 
