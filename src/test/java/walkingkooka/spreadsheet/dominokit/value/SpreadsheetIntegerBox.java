@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -36,7 +37,8 @@ import java.util.Optional;
  */
 public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox>,
     SpreadsheetTextBoxTreePrintable<SpreadsheetIntegerBox, Integer>,
-    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetIntegerBox> {
+    TestHtmlElementComponent<HTMLFieldSetElement, SpreadsheetIntegerBox>,
+    ValidatorHelper {
 
     public static SpreadsheetIntegerBox empty() {
         return new SpreadsheetIntegerBox();
@@ -72,7 +74,8 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
     public SpreadsheetIntegerBox setValue(final Optional<Integer> value) {
         Objects.requireNonNull(value, "value");
         this.value = value;
-        return this;
+
+        return validate();
     }
 
     @Override
@@ -108,6 +111,12 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
 
     @Override
     public SpreadsheetIntegerBox validate() {
+        this.setErrors(
+            this.validateAndGetErrors(
+                this.value,
+                this.validator
+            )
+        );
         return this;
     }
 
@@ -118,6 +127,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
 
     @Override
     public SpreadsheetIntegerBox setErrors(final List<String> errors) {
+        Objects.requireNonNull(errors, "errors");
         this.errors = Lists.immutable(errors);
         return this;
     }
@@ -202,9 +212,14 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
         return this;
     }
 
-    public SpreadsheetIntegerBox setValidator(final Validator<String> validator) {
+    public SpreadsheetIntegerBox setValidator(final Optional<Validator<Optional<Integer>>> validator) {
+        Objects.requireNonNull(validator, "validator");
+
+        this.validator = validator;
         return this;
     }
+
+    private Optional<Validator<Optional<Integer>>> validator = Optional.empty();
 
     public SpreadsheetIntegerBox max(final int value) {
         this.max = value;
