@@ -79,11 +79,6 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     }
 
     @Override
-    HistoryToken save0(final String value) {
-        return this;
-    }
-
-    @Override
     public void onHistoryTokenChange0(final HistoryToken previous,
                                       final AppContext context) {
         // SpreadsheetViewportComponent will give focus to cell

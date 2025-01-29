@@ -80,20 +80,6 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
         );
     }
 
-    @Override
-    HistoryToken save0(final String value) {
-        return new SpreadsheetCellParserSaveHistoryToken(
-            this.id(),
-            this.name(),
-            this.anchoredSelection(),
-            Optional.ofNullable(
-                value.isEmpty() ?
-                    null :
-                    SpreadsheetParserSelector.parse(value)
-            )
-        );
-    }
-
     // cell/A1/parser/save/SpreadsheetParserSelector
     @Override //
     UrlFragment parserUrlFragment() {

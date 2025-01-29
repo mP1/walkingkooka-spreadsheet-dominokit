@@ -67,11 +67,6 @@ public final class SpreadsheetCellFormatterUnselectHistoryToken extends Spreadsh
         );
     }
 
-    @Override
-    HistoryToken save0(final String value) {
-        return this; // cant "save", because of missing SpreadsheetFormatterSelector
-    }
-
     // cell/A1/formatter/toolbar
     @Override
     UrlFragment formatterUrlFragment() {

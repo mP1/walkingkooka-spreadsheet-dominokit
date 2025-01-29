@@ -21,9 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-
-import java.util.Optional;
 
 /**
  * Base class for various label functions for a cell selection.
@@ -46,15 +43,4 @@ public abstract class SpreadsheetCellLabelHistoryToken extends SpreadsheetCellHi
     }
 
     abstract UrlFragment cellLabelUrlFragment();
-
-    @Override
-    final HistoryToken save0(final String labelName) {
-        return labelName.isEmpty() ?
-            this.clearAction() :
-            this.setLabelName(
-                Optional.of(
-                    SpreadsheetSelection.labelName(labelName)
-                )
-            );
-    }
 }

@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.JsonPropertyName;
 
@@ -75,20 +74,6 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
     }
 
     final Map<SpreadsheetCellReference, V> value;
-
-    // save.............................................................................................................
-
-    @Override //
-    final HistoryToken save0(final String value) {
-        return this.replace(
-            this.id(),
-            this.name(),
-            this.anchoredSelection(),
-            this.parseSaveValue(
-                TextCursors.charSequence(value)
-            )
-        );
-    }
 
     /**
      * Parses the value which is assumed to hold a {@link Map} in JSON form.

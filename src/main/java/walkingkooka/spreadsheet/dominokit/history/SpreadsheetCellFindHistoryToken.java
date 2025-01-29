@@ -101,11 +101,6 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     }
 
     @Override
-    HistoryToken save0(final String value) {
-        return this;
-    }
-
-    @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         // previously SpreadsheetMetadataPropertyName#FIND_QUERY was patched

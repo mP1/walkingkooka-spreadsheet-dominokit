@@ -60,20 +60,4 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
     final HistoryToken replacePatternKind(final Optional<SpreadsheetPatternKind> patternKind) {
         return this;
     }
-
-    @Override
-    HistoryToken save0(final String value) {
-        final TextStylePropertyName<T> propertyName = this.stylePropertyName();
-
-        return HistoryToken.metadataPropertyStyleSave(
-            this.id(),
-            this.name(),
-            propertyName,
-            Optional.ofNullable(
-                value.isEmpty() ?
-                    null :
-                    propertyName.parseValue(value)
-            )
-        );
-    }
 }

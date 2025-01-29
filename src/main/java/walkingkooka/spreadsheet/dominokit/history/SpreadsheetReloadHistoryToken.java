@@ -85,11 +85,6 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
         return this;
     }
 
-    @Override //
-    HistoryToken save0(final String value) {
-        return this;
-    }
-
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {

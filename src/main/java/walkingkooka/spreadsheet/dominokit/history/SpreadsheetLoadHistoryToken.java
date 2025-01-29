@@ -76,11 +76,6 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     }
 
     @Override
-    HistoryToken save0(final String value) {
-        return this;
-    }
-
-    @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.loadSpreadsheetMetadataAndPushPreviousIfFails(

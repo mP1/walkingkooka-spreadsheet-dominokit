@@ -58,11 +58,6 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
         );
     }
 
-    @Override //
-    final HistoryToken save0(final String value) {
-        return this;
-    }
-
     // HasUrlFragment...................................................................................................
 
     // /cell/a1:A2/cut/cell

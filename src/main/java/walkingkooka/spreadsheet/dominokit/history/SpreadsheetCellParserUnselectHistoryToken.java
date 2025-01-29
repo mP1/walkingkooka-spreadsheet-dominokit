@@ -67,11 +67,6 @@ public final class SpreadsheetCellParserUnselectHistoryToken extends Spreadsheet
         );
     }
 
-    @Override
-    HistoryToken save0(final String value) {
-        return this; // cant "save", because of missing SpreadsheetParserSelector
-    }
-
     // cell/A1/parser/toolbar
     @Override //
     UrlFragment parserUrlFragment() {
