@@ -22,26 +22,33 @@ import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 
 import java.util.Objects;
+import java.util.Optional;
 
 final class SpreadsheetIntegerBoxValidator implements Validator<IntegerBox> {
 
-    static SpreadsheetIntegerBoxValidator with(final Validator<Integer> validator) {
+    static SpreadsheetIntegerBoxValidator with(final Validator<Optional<Integer>> validator) {
         Objects.requireNonNull(validator, "validator");
         return new SpreadsheetIntegerBoxValidator(validator);
     }
 
-    private SpreadsheetIntegerBoxValidator(final Validator<Integer> validator) {
+    private SpreadsheetIntegerBoxValidator(final Validator<Optional<Integer>> validator) {
         this.validator = validator;
     }
 
     @Override
     public ValidationResult isValid(final IntegerBox component) {
+        final Integer value = component.getValue();
+
         return this.validator.isValid(
-            component.getValue()
+            Optional.ofNullable(
+               null == value ?
+                    null :
+                    value
+            )
         );
     }
 
-    private final Validator<Integer> validator;
+    private final Validator<Optional<Integer>> validator;
 
     @Override
     public String toString() {

@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 
@@ -26,7 +27,7 @@ import java.util.Optional;
 public final class SpreadsheetIntegerBoxTest implements FormValueComponentTesting<HTMLFieldSetElement, Integer, SpreadsheetIntegerBox> {
 
     @Test
-    public void testTreePrint() {
+    public void testSetValue() {
         this.treePrintAndCheck(
             SpreadsheetIntegerBox.empty()
                 .setId("id123")
@@ -37,6 +38,58 @@ public final class SpreadsheetIntegerBoxTest implements FormValueComponentTestin
                 ),
             "SpreadsheetIntegerBox\n" +
                 "  [123] id=id123\n"
+        );
+    }
+
+    @Test
+    public void testSetValueValidatorPass() {
+        this.treePrintAndCheck(
+            SpreadsheetIntegerBox.empty()
+                .setId("id123")
+                .setValidator(
+                    Optional.of(
+                        new FakeValidator<Optional<Integer>>() {
+                            @Override
+                            public ValidationResult isValid(final Optional<Integer> component) {
+                                return ValidationResult.valid();
+                            }
+                        }
+                    )
+                )
+                .setValue(
+                    Optional.of(
+                        123
+                    )
+                ),
+            "SpreadsheetIntegerBox\n" +
+                "  [123] id=id123\n"
+        );
+    }
+
+    @Test
+    public void testSetValueValidatorInvalid() {
+        this.treePrintAndCheck(
+            SpreadsheetIntegerBox.empty()
+                .setId("id123")
+                .setValidator(
+                    Optional.of(
+                        new FakeValidator<Optional<Integer>>() {
+                            @Override
+                            public ValidationResult isValid(final Optional<Integer> component) {
+                                return ValidationResult.invalid("Invalid value 123");
+                            }
+                        }
+                    )
+                )
+                .setValue(
+                    Optional.of(
+                        123
+                    )
+                ),
+            "SpreadsheetIntegerBox\n" +
+                "  [123] id=id123\n" +
+                "  Errors\n" +
+                "    Invalid value 123\n"
         );
     }
 

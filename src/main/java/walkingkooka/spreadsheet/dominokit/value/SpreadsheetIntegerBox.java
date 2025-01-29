@@ -234,7 +234,7 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
         return this.integerBox.getLabel();
     }
 
-    public SpreadsheetIntegerBox setValidator(final Validator<Integer> validator) {
+    public SpreadsheetIntegerBox setValidator(final Validator<Optional<Integer>> validator) {
         final IntegerBox integerBox = this.integerBox;
         integerBox.setAutoValidation(true);
         integerBox.getValidators().clear();
