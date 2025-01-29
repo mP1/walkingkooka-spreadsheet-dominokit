@@ -58,15 +58,6 @@ public final class SpreadsheetRenameSelectHistoryToken extends SpreadsheetRename
         );
     }
 
-    @Override //
-    HistoryToken save0(final String value) {
-        return HistoryToken.spreadsheetRenameSave(
-            this.id(),
-            this.name(),
-            SpreadsheetName.with(value)
-        );
-    }
-
     @Override
     UrlFragment spreadsheetRenameUrlFragment() {
         return UrlFragment.EMPTY;

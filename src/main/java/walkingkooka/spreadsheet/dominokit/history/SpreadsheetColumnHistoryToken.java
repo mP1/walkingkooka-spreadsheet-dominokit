@@ -57,22 +57,6 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
         return this.selectionSelect();
     }
 
-    @Override //
-    final HistoryToken save0(final String value) {
-        HistoryToken historyToken = this;
-
-        if (historyToken instanceof SpreadsheetColumnSortHistoryToken) {
-            historyToken = HistoryToken.columnSortSave(
-                this.id(),
-                this.name(),
-                this.anchoredSelection(),
-                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
-            );
-        }
-
-        return historyToken;
-    }
-
     // sort.............................................................................................................
 
     @Override //

@@ -77,11 +77,6 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
     }
 
     @Override
-    HistoryToken save0(final String value) {
-        return this;
-    }
-
-    @Override
     HistoryToken parse0(final String component,
                         final TextCursor cursor) {
         return this;

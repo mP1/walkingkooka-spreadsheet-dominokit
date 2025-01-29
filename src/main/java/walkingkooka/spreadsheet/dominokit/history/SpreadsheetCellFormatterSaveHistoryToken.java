@@ -79,20 +79,6 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
         );
     }
 
-    @Override
-    HistoryToken save0(final String value) {
-        return new SpreadsheetCellFormatterSaveHistoryToken(
-            this.id(),
-            this.name(),
-            this.anchoredSelection(),
-            Optional.ofNullable(
-                value.isEmpty() ?
-                    null :
-                    SpreadsheetFormatterSelector.parse(value)
-            )
-        );
-    }
-
     // cell/A1/formatter/save/SpreadsheetFormatterSelector
     @Override
     UrlFragment formatterUrlFragment() {

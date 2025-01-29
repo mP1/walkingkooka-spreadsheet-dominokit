@@ -88,10 +88,6 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
         );
     }
 
-    @Override
-    HistoryToken save0(final String value) {
-        return this;
-    }
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,

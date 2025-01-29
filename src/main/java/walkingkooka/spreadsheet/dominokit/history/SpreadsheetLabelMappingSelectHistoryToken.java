@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -84,22 +83,6 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
             name,
             this.labelName
         );
-    }
-
-    @Override
-    HistoryToken save0(final String value) {
-        final Optional<SpreadsheetLabelName> labelName = this.labelName;
-
-        return labelName.isPresent() ?
-            labelMappingSave(
-                this.id(),
-                this.name(),
-                labelName.get()
-                    .setLabelMappingTarget(
-                        SpreadsheetSelection.parseExpressionReference(value)
-                    )
-            ) :
-            this;
     }
 
     @Override

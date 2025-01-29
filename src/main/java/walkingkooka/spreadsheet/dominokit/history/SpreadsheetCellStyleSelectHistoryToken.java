@@ -24,8 +24,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.util.Optional;
-
 /**
  * Selects one of the available style toolbar links.
  * <pre>
@@ -73,23 +71,6 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
             anchoredSelection
         ).style(
             this.propertyName()
-        );
-    }
-
-    @Override
-    HistoryToken save0(final String value) {
-        final TextStylePropertyName<T> propertyName = this.propertyName();
-
-        return cellStyleSave(
-            this.id(),
-            this.name(),
-            this.anchoredSelection(),
-            propertyName,
-            Optional.ofNullable(
-                value.isEmpty() ?
-                    null :
-                    propertyName.parseValue(value)
-            )
         );
     }
 

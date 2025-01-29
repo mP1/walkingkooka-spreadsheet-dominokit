@@ -41,16 +41,6 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
 
     final PluginName name;
 
-    /**
-     * Creates a save {@link HistoryToken} after attempting to parse the value into a {@link PluginName}.
-     */
-    final HistoryToken save0(final String value) {
-        return HistoryToken.pluginSave(
-            this.name,
-            value
-        );
-    }
-
     // UrlFragment......................................................................................................
 
     @Override //

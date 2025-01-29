@@ -87,22 +87,6 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
     }
 
     @Override
-    HistoryToken save0(final String value) {
-        final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName();
-
-        return HistoryToken.metadataPropertySave(
-            this.id(),
-            this.name(),
-            propertyName,
-            Optional.ofNullable(
-                value.isEmpty() ?
-                    null :
-                    propertyName.parseUrlFragmentSaveValue(value)
-            )
-        );
-    }
-
-    @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         // show metadata edit UI

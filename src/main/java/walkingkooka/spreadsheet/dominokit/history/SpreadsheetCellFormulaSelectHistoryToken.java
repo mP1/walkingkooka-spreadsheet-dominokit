@@ -74,16 +74,6 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     }
 
     @Override
-    HistoryToken save0(final String formulaText) {
-        return cellFormulaSave(
-            this.id(),
-            this.name(),
-            this.anchoredSelection(),
-            formulaText
-        );
-    }
-
-    @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         // SpreadsheetViewportFormulaComponent will grab focus etc.

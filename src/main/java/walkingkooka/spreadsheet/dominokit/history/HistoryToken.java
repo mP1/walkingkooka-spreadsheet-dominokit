@@ -3114,22 +3114,223 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * if possible creates a save, otherwise returns this.
      */
-    public final HistoryToken setSaveValue(final String text) {
-        Objects.requireNonNull(text, "text");
+    public final HistoryToken setSaveValue(final String value) {
+        Objects.requireNonNull(value, "value");
 
-        HistoryToken historyToken;
+        HistoryToken saved = this;
 
         if (this instanceof PluginNameHistoryToken) {
-            historyToken = this.cast(PluginNameHistoryToken.class)
-                .save0(text);
-        } else {
-            historyToken = this.setIfSpreadsheetIdHistoryToken(
-                SpreadsheetIdHistoryToken::save0,
-                text
+            final PluginNameHistoryToken pluginNameHistoryToken = (PluginNameHistoryToken) this;
+
+            saved = HistoryToken.pluginSave(
+                pluginNameHistoryToken.name,
+                value
             );
+        } else {
+            if (this instanceof SpreadsheetIdHistoryToken) {
+                final SpreadsheetIdHistoryToken spreadsheetId = this.cast(SpreadsheetIdHistoryToken.class);
+                final SpreadsheetId id = spreadsheetId.id();
+
+                if (this instanceof SpreadsheetNameHistoryToken) {
+                    final SpreadsheetName name = this.cast(SpreadsheetNameHistoryToken.class).name();
+
+                    if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
+                        if (this instanceof SpreadsheetMetadataPropertySelectHistoryToken) {
+                            final SpreadsheetMetadataPropertySelectHistoryToken<?> spreadsheetMetadataPropertySelectHistoryToken = this.cast(SpreadsheetMetadataPropertySelectHistoryToken.class);
+
+                            // raw type here simplest option
+                            final SpreadsheetMetadataPropertyName propertyName = spreadsheetMetadataPropertySelectHistoryToken.propertyName();
+
+                            saved = HistoryToken.metadataPropertySave(
+                                id,
+                                name,
+                                propertyName,
+                                Optional.ofNullable(
+                                    value.isEmpty() ?
+                                        null :
+                                        propertyName.parseUrlFragmentSaveValue(value)
+                                )
+                            );
+                        }
+
+                        if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
+                            final SpreadsheetMetadataPropertyStyleHistoryToken<?> spreadsheetMetadataPropertyStyleHistoryToken = this.cast(SpreadsheetMetadataPropertyStyleHistoryToken.class);
+
+                            final TextStylePropertyName propertyName = spreadsheetMetadataPropertyStyleHistoryToken.stylePropertyName();
+
+                            return HistoryToken.metadataPropertyStyleSave(
+                                id,
+                                name,
+                                propertyName,
+                                Optional.ofNullable(
+                                    value.isEmpty() ?
+                                        null :
+                                        propertyName.parseValue(value)
+                                )
+                            );
+                        }
+                    }
+
+                    if (this instanceof SpreadsheetSelectionHistoryToken) {
+                        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+                            final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
+                                .anchoredSelection();
+
+                            if (this instanceof SpreadsheetCellHistoryToken) {
+                                if (this instanceof SpreadsheetCellFormatterHistoryToken) {
+                                    if (false == this instanceof SpreadsheetCellFormatterUnselectHistoryToken) {
+                                        saved = HistoryToken.cellFormatterSave(
+                                            id,
+                                            name,
+                                            anchoredSpreadsheetSelection,
+                                            Optional.ofNullable(
+                                                value.isEmpty() ?
+                                                    null :
+                                                    SpreadsheetFormatterSelector.parse(value)
+                                            )
+                                        );
+                                    }
+                                } else {
+                                    if (this instanceof SpreadsheetCellFormulaHistoryToken) {
+                                        saved = HistoryToken.cellFormulaSave(
+                                            id,
+                                            name,
+                                            anchoredSpreadsheetSelection,
+                                            value
+                                        );
+                                    } else {
+                                        if (this instanceof SpreadsheetCellLabelHistoryToken) {
+                                            saved = value.isEmpty() ?
+                                                this.clearAction() :
+                                                this.setLabelName(
+                                                    Optional.of(
+                                                        SpreadsheetSelection.labelName(value)
+                                                    )
+                                                );
+                                        } else {
+                                            if (this instanceof SpreadsheetCellParserHistoryToken) {
+                                                if (false == this instanceof SpreadsheetCellParserUnselectHistoryToken) {
+                                                    saved = HistoryToken.cellParserSave(
+                                                        id,
+                                                        name,
+                                                        anchoredSpreadsheetSelection,
+                                                        Optional.ofNullable(
+                                                            value.isEmpty() ?
+                                                                null :
+                                                                SpreadsheetParserSelector.parse(value)
+                                                        )
+                                                    );
+                                                }
+                                            } else {
+                                                if (this instanceof SpreadsheetCellSaveCellHistoryToken) {
+                                                    final SpreadsheetCellSaveCellHistoryToken spreadsheetCellSaveCellHistoryToken = this.cast(SpreadsheetCellSaveCellHistoryToken.class);
+                                                    saved = spreadsheetCellSaveCellHistoryToken.replace(
+                                                        id,
+                                                        name,
+                                                        anchoredSpreadsheetSelection,
+                                                        spreadsheetCellSaveCellHistoryToken.parseCells(
+                                                            TextCursors.charSequence(value)
+                                                        )
+                                                    );
+                                                } else {
+                                                    if (this instanceof SpreadsheetCellSaveMapHistoryToken) {
+                                                        final SpreadsheetCellSaveMapHistoryToken<Map<?, ?>> spreadsheetCellSaveMapHistoryToken = this.cast(SpreadsheetCellSaveMapHistoryToken.class);
+                                                        saved = spreadsheetCellSaveMapHistoryToken.replace(
+                                                            id,
+                                                            name,
+                                                            anchoredSpreadsheetSelection,
+                                                            spreadsheetCellSaveMapHistoryToken.parseSaveValue(
+                                                                TextCursors.charSequence(value)
+                                                            )
+                                                        );
+                                                    } else {
+                                                        if (this instanceof SpreadsheetCellSortHistoryToken) {
+                                                            saved = HistoryToken.cellSortSave(
+                                                                id,
+                                                                name,
+                                                                anchoredSpreadsheetSelection,
+                                                                SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
+                                                            );
+                                                        } else {
+                                                            if (this instanceof SpreadsheetCellStyleSelectHistoryToken) {
+                                                                final SpreadsheetCellStyleSelectHistoryToken<?> spreadsheetCellStyleSelectHistoryToken = this.cast(SpreadsheetCellStyleSelectHistoryToken.class);
+                                                                final TextStylePropertyName propertyName = spreadsheetCellStyleSelectHistoryToken.propertyName();
+
+                                                                saved = cellStyleSave(
+                                                                    id,
+                                                                    name,
+                                                                    anchoredSpreadsheetSelection,
+                                                                    propertyName,
+                                                                    Optional.ofNullable(
+                                                                        value.isEmpty() ?
+                                                                            null :
+                                                                            propertyName.parseValue(value)
+                                                                    )
+                                                                );
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (this instanceof SpreadsheetColumnSortHistoryToken) {
+                                saved = HistoryToken.columnSortSave(
+                                    id,
+                                    name,
+                                    anchoredSpreadsheetSelection,
+                                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
+                                );
+                            }
+
+                            if (this instanceof SpreadsheetRowSortHistoryToken) {
+                                saved = HistoryToken.rowSortSave(
+                                    id,
+                                    name,
+                                    anchoredSpreadsheetSelection,
+                                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
+                                );
+                            }
+                        }
+
+                        if (this instanceof SpreadsheetLabelMappingSelectHistoryToken) {
+                            final SpreadsheetLabelMappingSelectHistoryToken spreadsheetLabelMappingSelectHistoryToken = this.cast(SpreadsheetLabelMappingSelectHistoryToken.class);
+
+                            final SpreadsheetLabelName labelName = spreadsheetLabelMappingSelectHistoryToken.labelName.orElse(null);
+                            if (null != labelName) {
+                                saved = labelMappingSave(
+                                    id,
+                                    name,
+                                    labelName.setLabelMappingTarget(
+                                        SpreadsheetSelection.parseExpressionReference(value)
+                                    )
+                                );
+                            }
+                        }
+                    } else {
+                        if (this instanceof SpreadsheetRenameSelectHistoryToken) {
+                            saved = HistoryToken.spreadsheetRenameSave(
+                                id,
+                                name,
+                                SpreadsheetName.with(value)
+                            );
+                        }
+                    }
+                } else {
+                    if (this instanceof SpreadsheetListRenameHistoryToken) {
+                        saved = HistoryToken.spreadsheetListRenameSave(
+                            id,
+                            SpreadsheetName.with(value)
+                        );
+                    }
+                }
+            }
         }
 
-        return historyToken;
+        return saved;
     }
 
     /**

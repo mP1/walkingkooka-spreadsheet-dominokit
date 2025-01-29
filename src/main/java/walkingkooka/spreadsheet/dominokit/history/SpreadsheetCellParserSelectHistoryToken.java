@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
@@ -62,20 +61,6 @@ public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCe
             id,
             name,
             anchoredSelection
-        );
-    }
-
-    @Override
-    HistoryToken save0(final String value) {
-        return HistoryToken.cellParserSave(
-            this.id(),
-            this.name(),
-            this.anchoredSelection(),
-            Optional.ofNullable(
-                value.isEmpty() ?
-                    null :
-                    SpreadsheetParserSelector.parse(value)
-            )
         );
     }
 

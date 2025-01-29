@@ -25,8 +25,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.text.cursor.TextCursors;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -96,20 +94,6 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
             name,
             anchoredSelection,
             value
-        );
-    }
-
-    @Override //
-    HistoryToken save0(final String value) {
-        final TextCursor cursor = TextCursors.charSequence(value);
-
-        return this.replace(
-            this.id(),
-            this.name(),
-            this.anchoredSelection(),
-            parseCells(
-                cursor
-            )
         );
     }
 

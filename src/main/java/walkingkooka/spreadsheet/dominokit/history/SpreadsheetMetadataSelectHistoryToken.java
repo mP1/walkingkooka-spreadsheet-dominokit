@@ -75,11 +75,6 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
     }
 
     @Override
-    HistoryToken save0(final String value) {
-        return this;
-    }
-
-    @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         // show metadata UI

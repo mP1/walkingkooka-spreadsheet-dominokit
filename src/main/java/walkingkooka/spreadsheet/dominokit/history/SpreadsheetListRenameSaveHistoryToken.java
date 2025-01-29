@@ -82,13 +82,6 @@ public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetList
     }
 
     @Override
-    HistoryToken save0(final String value) {
-        return this.setValue(
-            SpreadsheetName.with(value)
-        );
-    }
-
-    @Override
     HistoryToken parse0(final String component,
                         final TextCursor cursor) {
         return this; // ignore tokens after /save/SpreadsheetName
