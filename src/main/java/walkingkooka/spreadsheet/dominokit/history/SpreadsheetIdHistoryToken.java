@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.HasId;
 import walkingkooka.spreadsheet.SpreadsheetId;
 
 import java.util.Objects;
@@ -24,7 +25,7 @@ import java.util.Objects;
 /**
  * Instances represent a token within a history hash including the {@link SpreadsheetId}
  */
-public abstract class SpreadsheetIdHistoryToken extends SpreadsheetHistoryToken {
+public abstract class SpreadsheetIdHistoryToken extends SpreadsheetHistoryToken implements HasId<SpreadsheetId> {
 
     SpreadsheetIdHistoryToken(final SpreadsheetId id) {
         super();
@@ -32,6 +33,7 @@ public abstract class SpreadsheetIdHistoryToken extends SpreadsheetHistoryToken 
         this.id = Objects.requireNonNull(id, "id");
     }
 
+    @Override
     public final SpreadsheetId id() {
         return this.id;
     }
