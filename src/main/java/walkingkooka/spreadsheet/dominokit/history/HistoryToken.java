@@ -1148,7 +1148,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         final SpreadsheetSelection selection = anchoredSelection.selection();
 
         for (; ; ) {
-            if (selection.isCell() || selection.isCellRange() || selection.isLabelName()) {
+            if (selection.isCellOrCellRange() || selection.isLabelName()) {
                 historyToken = cellSelect(
                     id,
                     name,
@@ -1156,7 +1156,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 );
                 break;
             }
-            if (selection.isColumn() || selection.isColumnRange()) {
+            if (selection.isColumnOrColumnRange()) {
                 historyToken = columnSelect(
                     id,
                     name,
@@ -1164,7 +1164,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 );
                 break;
             }
-            if (selection.isRow() || selection.isRowRange()) {
+            if (selection.isRowOrRowRange()) {
                 historyToken = rowSelect(
                     id,
                     name,

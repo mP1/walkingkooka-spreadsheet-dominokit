@@ -98,7 +98,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // -------
         // LABELS
 
-        if (selection.isCell() || selection.isCellRange() || selection.isLabelName()) {
+        if (selection.isCellOrCellRange() || selection.isLabelName()) {
             clipboard(
                 historyToken,
                 menu,
@@ -155,7 +155,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         menu.separator();
 
         {
-            if (selection.isCell() || selection.isCellRange()) {
+            if (selection.isCellOrCellRange()) {
                 label(historyToken, selection, menu, context);
             }
         }
@@ -896,7 +896,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
-        if (selection.isColumn() | selection.isColumnRange() | selection.isCell() || selection.isCellRange()) {
+        if (selection.isColumnOrColumnRange() | selection.isCellOrCellRange()) {
             final HistoryToken columnHistoryToken = historyToken.setAnchoredSelection(
                 Optional.of(
                     selection.toColumnOrColumnRange()
@@ -939,7 +939,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
-        if (selection.isRow() | selection.isRowRange() | selection.isCell() || selection.isCellRange()) {
+        if (selection.isRowOrRowRange() | selection.isCellOrCellRange()) {
             final HistoryToken rowHistoryToken = historyToken.setAnchoredSelection(
                 Optional.of(
                     selection.toRowOrRowRange()
