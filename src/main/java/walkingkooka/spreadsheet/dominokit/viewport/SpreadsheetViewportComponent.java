@@ -399,7 +399,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             final Optional<SpreadsheetSelection> maybeSelection = parseId(walk.id);
             if (maybeSelection.isPresent()) {
                 final SpreadsheetSelection selection = maybeSelection.get();
-                if (selection.isCellReference()) {
+                if (selection.isCell()) {
                     final SpreadsheetCellReference cell = selection.toCell();
 
                     this.onNavigation(
@@ -971,7 +971,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
             if (give) {
                 // for column/row the anchor and not the TH/TD should receive focus.
-                if (spreadsheetSelection.isColumnReference() || spreadsheetSelection.isRowReference()) {
+                if (spreadsheetSelection.isColumn() || spreadsheetSelection.isRow()) {
                     element = element.firstElementChild;
                 }
 
@@ -1044,7 +1044,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
             // is not cell-range required otherwise select-all-component will always be rendered as anchorSelection.
             selected = (s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
-                (false == s.isCellRangeReference() && selectionNotLabel.test(s));
+                (false == s.isCellRange() && selectionNotLabel.test(s));
         }
 
         this.table.refresh(
