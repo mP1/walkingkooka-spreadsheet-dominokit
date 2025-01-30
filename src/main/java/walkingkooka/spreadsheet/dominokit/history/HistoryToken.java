@@ -1148,7 +1148,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         final SpreadsheetSelection selection = anchoredSelection.selection();
 
         for (; ; ) {
-            if (selection.isCellReference() || selection.isCellRangeReference() || selection.isLabelName()) {
+            if (selection.isCell() || selection.isCellRange() || selection.isLabelName()) {
                 historyToken = cellSelect(
                     id,
                     name,
@@ -1156,7 +1156,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 );
                 break;
             }
-            if (selection.isColumnReference() || selection.isColumnRangeReference()) {
+            if (selection.isColumn() || selection.isColumnRange()) {
                 historyToken = columnSelect(
                     id,
                     name,
@@ -1164,7 +1164,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                 );
                 break;
             }
-            if (selection.isRowReference() || selection.isRowRangeReference()) {
+            if (selection.isRow() || selection.isRowRange()) {
                 historyToken = rowSelect(
                     id,
                     name,
@@ -2481,19 +2481,19 @@ public abstract class HistoryToken implements HasUrlFragment,
                 final AnchoredSpreadsheetSelection anchoredSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                     .anchoredSelection();
 
-                if (this instanceof SpreadsheetCellHistoryToken && selection.isCellReference()) {
+                if (this instanceof SpreadsheetCellHistoryToken && selection.isCell()) {
                     anchoredMenuSelection = anchoredSelection.selection()
                         .testCell(selection.toCell()) ?
                         anchoredSelection :
                         selection.setDefaultAnchor();
                 } else {
-                    if (this instanceof SpreadsheetColumnHistoryToken && selection.isColumnReference()) {
+                    if (this instanceof SpreadsheetColumnHistoryToken && selection.isColumn()) {
                         anchoredMenuSelection = anchoredSelection.selection()
                             .testColumn(selection.toColumn()) ?
                             anchoredSelection :
                             selection.setDefaultAnchor();
                     } else {
-                        if (this instanceof SpreadsheetRowHistoryToken && selection.isRowReference()) {
+                        if (this instanceof SpreadsheetRowHistoryToken && selection.isRow()) {
                             anchoredMenuSelection = anchoredSelection.selection()
                                 .testRow(selection.toRow()) ?
                                 anchoredSelection :
@@ -2514,14 +2514,14 @@ public abstract class HistoryToken implements HasUrlFragment,
 
             final SpreadsheetSelection menuSelection = anchoredMenuSelection.selection();
 
-            if (menuSelection.isCellReferenceOrCellRangeReference()) {
+            if (menuSelection.isCellOrCellRange()) {
                 historyToken = cellMenu(
                     id,
                     name,
                     anchoredMenuSelection
                 );
             } else {
-                if (menuSelection.isColumnReferenceOrColumnRangeReference()) {
+                if (menuSelection.isColumnOrColumnRange()) {
                     historyToken = columnMenu(
                         id,
                         name,
@@ -2529,7 +2529,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                     );
 
                 } else {
-                    if (menuSelection.isRowReferenceOrRowRangeReference()) {
+                    if (menuSelection.isRowOrRowRange()) {
                         historyToken = rowMenu(
                             id,
                             name,

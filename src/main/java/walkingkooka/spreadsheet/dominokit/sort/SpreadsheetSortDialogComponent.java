@@ -295,10 +295,10 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         // if the first column/row is a COLUMN convert selection to a COLUMN.
         if (firstColumnOrRow.isPresent()) {
             SpreadsheetColumnOrRowReference first = firstColumnOrRow.get();
-            if (first.isColumnReference()) {
+            if (first.isColumn()) {
                 selectionRange = selectionRange.toColumnRange();
             } else {
-                if (first.isRowReference()) {
+                if (first.isRow()) {
                     selectionRange = selectionRange.toRowRange();
                 } else {
                     throw new NeverError("Got " + selectionRange + " expected column or row");
@@ -306,7 +306,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
             }
             max = selectionRange.count();
         } else {
-            if (selectionRange.isCellRangeReference()) {
+            if (selectionRange.isCellRange()) {
                 final long maxColumn = selectionRange.toColumnRange()
                     .count();
                 final long maxRow = selectionRange.toRowRange()

@@ -98,7 +98,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // -------
         // LABELS
 
-        if (selection.isCellReference() || selection.isCellRangeReference() || selection.isLabelName()) {
+        if (selection.isCell() || selection.isCellRange() || selection.isLabelName()) {
             clipboard(
                 historyToken,
                 menu,
@@ -155,7 +155,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         menu.separator();
 
         {
-            if (selection.isCellReference() || selection.isCellRangeReference()) {
+            if (selection.isCell() || selection.isCellRange()) {
                 label(historyToken, selection, menu, context);
             }
         }
@@ -896,7 +896,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
-        if (selection.isColumnReference() | selection.isColumnRangeReference() | selection.isCellReference() || selection.isCellRangeReference()) {
+        if (selection.isColumn() | selection.isColumnRange() | selection.isCell() || selection.isCellRange()) {
             final HistoryToken columnHistoryToken = historyToken.setAnchoredSelection(
                 Optional.of(
                     selection.toColumnOrColumnRange()
@@ -939,7 +939,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
-        if (selection.isRowReference() | selection.isRowRangeReference() | selection.isCellReference() || selection.isCellRangeReference()) {
+        if (selection.isRow() | selection.isRowRange() | selection.isCell() || selection.isCellRange()) {
             final HistoryToken rowHistoryToken = historyToken.setAnchoredSelection(
                 Optional.of(
                     selection.toRowOrRowRange()
@@ -984,9 +984,9 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                     final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
-        final boolean columns = selection.isColumnReferenceOrColumnRangeReference();
+        final boolean columns = selection.isColumnOrColumnRange();
 
-        if (columns || selection.isCellReferenceOrCellRangeReference()) {
+        if (columns || selection.isCellOrCellRange()) {
             if (columns || selection.toRowRange().count() > 1) {
                 final String idPrefix = context.idPrefix() + "column-sort-";
 
@@ -1009,8 +1009,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                  final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
-        final boolean rows = selection.isRowReferenceOrRowRangeReference();
-        if (rows || selection.isCellReferenceOrCellRangeReference()) {
+        final boolean rows = selection.isRowOrRowRange();
+        if (rows || selection.isCellOrCellRange()) {
 
             if (rows || selection.toColumnOrColumnRange().count() > 1) {
                 final String idPrefix = context.idPrefix() + "row-sort-";

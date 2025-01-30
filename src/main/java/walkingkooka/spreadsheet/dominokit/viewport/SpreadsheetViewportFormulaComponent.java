@@ -185,10 +185,10 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
                 token.anchoredSelection()
                     .selection()
             );
-        final boolean isCellReference = notLabelSelection.isCellReference();
-        formula.setEnabled(isCellReference);
+        final boolean isCell = notLabelSelection.isCell();
+        formula.setEnabled(isCell);
 
-        if (isCellReference) {
+        if (isCell) {
             final SpreadsheetCellReference selectedCell = notLabelSelection.toCell();
 
             // if cell selection changed reload formula text
