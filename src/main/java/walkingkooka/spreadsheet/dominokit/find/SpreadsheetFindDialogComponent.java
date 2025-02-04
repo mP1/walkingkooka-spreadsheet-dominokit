@@ -38,8 +38,8 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetCellRangeReferenc
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
-import walkingkooka.spreadsheet.formula.ConditionRightSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
+import walkingkooka.spreadsheet.formula.parser.ConditionRightSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;

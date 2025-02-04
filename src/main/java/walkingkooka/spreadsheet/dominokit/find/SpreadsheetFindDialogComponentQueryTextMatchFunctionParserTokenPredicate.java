@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
-import walkingkooka.spreadsheet.formula.NamedFunctionSpreadsheetFormulaParserToken;
-import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.parser.NamedFunctionSpreadsheetFormulaParserToken;
+import walkingkooka.spreadsheet.formula.parser.SpreadsheetFormulaParserToken;
 import walkingkooka.text.cursor.parser.ParserToken;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 
