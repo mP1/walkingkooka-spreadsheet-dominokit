@@ -67,7 +67,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
             SpreadsheetTextBox.empty()
                 .setLabel("Label123")
                 .setValidator(
-                    new Validator<Optional<String>>() {
+                    new Validator<>() {
                         @Override
                         public ValidationResult isValid(final Optional<String> component) {
                             return ValidationResult.valid();
@@ -104,7 +104,7 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
             SpreadsheetTextBox.empty()
                 .setLabel("Label123")
                 .setValidator(
-                    new Validator<Optional<String>>() {
+                    new Validator<>() {
                         @Override
                         public ValidationResult isValid(final Optional<String> component) {
                             return ValidationResult.invalid("Error message 123");
