@@ -25,7 +25,6 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.header.Accept;
 import walkingkooka.net.header.HttpHeaderName;
 import walkingkooka.net.header.MediaType;
-import walkingkooka.net.http.HttpEntity;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
@@ -363,7 +362,7 @@ abstract public class Fetcher<W extends FetcherWatcher> {
 
 
     /**
-     * This method is only intended to be called by {@link #fetch(HttpMethod, AbsoluteOrRelativeUrl, HttpEntity)},
+     * This method is only intended to be called by {@link #fetch(HttpMethod, AbsoluteOrRelativeUrl, Map, Optional)} ,
      * during various parts of the fetch lifecycle.
      */
     public final void setWaitingRequestCount(final int waitingRequestCount) {
