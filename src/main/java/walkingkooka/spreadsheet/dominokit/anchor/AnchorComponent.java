@@ -30,10 +30,12 @@ import java.util.Optional;
  */
 public interface AnchorComponent<A extends AnchorComponent<A, T>, T> extends ValueComponent<HTMLAnchorElement, T, A> {
 
+    @Override
     default boolean isDisabled() {
         return null == this.href();
     }
 
+    @Override
     A setDisabled(final boolean disabled);
 
     // checked.........................................................................................................
@@ -56,8 +58,10 @@ public interface AnchorComponent<A extends AnchorComponent<A, T>, T> extends Val
 
     // id...............................................................................................................
 
+    @Override
     String id();
 
+    @Override
     A setId(final String id);
 
     // tabIndex.........................................................................................................
