@@ -3228,7 +3228,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                         id,
                                                         name,
                                                         anchoredSpreadsheetSelection,
-                                                        spreadsheetCellSaveCellHistoryToken.parseCells(
+                                                        SpreadsheetCellSaveHistoryToken.parseCells(
                                                             TextCursors.charSequence(value)
                                                         )
                                                     );
