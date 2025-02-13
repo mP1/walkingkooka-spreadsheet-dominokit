@@ -115,25 +115,13 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     final void fetchJson(final HttpMethod method,
                          final AbsoluteOrRelativeUrl url,
                          final Optional<FetcherRequestBody<?>> body) {
-        // HttpEntity entity = HttpEntity.EMPTY.setAccept(ACCEPT_JSON);
         final Map<HttpHeaderName<?>, Object> headers = Maps.sorted();
 
         if (false == HttpMethod.GET.equals(method)) {
-            //entity = entity.setContentType(
-            //        MediaType.APPLICATION_JSON
-            //);
             headers.put(
                 HttpHeaderName.CONTENT_TYPE,
                 SpreadsheetServerMediaTypes.CONTENT_TYPE
             );
-
-//            if (body.isPresent()) {
-//                entity = entity.setBodyText(
-//                        body.get()
-//                                .value()
-//                                .toString()
-//                );
-//            }
         }
 
         this.fetch(
