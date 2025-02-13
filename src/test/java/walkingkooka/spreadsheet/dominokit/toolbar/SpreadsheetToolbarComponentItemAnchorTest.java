@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import walkingkooka.Cast;
 
-@SuppressWarnings("rawtypes")
 public final class SpreadsheetToolbarComponentItemAnchorTest extends SpreadsheetToolbarComponentItemTestCase<SpreadsheetToolbarComponentItemAnchor<?>> {
     @Override
     public Class<SpreadsheetToolbarComponentItemAnchor<?>> type() {
