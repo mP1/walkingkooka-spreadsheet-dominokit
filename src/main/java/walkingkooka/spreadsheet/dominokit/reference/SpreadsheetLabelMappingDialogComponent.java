@@ -67,7 +67,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         this.context = context;
 
         this.labelName = labelName(context);
-        this.labelMappingTarget = this.labelMappingTarget();
+        this.labelMappingReference = this.labelMappingReference();
 
         this.save = this.anchor("Save");
         this.undo = this.anchor("Undo");
@@ -80,13 +80,13 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         context.addSpreadsheetDeltaFetcherWatcher(this);
 
         this.undoLabelName = Optional.empty();
-        this.undoLabelMappingTarget = Optional.empty();
+        this.undoLabelMappingReference = Optional.empty();
     }
 
     // dialog...........................................................................................................
 
     /**
-     * Creates the modal dialog, which includes a few text boxes to edit the label and the target.
+     * Creates the modal dialog, which includes a few text boxes to edit the label and the reference.
      */
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetLabelMappingDialogComponentContext context = this.context;
@@ -97,7 +97,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                 true, // includeClose
                 context
             ).appendChild(this.labelName)
-            .appendChild(this.labelMappingTarget)
+            .appendChild(this.labelMappingReference)
             .appendChild(
                 SpreadsheetFlexLayout.row()
                     .appendChild(this.save)
@@ -154,38 +154,38 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private final SpreadsheetLabelComponent labelName;
 
-    // labelMappingTarget...............................................................................................
+    // labelMappingReference...............................................................................................
 
     /**
      * Creates the {@link walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference} text box and installs a value change listener.
      */
-    private SpreadsheetExpressionReferenceComponent labelMappingTarget() {
+    private SpreadsheetExpressionReferenceComponent labelMappingReference() {
         return SpreadsheetExpressionReferenceComponent.empty()
-            .setId(ID_PREFIX + "target" + SpreadsheetElementIds.TEXT_BOX)
+            .setId(ID_PREFIX + "reference" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Cell, cell range or Label")
             .addChangeListener(
                 (oldValue, newValue) -> {
-                    this.onLabelMappingTargetNewValue(newValue);
+                    this.onLabelMappingReferenceNewValue(newValue);
                 }
             ).addKeyupListener(
                 (e) -> {
-                    this.onLabelMappingTargetNewValue(
-                        this.labelMappingTarget.value()
+                    this.onLabelMappingReferenceNewValue(
+                        this.labelMappingReference.value()
                     );
                 }
             );
     }
 
-    private final SpreadsheetExpressionReferenceComponent labelMappingTarget;
+    private final SpreadsheetExpressionReferenceComponent labelMappingReference;
 
-    private void onLabelMappingTargetNewValue(final Optional<SpreadsheetExpressionReference> newValue) {
+    private void onLabelMappingReferenceNewValue(final Optional<SpreadsheetExpressionReference> newValue) {
         final HistoryToken historyToken = context.historyToken();
         if(historyToken instanceof SpreadsheetCellLabelHistoryToken) {
             context.pushHistoryToken(
                 historyToken.setLabelMappingReference(newValue)
             );
         } else {
-            this.labelMappingTarget.setValue(newValue);
+            this.labelMappingReference.setValue(newValue);
             this.refreshLinks();
         }
     }
@@ -194,14 +194,14 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private void refreshSave() {
         final Optional<SpreadsheetLabelName> label = this.labelName.value();
-        final Optional<SpreadsheetExpressionReference> target = this.labelMappingTarget.value();
+        final Optional<SpreadsheetExpressionReference> reference = this.labelMappingReference.value();
 
         this.save.setHistoryToken(
             Optional.ofNullable(
-                label.isPresent() && target.isPresent() ?
+                label.isPresent() && reference.isPresent() ?
                     this.context.historyToken()
                         .setLabelName(label)
-                        .setLabelMappingReference(target) :
+                        .setLabelMappingReference(reference) :
                     null
             )
         );
@@ -212,14 +212,14 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     // undo.............................................................................................................
 
     /**
-     * Refreshes the UNDO link with the undo label + target.
+     * Refreshes the UNDO link with the undo label + reference.
      */
     private void refreshUndo() {
         this.undo.setHistoryToken(
             Optional.of(
                 this.context.historyToken()
                     .setLabelName(this.undoLabelName)
-                    .setLabelMappingReference(this.undoLabelMappingTarget)
+                    .setLabelMappingReference(this.undoLabelMappingReference)
             )
         );
     }
@@ -228,7 +228,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     private Optional<SpreadsheetLabelName> undoLabelName;
 
-    private Optional<SpreadsheetExpressionReference> undoLabelMappingTarget;
+    private Optional<SpreadsheetExpressionReference> undoLabelMappingReference;
 
     // delete...........................................................................................................
 
@@ -295,7 +295,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
      */
     @Override
     public void refresh(final RefreshContext context) {
-        this.refreshLabelNameAndLabelMappingTarget();
+        this.refreshLabelNameAndLabelMappingReference();
         this.loadLabelMappingIfNecessary();
 
         this.refreshLinks();
@@ -339,21 +339,21 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     }
 
     /**
-     * Refreshes the label and label mapping target from the loaded {@link SpreadsheetLabelMapping} or
+     * Refreshes the label and label mapping reference from the loaded {@link SpreadsheetLabelMapping} or
      * {@link HistoryToken}
      */
-    private void refreshLabelNameAndLabelMappingTarget() {
+    private void refreshLabelNameAndLabelMappingReference() {
         final Optional<SpreadsheetLabelMapping> loaded = this.loaded;
 
         final SpreadsheetLabelComponent labelNameComponent = this.labelName;
-        final SpreadsheetExpressionReferenceComponent labelMappingTargetComponent = this.labelMappingTarget;
+        final SpreadsheetExpressionReferenceComponent labelMappingReferenceComponent = this.labelMappingReference;
 
         if (null != loaded) {
             if (loaded.isPresent()) {
                 labelNameComponent.setValue(
                     loaded.map(SpreadsheetLabelMapping::label)
                 );
-                labelMappingTargetComponent.setValue(
+                labelMappingReferenceComponent.setValue(
                     loaded.map(SpreadsheetLabelMapping::reference)
                 );
             }
@@ -363,12 +363,12 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
             final HistoryToken token = context.historyToken();
 
             if (token instanceof SpreadsheetCellLabelHistoryToken) {
-                final Optional<SpreadsheetExpressionReference> historyLabelMappingTarget = token.labelMappingTarget();
-                final Optional<SpreadsheetExpressionReference> componentLabelMappingTarget = labelMappingTargetComponent.value();
+                final Optional<SpreadsheetExpressionReference> historyLabelMappingReference = token.labelMappingTarget();
+                final Optional<SpreadsheetExpressionReference> componentLabelMappingReference = labelMappingReferenceComponent.value();
 
-                if (false == historyLabelMappingTarget.equals(componentLabelMappingTarget)) {
-                    labelMappingTargetComponent.setValue(
-                        historyLabelMappingTarget
+                if (false == historyLabelMappingReference.equals(componentLabelMappingReference)) {
+                    labelMappingReferenceComponent.setValue(
+                        historyLabelMappingReference
                     );
                     labelNameComponent.clearValue();
                 }
@@ -382,7 +382,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                     labelNameComponent.setValue(
                         historyLabelName
                     );
-                    labelMappingTargetComponent.clearValue();
+                    labelMappingReferenceComponent.clearValue();
                 }
             }
         }
@@ -406,7 +406,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
                 SpreadsheetLabelMapping mapping = null;
                 Optional<SpreadsheetLabelName> undoLabelName = null;
-                Optional<SpreadsheetExpressionReference> undoLabelMappingTarget = null;
+                Optional<SpreadsheetExpressionReference> undoLabelMappingReference = null;
 
                 switch (mappings.size()) {
                     case 1:
@@ -415,18 +415,18 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                         undoLabelName = Optional.of(
                             mapping.label()
                         );
-                        undoLabelMappingTarget = Optional.of(
+                        undoLabelMappingReference = Optional.of(
                             mapping.reference()
                         );
                         break;
                     default:
                         undoLabelName = Optional.empty();
-                        undoLabelMappingTarget = Optional.empty();
+                        undoLabelMappingReference = Optional.empty();
                         break;
                 }
                 this.loaded = Optional.ofNullable(mapping); // label does not exist
                 this.undoLabelName = undoLabelName;
-                this.undoLabelMappingTarget = undoLabelMappingTarget;
+                this.undoLabelMappingReference = undoLabelMappingReference;
 
                 this.refreshIfOpen(context);
             }
