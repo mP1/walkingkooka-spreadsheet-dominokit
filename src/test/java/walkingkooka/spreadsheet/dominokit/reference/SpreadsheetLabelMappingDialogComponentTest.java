@@ -58,7 +58,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Cell, cell range or Label [A1] id=labelMapping-target-TextBox\n" +
+                "            Cell, cell range or Label [A1] id=labelMapping-reference-TextBox\n" +
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
                 "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
@@ -85,7 +85,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Cell, cell range or Label [A1] id=labelMapping-target-TextBox\n" +
+                "            Cell, cell range or Label [A1] id=labelMapping-reference-TextBox\n" +
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
                 "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
@@ -112,7 +112,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Cell, cell range or Label [A1] id=labelMapping-target-TextBox\n" +
+                "            Cell, cell range or Label [A1] id=labelMapping-reference-TextBox\n" +
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
                 "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
@@ -139,7 +139,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
+                "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      SpreadsheetFlexLayout\n" +
@@ -175,7 +175,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
+                "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      SpreadsheetFlexLayout\n" +
@@ -202,7 +202,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
+                "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      SpreadsheetFlexLayout\n" +
@@ -236,7 +236,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Cell, cell range or Label [] id=labelMapping-target-TextBox\n" +
+                "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      SpreadsheetFlexLayout\n" +
@@ -273,7 +273,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
-                "            Cell, cell range or Label [C3] id=labelMapping-target-TextBox\n" +
+                "            Cell, cell range or Label [C3] id=labelMapping-reference-TextBox\n" +
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
                 "          \"Save\" [#/1/SpreadsheetName111/label/LoadedLabel123/save/C3] id=labelMapping-save-Link\n" +
