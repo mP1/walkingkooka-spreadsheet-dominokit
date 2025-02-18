@@ -282,7 +282,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
-    // setLabelMappingReference............................................................................................
+    // setLabelMappingReference.........................................................................................
 
     @Test
     public final void testsetLabelMappingReferenceWithNullFails() {
@@ -311,7 +311,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
     final void setLabelMappingReferenceAndCheck(final HistoryToken historyToken,
-                                             final HistoryToken expected) {
+                                                final HistoryToken expected) {
         this.setLabelMappingReferenceAndCheck(
             historyToken,
             Optional.empty(),
@@ -320,37 +320,37 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
     final void setLabelMappingReferenceAndCheck(final HistoryToken historyToken,
-                                             final SpreadsheetExpressionReference labelMappingTarget) {
+                                                final SpreadsheetExpressionReference labelMappingReference) {
         this.setLabelMappingReferenceAndCheck(
             historyToken,
-            Optional.of(labelMappingTarget),
+            Optional.of(labelMappingReference),
             historyToken
         );
     }
 
     final void setLabelMappingReferenceAndCheck(final HistoryToken historyToken,
-                                             final SpreadsheetExpressionReference labelMappingTarget,
-                                             final HistoryToken expected) {
+                                                final SpreadsheetExpressionReference labelMappingReference,
+                                                final HistoryToken expected) {
         this.setLabelMappingReferenceAndCheck(
             historyToken,
-            Optional.of(labelMappingTarget),
+            Optional.of(labelMappingReference),
             expected
         );
     }
 
     final void setLabelMappingReferenceAndCheck(final HistoryToken historyToken,
-                                             final Optional<SpreadsheetExpressionReference> labelMappingTarget,
-                                             final HistoryToken expected) {
-        if(historyToken.equals(expected)) {
+                                                final Optional<SpreadsheetExpressionReference> labelMappingReference,
+                                                final HistoryToken expected) {
+        if (historyToken.equals(expected)) {
             assertSame(
                 expected,
-                historyToken.setLabelMappingReference(labelMappingTarget),
-                () -> historyToken + " setLabelMappingReference " + labelMappingTarget + " returned different equal instance"
+                historyToken.setLabelMappingReference(labelMappingReference),
+                () -> historyToken + " setLabelMappingReference " + labelMappingReference + " returned different equal instance"
             );
         } else {
             this.checkEquals(
                 expected,
-                historyToken.setLabelMappingReference(labelMappingTarget),
+                historyToken.setLabelMappingReference(labelMappingReference),
                 historyToken::toString
             );
         }
