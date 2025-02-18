@@ -128,7 +128,7 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
     // setLabelMappingReference............................................................................................
 
     @Test
-    public final void testsetLabelMappingReference() {
+    public final void testSetLabelMappingReference() {
         this.setLabelMappingReferenceAndCheck();
     }
 

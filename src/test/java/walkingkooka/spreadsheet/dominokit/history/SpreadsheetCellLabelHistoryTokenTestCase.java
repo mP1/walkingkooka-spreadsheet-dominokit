@@ -94,17 +94,17 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     // setLabelMappingReference............................................................................................
 
     @Test
-    public final void testsetLabelMappingReferenceWhenCellWithSameCell() {
+    public final void testSetLabelMappingReferenceWhenCellWithSameCell() {
         this.setLabelMappingReferenceAndCheck(CELL);
     }
 
     @Test
-    public final void testsetLabelMappingReferenceWhenCellRangeWithSameCellRange() {
+    public final void testSetLabelMappingReferenceWhenCellRangeWithSameCellRange() {
         this.setLabelMappingReferenceAndCheck(RANGE);
     }
 
     @Test
-    public final void testsetLabelMappingReferenceWhenLabelWithSameLabel() {
+    public final void testSetLabelMappingReferenceWhenLabelWithSameLabel() {
         this.setLabelMappingReferenceAndCheck(
             LABEL
         );
@@ -113,7 +113,7 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     abstract void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference target);
 
     @Test
-    public final void testsetLabelMappingReferenceWhenCellWithDifferentCell() {
+    public final void testSetLabelMappingReferenceWhenCellWithDifferentCell() {
         this.setLabelMappingReferenceAndCheck(
             CELL,
             CELL.addColumn(10)
@@ -121,7 +121,7 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     }
 
     @Test
-    public final void testsetLabelMappingReferenceWhenCellRangeWithDifferentCellRange() {
+    public final void testSetLabelMappingReferenceWhenCellRangeWithDifferentCellRange() {
         this.setLabelMappingReferenceAndCheck(
             RANGE,
             RANGE.add(
@@ -132,7 +132,7 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     }
 
     @Test
-    public final void testsetLabelMappingReferenceWhenLabelWithDifferentLabel() {
+    public final void testSetLabelMappingReferenceWhenLabelWithDifferentLabel() {
         this.setLabelMappingReferenceAndCheck(
             LABEL,
             SpreadsheetSelection.labelName("Different")

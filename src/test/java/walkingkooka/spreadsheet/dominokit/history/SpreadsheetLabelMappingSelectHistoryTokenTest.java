@@ -50,21 +50,21 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     // setLabelMappingReference............................................................................................
 
     @Test
-    public void testsetLabelMappingReferenceWithCell() {
+    public void testSetLabelMappingReferenceWithCell() {
         this.setLabelMappingReferenceAndCheck(
             SpreadsheetSelection.A1
         );
     }
 
     @Test
-    public void testsetLabelMappingReferenceWithCellRange() {
+    public void testSetLabelMappingReferenceWithCellRange() {
         this.setLabelMappingReferenceAndCheck(
             SpreadsheetSelection.parseCellRange("B2:C3")
         );
     }
 
     @Test
-    public void testsetLabelMappingReferenceWithLabel() {
+    public void testSetLabelMappingReferenceWithLabel() {
         this.setLabelMappingReferenceAndCheck(
             SpreadsheetSelection.labelName("Label999")
         );
