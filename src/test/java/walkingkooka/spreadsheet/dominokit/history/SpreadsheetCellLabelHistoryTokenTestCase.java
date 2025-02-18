@@ -53,11 +53,11 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
         );
     }
 
-    // labelMappingTarget...............................................................................................
+    // labelMappingReference............................................................................................
 
     @Test
-    public final void testLabelMappingTargetWhenCell() {
-        this.labelMappingTargetAndCheck(
+    public final void testLabelMappingReferenceWhenCell() {
+        this.labelMappingReferenceAndCheck(
             this.createHistoryToken(
                 ID,
                 NAME,
@@ -68,8 +68,8 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     }
 
     @Test
-    public final void testLabelMappingTargetWhenCellRange() {
-        this.labelMappingTargetAndCheck(
+    public final void testLabelMappingReferenceWhenCellRange() {
+        this.labelMappingReferenceAndCheck(
             this.createHistoryToken(
                 ID,
                 NAME,
@@ -80,8 +80,8 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     }
 
     @Test
-    public final void testLabelMappingTargetWhenLabel() {
-        this.labelMappingTargetAndCheck(
+    public final void testLabelMappingReferenceWhenLabel() {
+        this.labelMappingReferenceAndCheck(
             this.createHistoryToken(
                 ID,
                 NAME,
@@ -140,7 +140,7 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     }
 
     abstract void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference selection,
-                                                final SpreadsheetExpressionReference target);
+                                                   final SpreadsheetExpressionReference target);
 
     // setSaveValue.....................................................................................................
 

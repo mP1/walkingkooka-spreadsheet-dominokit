@@ -256,28 +256,28 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
-    // labelMappingTarget...............................................................................................
+    // labelMappingReference...........................................................................................
 
-    final void labelMappingTargetAndCheck(final HistoryToken token) {
-        this.labelMappingTargetAndCheck(
+    final void labelMappingReferenceAndCheck(final HistoryToken token) {
+        this.labelMappingReferenceAndCheck(
             token,
             Optional.empty()
         );
     }
 
-    final void labelMappingTargetAndCheck(final HistoryToken token,
-                                          final SpreadsheetExpressionReference expected) {
-        this.labelMappingTargetAndCheck(
+    final void labelMappingReferenceAndCheck(final HistoryToken token,
+                                             final SpreadsheetExpressionReference expected) {
+        this.labelMappingReferenceAndCheck(
             token,
             Optional.of(expected)
         );
     }
 
-    final void labelMappingTargetAndCheck(final HistoryToken token,
-                                          final Optional<SpreadsheetExpressionReference> expected) {
+    final void labelMappingReferenceAndCheck(final HistoryToken token,
+                                             final Optional<SpreadsheetExpressionReference> expected) {
         this.checkEquals(
             expected,
-            token.labelMappingTarget(),
+            token.labelMappingReference(),
             token::toString
         );
     }
