@@ -285,7 +285,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     // setLabelMappingReference.........................................................................................
 
     @Test
-    public final void testsetLabelMappingReferenceWithNullFails() {
+    public final void testSetLabelMappingReferenceWithNullFails() {
         assertThrows(
             NullPointerException.class,
             () -> this.createHistoryToken().setLabelMappingReference(null)
