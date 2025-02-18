@@ -61,7 +61,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
     // dialog...........................................................................................................
 
     /**
-     * Creates the modal dialog, which includes a few text boxes to edit the label and the target.
+     * Creates the modal dialog, which includes a few text boxes to edit the count.
      */
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetColumnRowInsertCountDialogComponentContext context = this.context;
