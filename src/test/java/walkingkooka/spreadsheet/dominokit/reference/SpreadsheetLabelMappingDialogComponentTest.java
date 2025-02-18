@@ -253,7 +253,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
             SpreadsheetDelta.EMPTY.setLabels(
                 Sets.of(
                     SpreadsheetSelection.labelName("LoadedLabel123")
-                        .setLabelMappingTarget(SpreadsheetSelection.parseCell("C3"))
+                        .setLabelMappingReference(SpreadsheetSelection.parseCell("C3"))
                 )
             ),
             context

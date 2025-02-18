@@ -52,11 +52,11 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
         );
     }
 
-    // setLabelMappingTarget............................................................................................
+    // setLabelMappingReference............................................................................................
 
     @Override
-    void setLabelMappingTargetAndCheck(final SpreadsheetExpressionReference target) {
-        this.setLabelMappingTargetAndCheck(
+    void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference target) {
+        this.setLabelMappingReferenceAndCheck(
             HistoryToken.cellLabelSelect(
                 ID,
                 NAME,
@@ -67,13 +67,13 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
     }
 
     @Override
-    void setLabelMappingTargetAndCheck(final SpreadsheetExpressionReference selection,
+    void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference selection,
                                        final SpreadsheetExpressionReference target) {
         this.checkNotEquals(
             selection,
             target
         );
-        this.setLabelMappingTargetAndCheck(
+        this.setLabelMappingReferenceAndCheck(
             HistoryToken.cellLabelSelect(
                 ID,
                 NAME,

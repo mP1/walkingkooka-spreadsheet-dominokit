@@ -1075,7 +1075,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     Optional.of(label)
                 ).contextMenuItem(
                     context.idPrefix() + "label-" + i + SpreadsheetElementIds.MENU_ITEM,
-                    label + " (" + mapping.target() + ")"
+                    label + " (" + mapping.reference() + ")"
                 )
             );
 

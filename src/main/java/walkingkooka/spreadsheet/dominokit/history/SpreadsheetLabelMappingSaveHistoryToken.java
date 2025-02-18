@@ -75,7 +75,8 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
                 .value()
         ).appendSlashThen(
             saveUrlFragment(
-                mapping.target().toString())
+                mapping.reference()
+                    .toString())
         );
     }
 

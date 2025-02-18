@@ -37,14 +37,14 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
 
     abstract public void testLabelMappingTarget();
 
-    final void setLabelMappingTargetAndCheck(final SpreadsheetExpressionReference target) {
-        this.setLabelMappingTargetAndCheck(
+    final void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference target) {
+        this.setLabelMappingReferenceAndCheck(
             this.createHistoryToken(),
             target,
             SpreadsheetLabelMappingSaveHistoryToken.with(
                 ID,
                 NAME,
-                LABEL.setLabelMappingTarget(target)
+                LABEL.setLabelMappingReference(target)
             )
         );
     }

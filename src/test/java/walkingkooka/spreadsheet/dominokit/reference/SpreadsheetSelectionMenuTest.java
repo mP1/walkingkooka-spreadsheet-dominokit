@@ -2054,7 +2054,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
                 return Sets.of(
                     SpreadsheetSelection.labelName("Label123")
-                        .setLabelMappingTarget(selection.toCell())
+                        .setLabelMappingReference(selection.toCell())
                 );
             }
 

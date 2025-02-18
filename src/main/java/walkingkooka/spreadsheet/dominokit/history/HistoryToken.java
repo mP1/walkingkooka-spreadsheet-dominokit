@@ -2220,7 +2220,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             if (this instanceof SpreadsheetLabelMappingSaveHistoryToken) {
                 target = this.cast(SpreadsheetLabelMappingSaveHistoryToken.class)
                     .mapping
-                    .target();
+                    .reference();
             }
         }
 
@@ -2231,7 +2231,7 @@ public abstract class HistoryToken implements HasUrlFragment,
      * Would be setter that only sets/replaces/adds the given {@link SpreadsheetExpressionReference} target if the
      * history token holds a label mapping.
      */
-    public final HistoryToken setLabelMappingTarget(final Optional<SpreadsheetExpressionReference> labelMappingTarget) {
+    public final HistoryToken setLabelMappingReference(final Optional<SpreadsheetExpressionReference> labelMappingTarget) {
         Objects.requireNonNull(labelMappingTarget, "labelMappingTarget");
 
         HistoryToken afterSet = null;
@@ -3075,7 +3075,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                         this.cast(SpreadsheetLabelMappingHistoryToken.class)
                             .labelName()
                             .get()
-                            .setLabelMappingTarget((SpreadsheetExpressionReference) valueOrNull)
+                            .setLabelMappingReference((SpreadsheetExpressionReference) valueOrNull)
                     );
                 }
             }
@@ -3304,7 +3304,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                 saved = labelMappingSave(
                                     id,
                                     name,
-                                    labelName.setLabelMappingTarget(
+                                    labelName.setLabelMappingReference(
                                         SpreadsheetSelection.parseExpressionReference(value)
                                     )
                                 );

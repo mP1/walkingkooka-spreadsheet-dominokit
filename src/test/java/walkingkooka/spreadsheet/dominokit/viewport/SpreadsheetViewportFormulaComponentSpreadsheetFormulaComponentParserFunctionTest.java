@@ -315,7 +315,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 )
             ).setLabels(
                 Sets.of(
-                    label.setLabelMappingTarget(cellReference)
+                    label.setLabelMappingReference(cellReference)
                 )
             ),
             AppContexts.fake()
