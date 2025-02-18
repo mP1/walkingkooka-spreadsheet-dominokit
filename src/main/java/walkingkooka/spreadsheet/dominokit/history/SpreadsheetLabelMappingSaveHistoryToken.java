@@ -62,7 +62,7 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
         return this.mapping.label();
     }
 
-    // HistoryToken#labelMappingTarget
+    // HistoryToken#labelMappingReference
     final SpreadsheetLabelMapping mapping;
 
     // /Label123/save/B2
