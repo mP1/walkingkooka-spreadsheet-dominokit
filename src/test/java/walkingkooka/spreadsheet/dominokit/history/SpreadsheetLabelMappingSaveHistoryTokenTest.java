@@ -28,14 +28,13 @@ import java.util.Optional;
 
 public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingSaveHistoryToken> {
 
-    private final static SpreadsheetExpressionReference TARGET = CELL;
+    private final static SpreadsheetExpressionReference REFERENCE = CELL;
 
     @Test
-    @Override
-    public void testLabelMappingTarget() {
-        this.labelMappingTargetAndCheck(
+    public void testLabelMappingReference() {
+        this.labelMappingReferenceAndCheck(
             this.createHistoryToken(),
-            TARGET
+            REFERENCE
         );
     }
 
@@ -167,7 +166,7 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
         return SpreadsheetLabelMappingSaveHistoryToken.with(
             id,
             name,
-            label.setLabelMappingReference(TARGET)
+            label.setLabelMappingReference(REFERENCE)
         );
     }
 

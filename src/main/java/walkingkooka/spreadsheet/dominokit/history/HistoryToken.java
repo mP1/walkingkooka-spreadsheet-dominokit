@@ -2206,9 +2206,9 @@ public abstract class HistoryToken implements HasUrlFragment,
     // labelMapping.....................................................................................................
 
     /**
-     * Getter that returns a {@link SpreadsheetLabelMapping#target()} if this token has one.
+     * Getter that returns a {@link SpreadsheetLabelMapping#reference()} if this token has one.
      */
-    public final Optional<SpreadsheetExpressionReference> labelMappingTarget() {
+    public final Optional<SpreadsheetExpressionReference> labelMappingReference() {
         SpreadsheetExpressionReference target = null;
 
         if (this instanceof SpreadsheetCellLabelHistoryToken) {
@@ -2228,36 +2228,36 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * Would be setter that only sets/replaces/adds the given {@link SpreadsheetExpressionReference} target if the
+     * Would be setter that only sets/replaces/adds the given {@link SpreadsheetExpressionReference} reference if the
      * history token holds a label mapping.
      */
-    public final HistoryToken setLabelMappingReference(final Optional<SpreadsheetExpressionReference> labelMappingTarget) {
-        Objects.requireNonNull(labelMappingTarget, "labelMappingTarget");
+    public final HistoryToken setLabelMappingReference(final Optional<SpreadsheetExpressionReference> labelMappingReference) {
+        Objects.requireNonNull(labelMappingReference, "labelMappingReference");
 
         HistoryToken afterSet = null;
 
         if (this instanceof SpreadsheetCellLabelHistoryToken) {
-            if (labelMappingTarget.isPresent()) {
-                final SpreadsheetExpressionReference target = labelMappingTarget.get();
+            if (labelMappingReference.isPresent()) {
+                final SpreadsheetExpressionReference reference = labelMappingReference.get();
 
                 final SpreadsheetCellLabelHistoryToken cellLabelHistoryToken = this.cast(SpreadsheetCellLabelHistoryToken.class);
                 final SpreadsheetId id = cellLabelHistoryToken.id();
                 final SpreadsheetName name = cellLabelHistoryToken.name();
 
                 final AnchoredSpreadsheetSelection anchoredSelection = cellLabelHistoryToken.anchoredSelection();
-                if (false == target.equals(anchoredSelection.selection())) {
+                if (false == reference.equals(anchoredSelection.selection())) {
                     if (this instanceof SpreadsheetCellLabelSelectHistoryToken) {
                         afterSet = HistoryToken.cellLabelSelect(
                             id,
                             name,
-                            target.setDefaultAnchor()
+                            reference.setDefaultAnchor()
                         );
                     } else {
                         if (this instanceof SpreadsheetCellLabelSaveHistoryToken) {
                             afterSet = HistoryToken.cellLabelSave(
                                 id,
                                 name,
-                                target.setDefaultAnchor(),
+                                reference.setDefaultAnchor(),
                                 this.cast(SpreadsheetCellLabelSaveHistoryToken.class).labelName
                             );
                         }
@@ -2266,7 +2266,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             }
         } else {
             if (this instanceof SpreadsheetLabelMappingHistoryToken) {
-                afterSet = this.setSaveValue(labelMappingTarget);
+                afterSet = this.setSaveValue(labelMappingReference);
             }
         }
 

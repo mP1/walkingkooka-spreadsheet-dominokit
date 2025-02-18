@@ -35,7 +35,7 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
         super();
     }
 
-    abstract public void testLabelMappingTarget();
+    abstract public void testLabelMappingReference();
 
     final void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference target) {
         this.setLabelMappingReferenceAndCheck(

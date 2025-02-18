@@ -43,9 +43,8 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     }
 
     @Test
-    @Override
-    public void testLabelMappingTarget() {
-        this.labelMappingTargetAndCheck(this.createHistoryToken());
+    public void testLabelMappingReference() {
+        this.labelMappingReferenceAndCheck(this.createHistoryToken());
     }
 
     // setLabelMappingReference............................................................................................

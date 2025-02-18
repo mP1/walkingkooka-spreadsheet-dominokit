@@ -363,7 +363,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
             final HistoryToken token = context.historyToken();
 
             if (token instanceof SpreadsheetCellLabelHistoryToken) {
-                final Optional<SpreadsheetExpressionReference> historyLabelMappingReference = token.labelMappingTarget();
+                final Optional<SpreadsheetExpressionReference> historyLabelMappingReference = token.labelMappingReference();
                 final Optional<SpreadsheetExpressionReference> componentLabelMappingReference = labelMappingReferenceComponent.value();
 
                 if (false == historyLabelMappingReference.equals(componentLabelMappingReference)) {
