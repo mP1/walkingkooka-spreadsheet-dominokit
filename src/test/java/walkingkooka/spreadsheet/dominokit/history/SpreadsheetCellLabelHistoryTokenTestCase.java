@@ -91,38 +91,38 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
         );
     }
 
-    // setLabelMappingTarget............................................................................................
+    // setLabelMappingReference............................................................................................
 
     @Test
-    public final void testSetLabelMappingTargetWhenCellWithSameCell() {
-        this.setLabelMappingTargetAndCheck(CELL);
+    public final void testsetLabelMappingReferenceWhenCellWithSameCell() {
+        this.setLabelMappingReferenceAndCheck(CELL);
     }
 
     @Test
-    public final void testSetLabelMappingTargetWhenCellRangeWithSameCellRange() {
-        this.setLabelMappingTargetAndCheck(RANGE);
+    public final void testsetLabelMappingReferenceWhenCellRangeWithSameCellRange() {
+        this.setLabelMappingReferenceAndCheck(RANGE);
     }
 
     @Test
-    public final void testSetLabelMappingTargetWhenLabelWithSameLabel() {
-        this.setLabelMappingTargetAndCheck(
+    public final void testsetLabelMappingReferenceWhenLabelWithSameLabel() {
+        this.setLabelMappingReferenceAndCheck(
             LABEL
         );
     }
 
-    abstract void setLabelMappingTargetAndCheck(final SpreadsheetExpressionReference target);
+    abstract void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference target);
 
     @Test
-    public final void testSetLabelMappingTargetWhenCellWithDifferentCell() {
-        this.setLabelMappingTargetAndCheck(
+    public final void testsetLabelMappingReferenceWhenCellWithDifferentCell() {
+        this.setLabelMappingReferenceAndCheck(
             CELL,
             CELL.addColumn(10)
         );
     }
 
     @Test
-    public final void testSetLabelMappingTargetWhenCellRangeWithDifferentCellRange() {
-        this.setLabelMappingTargetAndCheck(
+    public final void testsetLabelMappingReferenceWhenCellRangeWithDifferentCellRange() {
+        this.setLabelMappingReferenceAndCheck(
             RANGE,
             RANGE.add(
                 10,
@@ -132,14 +132,14 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     }
 
     @Test
-    public final void testSetLabelMappingTargetWhenLabelWithDifferentLabel() {
-        this.setLabelMappingTargetAndCheck(
+    public final void testsetLabelMappingReferenceWhenLabelWithDifferentLabel() {
+        this.setLabelMappingReferenceAndCheck(
             LABEL,
             SpreadsheetSelection.labelName("Different")
         );
     }
 
-    abstract void setLabelMappingTargetAndCheck(final SpreadsheetExpressionReference selection,
+    abstract void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference selection,
                                                 final SpreadsheetExpressionReference target);
 
     // setSaveValue.....................................................................................................

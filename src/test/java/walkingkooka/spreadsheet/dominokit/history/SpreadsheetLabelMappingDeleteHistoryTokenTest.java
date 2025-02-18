@@ -32,11 +32,11 @@ public final class SpreadsheetLabelMappingDeleteHistoryTokenTest extends Spreads
         this.labelMappingTargetAndCheck(this.createHistoryToken());
     }
 
-    // setLabelMappingTarget............................................................................................
+    // setLabelMappingReference............................................................................................
 
     @Test
-    public void testSetLabelMappingTargetWithCell() {
-        this.setLabelMappingTargetAndCheck();
+    public void testsetLabelMappingReferenceWithCell() {
+        this.setLabelMappingReferenceAndCheck();
     }
 
     // labelName........................................................................................................

@@ -186,7 +186,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             .stream()
             .filter(
                 m -> this.resolveIfLabel(
-                    m.target()
+                    m.reference()
                 ).test(nonLabelSelection)
             )
             .collect(Collectors.toCollection(SortedSets::tree));

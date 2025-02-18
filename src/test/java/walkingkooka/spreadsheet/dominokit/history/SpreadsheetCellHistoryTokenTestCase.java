@@ -135,14 +135,14 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
-    // setLabelMappingTarget............................................................................................
+    // setLabelMappingReference............................................................................................
 
     @Test
-    public void testSetLabelMappingTargetWhenNotSpreadsheetCellLabel() {
+    public void testsetLabelMappingReferenceWhenNotSpreadsheetCellLabel() {
         final HistoryToken historyToken = this.createHistoryToken();
         if(false == historyToken instanceof SpreadsheetCellLabelHistoryToken) {
             // nop
-            this.setLabelMappingTargetAndCheck(
+            this.setLabelMappingReferenceAndCheck(
                 historyToken,
                 SpreadsheetSelection.parseCell("Z9")
             );

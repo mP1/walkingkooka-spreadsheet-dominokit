@@ -86,13 +86,13 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
         );
     }
 
-    // setLabelMappingTarget............................................................................................
+    // setLabelMappingReference............................................................................................
 
     private final static SpreadsheetLabelName NOT_TARGET_LABEL = SpreadsheetSelection.labelName("NotTargetLabel");
 
     @Override
-    void setLabelMappingTargetAndCheck(final SpreadsheetExpressionReference target) {
-        this.setLabelMappingTargetAndCheck(
+    void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference target) {
+        this.setLabelMappingReferenceAndCheck(
             HistoryToken.cellLabelSave(
                 ID,
                 NAME,
@@ -104,13 +104,13 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
     }
 
     @Override
-    void setLabelMappingTargetAndCheck(final SpreadsheetExpressionReference selection,
+    void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference selection,
                                        final SpreadsheetExpressionReference target) {
         this.checkNotEquals(
             selection,
             target
         );
-        this.setLabelMappingTargetAndCheck(
+        this.setLabelMappingReferenceAndCheck(
             HistoryToken.cellLabelSave(
                 ID,
                 NAME,

@@ -282,75 +282,75 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
-    // setLabelMappingTarget............................................................................................
+    // setLabelMappingReference............................................................................................
 
     @Test
-    public final void testSetLabelMappingTargetWithNullFails() {
+    public final void testsetLabelMappingReferenceWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> this.createHistoryToken().setLabelMappingTarget(null)
+            () -> this.createHistoryToken().setLabelMappingReference(null)
         );
     }
 
-    final void setLabelMappingTargetAndCheck() {
+    final void setLabelMappingReferenceAndCheck() {
         final HistoryToken historyToken = this.createHistoryToken();
 
         assertSame(
             historyToken,
-            historyToken.setLabelMappingTarget(
+            historyToken.setLabelMappingReference(
                 Optional.of(SpreadsheetSelection.A1)
             )
         );
 
         assertSame(
             historyToken,
-            historyToken.setLabelMappingTarget(
+            historyToken.setLabelMappingReference(
                 Optional.empty()
             )
         );
     }
 
-    final void setLabelMappingTargetAndCheck(final HistoryToken historyToken,
+    final void setLabelMappingReferenceAndCheck(final HistoryToken historyToken,
                                              final HistoryToken expected) {
-        this.setLabelMappingTargetAndCheck(
+        this.setLabelMappingReferenceAndCheck(
             historyToken,
             Optional.empty(),
             expected
         );
     }
 
-    final void setLabelMappingTargetAndCheck(final HistoryToken historyToken,
+    final void setLabelMappingReferenceAndCheck(final HistoryToken historyToken,
                                              final SpreadsheetExpressionReference labelMappingTarget) {
-        this.setLabelMappingTargetAndCheck(
+        this.setLabelMappingReferenceAndCheck(
             historyToken,
             Optional.of(labelMappingTarget),
             historyToken
         );
     }
 
-    final void setLabelMappingTargetAndCheck(final HistoryToken historyToken,
+    final void setLabelMappingReferenceAndCheck(final HistoryToken historyToken,
                                              final SpreadsheetExpressionReference labelMappingTarget,
                                              final HistoryToken expected) {
-        this.setLabelMappingTargetAndCheck(
+        this.setLabelMappingReferenceAndCheck(
             historyToken,
             Optional.of(labelMappingTarget),
             expected
         );
     }
 
-    final void setLabelMappingTargetAndCheck(final HistoryToken historyToken,
+    final void setLabelMappingReferenceAndCheck(final HistoryToken historyToken,
                                              final Optional<SpreadsheetExpressionReference> labelMappingTarget,
                                              final HistoryToken expected) {
         if(historyToken.equals(expected)) {
             assertSame(
                 expected,
-                historyToken.setLabelMappingTarget(labelMappingTarget),
-                () -> historyToken + " setLabelMappingTarget " + labelMappingTarget + " returned different equal instance"
+                historyToken.setLabelMappingReference(labelMappingTarget),
+                () -> historyToken + " setLabelMappingReference " + labelMappingTarget + " returned different equal instance"
             );
         } else {
             this.checkEquals(
                 expected,
-                historyToken.setLabelMappingTarget(labelMappingTarget),
+                historyToken.setLabelMappingReference(labelMappingTarget),
                 historyToken::toString
             );
         }

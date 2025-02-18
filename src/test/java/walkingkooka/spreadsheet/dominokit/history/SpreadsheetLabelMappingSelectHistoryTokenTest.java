@@ -48,25 +48,25 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         this.labelMappingTargetAndCheck(this.createHistoryToken());
     }
 
-    // setLabelMappingTarget............................................................................................
+    // setLabelMappingReference............................................................................................
 
     @Test
-    public void testSetLabelMappingTargetWithCell() {
-        this.setLabelMappingTargetAndCheck(
+    public void testsetLabelMappingReferenceWithCell() {
+        this.setLabelMappingReferenceAndCheck(
             SpreadsheetSelection.A1
         );
     }
 
     @Test
-    public void testSetLabelMappingTargetWithCellRange() {
-        this.setLabelMappingTargetAndCheck(
+    public void testsetLabelMappingReferenceWithCellRange() {
+        this.setLabelMappingReferenceAndCheck(
             SpreadsheetSelection.parseCellRange("B2:C3")
         );
     }
 
     @Test
-    public void testSetLabelMappingTargetWithLabel() {
-        this.setLabelMappingTargetAndCheck(
+    public void testsetLabelMappingReferenceWithLabel() {
+        this.setLabelMappingReferenceAndCheck(
             SpreadsheetSelection.labelName("Label999")
         );
     }
@@ -115,7 +115,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
             HistoryToken.labelMappingSave(
                 ID,
                 NAME,
-                LABEL.setLabelMappingTarget(value)
+                LABEL.setLabelMappingReference(value)
             )
         );
     }
@@ -130,7 +130,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
             HistoryToken.labelMappingSave(
                 ID,
                 NAME,
-                LABEL.setLabelMappingTarget(value)
+                LABEL.setLabelMappingReference(value)
             )
         );
     }
@@ -145,7 +145,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
             HistoryToken.labelMappingSave(
                 ID,
                 NAME,
-                LABEL.setLabelMappingTarget(value)
+                LABEL.setLabelMappingReference(value)
             )
         );
     }
@@ -209,7 +209,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
                 token.id(),
                 token.name(),
                 labelName.get()
-                    .setLabelMappingTarget(cell)
+                    .setLabelMappingReference(cell)
             )
         );
     }
@@ -227,7 +227,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
                 token.id(),
                 token.name(),
                 labelName.get()
-                    .setLabelMappingTarget(cells)
+                    .setLabelMappingReference(cells)
             )
         );
     }

@@ -182,7 +182,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
         final HistoryToken historyToken = context.historyToken();
         if(historyToken instanceof SpreadsheetCellLabelHistoryToken) {
             context.pushHistoryToken(
-                historyToken.setLabelMappingTarget(newValue)
+                historyToken.setLabelMappingReference(newValue)
             );
         } else {
             this.labelMappingTarget.setValue(newValue);
@@ -201,7 +201,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                 label.isPresent() && target.isPresent() ?
                     this.context.historyToken()
                         .setLabelName(label)
-                        .setLabelMappingTarget(target) :
+                        .setLabelMappingReference(target) :
                     null
             )
         );
@@ -219,7 +219,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
             Optional.of(
                 this.context.historyToken()
                     .setLabelName(this.undoLabelName)
-                    .setLabelMappingTarget(this.undoLabelMappingTarget)
+                    .setLabelMappingReference(this.undoLabelMappingTarget)
             )
         );
     }
@@ -354,7 +354,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                     loaded.map(SpreadsheetLabelMapping::label)
                 );
                 labelMappingTargetComponent.setValue(
-                    loaded.map(SpreadsheetLabelMapping::target)
+                    loaded.map(SpreadsheetLabelMapping::reference)
                 );
             }
 
@@ -416,7 +416,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
                             mapping.label()
                         );
                         undoLabelMappingTarget = Optional.of(
-                            mapping.target()
+                            mapping.reference()
                         );
                         break;
                     default:
