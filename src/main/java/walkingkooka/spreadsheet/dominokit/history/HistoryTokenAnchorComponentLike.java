@@ -76,7 +76,7 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
     /**
      * Setter takes the given {@link HistoryToken} updating the HREF.
      */
-    public final HistoryTokenAnchorComponent setHistoryToken(final Optional<HistoryToken> historyToken) {
+    public final HistoryTokenAnchorComponent setHistoryToken(final Optional<? extends HistoryToken> historyToken) {
         final HistoryToken historyTokenOrNull = historyToken.orElse(null);
 
         return this.setHref(
