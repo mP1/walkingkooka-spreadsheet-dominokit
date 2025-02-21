@@ -1452,23 +1452,17 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     final HistoryToken parseOffsetCountReload(final TextCursor cursor) {
-        HistoryToken historyToken = this;
+        final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.parse(cursor);
+
+        HistoryToken historyToken = this.setOffset(
+            offsetAndCount.offset
+        ).setCount(offsetAndCount.count);
 
         String nextComponent = parseComponentOrEmpty(cursor);
 
         do {
             switch (nextComponent) {
                 case "":
-                    break;
-                case COUNT_STRING:
-                    historyToken = historyToken.setCount(
-                        parseCount(cursor)
-                    );
-                    break;
-                case OFFSET_STRING:
-                    historyToken = historyToken.setOffset(
-                        parseOptionalInt(cursor)
-                    );
                     break;
                 case RELOAD_STRING:
                     historyToken = historyToken.reload();
