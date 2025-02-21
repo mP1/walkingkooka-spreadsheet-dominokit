@@ -55,7 +55,7 @@ final class SpreadsheetToolbarComponentItemAnchorPlugin extends SpreadsheetToolb
         final HistoryTokenAnchorComponent anchor = this.anchor;
         anchor.setHistoryToken(
             Optional.of(
-                HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY).cast(HistoryToken.class)
+                HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY)
             )
         );
     }
