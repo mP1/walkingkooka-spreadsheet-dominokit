@@ -109,6 +109,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             case LABEL_STRING:
                 result = this.labelMapping();
                 break;
+            case LABELS_STRING:
+                result = this.parseLabels(cursor);
+                break;
             case MENU_STRING:
                 result = this.menu(
                     Optional.empty(), // no selection
@@ -211,6 +214,18 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         );
     }
 
+    private HistoryToken parseLabels(final TextCursor cursor) {
+        HistoryTokenOffsetAndCount offsetAndCount;
+
+        try {
+            offsetAndCount = HistoryTokenOffsetAndCount.parse(cursor);
+        } catch (final IllegalArgumentException cause) {
+            offsetAndCount = HistoryTokenOffsetAndCount.EMPTY;
+        }
+
+        return this.labels(offsetAndCount);
+    }
+    
     private HistoryToken parseReferences(final TextCursor cursor) {
         HistoryTokenOffsetAndCount offsetAndCount;
 
