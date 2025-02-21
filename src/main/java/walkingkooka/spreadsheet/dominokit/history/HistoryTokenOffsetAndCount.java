@@ -26,10 +26,10 @@ import java.util.OptionalInt;
 /**
  * Captures any offset and counts that may be part of a {@link HistoryToken}.
  */
-final class HistoryTokenOffsetAndCount implements HasUrlFragment {
+public final class HistoryTokenOffsetAndCount implements HasUrlFragment {
 
-    static HistoryTokenOffsetAndCount with(final OptionalInt offset,
-                                           final OptionalInt count) {
+    public static HistoryTokenOffsetAndCount with(final OptionalInt offset,
+                                                  final OptionalInt count) {
         return new HistoryTokenOffsetAndCount(
             checkOffset(offset),
             checkCount(count)
@@ -46,9 +46,13 @@ final class HistoryTokenOffsetAndCount implements HasUrlFragment {
 
     // offset............................................................................................................
 
+    public OptionalInt offset() {
+        return this.offset;
+    }
+
     final OptionalInt offset;
 
-    HistoryTokenOffsetAndCount setOffset(final OptionalInt offset) {
+    public HistoryTokenOffsetAndCount setOffset(final OptionalInt offset) {
         checkOffset(offset);
 
         return this.offset.equals(offset) ?
@@ -68,9 +72,13 @@ final class HistoryTokenOffsetAndCount implements HasUrlFragment {
 
     // count............................................................................................................
 
+    public OptionalInt count() {
+        return this.count;
+    }
+
     final OptionalInt count;
 
-    HistoryTokenOffsetAndCount setCount(final OptionalInt count) {
+    public HistoryTokenOffsetAndCount setCount(final OptionalInt count) {
         checkCount(count);
 
         return this.count.equals(count) ?
@@ -92,9 +100,9 @@ final class HistoryTokenOffsetAndCount implements HasUrlFragment {
                                      final OptionalInt value) {
         Objects.requireNonNull(value, label);
 
-        if(value.isPresent()) {
+        if (value.isPresent()) {
             final int valueInt = value.getAsInt();
-            if(valueInt < 0) {
+            if (valueInt < 0) {
                 throw new IllegalArgumentException("Invalid " + label + " " + valueInt + " < 0");
             }
         }
