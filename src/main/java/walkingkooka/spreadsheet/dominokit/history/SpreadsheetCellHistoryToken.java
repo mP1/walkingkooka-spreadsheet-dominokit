@@ -121,6 +121,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             case PASTE_STRING:
                 result = this.parsePaste(cursor);
                 break;
+            case REFERENCES_STRING:
+                result = this.parseReferences(cursor);
+                break;
             case SAVE_STRING:
                 result = this.parseSave(cursor);
                 break;
@@ -206,6 +209,18 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         return this.setQuery(
             SpreadsheetCellFindQuery.parse(queryText)
         );
+    }
+
+    private HistoryToken parseReferences(final TextCursor cursor) {
+        HistoryTokenOffsetAndCount offsetAndCount;
+
+        try {
+            offsetAndCount = HistoryTokenOffsetAndCount.parse(cursor);
+        } catch (final IllegalArgumentException cause) {
+            offsetAndCount = HistoryTokenOffsetAndCount.EMPTY;
+        }
+
+        return this.references(offsetAndCount);
     }
 
     private static String parseComponentOrNull(final TextCursor cursor) {

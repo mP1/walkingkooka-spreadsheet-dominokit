@@ -2995,6 +2995,63 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // cell/references..................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellReferences() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/references",
+            HistoryToken.cellReferences(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                HistoryTokenOffsetAndCount.EMPTY
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellReferencesInvalidOffset() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/references/offset/-1",
+            HistoryToken.cellReferences(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                HistoryTokenOffsetAndCount.EMPTY
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellReferencesInvalidCount() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/references/count/-1",
+            HistoryToken.cellReferences(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                HistoryTokenOffsetAndCount.EMPTY
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellReferencesOffsetCount() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/references/offset/111/count/222",
+            HistoryToken.cellReferences(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                HistoryTokenOffsetAndCount.with(
+                    OptionalInt.of(111), // offset
+                    OptionalInt.of(222) // count
+                )
+            )
+        );
+    }
+
     // cell/style.......................................................................................................
 
     @Test

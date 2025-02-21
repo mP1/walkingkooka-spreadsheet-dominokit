@@ -211,6 +211,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment PLUGIN_UPLOAD = UrlFragment.parse(PLUGIN_UPLOAD_STRING);
 
+    final static String REFERENCES_STRING = "references";
+
+    final static UrlFragment REFERENCES = UrlFragment.parse(REFERENCES_STRING);
+
     final static String RELOAD_STRING = "reload";
 
     final static UrlFragment RELOAD = UrlFragment.parse(RELOAD_STRING);
@@ -502,6 +506,21 @@ public abstract class HistoryToken implements HasUrlFragment,
             id,
             name,
             anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellReferencesHistoryToken}
+     */
+    public static SpreadsheetCellReferencesHistoryToken cellReferences(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                       final HistoryTokenOffsetAndCount offsetAndCount) {
+        return SpreadsheetCellReferencesHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            offsetAndCount
         );
     }
 
@@ -1754,15 +1773,21 @@ public abstract class HistoryToken implements HasUrlFragment,
             if (this instanceof SpreadsheetListHistoryToken) {
                 count = this.cast(SpreadsheetListHistoryToken.class).offsetAndCount.count();
             } else {
-                if (this instanceof SpreadsheetColumnInsertHistoryToken) {
-                    count = this.cast(SpreadsheetColumnInsertHistoryToken.class)
+                if (this instanceof SpreadsheetCellReferencesHistoryToken) {
+                    count = this.cast(SpreadsheetCellReferencesHistoryToken.class)
+                        .offsetAndCount
                         .count;
                 } else {
-                    if (this instanceof SpreadsheetRowInsertHistoryToken) {
-                        count = this.cast(SpreadsheetRowInsertHistoryToken.class)
+                    if (this instanceof SpreadsheetColumnInsertHistoryToken) {
+                        count = this.cast(SpreadsheetColumnInsertHistoryToken.class)
                             .count;
                     } else {
-                        count = OptionalInt.empty();
+                        if (this instanceof SpreadsheetRowInsertHistoryToken) {
+                            count = this.cast(SpreadsheetRowInsertHistoryToken.class)
+                                .count;
+                        } else {
+                            count = OptionalInt.empty();
+                        }
                     }
                 }
             }
@@ -1808,47 +1833,58 @@ public abstract class HistoryToken implements HasUrlFragment,
                                     .setCount(count)
                             );
                         } else {
-                            if (this instanceof SpreadsheetColumnInsertAfterHistoryToken) {
-                                final SpreadsheetColumnInsertAfterHistoryToken insert = this.cast(SpreadsheetColumnInsertAfterHistoryToken.class);
+                            if (this instanceof SpreadsheetCellReferencesHistoryToken) {
+                                final SpreadsheetCellReferencesHistoryToken references = this.cast(SpreadsheetCellReferencesHistoryToken.class);
 
-                                with = columnInsertAfter(
-                                    insert.id(),
-                                    insert.name(),
-                                    insert.anchoredSelection(),
-                                    count
+                                with = cellReferences(
+                                    references.id(),
+                                    references.name(),
+                                    references.anchoredSelection(),
+                                    references.offsetAndCount.setCount(count)
                                 );
                             } else {
-                                if (this instanceof SpreadsheetColumnInsertBeforeHistoryToken) {
-                                    final SpreadsheetColumnInsertBeforeHistoryToken insert = this.cast(SpreadsheetColumnInsertBeforeHistoryToken.class);
+                                if (this instanceof SpreadsheetColumnInsertAfterHistoryToken) {
+                                    final SpreadsheetColumnInsertAfterHistoryToken insert = this.cast(SpreadsheetColumnInsertAfterHistoryToken.class);
 
-                                    with = columnInsertBefore(
+                                    with = columnInsertAfter(
                                         insert.id(),
                                         insert.name(),
                                         insert.anchoredSelection(),
                                         count
                                     );
                                 } else {
-                                    if (this instanceof SpreadsheetRowInsertAfterHistoryToken) {
-                                        final SpreadsheetRowInsertAfterHistoryToken insert = this.cast(SpreadsheetRowInsertAfterHistoryToken.class);
+                                    if (this instanceof SpreadsheetColumnInsertBeforeHistoryToken) {
+                                        final SpreadsheetColumnInsertBeforeHistoryToken insert = this.cast(SpreadsheetColumnInsertBeforeHistoryToken.class);
 
-                                        with = rowInsertAfter(
+                                        with = columnInsertBefore(
                                             insert.id(),
                                             insert.name(),
                                             insert.anchoredSelection(),
                                             count
                                         );
                                     } else {
-                                        if (this instanceof SpreadsheetRowInsertBeforeHistoryToken) {
-                                            final SpreadsheetRowInsertBeforeHistoryToken insert = this.cast(SpreadsheetRowInsertBeforeHistoryToken.class);
+                                        if (this instanceof SpreadsheetRowInsertAfterHistoryToken) {
+                                            final SpreadsheetRowInsertAfterHistoryToken insert = this.cast(SpreadsheetRowInsertAfterHistoryToken.class);
 
-                                            with = rowInsertBefore(
+                                            with = rowInsertAfter(
                                                 insert.id(),
                                                 insert.name(),
                                                 insert.anchoredSelection(),
                                                 count
                                             );
                                         } else {
-                                            with = this;
+                                            if (this instanceof SpreadsheetRowInsertBeforeHistoryToken) {
+                                                final SpreadsheetRowInsertBeforeHistoryToken insert = this.cast(SpreadsheetRowInsertBeforeHistoryToken.class);
+
+                                                with = rowInsertBefore(
+                                                    insert.id(),
+                                                    insert.name(),
+                                                    insert.anchoredSelection(),
+                                                    count
+                                                );
+                                            } else {
+                                                with = this;
+                                            }
                                         }
                                     }
                                 }
@@ -2597,7 +2633,11 @@ public abstract class HistoryToken implements HasUrlFragment,
             if (this instanceof SpreadsheetListHistoryToken) {
                 offset = this.cast(SpreadsheetListHistoryToken.class).offsetAndCount.offset;
             } else {
-                offset = OptionalInt.empty();
+                if (this instanceof SpreadsheetCellReferencesHistoryToken) {
+                    offset = this.cast(SpreadsheetCellReferencesHistoryToken.class).offsetAndCount.offset;
+                } else {
+                    offset = OptionalInt.empty();
+                }
             }
         }
 
@@ -2627,21 +2667,33 @@ public abstract class HistoryToken implements HasUrlFragment,
                             .setOffset(offset)
                     );
                 } else {
-                    if (this instanceof SpreadsheetListReloadHistoryToken) {
-                        with = spreadsheetListReload(
-                            this.cast(SpreadsheetListReloadHistoryToken.class)
-                                .offsetAndCount
+                    if (this instanceof SpreadsheetCellReferencesHistoryToken) {
+                        final SpreadsheetCellReferencesHistoryToken references = this.cast(SpreadsheetCellReferencesHistoryToken.class);
+
+                        with = cellReferences(
+                            references.id(),
+                            references.name(),
+                            references.anchoredSelection(),
+                            references.offsetAndCount
                                 .setOffset(offset)
                         );
                     } else {
-                        if (this instanceof SpreadsheetListSelectHistoryToken) {
-                            with = spreadsheetListSelect(
-                                this.cast(SpreadsheetListSelectHistoryToken.class)
+                        if (this instanceof SpreadsheetListReloadHistoryToken) {
+                            with = spreadsheetListReload(
+                                this.cast(SpreadsheetListReloadHistoryToken.class)
                                     .offsetAndCount
                                     .setOffset(offset)
                             );
                         } else {
-                            with = this;
+                            if (this instanceof SpreadsheetListSelectHistoryToken) {
+                                with = spreadsheetListSelect(
+                                    this.cast(SpreadsheetListSelectHistoryToken.class)
+                                        .offsetAndCount
+                                        .setOffset(offset)
+                                );
+                            } else {
+                                with = this;
+                            }
                         }
                     }
                 }
@@ -2733,6 +2785,24 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         return historyToken;
+    }
+
+    public final HistoryToken references(final HistoryTokenOffsetAndCount offsetAndCount) {
+        Objects.requireNonNull(offsetAndCount, "offsetAndCount");
+
+        HistoryToken token = this;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+            token = cellReferences(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection(),
+                offsetAndCount
+            );
+        }
+
+        return token;
     }
 
     public final HistoryToken reload() {

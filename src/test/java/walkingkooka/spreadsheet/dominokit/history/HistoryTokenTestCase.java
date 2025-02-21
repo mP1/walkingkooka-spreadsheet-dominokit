@@ -247,6 +247,13 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
 
     // formatter........................................................................................................
 
+    final void formatterAndCheck(final HistoryToken token) {
+        this.formatterAndCheck(
+            token,
+            token
+        );
+    }
+
     final void formatterAndCheck(final HistoryToken token,
                                  final HistoryToken expected) {
         this.checkEquals(
