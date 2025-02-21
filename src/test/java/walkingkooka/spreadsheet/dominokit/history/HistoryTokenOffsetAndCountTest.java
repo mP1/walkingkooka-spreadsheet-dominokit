@@ -24,6 +24,9 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.text.cursor.TextCursorSavePoint;
+import walkingkooka.text.cursor.TextCursors;
 
 import java.util.OptionalInt;
 
@@ -320,6 +323,145 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
                 COUNT
             ),
             "/offset/1/count/23"
+        );
+    }
+
+    // parse............................................................................................................
+
+    @Test
+    public void testParseOtherText() {
+        this.parseAndCheck(
+            "/hello",
+            HistoryTokenOffsetAndCount.EMPTY,
+            "/hello"
+        );
+    }
+
+    @Test
+    public void testParseOffsetMissingNumberFails() {
+        this.parseFails(
+            "/offset",
+            "Missing value for \"offset\""
+        );
+    }
+
+    @Test
+    public void testParseOffsetAndNumber() {
+        this.parseAndCheck(
+            "/offset/123",
+            HistoryTokenOffsetAndCount.EMPTY.setOffset(
+                OptionalInt.of(123)
+            ),
+            ""
+        );
+    }
+
+    @Test
+    public void testParseOffsetAndNumberAndExtraToken() {
+        this.parseAndCheck(
+            "/offset/123/$",
+            HistoryTokenOffsetAndCount.EMPTY.setOffset(
+                OptionalInt.of(123)
+            ),
+            "/$"
+        );
+    }
+
+    @Test
+    public void testParseCountMissingNumberFails() {
+        this.parseFails(
+            "/count",
+            "Missing value for \"count\""
+        );
+    }
+
+    @Test
+    public void testParseCountNumberOffsetMissingNumberFails() {
+        this.parseFails(
+            "/offset/1/count",
+            "Missing value for \"count\""
+        );
+    }
+
+    @Test
+    public void testParseCountAndNumber() {
+        this.parseAndCheck(
+            "/count/123",
+            HistoryTokenOffsetAndCount.EMPTY.setCount(
+                OptionalInt.of(123)
+            ),
+            ""
+        );
+    }
+
+    @Test
+    public void testParseCountNumberAndExtraToken() {
+        this.parseAndCheck(
+            "/count/123/$",
+            HistoryTokenOffsetAndCount.EMPTY.setCount(
+                OptionalInt.of(123)
+            ),
+            "/$"
+        );
+    }
+
+    @Test
+    public void testParseOffsetNumberCountNumber() {
+        this.parseAndCheck(
+            "/offset/123/count/456",
+            HistoryTokenOffsetAndCount.EMPTY.setOffset(
+                OptionalInt.of(123)
+            ).setCount(
+                OptionalInt.of(456)
+            ),
+            ""
+        );
+    }
+
+    @Test
+    public void testParseOffsetNumberCountNumberAndExtraTokens() {
+        this.parseAndCheck(
+            "/offset/123/count/456/extra",
+            HistoryTokenOffsetAndCount.EMPTY.setOffset(
+                OptionalInt.of(123)
+            ).setCount(
+                OptionalInt.of(456)
+            ),
+            "/extra"
+        );
+    }
+
+    private void parseAndCheck(final String text,
+                               final HistoryTokenOffsetAndCount offsetAndCount,
+                               final String textLeft) {
+        final TextCursor cursor = TextCursors.charSequence(text);
+
+        this.checkEquals(
+            offsetAndCount,
+            HistoryTokenOffsetAndCount.parse(cursor),
+            text
+        );
+
+        final TextCursorSavePoint save = cursor.save();
+        cursor.end();
+
+        this.checkEquals(
+            textLeft,
+            save.textBetween().toString(),
+            "textLeft"
+        );
+    }
+
+    private void parseFails(final String text,
+                            final String expected) {
+        final IllegalArgumentException thrown = assertThrows(
+            IllegalArgumentException.class,
+            () -> HistoryTokenOffsetAndCount.parse(TextCursors.charSequence(text))
+        );
+
+        this.checkEquals(
+            expected,
+            thrown.getMessage()
         );
     }
 

@@ -20,6 +20,9 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.CanBeEmpty;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.text.CharSequences;
+import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.text.cursor.TextCursorSavePoint;
 
 import java.util.Objects;
 import java.util.OptionalInt;
@@ -34,6 +37,56 @@ public final class HistoryTokenOffsetAndCount implements HasUrlFragment,
         OptionalInt.empty(),
         OptionalInt.empty()
     );
+
+    public static HistoryTokenOffsetAndCount parse(final TextCursor text) {
+        Objects.requireNonNull(text, "text");
+
+        OptionalInt offset = OptionalInt.empty();
+        OptionalInt count = OptionalInt.empty();
+
+        {
+            final TextCursorSavePoint save = text.save();
+
+            final String offsetLiteral = HistoryToken.parseComponentOrEmpty(text);
+            if (OFFSET.value().equals(offsetLiteral)) {
+                offset = parseOptionalInt(
+                    text,
+                    "offset"
+                );
+            } else {
+                save.restore();
+            }
+        }
+        {
+            final TextCursorSavePoint save = text.save();
+
+            final String countLiteral = HistoryToken.parseComponentOrEmpty(text);
+            if (COUNT.value().equals(countLiteral)) {
+                count = parseOptionalInt(
+                    text,
+                    "count"
+                );
+            } else {
+                save.restore();
+            }
+        }
+
+        return with(
+            offset,
+            count
+        );
+    }
+
+    private static OptionalInt parseOptionalInt(final TextCursor text,
+                                                final String label) {
+        final String value = HistoryToken.parseComponentOrEmpty(text);
+        if(value.isEmpty()) {
+            throw new IllegalArgumentException("Missing value for " + CharSequences.quoteAndEscape(label));
+        }
+        return OptionalInt.of(
+            Integer.parseInt(value)
+        );
+    }
 
     public static HistoryTokenOffsetAndCount with(final OptionalInt offset,
                                                   final OptionalInt count) {
