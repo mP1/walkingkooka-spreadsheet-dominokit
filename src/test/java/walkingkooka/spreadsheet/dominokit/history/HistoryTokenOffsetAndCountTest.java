@@ -342,7 +342,7 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+        return JavaVisibility.PUBLIC;
     }
 
     @Override
