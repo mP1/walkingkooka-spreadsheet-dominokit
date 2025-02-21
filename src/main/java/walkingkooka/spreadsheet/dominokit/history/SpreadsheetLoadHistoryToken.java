@@ -23,8 +23,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.cursor.TextCursor;
 
-import java.util.OptionalInt;
-
 /**
  * Captures loading a spreadsheet using its spreadsheet-id
  * <pre>
@@ -60,10 +58,7 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
 
     @Override
     public HistoryToken clearAction() {
-        return HistoryToken.spreadsheetListSelect(
-            OptionalInt.empty(), // from
-            OptionalInt.empty() // count
-        );
+        return HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY);
     }
 
     @Override //

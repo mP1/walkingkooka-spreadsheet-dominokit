@@ -22,32 +22,26 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcher;
 import walkingkooka.text.cursor.TextCursor;
 
-import java.util.OptionalInt;
+import java.util.Objects;
 
 public abstract class PluginListHistoryToken extends PluginHistoryToken {
 
-    PluginListHistoryToken(final OptionalInt offset,
-                           final OptionalInt count) {
+    PluginListHistoryToken(final HistoryTokenOffsetAndCount offsetAndCount) {
         super();
-        this.offset = offset;
-        this.count = count;
+        this.offsetAndCount = Objects.requireNonNull(
+            offsetAndCount,
+            "offsetAndCount"
+        );
     }
 
-    // offset...........................................................................................................
-
-    final OptionalInt offset;
-
-    // count............................................................................................................
-
-    final OptionalInt count;
+    final HistoryTokenOffsetAndCount offsetAndCount;
 
     // HasUrlFragment...................................................................................................
 
     @Override //
     final UrlFragment pluginUrlFragment() {
         return countAndOffsetUrlFragment(
-            this.offset,
-            this.count,
+            offsetAndCount,
             this.pluginListUrlFragment()
         );
     }

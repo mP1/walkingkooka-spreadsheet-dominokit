@@ -22,32 +22,23 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.text.cursor.TextCursor;
 
-import java.util.OptionalInt;
-
 public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToken {
 
-    SpreadsheetListHistoryToken(final OptionalInt offset,
-                                final OptionalInt count) {
+    SpreadsheetListHistoryToken(final HistoryTokenOffsetAndCount offsetAndCount) {
         super();
-        this.offset = offset;
-        this.count = count;
+        this.offsetAndCount = offsetAndCount;
     }
 
     // offset.............................................................................................................
 
-    final OptionalInt offset;
-
-    // count............................................................................................................
-
-    final OptionalInt count;
+    final HistoryTokenOffsetAndCount offsetAndCount;
 
     // HasUrlFragment...................................................................................................
 
     @Override //
     final UrlFragment spreadsheetUrlFragment() {
         return countAndOffsetUrlFragment(
-            this.offset,
-            this.count,
+            this.offsetAndCount,
             this.spreadsheetListUrlFragment()
         );
     }

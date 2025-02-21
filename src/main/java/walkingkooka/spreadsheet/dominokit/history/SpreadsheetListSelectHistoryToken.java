@@ -30,19 +30,15 @@ import java.util.OptionalInt;
  */
 public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHistoryToken {
 
-    static SpreadsheetListSelectHistoryToken with(final OptionalInt offset,
-                                                  final OptionalInt count) {
+    static SpreadsheetListSelectHistoryToken with(final HistoryTokenOffsetAndCount offsetAndCount) {
         return new SpreadsheetListSelectHistoryToken(
-            checkOffset(offset),
-            count
+            offsetAndCount
         );
     }
 
-    private SpreadsheetListSelectHistoryToken(final OptionalInt offset,
-                                              final OptionalInt count) {
+    private SpreadsheetListSelectHistoryToken(final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
-            offset,
-            count
+            offsetAndCount
         );
     }
 

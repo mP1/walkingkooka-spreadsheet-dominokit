@@ -21,11 +21,11 @@ import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 
 import java.util.Optional;
-import java.util.OptionalInt;
 
 /**
  * A collection of factory methods to create links that appear in the app layout.
@@ -36,11 +36,7 @@ final class AppHistoryTokenAnchorComponents implements PublicStaticHelper {
      * A link that when clicked pushes a history token which shows the File browser dialog.
      */
     static HistoryTokenAnchorComponent files() {
-        // TODO need to *READ* from and count
-        return HistoryToken.spreadsheetListSelect(
-                OptionalInt.empty(), // from
-                OptionalInt.empty() // count
-            )
+        return HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY)
             .link("files")
             .setTextContent("Files");
     }

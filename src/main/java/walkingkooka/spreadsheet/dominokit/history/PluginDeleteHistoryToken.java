@@ -22,7 +22,6 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.Objects;
-import java.util.OptionalInt;
 
 /**
  * Represents the selection of a single {@link walkingkooka.plugin.store.Plugin}.
@@ -53,10 +52,7 @@ public final class PluginDeleteHistoryToken extends PluginNameHistoryToken {
 
     @Override
     public HistoryToken clearAction() {
-        return HistoryToken.pluginListSelect(
-            OptionalInt.empty(), // offset
-            OptionalInt.empty() // count
-        );
+        return HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY);
     }
 
     @Override

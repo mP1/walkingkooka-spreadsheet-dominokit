@@ -23,7 +23,6 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.Objects;
-import java.util.OptionalInt;
 
 /**
  * Represents an action to prompt the user to upload a plugin.
@@ -65,10 +64,7 @@ public final class PluginSaveHistoryToken extends PluginNameHistoryToken impleme
 
     @Override
     public HistoryToken clearAction() {
-        return HistoryToken.pluginListSelect(
-            OptionalInt.empty(), // offset
-            OptionalInt.empty() // count
-        );
+        return HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY);
     }
 
     @Override

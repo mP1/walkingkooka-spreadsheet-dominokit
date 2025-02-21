@@ -27,10 +27,7 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     public void testParseInvalidOffset() {
         this.parseAndCheck(
             "/*/offset/X",
-            SpreadsheetListSelectHistoryToken.with(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
-            )
+            SpreadsheetListSelectHistoryToken.with(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
 
@@ -39,8 +36,10 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
         this.parseAndCheck(
             "/*/offset/10",
             SpreadsheetListSelectHistoryToken.with(
-                OptionalInt.of(10), // offset
-                OptionalInt.empty() // count
+                HistoryTokenOffsetAndCount.with(
+                    OptionalInt.of(10), // offset
+                    OptionalInt.empty() // count
+                )
             )
         );
     }
@@ -50,8 +49,9 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
         this.parseAndCheck(
             "/*/count/20",
             SpreadsheetListSelectHistoryToken.with(
-                OptionalInt.empty(), // offset
-                OptionalInt.of(20) // count
+                HistoryTokenOffsetAndCount.EMPTY.setCount(
+                    OptionalInt.of(20)
+                )
             )
         );
     }
@@ -61,8 +61,10 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
         this.parseAndCheck(
             "/*/offset/10/count/20",
             SpreadsheetListSelectHistoryToken.with(
-                OptionalInt.of(10), // offset
-                OptionalInt.of(20) // count
+                HistoryTokenOffsetAndCount.with(
+                    OptionalInt.of(10), // offset
+                    OptionalInt.of(20) // count
+                )
             )
         );
     }
@@ -76,8 +78,9 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     public void testUrlFragmentOffset() {
         this.urlFragmentAndCheck(
             SpreadsheetListSelectHistoryToken.with(
-                OptionalInt.of(10), // offset
-                OptionalInt.empty() // count
+                HistoryTokenOffsetAndCount.EMPTY.setOffset(
+                    OptionalInt.of(10)
+                )
             ),
             "/*/offset/10"
         );
@@ -87,8 +90,10 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     public void testUrlFragmentOffsetAndCount() {
         this.urlFragmentAndCheck(
             SpreadsheetListSelectHistoryToken.with(
-                OptionalInt.of(10), // offset
-                OptionalInt.of(20) // count
+                HistoryTokenOffsetAndCount.with(
+                    OptionalInt.of(10), // offset
+                    OptionalInt.of(20) // count
+                )
             ),
             "/*/offset/10/count/20"
         );
@@ -103,20 +108,13 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     public void testReload() {
         this.reloadAndCheck(
             this.createHistoryToken(),
-            HistoryToken.spreadsheetListReload(
-                OFFSET,
-                COUNT
-            )
+            HistoryToken.spreadsheetListReload(OFFSET_AND_COUNT)
         );
     }
 
     @Override
-    SpreadsheetListSelectHistoryToken createHistoryToken(final OptionalInt offset,
-                                                         final OptionalInt count) {
-        return SpreadsheetListSelectHistoryToken.with(
-            offset,
-            count
-        );
+    SpreadsheetListSelectHistoryToken createHistoryToken(final HistoryTokenOffsetAndCount offsetAndCount) {
+        return SpreadsheetListSelectHistoryToken.with(offsetAndCount);
     }
 
     @Override
