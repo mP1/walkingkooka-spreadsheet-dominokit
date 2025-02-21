@@ -31,8 +31,8 @@ final class HistoryTokenOffsetAndCount implements HasUrlFragment {
     static HistoryTokenOffsetAndCount with(final OptionalInt offset,
                                            final OptionalInt count) {
         return new HistoryTokenOffsetAndCount(
-            Objects.requireNonNull(offset, "offset"),
-            Objects.requireNonNull(count, "count")
+            checkOffset(offset),
+            checkCount(count)
         );
     }
 
@@ -49,7 +49,7 @@ final class HistoryTokenOffsetAndCount implements HasUrlFragment {
     final OptionalInt offset;
 
     HistoryTokenOffsetAndCount setOffset(final OptionalInt offset) {
-        Objects.requireNonNull(offset, "offset");
+        checkOffset(offset);
 
         return this.offset.equals(offset) ?
             this :
@@ -59,12 +59,19 @@ final class HistoryTokenOffsetAndCount implements HasUrlFragment {
             );
     }
 
+    private static OptionalInt checkOffset(final OptionalInt offset) {
+        return check(
+            "offset",
+            offset
+        );
+    }
+
     // count............................................................................................................
 
     final OptionalInt count;
 
     HistoryTokenOffsetAndCount setCount(final OptionalInt count) {
-        Objects.requireNonNull(count, "count");
+        checkCount(count);
 
         return this.count.equals(count) ?
             this :
@@ -72,6 +79,27 @@ final class HistoryTokenOffsetAndCount implements HasUrlFragment {
                 this.offset,
                 count
             );
+    }
+
+    private static OptionalInt checkCount(final OptionalInt count) {
+        return check(
+            "count",
+            count
+        );
+    }
+
+    private static OptionalInt check(final String label,
+                                     final OptionalInt value) {
+        Objects.requireNonNull(value, label);
+
+        if(value.isPresent()) {
+            final int valueInt = value.getAsInt();
+            if(valueInt < 0) {
+                throw new IllegalArgumentException("Invalid " + label + " " + valueInt + " < 0");
+            }
+        }
+
+        return value;
     }
 
     // HasUrlFragment...................................................................................................

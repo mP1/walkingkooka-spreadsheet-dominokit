@@ -53,6 +53,22 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
     }
 
     @Test
+    public void testWithInvalidOffsetFails() {
+        final IllegalArgumentException thrown = assertThrows(
+            IllegalArgumentException.class,
+            () -> HistoryTokenOffsetAndCount.with(
+                OptionalInt.of(-987),
+                COUNT
+            )
+        );
+
+        this.checkEquals(
+            "Invalid offset -987 < 0",
+            thrown.getMessage()
+        );
+    }
+
+    @Test
     public void testWithNullCountFails() {
         assertThrows(
             NullPointerException.class,
@@ -60,6 +76,22 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
                 OFFSET,
                 null
             )
+        );
+    }
+
+    @Test
+    public void testWithInvalidCountFails() {
+        final IllegalArgumentException thrown = assertThrows(
+            IllegalArgumentException.class,
+            () -> HistoryTokenOffsetAndCount.with(
+                OFFSET,
+                OptionalInt.of(-1)
+            )
+        );
+
+        this.checkEquals(
+            "Invalid count -1 < 0",
+            thrown.getMessage()
         );
     }
 
@@ -97,6 +129,22 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
         assertThrows(
             NullPointerException.class,
             () -> this.createObject().setOffset(null)
+        );
+    }
+
+    @Test
+    public void testSetOffsetWithInvalidFails() {
+        IllegalArgumentException thrown = assertThrows(
+            IllegalArgumentException.class,
+            () -> this.createObject()
+                .setOffset(
+                    OptionalInt.of(-2)
+                )
+        );
+
+        this.checkEquals(
+            "Invalid offset -2 < 0",
+            thrown.getMessage()
         );
     }
 
@@ -146,6 +194,22 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
         assertThrows(
             NullPointerException.class,
             () -> this.createObject().setCount(null)
+        );
+    }
+
+    @Test
+    public void testSetCountWithInvalidFails() {
+        IllegalArgumentException thrown = assertThrows(
+            IllegalArgumentException.class,
+            () -> this.createObject()
+                .setCount(
+                    OptionalInt.of(-3)
+                )
+        );
+
+        this.checkEquals(
+            "Invalid count -3 < 0",
+            thrown.getMessage()
         );
     }
 
