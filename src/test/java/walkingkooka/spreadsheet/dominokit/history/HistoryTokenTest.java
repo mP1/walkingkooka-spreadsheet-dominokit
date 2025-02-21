@@ -2900,6 +2900,63 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // cell/labels......................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellLabels() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/labels",
+            HistoryToken.cellLabels(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                HistoryTokenOffsetAndCount.EMPTY
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellLabelsInvalidOffset() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/labels/offset/-1",
+            HistoryToken.cellLabels(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                HistoryTokenOffsetAndCount.EMPTY
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellLabelsInvalidCount() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/labels/count/-1",
+            HistoryToken.cellLabels(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                HistoryTokenOffsetAndCount.EMPTY
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellLabelsOffsetCount() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/labels/offset/111/count/222",
+            HistoryToken.cellLabels(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                HistoryTokenOffsetAndCount.with(
+                    OptionalInt.of(111), // offset
+                    OptionalInt.of(222) // count
+                )
+            )
+        );
+    }
+    
     // cell/formatter/parser............................................................................................
 
     @Test
