@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.CanBeEmptyTesting;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.net.HasUrlFragmentTesting;
@@ -31,6 +32,7 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThrows;
 
 public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesting,
+    CanBeEmptyTesting,
     HashCodeEqualsDefinedTesting2<HistoryTokenOffsetAndCount>,
     ToStringTesting<HistoryTokenOffsetAndCount>,
     ClassTesting<HistoryTokenOffsetAndCount> {
@@ -318,6 +320,24 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
                 COUNT
             ),
             "/offset/1/count/23"
+        );
+    }
+
+    // CanBeEmpty.......................................................................................................
+
+    @Test
+    public void testCanBeEmptyWithEmpty() {
+        this.isEmptyAndCheck(
+            HistoryTokenOffsetAndCount.EMPTY,
+            true
+        );
+    }
+
+    @Test
+    public void testCanBeEmptyWithNotEmpty() {
+        this.isEmptyAndCheck(
+            this.createObject(),
+            false
         );
     }
 
