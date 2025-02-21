@@ -2032,22 +2032,6 @@ public abstract class HistoryToken implements HasUrlFragment,
         return Optional.ofNullable(token);
     }
 
-    public final HistoryToken labelMapping() {
-        HistoryToken historyToken = this;
-
-        if (this instanceof SpreadsheetCellHistoryToken) {
-            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
-
-            historyToken = cellLabelSelect(
-                cell.id(),
-                cell.name(),
-                cell.anchoredSelection()
-            );
-        }
-
-        return historyToken;
-    }
-
     /**
      * Would be setter, returning a {@link HistoryToken} with the given {@link SpreadsheetId} and {@link SpreadsheetName},
      * creating a new instance if necessary.
@@ -2171,6 +2155,22 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     // labelMapping.....................................................................................................
+
+    public final HistoryToken labelMapping() {
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = cellLabelSelect(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection()
+            );
+        }
+
+        return historyToken;
+    }
 
     /**
      * Getter that returns a {@link SpreadsheetLabelMapping#reference()} if this token has one.
