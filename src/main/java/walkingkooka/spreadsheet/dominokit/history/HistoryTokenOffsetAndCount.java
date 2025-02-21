@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.CanBeEmpty;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 
@@ -26,7 +27,8 @@ import java.util.OptionalInt;
 /**
  * Captures any offset and counts that may be part of a {@link HistoryToken}.
  */
-public final class HistoryTokenOffsetAndCount implements HasUrlFragment {
+public final class HistoryTokenOffsetAndCount implements HasUrlFragment,
+    CanBeEmpty {
 
     public final static HistoryTokenOffsetAndCount EMPTY = new HistoryTokenOffsetAndCount(
         OptionalInt.empty(),
@@ -144,6 +146,13 @@ public final class HistoryTokenOffsetAndCount implements HasUrlFragment {
 
     private final static UrlFragment OFFSET = UrlFragment.with("offset");
     private final static UrlFragment COUNT = UrlFragment.with("count");
+
+    // CanBeEmpty.......................................................................................................
+
+    @Override
+    public boolean isEmpty() {
+        return EMPTY.equals(this);
+    }
 
     // equals...........................................................................................................
 
