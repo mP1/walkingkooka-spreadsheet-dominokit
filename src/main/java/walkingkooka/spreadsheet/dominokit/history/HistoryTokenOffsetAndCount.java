@@ -28,12 +28,42 @@ import java.util.OptionalInt;
  */
 public final class HistoryTokenOffsetAndCount implements HasUrlFragment {
 
+    public final static HistoryTokenOffsetAndCount EMPTY = new HistoryTokenOffsetAndCount(
+        OptionalInt.empty(),
+        OptionalInt.empty()
+    );
+
     public static HistoryTokenOffsetAndCount with(final OptionalInt offset,
                                                   final OptionalInt count) {
-        return new HistoryTokenOffsetAndCount(
-            checkOffset(offset),
-            checkCount(count)
+        check(
+            "offset",
+            offset
         );
+        check(
+            "count",
+            count
+        );
+
+        return offset.isPresent() || count.isPresent() ?
+            new HistoryTokenOffsetAndCount(
+                offset,
+                count
+            ) :
+            EMPTY;
+    }
+
+    private static OptionalInt check(final String label,
+                                     final OptionalInt value) {
+        Objects.requireNonNull(value, label);
+
+        if (value.isPresent()) {
+            final int valueInt = value.getAsInt();
+            if (valueInt < 0) {
+                throw new IllegalArgumentException("Invalid " + label + " " + valueInt + " < 0");
+            }
+        }
+
+        return value;
     }
 
     private HistoryTokenOffsetAndCount(final OptionalInt offset,
@@ -53,21 +83,12 @@ public final class HistoryTokenOffsetAndCount implements HasUrlFragment {
     final OptionalInt offset;
 
     public HistoryTokenOffsetAndCount setOffset(final OptionalInt offset) {
-        checkOffset(offset);
-
         return this.offset.equals(offset) ?
             this :
-            new HistoryTokenOffsetAndCount(
+            with(
                 offset,
                 this.count
             );
-    }
-
-    private static OptionalInt checkOffset(final OptionalInt offset) {
-        return check(
-            "offset",
-            offset
-        );
     }
 
     // count............................................................................................................
@@ -79,35 +100,12 @@ public final class HistoryTokenOffsetAndCount implements HasUrlFragment {
     final OptionalInt count;
 
     public HistoryTokenOffsetAndCount setCount(final OptionalInt count) {
-        checkCount(count);
-
         return this.count.equals(count) ?
             this :
-            new HistoryTokenOffsetAndCount(
+            with(
                 this.offset,
                 count
             );
-    }
-
-    private static OptionalInt checkCount(final OptionalInt count) {
-        return check(
-            "count",
-            count
-        );
-    }
-
-    private static OptionalInt check(final String label,
-                                     final OptionalInt value) {
-        Objects.requireNonNull(value, label);
-
-        if (value.isPresent()) {
-            final int valueInt = value.getAsInt();
-            if (valueInt < 0) {
-                throw new IllegalArgumentException("Invalid " + label + " " + valueInt + " < 0");
-            }
-        }
-
-        return value;
     }
 
     // HasUrlFragment...................................................................................................
