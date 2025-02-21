@@ -20,8 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.plugin.PluginName;
 
-import java.util.OptionalInt;
-
 public final class PluginDeleteHistoryTokenTest extends PluginNameHistoryTokenTestCase<PluginDeleteHistoryToken> {
 
     @Test
@@ -35,10 +33,7 @@ public final class PluginDeleteHistoryTokenTest extends PluginNameHistoryTokenTe
     public void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
-            HistoryToken.pluginListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
-            )
+            HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
 

@@ -937,23 +937,15 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * {@see PluginListReloadHistoryToken}
      */
-    public static PluginListHistoryToken pluginListReload(final OptionalInt offset,
-                                                          final OptionalInt count) {
-        return PluginListReloadHistoryToken.with(
-            offset,
-            count
-        );
+    public static PluginListHistoryToken pluginListReload(final HistoryTokenOffsetAndCount offsetAndCount) {
+        return PluginListReloadHistoryToken.with(offsetAndCount);
     }
 
     /**
      * {@see PluginListSelectHistoryToken}
      */
-    public static PluginListHistoryToken pluginListSelect(final OptionalInt offset,
-                                                          final OptionalInt count) {
-        return PluginListSelectHistoryToken.with(
-            offset,
-            count
-        );
+    public static PluginListHistoryToken pluginListSelect(final HistoryTokenOffsetAndCount offsetAndCount) {
+        return PluginListSelectHistoryToken.with(offsetAndCount);
     }
 
     /**
@@ -1191,23 +1183,15 @@ public abstract class HistoryToken implements HasUrlFragment,
     /**
      * {@see SpreadsheetListReloadHistoryToken}
      */
-    public static SpreadsheetListHistoryToken spreadsheetListReload(final OptionalInt offset,
-                                                                    final OptionalInt count) {
-        return SpreadsheetListReloadHistoryToken.with(
-            offset,
-            count
-        );
+    public static SpreadsheetListHistoryToken spreadsheetListReload(final HistoryTokenOffsetAndCount offsetAndCount) {
+        return SpreadsheetListReloadHistoryToken.with(offsetAndCount);
     }
 
     /**
      * {@see SpreadsheetListSelectHistoryToken}
      */
-    public static SpreadsheetListHistoryToken spreadsheetListSelect(final OptionalInt offset,
-                                                                    final OptionalInt count) {
-        return SpreadsheetListSelectHistoryToken.with(
-            offset,
-            count
-        );
+    public static SpreadsheetListHistoryToken spreadsheetListSelect(final HistoryTokenOffsetAndCount offsetAndCount) {
+        return SpreadsheetListSelectHistoryToken.with(offsetAndCount);
     }
 
     /**
@@ -1377,13 +1361,11 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     private final static SpreadsheetListHistoryToken SPREADSHEET_LIST_SELECT_HISTORY_TOKEN = HistoryToken.spreadsheetListSelect(
-        OptionalInt.empty(), // from
-        OptionalInt.empty() // count
+        HistoryTokenOffsetAndCount.EMPTY
     );
 
     private final static PluginListSelectHistoryToken PLUGIN_LIST_SELECT_HISTORY_TOKEN = PluginListSelectHistoryToken.with(
-        OptionalInt.empty(), // offset
-        OptionalInt.empty() // count
+        HistoryTokenOffsetAndCount.EMPTY
     );
 
     /**
@@ -1643,10 +1625,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         if (this instanceof SpreadsheetListRenameHistoryToken) {
-            closed = spreadsheetListSelect(
-                OptionalInt.empty(), // from
-                OptionalInt.empty() // count
-            );
+            closed = spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY);
         }
 
         if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
@@ -1776,10 +1755,10 @@ public abstract class HistoryToken implements HasUrlFragment,
         final OptionalInt count;
 
         if (this instanceof PluginListHistoryToken) {
-            count = this.cast(PluginListHistoryToken.class).count;
+            count = this.cast(PluginListHistoryToken.class).offsetAndCount.count();
         } else {
             if (this instanceof SpreadsheetListHistoryToken) {
-                count = this.cast(SpreadsheetListHistoryToken.class).count;
+                count = this.cast(SpreadsheetListHistoryToken.class).offsetAndCount.count();
             } else {
                 if (this instanceof SpreadsheetColumnInsertHistoryToken) {
                     count = this.cast(SpreadsheetColumnInsertHistoryToken.class)
@@ -1802,43 +1781,37 @@ public abstract class HistoryToken implements HasUrlFragment,
      * Would be setter that tries to replace the {@link #count()} with new value.
      */
     public final HistoryToken setCount(final OptionalInt count) {
-        checkCount(count);
-
         final HistoryToken with;
 
         if (this.count().equals(count)) {
             with = this;
         } else {
             if (this instanceof PluginListReloadHistoryToken) {
-                final PluginListReloadHistoryToken list = this.cast(PluginListReloadHistoryToken.class);
-
                 with = pluginListReload(
-                    list.offset(),
-                    count
+                    this.cast(PluginListReloadHistoryToken.class)
+                        .offsetAndCount
+                        .setCount(count)
                 );
             } else {
                 if (this instanceof PluginListSelectHistoryToken) {
-                    final PluginListSelectHistoryToken list = this.cast(PluginListSelectHistoryToken.class);
-
                     with = pluginListSelect(
-                        list.offset(),
-                        count
+                        this.cast(PluginListSelectHistoryToken.class)
+                            .offsetAndCount
+                            .setCount(count)
                     );
                 } else {
                     if (this instanceof SpreadsheetListReloadHistoryToken) {
-                        final SpreadsheetListReloadHistoryToken list = this.cast(SpreadsheetListReloadHistoryToken.class);
-
                         with = spreadsheetListReload(
-                            list.offset(),
-                            count
+                            this.cast(SpreadsheetListReloadHistoryToken.class)
+                                .offsetAndCount
+                                .setCount(count)
                         );
                     } else {
                         if (this instanceof SpreadsheetListSelectHistoryToken) {
-                            final SpreadsheetListSelectHistoryToken list = this.cast(SpreadsheetListSelectHistoryToken.class);
-
                             with = spreadsheetListSelect(
-                                list.offset(),
-                                count
+                                this.cast(SpreadsheetListSelectHistoryToken.class)
+                                    .offsetAndCount
+                                    .setCount(count)
                             );
                         } else {
                             if (this instanceof SpreadsheetColumnInsertAfterHistoryToken) {
@@ -2625,10 +2598,10 @@ public abstract class HistoryToken implements HasUrlFragment,
         final OptionalInt offset;
 
         if (this instanceof PluginListHistoryToken) {
-            offset = this.cast(PluginListHistoryToken.class).offset;
+            offset = this.cast(PluginListHistoryToken.class).offsetAndCount.offset;
         } else {
             if (this instanceof SpreadsheetListHistoryToken) {
-                offset = this.cast(SpreadsheetListHistoryToken.class).offset;
+                offset = this.cast(SpreadsheetListHistoryToken.class).offsetAndCount.offset;
             } else {
                 offset = OptionalInt.empty();
             }
@@ -2641,8 +2614,6 @@ public abstract class HistoryToken implements HasUrlFragment,
      * Would be setter that tries to replace the {@link #offset()} with new value.
      */
     public final HistoryToken setOffset(final OptionalInt offset) {
-        checkOffset(offset);
-
         final HistoryToken with;
 
         if (this.offset().equals(offset)) {
@@ -2650,28 +2621,30 @@ public abstract class HistoryToken implements HasUrlFragment,
         } else {
             if (this instanceof PluginListReloadHistoryToken) {
                 with = pluginListReload(
-                    offset,
-                    this.count()
+                    this.cast(PluginListReloadHistoryToken.class)
+                        .offsetAndCount
+                        .setOffset(offset)
                 );
             } else {
                 if (this instanceof PluginListSelectHistoryToken) {
                     with = pluginListSelect(
-                        offset,
-                        this.count()
+                        this.cast(PluginListSelectHistoryToken.class)
+                            .offsetAndCount
+                            .setOffset(offset)
                     );
                 } else {
                     if (this instanceof SpreadsheetListReloadHistoryToken) {
-                        final SpreadsheetListReloadHistoryToken list = this.cast(SpreadsheetListReloadHistoryToken.class);
-
                         with = spreadsheetListReload(
-                            offset,
-                            this.count()
+                            this.cast(SpreadsheetListReloadHistoryToken.class)
+                                .offsetAndCount
+                                .setOffset(offset)
                         );
                     } else {
                         if (this instanceof SpreadsheetListSelectHistoryToken) {
                             with = spreadsheetListSelect(
-                                offset,
-                                this.count()
+                                this.cast(SpreadsheetListSelectHistoryToken.class)
+                                    .offsetAndCount
+                                    .setOffset(offset)
                             );
                         } else {
                             with = this;
@@ -2682,18 +2655,6 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         return with;
-    }
-
-    static OptionalInt checkOffset(final OptionalInt offset) {
-        Objects.requireNonNull(offset, "offset");
-
-        offset.ifPresent(value -> {
-            if (value < 0) {
-                throw new IllegalArgumentException("Invalid offset < 0 got " + value);
-            }
-        });
-
-        return offset;
     }
 
     // HasSpreadsheetPatternKind........................................................................................
@@ -2784,17 +2745,13 @@ public abstract class HistoryToken implements HasUrlFragment,
         HistoryToken token = this;
 
         if (this instanceof PluginListHistoryToken) {
-            final PluginListHistoryToken pluginListHistoryToken = this.cast(PluginListHistoryToken.class);
             token = pluginListReload(
-                pluginListHistoryToken.offset(),
-                pluginListHistoryToken.count()
+                this.cast(PluginListHistoryToken.class).offsetAndCount
             );
         } else {
             if (this instanceof SpreadsheetListHistoryToken) {
-                final SpreadsheetListHistoryToken spreadsheetListHistoryToken = this.cast(SpreadsheetListHistoryToken.class);
                 token = spreadsheetListReload(
-                    spreadsheetListHistoryToken.offset(),
-                    spreadsheetListHistoryToken.count()
+                    this.cast(SpreadsheetListHistoryToken.class).offsetAndCount
                 );
 
             } else {
@@ -3740,36 +3697,18 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     // UrlFragment......................................................................................................
 
-    static UrlFragment countAndOffsetUrlFragment(final OptionalInt offset,
-                                                 final OptionalInt count,
+    static UrlFragment countAndOffsetUrlFragment(final HistoryTokenOffsetAndCount offsetAndCount,
                                                  final UrlFragment suffix) {
         UrlFragment urlFragment = UrlFragment.EMPTY;
 
         boolean addStar = true;
 
-        if (offset.isPresent()) {
+        if(offsetAndCount.isNotEmpty()) {
             urlFragment = urlFragment.appendSlashThen(WILDCARD)
-                .appendSlashThen(OFFSET)
-                .appendSlashThen(
-                    UrlFragment.with(
-                        String.valueOf(offset.getAsInt())
-                    )
+                .append(
+                    offsetAndCount.urlFragment()
                 );
             addStar = false;
-        }
-
-        if (count.isPresent()) {
-            if (addStar) {
-                urlFragment = urlFragment.appendSlashThen(WILDCARD);
-                addStar = false;
-            }
-
-            urlFragment = urlFragment.appendSlashThen(COUNT)
-                .appendSlashThen(
-                    UrlFragment.with(
-                        String.valueOf(count.getAsInt())
-                    )
-                );
         }
 
         if (false == suffix.isEmpty()) {

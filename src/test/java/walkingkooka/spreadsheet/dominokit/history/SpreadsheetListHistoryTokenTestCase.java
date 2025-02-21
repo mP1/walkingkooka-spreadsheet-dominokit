@@ -30,6 +30,11 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
 
     final static OptionalInt COUNT = OptionalInt.of(23);
 
+    final static HistoryTokenOffsetAndCount OFFSET_AND_COUNT = HistoryTokenOffsetAndCount.with(
+        OFFSET,
+        COUNT
+    );
+
     SpreadsheetListHistoryTokenTestCase() {
         super();
     }
@@ -81,11 +86,12 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
 
     @Override final T createHistoryToken() {
         return this.createHistoryToken(
-            OFFSET,
-            COUNT
+            HistoryTokenOffsetAndCount.with(
+                OFFSET,
+                COUNT
+            )
         );
     }
 
-    abstract T createHistoryToken(final OptionalInt from,
-                                  final OptionalInt count);
+    abstract T createHistoryToken(final HistoryTokenOffsetAndCount offsetAndCount);
 }

@@ -22,8 +22,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.text.cursor.TextCursor;
 
-import java.util.OptionalInt;
-
 /**
  * A history token that displays a file browser allowing the user to upload a plugin *.JAR file.
  */
@@ -74,10 +72,7 @@ public final class PluginUploadSelectHistoryToken extends PluginUploadHistoryTok
 
     @Override
     public HistoryToken clearAction() {
-        return HistoryToken.pluginListSelect(
-            OptionalInt.empty(), // offset
-            OptionalInt.empty() // count
-        );
+        return HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY);
     }
 
     @Override

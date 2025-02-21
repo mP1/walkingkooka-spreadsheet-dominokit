@@ -20,8 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-import java.util.OptionalInt;
-
 /**
  * A token that represents a plugin list files dialog.
  * <pre>
@@ -30,20 +28,12 @@ import java.util.OptionalInt;
  */
 public final class PluginListSelectHistoryToken extends PluginListHistoryToken {
 
-    static PluginListSelectHistoryToken with(final OptionalInt offset,
-                                             final OptionalInt count) {
-        return new PluginListSelectHistoryToken(
-            checkOffset(offset),
-            count
-        );
+    static PluginListSelectHistoryToken with(final HistoryTokenOffsetAndCount offsetAndCount) {
+        return new PluginListSelectHistoryToken(offsetAndCount);
     }
 
-    private PluginListSelectHistoryToken(final OptionalInt offset,
-                                         final OptionalInt count) {
-        super(
-            offset,
-            count
-        );
+    private PluginListSelectHistoryToken(final HistoryTokenOffsetAndCount offsetAndCount) {
+        super(offsetAndCount);
     }
 
     // HasUrlFragment...................................................................................................
@@ -57,10 +47,7 @@ public final class PluginListSelectHistoryToken extends PluginListHistoryToken {
 
     @Override
     public HistoryToken clearAction() {
-        return HistoryToken.spreadsheetListSelect(
-            OptionalInt.empty(),
-            OptionalInt.empty()
-        );
+        return HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY);
     }
 
     // HistoryToken.....................................................................................................

@@ -32,7 +32,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Optional;
-import java.util.OptionalInt;
 import java.util.Set;
 
 /**
@@ -64,10 +63,7 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
 
     @Override
     public HistoryToken clearAction() {
-        return HistoryToken.spreadsheetListSelect(
-            OptionalInt.empty(), // from
-            OptionalInt.empty() // count
-        );
+        return HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY);
     }
 
     @Override //

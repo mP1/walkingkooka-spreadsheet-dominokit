@@ -2211,10 +2211,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseUnknown() {
         this.parseStringAndCheck(
             "hello",
-            HistoryToken.spreadsheetListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
-            )
+            HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
 
@@ -2222,10 +2219,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseEmpty() {
         this.parseStringAndCheck(
             "",
-            HistoryToken.spreadsheetListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
-            )
+            HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
 
@@ -2233,10 +2227,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseSlash() {
         this.parseStringAndCheck(
             "/",
-            HistoryToken.spreadsheetListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
-            )
+            HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
 
@@ -2249,10 +2240,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParseInvalidSpreadsheetId() {
         this.parseStringAndCheck(
             "/XYZ",
-            HistoryToken.spreadsheetListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
-            )
+            HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
 
@@ -2262,10 +2250,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     public void testParsePlugin() {
         this.parseStringAndCheck(
             "/plugin",
-            HistoryToken.pluginListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
-            )
+            HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
 
@@ -2274,8 +2259,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         this.parseStringAndCheck(
             "/plugin/*/offset/123",
             HistoryToken.pluginListSelect(
-                OptionalInt.of(123), // offset
-                OptionalInt.empty() // count
+                HistoryTokenOffsetAndCount.with(
+                    OptionalInt.of(123), // offset
+                    OptionalInt.empty() // count
+                )
             )
         );
     }
@@ -2286,8 +2273,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         this.parseStringAndCheck(
             "/plugin/*/count/456",
             HistoryToken.pluginListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.of(456) // count
+                HistoryTokenOffsetAndCount.with(
+                    OptionalInt.empty(), // offset
+                    OptionalInt.of(456) // count
+                )
             )
         );
     }
@@ -2307,8 +2296,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         this.parseStringAndCheck(
             "/plugin/*/reload",
             HistoryToken.pluginListReload(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
+                HistoryTokenOffsetAndCount.with(
+                    OptionalInt.empty(), // offset
+                    OptionalInt.empty() // count
+                )
             )
         );
     }
@@ -2318,8 +2309,10 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         this.parseStringAndCheck(
             "/plugin/*/offset/123/reload",
             HistoryToken.pluginListReload(
-                OptionalInt.of(123), // offset
-                OptionalInt.empty() // count
+                HistoryTokenOffsetAndCount.with(
+                    OptionalInt.of(123), // offset
+                    OptionalInt.empty() // count
+                )
             )
         );
     }
@@ -2373,8 +2366,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         this.parseStringAndCheck(
             "/plugin/!TestPluginName123",
             HistoryToken.pluginListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
+                HistoryTokenOffsetAndCount.EMPTY
             )
         );
     }

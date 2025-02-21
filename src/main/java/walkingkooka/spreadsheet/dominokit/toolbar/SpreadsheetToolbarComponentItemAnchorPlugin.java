@@ -24,10 +24,10 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 
 import java.util.Objects;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 final class SpreadsheetToolbarComponentItemAnchorPlugin extends SpreadsheetToolbarComponentItemAnchor<SpreadsheetToolbarComponentItemAnchorPlugin>
     implements NopComponentLifecycleOpenGiveFocus,
@@ -55,10 +55,7 @@ final class SpreadsheetToolbarComponentItemAnchorPlugin extends SpreadsheetToolb
         final HistoryTokenAnchorComponent anchor = this.anchor;
         anchor.setHistoryToken(
             Optional.of(
-                HistoryToken.pluginListSelect(
-                    OptionalInt.empty(), // offset
-                    OptionalInt.empty() // count
-                ).cast(HistoryToken.class)
+                HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY).cast(HistoryToken.class)
             )
         );
     }

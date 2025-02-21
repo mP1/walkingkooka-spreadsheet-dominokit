@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.plugin.PluginName;
 
 import java.util.Optional;
-import java.util.OptionalInt;
 
 import static org.junit.Assert.assertThrows;
 
@@ -53,10 +52,7 @@ public final class PluginSaveHistoryTokenTest extends PluginNameHistoryTokenTest
     public void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
-            HistoryToken.pluginListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
-            )
+            HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
 

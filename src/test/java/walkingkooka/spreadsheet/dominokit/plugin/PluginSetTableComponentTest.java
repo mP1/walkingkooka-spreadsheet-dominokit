@@ -29,6 +29,7 @@ import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.value.TableComponentTesting;
 
 import java.time.LocalDateTime;
@@ -177,8 +178,10 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                     )
                 ).refresh(
                     HistoryToken.pluginListSelect(
-                        OptionalInt.of(10), // offset
-                        OptionalInt.of(4) // count
+                        HistoryTokenOffsetAndCount.with(
+                            OptionalInt.of(10), // offset
+                            OptionalInt.of(4) // count
+                        )
                     )
                 ),
             "PluginSetTableComponent\n" +

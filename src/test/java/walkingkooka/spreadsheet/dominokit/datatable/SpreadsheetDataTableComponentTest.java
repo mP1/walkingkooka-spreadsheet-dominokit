@@ -26,6 +26,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextComponent;
 import walkingkooka.text.CharSequences;
@@ -506,8 +507,10 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 ).previousNextLinks(ID_PREFIX)
                 .refreshPreviousNextLinks(
                     HistoryToken.spreadsheetListSelect(
-                        OptionalInt.of(0), // offset
-                        OptionalInt.of(5) // count
+                        HistoryTokenOffsetAndCount.with(
+                            OptionalInt.of(0), // offset
+                            OptionalInt.of(5) // count
+                        )
                     ),
                     100
                 ),
@@ -590,8 +593,10 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 ).previousNextLinks(ID_PREFIX)
                 .refreshPreviousNextLinks(
                     HistoryToken.spreadsheetListSelect(
-                        OptionalInt.of(16), // offset
-                        OptionalInt.of(5) // count
+                        HistoryTokenOffsetAndCount.with(
+                            OptionalInt.of(16), // offset
+                            OptionalInt.of(5) // count
+                        )
                     ),
                     100
                 ),
@@ -662,8 +667,10 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 ).previousNextLinks(ID_PREFIX)
                 .refreshPreviousNextLinks(
                     HistoryToken.spreadsheetListSelect(
-                        OptionalInt.of(16), // offset
-                        OptionalInt.of(5) // count
+                        HistoryTokenOffsetAndCount.with(
+                            OptionalInt.of(16), // offset
+                            OptionalInt.of(5) // count
+                        )
                     ),
                     100
                 ),

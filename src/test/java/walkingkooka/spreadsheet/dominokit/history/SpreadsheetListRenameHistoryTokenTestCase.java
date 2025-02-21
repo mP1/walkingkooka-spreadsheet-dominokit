@@ -19,8 +19,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.OptionalInt;
-
 public abstract class SpreadsheetListRenameHistoryTokenTestCase<T extends SpreadsheetListRenameHistoryToken> extends SpreadsheetIdHistoryTokenTestCase<T> {
 
     SpreadsheetListRenameHistoryTokenTestCase() {
@@ -31,10 +29,7 @@ public abstract class SpreadsheetListRenameHistoryTokenTestCase<T extends Spread
     public final void testClose() {
         this.closeAndCheck(
             this.createHistoryToken(),
-            HistoryToken.spreadsheetListSelect(
-                OptionalInt.empty(), // from
-                OptionalInt.empty() // count
-            )
+            HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
 

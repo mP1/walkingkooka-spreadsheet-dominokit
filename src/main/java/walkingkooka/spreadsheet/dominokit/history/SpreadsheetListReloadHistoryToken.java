@@ -21,8 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponent;
 
-import java.util.OptionalInt;
-
 /**
  * A token that reloads the list shown by {@link SpreadsheetListDialogComponent}.
  * <pre>
@@ -31,19 +29,15 @@ import java.util.OptionalInt;
  */
 public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHistoryToken {
 
-    static SpreadsheetListReloadHistoryToken with(final OptionalInt offset,
-                                                  final OptionalInt count) {
+    static SpreadsheetListReloadHistoryToken with(final HistoryTokenOffsetAndCount offsetAndCount) {
         return new SpreadsheetListReloadHistoryToken(
-            checkOffset(offset),
-            count
+            offsetAndCount
         );
     }
 
-    private SpreadsheetListReloadHistoryToken(final OptionalInt offset,
-                                              final OptionalInt count) {
+    private SpreadsheetListReloadHistoryToken(final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
-            offset,
-            count
+            offsetAndCount
         );
     }
 
@@ -59,8 +53,7 @@ public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHist
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.spreadsheetListSelect(
-            this.offset(),
-            this.count()
+            this.offsetAndCount
         );
     }
 

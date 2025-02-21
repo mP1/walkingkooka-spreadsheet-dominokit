@@ -20,8 +20,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-import java.util.OptionalInt;
-
 /**
  * A token that reloads the list shown by {@link walkingkooka.spreadsheet.dominokit.plugin.PluginSetDialogComponent}.
  * <pre>
@@ -30,20 +28,12 @@ import java.util.OptionalInt;
  */
 public final class PluginListReloadHistoryToken extends PluginListHistoryToken {
 
-    static PluginListReloadHistoryToken with(final OptionalInt offset,
-                                             final OptionalInt count) {
-        return new PluginListReloadHistoryToken(
-            checkOffset(offset),
-            count
-        );
+    static PluginListReloadHistoryToken with(final HistoryTokenOffsetAndCount offsetAndCount) {
+        return new PluginListReloadHistoryToken(offsetAndCount);
     }
 
-    private PluginListReloadHistoryToken(final OptionalInt offset,
-                                         final OptionalInt count) {
-        super(
-            offset,
-            count
-        );
+    private PluginListReloadHistoryToken(final HistoryTokenOffsetAndCount offsetAndCount) {
+        super(offsetAndCount);
     }
 
     // HasUrlFragment...................................................................................................
@@ -58,8 +48,7 @@ public final class PluginListReloadHistoryToken extends PluginListHistoryToken {
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.pluginListSelect(
-            this.offset(),
-            this.count()
+            this.offsetAndCount
         );
     }
 

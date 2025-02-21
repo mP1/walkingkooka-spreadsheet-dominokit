@@ -21,8 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
-import java.util.OptionalInt;
-
 public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHistoryTokenTestCase<SpreadsheetListDeleteHistoryToken> {
 
     @Test
@@ -30,8 +28,7 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
         this.parseAndCheck(
             "/delete",
             HistoryToken.spreadsheetListSelect(
-                OptionalInt.empty(), // from
-                OptionalInt.empty() // count
+                HistoryTokenOffsetAndCount.EMPTY
             )
         );
     }
@@ -46,8 +43,7 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetListSelect(
-                OptionalInt.empty(), // from
-                OptionalInt.empty() // count
+                HistoryTokenOffsetAndCount.EMPTY
             )
         );
     }

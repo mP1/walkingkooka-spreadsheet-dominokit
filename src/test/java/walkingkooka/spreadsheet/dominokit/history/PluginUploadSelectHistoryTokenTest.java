@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 
 import java.util.Optional;
-import java.util.OptionalInt;
 
 public final class PluginUploadSelectHistoryTokenTest extends PluginHistoryTokenTestCase<PluginUploadSelectHistoryToken> {
 
@@ -36,20 +35,14 @@ public final class PluginUploadSelectHistoryTokenTest extends PluginHistoryToken
     public void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
-            HistoryToken.pluginListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
-            )
+            HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
 
     @Test
     public void testClose() {
         this.closeAndCheck(
-            HistoryToken.pluginListSelect(
-                OptionalInt.empty(), // offset
-                OptionalInt.empty() // count
-            )
+            HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
 
