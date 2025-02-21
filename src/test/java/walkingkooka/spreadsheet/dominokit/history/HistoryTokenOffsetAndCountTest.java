@@ -39,6 +39,29 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
 
     private final static OptionalInt COUNT = OptionalInt.of(23);
 
+    // empty............................................................................................................
+
+    @Test
+    public void testEmpty() {
+        this.check(
+            HistoryTokenOffsetAndCount.EMPTY,
+            OptionalInt.empty(), // offset
+            OptionalInt.empty() // count
+        );
+    }
+
+    @Test
+    public void testNonEmptySetOffsetEmptySetCountEmpty() {
+        assertSame(
+            HistoryTokenOffsetAndCount.EMPTY,
+            HistoryTokenOffsetAndCount.with(
+                    OFFSET,
+                    COUNT
+                ).setOffset(OptionalInt.empty())
+                .setCount(OptionalInt.empty())
+        );
+    }
+
     // with.............................................................................................................
 
     @Test
