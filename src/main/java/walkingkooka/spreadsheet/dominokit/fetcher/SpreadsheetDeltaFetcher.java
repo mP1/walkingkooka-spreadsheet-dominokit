@@ -379,7 +379,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.insertColumnOrRow(
             id,
             selection,
-            SpreadsheetDeltaHttpMappings.AFTER,
+            SpreadsheetDeltaHttpMappings.INSERT_AFTER,
             count
         );
     }
@@ -391,7 +391,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.insertColumnOrRow(
             id,
             selection,
-            SpreadsheetDeltaHttpMappings.BEFORE,
+            SpreadsheetDeltaHttpMappings.INSERT_BEFORE,
             count
         );
     }
@@ -403,7 +403,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.insertColumnOrRow(
             id,
             selection,
-            SpreadsheetDeltaHttpMappings.AFTER,
+            SpreadsheetDeltaHttpMappings.INSERT_AFTER,
             count
         );
     }
@@ -415,7 +415,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.insertColumnOrRow(
             id,
             selection,
-            SpreadsheetDeltaHttpMappings.BEFORE,
+            SpreadsheetDeltaHttpMappings.INSERT_BEFORE,
             count
         );
     }
