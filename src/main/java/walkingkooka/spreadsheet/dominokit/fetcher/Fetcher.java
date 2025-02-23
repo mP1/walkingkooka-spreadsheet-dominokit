@@ -208,7 +208,7 @@ abstract public class Fetcher<W extends FetcherWatcher> {
                                     response.headers.get(
                                         HateosResourceMapping.X_CONTENT_TYPE_NAME.value()
                                     ),
-                                    204 == response.status ?
+                                    HttpStatusCode.NO_CONTENT.code() == response.status ?
                                         Optional.empty() :
                                         Optional.of(text)
                                 );
