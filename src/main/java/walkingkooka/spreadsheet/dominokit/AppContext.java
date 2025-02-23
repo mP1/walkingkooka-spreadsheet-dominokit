@@ -93,6 +93,11 @@ public interface AppContext extends CanGiveFocus,
     Context {
 
     /**
+     * Clears any present {@link SpreadsheetMetadata}, ideal after an attempt to load an unknown / invalid {@link SpreadsheetId}.
+     */
+    void clearSpreadsheetMetadata();
+
+    /**
      * If the metadata.spreadsheetId and current historyToken.spreadsheetId DONT match wait for the metadata to be loaded then fire history token again.
      */
     default boolean isSpreadsheetMetadataLoaded() {
@@ -114,7 +119,7 @@ public interface AppContext extends CanGiveFocus,
     }
 
     /**
-     * Loads the given {@link SpreadsheetId} and will reload the previous {@link HistoryToken} if the load fails eg with a 404.
+     * Loads the given {@link SpreadsheetId} and will reload the previous {@link HistoryToken} if the load fails eg with a 204.
      * In most cases this will be the most useful method for use cases where a new spreadsheet is being loaded to be displayed
      * for editing/viewing.
      */
@@ -128,7 +133,7 @@ public interface AppContext extends CanGiveFocus,
 
                 @Override
                 public void onEmptyResponse(final AppContext context) {
-                    // nop
+                    this.reloadPreviousHistoryToken(context);
                 }
 
                 @Override
@@ -166,6 +171,12 @@ public interface AppContext extends CanGiveFocus,
                 @Override
                 public void onError(final Object cause,
                                     final AppContext context) {
+                    this.reloadPreviousHistoryToken(context);
+                }
+
+                // clear the cached SpreadsheetMetadata and then push the previous URL which should load previous spreadsheet etc.
+                private void reloadPreviousHistoryToken(final AppContext context) {
+                    context.clearSpreadsheetMetadata();
                     context.pushHistoryToken(
                         previous.clearAction()
                     );

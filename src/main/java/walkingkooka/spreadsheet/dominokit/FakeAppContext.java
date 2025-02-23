@@ -80,10 +80,19 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     JsonNodeMarshallUnmarshallContextDelegator {
 
     @Override
+    public void clearSpreadsheetMetadata() {
+        throw new UnsupportedOperationException();
+    }
+
+    // ClipboardReaderWatcher...........................................................................................
+
+    @Override
     public void readClipboardItem(final Predicate<MediaType> filter,
                                   final ClipboardContextReadWatcher watcher) {
         throw new UnsupportedOperationException();
     }
+
+    // ClipboardWriterWatcher...........................................................................................
 
     @Override
     public void writeClipboardItem(final ClipboardTextItem item,

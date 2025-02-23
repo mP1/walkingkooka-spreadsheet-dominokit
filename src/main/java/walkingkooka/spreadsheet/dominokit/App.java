@@ -401,6 +401,11 @@ public class App implements EntryPoint,
         this.fireWindowSizeLater(this::onWindowResize);
     }
 
+    @Override
+    public void clearSpreadsheetMetadata() {
+        this.spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
+    }
+
     // SpreadsheetMetadataFetcher.......................................................................................
 
     @Override
