@@ -375,7 +375,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     public void insertAfterColumn(final SpreadsheetId id,
                                   final SpreadsheetSelection selection,
                                   final int count) {
-        // http://localhost:3000/api/spreadsheet/1/column/ABC/after?count=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
+        // http://localhost:3000/api/spreadsheet/1/column/ABC/insert-after?count=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
         this.insertColumnOrRow(
             id,
             selection,
@@ -387,7 +387,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     public void insertBeforeColumn(final SpreadsheetId id,
                                    final SpreadsheetSelection selection,
                                    final int count) {
-        // http://localhost:3000/api/spreadsheet/1/column/ABC/before?count=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
+        // http://localhost:3000/api/spreadsheet/1/column/ABC/insert-before?count=2&home=A1&width=1712&height=765&includeFrozenColumnsRows=true
         this.insertColumnOrRow(
             id,
             selection,
@@ -399,7 +399,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     public void insertAfterRow(final SpreadsheetId id,
                                final SpreadsheetSelection selection,
                                final int count) {
-        // http://localhost:3000/api/spreadsheet/1/row/ABC/after?count=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
+        // http://localhost:3000/api/spreadsheet/1/row/ABC/insert-after?count=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
         this.insertColumnOrRow(
             id,
             selection,
@@ -411,7 +411,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     public void insertBeforeRow(final SpreadsheetId id,
                                 final SpreadsheetSelection selection,
                                 final int count) {
-        // http://localhost:3000/api/spreadsheet/1/row/ABC/before?count=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
+        // http://localhost:3000/api/spreadsheet/1/row/ABC/insert-before?count=2&home=A1&width=1712&height=765&includeFrozenRowsRows=true
         this.insertColumnOrRow(
             id,
             selection,
