@@ -203,6 +203,18 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         return this.element().getAttribute(TARGET);
     }
 
+    /**
+     * Sets the target attribute of an ANCHOR.<br>
+     * Typical values include:
+     * <li>
+     *     <li>_self</li>
+     *     <li>_blank</li>
+     *     <li>_parent</li>
+     *     <li>_top</li>
+     *     <li>_unfencedTop</li>
+     * </li>
+     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target
+     */
     @Override
     public HistoryTokenAnchorComponent setTarget(final String target) {
         this.element.setAttribute(
