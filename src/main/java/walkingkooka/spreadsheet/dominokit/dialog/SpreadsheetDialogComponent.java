@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.animations.Transition;
 import org.dominokit.domino.ui.dialogs.Dialog;
 import org.dominokit.domino.ui.dialogs.DialogSize;
 import org.dominokit.domino.ui.layout.NavBar;
@@ -125,6 +126,10 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
         return Dialog.create()
             //.setType(DialogType.DEFAULT) // large
             .setModal(true)
+            .setAnimate(true)
+            .setOpenTransition(Transition.ZOOM_IN)
+            .setCloseTransition(Transition.ZOOM_OUT)
+            .setTransitionDuration(500) // 1000=1sec
             .setStretchWidth(DialogSize.LARGE)
             .setStretchHeight(DialogSize.LARGE)
             .withHeader(
