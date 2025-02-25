@@ -219,7 +219,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 SpreadsheetFormulaComponentFunctions.expressionParser(
                     this::spreadsheetParserContext
                 )
-            ).setId("query-TextBox")
+            ).setId("query" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Query")
             .addChangeListener(this::onQueryChange);
     }
@@ -245,8 +245,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     /**
      * Reconstructs the query from the other fields in the form, then updates the FIND link and performs a FIND.
      */
-    private void refreshQueryFromWizardFields(final Optional<?> old,
-                                              final Optional<?> newAlsoIgnored) {
+    private void refreshQueryAndFindFromWizardFieldsAndServerFind(final Optional<?> old,
+                                                                  final Optional<?> newAlsoIgnored) {
         final Optional<SpreadsheetFormula> formula = SpreadsheetFindDialogComponentQuery.query(
             this.context.historyToken()
                 .cast(SpreadsheetCellFindHistoryToken.class)
@@ -318,13 +318,13 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      * Each time a component of the find is updated, a new {@link HistoryToken} is pushed, which will cause a search
      * and refresh of the UI.
      */
-    private void setAndRefresh(final Function<SpreadsheetCellFindHistoryToken, HistoryToken> updater) {
+    private void setAndRefresh(final Function<SpreadsheetCellFindHistoryToken, HistoryToken> historyTokenSetter) {
         final SpreadsheetFindDialogComponentContext context = this.context;
 
         // if setter failed ignore, validation will eventually show an error for the field.
         HistoryToken token;
         try {
-            token = updater.apply(
+            token = historyTokenSetter.apply(
                 context.historyToken()
                     .cast(SpreadsheetCellFindHistoryToken.class)
             );
@@ -391,7 +391,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private void onValueValueChange(final Optional<ConditionRightSpreadsheetFormulaParserToken> old,
                                     final Optional<ConditionRightSpreadsheetFormulaParserToken> newValue) {
-        this.refreshQueryFromWizardFields(
+        this.refreshQueryAndFindFromWizardFieldsAndServerFind(
             old,
             newValue
         );
@@ -425,14 +425,14 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                     ) +
                     SpreadsheetElementIds.TEXT_BOX
             ).setLabel(label)
-            .addChangeListener(this::refreshQueryFromWizardFields);
+            .addChangeListener(this::refreshQueryAndFindFromWizardFieldsAndServerFind);
     }
 
     // find.............................................................................................................
 
-    private void refreshFind(final SpreadsheetCellFindHistoryToken token) {
+    private void refreshFind(final SpreadsheetCellFindHistoryToken historyToken) {
         this.find.setHistoryToken(
-            Optional.of(token)
+            Optional.of(historyToken)
         );
     }
 
@@ -440,11 +440,11 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     // reset............................................................................................................
 
-    private void refreshReset(final SpreadsheetCellFindHistoryToken token) {
+    private void refreshReset(final SpreadsheetCellFindHistoryToken historyToken) {
         this.reset.setHistoryToken(
             Optional.of(
-                token.setQuery(
-                    token.query()
+                historyToken.setQuery(
+                    historyToken.query()
                         .setPath(
                             Optional.empty()
                         ).setValueType(
@@ -556,29 +556,29 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      */
     @Override
     public void refresh(final RefreshContext context) {
-        final SpreadsheetCellFindHistoryToken token = context.historyToken()
+        final SpreadsheetCellFindHistoryToken historyToken = context.historyToken()
             .cast(SpreadsheetCellFindHistoryToken.class);
 
         this.cellRange.setValue(
             Optional.of(
-                token.anchoredSelection()
+                historyToken.anchoredSelection()
                     .selection()
                     .toCellRange()
             )
         );
 
-        final SpreadsheetCellFindQuery find = token.query();
+        final SpreadsheetCellFindQuery findQuery = historyToken.query();
 
         this.path.setValue(
-            find.path()
+            findQuery.path()
         );
         this.valueType.setValue(
-            find.valueType()
+            findQuery.valueType()
         );
 
         this.value.validate();
 
-        final Optional<SpreadsheetCellQuery> maybeQuery = find.query();
+        final Optional<SpreadsheetCellQuery> maybeQuery = findQuery.query();
         this.query.setStringValue(
             maybeQuery.map(SpreadsheetCellQuery::text)
         );
@@ -590,13 +590,13 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
             );
         }
 
-        this.refreshFind(token);
-        this.refreshReset(token);
-        this.refreshLoadHighlightingQuery(token, context);
-        this.refreshSaveAsHighlightingQuery(token);
-        this.refreshClose(token);
+        this.refreshFind(historyToken);
+        this.refreshReset(historyToken);
+        this.refreshLoadHighlightingQuery(historyToken, context);
+        this.refreshSaveAsHighlightingQuery(historyToken);
+        this.refreshClose(historyToken);
 
-        this.findCells(find);
+        this.findCells(findQuery);
     }
 
     /**
