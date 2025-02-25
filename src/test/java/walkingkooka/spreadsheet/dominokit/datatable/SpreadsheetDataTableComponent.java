@@ -111,6 +111,14 @@ public class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTableCompon
         return this;
     }
 
+    // cssProperty......................................................................................................
+
+    @Override
+    public SpreadsheetDataTableComponent<T> setCssProperty(final String name,
+                                                           final String value) {
+        return this;
+    }
+
     // children.........................................................................................................
 
     @Override
