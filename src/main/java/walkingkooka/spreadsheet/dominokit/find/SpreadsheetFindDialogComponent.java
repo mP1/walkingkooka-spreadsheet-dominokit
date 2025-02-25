@@ -270,19 +270,20 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 .orElse(null);
         }
 
+        final SpreadsheetCellFindQuery cellFindQuery = SpreadsheetCellFindQuery.empty()
+            .setPath(this.path.value())
+            .setValueType(this.valueType.value())
+            .setQuery(
+                Optional.ofNullable(query)
+            );
+
         this.refreshFind(
             this.context.historyToken()
                 .cast(SpreadsheetCellFindHistoryToken.class)
-                .setQuery(
-                    SpreadsheetCellFindQuery.empty()
-                        .setPath(this.path.value())
-                        .setValueType(this.valueType.value())
-                        .setQuery(
-                            Optional.ofNullable(query)
-                        )
-                ).cast(SpreadsheetCellFindHistoryToken.class)
+                .setQuery(cellFindQuery)
+                .cast(SpreadsheetCellFindHistoryToken.class)
         );
-        this.findCells();
+        this.findCells(cellFindQuery);
     }
 
     // valueType........................................................................................................
@@ -389,8 +390,11 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     }
 
     private void onValueValueChange(final Optional<ConditionRightSpreadsheetFormulaParserToken> old,
-                                    final Optional<ConditionRightSpreadsheetFormulaParserToken> newTextMatch) {
-        this.refreshQueryFromWizardFields(old, newTextMatch);
+                                    final Optional<ConditionRightSpreadsheetFormulaParserToken> newValue) {
+        this.refreshQueryFromWizardFields(
+            old,
+            newValue
+        );
     }
 
     final ConditionRightSpreadsheetFormulaParserTokenComponent value;
@@ -592,14 +596,14 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.refreshSaveAsHighlightingQuery(token);
         this.refreshClose(token);
 
-        this.findCells();
+        this.findCells(find);
     }
 
     /**
      * Copies the parameters from the current {@link HistoryToken} assuming its a {@link SpreadsheetCellFindHistoryToken}
      * and performs a {@link walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher#findCells(SpreadsheetId, SpreadsheetCellRangeReference, SpreadsheetCellFindQuery)}.
      */
-    private void findCells() {
+    private void findCells(final SpreadsheetCellFindQuery query) {
         final SpreadsheetFindDialogComponentContext context = this.context;
 
         final SpreadsheetCellFindHistoryToken historyToken = context.historyToken()
@@ -613,7 +617,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         context.findCells(
             id,
             cells,
-            historyToken.query()
+            query
         );
     }
 
