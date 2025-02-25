@@ -27,13 +27,13 @@ import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent;
 
 import java.util.Optional;
 
-final class SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetCell> {
+final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetCell> {
 
-    static SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer with(final SpreadsheetDeltaMatchedCellsTableComponentContext context) {
-        return new SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer(context);
+    static SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer with(final SpreadsheetDeltaCellsTableComponentContext context) {
+        return new SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer(context);
     }
 
-    private SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer(final SpreadsheetDeltaMatchedCellsTableComponentContext context) {
+    private SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer(final SpreadsheetDeltaCellsTableComponentContext context) {
         this.context = context;
     }
 
@@ -112,5 +112,5 @@ final class SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableCompon
         );
     }
 
-    private final SpreadsheetDeltaMatchedCellsTableComponentContext context;
+    private final SpreadsheetDeltaCellsTableComponentContext context;
 }

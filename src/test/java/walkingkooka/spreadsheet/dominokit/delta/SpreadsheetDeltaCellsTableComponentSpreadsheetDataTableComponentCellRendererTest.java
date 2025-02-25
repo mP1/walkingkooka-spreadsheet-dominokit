@@ -17,24 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.delta;
 
+import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.PublicStaticHelperTesting;
 
-import java.lang.reflect.Method;
-
-public final class SpreadsheetDeltaMatchedCellsTableComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetDeltaMatchedCellsTableComponentContexts> {
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
-    }
+public final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRendererTest implements ClassTesting<SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer> {
 
     @Override
-    public Class<SpreadsheetDeltaMatchedCellsTableComponentContexts> type() {
-        return SpreadsheetDeltaMatchedCellsTableComponentContexts.class;
+    public Class<SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer> type() {
+        return SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer.class;
     }
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

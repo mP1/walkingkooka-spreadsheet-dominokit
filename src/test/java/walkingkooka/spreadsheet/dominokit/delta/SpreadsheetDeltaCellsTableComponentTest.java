@@ -42,7 +42,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements TableComponentTesting<HTMLDivElement, Set<SpreadsheetCell>, SpreadsheetDeltaMatchedCellsTableComponent> {
+public final class SpreadsheetDeltaCellsTableComponentTest implements TableComponentTesting<HTMLDivElement, Set<SpreadsheetCell>, SpreadsheetDeltaCellsTableComponent> {
 
     // with.............................................................................................................
 
@@ -50,9 +50,9 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Tab
     public void testWithNullIdFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetDeltaMatchedCellsTableComponent.with(
+            () -> SpreadsheetDeltaCellsTableComponent.with(
                 null,
-                SpreadsheetDeltaMatchedCellsTableComponentContexts.fake()
+                SpreadsheetDeltaCellsTableComponentContexts.fake()
             )
         );
     }
@@ -61,9 +61,9 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Tab
     public void testWithEmptyIdFails() {
         assertThrows(
             IllegalArgumentException.class,
-            () -> SpreadsheetDeltaMatchedCellsTableComponent.with(
+            () -> SpreadsheetDeltaCellsTableComponent.with(
                 "",
-                SpreadsheetDeltaMatchedCellsTableComponentContexts.fake()
+                SpreadsheetDeltaCellsTableComponentContexts.fake()
             )
         );
     }
@@ -72,7 +72,7 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Tab
     public void testWithNullContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetDeltaMatchedCellsTableComponent.with(
+            () -> SpreadsheetDeltaCellsTableComponent.with(
                 "ID",
                 null
             )
@@ -85,7 +85,7 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Tab
     public void testRenderEmptySpreadsheetDelta() {
         this.renderAndCheck(
             SpreadsheetDelta.EMPTY,
-            "SpreadsheetDeltaMatchedCellsTableComponent\n" +
+            "SpreadsheetDeltaCellsTableComponent\n" +
                 "  SpreadsheetDataTableComponent\n" +
                 "    id=ID123-cells-Table\n" +
                 "    COLUMN(S)\n" +
@@ -118,7 +118,7 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Tab
                     SpreadsheetSelection.A1
                 )
             ),
-            "SpreadsheetDeltaMatchedCellsTableComponent\n" +
+            "SpreadsheetDeltaCellsTableComponent\n" +
                 "  SpreadsheetDataTableComponent\n" +
                 "    id=ID123-cells-Table\n" +
                 "    COLUMN(S)\n" +
@@ -167,7 +167,7 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Tab
                     SpreadsheetSelection.A1
                 )
             ),
-            "SpreadsheetDeltaMatchedCellsTableComponent\n" +
+            "SpreadsheetDeltaCellsTableComponent\n" +
                 "  SpreadsheetDataTableComponent\n" +
                 "    id=ID123-cells-Table\n" +
                 "    COLUMN(S)\n" +
@@ -197,9 +197,9 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Tab
 
     private void renderAndCheck(final SpreadsheetDelta delta,
                                 final String expected) {
-        final SpreadsheetDeltaMatchedCellsTableComponent component = SpreadsheetDeltaMatchedCellsTableComponent.with(
+        final SpreadsheetDeltaCellsTableComponent component = SpreadsheetDeltaCellsTableComponent.with(
             "ID123-",
-            SpreadsheetDeltaMatchedCellsTableComponentContexts.basic(
+            SpreadsheetDeltaCellsTableComponentContexts.basic(
                 new FakeHistoryTokenContext() {
                     @Override @Test
                     public HistoryToken historyToken() {
@@ -238,18 +238,18 @@ public final class SpreadsheetDeltaMatchedCellsTableComponentTest implements Tab
     }
 
     @Override
-    public SpreadsheetDeltaMatchedCellsTableComponent createComponent() {
-        return SpreadsheetDeltaMatchedCellsTableComponent.with(
+    public SpreadsheetDeltaCellsTableComponent createComponent() {
+        return SpreadsheetDeltaCellsTableComponent.with(
             "id-",
-            SpreadsheetDeltaMatchedCellsTableComponentContexts.fake()
+            SpreadsheetDeltaCellsTableComponentContexts.fake()
         );
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetDeltaMatchedCellsTableComponent> type() {
-        return SpreadsheetDeltaMatchedCellsTableComponent.class;
+    public Class<SpreadsheetDeltaCellsTableComponent> type() {
+        return SpreadsheetDeltaCellsTableComponent.class;
     }
 
     @Override

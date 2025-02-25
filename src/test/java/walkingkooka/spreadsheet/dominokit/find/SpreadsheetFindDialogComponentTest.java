@@ -129,7 +129,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [matchXyz()] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -230,7 +230,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [matchXyz()] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -331,7 +331,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -430,7 +430,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [matchXyz()] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -531,7 +531,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [matchXyz()] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -643,7 +643,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [textMatch(cellFormula(),\"*formula*\")] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -742,7 +742,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [1+textMatch(cellFormula(),\"*formula*\")] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -841,7 +841,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [or(textMatch(cellFormula(),\"*formula*\"),textMatch(cellFormatter(),\"*formatter*\"))] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -940,7 +940,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [or(textMatch(cellFormula(),\"*formula*\"),true())] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -1039,7 +1039,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [textMatch(cellFormatter(),\"*formatter*\")] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -1138,7 +1138,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [textMatch(cellParser(),\"*parser*\")] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -1237,7 +1237,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [textMatch(cellStyle(),\"*style*\")] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -1336,7 +1336,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [cellValue()<999] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -1435,7 +1435,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [textMatch(cellFormattedValue(),\"*formatted-value*\")] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +
@@ -1534,7 +1534,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              SpreadsheetTextBox\n" +
                 "                Query [OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue())))))))] id=query-TextBox\n" +
                 "        Content\n" +
-                "          SpreadsheetDeltaMatchedCellsTableComponent\n" +
+                "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
                 "              id=findcells-Table\n" +
                 "              COLUMN(S)\n" +

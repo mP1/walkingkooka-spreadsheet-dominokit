@@ -42,27 +42,28 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * A table that displays matched cells in {@link SpreadsheetDelta} as a table
+ * A table that displays {@link SpreadsheetDelta#cells()} in a table form. This may be considered an alternate view of cells
+ * which may or may not be exactly within a grid like a viewport, but part of a query.
  */
-public final class SpreadsheetDeltaMatchedCellsTableComponent implements TableComponent<HTMLDivElement, Set<SpreadsheetCell>, SpreadsheetDeltaMatchedCellsTableComponent>,
+public final class SpreadsheetDeltaCellsTableComponent implements TableComponent<HTMLDivElement, Set<SpreadsheetCell>, SpreadsheetDeltaCellsTableComponent>,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
     SpreadsheetDeltaFetcherWatcher {
 
-    public static SpreadsheetDeltaMatchedCellsTableComponent with(final String id,
-                                                                  final SpreadsheetDeltaMatchedCellsTableComponentContext context) {
-        return new SpreadsheetDeltaMatchedCellsTableComponent(
+    public static SpreadsheetDeltaCellsTableComponent with(final String id,
+                                                           final SpreadsheetDeltaCellsTableComponentContext context) {
+        return new SpreadsheetDeltaCellsTableComponent(
             CharSequences.failIfNullOrEmpty(id, "id"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetDeltaMatchedCellsTableComponent(final String id,
-                                                       final SpreadsheetDeltaMatchedCellsTableComponentContext context) {
+    private SpreadsheetDeltaCellsTableComponent(final String id,
+                                                final SpreadsheetDeltaCellsTableComponentContext context) {
         this.dataTable = SpreadsheetDataTableComponent.with(
             id + "cells-", // id-prefix
             columnConfigs(), // column configs
-            SpreadsheetDeltaMatchedCellsTableComponentSpreadsheetDataTableComponentCellRenderer.with(context)
+            SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer.with(context)
         ).bodyScrollPlugin();
 
         context.addSpreadsheetDeltaFetcherWatcher(this);
@@ -105,7 +106,7 @@ public final class SpreadsheetDeltaMatchedCellsTableComponent implements TableCo
     }
 
     @Override
-    public SpreadsheetDeltaMatchedCellsTableComponent focus() {
+    public SpreadsheetDeltaCellsTableComponent focus() {
         this.dataTable.focus();
         return this;
     }
@@ -119,7 +120,7 @@ public final class SpreadsheetDeltaMatchedCellsTableComponent implements TableCo
     }
 
     @Override
-    public SpreadsheetDeltaMatchedCellsTableComponent setValue(final Optional<Set<SpreadsheetCell>> value) {
+    public SpreadsheetDeltaCellsTableComponent setValue(final Optional<Set<SpreadsheetCell>> value) {
         Objects.requireNonNull(value, "value");
 
         this.dataTable.setValue(
@@ -154,14 +155,14 @@ public final class SpreadsheetDeltaMatchedCellsTableComponent implements TableCo
     }
 
     @Override
-    public SpreadsheetDeltaMatchedCellsTableComponent setCssText(final String css) {
+    public SpreadsheetDeltaCellsTableComponent setCssText(final String css) {
         this.dataTable.setCssText(css);
         return this;
     }
 
     @Override
-    public SpreadsheetDeltaMatchedCellsTableComponent setCssProperty(final String name,
-                                                                     final String value) {
+    public SpreadsheetDeltaCellsTableComponent setCssProperty(final String name,
+                                                              final String value) {
         this.dataTable.setCssProperty(
             name,
             value
