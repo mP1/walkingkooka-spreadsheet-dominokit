@@ -107,11 +107,16 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
         final CSSStyleDeclaration style = element.style;
 
+        // disabled is black, without underline and not-allowed pointer
+        // enabled is blue, underlined and pointer=pointer
         style.textDecoration = disabled ? "none" : "underline";
 
         style.cursor = disabled ?
             "not-allowed !important" :
             "pointer !important";
+        style.color = disabled ?
+            "var(--dui-hyperlink-disabled-color)" :
+            "var(--dui-hyperlink-color)";
 
         this.iconBefore = null;
         this.iconAfter = null;
