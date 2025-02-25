@@ -54,6 +54,14 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public HistoryTokenAnchorComponent setCssProperty(final String name,
+                                                      final String value) {
+        return this;
+    }
+
     // disabled.........................................................................................................
 
     @Override
