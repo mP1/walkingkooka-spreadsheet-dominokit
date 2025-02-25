@@ -21,30 +21,30 @@ import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
-public final class SpreadsheetDeltaMatchedCellsTableComponentContexts implements PublicStaticHelper {
+public final class SpreadsheetDeltaCellsTableComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see BasicSpreadsheetDeltaMatchedCellsTableComponentContext}
+     * {@see BasicSpreadsheetDeltaCellsTableComponentContext}
      */
-    public static SpreadsheetDeltaMatchedCellsTableComponentContext basic(final HistoryTokenContext historyTokenContext,
-                                                                          final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
-        return BasicSpreadsheetDeltaMatchedCellsTableComponentContext.with(
+    public static SpreadsheetDeltaCellsTableComponentContext basic(final HistoryTokenContext historyTokenContext,
+                                                                   final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
+        return BasicSpreadsheetDeltaCellsTableComponentContext.with(
             historyTokenContext,
             hasSpreadsheetDeltaFetcherWatchers
         );
     }
 
     /**
-     * {@see FakeSpreadsheetDeltaMatchedCellsTableComponentContext}
+     * {@see FakeSpreadsheetDeltaCellsTableComponentContext}
      */
-    public static FakeSpreadsheetDeltaMatchedCellsTableComponentContext fake() {
-        return new FakeSpreadsheetDeltaMatchedCellsTableComponentContext();
+    public static FakeSpreadsheetDeltaCellsTableComponentContext fake() {
+        return new FakeSpreadsheetDeltaCellsTableComponentContext();
     }
 
     /**
      * Stop creation
      */
-    private SpreadsheetDeltaMatchedCellsTableComponentContexts() {
+    private SpreadsheetDeltaCellsTableComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

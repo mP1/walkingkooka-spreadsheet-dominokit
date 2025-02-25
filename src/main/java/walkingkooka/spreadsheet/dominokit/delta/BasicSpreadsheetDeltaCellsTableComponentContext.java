@@ -24,20 +24,20 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 
 import java.util.Objects;
 
-final class BasicSpreadsheetDeltaMatchedCellsTableComponentContext implements SpreadsheetDeltaMatchedCellsTableComponentContext,
+final class BasicSpreadsheetDeltaCellsTableComponentContext implements SpreadsheetDeltaCellsTableComponentContext,
     HistoryTokenContextDelegator,
     HasSpreadsheetDeltaFetcherWatchers {
 
-    static BasicSpreadsheetDeltaMatchedCellsTableComponentContext with(final HistoryTokenContext historyTokenContext,
-                                                                       final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
-        return new BasicSpreadsheetDeltaMatchedCellsTableComponentContext(
+    static BasicSpreadsheetDeltaCellsTableComponentContext with(final HistoryTokenContext historyTokenContext,
+                                                                final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
+        return new BasicSpreadsheetDeltaCellsTableComponentContext(
             Objects.requireNonNull(historyTokenContext, "historyTokenContext"),
             Objects.requireNonNull(hasSpreadsheetDeltaFetcherWatchers, "hasSpreadsheetDeltaFetcherWatchers")
         );
     }
 
-    public BasicSpreadsheetDeltaMatchedCellsTableComponentContext(final HistoryTokenContext historyTokenContext,
-                                                                  final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
+    public BasicSpreadsheetDeltaCellsTableComponentContext(final HistoryTokenContext historyTokenContext,
+                                                           final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
         this.historyTokenContext = historyTokenContext;
         this.hasSpreadsheetDeltaFetcherWatchers = hasSpreadsheetDeltaFetcherWatchers;
     }

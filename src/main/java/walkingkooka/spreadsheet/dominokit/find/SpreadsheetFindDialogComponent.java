@@ -22,8 +22,8 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.condition.ConditionRightSpreadsheetFormulaParserTokenComponent;
-import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaMatchedCellsTableComponent;
-import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaMatchedCellsTableComponentContexts;
+import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponent;
+import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponentContexts;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
@@ -89,9 +89,9 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.saveAsHighlightingQuery = this.anchor("Save as Highlighting Query");
         this.close = this.closeAnchor();
 
-        this.table = SpreadsheetDeltaMatchedCellsTableComponent.with(
+        this.table = SpreadsheetDeltaCellsTableComponent.with(
             ID,
-            SpreadsheetDeltaMatchedCellsTableComponentContexts.basic(
+            SpreadsheetDeltaCellsTableComponentContexts.basic(
                 context, // HistoryTokenContext
                 context //
             )
@@ -158,7 +158,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     private final SpreadsheetFindDialogComponentContext context;
 
     // @VisibleForTesting.
-    final SpreadsheetDeltaMatchedCellsTableComponent table;
+    final SpreadsheetDeltaCellsTableComponent table;
 
     // path.....................................................................................................
 

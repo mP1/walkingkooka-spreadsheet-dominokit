@@ -20,6 +20,6 @@ package walkingkooka.spreadsheet.dominokit.delta;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 
-public interface SpreadsheetDeltaMatchedCellsTableComponentContext extends HistoryTokenContext,
+public interface SpreadsheetDeltaCellsTableComponentContext extends HistoryTokenContext,
     HasSpreadsheetDeltaFetcherWatchers {
 }
