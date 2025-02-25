@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.formula;
 
 
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
