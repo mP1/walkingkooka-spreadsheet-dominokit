@@ -90,6 +90,28 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
         );
     }
 
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueWithFormula() {
+        final SpreadsheetCellFindHistoryToken token = this.createHistoryToken()
+            .setQuery(
+                SpreadsheetCellFindQuery.parse("/path/LRTD/offset/123/count/456/value-type/*/query/old()")
+            ).cast(SpreadsheetCellFindHistoryToken.class);
+
+        final String text = "/query/textMatch(\"*1*\",cellFormula())";
+
+        this.setSaveValueAndCheck(
+            token.setQuery(
+                SpreadsheetCellFindQuery.empty()
+            ),
+            text,
+            token.setQuery(
+                SpreadsheetCellFindQuery.parse(text)
+            )
+        );
+    }
+
     // patternKind......................................................................................................
 
     @Test
