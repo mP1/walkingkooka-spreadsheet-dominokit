@@ -141,6 +141,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                 ).setFooter(
                     Lists.of(
                         SpreadsheetFlexLayout.row()
+                            .setCssProperty("margin-top", "5px")
+                            .setCssProperty("margin-left", "-5px")
                             .appendChild(this.find)
                             .appendChild(this.reset)
                             .appendChild(this.loadHighlightingQuery)
