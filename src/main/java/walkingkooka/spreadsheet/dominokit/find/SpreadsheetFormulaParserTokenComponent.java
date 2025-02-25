@@ -30,18 +30,18 @@ import java.util.Objects;
 /**
  * A text box that supports entry of a condition with a value or expression. It returns a {@link ParserToken}.
  */
-public final class SpreadsheetFormulaParserComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetFormulaParserComponent, SpreadsheetFormulaParserToken> {
+public final class SpreadsheetFormulaParserTokenComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetFormulaParserTokenComponent, SpreadsheetFormulaParserToken> {
 
-    public static SpreadsheetFormulaParserComponent empty(final SpreadsheetParser parser,
-                                                          final SpreadsheetParserContext context) {
-        return new SpreadsheetFormulaParserComponent(
+    public static SpreadsheetFormulaParserTokenComponent empty(final SpreadsheetParser parser,
+                                                               final SpreadsheetParserContext context) {
+        return new SpreadsheetFormulaParserTokenComponent(
             Objects.requireNonNull(parser, "parser"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetFormulaParserComponent(final SpreadsheetParser parser,
-                                              final SpreadsheetParserContext context) {
+    private SpreadsheetFormulaParserTokenComponent(final SpreadsheetParser parser,
+                                                   final SpreadsheetParserContext context) {
         this.textBox = ValueSpreadsheetTextBox.with(
             (text) -> parser.parseText(
                 text,
