@@ -132,7 +132,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
 
-        SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+        SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.largeEdit(
             ID + SpreadsheetElementIds.DIALOG,
             context.dialogTitle(),
             true, // includeClose

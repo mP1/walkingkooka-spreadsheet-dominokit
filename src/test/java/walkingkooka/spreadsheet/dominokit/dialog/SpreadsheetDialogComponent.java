@@ -32,17 +32,13 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
     TestHtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
 
     /**
-     * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
+     * A dialog box for small prompts from the user like presenting a single text box with a few links.
      */
-    public static SpreadsheetDialogComponent with(final String id,
-                                                  final String title,
-                                                  final boolean includeClose,
-                                                  final HistoryTokenContext context) {
-        Objects.requireNonNull(id, "id");
-        Objects.requireNonNull(title, "title");
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetDialogComponent(
+    public static SpreadsheetDialogComponent smallerPrompt(final String id,
+                                                           final String title,
+                                                           final boolean includeClose,
+                                                           final HistoryTokenContext context) {
+        return with(
             id,
             title,
             includeClose,
@@ -50,10 +46,73 @@ public final class SpreadsheetDialogComponent implements SpreadsheetDialogCompon
         );
     }
 
+    /**
+     * A dialog box with a small number of few components such as editing a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
+     */
+    public static SpreadsheetDialogComponent smallEdit(final String id,
+                                                       final String title,
+                                                       final boolean includeClose,
+                                                       final HistoryTokenContext context) {
+        return with(
+            id,
+            title,
+            includeClose,
+            context
+        );
+    }
+
+    /**
+     * A dialog box with quite a few components such as editing a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
+     */
+    public static SpreadsheetDialogComponent largeEdit(final String id,
+                                                       final String title,
+                                                       final boolean includeClose,
+                                                       final HistoryTokenContext context) {
+        return with(
+            id,
+            title,
+            includeClose,
+            context
+        );
+    }
+
+    /**
+     * A larger dialog box displaying a largeish list, such as cells that match a query, spreadsheet open etc.
+     */
+    public static SpreadsheetDialogComponent largeList(final String id,
+                                                       final String title,
+                                                       final boolean includeClose,
+                                                       final HistoryTokenContext context) {
+        return with(
+            id,
+            title,
+            includeClose,
+            context
+        );
+    }
+
+    /**
+     * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
+     */
+    // @VisibleForTesting SpreadsheetDialogComponentTest
+    static SpreadsheetDialogComponent with(final String id,
+                                           final String title,
+                                           final boolean includeClose,
+                                           final HistoryTokenContext context) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(title, "title");
+        Objects.requireNonNull(context, "context");
+
+        return new SpreadsheetDialogComponent(
+            id,
+            title,
+            includeClose
+        );
+    }
+
     private SpreadsheetDialogComponent(final String id,
                                        final String title,
-                                       final boolean includeClose,
-                                       final HistoryTokenContext context) {
+                                       final boolean includeClose) {
         this.id = id;
         this.title = title;
         this.includeClose = includeClose;
