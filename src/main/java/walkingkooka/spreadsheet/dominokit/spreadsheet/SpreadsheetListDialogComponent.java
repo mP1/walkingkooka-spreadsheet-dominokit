@@ -74,7 +74,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     private HistoryTokenAnchorComponent reload() {
         return this.context.historyToken()
             .link(ID_PREFIX + "reload")
-            .setTextContent("reload")
+            .setTextContent("Reload")
             .setIconAfter(
                 Optional.of(
                     SpreadsheetIcons.spreadsheetListReload()

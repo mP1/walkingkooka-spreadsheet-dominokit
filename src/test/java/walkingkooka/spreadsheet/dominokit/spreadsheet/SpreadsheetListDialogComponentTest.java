@@ -69,7 +69,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
                 "          \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
-                "          \"reload\" [#/*/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
+                "          \"Reload\" [#/*/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
                 "          \"10 Rows\" [#/*/count/10] id=spreadsheetList-count-10-rows-Link\n" +
                 "          \"20 Rows\" [#/*/count/20] id=spreadsheetList-count-20-rows-Link\n"
         );
@@ -113,7 +113,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
                 "          \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
-                "          \"reload\" [#/*/offset/1/count/3/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
+                "          \"Reload\" [#/*/offset/1/count/3/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
                 "          \"10 Rows\" [#/*/offset/1/count/10] id=spreadsheetList-count-10-rows-Link\n" +
                 "          \"20 Rows\" [#/*/offset/1/count/20] id=spreadsheetList-count-20-rows-Link\n"
         );
@@ -201,7 +201,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "      SpreadsheetFlexLayout\n" +
                 "        ROW\n" +
                 "          \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
-                "          \"reload\" [#/*/offset/1/count/3/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
+                "          \"Reload\" [#/*/offset/1/count/3/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
                 "          \"10 Rows\" [#/*/offset/1/count/10] id=spreadsheetList-count-10-rows-Link\n" +
                 "          \"20 Rows\" [#/*/offset/1/count/20] id=spreadsheetList-count-20-rows-Link\n"
         );
