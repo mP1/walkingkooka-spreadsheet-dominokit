@@ -48,10 +48,10 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             )
         );
 
-    // setPath..........................................................................................................
+    // setQuery.........................................................................................................
 
     @Test
-    public void testSetFindNullFails() {
+    public void testSetQueryWithNullFails() {
         assertThrows(
             NullPointerException.class,
             () -> this.createHistoryToken()
@@ -60,7 +60,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     }
 
     @Test
-    public void testSetFindSame() {
+    public void testSetQueryWithSame() {
         final SpreadsheetCellFindHistoryToken token = this.createHistoryToken();
 
         assertSame(
@@ -70,7 +70,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     }
 
     @Test
-    public void testSetFindDifferent() {
+    public void testSetQueryWithDifferent() {
         final Optional<SpreadsheetCellRangeReferencePath> path = Optional.of(
             SpreadsheetCellRangeReferencePath.BULR
         );
