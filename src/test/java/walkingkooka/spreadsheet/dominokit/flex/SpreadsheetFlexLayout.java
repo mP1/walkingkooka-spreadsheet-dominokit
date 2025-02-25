@@ -88,4 +88,9 @@ public final class SpreadsheetFlexLayout extends SpreadsheetFlexLayoutLike
     }
 
     private final List<IsElement<?>> children = Lists.array();
+
+    @Override
+    public SpreadsheetFlexLayout setCssProperty(final String property, final String value) {
+        return this;
+    }
 }
