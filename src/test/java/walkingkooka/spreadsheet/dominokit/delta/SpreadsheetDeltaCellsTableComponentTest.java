@@ -24,7 +24,6 @@ import walkingkooka.color.Color;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
@@ -38,11 +37,10 @@ import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetDeltaCellsTableComponentTest implements TableComponentTesting<HTMLDivElement, Set<SpreadsheetCell>, SpreadsheetDeltaCellsTableComponent> {
+public final class SpreadsheetDeltaCellsTableComponentTest implements TableComponentTesting<HTMLDivElement, SpreadsheetDelta, SpreadsheetDeltaCellsTableComponent> {
 
     // with.............................................................................................................
 
