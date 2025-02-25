@@ -255,8 +255,6 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
 
     @Test
     public void testParsePathOffsetCountValueTypeEmptyQuery() {
-        final String query = "'Hello'";
-
         this.parseAndCheck2(
             "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.DATE + "/query/",
             Optional.of(
