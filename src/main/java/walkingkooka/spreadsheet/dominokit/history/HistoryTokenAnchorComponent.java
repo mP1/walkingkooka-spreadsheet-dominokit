@@ -109,11 +109,9 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
         style.textDecoration = disabled ? "none" : "underline";
 
-        // DominoKit includes a cursor: pointer !important in one of its styles.
-        //
-        // element.cursor with !important is ignored, the only form that works is appending to cssText
-        style.cssText = style.cssText +
-            (disabled ? ";cursor: not-allowed !important" : ";cursor: pointer !important");
+        style.cursor = disabled ?
+            "not-allowed !important" :
+            "pointer !important";
 
         this.iconBefore = null;
         this.iconAfter = null;
