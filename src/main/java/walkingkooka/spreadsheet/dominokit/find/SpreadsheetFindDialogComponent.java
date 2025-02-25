@@ -242,22 +242,47 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     // VisibleForTesting
     final SpreadsheetFormulaComponent query;
 
+    /**
+     * Reconstructs the query from the other fields in the form, then updates the FIND link and performs a FIND.
+     */
     private void refreshQueryFromWizardFields(final Optional<?> old,
                                               final Optional<?> newAlsoIgnored) {
-        this.query.setValue(
-            SpreadsheetFindDialogComponentQuery.query(
-                this.context.historyToken()
-                    .cast(SpreadsheetCellFindHistoryToken.class)
-                    .query()
-                    .query(),
-                this.formula.value(),
-                this.formatter.value(),
-                this.parser.value(),
-                this.style.value(),
-                this.value.value(),
-                this.formattedValue.value()
-            )
+        final Optional<SpreadsheetFormula> formula = SpreadsheetFindDialogComponentQuery.query(
+            this.context.historyToken()
+                .cast(SpreadsheetCellFindHistoryToken.class)
+                .query()
+                .query(),
+            this.formula.value(),
+            this.formatter.value(),
+            this.parser.value(),
+            this.style.value(),
+            this.value.value(),
+            this.formattedValue.value()
         );
+
+        this.query.setValue(formula);
+
+        SpreadsheetCellQuery query = null;
+        if(formula.isPresent()) {
+            query = formula.get()
+                .token()
+                .map(SpreadsheetCellQuery::with)
+                .orElse(null);
+        }
+
+        this.refreshFind(
+            this.context.historyToken()
+                .cast(SpreadsheetCellFindHistoryToken.class)
+                .setQuery(
+                    SpreadsheetCellFindQuery.empty()
+                        .setPath(this.path.value())
+                        .setValueType(this.valueType.value())
+                        .setQuery(
+                            Optional.ofNullable(query)
+                        )
+                ).cast(SpreadsheetCellFindHistoryToken.class)
+        );
+        this.findCells();
     }
 
     // valueType........................................................................................................
