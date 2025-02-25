@@ -88,7 +88,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Sprea
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetComparatorNameListDialogComponentContext context = this.context;
 
-        SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+        SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.largeEdit(
             ID + SpreadsheetElementIds.DIALOG,
             context.dialogTitle(),
             true, // includeClose

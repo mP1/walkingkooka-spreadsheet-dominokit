@@ -148,7 +148,7 @@ public final class PluginFileViewDialogComponent implements SpreadsheetDialogCom
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
     private SpreadsheetDialogComponent dialogCreate(final PluginFileViewDialogComponentContext context) {
-        return SpreadsheetDialogComponent.with(
+        return SpreadsheetDialogComponent.largeEdit(
                 ID + SpreadsheetElementIds.DIALOG, // id
                 "View", // title
                 true, // includeClose

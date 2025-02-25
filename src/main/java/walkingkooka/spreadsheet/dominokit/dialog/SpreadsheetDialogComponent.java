@@ -22,6 +22,8 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.animations.Transition;
 import org.dominokit.domino.ui.dialogs.Dialog;
 import org.dominokit.domino.ui.dialogs.DialogSize;
+import org.dominokit.domino.ui.dialogs.IsDialogHeight;
+import org.dominokit.domino.ui.dialogs.IsDialogWidth;
 import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
@@ -49,17 +51,15 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
     private static SpreadsheetDialogComponent openSpreadsheetDialogComponent;
 
     /**
-     * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
+     * A dialog box for small prompts from the user like presenting a single text box with a few links.
      */
-    public static SpreadsheetDialogComponent with(final String id,
-                                                  final String title,
-                                                  final boolean includeClose,
-                                                  final HistoryTokenContext context) {
-        Objects.requireNonNull(id, "id");
-        Objects.requireNonNull(title, "title");
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetDialogComponent(
+    public static SpreadsheetDialogComponent smallerPrompt(final String id,
+                                                           final String title,
+                                                           final boolean includeClose,
+                                                           final HistoryTokenContext context) {
+        return with(
+            DialogSize.MEDIUM, // width
+            DialogSize.SMALL, // height
             id,
             title,
             includeClose,
@@ -67,7 +67,85 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
         );
     }
 
-    private SpreadsheetDialogComponent(final String id,
+    /**
+     * A dialog box with a small number of few components such as editing a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
+     */
+    public static SpreadsheetDialogComponent smallEdit(final String id,
+                                                       final String title,
+                                                       final boolean includeClose,
+                                                       final HistoryTokenContext context) {
+        return with(
+            DialogSize.LARGE, // width
+            DialogSize.LARGE, // height
+            id,
+            title,
+            includeClose,
+            context
+        );
+    }
+
+    /**
+     * A dialog box with quite a few components such as editing a {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
+     */
+    public static SpreadsheetDialogComponent largeEdit(final String id,
+                                                       final String title,
+                                                       final boolean includeClose,
+                                                       final HistoryTokenContext context) {
+        return with(
+            DialogSize.LARGE, // width
+            DialogSize.LARGE, // height
+            id,
+            title,
+            includeClose,
+            context
+        );
+    }
+
+    /**
+     * A larger dialog box displaying a largeish list, such as cells that match a query, spreadsheet open etc.
+     */
+    public static SpreadsheetDialogComponent largeList(final String id,
+                                                       final String title,
+                                                       final boolean includeClose,
+                                                       final HistoryTokenContext context) {
+        return with(
+            DialogSize.VERY_LARGE, // width
+            DialogSize.LARGE, // height
+            id,
+            title,
+            includeClose,
+            context
+        );
+    }
+
+    /**
+     * Factory that creates a new empty {@link SpreadsheetDialogComponent}.
+     */
+    private static SpreadsheetDialogComponent with(final IsDialogWidth width,
+                                                   final IsDialogHeight height,
+                                                   final String id,
+                                                   final String title,
+                                                   final boolean includeClose,
+                                                   final HistoryTokenContext context) {
+        Objects.requireNonNull(width, "width");
+        Objects.requireNonNull(height, "height");
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(title, "title");
+        Objects.requireNonNull(context, "context");
+
+        return new SpreadsheetDialogComponent(
+            width,
+            height,
+            id,
+            title,
+            includeClose,
+            context
+        );
+    }
+
+    private SpreadsheetDialogComponent(final IsDialogWidth width,
+                                       final IsDialogHeight height,
+                                       final String id,
                                        final String title,
                                        final boolean includeClose,
                                        final HistoryTokenContext context) {
@@ -95,8 +173,10 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
         this.navBar = navBar;
 
         // only auto close when the user clicks the background if a CLOSE icon is included
-        this.dialog = dialog(navBar)
-            .id(id)
+        this.dialog = this.dialog(
+            width,
+            height,
+            navBar).id(id)
             .setAutoClose(includeClose);
 
         this.setTitle(title);
@@ -122,16 +202,18 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
     /**
      * Prepares a new {@link Dialog} with a navbar which will hold the title and a close icon.
      */
-    private Dialog dialog(final NavBar navBar) {
+    private Dialog dialog(final IsDialogWidth width,
+                          final IsDialogHeight height,
+                          final NavBar navBar) {
         return Dialog.create()
             //.setType(DialogType.DEFAULT) // large
+            .setStretchWidth(width)
+            .setStretchHeight(height)
             .setModal(true)
             .setAnimate(true)
             .setOpenTransition(Transition.ZOOM_IN)
             .setCloseTransition(Transition.ZOOM_OUT)
             .setTransitionDuration(500) // 1000=1sec
-            .setStretchWidth(DialogSize.LARGE)
-            .setStretchHeight(DialogSize.LARGE)
             .withHeader(
                 (d, header) ->
                     header.appendChild(navBar)

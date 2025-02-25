@@ -128,7 +128,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetParserSelectorDialogComponentContext context = this.context;
 
-        SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.with(
+        SpreadsheetDialogComponent dialog = SpreadsheetDialogComponent.largeEdit(
             ID + SpreadsheetElementIds.DIALOG,
             context.dialogTitle(),
             true, // includeClose

@@ -115,7 +115,7 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
     private SpreadsheetDialogComponent dialogCreate(final PluginUploadDialogComponentContext context) {
-        return SpreadsheetDialogComponent.with(
+        return SpreadsheetDialogComponent.largeEdit(
             ID + SpreadsheetElementIds.DIALOG, // id
             "Upload Plugin", // title
             true, // includeClose

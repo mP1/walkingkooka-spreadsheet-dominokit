@@ -108,7 +108,7 @@ public final class PluginSetDialogComponent implements SpreadsheetDialogComponen
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
     private SpreadsheetDialogComponent dialogCreate(final PluginSetDialogComponentContext context) {
-        return SpreadsheetDialogComponent.with(
+        return SpreadsheetDialogComponent.smallEdit(
                 ID + SpreadsheetElementIds.DIALOG, // id
                 "Plugin", // title
                 true, // includeClose

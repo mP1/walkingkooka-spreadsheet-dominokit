@@ -66,7 +66,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetColumnRowInsertCountDialogComponentContext context = this.context;
 
-        return SpreadsheetDialogComponent.with(
+        return SpreadsheetDialogComponent.smallerPrompt(
                 ID + SpreadsheetElementIds.DIALOG,
                 context.dialogTitle(),
                 true, // includeClose

@@ -127,7 +127,7 @@ public final class JarEntryInfoListDialogComponent implements SpreadsheetDialogC
 
     // TODO add RENAME links
     private SpreadsheetDialogComponent dialogCreate(final JarEntryInfoListDialogComponentContext context) {
-        return SpreadsheetDialogComponent.with(
+        return SpreadsheetDialogComponent.largeList(
                 ID + SpreadsheetElementIds.DIALOG, // id
                 "Plugin", // title
                 true, // includeClose

@@ -87,7 +87,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     // dialog..........................................................................................................
 
     private SpreadsheetDialogComponent dialogCreate() {
-        return SpreadsheetDialogComponent.with(
+        return SpreadsheetDialogComponent.largeEdit(
                 ID + SpreadsheetElementIds.DIALOG,
                 "Sort",
                 true, // includeClose

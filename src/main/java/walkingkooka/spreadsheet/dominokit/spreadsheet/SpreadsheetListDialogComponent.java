@@ -120,7 +120,7 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
     // SpreadsheetDialogComponentLifecycle..............................................................................
 
     private SpreadsheetDialogComponent dialogCreate(final SpreadsheetListDialogComponentContext context) {
-        return SpreadsheetDialogComponent.with(
+        return SpreadsheetDialogComponent.largeList(
                 ID + SpreadsheetElementIds.DIALOG, // id
                 "Spreadsheet List", // title
                 false, // includeClose

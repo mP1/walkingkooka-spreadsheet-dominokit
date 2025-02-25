@@ -91,7 +91,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     private SpreadsheetDialogComponent dialogCreate() {
         final SpreadsheetLabelMappingDialogComponentContext context = this.context;
 
-        return SpreadsheetDialogComponent.with(
+        return SpreadsheetDialogComponent.smallerPrompt(
                 ID + SpreadsheetElementIds.DIALOG,
                 "Label",
                 true, // includeClose

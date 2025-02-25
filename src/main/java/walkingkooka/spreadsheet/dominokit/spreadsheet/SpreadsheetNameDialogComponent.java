@@ -75,7 +75,7 @@ public final class SpreadsheetNameDialogComponent implements SpreadsheetDialogCo
      * Creates the modal dialog, loaded with the pattern textbox and some links.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        return SpreadsheetDialogComponent.with(
+        return SpreadsheetDialogComponent.smallerPrompt(
                 ID + SpreadsheetElementIds.DIALOG,
                 "Spreadsheet Name",
                 true, // includeClose

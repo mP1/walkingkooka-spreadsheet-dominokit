@@ -110,7 +110,7 @@ public final class PluginNameSetDialogComponent implements SpreadsheetDialogComp
     private SpreadsheetDialogComponent dialogCreate() {
         final PluginNameSetDialogComponentContext context = this.context;
 
-        return SpreadsheetDialogComponent.with(
+        return SpreadsheetDialogComponent.smallerPrompt(
                 ID + SpreadsheetElementIds.DIALOG,
                 context.dialogTitle(),
                 true, // includeClose
