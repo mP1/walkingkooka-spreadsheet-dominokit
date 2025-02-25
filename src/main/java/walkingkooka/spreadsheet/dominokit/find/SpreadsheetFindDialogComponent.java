@@ -541,7 +541,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     @Override
     public void dialogReset() {
-        // this.table.clear();
+        this.table.clear();
     }
 
     @Override
