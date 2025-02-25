@@ -229,10 +229,16 @@ public final class SpreadsheetDataTableComponent<T> extends SpreadsheetDataTable
         Objects.requireNonNull(idPrefix, "idPrefix");
 
         this.previous = this.previous(idPrefix);
-        this.previous.setCssText("float=left");
+        this.previous.setCssProperty(
+            "float",
+            "left"
+        );
 
         this.next = this.next(idPrefix);
-        this.next.setCssText("float=right");
+        this.next.setCssProperty(
+            "float",
+            "right"
+        );
 
         this.appendChild(
             SpreadsheetFlexLayout.row()
