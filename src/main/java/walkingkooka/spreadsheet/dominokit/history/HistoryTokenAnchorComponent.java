@@ -63,7 +63,7 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         super();
 
         this.element = element;
-        this.setCssText("");
+        this.setCssText("margin: 5px; font-family: \"Inter\"; font-size: 15px; font-weight: 400; text-wrap: nowrap;");
         this.setDisabled(true);
 
         this.tooltip = Optional.empty();
@@ -71,20 +71,18 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     // setCssText.......................................................................................................
 
-    private final static String DEFAULT_STYLING = "margin: 5px; font-family: \"Inter\"; font-size: 15px; font-weight: 400; text-wrap: nowrap;";
-
     @Override
     public HistoryTokenAnchorComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
-        this.element.style().cssText(DEFAULT_STYLING + css);
+        this.element.style().cssText(css);
         return this;
     }
 
     @Override
     public HistoryTokenAnchorComponent setCssProperty(final String name,
                                                       final String value) {
-        this.element.style().setCssProperty(
+        this.element.setCssProperty(
             name,
             value
         );

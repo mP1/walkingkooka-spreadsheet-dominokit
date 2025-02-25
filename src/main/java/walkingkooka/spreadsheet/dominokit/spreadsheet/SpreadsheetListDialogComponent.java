@@ -75,8 +75,10 @@ public final class SpreadsheetListDialogComponent implements SpreadsheetDialogCo
         return this.context.historyToken()
             .link(ID_PREFIX + "reload")
             .setTextContent("Reload")
-            .setCssText("margin-top: 1px;") // anchors append.
-            .setIconAfter(
+            .setCssProperty(
+                "margin-top",
+                "1px"
+            ).setIconAfter(
                 Optional.of(
                     SpreadsheetIcons.spreadsheetListReload()
                 )

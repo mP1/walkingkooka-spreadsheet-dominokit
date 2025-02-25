@@ -133,7 +133,10 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                     )
                 ).setContent(
                     Lists.of(
-                        this.table.setCssText("margin-left: 5px")
+                        this.table.setCssProperty(
+                            "margin-left",
+                            "5px"
+                        )
                     )
                 ).setFooter(
                     Lists.of(

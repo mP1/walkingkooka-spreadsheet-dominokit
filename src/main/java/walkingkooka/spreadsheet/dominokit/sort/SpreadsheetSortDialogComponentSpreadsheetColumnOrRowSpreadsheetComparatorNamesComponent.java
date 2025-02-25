@@ -84,19 +84,25 @@ final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadsheetCompa
             ).setCssText("flex-grow: 1; width: fit-content;");
         this.names = names;
 
-        final String linkCss = "padding-top: 10px";
+        final String paddingTop = "10px";
 
         final HistoryTokenAnchorComponent moveUpLink = context.historyToken()
             .link(id + "moveUp")
             .setTextContent("Move Up")
-            .setCssText(linkCss);
+            .setCssProperty(
+                "padding-top",
+                paddingTop
+            );
         this.moveUpLink = moveUpLink;
         this.moveUp = moveUp;
 
         final HistoryTokenAnchorComponent moveDownLink = context.historyToken()
             .link(id + "moveDown")
             .setTextContent("Move Down")
-            .setCssText(linkCss);
+            .setCssProperty(
+                "padding-top",
+                paddingTop
+            );
         this.moveDownLink = moveDownLink;
         this.moveDown = moveDown;
 

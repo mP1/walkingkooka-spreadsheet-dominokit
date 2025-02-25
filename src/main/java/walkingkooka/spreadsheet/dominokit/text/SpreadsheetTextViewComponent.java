@@ -39,7 +39,10 @@ public final class SpreadsheetTextViewComponent extends SpreadsheetTextViewCompo
 
         // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/4338
         // honour(render) "file" line endings
-        this.setCssText("white-space: pre;");
+        this.setCssProperty(
+            "white-space",
+            "pre;"
+        );
     }
 
     @Override
