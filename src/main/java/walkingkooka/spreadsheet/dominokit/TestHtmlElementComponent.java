@@ -36,4 +36,13 @@ public interface TestHtmlElementComponent<E extends HTMLElement, C extends HtmlE
         // ignore
         return (C) this;
     }
+
+    // setCssProperty...................................................................................................
+
+    @Override
+    default C setCssProperty(final String name,
+                             final String value) {
+        // ignore
+        return (C) this;
+    }
 }

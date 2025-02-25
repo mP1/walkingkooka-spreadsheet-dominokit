@@ -159,6 +159,18 @@ final class JarEntryInfoListTableComponent implements TableComponent<HTMLDivElem
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public JarEntryInfoListTableComponent setCssProperty(final String name,
+                                                         final String value) {
+        this.card.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // HtmlElementComponent.............................................................................................
 
     @Override

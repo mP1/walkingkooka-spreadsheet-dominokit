@@ -40,6 +40,16 @@ abstract class SpreadsheetAppLayoutDrawerComponent<E extends HTMLElement, T exte
     }
 
     @Override
+    public final T setCssProperty(final String name,
+                                  final String value) {
+        this.form.setCssProperty(
+            name,
+            value
+        );
+        return (T) this;
+    }
+
+    @Override
     public final E element() {
         return this.form.element();
     }

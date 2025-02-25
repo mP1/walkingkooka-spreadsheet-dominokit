@@ -131,6 +131,17 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
     }
 
     @Override
+    default C setCssProperty(final String name,
+                             final String value) {
+        this.valueComponent()
+            .setCssProperty(
+                name,
+                value
+            );
+        return (C) this;
+    }
+
+    @Override
     default E element() {
         return this.valueComponent()
             .element();

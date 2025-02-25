@@ -143,6 +143,18 @@ public class SpreadsheetFlexLayout extends SpreadsheetFlexLayoutLike {
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetFlexLayout setCssProperty(final String name,
+                                                final String value) {
+        this.div.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

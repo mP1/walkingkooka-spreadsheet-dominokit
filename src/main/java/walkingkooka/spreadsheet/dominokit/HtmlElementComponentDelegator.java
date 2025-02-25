@@ -29,6 +29,17 @@ public interface HtmlElementComponentDelegator<E extends HTMLElement, C extends 
     }
 
     @Override
+    default C setCssProperty(final String name,
+                             final String value) {
+        this.htmlElementComponent()
+            .setCssProperty(
+                name,
+                value
+            );
+        return (C) this;
+    }
+
+    @Override
     default E element() {
         return this.htmlElementComponent()
             .element();

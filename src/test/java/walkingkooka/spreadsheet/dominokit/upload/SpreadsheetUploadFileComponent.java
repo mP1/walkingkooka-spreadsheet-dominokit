@@ -128,6 +128,12 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
+    public SpreadsheetUploadFileComponent setCssProperty(final String name,
+                                                         final String value) {
+        return this;
+    }
+
+    @Override
     public HTMLDivElement element() {
         throw new UnsupportedOperationException();
     }

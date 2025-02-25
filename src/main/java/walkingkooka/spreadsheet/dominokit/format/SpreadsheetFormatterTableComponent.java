@@ -148,6 +148,18 @@ public final class SpreadsheetFormatterTableComponent implements TableComponent<
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetFormatterTableComponent setCssProperty(final String name,
+                                                             final String value) {
+        this.card.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     private final SpreadsheetCard card;
 
     // TreePrintable....................................................................................................

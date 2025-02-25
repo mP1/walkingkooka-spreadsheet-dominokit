@@ -137,6 +137,18 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetViewportFormulaComponent setCssProperty(final String name,
+                                                              final String value) {
+        this.formula.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

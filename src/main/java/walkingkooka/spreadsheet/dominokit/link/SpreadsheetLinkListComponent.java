@@ -138,6 +138,18 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetLinkListComponent setCssProperty(final String name,
+                                                       final String value) {
+        this.root.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

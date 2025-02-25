@@ -184,6 +184,18 @@ public final class AddPluginNameSetComponent implements HtmlElementComponent<HTM
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public AddPluginNameSetComponent setCssProperty(final String name,
+                                                    final String value) {
+        this.root.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

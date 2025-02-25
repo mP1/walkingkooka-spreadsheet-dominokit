@@ -70,6 +70,16 @@ public final class SpreadsheetFormatterNameLinkListComponent implements HtmlElem
     }
 
     @Override
+    public SpreadsheetFormatterNameLinkListComponent setCssProperty(final String name,
+                                                                    final String value) {
+        this.list.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
+    @Override
     public HTMLDivElement element() {
         return this.list.element();
     }

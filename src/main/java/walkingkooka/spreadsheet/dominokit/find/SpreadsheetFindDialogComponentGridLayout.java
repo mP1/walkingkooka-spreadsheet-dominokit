@@ -99,6 +99,16 @@ final class SpreadsheetFindDialogComponentGridLayout extends SpreadsheetFindDial
     }
 
     @Override
+    public SpreadsheetFindDialogComponentGridLayout setCssProperty(final String name,
+                                                                   final String value) {
+        this.gridLayout.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
+    @Override
     public HTMLDivElement element() {
         return this.gridLayout.element();
     }

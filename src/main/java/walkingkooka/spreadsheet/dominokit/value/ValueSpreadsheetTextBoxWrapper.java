@@ -225,6 +225,17 @@ public interface ValueSpreadsheetTextBoxWrapper<C extends ValueSpreadsheetTextBo
     }
 
     @Override
+    default C setCssProperty(final String name,
+                             final String value) {
+        this.parserSpreadsheetTextBox()
+            .setCssProperty(
+                name,
+                value
+            );
+        return (C) this;
+    }
+
+    @Override
     default Node node() {
         return this.parserSpreadsheetTextBox()
             .node();

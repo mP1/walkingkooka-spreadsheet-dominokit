@@ -202,6 +202,18 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
         return this;
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS> setCssProperty(final String name,
+                                                                             final String value) {
+        this.root.setCssProperty(
+                name,
+                value
+            );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

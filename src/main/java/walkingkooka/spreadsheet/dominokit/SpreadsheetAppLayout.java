@@ -214,6 +214,18 @@ final class SpreadsheetAppLayout extends AppLayout implements
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetAppLayout setCssProperty(final String name,
+                                               final String value) {
+        this.element.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // TreePrintable....................................................................................................
 
     @Override

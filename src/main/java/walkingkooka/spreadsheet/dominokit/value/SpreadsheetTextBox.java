@@ -343,6 +343,20 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetTextBox setCssProperty(final String name,
+                                             final String value) {
+        Objects.requireNonNull(name, "name");
+
+        this.textBox.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // Object...........................................................................................................
 
     public String toString() {

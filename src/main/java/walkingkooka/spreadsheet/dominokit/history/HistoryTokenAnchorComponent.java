@@ -81,6 +81,16 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         return this;
     }
 
+    @Override
+    public HistoryTokenAnchorComponent setCssProperty(final String name,
+                                                      final String value) {
+        this.element.style().setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // disabled.........................................................................................................
 
     @Override
