@@ -38,14 +38,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * A table that displays {@link SpreadsheetDelta#cells()} in a table form. This may be considered an alternate view of cells
  * which may or may not be exactly within a grid like a viewport, but part of a query.
  */
-public final class SpreadsheetDeltaCellsTableComponent implements TableComponent<HTMLDivElement, Set<SpreadsheetCell>, SpreadsheetDeltaCellsTableComponent>,
+public final class SpreadsheetDeltaCellsTableComponent implements TableComponent<HTMLDivElement, SpreadsheetDelta, SpreadsheetDeltaCellsTableComponent>,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
     SpreadsheetDeltaFetcherWatcher {
@@ -114,21 +112,23 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
     // value............................................................................................................
 
     @Override
-    public Optional<Set<SpreadsheetCell>> value() {
-        return this.dataTable.value()
-            .map(TreeSet::new);
+    public Optional<SpreadsheetDelta> value() {
+        return this.value;
     }
 
     @Override
-    public SpreadsheetDeltaCellsTableComponent setValue(final Optional<Set<SpreadsheetCell>> value) {
+    public SpreadsheetDeltaCellsTableComponent setValue(final Optional<SpreadsheetDelta> value) {
         Objects.requireNonNull(value, "value");
 
         this.dataTable.setValue(
-            value.map(ArrayList::new)
+            value.map(d -> new ArrayList<>(d.cells()))
         );
+        this.value = value;
 
         return this;
     }
+
+    private Optional<SpreadsheetDelta> value;
 
     // SpreadsheetDeltaWatcher.........................................................................................
 
@@ -141,9 +141,7 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
                                    final SpreadsheetDelta delta,
                                    final AppContext context) {
         this.setValue(
-            Optional.of(
-                delta.cells()
-            )
+            Optional.of(delta)
         );
     }
 
