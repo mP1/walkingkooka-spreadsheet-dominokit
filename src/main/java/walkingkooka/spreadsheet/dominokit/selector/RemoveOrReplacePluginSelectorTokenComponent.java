@@ -195,6 +195,18 @@ public final class RemoveOrReplacePluginSelectorTokenComponent<T extends PluginS
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public RemoveOrReplacePluginSelectorTokenComponent<T, A> setCssProperty(final String name,
+                                                                            final String value) {
+        this.root.setCssProperty(
+                name,
+                value
+            );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

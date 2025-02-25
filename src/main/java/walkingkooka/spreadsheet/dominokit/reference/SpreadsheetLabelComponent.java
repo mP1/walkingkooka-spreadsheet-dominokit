@@ -233,6 +233,18 @@ public final class SpreadsheetLabelComponent implements FormValueComponent<HTMLF
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetLabelComponent setCssProperty(final String name,
+                                                    final String value) {
+        this.suggestBox.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

@@ -353,6 +353,18 @@ public final class SpreadsheetSuggestBoxComponent<T extends HasText> implements 
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetSuggestBoxComponent<T> setCssProperty(final String name,
+                                                            final String value) {
+        this.suggestBox.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

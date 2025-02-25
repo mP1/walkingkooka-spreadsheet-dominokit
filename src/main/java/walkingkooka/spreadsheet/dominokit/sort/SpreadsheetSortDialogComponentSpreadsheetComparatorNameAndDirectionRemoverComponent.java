@@ -130,6 +130,18 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent setCssProperty(final String name,
+                                                                                                              final String value) {
+        this.root.setCssProperty(
+                name,
+                value
+            );
+        return this;
+    }
+
     // HtmlElementComponent.............................................................................................
 
     @Override

@@ -189,6 +189,18 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetCellRangeReferencePathComponent setCssProperty(final String name,
+                                                                     final String value) {
+        this.select.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

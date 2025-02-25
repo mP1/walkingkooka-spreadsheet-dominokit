@@ -79,6 +79,17 @@ public final class SpreadsheetTextViewComponent extends SpreadsheetTextViewCompo
     }
 
     @Override
+    public SpreadsheetTextViewComponent setCssProperty(final String name,
+                                                       final String value) {
+        this.element.style()
+            .setCssProperty(
+                name,
+                value
+            );
+        return this;
+    }
+
+    @Override
     public HTMLDivElement element() {
         return this.element.element();
     }

@@ -172,6 +172,18 @@ public final class RemovePluginNameSetComponent implements HtmlElementComponent<
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public RemovePluginNameSetComponent setCssProperty(final String name,
+                                                       final String value) {
+        this.root.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

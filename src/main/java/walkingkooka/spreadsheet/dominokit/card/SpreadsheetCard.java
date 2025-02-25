@@ -80,6 +80,19 @@ public final class SpreadsheetCard implements HtmlElementComponent<HTMLDivElemen
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetCard setCssProperty(final String name,
+                                          final String value) {
+        this.card.style()
+            .setCssProperty(
+                name,
+                value
+            );
+        return this;
+    }
+
     // filter...........................................................................................................
 
     /**

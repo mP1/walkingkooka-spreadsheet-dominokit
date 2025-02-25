@@ -199,6 +199,18 @@ final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFiel
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetValueTypeComponent setCssProperty(final String name,
+                                                        final String value) {
+        this.select.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

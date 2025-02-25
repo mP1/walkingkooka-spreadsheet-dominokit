@@ -527,6 +527,18 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetMetadataPanelComponent setCssProperty(final String name,
+                                                            final String value) {
+        this.table.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

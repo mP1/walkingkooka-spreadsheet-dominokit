@@ -34,6 +34,12 @@ public interface HtmlElementComponent<E extends HTMLElement, C extends HtmlEleme
      */
     C setCssText(final String css);
 
+    /**
+     * Sets a CSS property for this component.
+     */
+    C setCssProperty(final String name,
+                     final String value);
+
     // node.............................................................................................................
 
     @Override

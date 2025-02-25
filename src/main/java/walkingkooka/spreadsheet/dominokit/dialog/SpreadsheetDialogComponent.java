@@ -356,6 +356,18 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
         return this;
     }
 
+    // setCssText.......................................................................................................
+
+    @Override
+    public SpreadsheetDialogComponent setCssProperty(final String name,
+                                                     final String value) {
+        this.dialog.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // HtmlElementComponent.............................................................................................
 
     @Override

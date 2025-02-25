@@ -251,6 +251,18 @@ public final class ValueSpreadsheetTextBox<T> implements FormValueComponent<HTML
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public ValueSpreadsheetTextBox<T> setCssProperty(final String name,
+                                                     final String value) {
+        this.textBox.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

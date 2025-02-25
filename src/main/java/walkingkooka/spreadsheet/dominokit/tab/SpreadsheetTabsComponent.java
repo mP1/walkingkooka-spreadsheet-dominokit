@@ -138,6 +138,18 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetTabsComponent setCssProperty(final String name,
+                                                   final String value) {
+        this.tabsPanel.setCssProperty(
+                name,
+                value
+            );
+        return this;
+    }
+
     // element..........................................................................................................
 
     @Override

@@ -158,6 +158,18 @@ final class SpreadsheetListTableComponent implements TableComponent<HTMLDivEleme
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetListTableComponent setCssProperty(final String name,
+                                                        final String value) {
+        this.card.setCssProperty(
+                name,
+                value
+            );
+        return this;
+    }
+
     // HtmlElementComponent.............................................................................................
 
     @Override

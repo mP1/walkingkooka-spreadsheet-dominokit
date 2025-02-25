@@ -188,6 +188,18 @@ public final class RemovePluginAliasSetLikeComponent<N extends Name & Comparable
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public RemovePluginAliasSetLikeComponent<N, I, IS, S, A, AS> setCssProperty(final String name,
+                                                                                final String value) {
+        this.root.setCssProperty(
+                name,
+                value
+            );
+        return this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

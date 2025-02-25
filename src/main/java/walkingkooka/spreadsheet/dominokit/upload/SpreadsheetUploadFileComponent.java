@@ -246,6 +246,16 @@ public final class SpreadsheetUploadFileComponent extends SpreadsheetUploadFileC
     }
 
     @Override
+    public SpreadsheetUploadFileComponent setCssProperty(final String name,
+                                                         final String value) {
+        this.element().style.setProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
+    @Override
     public HTMLDivElement element() {
         return this.fileUpload.element();
     }

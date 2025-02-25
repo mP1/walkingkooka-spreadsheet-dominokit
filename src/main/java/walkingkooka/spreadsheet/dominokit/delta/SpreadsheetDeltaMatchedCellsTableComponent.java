@@ -159,6 +159,16 @@ public final class SpreadsheetDeltaMatchedCellsTableComponent implements TableCo
         return this;
     }
 
+    @Override
+    public SpreadsheetDeltaMatchedCellsTableComponent setCssProperty(final String name,
+                                                                     final String value) {
+        this.dataTable.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // TreePrintable....................................................................................................
 
     @Override

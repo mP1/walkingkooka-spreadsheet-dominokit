@@ -137,6 +137,12 @@ public final class SpreadsheetTextComponent implements FormValueComponent<HTMLDi
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public SpreadsheetTextComponent setCssProperty(final String name,
+                                                   final String value) {
+        throw new UnsupportedOperationException();
+    }
+
     // events...........................................................................................................
 
     @Override

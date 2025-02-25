@@ -71,6 +71,16 @@ public final class SpreadsheetParserNameLinkListComponent implements HtmlElement
     }
 
     @Override
+    public SpreadsheetParserNameLinkListComponent setCssProperty(final String name,
+                                                                 final String value) {
+        this.list.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
+    @Override
     public HTMLDivElement element() {
         return this.list.element();
     }

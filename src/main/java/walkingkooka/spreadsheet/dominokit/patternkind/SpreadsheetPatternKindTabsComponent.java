@@ -145,6 +145,18 @@ public final class SpreadsheetPatternKindTabsComponent implements HtmlElementCom
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetPatternKindTabsComponent setCssProperty(final String name,
+                                                              final String value) {
+        this.tabsComponent.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // TreePrinter......................................................................................................
 
     @Override

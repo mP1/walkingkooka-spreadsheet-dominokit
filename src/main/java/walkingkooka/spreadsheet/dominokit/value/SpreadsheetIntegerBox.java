@@ -335,6 +335,18 @@ public final class SpreadsheetIntegerBox implements FormValueComponent<HTMLField
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public SpreadsheetIntegerBox setCssProperty(final String name,
+                                                final String value) {
+        this.integerBox.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // Object...........................................................................................................
 
     public String toString() {

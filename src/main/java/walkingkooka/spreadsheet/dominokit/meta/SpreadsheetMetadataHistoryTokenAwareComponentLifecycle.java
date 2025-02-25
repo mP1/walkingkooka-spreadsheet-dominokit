@@ -121,6 +121,16 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
         return this;
     }
 
+    @Override
+    public SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E> setCssProperty(final String name,
+                                                                                    final String value) {
+        this.form.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // TreePrintable....................................................................................................
 
     @Override

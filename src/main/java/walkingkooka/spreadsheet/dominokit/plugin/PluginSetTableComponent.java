@@ -160,6 +160,18 @@ final class PluginSetTableComponent implements TableComponent<HTMLDivElement, Pl
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
+    @Override
+    public PluginSetTableComponent setCssProperty(final String name,
+                                                  final String value) {
+        this.card.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
     // HtmlElementComponent.............................................................................................
 
     @Override
