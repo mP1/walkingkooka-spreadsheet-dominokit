@@ -390,7 +390,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private void onValueValueChange(final Optional<ConditionRightSpreadsheetFormulaParserToken> old,
                                     final Optional<ConditionRightSpreadsheetFormulaParserToken> newTextMatch) {
-
+        this.refreshQueryFromWizardFields(old, newTextMatch);
     }
 
     final ConditionRightSpreadsheetFormulaParserTokenComponent value;
