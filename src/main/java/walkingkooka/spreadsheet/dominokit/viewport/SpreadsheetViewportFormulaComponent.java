@@ -302,7 +302,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
         return false;
     }
 
-    // SpreadsheetDeltaWatcher..........................................................................................
+    // SpreadsheetDeltaFetcherWatcher...................................................................................
 
     @Override
     public void onSpreadsheetDelta(final HttpMethod method,

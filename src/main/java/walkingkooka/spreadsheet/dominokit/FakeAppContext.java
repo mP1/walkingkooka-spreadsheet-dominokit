@@ -134,7 +134,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
         throw new UnsupportedOperationException();
     }
 
-    // SpreadsheetDeltaWatcher.........................................................................................
+    // SpreadsheetDeltaFetcherWatcher...................................................................................
 
     @Override
     public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
