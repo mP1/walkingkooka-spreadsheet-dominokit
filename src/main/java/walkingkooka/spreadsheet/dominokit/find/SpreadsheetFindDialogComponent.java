@@ -90,7 +90,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.close = this.closeAnchor();
 
         this.table = SpreadsheetDeltaCellsTableComponent.with(
-            ID,
+            ID_PREFIX,
             SpreadsheetDeltaCellsTableComponentContexts.basic(
                 context, // HistoryTokenContext
                 context //

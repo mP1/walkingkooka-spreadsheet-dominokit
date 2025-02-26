@@ -131,7 +131,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -232,7 +232,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -333,7 +333,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -432,7 +432,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -533,7 +533,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -645,7 +645,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -744,7 +744,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -843,7 +843,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -942,7 +942,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1041,7 +1041,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1140,7 +1140,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1239,7 +1239,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1338,7 +1338,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1437,7 +1437,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1536,7 +1536,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "        Content\n" +
                 "          SpreadsheetDeltaCellsTableComponent\n" +
                 "            SpreadsheetDataTableComponent\n" +
-                "              id=findcells-Table\n" +
+                "              id=find-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
