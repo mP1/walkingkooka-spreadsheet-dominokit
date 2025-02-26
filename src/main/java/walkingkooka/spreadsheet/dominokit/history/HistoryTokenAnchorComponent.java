@@ -21,11 +21,13 @@ import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
+import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.elements.AnchorElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
@@ -33,6 +35,9 @@ import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
+
+import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_orange;
+import static org.dominokit.domino.ui.style.SpacingCss.dui_rounded_xl;
 
 /**
  * Abstraction for working with a HTML anchor.
@@ -238,6 +243,48 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         this.element.setTextContent(text);
         return this;
     }
+
+    // badge............................................................................................................
+
+    @Override
+    public String badge() {
+        final Badge badge = this.badge;
+        return null != badge ?
+            badge.getTextContent() :
+            "";
+    }
+
+    @Override
+    public HistoryTokenAnchorComponent setBadge(final String badgeText) {
+        Objects.requireNonNull(badgeText, "badgeText");
+
+        Badge badge = this.badge;
+        if (badgeText.isEmpty()) {
+            if (null != badge) {
+                this.element.removeChild(
+                    badge.parent()
+                );
+                this.badge = null;
+            }
+        } else {
+            if (null == badge) {
+                badge = Badge.create(badgeText)
+                    .addCss(
+                        dui_bg_orange,
+                        dui_rounded_xl
+                    );
+                this.element.appendChild(
+                    PostfixAddOn.of(badge)
+                );
+                this.badge = badge;
+            }
+            badge.setTextContent(badgeText);
+        }
+
+        return this;
+    }
+
+    private Badge badge;
 
     // iconBefore | text Content | iconAfter
 
