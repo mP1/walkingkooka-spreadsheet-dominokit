@@ -57,7 +57,7 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
         return this.context.now();
     }
 
-    // HasSpreadsheetDeltaWatcher.......................................................................................
+    // HasSpreadsheetDeltaFetcherWatcher................................................................................
 
     @Override
     public HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers() {

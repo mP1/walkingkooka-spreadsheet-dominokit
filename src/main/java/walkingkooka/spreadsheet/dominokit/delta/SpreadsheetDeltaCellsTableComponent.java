@@ -130,7 +130,7 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
 
     private Optional<SpreadsheetDelta> value;
 
-    // SpreadsheetDeltaWatcher.........................................................................................
+    // SpreadsheetDeltaFetcherWatcher...................................................................................
 
     /**
      * Replaces the cells in the {@link SpreadsheetDataTableComponent#setValue(Optional)}.
