@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.Component;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetExpressionReferenceSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent;
@@ -81,22 +81,15 @@ final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCell
         );
     }
 
-    private HistoryTokenAnchorComponent renderCellFormula(final SpreadsheetCell cell) {
-        final HistoryToken historyToken = this.context.historyToken();
+    private Component renderCellFormula(final SpreadsheetCell cell) {
+        final SpreadsheetCellReference reference = cell.reference();
 
-        return HistoryTokenAnchorComponent.empty()
-            .setTextContent(cell.formula().text())
-            .setHistoryToken(
-                Optional.of(
-                    historyToken.clearSelection()
-                        .setAnchoredSelection(
-                            Optional.of(
-                                cell.reference()
-                                    .setDefaultAnchor()
-                            )
-                        ).formula()
-                )
-            );
+        return SpreadsheetFormulaSelectAnchorComponent.with(
+            this.idPrefix + reference + "-formula" + SpreadsheetElementIds.LINK,
+            this.context
+        ).setValue(
+            Optional.of(reference)
+        );
     }
 
     private SpreadsheetTextNodeComponent renderCellFormattedValue(final SpreadsheetCell cell) {
