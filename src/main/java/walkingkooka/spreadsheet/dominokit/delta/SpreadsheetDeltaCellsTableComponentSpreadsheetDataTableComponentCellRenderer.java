@@ -71,21 +71,6 @@ final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCell
     }
 
     private Component renderCellReference(final SpreadsheetCell cell) {
-        final HistoryToken historyToken = this.context.historyToken();
-
-//        return HistoryTokenAnchorComponent.empty()
-//            .setTextContent(cell.reference().text())
-//            .setHistoryToken(
-//                Optional.of(
-//                    historyToken.clearSelection()
-//                        .setAnchoredSelection(
-//                            Optional.of(
-//                                cell.reference()
-//                                    .setDefaultAnchor()
-//                            )
-//                        )
-//                )
-//            );
         final SpreadsheetCellReference reference = cell.reference();
 
         return SpreadsheetExpressionReferenceSelectAnchorComponent.with(
