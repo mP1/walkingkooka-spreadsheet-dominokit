@@ -58,10 +58,15 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
 
     private SpreadsheetDeltaCellsTableComponent(final String id,
                                                 final SpreadsheetDeltaCellsTableComponentContext context) {
+        final String idPrefix = id + "cells-";
+
         this.dataTable = SpreadsheetDataTableComponent.with(
-            id + "cells-", // id-prefix
+            idPrefix, // id-prefix
             columnConfigs(), // column configs
-            SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer.with(context)
+            SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer.with(
+                idPrefix,
+                context
+            )
         ).bodyScrollPlugin();
 
         context.addSpreadsheetDeltaFetcherWatcher(this);
