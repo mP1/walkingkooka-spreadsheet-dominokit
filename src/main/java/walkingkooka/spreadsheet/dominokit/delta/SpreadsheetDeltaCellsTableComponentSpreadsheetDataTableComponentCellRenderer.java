@@ -74,7 +74,7 @@ final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCell
         final SpreadsheetCellReference reference = cell.reference();
 
         return SpreadsheetExpressionReferenceSelectAnchorComponent.with(
-            this.idPrefix + reference,
+            this.idPrefix + reference + SpreadsheetElementIds.LINK,
             this.context
         ).setValue(
             Optional.of(reference)
