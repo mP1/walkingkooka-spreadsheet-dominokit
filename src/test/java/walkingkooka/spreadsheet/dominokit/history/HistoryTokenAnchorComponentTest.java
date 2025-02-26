@@ -134,6 +134,21 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
         );
     }
 
+    // badge............................................................................................................
+
+    @Test
+    public void testSetBadge() {
+        this.treePrintAndCheck(
+            HistoryTokenAnchorComponent.empty()
+                .setTextContent(
+                    "Text123"
+                ).setHref(
+                    Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                ).setBadge("Badge456"),
+            "\"Text123\" [#/1/SpreadsheetName234/cell/A1] (Badge456)"
+        );
+    }
+
     // TreePrintable....................................................................................................
 
     @Test
@@ -151,10 +166,11 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
                     )
                 ).setTextContent(
                     "Text789"
-                ).setHref(
+                ).setBadge("Badge555")
+                .setHref(
                     Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
                 ).setId("id789"),
-            "IconBefore456 \"Text789\" [#/1/SpreadsheetName234/cell/A1] CHECKED IconAfter123 id=id789"
+            "IconBefore456 \"Text789\" [#/1/SpreadsheetName234/cell/A1] (Badge555) CHECKED IconAfter123 id=id789"
         );
     }
 

@@ -104,6 +104,15 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
         );
     }
 
+    // badge............................................................................................................
+
+    public abstract String badge();
+
+    /**
+     * Sets the text for a badge that appears to the right of the anchor. Empty text removes the badge completely.
+     */
+    public abstract HistoryTokenAnchorComponent setBadge(final String text);
+
     // SpreadsheetTooltipComponentTarget................................................................................
 
     /**
@@ -160,6 +169,11 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
             disabled = "DISABLED";
         }
 
+        String badge = this.badge();
+        if(false == badge.isEmpty()) {
+            badge = "(" + badge + ")";
+        }
+
         return ToStringBuilder.empty()
             .disable(ToStringBuilderOption.QUOTE)
             .enable(ToStringBuilderOption.SKIP_IF_DEFAULT_VALUE)
@@ -169,6 +183,7 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
             .disable(ToStringBuilderOption.QUOTE)
             .value(disabled)
             .value(hrefString)
+            .value(badge)
             .value(this.target())
             .value(this.isChecked() ? "CHECKED" : "")
             .value(this.iconAfter().map(Icon::getName))
