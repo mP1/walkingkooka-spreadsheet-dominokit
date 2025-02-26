@@ -22,18 +22,26 @@ import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetExpressionReferenceSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 
 import java.util.Optional;
 
 final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer implements SpreadsheetDataTableComponentCellRenderer<SpreadsheetCell> {
 
-    static SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer with(final SpreadsheetDeltaCellsTableComponentContext context) {
-        return new SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer(context);
+    static SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer with(final String idPrefix,
+                                                                                             final SpreadsheetDeltaCellsTableComponentContext context) {
+        return new SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer(
+            idPrefix,
+            context
+        );
     }
 
-    private SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer(final SpreadsheetDeltaCellsTableComponentContext context) {
+    private SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCellRenderer(final String idPrefix,
+                                                                                         final SpreadsheetDeltaCellsTableComponentContext context) {
+        this.idPrefix = idPrefix;
         this.context = context;
     }
 
@@ -62,22 +70,30 @@ final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCell
         return component;
     }
 
-    private HistoryTokenAnchorComponent renderCellReference(final SpreadsheetCell cell) {
+    private Component renderCellReference(final SpreadsheetCell cell) {
         final HistoryToken historyToken = this.context.historyToken();
 
-        return HistoryTokenAnchorComponent.empty()
-            .setTextContent(cell.reference().text())
-            .setHistoryToken(
-                Optional.of(
-                    historyToken.clearSelection()
-                        .setAnchoredSelection(
-                            Optional.of(
-                                cell.reference()
-                                    .setDefaultAnchor()
-                            )
-                        )
-                )
-            );
+//        return HistoryTokenAnchorComponent.empty()
+//            .setTextContent(cell.reference().text())
+//            .setHistoryToken(
+//                Optional.of(
+//                    historyToken.clearSelection()
+//                        .setAnchoredSelection(
+//                            Optional.of(
+//                                cell.reference()
+//                                    .setDefaultAnchor()
+//                            )
+//                        )
+//                )
+//            );
+        final SpreadsheetCellReference reference = cell.reference();
+
+        return SpreadsheetExpressionReferenceSelectAnchorComponent.with(
+            this.idPrefix + reference,
+            this.context
+        ).setValue(
+            Optional.of(reference)
+        );
     }
 
     private HistoryTokenAnchorComponent renderCellFormula(final SpreadsheetCell cell) {
@@ -111,6 +127,8 @@ final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCell
                 .map(Object::toString)
         );
     }
+
+    private final String idPrefix;
 
     private final SpreadsheetDeltaCellsTableComponentContext context;
 }

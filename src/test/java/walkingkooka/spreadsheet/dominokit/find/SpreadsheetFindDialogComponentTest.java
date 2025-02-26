@@ -541,13 +541,13 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Value\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1]\n" +
+                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=find-cells-A1\n" +
                 "                  \"=1\" [#/123/SpreadsheetName456/cell/A1/formula]\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"\"\n" +
                 "                ROW 1\n" +
-                "                  \"B2\" [#/123/SpreadsheetName456/cell/B2]\n" +
+                "                  \"B2\" [#/123/SpreadsheetName456/cell/B2] id=find-cells-B2\n" +
                 "                  \"=2\" [#/123/SpreadsheetName456/cell/B2/formula]\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
                 "                  SpreadsheetTextComponent\n" +
