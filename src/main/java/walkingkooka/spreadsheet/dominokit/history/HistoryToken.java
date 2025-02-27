@@ -1505,11 +1505,7 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     final HistoryToken parseOffsetCountReload(final TextCursor cursor) {
-        final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.parse(cursor);
-
-        HistoryToken historyToken = this.setOffset(
-            offsetAndCount.offset
-        ).setCount(offsetAndCount.count);
+        HistoryToken historyToken = this.parseOffsetAndCount(cursor);
 
         String nextComponent = parseComponentOrEmpty(cursor);
 
@@ -2867,6 +2863,14 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         return after;
+    }
+
+    final HistoryToken parseOffsetAndCount(final TextCursor text) {
+        final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.parse(text);
+
+        return this.setOffset(
+            offsetAndCount.offset
+        ).setCount(offsetAndCount.count);
     }
 
     static UrlFragment countAndOffsetUrlFragment(final HistoryTokenOffsetAndCount offsetAndCount,
