@@ -26,6 +26,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 public final class SpreadsheetColumnDeleteHistoryTokenTest extends SpreadsheetColumnHistoryTokenTestCase<SpreadsheetColumnDeleteHistoryToken> {
 
+    // HasUrlFragment...................................................................................................
+
     @Test
     public void testUrlFragmentColumn() {
         this.urlFragmentAndCheck(
@@ -59,6 +61,8 @@ public final class SpreadsheetColumnDeleteHistoryTokenTest extends SpreadsheetCo
             selection
         );
     }
+
+    // class............................................................................................................
 
     @Override
     public Class<SpreadsheetColumnDeleteHistoryToken> type() {
