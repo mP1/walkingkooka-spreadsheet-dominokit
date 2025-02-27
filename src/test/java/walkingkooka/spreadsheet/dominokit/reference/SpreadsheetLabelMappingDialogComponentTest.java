@@ -122,6 +122,34 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
         );
     }
 
+    @Test
+    public void testLabelMappingCreateHistoryToken() {
+        this.onHistoryTokenChangeAndCheck(
+            "/1/SpreadsheetName111/create-label",
+            "SpreadsheetLabelMappingDialogComponent\n" +
+                "  SpreadsheetDialogComponent\n" +
+                "    Label\n" +
+                "    id=labelMapping-Dialog includeClose=true\n" +
+                "      SpreadsheetLabelComponent\n" +
+                "        SpreadsheetSuggestBoxComponent\n" +
+                "          Label [] id=labelMapping-label-TextBox REQUIRED\n" +
+                "          Errors\n" +
+                "            Empty \"Label\"\n" +
+                "      SpreadsheetExpressionReferenceComponent\n" +
+                "        ValueSpreadsheetTextBox\n" +
+                "          SpreadsheetTextBox\n" +
+                "            Cell, cell range or Label [] id=labelMapping-reference-TextBox\n" +
+                "            Errors\n" +
+                "              Empty \"text\"\n" +
+                "      SpreadsheetFlexLayout\n" +
+                "        ROW\n" +
+                "          \"Save\" DISABLED id=labelMapping-save-Link\n" +
+                "          \"Undo\" [#/1/SpreadsheetName111/label] id=labelMapping-undo-Link\n" +
+                "          \"Delete\" DISABLED id=labelMapping-delete-Link\n" +
+                "          \"Close\" [#/1/SpreadsheetName111] id=labelMapping-close-Link\n"
+        );
+    }
+
     // http://localhost:12345/index.html#/1/Untitled/label
     @Test
     public void testLabelMappingHistoryToken() {
