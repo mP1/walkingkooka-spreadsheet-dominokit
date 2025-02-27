@@ -182,14 +182,38 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     private HistoryToken parseLabel(final TextCursor cursor) {
-        final Optional<String> label = parseComponent(cursor);
+        final HistoryToken token;
 
-        // filter required because paths like /spreadsheet-id/SpreadsheetName/label/ (notice trailing slash)
-        // will mean $label will be empty and result in SpreadsheetSelection.labelName throwing a EmptyTextException
-        return this.setLabelName(
-            label.filter(t -> t.length() > 0)
-                .map(SpreadsheetSelection::labelName)
-        );
+        final SpreadsheetId id = this.id();
+        final SpreadsheetName name = this.name();
+
+        final String component = parseComponentOrEmpty(cursor);
+
+        switch (component) {
+            case "":
+                token = HistoryToken.labelMappingList(
+                    id,
+                    name,
+                    HistoryTokenOffsetAndCount.EMPTY
+                );
+                break;
+            case WILDCARD_STRING:
+                token = HistoryToken.labelMappingList(
+                    id,
+                    name,
+                        HistoryTokenOffsetAndCount.EMPTY
+                    ).parseOffsetAndCount(cursor);
+                break;
+            default:
+                token = HistoryToken.labelMappingSelect(
+                    id,
+                    name,
+                    SpreadsheetSelection.labelName(component)
+                );
+                break;
+        }
+
+        return token;
     }
 
     private HistoryToken parseDelete(final TextCursor cursor) {

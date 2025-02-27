@@ -22,8 +22,11 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
+import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Displays a modal dialog with a form that allows editing of a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping}.
@@ -64,6 +67,38 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
         return UrlFragment.with(
             this.labelName.value()
         );
+    }
+
+    // parse............................................................................................................
+
+    @Override
+    HistoryToken parse0(final String component,
+                        final TextCursor cursor) {
+        final HistoryToken result;
+
+        switch (component) {
+            case DELETE_STRING:
+                result = this.delete();
+                break;
+            case MENU_STRING:
+                result = this.menu(
+                    Optional.empty(), // no selection
+                    SpreadsheetLabelNameResolvers.fake()
+                );
+                break;
+            case REFERENCES_STRING:
+                result = this.parseReferences(cursor);
+                break;
+            case SAVE_STRING:
+                result = this.parseSave(cursor);
+                break;
+            default:
+                cursor.end();
+                result = this; // ignore
+                break;
+        }
+
+        return result;
     }
 
     @Override

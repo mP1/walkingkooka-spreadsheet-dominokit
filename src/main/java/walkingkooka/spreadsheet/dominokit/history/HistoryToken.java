@@ -884,6 +884,19 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetLabelMappingListHistoryToken}
+     */
+    public static SpreadsheetLabelMappingListHistoryToken labelMappingList(final SpreadsheetId id,
+                                                                           final SpreadsheetName name,
+                                                                           final HistoryTokenOffsetAndCount offsetAndCount) {
+        return SpreadsheetLabelMappingListHistoryToken.with(
+            id,
+            name,
+            offsetAndCount
+        );
+    }
+
+    /**
      * {@see SpreadsheetLabelMappingReferencesHistoryToken}
      */
     public static SpreadsheetLabelMappingReferencesHistoryToken labelMappingReferences(final SpreadsheetId id,
@@ -1840,6 +1853,11 @@ public abstract class HistoryToken implements HasUrlFragment,
             count = this.cast(SpreadsheetRowInsertHistoryToken.class)
                 .count;
         }
+        if (this instanceof SpreadsheetLabelMappingListHistoryToken) {
+            count = this.cast(SpreadsheetLabelMappingListHistoryToken.class)
+                .offsetAndCount
+                .count;
+        }
         if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
             count = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class)
                 .offsetAndCount
@@ -1962,15 +1980,26 @@ public abstract class HistoryToken implements HasUrlFragment,
                     }
                 }
 
-                if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
-                    final SpreadsheetLabelMappingReferencesHistoryToken references = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class);
+                if(this instanceof SpreadsheetLabelMappingHistoryToken) {
+                    if (this instanceof SpreadsheetLabelMappingListHistoryToken) {
+                        with = labelMappingList(
+                            id,
+                            name,
+                            this.cast(SpreadsheetLabelMappingListHistoryToken.class)
+                                .offsetAndCount
+                                .setCount(count)
+                        );
+                    }
+                    if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
+                        final SpreadsheetLabelMappingReferencesHistoryToken references = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class);
 
-                    with = labelMappingReferences(
-                        id,
-                        name,
-                        references.labelName,
-                        references.offsetAndCount.setCount(count)
-                    );
+                        with = labelMappingReferences(
+                            id,
+                            name,
+                            references.labelName,
+                            references.offsetAndCount.setCount(count)
+                        );
+                    }
                 }
             }
         }
@@ -2484,19 +2513,37 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken setList(final HistoryTokenOffsetAndCount offsetAndCount) {
         Objects.requireNonNull(offsetAndCount, "offsetAndCount");
 
-        HistoryToken token = this;
+        HistoryToken token = null;
 
         if (this instanceof PluginHistoryToken) {
             token = pluginListSelect(offsetAndCount);
         } else {
-            if (false == (this instanceof SpreadsheetListHistoryToken)) {
-                token = spreadsheetListSelect(
-                    offsetAndCount
-                );
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+                final SpreadsheetId id = spreadsheetNameHistoryToken.id();
+                final SpreadsheetName name = spreadsheetNameHistoryToken.name();
+
+                if (this instanceof SpreadsheetLabelMappingHistoryToken) {
+                    token = labelMappingList(
+                        id,
+                        name,
+                        offsetAndCount
+                    );
+                } else {
+                    token = spreadsheetListSelect(
+                        offsetAndCount
+                    );
+                }
+
             } else {
-                // SpredsheetListHistoryToken
-                token = this.setOffset(offsetAndCount.offset())
-                    .setCount(offsetAndCount.count());
+                if (this instanceof SpreadsheetListHistoryToken) {
+                    token = this.setOffset(offsetAndCount.offset)
+                        .setCount(offsetAndCount.count);
+                } else {
+                    token = spreadsheetListSelect(
+                        offsetAndCount
+                    );
+                }
             }
         }
 
@@ -2774,12 +2821,18 @@ public abstract class HistoryToken implements HasUrlFragment,
                     if (this instanceof SpreadsheetCellReferencesHistoryToken) {
                         offset = this.cast(SpreadsheetCellReferencesHistoryToken.class).offsetAndCount.offset;
                     } else {
-                        if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
-                            offset = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class)
+                        if (this instanceof SpreadsheetLabelMappingListHistoryToken) {
+                            offset = this.cast(SpreadsheetLabelMappingListHistoryToken.class)
                                 .offsetAndCount
                                 .offset;
                         } else {
-                            offset = OptionalInt.empty();
+                            if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
+                                offset = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class)
+                                    .offsetAndCount
+                                    .offset;
+                            } else {
+                                offset = OptionalInt.empty();
+                            }
                         }
                     }
                 }
@@ -2864,16 +2917,27 @@ public abstract class HistoryToken implements HasUrlFragment,
                     }
                 }
 
-                if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
-                    final SpreadsheetLabelMappingReferencesHistoryToken references = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class);
+                if(this instanceof SpreadsheetLabelMappingHistoryToken) {
+                    if (this instanceof SpreadsheetLabelMappingListHistoryToken) {
+                        after = labelMappingList(
+                            id,
+                            name,
+                            this.cast(SpreadsheetLabelMappingListHistoryToken.class)
+                                .offsetAndCount
+                                .setOffset(offset)
+                        );
+                    }
+                    if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
+                        final SpreadsheetLabelMappingReferencesHistoryToken references = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class);
 
-                    after = labelMappingReferences(
-                        id,
-                        name,
-                        references.labelName,
-                        references.offsetAndCount
-                            .setOffset(offset)
-                    );
+                        after = labelMappingReferences(
+                            id,
+                            name,
+                            references.labelName,
+                            references.offsetAndCount
+                                .setOffset(offset)
+                        );
+                    }
                 }
             }
         }

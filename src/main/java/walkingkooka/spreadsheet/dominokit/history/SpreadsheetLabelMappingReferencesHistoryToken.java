@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
 
@@ -70,6 +71,12 @@ public final class SpreadsheetLabelMappingReferencesHistoryToken extends Spreads
         return UrlFragment.with(
             this.labelName.value()
         ).appendSlashThen(REFERENCES);
+    }
+
+    @Override
+    HistoryToken parse0(final String component,
+                        final TextCursor cursor) {
+        return this;
     }
 
     @Override
