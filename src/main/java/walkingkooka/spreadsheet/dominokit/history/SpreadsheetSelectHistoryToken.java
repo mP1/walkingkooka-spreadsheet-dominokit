@@ -76,6 +76,9 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
             case DELETE_STRING:
                 result = this.parseDelete(cursor);
                 break;
+            case LABEL_CREATE_STRING:
+                result = this.parseLabelCreate(cursor);
+                break;
             case LABEL_STRING:
                 result = this.parseLabel(cursor);
                 break;
@@ -169,6 +172,13 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
         }
 
         return result;
+    }
+
+    private HistoryToken parseLabelCreate(final TextCursor cursor) {
+        return HistoryToken.labelMappingCreate(
+            this.id(),
+            this.name()
+        ).parse(cursor);
     }
 
     private HistoryToken parseLabel(final TextCursor cursor) {

@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingSelectHistoryToken> {
+public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase2<SpreadsheetLabelMappingSelectHistoryToken> {
 
     @Test
     public void testWithEmptyLabel() {

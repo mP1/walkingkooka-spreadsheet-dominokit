@@ -3898,6 +3898,17 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     // label............................................................................................................
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCreateLabel() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/create-label",
+            HistoryToken.labelMappingCreate(
+                ID,
+                NAME
+            )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelMissingName() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label",

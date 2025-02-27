@@ -18,35 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends SpreadsheetLabelMappingHistoryToken> extends SpreadsheetSelectionHistoryTokenTestCase<T> {
 
-    final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
-
-    final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
-
     SpreadsheetLabelMappingHistoryTokenTestCase() {
         super();
-    }
-
-    abstract public void testLabelMappingReference();
-
-    final void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference target) {
-        this.setLabelMappingReferenceAndCheck(
-            this.createHistoryToken(),
-            target,
-            SpreadsheetLabelMappingSaveHistoryToken.with(
-                ID,
-                NAME,
-                LABEL.setLabelMappingReference(target)
-            )
-        );
     }
 
     // close............................................................................................................
@@ -61,35 +37,4 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
             )
         );
     }
-
-    final void urlFragmentAndCheck(final SpreadsheetLabelName label,
-                                   final String expected) {
-        this.urlFragmentAndCheck(
-            this.createHistoryToken(
-                label
-            ),
-            expected
-        );
-    }
-
-    @Override final T createHistoryToken(final SpreadsheetId id,
-                                         final SpreadsheetName name) {
-        return this.createHistoryToken(
-            id,
-            name,
-            LABEL
-        );
-    }
-
-    final T createHistoryToken(final SpreadsheetLabelName label) {
-        return this.createHistoryToken(
-            ID,
-            NAME,
-            label
-        );
-    }
-
-    abstract T createHistoryToken(final SpreadsheetId id,
-                                  final SpreadsheetName name,
-                                  final SpreadsheetLabelName label);
 }

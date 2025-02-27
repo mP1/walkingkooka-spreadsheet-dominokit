@@ -183,6 +183,10 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment INSERT_BEFORE = UrlFragment.parse(INSERT_BEFORE_STRING);
 
+    final static String LABEL_CREATE_STRING = "create-label";
+
+    final static UrlFragment LABEL_CREATE = UrlFragment.parse(LABEL_CREATE_STRING);
+
     final static String LABEL_STRING = SpreadsheetHateosResourceNames.LABEL_STRING;
 
     final static UrlFragment LABEL = UrlFragment.parse(LABEL_STRING);
@@ -841,6 +845,17 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     // label............................................................................................................
+
+    /**
+     * {@see SpreadsheetLabelMappingCreateHistoryToken}
+     */
+    public static SpreadsheetLabelMappingCreateHistoryToken labelMappingCreate(final SpreadsheetId id,
+                                                                               final SpreadsheetName name) {
+        return SpreadsheetLabelMappingCreateHistoryToken.with(
+            id,
+            name
+        );
+    }
 
     /**
      * {@see SpreadsheetLabelMappingSelectHistoryToken}

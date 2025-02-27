@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingSaveHistoryToken> {
+public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase2<SpreadsheetLabelMappingSaveHistoryToken> {
 
     private final static SpreadsheetExpressionReference REFERENCE = CELL;
 

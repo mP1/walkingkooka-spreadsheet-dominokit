@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Optional;
 
-public final class SpreadsheetLabelMappingDeleteHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingDeleteHistoryToken> {
+public final class SpreadsheetLabelMappingDeleteHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase2<SpreadsheetLabelMappingDeleteHistoryToken> {
 
     @Test
     public void testLabelMappingReference() {
