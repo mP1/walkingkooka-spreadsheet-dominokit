@@ -1825,7 +1825,13 @@ public abstract class HistoryToken implements HasUrlFragment,
                                 count = this.cast(SpreadsheetRowInsertHistoryToken.class)
                                     .count;
                             } else {
-                                count = OptionalInt.empty();
+                                if(this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
+                                    count = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class)
+                                        .offsetAndCount
+                                        .count;
+                                } else {
+                                    count = OptionalInt.empty();
+                                }
                             }
                         }
                     }
