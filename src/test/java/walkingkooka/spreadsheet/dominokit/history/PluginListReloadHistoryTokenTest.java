@@ -23,6 +23,8 @@ import java.util.OptionalInt;
 
 public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTokenTestCase<PluginListReloadHistoryToken> {
 
+    // parse............................................................................................................
+
     @Test
     public void testParseInvalidOffset() {
         this.parseAndCheck(
@@ -80,6 +82,8 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
         );
     }
 
+    // urlFragment......................................................................................................
+
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck("/plugin/*/offset/1/count/23/reload");
@@ -110,6 +114,8 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
         );
     }
 
+    // clearAction......................................................................................................
+
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
@@ -118,6 +124,8 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
         );
     }
 
+    // reload...........................................................................................................
+
     @Test
     public void testReload() {
         this.reloadAndCheck(
@@ -125,6 +133,8 @@ public final class PluginListReloadHistoryTokenTest extends PluginListHistoryTok
             HistoryToken.pluginListReload(OFFSET_AND_COUNT)
         );
     }
+
+    // helpers..........................................................................................................
 
     @Override
     PluginListReloadHistoryToken createHistoryToken(final HistoryTokenOffsetAndCount offsetAndCount) {
