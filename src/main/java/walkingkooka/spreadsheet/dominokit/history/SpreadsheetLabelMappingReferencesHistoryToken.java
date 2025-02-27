@@ -65,12 +65,19 @@ public final class SpreadsheetLabelMappingReferencesHistoryToken extends Spreads
 
     final HistoryTokenOffsetAndCount offsetAndCount;
 
-    // /Label123/delete
+    // /Label123/references
+    // /Label123/references/offset/1/count/2
     @Override
     UrlFragment labelUrlFragment() {
-        return UrlFragment.with(
+        final UrlFragment urlFragment = UrlFragment.with(
             this.labelName.value()
         ).appendSlashThen(REFERENCES);
+
+        final HistoryTokenOffsetAndCount offsetAndCount = this.offsetAndCount;
+
+        return offsetAndCount.isEmpty() ?
+            urlFragment :
+            urlFragment.append(offsetAndCount.urlFragment());
     }
 
     @Override
