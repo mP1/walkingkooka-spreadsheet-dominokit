@@ -76,6 +76,58 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
             )
         );
     }
+
+    // offset............................................................................................................
+
+    @Test
+    public void testOffset() {
+        this.offsetAndCheck(
+            PluginListSelectHistoryToken.with(
+                HistoryTokenOffsetAndCount.EMPTY
+            )
+        );
+    }
+
+    @Test
+    public void testOffset2() {
+        final int offset = 456;
+
+        this.offsetAndCheck(
+            PluginListSelectHistoryToken.with(
+                HistoryTokenOffsetAndCount.EMPTY.setOffset(
+                    OptionalInt.of(offset)
+                )
+            ),
+            offset
+        );
+    }
+
+    // setOffset.........................................................................................................
+
+    @Test
+    public void testSetOffsetWithSame() {
+        final PluginListSelectHistoryToken historyToken = this.createHistoryToken();
+
+        assertSame(
+            historyToken,
+            historyToken.setOffset(historyToken.offset())
+        );
+    }
+
+    @Test
+    public void testSetOffsetWithDifferent() {
+        final OptionalInt offset = OptionalInt.of(456);
+
+        this.setOffsetAndCheck(
+            PluginListSelectHistoryToken.with(
+                HistoryTokenOffsetAndCount.EMPTY
+            ),
+            offset,
+            PluginListSelectHistoryToken.with(
+                HistoryTokenOffsetAndCount.EMPTY.setOffset(offset)
+            )
+        );
+    }
     
     // parse............................................................................................................
 
