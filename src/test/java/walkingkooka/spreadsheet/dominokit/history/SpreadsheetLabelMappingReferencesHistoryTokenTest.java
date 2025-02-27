@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import java.util.Optional;
 import java.util.OptionalInt;
 
-import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 public final class SpreadsheetLabelMappingReferencesHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingReferencesHistoryToken> {
@@ -75,18 +74,15 @@ public final class SpreadsheetLabelMappingReferencesHistoryTokenTest extends Spr
     public void testSetOffsetWithDifferent() {
         final OptionalInt offset = OptionalInt.of(123);
 
-        final SpreadsheetLabelMappingReferencesHistoryToken historyToken = this.createHistoryToken();
-
-        final HistoryToken different = historyToken.setOffset(offset);
-
-        assertNotSame(
-            historyToken,
-            different
-        );
-
-        this.checkEquals(
+        this.setOffsetAndCheck(
+            this.createHistoryToken(),
             offset,
-            different.offset()
+            SpreadsheetLabelMappingReferencesHistoryToken.with(
+                ID,
+                NAME,
+                LABEL,
+                HistoryTokenOffsetAndCount.EMPTY.setOffset(offset)
+            )
         );
     }
 
