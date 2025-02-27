@@ -236,6 +236,23 @@ public final class SpreadsheetLabelMappingReferencesHistoryTokenTest extends Spr
     }
 
     @Test
+    public void testUrlFragmentWithOffsetAndCount() {
+        this.urlFragmentAndCheck(
+            SpreadsheetLabelMappingReferencesHistoryToken.with(
+                ID,
+                NAME,
+                LABEL,
+                HistoryTokenOffsetAndCount.EMPTY.setOffset(
+                    OptionalInt.of(123)
+                ).setCount(
+                    OptionalInt.of(456)
+                )
+            ),
+            "/123/SpreadsheetName456/label/Label123/references/offset/123/count/456"
+        );
+    }
+
+    @Test
     public void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),

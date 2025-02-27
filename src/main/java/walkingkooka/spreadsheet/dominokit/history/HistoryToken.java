@@ -3103,10 +3103,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                         name,
                         labelMappingHistoryToken.labelName()
                             .get(),
-                        HistoryTokenOffsetAndCount.with(
-                            this.offset(),
-                            this.count()
-                        )
+                        offsetAndCount
                     );
                 }
             }
