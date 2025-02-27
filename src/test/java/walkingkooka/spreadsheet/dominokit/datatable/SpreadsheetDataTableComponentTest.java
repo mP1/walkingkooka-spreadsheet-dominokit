@@ -433,11 +433,11 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 ).previousNextLinks(ID_PREFIX)
                 .setPrevious(
                     Optional.of(
-                        HistoryToken.parseString("/*/offset/11/count/5")
+                        HistoryToken.parseString("/list/offset/11/count/5")
                     )
                 ).setNext(
                     Optional.of(
-                        HistoryToken.parseString("/*/offset/22/count/5")
+                        HistoryToken.parseString("/list/offset/22/count/5")
                     )
                 ),
             "SpreadsheetDataTableComponent\n" +
@@ -471,8 +471,8 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "  CHILDREN\n" +
                 "    SpreadsheetFlexLayout\n" +
                 "      ROW\n" +
-                "        mdi-arrow-left \"previous\" [#/*/offset/11/count/5] id=tableId123-previous-Link\n" +
-                "        \"next\" [#/*/offset/22/count/5] mdi-arrow-right id=tableId123-next-Link\n"
+                "        mdi-arrow-left \"previous\" [#/list/offset/11/count/5] id=tableId123-previous-Link\n" +
+                "        \"next\" [#/list/offset/22/count/5] mdi-arrow-right id=tableId123-next-Link\n"
         );
     }
 
@@ -560,7 +560,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "    SpreadsheetFlexLayout\n" +
                 "      ROW\n" +
                 "        mdi-arrow-left \"previous\" DISABLED id=tableId123-previous-Link\n" +
-                "        \"next\" [#/*/offset/4/count/5] mdi-arrow-right id=tableId123-next-Link\n"
+                "        \"next\" [#/list/offset/4/count/5] mdi-arrow-right id=tableId123-next-Link\n"
         );
     }
 
@@ -631,7 +631,7 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "  CHILDREN\n" +
                 "    SpreadsheetFlexLayout\n" +
                 "      ROW\n" +
-                "        mdi-arrow-left \"previous\" [#/*/offset/12/count/5] id=tableId123-previous-Link\n" +
+                "        mdi-arrow-left \"previous\" [#/list/offset/12/count/5] id=tableId123-previous-Link\n" +
                 "        \"next\" DISABLED mdi-arrow-right id=tableId123-next-Link\n"
         );
     }
@@ -719,8 +719,8 @@ public final class SpreadsheetDataTableComponentTest implements ClassTesting<Spr
                 "  CHILDREN\n" +
                 "    SpreadsheetFlexLayout\n" +
                 "      ROW\n" +
-                "        mdi-arrow-left \"previous\" [#/*/offset/12/count/5] id=tableId123-previous-Link\n" +
-                "        \"next\" [#/*/offset/20/count/5] mdi-arrow-right id=tableId123-next-Link\n"
+                "        mdi-arrow-left \"previous\" [#/list/offset/12/count/5] id=tableId123-previous-Link\n" +
+                "        \"next\" [#/list/offset/20/count/5] mdi-arrow-right id=tableId123-next-Link\n"
         );
     }
 

@@ -134,7 +134,7 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testParseInvalidOffset() {
         this.parseAndCheck(
-            "/plugin/*/offset/X",
+            "/plugin/list/offset/X",
             PluginListSelectHistoryToken.with(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
@@ -142,7 +142,7 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testParseOffset() {
         this.parseAndCheck(
-            "/plugin/*/offset/10",
+            "/plugin/list/offset/10",
             PluginListSelectHistoryToken.with(
                 HistoryTokenOffsetAndCount.EMPTY.setOffset(
                     OptionalInt.of(10)
@@ -154,7 +154,7 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testParseCount() {
         this.parseAndCheck(
-            "/plugin/*/count/20",
+            "/plugin/list/count/20",
             PluginListSelectHistoryToken.with(
                 HistoryTokenOffsetAndCount.EMPTY.setCount(
                     OptionalInt.of(20)
@@ -166,7 +166,7 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
     @Test
     public void testParseOffsetAndCount() {
         this.parseAndCheck(
-            "/plugin/*/offset/10/count/20",
+            "/plugin/list/offset/10/count/20",
             PluginListSelectHistoryToken.with(
                 HistoryTokenOffsetAndCount.with(
                     OptionalInt.of(10), // offset
@@ -195,7 +195,7 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
                     OptionalInt.of(10)
                 )
             ),
-            "/plugin/*/offset/10"
+            "/plugin/list/offset/10"
         );
     }
 
@@ -208,7 +208,7 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
                     OptionalInt.of(20) // count
                 )
             ),
-            "/plugin/*/offset/10/count/20"
+            "/plugin/list/offset/10/count/20"
         );
     }
 
