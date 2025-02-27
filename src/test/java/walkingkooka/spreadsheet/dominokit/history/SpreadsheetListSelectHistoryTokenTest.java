@@ -72,6 +72,54 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
             )
         );
     }
+
+    // offset...........................................................................................................
+
+    @Test
+    public void testOffset() {
+        this.offsetAndCheck(
+            SpreadsheetListSelectHistoryToken.with(HistoryTokenOffsetAndCount.EMPTY)
+        );
+    }
+
+    @Test
+    public void testOffset2() {
+        final int offset = 123;
+
+        this.offsetAndCheck(
+            SpreadsheetListSelectHistoryToken.with(
+                HistoryTokenOffsetAndCount.EMPTY.setOffset(
+                    OptionalInt.of(offset)
+                )
+            ),
+            offset
+        );
+    }
+
+    // setOffset........................................................................................................
+
+    @Test
+    public void testSetOffsetWithSame() {
+        final SpreadsheetListSelectHistoryToken historyToken = this.createHistoryToken();
+
+        assertSame(
+            historyToken,
+            historyToken.setOffset(historyToken.offset())
+        );
+    }
+
+    @Test
+    public void testSetOffsetWithDifferent() {
+        final OptionalInt offset = OptionalInt.of(456);
+
+        this.setOffsetAndCheck(
+            SpreadsheetListSelectHistoryToken.with(HistoryTokenOffsetAndCount.EMPTY),
+            offset,
+            SpreadsheetListSelectHistoryToken.with(
+                HistoryTokenOffsetAndCount.EMPTY.setOffset(offset)
+            )
+        );
+    }
     
     // parse............................................................................................................
 
