@@ -31,18 +31,6 @@ import java.util.Optional;
 public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase2<SpreadsheetLabelMappingSelectHistoryToken> {
 
     @Test
-    public void testWithEmptyLabel() {
-        final SpreadsheetLabelMappingSelectHistoryToken token = SpreadsheetLabelMappingSelectHistoryToken.with(
-            ID,
-            NAME,
-            Optional.empty()
-        );
-        this.checkEquals(ID, token.id(), "id");
-        this.checkEquals(NAME, token.name(), "name");
-        this.checkEquals(Optional.empty(), token.labelName(), "labelName");
-    }
-
-    @Test
     public void testLabelMappingReference() {
         this.labelMappingReferenceAndCheck(this.createHistoryToken());
     }
@@ -73,23 +61,12 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     // label............................................................................................................
 
     @Test
-    public void testLabelNameWhenMissing() {
-        this.labelNameAndCheck(
-            SpreadsheetLabelMappingSelectHistoryToken.with(
-                ID,
-                NAME,
-                Optional.empty()
-            )
-        );
-    }
-
-    @Test
     public void testLabelNameWhenPresent() {
         this.labelNameAndCheck(
             SpreadsheetLabelMappingSelectHistoryToken.with(
                 ID,
                 NAME,
-                Optional.of(LABEL)
+                LABEL
             ),
             LABEL
         );
@@ -152,22 +129,10 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     // hasUrlFragment...................................................................................................
 
     @Test
-    public void testUrlFragmentWithLabel() {
+    public void testUrlFragment() {
         this.urlFragmentAndCheck(
             LABEL,
             "/123/SpreadsheetName456/label/Label123"
-        );
-    }
-
-    @Test
-    public void testUrlFragmentWithoutLabel() {
-        this.urlFragmentAndCheck(
-            SpreadsheetLabelMappingSelectHistoryToken.with(
-                ID,
-                NAME,
-                Optional.empty()
-            ),
-            "/123/SpreadsheetName456/label"
         );
     }
 
@@ -238,7 +203,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
         return SpreadsheetLabelMappingSelectHistoryToken.with(
             id,
             name,
-            Optional.of(label)
+            label
         );
     }
 

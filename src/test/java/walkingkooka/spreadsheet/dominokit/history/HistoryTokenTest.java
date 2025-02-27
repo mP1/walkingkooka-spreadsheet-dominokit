@@ -84,7 +84,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     private static final SpreadsheetLabelMappingSelectHistoryToken LABEL_MAPPING_TOKEN = HistoryToken.labelMappingSelect(
         ID,
         NAME,
-        Optional.of(LABEL)
+        LABEL
     );
 
     private final static SpreadsheetColumnReference COLUMN = SpreadsheetSelection.parseColumn("AA");
@@ -753,7 +753,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
-                Optional.of(LABEL)
+                LABEL
             )
         );
     }
@@ -3909,30 +3909,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameLabelMissingName() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/label",
-            HistoryToken.labelMappingSelect(
-                ID,
-                NAME,
-                Optional.empty()
-            )
-        );
-    }
-
-    @Test
-    public void testParseSpreadsheetIdSpreadsheetNameLabelEmptyName() {
-        this.parseStringAndCheck(
-            "/123/SpreadsheetName456/label/",
-            HistoryToken.labelMappingSelect(
-                ID,
-                NAME,
-                Optional.empty()
-            )
-        );
-    }
-
-    @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelInvalid() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/!!/cell/A1",
@@ -4048,7 +4024,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
-                Optional.of(LABEL)
+                LABEL
             )
         );
     }
@@ -4060,7 +4036,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
             HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
-                Optional.of(LABEL)
+                LABEL
             )
         );
     }

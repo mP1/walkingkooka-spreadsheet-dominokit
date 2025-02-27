@@ -862,7 +862,7 @@ public abstract class HistoryToken implements HasUrlFragment,
      */
     public static SpreadsheetLabelMappingSelectHistoryToken labelMappingSelect(final SpreadsheetId id,
                                                                                final SpreadsheetName name,
-                                                                               final Optional<SpreadsheetLabelName> label) {
+                                                                               final SpreadsheetLabelName label) {
         return SpreadsheetLabelMappingSelectHistoryToken.with(
             id,
             name,
@@ -2381,7 +2381,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                         labelName = this.cast(SpreadsheetLabelMappingSaveHistoryToken.class).value();
                     } else {
                         if (this instanceof SpreadsheetLabelMappingSelectHistoryToken) {
-                            labelName = this.cast(SpreadsheetLabelMappingSelectHistoryToken.class).labelName.orElse(null);
+                            labelName = this.cast(SpreadsheetLabelMappingSelectHistoryToken.class).labelName;
                         }
                     }
                 }
@@ -2429,15 +2429,11 @@ public abstract class HistoryToken implements HasUrlFragment,
                                 selection
                             );
                 } else {
-                    // its ok the cell selection is lost as we wish to edit the label not the cell w/ a label.
-
-                    // present -> cellLabelSave
-                    // missing -> cellLabelSelect
                     token = label.isPresent() ?
                         HistoryToken.labelMappingSelect(
                             id,
                             name,
-                            label
+                            label.get()
                         ) :
                         HistoryToken.cellLabelSelect(
                             id,
@@ -2447,11 +2443,16 @@ public abstract class HistoryToken implements HasUrlFragment,
                 }
 
             } else {
-                token = labelMappingSelect(
-                    id,
-                    name,
-                    label
-                );
+                token = label.isPresent() ?
+                    HistoryToken.labelMappingSelect(
+                        id,
+                        name,
+                        label.get()
+                    ) :
+                    HistoryToken.labelMappingCreate(
+                        id,
+                        name
+                    );
             }
         }
 
@@ -3572,18 +3573,15 @@ public abstract class HistoryToken implements HasUrlFragment,
                         }
 
                         if (this instanceof SpreadsheetLabelMappingSelectHistoryToken) {
-                            final SpreadsheetLabelMappingSelectHistoryToken spreadsheetLabelMappingSelectHistoryToken = this.cast(SpreadsheetLabelMappingSelectHistoryToken.class);
-
-                            final SpreadsheetLabelName labelName = spreadsheetLabelMappingSelectHistoryToken.labelName.orElse(null);
-                            if (null != labelName) {
-                                saved = labelMappingSave(
-                                    id,
-                                    name,
-                                    labelName.setLabelMappingReference(
+                            saved = labelMappingSave(
+                                id,
+                                name,
+                                this.cast(SpreadsheetLabelMappingSelectHistoryToken.class)
+                                    .labelName
+                                    .setLabelMappingReference(
                                         SpreadsheetSelection.parseExpressionReference(value)
                                     )
-                                );
-                            }
+                            );
                         }
                     } else {
                         if (this instanceof SpreadsheetRenameSelectHistoryToken) {

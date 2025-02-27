@@ -74,7 +74,11 @@ public final class SpreadsheetLabelMappingReferencesHistoryToken extends Spreads
 
     @Override
     public HistoryToken clearAction() {
-        return this.labelMappingSelect();
+        return HistoryToken.labelMappingSelect(
+            this.id(),
+            this.name(),
+            this.labelName
+        );
     }
 
     // new id/name same labelName

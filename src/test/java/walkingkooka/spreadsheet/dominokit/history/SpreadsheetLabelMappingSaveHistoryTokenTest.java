@@ -154,7 +154,7 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
             HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
-                Optional.of(LABEL)
+                LABEL
             )
         );
     }
