@@ -38,6 +38,15 @@ public final class HistoryTokenOffsetAndCount implements HasUrlFragment,
         OptionalInt.empty()
     );
 
+    /**
+     * Tries to parse an offset and count in that order if present in the {@link TextCursor}.
+     * <pre>
+     * /offset/1
+     * /count/2
+     * /offset/3/count/4
+     * </pre>
+     * If neither is present {@link #EMPTY} is returned.
+     */
     public static HistoryTokenOffsetAndCount parse(final TextCursor text) {
         Objects.requireNonNull(text, "text");
 
