@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
+import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -103,6 +104,31 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
                     anchoredSelection
                 )
             )
+        );
+    }
+
+    // list.............................................................................................................
+
+    @Test
+    public final void testSetListWithEmptyOffsetCount() {
+        this.setListAndCheck(
+            this.createHistoryToken(),
+            HistoryTokenOffsetAndCount.EMPTY,
+            HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY)
+        );
+    }
+
+    @Test
+    public final void testSetListWithNonEmptyOffsetCount() {
+        final HistoryTokenOffsetAndCount offsetAndCount = HistoryTokenOffsetAndCount.with(
+            OptionalInt.of(123),
+            OptionalInt.of(456)
+        );
+
+        this.setListAndCheck(
+            this.createHistoryToken(),
+            offsetAndCount,
+            HistoryToken.spreadsheetListSelect(offsetAndCount)
         );
     }
 

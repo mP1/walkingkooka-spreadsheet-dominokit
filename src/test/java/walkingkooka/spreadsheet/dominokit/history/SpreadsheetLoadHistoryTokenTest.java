@@ -58,6 +58,15 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
     }
 
     @Test
+    public void testSetList() {
+        this.setListAndCheck(
+            this.createHistoryToken(),
+            HistoryTokenOffsetAndCount.EMPTY,
+            HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY)
+        );
+    }
+
+    @Test
     public void testSetMetadataPropertyName() {
         this.setMetadataPropertyNameAndCheck(
             SpreadsheetMetadataPropertyName.LOCALE
