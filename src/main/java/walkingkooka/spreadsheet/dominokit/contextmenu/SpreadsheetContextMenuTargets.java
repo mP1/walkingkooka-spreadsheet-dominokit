@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.reference;
+package walkingkooka.spreadsheet.dominokit.contextmenu;
 
 import elemental2.dom.Element;
 import walkingkooka.reflect.PublicStaticHelper;

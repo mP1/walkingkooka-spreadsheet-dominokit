@@ -48,6 +48,8 @@ import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.VisibleHtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuTargets;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
@@ -71,8 +73,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistory
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.util.HistoryTokenRecorder;
-import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
-import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuTargets;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterAliasSet;

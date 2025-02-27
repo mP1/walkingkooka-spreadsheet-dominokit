@@ -25,8 +25,8 @@ import walkingkooka.net.Url;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenu;
-import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetContextMenuItem;
+import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
 
 import java.util.Optional;
