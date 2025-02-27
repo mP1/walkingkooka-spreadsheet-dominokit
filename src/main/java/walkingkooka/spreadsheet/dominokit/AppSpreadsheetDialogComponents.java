@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.columnrow.SpreadsheetColumnRowInsertCountDialogComponent;
+import walkingkooka.spreadsheet.dominokit.columnrow.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.find.SpreadsheetFindDialogComponent;
@@ -40,8 +42,6 @@ import walkingkooka.spreadsheet.dominokit.plugin.PluginUploadDialogComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.PluginUploadDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponent;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponent;
-import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponent;
 import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetSortDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponent;
