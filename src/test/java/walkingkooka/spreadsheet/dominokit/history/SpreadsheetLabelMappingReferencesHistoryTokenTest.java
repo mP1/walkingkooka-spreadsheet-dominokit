@@ -27,7 +27,7 @@ import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-public final class SpreadsheetLabelMappingReferencesHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingReferencesHistoryToken> {
+public final class SpreadsheetLabelMappingReferencesHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase2<SpreadsheetLabelMappingReferencesHistoryToken> {
 
     // offset...........................................................................................................
 
