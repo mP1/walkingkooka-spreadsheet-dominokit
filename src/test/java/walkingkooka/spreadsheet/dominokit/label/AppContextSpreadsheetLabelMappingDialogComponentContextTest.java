@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.reference;
+package walkingkooka.spreadsheet.dominokit.label;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;

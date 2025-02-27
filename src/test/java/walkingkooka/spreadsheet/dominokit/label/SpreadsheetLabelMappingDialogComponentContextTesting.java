@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.reference;
+package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
 

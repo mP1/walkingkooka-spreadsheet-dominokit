@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.reference;
+package walkingkooka.spreadsheet.dominokit.label;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
