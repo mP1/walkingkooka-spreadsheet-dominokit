@@ -26,9 +26,70 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import java.util.OptionalInt;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
+
 public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends SpreadsheetColumnHistoryTokenTestCase<SpreadsheetColumnInsertBeforeHistoryToken> {
 
     private final static OptionalInt COUNT = OptionalInt.of(1);
+
+    // count............................................................................................................
+
+    @Test
+    public void testCount() {
+        this.countAndCheck(
+            SpreadsheetColumnInsertBeforeHistoryToken.with(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testCount2() {
+        final int count = 123;
+
+        this.countAndCheck(
+            SpreadsheetColumnInsertBeforeHistoryToken.with(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                OptionalInt.of(count)
+            ),
+            count
+        );
+    }
+
+    // setCount.........................................................................................................
+
+    @Test
+    public void testSetCountWithSame() {
+        final SpreadsheetColumnInsertBeforeHistoryToken historyToken = this.createHistoryToken();
+
+        assertSame(
+            historyToken,
+            historyToken.setCount(historyToken.count())
+        );
+    }
+
+    @Test
+    public void testSetCountWithDifferent() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        this.setCountAndCheck(
+            this.createHistoryToken(),
+            count,
+            SpreadsheetColumnInsertBeforeHistoryToken.with(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor(),
+                count
+            )
+        );
+    }
+
+    // UrlFragment......................................................................................................
 
     @Test
     public void testUrlFragmentColumn1() {
