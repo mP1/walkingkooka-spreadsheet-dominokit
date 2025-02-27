@@ -113,6 +113,60 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
         );
     }
 
+    // offset...........................................................................................................
+
+    @Test
+    public void testOffset() {
+        this.offsetAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
+    @Test
+    public void testOffset2() {
+        final int offset = 123;
+
+        this.offsetAndCheck(
+            SpreadsheetCellReferencesHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                HistoryTokenOffsetAndCount.EMPTY.setOffset(
+                    OptionalInt.of(offset)
+                )
+            ),
+            offset
+        );
+    }
+
+    // setOffset........................................................................................................
+
+    @Test
+    public void testSetOffsetWithSame() {
+        final SpreadsheetCellReferencesHistoryToken historyToken = this.createHistoryToken();
+
+        assertSame(
+            historyToken,
+            historyToken.setOffset(historyToken.offset())
+        );
+    }
+
+    @Test
+    public void testSetOffsetWithDifferent() {
+        final OptionalInt offset = OptionalInt.of(456);
+
+        this.setOffsetAndCheck(
+            this.createHistoryToken(),
+            offset,
+            SpreadsheetCellReferencesHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                HistoryTokenOffsetAndCount.EMPTY.setOffset(offset)
+            )
+        );
+    }
+
     // UrlFragment......................................................................................................
 
     @Test
