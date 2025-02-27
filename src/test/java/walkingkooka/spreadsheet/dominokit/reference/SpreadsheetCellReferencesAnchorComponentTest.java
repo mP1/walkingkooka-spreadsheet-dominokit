@@ -52,7 +52,7 @@ public final class SpreadsheetCellReferencesAnchorComponentTest implements Ancho
                 "cell-references-anchor-id",
                 HistoryTokenContexts.fake()
             ).clearValue(),
-            "\"Cell References\" DISABLED id=cell-references-anchor-id"
+            "\"References\" DISABLED id=cell-references-anchor-id"
         );
     }
 

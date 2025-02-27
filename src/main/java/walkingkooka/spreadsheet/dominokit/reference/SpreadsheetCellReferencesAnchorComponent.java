@@ -83,7 +83,7 @@ public final class SpreadsheetCellReferencesAnchorComponent implements AnchorCom
             text = value.get()
                 .text();
         } else {
-            text = "Cell References";
+            text = "References";
         }
 
         anchor.setHistoryToken(
