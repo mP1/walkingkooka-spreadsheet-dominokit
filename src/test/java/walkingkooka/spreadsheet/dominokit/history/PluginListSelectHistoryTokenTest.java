@@ -21,8 +21,62 @@ import org.junit.jupiter.api.Test;
 
 import java.util.OptionalInt;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
+
 public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTokenTestCase<PluginListSelectHistoryToken> {
 
+    // count............................................................................................................
+
+    @Test
+    public void testCount() {
+        this.countAndCheck(
+            PluginListSelectHistoryToken.with(
+                HistoryTokenOffsetAndCount.EMPTY
+            )
+        );
+    }
+
+    @Test
+    public void testCount2() {
+        final int count = 123;
+
+        this.countAndCheck(
+            PluginListSelectHistoryToken.with(
+                HistoryTokenOffsetAndCount.EMPTY.setCount(
+                    OptionalInt.of(count)
+                )
+            ),
+            count
+        );
+    }
+
+    // setCount.........................................................................................................
+
+    @Test
+    public void testSetCountWithSame() {
+        final PluginListSelectHistoryToken historyToken = this.createHistoryToken();
+
+        assertSame(
+            historyToken,
+            historyToken.setCount(historyToken.count())
+        );
+    }
+
+    @Test
+    public void testSetCountWithDifferent() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        this.setCountAndCheck(
+            PluginListSelectHistoryToken.with(
+                HistoryTokenOffsetAndCount.EMPTY
+            ),
+            count,
+            PluginListSelectHistoryToken.with(
+                HistoryTokenOffsetAndCount.EMPTY.setCount(count)
+            )
+        );
+    }
+    
     // parse............................................................................................................
 
     @Test
