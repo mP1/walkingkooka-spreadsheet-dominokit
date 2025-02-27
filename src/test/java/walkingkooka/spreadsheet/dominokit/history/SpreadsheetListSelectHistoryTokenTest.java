@@ -23,6 +23,8 @@ import java.util.OptionalInt;
 
 public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetListHistoryTokenTestCase<SpreadsheetListSelectHistoryToken> {
 
+    // parse............................................................................................................
+
     @Test
     public void testParseInvalidOffset() {
         this.parseAndCheck(
@@ -99,10 +101,14 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
         );
     }
 
+    // clearAction......................................................................................................
+
     @Test
     public void testClearAction() {
         this.clearActionAndCheck();
     }
+
+    // reload...........................................................................................................
 
     @Test
     public void testReload() {
@@ -112,10 +118,14 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
         );
     }
 
+    // helpers..........................................................................................................
+
     @Override
     SpreadsheetListSelectHistoryToken createHistoryToken(final HistoryTokenOffsetAndCount offsetAndCount) {
         return SpreadsheetListSelectHistoryToken.with(offsetAndCount);
     }
+
+    // class............................................................................................................
 
     @Override
     public Class<SpreadsheetListSelectHistoryToken> type() {
