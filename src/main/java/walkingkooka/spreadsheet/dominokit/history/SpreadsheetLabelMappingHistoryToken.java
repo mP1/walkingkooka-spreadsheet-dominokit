@@ -72,6 +72,9 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
                     SpreadsheetLabelNameResolvers.fake()
                 );
                 break;
+            case REFERENCES_STRING:
+                result = this.parseReferences(cursor);
+                break;
             case SAVE_STRING:
                 result = this.parseSave(cursor);
                 break;
