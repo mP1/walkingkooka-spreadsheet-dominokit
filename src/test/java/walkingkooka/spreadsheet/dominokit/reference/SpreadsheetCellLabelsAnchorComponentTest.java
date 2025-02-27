@@ -52,7 +52,7 @@ public final class SpreadsheetCellLabelsAnchorComponentTest implements AnchorCom
                 "cell-labels-anchor-id",
                 HistoryTokenContexts.fake()
             ).clearValue(),
-            "\"Cell References\" DISABLED id=cell-labels-anchor-id"
+            "\"Labels\" DISABLED id=cell-labels-anchor-id"
         );
     }
 

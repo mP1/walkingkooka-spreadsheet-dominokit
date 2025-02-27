@@ -83,7 +83,7 @@ public final class SpreadsheetCellLabelsAnchorComponent implements AnchorCompone
             text = value.get()
                 .text();
         } else {
-            text = "Cell References";
+            text = "Labels";
         }
 
         anchor.setHistoryToken(
