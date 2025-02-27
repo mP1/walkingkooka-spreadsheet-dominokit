@@ -21,8 +21,58 @@ import org.junit.jupiter.api.Test;
 
 import java.util.OptionalInt;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
+
 public final class SpreadsheetListReloadHistoryTokenTest extends SpreadsheetListHistoryTokenTestCase<SpreadsheetListReloadHistoryToken> {
 
+    // count............................................................................................................
+
+    @Test
+    public void testCount() {
+        this.countAndCheck(
+            SpreadsheetListReloadHistoryToken.with(HistoryTokenOffsetAndCount.EMPTY)
+        );
+    }
+
+    @Test
+    public void testCount2() {
+        final int count = 123;
+
+        this.countAndCheck(
+            SpreadsheetListReloadHistoryToken.with(
+                HistoryTokenOffsetAndCount.EMPTY.setCount(
+                    OptionalInt.of(count)
+                )
+            ),
+            count
+        );
+    }
+
+    // setCount.........................................................................................................
+
+    @Test
+    public void testSetCountWithSame() {
+        final SpreadsheetListReloadHistoryToken historyToken = this.createHistoryToken();
+
+        assertSame(
+            historyToken,
+            historyToken.setCount(historyToken.count())
+        );
+    }
+
+    @Test
+    public void testSetCountWithDifferent() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        this.setCountAndCheck(
+            SpreadsheetListReloadHistoryToken.with(HistoryTokenOffsetAndCount.EMPTY),
+            count,
+            SpreadsheetListReloadHistoryToken.with(
+                HistoryTokenOffsetAndCount.EMPTY.setCount(count)
+            )
+        );
+    }
+    
     // parse............................................................................................................
 
     @Test
