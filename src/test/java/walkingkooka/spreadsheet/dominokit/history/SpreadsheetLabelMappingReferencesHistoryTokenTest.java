@@ -100,14 +100,12 @@ public final class SpreadsheetLabelMappingReferencesHistoryTokenTest extends Spr
         );
     }
 
-    // count...........................................................................................................
+    // count............................................................................................................
 
     @Test
     public void testCount() {
-        final SpreadsheetLabelMappingReferencesHistoryToken historyToken = this.createHistoryToken();
-        this.checkEquals(
-            OptionalInt.empty(),
-            historyToken.count()
+        this.countAndCheck(
+            this.createHistoryToken()
         );
     }
 
@@ -115,30 +113,20 @@ public final class SpreadsheetLabelMappingReferencesHistoryTokenTest extends Spr
     public void testCount2() {
         final int count = 123;
 
-        final SpreadsheetLabelMappingReferencesHistoryToken historyToken = SpreadsheetLabelMappingReferencesHistoryToken.with(
-            ID,
-            NAME,
-            LABEL,
-            HistoryTokenOffsetAndCount.EMPTY.setCount(
-                OptionalInt.of(count)
-            )
-        );
-        this.checkEquals(
-            OptionalInt.of(count),
-            historyToken.count()
+        this.countAndCheck(
+            SpreadsheetLabelMappingReferencesHistoryToken.with(
+                ID,
+                NAME,
+                LABEL,
+                HistoryTokenOffsetAndCount.EMPTY.setCount(
+                    OptionalInt.of(count)
+                )
+            ),
+            count
         );
     }
 
-    // setCount........................................................................................................
-
-    @Test
-    public void testSetCountWithNullFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> this.createHistoryToken()
-                .setCount(null)
-        );
-    }
+    // setCount.........................................................................................................
 
     @Test
     public void testSetCountWithSame() {
@@ -154,18 +142,15 @@ public final class SpreadsheetLabelMappingReferencesHistoryTokenTest extends Spr
     public void testSetCountWithDifferent() {
         final OptionalInt count = OptionalInt.of(123);
 
-        final SpreadsheetLabelMappingReferencesHistoryToken historyToken = this.createHistoryToken();
-
-        final HistoryToken different = historyToken.setCount(count);
-
-        assertNotSame(
-            historyToken,
-            different
-        );
-
-        this.checkEquals(
+        this.setCountAndCheck(
+            this.createHistoryToken(),
             count,
-            different.count()
+            SpreadsheetLabelMappingReferencesHistoryToken.with(
+                ID,
+                NAME,
+                LABEL,
+                HistoryTokenOffsetAndCount.EMPTY.setCount(count)
+            )
         );
     }
 
