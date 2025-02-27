@@ -26,10 +26,70 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 
 import java.util.OptionalInt;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
+
 public final class SpreadsheetRowInsertBeforeHistoryTokenTest extends SpreadsheetRowHistoryTokenTestCase<SpreadsheetRowInsertBeforeHistoryToken> {
 
     private final static OptionalInt COUNT = OptionalInt.of(1);
 
+    // count............................................................................................................
+
+    @Test
+    public void testCount() {
+        this.countAndCheck(
+            SpreadsheetRowInsertBeforeHistoryToken.with(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testCount2() {
+        final int count = 123;
+
+        this.countAndCheck(
+            SpreadsheetRowInsertBeforeHistoryToken.with(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                OptionalInt.of(count)
+            ),
+            count
+        );
+    }
+
+    // setCount.........................................................................................................
+
+    @Test
+    public void testSetCountWithSame() {
+        final SpreadsheetRowInsertBeforeHistoryToken historyToken = this.createHistoryToken();
+
+        assertSame(
+            historyToken,
+            historyToken.setCount(historyToken.count())
+        );
+    }
+
+    @Test
+    public void testSetCountWithDifferent() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        this.setCountAndCheck(
+            this.createHistoryToken(),
+            count,
+            SpreadsheetRowInsertBeforeHistoryToken.with(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor(),
+                count
+            )
+        );
+    }
+
+    // UrlFragment......................................................................................................
     @Test
     public void testUrlFragmentRow1() {
         this.urlFragmentAndCheck(
