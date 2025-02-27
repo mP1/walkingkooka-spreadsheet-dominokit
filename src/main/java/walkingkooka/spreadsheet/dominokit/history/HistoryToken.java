@@ -1799,44 +1799,40 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     public final OptionalInt count() {
-        final OptionalInt count;
+        OptionalInt count = OptionalInt.empty();
 
         if (this instanceof PluginListHistoryToken) {
-            count = this.cast(PluginListHistoryToken.class).offsetAndCount.count();
-        } else {
-            if (this instanceof SpreadsheetListHistoryToken) {
-                count = this.cast(SpreadsheetListHistoryToken.class).offsetAndCount.count();
-            } else {
-                if (this instanceof SpreadsheetCellLabelsHistoryToken) {
-                    count = this.cast(SpreadsheetCellLabelsHistoryToken.class)
-                        .offsetAndCount
-                        .count;
-                } else {
-                    if (this instanceof SpreadsheetCellReferencesHistoryToken) {
-                        count = this.cast(SpreadsheetCellReferencesHistoryToken.class)
-                            .offsetAndCount
-                            .count;
-                    } else {
-                        if (this instanceof SpreadsheetColumnInsertHistoryToken) {
-                            count = this.cast(SpreadsheetColumnInsertHistoryToken.class)
-                                .count;
-                        } else {
-                            if (this instanceof SpreadsheetRowInsertHistoryToken) {
-                                count = this.cast(SpreadsheetRowInsertHistoryToken.class)
-                                    .count;
-                            } else {
-                                if(this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
-                                    count = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class)
-                                        .offsetAndCount
-                                        .count;
-                                } else {
-                                    count = OptionalInt.empty();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            count = this.cast(PluginListHistoryToken.class)
+                .offsetAndCount
+                .count();
+        }
+        if (this instanceof SpreadsheetListHistoryToken) {
+            count = this.cast(SpreadsheetListHistoryToken.class)
+                .offsetAndCount
+                .count();
+        }
+        if (this instanceof SpreadsheetCellLabelsHistoryToken) {
+            count = this.cast(SpreadsheetCellLabelsHistoryToken.class)
+                .offsetAndCount
+                .count;
+        }
+        if (this instanceof SpreadsheetCellReferencesHistoryToken) {
+            count = this.cast(SpreadsheetCellReferencesHistoryToken.class)
+                .offsetAndCount
+                .count;
+        }
+        if (this instanceof SpreadsheetColumnInsertHistoryToken) {
+            count = this.cast(SpreadsheetColumnInsertHistoryToken.class)
+                .count;
+        }
+        if (this instanceof SpreadsheetRowInsertHistoryToken) {
+            count = this.cast(SpreadsheetRowInsertHistoryToken.class)
+                .count;
+        }
+        if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
+            count = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class)
+                .offsetAndCount
+                .count;
         }
 
         return count;
