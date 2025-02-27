@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 /**
  * A token that represents a plugin list files dialog.
  * <pre>
- * /plugin/list/offset/1/count/10/
+ * /plugin/STAR/offset/1/count/10/
  * </pre>
  */
 public final class PluginListSelectHistoryToken extends PluginListHistoryToken {

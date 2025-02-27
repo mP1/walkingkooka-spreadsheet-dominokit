@@ -166,7 +166,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                     )
                 )
             ),
-            "/list/offset/1/count/2",
+            "/*/offset/1/count/2",
             "SpreadsheetListTableComponent\n" +
                 "  SpreadsheetCard\n" +
                 "    Card\n" +
@@ -225,8 +225,8 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "        CHILDREN\n" +
                 "          SpreadsheetFlexLayout\n" +
                 "            ROW\n" +
-                "              mdi-arrow-left \"previous\" [#/list/offset/0/count/2] id=Table123-previous-Link\n" +
-                "              \"next\" [#/list/offset/2/count/2] mdi-arrow-right id=Table123-next-Link\n" +
+                "              mdi-arrow-left \"previous\" [#/*/offset/0/count/2] id=Table123-previous-Link\n" +
+                "              \"next\" [#/*/offset/2/count/2] mdi-arrow-right id=Table123-next-Link\n" +
                 "        PLUGINS\n" +
                 "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );
@@ -247,7 +247,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                     )
                 )
             ),
-            "/list/count/2",
+            "/*/count/2",
             "SpreadsheetListTableComponent\n" +
                 "  SpreadsheetCard\n" +
                 "    Card\n" +
@@ -307,7 +307,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "          SpreadsheetFlexLayout\n" +
                 "            ROW\n" +
                 "              mdi-arrow-left \"previous\" DISABLED id=Table123-previous-Link\n" +
-                "              \"next\" [#/list/offset/1/count/2] mdi-arrow-right id=Table123-next-Link\n" +
+                "              \"next\" [#/*/offset/1/count/2] mdi-arrow-right id=Table123-next-Link\n" +
                 "        PLUGINS\n" +
                 "          EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n"
         );

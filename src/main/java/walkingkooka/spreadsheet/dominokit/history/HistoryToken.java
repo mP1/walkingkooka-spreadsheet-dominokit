@@ -191,10 +191,6 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     final static UrlFragment LABELS = UrlFragment.parse(LABELS_STRING);
 
-    final static String LIST_STRING = "list";
-
-    final static UrlFragment LIST = UrlFragment.parse(LIST_STRING);
-
     final static String MENU_STRING = "menu";
 
     final static UrlFragment MENU = UrlFragment.parse(MENU_STRING);
@@ -260,6 +256,10 @@ public abstract class HistoryToken implements HasUrlFragment,
     final static String UNFREEZE_STRING = "unfreeze";
 
     final static UrlFragment UNFREEZE = UrlFragment.parse(UNFREEZE_STRING);
+
+    final static String WILDCARD_STRING = "*";
+
+    final static UrlFragment WILDCARD = UrlFragment.parse(WILDCARD_STRING);
 
     final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 
@@ -1372,7 +1372,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                     case SELECT_STRING:
                         token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
                         break;
-                    case LIST_STRING:
+                    case WILDCARD_STRING:
                         token = SPREADSHEET_LIST_SELECT_HISTORY_TOKEN;
                         token = token.parseOffsetCountReload(cursor);
                         break;
@@ -2876,7 +2876,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         boolean addStar = true;
 
         if(offsetAndCount.isNotEmpty()) {
-            urlFragment = urlFragment.appendSlashThen(LIST)
+            urlFragment = urlFragment.appendSlashThen(WILDCARD)
                 .append(
                     offsetAndCount.urlFragment()
                 );
@@ -2885,7 +2885,7 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         if (false == suffix.isEmpty()) {
             if (addStar) {
-                urlFragment = urlFragment.appendSlashThen(LIST);
+                urlFragment = urlFragment.appendSlashThen(WILDCARD);
             }
 
             urlFragment = urlFragment.appendSlashThen(suffix);
