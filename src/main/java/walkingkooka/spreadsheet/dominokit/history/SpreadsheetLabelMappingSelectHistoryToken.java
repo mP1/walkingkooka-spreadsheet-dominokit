@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * Displays a modal dialog with a form that allows editing of a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping}.
@@ -37,7 +36,7 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
 
     static SpreadsheetLabelMappingSelectHistoryToken with(final SpreadsheetId id,
                                                           final SpreadsheetName name,
-                                                          final Optional<SpreadsheetLabelName> labelName) {
+                                                          final SpreadsheetLabelName labelName) {
         return new SpreadsheetLabelMappingSelectHistoryToken(
             id,
             name,
@@ -47,7 +46,7 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
 
     private SpreadsheetLabelMappingSelectHistoryToken(final SpreadsheetId id,
                                                       final SpreadsheetName name,
-                                                      final Optional<SpreadsheetLabelName> labelName) {
+                                                      final SpreadsheetLabelName labelName) {
         super(
             id,
             name
@@ -56,17 +55,15 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     }
 
     // @see HistoryToken.labelName
-    final Optional<SpreadsheetLabelName> labelName;
+    final SpreadsheetLabelName labelName;
 
     //
     // Label123
     @Override
     UrlFragment labelUrlFragment() {
-        return this.labelName.map(
-            l -> UrlFragment.with(
-                l.value()
-            )
-        ).orElse(UrlFragment.EMPTY);
+        return UrlFragment.with(
+            this.labelName.value()
+        );
     }
 
     @Override

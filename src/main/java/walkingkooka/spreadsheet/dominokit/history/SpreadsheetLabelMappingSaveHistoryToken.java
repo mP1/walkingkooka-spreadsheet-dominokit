@@ -82,7 +82,11 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
 
     @Override
     public HistoryToken clearAction() {
-        return this.labelMappingSelect();
+        return HistoryToken.labelMappingSelect(
+            this.id(),
+            this.name(),
+            this.mapping.label()
+        );
     }
 
     // new id/name same labelName

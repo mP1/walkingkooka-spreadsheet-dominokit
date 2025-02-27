@@ -436,7 +436,7 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
             HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
-                Optional.of(LABEL)
+                LABEL
             )
         );
     }

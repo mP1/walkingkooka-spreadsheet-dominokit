@@ -3336,9 +3336,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             HistoryToken.labelMappingSelect(
                 ID1,
                 NAME,
-                Optional.of(
-                    SpreadsheetSelection.labelName("Label123")
-                )
+                SpreadsheetSelection.labelName("Label123")
             )
         );
 

@@ -228,7 +228,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/column/B:C/right/sort/edit] id=toolbar-sort-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Sort cell(s), column(s), row(s)...\"\n" +
-                "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/label] id=toolbar-label-create-Link\n" +
+                "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-label-create-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Create Label\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
@@ -271,7 +271,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/row/3:4/bottom/sort/edit] id=toolbar-sort-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Sort cell(s), column(s), row(s)...\"\n" +
-                "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/label] id=toolbar-label-create-Link\n" +
+                "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-label-create-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Create Label\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +

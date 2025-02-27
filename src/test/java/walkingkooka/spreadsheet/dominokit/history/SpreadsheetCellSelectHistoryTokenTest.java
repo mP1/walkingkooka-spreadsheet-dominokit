@@ -285,7 +285,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
             HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
-                Optional.of(LABEL)
+                LABEL
             )
         );
     }

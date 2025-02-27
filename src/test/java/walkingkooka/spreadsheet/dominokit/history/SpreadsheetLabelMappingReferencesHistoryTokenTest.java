@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
-import java.util.Optional;
 import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -243,7 +242,7 @@ public final class SpreadsheetLabelMappingReferencesHistoryTokenTest extends Spr
             HistoryToken.labelMappingSelect(
                 ID,
                 NAME,
-                Optional.of(LABEL)
+                LABEL
             )
         );
     }

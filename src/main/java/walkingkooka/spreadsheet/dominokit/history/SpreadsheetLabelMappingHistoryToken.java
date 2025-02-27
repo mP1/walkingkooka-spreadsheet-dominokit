@@ -50,14 +50,6 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
 
     abstract UrlFragment labelUrlFragment();
 
-    final HistoryToken labelMappingSelect() {
-        return HistoryToken.labelMappingSelect(
-            this.id(),
-            this.name(),
-            this.labelName()
-        );
-    }
-
     // parse............................................................................................................
 
     @Override
