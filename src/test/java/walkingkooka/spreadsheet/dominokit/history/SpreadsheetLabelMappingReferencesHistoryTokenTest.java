@@ -25,7 +25,80 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import java.util.Optional;
 import java.util.OptionalInt;
 
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetLabelMappingReferencesHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingReferencesHistoryToken> {
+
+    // offset...........................................................................................................
+
+    @Test
+    public void testOffset() {
+        final SpreadsheetLabelMappingReferencesHistoryToken historyToken = this.createHistoryToken();
+        this.checkEquals(
+            OptionalInt.empty(),
+            historyToken.offset()
+        );
+    }
+
+    @Test
+    public void testOffset2() {
+        final int offset = 123;
+
+        final SpreadsheetLabelMappingReferencesHistoryToken historyToken = SpreadsheetLabelMappingReferencesHistoryToken.with(
+            ID,
+            NAME,
+            LABEL,
+            HistoryTokenOffsetAndCount.EMPTY.setOffset(
+                OptionalInt.of(offset)
+            )
+        );
+        this.checkEquals(
+            OptionalInt.of(offset),
+            historyToken.offset()
+        );
+    }
+
+    // setOffset........................................................................................................
+
+    @Test
+    public void testSetOffsetWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setOffset(null)
+        );
+    }
+
+    @Test
+    public void testSetOffsetWithSame() {
+        final SpreadsheetLabelMappingReferencesHistoryToken historyToken = this.createHistoryToken();
+
+        assertSame(
+            historyToken,
+            historyToken.setOffset(historyToken.offset())
+        );
+    }
+
+    @Test
+    public void testSetOffsetWithDifferent() {
+        final OptionalInt offset = OptionalInt.of(123);
+
+        final SpreadsheetLabelMappingReferencesHistoryToken historyToken = this.createHistoryToken();
+
+        final HistoryToken different = historyToken.setOffset(offset);
+
+        assertNotSame(
+            historyToken,
+            different
+        );
+
+        this.checkEquals(
+            offset,
+            different.offset()
+        );
+    }
 
     // parse............................................................................................................
 
