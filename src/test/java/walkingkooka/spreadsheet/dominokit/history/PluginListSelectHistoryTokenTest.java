@@ -23,6 +23,8 @@ import java.util.OptionalInt;
 
 public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTokenTestCase<PluginListSelectHistoryToken> {
 
+    // parse............................................................................................................
+
     @Test
     public void testParseInvalidOffset() {
         this.parseAndCheck(
@@ -68,6 +70,8 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
         );
     }
 
+    // urlFragment......................................................................................................
+
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
@@ -102,6 +106,8 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
         );
     }
 
+    // clearAction......................................................................................................
+
     @Test
     public void testClearAction() {
         this.clearActionAndCheck(
@@ -110,12 +116,16 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
         );
     }
 
+    // close............................................................................................................
+
     @Test
     public void testClose() {
         this.closeAndCheck(
             HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
+
+    // reload...........................................................................................................
 
     @Test
     public void testReload() {
@@ -130,10 +140,14 @@ public final class PluginListSelectHistoryTokenTest extends PluginListHistoryTok
         );
     }
 
+    // helpers..........................................................................................................
+
     @Override
     PluginListSelectHistoryToken createHistoryToken(final HistoryTokenOffsetAndCount offsetAndCount) {
         return PluginListSelectHistoryToken.with(offsetAndCount);
     }
+
+    // class............................................................................................................
 
     @Override
     public Class<PluginListSelectHistoryToken> type() {
