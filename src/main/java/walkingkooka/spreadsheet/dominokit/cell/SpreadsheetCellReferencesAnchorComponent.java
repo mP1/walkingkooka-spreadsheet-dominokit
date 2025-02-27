@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.reference;
+package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelsHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellReferencesHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -32,20 +32,20 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * Creates a {@link SpreadsheetCellLabelsAnchorComponent} which will display labels for the given {@link SpreadsheetExpressionReference}.
+ * Creates a {@link SpreadsheetCellReferencesAnchorComponent} which will display cell reference for the given {@link SpreadsheetExpressionReference}.
  */
-public final class SpreadsheetCellLabelsAnchorComponent implements AnchorComponentDelegator<SpreadsheetCellLabelsAnchorComponent, SpreadsheetExpressionReference> {
+public final class SpreadsheetCellReferencesAnchorComponent implements AnchorComponentDelegator<SpreadsheetCellReferencesAnchorComponent, SpreadsheetExpressionReference> {
 
-    public static SpreadsheetCellLabelsAnchorComponent with(final String id,
-                                                            final HistoryTokenContext context) {
-        return new SpreadsheetCellLabelsAnchorComponent(
+    public static SpreadsheetCellReferencesAnchorComponent with(final String id,
+                                                                final HistoryTokenContext context) {
+        return new SpreadsheetCellReferencesAnchorComponent(
             id,
             context
         );
     }
 
-    private SpreadsheetCellLabelsAnchorComponent(final String id,
-                                                 final HistoryTokenContext context) {
+    private SpreadsheetCellReferencesAnchorComponent(final String id,
+                                                     final HistoryTokenContext context) {
         this.component = ValueHistoryTokenAnchorComponent.with(
             HistoryTokenAnchorComponent.empty(),
             this::getter,
@@ -60,7 +60,7 @@ public final class SpreadsheetCellLabelsAnchorComponent implements AnchorCompone
      */
     private Optional<SpreadsheetExpressionReference> getter(final HistoryTokenAnchorComponent anchor) {
         return anchor.historyToken()
-            .map(t -> t.cast(SpreadsheetCellLabelsHistoryToken.class)
+            .map(t -> t.cast(SpreadsheetCellReferencesHistoryToken.class)
                 .anchoredSelection()
                 .selection()
                 .toExpressionReference()
@@ -76,14 +76,14 @@ public final class SpreadsheetCellLabelsAnchorComponent implements AnchorCompone
             historyToken = this.context.historyToken()
                 .setAnchoredSelection(
                     value.map(SpreadsheetSelection::setDefaultAnchor)
-                ).labels(HistoryTokenOffsetAndCount.EMPTY);
-            if (false == (historyToken instanceof SpreadsheetCellLabelsHistoryToken)) {
+                ).references(HistoryTokenOffsetAndCount.EMPTY);
+            if (false == (historyToken instanceof SpreadsheetCellReferencesHistoryToken)) {
                 historyToken = null;
             }
             text = value.get()
                 .text();
         } else {
-            text = "Labels";
+            text = "References";
         }
 
         anchor.setHistoryToken(
@@ -97,7 +97,7 @@ public final class SpreadsheetCellLabelsAnchorComponent implements AnchorCompone
     }
 
     @Override
-    public SpreadsheetCellLabelsAnchorComponent setValue(final Optional<SpreadsheetExpressionReference> value) {
+    public SpreadsheetCellReferencesAnchorComponent setValue(final Optional<SpreadsheetExpressionReference> value) {
         this.component.setValue(value);
         return this;
     }
