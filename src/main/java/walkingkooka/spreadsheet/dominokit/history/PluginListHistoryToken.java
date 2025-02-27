@@ -56,7 +56,7 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
         HistoryToken historyToken = this;
 
         switch (component) {
-            case WILDCARD_STRING:
+            case LIST_STRING:
                 historyToken = this.parseOffsetCountReload(cursor);
                 break;
             default:

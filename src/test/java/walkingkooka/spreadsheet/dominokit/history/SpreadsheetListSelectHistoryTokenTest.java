@@ -126,7 +126,7 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     @Test
     public void testParseInvalidOffset() {
         this.parseAndCheck(
-            "/*/offset/X",
+            "/list/offset/X",
             SpreadsheetListSelectHistoryToken.with(HistoryTokenOffsetAndCount.EMPTY)
         );
     }
@@ -134,7 +134,7 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     @Test
     public void testParseOffset() {
         this.parseAndCheck(
-            "/*/offset/10",
+            "/list/offset/10",
             SpreadsheetListSelectHistoryToken.with(
                 HistoryTokenOffsetAndCount.with(
                     OptionalInt.of(10), // offset
@@ -147,7 +147,7 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     @Test
     public void testParseCount() {
         this.parseAndCheck(
-            "/*/count/20",
+            "/list/count/20",
             SpreadsheetListSelectHistoryToken.with(
                 HistoryTokenOffsetAndCount.EMPTY.setCount(
                     OptionalInt.of(20)
@@ -159,7 +159,7 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
     @Test
     public void testParseOffsetAndCount() {
         this.parseAndCheck(
-            "/*/offset/10/count/20",
+            "/list/offset/10/count/20",
             SpreadsheetListSelectHistoryToken.with(
                 HistoryTokenOffsetAndCount.with(
                     OptionalInt.of(10), // offset
@@ -171,7 +171,7 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/*/offset/1/count/23");
+        this.urlFragmentAndCheck("/list/offset/1/count/23");
     }
 
     @Test
@@ -182,7 +182,7 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
                     OptionalInt.of(10)
                 )
             ),
-            "/*/offset/10"
+            "/list/offset/10"
         );
     }
 
@@ -195,7 +195,7 @@ public final class SpreadsheetListSelectHistoryTokenTest extends SpreadsheetList
                     OptionalInt.of(20) // count
                 )
             ),
-            "/*/offset/10/count/20"
+            "/list/offset/10/count/20"
         );
     }
 

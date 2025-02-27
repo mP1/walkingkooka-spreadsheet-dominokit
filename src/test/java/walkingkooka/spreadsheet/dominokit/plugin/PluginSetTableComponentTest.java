@@ -255,8 +255,8 @@ public final class PluginSetTableComponentTest implements TableComponentTesting<
                 "        CHILDREN\n" +
                 "          SpreadsheetFlexLayout\n" +
                 "            ROW\n" +
-                "              mdi-arrow-left \"previous\" [#/plugin/*/offset/7/count/4] id=Table123-previous-Link\n" +
-                "              \"next\" [#/plugin/*/offset/13/count/4] mdi-arrow-right id=Table123-next-Link\n" +
+                "              mdi-arrow-left \"previous\" [#/plugin/list/offset/7/count/4] id=Table123-previous-Link\n" +
+                "              \"next\" [#/plugin/list/offset/13/count/4] mdi-arrow-right id=Table123-next-Link\n" +
                 "        PLUGINS\n" +
                 "          EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n"
         );

@@ -85,7 +85,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
 
     @Test
     public void testTableFullOfPlugins() {
-        final TestAppContext appContext = new TestAppContext("/plugin/*/count/3");
+        final TestAppContext appContext = new TestAppContext("/plugin/list/count/3");
         appContext.savePlugins(4);
 
         final PluginSetDialogComponent dialog = PluginSetDialogComponent.with(
@@ -193,7 +193,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=pluginList-previous-Link\n" +
-                "                    \"next\" [#/plugin/*/offset/2/count/3] mdi-arrow-right id=pluginList-next-Link\n" +
+                "                    \"next\" [#/plugin/list/offset/2/count/3] mdi-arrow-right id=pluginList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
                 "      SpreadsheetFlexLayout\n" +
@@ -205,7 +205,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
 
     @Test
     public void testTableFullOfPluginsOffset1() {
-        final TestAppContext appContext = new TestAppContext("/plugin/*/offset/1/count/3");
+        final TestAppContext appContext = new TestAppContext("/plugin/list/offset/1/count/3");
         appContext.savePlugins(1 + 3 + 1);
 
         final PluginSetDialogComponent dialog = PluginSetDialogComponent.with(
@@ -238,7 +238,7 @@ public final class PluginSetDialogComponentTest implements SpreadsheetDialogComp
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" [#/plugin/*/offset/0/count/3] id=pluginList-previous-Link\n" +
+                "                    mdi-arrow-left \"previous\" [#/plugin/list/offset/0/count/3] id=pluginList-previous-Link\n" +
                 "                    \"next\" DISABLED mdi-arrow-right id=pluginList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No plugins available\"\n" +
