@@ -100,6 +100,75 @@ public final class SpreadsheetLabelMappingReferencesHistoryTokenTest extends Spr
         );
     }
 
+    // count...........................................................................................................
+
+    @Test
+    public void testCount() {
+        final SpreadsheetLabelMappingReferencesHistoryToken historyToken = this.createHistoryToken();
+        this.checkEquals(
+            OptionalInt.empty(),
+            historyToken.count()
+        );
+    }
+
+    @Test
+    public void testCount2() {
+        final int count = 123;
+
+        final SpreadsheetLabelMappingReferencesHistoryToken historyToken = SpreadsheetLabelMappingReferencesHistoryToken.with(
+            ID,
+            NAME,
+            LABEL,
+            HistoryTokenOffsetAndCount.EMPTY.setCount(
+                OptionalInt.of(count)
+            )
+        );
+        this.checkEquals(
+            OptionalInt.of(count),
+            historyToken.count()
+        );
+    }
+
+    // setCount........................................................................................................
+
+    @Test
+    public void testSetCountWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setCount(null)
+        );
+    }
+
+    @Test
+    public void testSetCountWithSame() {
+        final SpreadsheetLabelMappingReferencesHistoryToken historyToken = this.createHistoryToken();
+
+        assertSame(
+            historyToken,
+            historyToken.setCount(historyToken.count())
+        );
+    }
+
+    @Test
+    public void testSetCountWithDifferent() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        final SpreadsheetLabelMappingReferencesHistoryToken historyToken = this.createHistoryToken();
+
+        final HistoryToken different = historyToken.setCount(count);
+
+        assertNotSame(
+            historyToken,
+            different
+        );
+
+        this.checkEquals(
+            count,
+            different.count()
+        );
+    }
+
     // parse............................................................................................................
 
     @Test

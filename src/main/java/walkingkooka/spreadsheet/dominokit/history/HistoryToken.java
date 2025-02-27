@@ -1939,7 +1939,18 @@ public abstract class HistoryToken implements HasUrlFragment,
                                                         count
                                                     );
                                                 } else {
-                                                    with = this;
+                                                    if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
+                                                        final SpreadsheetLabelMappingReferencesHistoryToken references = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class);
+
+                                                        with = labelMappingReferences(
+                                                            references.id(),
+                                                            references.name(),
+                                                            references.labelName,
+                                                            references.offsetAndCount.setCount(count)
+                                                        );
+                                                    } else {
+                                                        with = this;
+                                                    }
                                                 }
                                             }
                                         }
