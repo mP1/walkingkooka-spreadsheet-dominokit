@@ -17,67 +17,57 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.text.cursor.TextCursor;
 
 import java.util.Objects;
 
 /**
- * Saves or updates a new or existing {@link SpreadsheetLabelMapping}.
+ * Lists all the references for a given {@link SpreadsheetLabelName}.
  * <pre>
- * /123/SpreadsheetName456/label/Label123/save/A1
- * /spreadsheet-id/spreadsheet-name/label/selected-label-name/save/target-cell-or-cell-range-or-another-label
+ * /123/SpreadsheetName456/label/Label123
+ * /spreadsheet-id/spreadsheet-name/label/STAR
+ * /spreadsheet-id/spreadsheet-name/label/STAR/offset/0
+ * /spreadsheet-id/spreadsheet-name/label/STAR/offset/0/count/1
+ * /spreadsheet-id/spreadsheet-name/label/STAR/count/0
  * </pre>
+ * The reference portion of a {@link walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping} is not present.
  */
-public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLabelMappingHistoryToken
-    implements Value<SpreadsheetLabelName> {
+public final class SpreadsheetLabelMappingListHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
-    static SpreadsheetLabelMappingSaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetLabelMappingListHistoryToken with(final SpreadsheetId id,
                                                         final SpreadsheetName name,
-                                                        final SpreadsheetLabelMapping mapping) {
-        return new SpreadsheetLabelMappingSaveHistoryToken(
+                                                        final HistoryTokenOffsetAndCount offsetAndCount) {
+        return new SpreadsheetLabelMappingListHistoryToken(
             id,
             name,
-            mapping
+            offsetAndCount
         );
     }
 
-    private SpreadsheetLabelMappingSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetLabelMappingListHistoryToken(final SpreadsheetId id,
                                                     final SpreadsheetName name,
-                                                    final SpreadsheetLabelMapping mapping) {
+                                                    final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
             id,
             name
         );
-        this.mapping = Objects.requireNonNull(mapping, "mapping");
+        this.offsetAndCount = Objects.requireNonNull(offsetAndCount, "offsetAndCount");
     }
 
-    @Override
-    public SpreadsheetLabelName value() {
-        return this.mapping.label();
-    }
+    final HistoryTokenOffsetAndCount offsetAndCount;
 
-    // HistoryToken#labelMappingReference
-    final SpreadsheetLabelMapping mapping;
-
-    // /Label123/save/B2
+    // /
+    // /*/offset/123/count/456
     @Override
     UrlFragment labelUrlFragment() {
-        final SpreadsheetLabelMapping mapping = this.mapping;
-
-        return UrlFragment.with(
-            mapping.label()
-                .value()
-        ).appendSlashThen(
-            saveUrlFragment(
-                mapping.reference()
-                    .toString())
+        return countAndOffsetUrlFragment(
+            this.offsetAndCount,
+            UrlFragment.EMPTY
         );
     }
 
@@ -89,10 +79,9 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
 
     @Override
     public HistoryToken clearAction() {
-        return HistoryToken.labelMappingSelect(
+        return spreadsheetSelect(
             this.id(),
-            this.name(),
-            this.mapping.label()
+            this.name()
         );
     }
 
@@ -103,19 +92,13 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
         return with(
             id,
             name,
-            this.mapping
+            this.offsetAndCount
         );
     }
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        context.pushHistoryToken(previous);
-
-        context.spreadsheetDeltaFetcher()
-            .saveLabelMapping(
-                this.id(),
-                this.mapping
-            );
+        // NOP
     }
 }
