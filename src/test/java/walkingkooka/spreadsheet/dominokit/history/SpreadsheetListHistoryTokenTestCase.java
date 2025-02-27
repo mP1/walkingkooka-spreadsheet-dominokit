@@ -71,6 +71,33 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
     }
 
     @Test
+    public final void testSetListDifferentOffsetAndCount() {
+        final HistoryTokenOffsetAndCount differentCount = HistoryTokenOffsetAndCount.with(
+            OptionalInt.of(111),
+            OptionalInt.of(222)
+        );
+
+        this.setListAndCheck(
+            this.createHistoryToken(HistoryTokenOffsetAndCount.EMPTY),
+            differentCount,
+            this.createHistoryToken(differentCount)
+        );
+    }
+
+    @Test
+    public final void testSetListDifferentOffsetAndCount2() {
+        final HistoryTokenOffsetAndCount differentCount = HistoryTokenOffsetAndCount.EMPTY.setCount(
+            OptionalInt.of(222)
+        );
+
+        this.setListAndCheck(
+            this.createHistoryToken(HistoryTokenOffsetAndCount.EMPTY.setOffset(OptionalInt.of(111))),
+            differentCount,
+            this.createHistoryToken(differentCount)
+        );
+    }
+
+    @Test
     public final void testSetMetadataPropertyName() {
         this.setMetadataPropertyNameAndCheck(
             SpreadsheetMetadataPropertyName.LOCALE

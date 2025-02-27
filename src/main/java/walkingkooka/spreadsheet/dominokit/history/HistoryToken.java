@@ -2467,6 +2467,32 @@ public abstract class HistoryToken implements HasUrlFragment,
         return token;
     }
 
+    // setList..........................................................................................................
+
+    public final HistoryToken setList(final HistoryTokenOffsetAndCount offsetAndCount) {
+        Objects.requireNonNull(offsetAndCount, "offsetAndCount");
+
+        HistoryToken token = this;
+
+        if (this instanceof PluginHistoryToken) {
+            token = pluginListSelect(offsetAndCount);
+        } else {
+            if (false == (this instanceof SpreadsheetListHistoryToken)) {
+                token = spreadsheetListSelect(
+                    offsetAndCount
+                );
+            } else {
+                // SpredsheetListHistoryToken
+                token = this.setOffset(offsetAndCount.offset())
+                    .setCount(offsetAndCount.count());
+            }
+        }
+
+        return token.equals(this) ?
+            this :
+            token;
+    }
+
     // menu.............................................................................................................
 
     public final HistoryToken menu() {
