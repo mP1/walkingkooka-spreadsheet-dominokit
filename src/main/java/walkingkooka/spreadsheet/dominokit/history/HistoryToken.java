@@ -2757,83 +2757,90 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken setOffset(final OptionalInt offset) {
         Objects.requireNonNull(offset, "offset");
 
-        final HistoryToken with;
+        HistoryToken after = this;
 
-        if (this.offset().equals(offset)) {
-            with = this;
-        } else {
-            if (this instanceof PluginListReloadHistoryToken) {
-                with = pluginListReload(
-                    this.cast(PluginListReloadHistoryToken.class)
-                        .offsetAndCount
-                        .setOffset(offset)
-                );
-            } else {
+        if (false == this.offset().equals(offset)) {
+            if (this instanceof PluginHistoryToken) {
+                if (this instanceof PluginListReloadHistoryToken) {
+                    after = pluginListReload(
+                        this.cast(PluginListReloadHistoryToken.class)
+                            .offsetAndCount
+                            .setOffset(offset)
+                    );
+                }
                 if (this instanceof PluginListSelectHistoryToken) {
-                    with = pluginListSelect(
+                    after = pluginListSelect(
                         this.cast(PluginListSelectHistoryToken.class)
                             .offsetAndCount
                             .setOffset(offset)
                     );
-                } else {
-                    if (this instanceof SpreadsheetCellLabelsHistoryToken) {
-                        final SpreadsheetCellLabelsHistoryToken references = this.cast(SpreadsheetCellLabelsHistoryToken.class);
+                }
+            }
 
-                        with = cellLabels(
-                            references.id(),
-                            references.name(),
-                            references.anchoredSelection(),
-                            references.offsetAndCount
+            if (this instanceof SpreadsheetListHistoryToken) {
+                if (this instanceof SpreadsheetListReloadHistoryToken) {
+                    after = spreadsheetListReload(
+                        this.cast(SpreadsheetListReloadHistoryToken.class)
+                            .offsetAndCount
+                            .setOffset(offset)
+                    );
+                }
+                if (this instanceof SpreadsheetListSelectHistoryToken) {
+                    after = spreadsheetListSelect(
+                        this.cast(SpreadsheetListSelectHistoryToken.class)
+                            .offsetAndCount
+                            .setOffset(offset)
+                    );
+                }
+            }
+
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+
+                final SpreadsheetId id = spreadsheetNameHistoryToken.id();
+                final SpreadsheetName name = spreadsheetNameHistoryToken.name();
+
+                if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+                    final AnchoredSpreadsheetSelection anchored = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
+                        .anchoredSelection();
+
+                    if (this instanceof SpreadsheetCellLabelsHistoryToken) {
+                        after = cellLabels(
+                            id,
+                            name,
+                            anchored,
+                            this.cast(SpreadsheetCellLabelsHistoryToken.class)
+                                .offsetAndCount
                                 .setOffset(offset)
                         );
-                    } else {
-                        if (this instanceof SpreadsheetCellReferencesHistoryToken) {
-                            final SpreadsheetCellReferencesHistoryToken references = this.cast(SpreadsheetCellReferencesHistoryToken.class);
-
-                            with = cellReferences(
-                                references.id(),
-                                references.name(),
-                                references.anchoredSelection(),
-                                references.offsetAndCount
-                                    .setOffset(offset)
-                            );
-                        } else {
-                            if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
-                                final SpreadsheetLabelMappingReferencesHistoryToken references = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class);
-
-                                with = labelMappingReferences(
-                                    references.id(),
-                                    references.name(),
-                                    references.labelName,
-                                    references.offsetAndCount
-                                        .setOffset(offset)
-                                );
-                            } else {
-                                if (this instanceof SpreadsheetListReloadHistoryToken) {
-                                    with = spreadsheetListReload(
-                                        this.cast(SpreadsheetListReloadHistoryToken.class)
-                                            .offsetAndCount
-                                            .setOffset(offset)
-                                    );
-                                } else {
-                                    if (this instanceof SpreadsheetListSelectHistoryToken) {
-                                        with = spreadsheetListSelect(
-                                            this.cast(SpreadsheetListSelectHistoryToken.class)
-                                                .offsetAndCount
-                                                .setOffset(offset)
-                                        );
-                                    } else {
-                                        with = this;
-                                    }
-                                }
-                            }
-                        }
                     }
+                    if (this instanceof SpreadsheetCellReferencesHistoryToken) {
+                        after = cellReferences(
+                            id,
+                            name,
+                            anchored,
+                            this.cast(SpreadsheetCellReferencesHistoryToken.class)
+                                .offsetAndCount
+                                .setOffset(offset)
+                        );
+                    }
+                }
+
+                if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
+                    final SpreadsheetLabelMappingReferencesHistoryToken references = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class);
+
+                    after = labelMappingReferences(
+                        id,
+                        name,
+                        references.labelName,
+                        references.offsetAndCount
+                            .setOffset(offset)
+                    );
                 }
             }
         }
 
-        return with;
+        return after;
     }
 
     // HasSpreadsheetPatternKind........................................................................................
