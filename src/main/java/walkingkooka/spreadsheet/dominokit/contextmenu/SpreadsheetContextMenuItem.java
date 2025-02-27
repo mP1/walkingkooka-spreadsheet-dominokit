@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.reference;
+package walkingkooka.spreadsheet.dominokit.contextmenu;
 
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.ToStringBuilder;

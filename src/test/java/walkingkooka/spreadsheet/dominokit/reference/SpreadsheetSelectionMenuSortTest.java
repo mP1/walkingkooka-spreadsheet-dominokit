@@ -28,6 +28,8 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
+import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
