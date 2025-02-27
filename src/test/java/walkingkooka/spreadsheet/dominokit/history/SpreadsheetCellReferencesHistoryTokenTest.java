@@ -59,6 +59,60 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
         );
     }
 
+    // count............................................................................................................
+
+    @Test
+    public void testCount() {
+        this.countAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
+    @Test
+    public void testCount2() {
+        final int count = 123;
+
+        this.countAndCheck(
+            SpreadsheetCellReferencesHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                HistoryTokenOffsetAndCount.EMPTY.setCount(
+                    OptionalInt.of(count)
+                )
+            ),
+            count
+        );
+    }
+
+    // setCount.........................................................................................................
+
+    @Test
+    public void testSetCountWithSame() {
+        final SpreadsheetCellReferencesHistoryToken historyToken = this.createHistoryToken();
+
+        assertSame(
+            historyToken,
+            historyToken.setCount(historyToken.count())
+        );
+    }
+
+    @Test
+    public void testSetCountWithDifferent() {
+        final OptionalInt count = OptionalInt.of(123);
+
+        this.setCountAndCheck(
+            this.createHistoryToken(),
+            count,
+            SpreadsheetCellReferencesHistoryToken.with(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                HistoryTokenOffsetAndCount.EMPTY.setCount(count)
+            )
+        );
+    }
+
     // UrlFragment......................................................................................................
 
     @Test
