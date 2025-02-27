@@ -2869,6 +2869,31 @@ public abstract class HistoryToken implements HasUrlFragment,
         return after;
     }
 
+    static UrlFragment countAndOffsetUrlFragment(final HistoryTokenOffsetAndCount offsetAndCount,
+                                                 final UrlFragment suffix) {
+        UrlFragment urlFragment = UrlFragment.EMPTY;
+
+        boolean addStar = true;
+
+        if(offsetAndCount.isNotEmpty()) {
+            urlFragment = urlFragment.appendSlashThen(LIST)
+                .append(
+                    offsetAndCount.urlFragment()
+                );
+            addStar = false;
+        }
+
+        if (false == suffix.isEmpty()) {
+            if (addStar) {
+                urlFragment = urlFragment.appendSlashThen(LIST);
+            }
+
+            urlFragment = urlFragment.appendSlashThen(suffix);
+        }
+
+        return urlFragment;
+    }
+
     // HasSpreadsheetPatternKind........................................................................................
 
     @Override
@@ -3967,33 +3992,6 @@ public abstract class HistoryToken implements HasUrlFragment,
                     this.setSaveValue(saveText)
                 )
             );
-    }
-
-    // UrlFragment......................................................................................................
-
-    static UrlFragment countAndOffsetUrlFragment(final HistoryTokenOffsetAndCount offsetAndCount,
-                                                 final UrlFragment suffix) {
-        UrlFragment urlFragment = UrlFragment.EMPTY;
-
-        boolean addStar = true;
-
-        if(offsetAndCount.isNotEmpty()) {
-            urlFragment = urlFragment.appendSlashThen(LIST)
-                .append(
-                    offsetAndCount.urlFragment()
-                );
-            addStar = false;
-        }
-
-        if (false == suffix.isEmpty()) {
-            if (addStar) {
-                urlFragment = urlFragment.appendSlashThen(LIST);
-            }
-
-            urlFragment = urlFragment.appendSlashThen(suffix);
-        }
-
-        return urlFragment;
     }
 
     /**
