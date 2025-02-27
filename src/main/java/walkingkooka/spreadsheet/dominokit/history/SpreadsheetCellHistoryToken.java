@@ -225,18 +225,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
         return this.labels(offsetAndCount);
     }
-    
-    private HistoryToken parseReferences(final TextCursor cursor) {
-        HistoryTokenOffsetAndCount offsetAndCount;
-
-        try {
-            offsetAndCount = HistoryTokenOffsetAndCount.parse(cursor);
-        } catch (final IllegalArgumentException cause) {
-            offsetAndCount = HistoryTokenOffsetAndCount.EMPTY;
-        }
-
-        return this.references(offsetAndCount);
-    }
 
     private static String parseComponentOrNull(final TextCursor cursor) {
         return parseComponent(cursor)

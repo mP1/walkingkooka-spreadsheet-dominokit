@@ -4002,6 +4002,35 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelReferences() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/label/Label123/references",
+            HistoryToken.labelMappingReferences(
+                ID,
+                NAME,
+                LABEL,
+                HistoryTokenOffsetAndCount.EMPTY
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameLabelReferencesOffsetCount() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/label/Label123/references/offset/123/count/456",
+            HistoryToken.labelMappingReferences(
+                ID,
+                NAME,
+                LABEL,
+                HistoryTokenOffsetAndCount.with(
+                    OptionalInt.of(123),
+                    OptionalInt.of(456)
+                )
+            )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelSaveMissingReference() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/label/Label123/save",
