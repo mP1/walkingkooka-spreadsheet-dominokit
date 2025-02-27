@@ -41,9 +41,11 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -160,6 +162,57 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             expected,
             token.close(),
             () -> token + " close"
+        );
+    }
+
+    // count............................................................................................................
+
+    final void countAndCheck(final HistoryToken historyToken) {
+        this.countAndCheck(
+            historyToken,
+            OptionalInt.empty()
+        );
+    }
+
+    final void countAndCheck(final HistoryToken historyToken,
+                             final int expected) {
+        this.countAndCheck(
+            historyToken,
+            OptionalInt.of(expected)
+        );
+    }
+
+    final void countAndCheck(final HistoryToken historyToken,
+                             final OptionalInt expected) {
+        this.checkEquals(
+            expected,
+            historyToken.count()
+        );
+    }
+
+    // setCount.........................................................................................................
+
+    @Test
+    public final void testSetCountWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setCount(null)
+        );
+    }
+
+    final void setCountAndCheck(final HistoryToken historyToken,
+                                final OptionalInt count,
+                                final HistoryToken expected) {
+        final HistoryToken set = historyToken.setCount(count);
+        assertNotSame(
+            set,
+            historyToken
+        );
+
+        this.checkEquals(
+            expected,
+            set
         );
     }
 
