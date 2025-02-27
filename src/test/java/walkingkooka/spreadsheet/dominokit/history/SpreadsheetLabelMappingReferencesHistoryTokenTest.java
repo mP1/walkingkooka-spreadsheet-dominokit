@@ -27,7 +27,6 @@ import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetLabelMappingReferencesHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase<SpreadsheetLabelMappingReferencesHistoryToken> {
 
@@ -61,15 +60,6 @@ public final class SpreadsheetLabelMappingReferencesHistoryTokenTest extends Spr
     }
 
     // setOffset........................................................................................................
-
-    @Test
-    public void testSetOffsetWithNullFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> this.createHistoryToken()
-                .setOffset(null)
-        );
-    }
 
     @Test
     public void testSetOffsetWithSame() {

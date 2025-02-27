@@ -551,6 +551,57 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // offset...........................................................................................................
+
+    final void offsetAndCheck(final HistoryToken historyToken) {
+        this.offsetAndCheck(
+            historyToken,
+            OptionalInt.empty()
+        );
+    }
+
+    final void offsetAndCheck(final HistoryToken historyToken,
+                             final int expected) {
+        this.offsetAndCheck(
+            historyToken,
+            OptionalInt.of(expected)
+        );
+    }
+
+    final void offsetAndCheck(final HistoryToken historyToken,
+                             final OptionalInt expected) {
+        this.checkEquals(
+            expected,
+            historyToken.offset()
+        );
+    }
+
+    // setOffset.........................................................................................................
+
+    @Test
+    public final void testSetOffsetWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setOffset(null)
+        );
+    }
+
+    final void setOffsetAndCheck(final HistoryToken historyToken,
+                                final OptionalInt offset,
+                                final HistoryToken expected) {
+        final HistoryToken set = historyToken.setOffset(offset);
+        assertNotSame(
+            set,
+            historyToken
+        );
+
+        this.checkEquals(
+            expected,
+            set
+        );
+    }
+    
     // patternKind......................................................................................................
 
     final void patternKindAndCheck(final HistoryToken token) {

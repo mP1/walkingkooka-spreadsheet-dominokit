@@ -2755,6 +2755,8 @@ public abstract class HistoryToken implements HasUrlFragment,
      * Would be setter that tries to replace the {@link #offset()} with new value.
      */
     public final HistoryToken setOffset(final OptionalInt offset) {
+        Objects.requireNonNull(offset, "offset");
+
         final HistoryToken with;
 
         if (this.offset().equals(offset)) {
