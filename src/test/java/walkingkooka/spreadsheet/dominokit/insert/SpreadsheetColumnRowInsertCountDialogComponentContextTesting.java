@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.columnrow;
+package walkingkooka.spreadsheet.dominokit.insert;
 
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
 
