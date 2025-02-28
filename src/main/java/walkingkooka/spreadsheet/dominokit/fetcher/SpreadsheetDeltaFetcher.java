@@ -26,7 +26,6 @@ import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.header.LinkRelation;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.net.http.server.hateos.HateosResourceName;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetHateosResourceNames;
 import walkingkooka.spreadsheet.SpreadsheetId;
@@ -848,15 +847,13 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     static RelativeUrl url(final SpreadsheetId id,
                            final SpreadsheetLabelName labelName) {
         return SpreadsheetMetadataFetcher.url(id)
-            .appendPathName(LABEL.toUrlPathName())
+            .appendPathName(SpreadsheetHateosResourceNames.LABEL.toUrlPathName())
             .appendPath(
                 UrlPath.parse(
                     labelName.value()
                 )
             );
     }
-
-    private final static HateosResourceName LABEL = HateosResourceName.with("label");
 
     // checkXXX.........................................................................................................
 
