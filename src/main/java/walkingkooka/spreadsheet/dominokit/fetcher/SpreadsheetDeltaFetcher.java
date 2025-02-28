@@ -52,7 +52,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
-import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaHttpMappings;
+import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaUrlQueryParameters;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -318,7 +318,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 id,
                 selection
             ).appendPathName(
-                SpreadsheetDeltaHttpMappings.CLEAR.toUrlPathName()
+                SpreadsheetServerLinkRelations.CLEAR.toUrlPathName()
             ).setQuery(
                 context.viewportAndWindowQueryString()
             ),
@@ -366,7 +366,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                         .toStringMaybeStar()
                 )
             ).appendPathName(
-                SpreadsheetDeltaHttpMappings.FIND.toUrlPathName()
+                SpreadsheetServerLinkRelations.FIND.toUrlPathName()
             ).setQuery(
                 find.toUrlQueryString()
             );
@@ -379,7 +379,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.insertColumnOrRow(
             id,
             selection,
-            SpreadsheetDeltaHttpMappings.INSERT_AFTER,
+            SpreadsheetServerLinkRelations.INSERT_AFTER,
             count
         );
     }
@@ -391,7 +391,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.insertColumnOrRow(
             id,
             selection,
-            SpreadsheetDeltaHttpMappings.INSERT_BEFORE,
+            SpreadsheetServerLinkRelations.INSERT_BEFORE,
             count
         );
     }
@@ -403,7 +403,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.insertColumnOrRow(
             id,
             selection,
-            SpreadsheetDeltaHttpMappings.INSERT_AFTER,
+            SpreadsheetServerLinkRelations.INSERT_AFTER,
             count
         );
     }
@@ -415,7 +415,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         this.insertColumnOrRow(
             id,
             selection,
-            SpreadsheetDeltaHttpMappings.INSERT_BEFORE,
+            SpreadsheetServerLinkRelations.INSERT_BEFORE,
             count
         );
     }
@@ -782,7 +782,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 id,
                 selection
             ).appendPathName(
-                SpreadsheetDeltaHttpMappings.SORT.toUrlPathName()
+                SpreadsheetServerLinkRelations.SORT.toUrlPathName()
             ).setQuery(
                 this.context.viewportAndWindowQueryString()
                     .addParameter(
