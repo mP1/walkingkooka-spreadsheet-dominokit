@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.reference;
+package walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference;
 
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;

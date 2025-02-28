@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaSelectAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetExpressionReferenceSelectAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference.SpreadsheetExpressionReferenceSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;

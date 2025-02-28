@@ -36,7 +36,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelHistoryTok
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetExpressionReferenceComponent;
+import walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
