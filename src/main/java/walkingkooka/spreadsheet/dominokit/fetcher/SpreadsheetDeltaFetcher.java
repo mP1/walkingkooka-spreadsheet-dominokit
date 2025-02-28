@@ -475,6 +475,35 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     }
 
     /**
+     * Invokes the end-point
+     * <pre>
+     * GET /api/spreadsheet/{SpreadsheetId}/label/{reference}/references?offset=1&count=1
+     * </pre>
+     */
+    public void loadLabelReferences(final SpreadsheetId id,
+                                    final SpreadsheetLabelName label,
+                                    final int offset,
+                                    final int count) {
+        final UrlQueryString queryString = UrlQueryString.parse("offset=" + offset + "&count=" + count);
+
+        // GET /api/spreadsheet/{SpreadsheetId}/label/{label}/references?offset=1&count=1
+        this.get(
+            SpreadsheetMetadataFetcher.url(
+                    id
+                ).appendPath(
+                    UrlPath.parse(
+                        "" +
+                            SpreadsheetHateosResourceNames.LABEL +
+                            UrlPath.SEPARATOR +
+                            label.toStringMaybeStar() +
+                            UrlPath.SEPARATOR
+                    )
+                ).appendPathName(SpreadsheetServerLinkRelations.REFERENCES.toUrlPathName())
+                .setQuery(queryString)
+        );
+    }
+
+    /**
      * Deletes the cells also passing the viewport.
      */
     public void deleteCells(final SpreadsheetId id,
