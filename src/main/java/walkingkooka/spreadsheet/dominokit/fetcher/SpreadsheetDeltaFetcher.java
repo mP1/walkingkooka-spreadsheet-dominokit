@@ -449,6 +449,34 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     /**
      * Invokes the end-point
      * <pre>
+     * GET /api/spreadsheet/{SpreadsheetId}/cell/{reference}/labels?offset=1&count=1
+     * </pre>
+     */
+    public void loadCellLabels(final SpreadsheetId id,
+                               final SpreadsheetExpressionReference reference,
+                               final int offset,
+                               final int count) {
+        final UrlQueryString queryString = UrlQueryString.parse("offset=" + offset + "&count=" + count);
+
+        // GET /api/spreadsheet/{SpreadsheetId}/cell/{reference}/labels?offset=1&count=1
+        this.get(
+            SpreadsheetMetadataFetcher.url(
+                    id
+                ).appendPath(
+                    UrlPath.parse(
+                        reference.cellColumnOrRowText() +
+                            UrlPath.SEPARATOR +
+                            reference.toStringMaybeStar() +
+                            UrlPath.SEPARATOR
+                    )
+                ).appendPathName(SpreadsheetServerLinkRelations.LABELS.toUrlPathName())
+                .setQuery(queryString)
+        );
+    }
+
+    /**
+     * Invokes the end-point
+     * <pre>
      * GET /api/spreadsheet/{SpreadsheetId}/cell/{reference}/references?offset=1&count=1
      * </pre>
      */
