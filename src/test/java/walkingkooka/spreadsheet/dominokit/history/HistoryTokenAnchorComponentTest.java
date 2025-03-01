@@ -23,15 +23,60 @@ import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.Url;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
+import java.util.OptionalInt;
 
 public final class HistoryTokenAnchorComponentTest implements HtmlElementComponentTesting<HistoryTokenAnchorComponent, HTMLAnchorElement> {
+
+    // setCount.........................................................................................................
+
+    private final static Optional<HistoryToken> CELL_REFERENCES_HISTORY_TOKEN = Optional.of(
+        HistoryToken.cellReferences(
+            SpreadsheetId.with(1),
+            SpreadsheetName.with("Spreadsheet222"),
+            SpreadsheetSelection.A1.setDefaultAnchor(),
+            HistoryTokenOffsetAndCount.EMPTY
+        )
+    );
+
+    @Test
+    public void testSetCountWithEmpty() {
+        this.treePrintAndCheck(
+            HistoryTokenAnchorComponent.empty()
+                .setHistoryToken(CELL_REFERENCES_HISTORY_TOKEN)
+                .setCount(OptionalInt.empty()),
+            "[#/1/Spreadsheet222/cell/A1/references]"
+        );
+    }
+
+    @Test
+    public void testSetCountWithZero() {
+        this.treePrintAndCheck(
+            HistoryTokenAnchorComponent.empty()
+                .setHistoryToken(CELL_REFERENCES_HISTORY_TOKEN)
+                .setCount(OptionalInt.of(0)),
+            "[#/1/Spreadsheet222/cell/A1/references] (0)"
+        );
+    }
+
+    @Test
+    public void testSetCountWithNonZero() {
+        this.treePrintAndCheck(
+            HistoryTokenAnchorComponent.empty()
+                .setHistoryToken(CELL_REFERENCES_HISTORY_TOKEN)
+                .setCount(OptionalInt.of(123)),
+            "[#/1/Spreadsheet222/cell/A1/references] (123)"
+        );
+    }
 
     // historyToken.....................................................................................................
 

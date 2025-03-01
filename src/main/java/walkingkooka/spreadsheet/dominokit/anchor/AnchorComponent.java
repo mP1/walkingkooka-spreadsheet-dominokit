@@ -23,7 +23,9 @@ import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 
+import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 
 /**
  * Defines some operations common to all anchor and anchor like components.
@@ -90,6 +92,21 @@ public interface AnchorComponent<A extends AnchorComponent<A, T>, T> extends Val
      * Sets the text for a badge that appears to the right of the anchor. Empty text removes the badge completely.
      */
     A setBadge(final String text);
+
+    // count............................................................................................................
+
+    /**
+     * Sets the text for the badge to the given count value.
+     */
+    default A setCount(final OptionalInt count) {
+        Objects.requireNonNull(count, "count");
+
+        return (A) this.setBadge(
+            count.isPresent() ?
+                String.valueOf(count.getAsInt()) :
+                ""
+        );
+    }
 
     // iconBefore | text Content | iconAfter
 
