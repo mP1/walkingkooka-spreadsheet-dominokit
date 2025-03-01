@@ -82,6 +82,15 @@ public interface AnchorComponent<A extends AnchorComponent<A, T>, T> extends Val
 
     A setTextContent(final String text);
 
+    // badge............................................................................................................
+
+    String badge();
+
+    /**
+     * Sets the text for a badge that appears to the right of the anchor. Empty text removes the badge completely.
+     */
+    A setBadge(final String text);
+
     // iconBefore | text Content | iconAfter
 
     // iconBefore......................................................................................................
