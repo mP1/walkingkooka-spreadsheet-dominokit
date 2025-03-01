@@ -135,8 +135,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -236,8 +236,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -337,8 +337,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -436,8 +436,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -537,21 +537,21 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=find-cells-A1-Link\n" +
                 "                  \"A1\" [#/123/SpreadsheetName456/cell/A1/formula] id=find-cells-A1-formula-Link\n" +
-                "                  SpreadsheetTextNodeComponent\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"\"\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
                 "                ROW 1\n" +
                 "                  \"B2\" [#/123/SpreadsheetName456/cell/B2] id=find-cells-B2-Link\n" +
                 "                  \"B2\" [#/123/SpreadsheetName456/cell/B2/formula] id=find-cells-B2-formula-Link\n" +
-                "                  SpreadsheetTextNodeComponent\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"\"\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -649,8 +649,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -748,8 +748,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -847,8 +847,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -946,8 +946,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -1045,8 +1045,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -1144,8 +1144,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -1243,8 +1243,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -1342,8 +1342,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -1441,8 +1441,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -1540,8 +1540,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
-                "                Formatted\n" +
                 "                Value\n" +
+                "                Formatted\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
