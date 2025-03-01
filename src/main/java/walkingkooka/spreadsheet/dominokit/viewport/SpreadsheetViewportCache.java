@@ -165,7 +165,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * A cache of cells, this allows partial updates such as a single cell and still be able to render a complete viewport.
      */
     // VisibleForTesting
-    final SortedMap<SpreadsheetCellReference, SpreadsheetCell> cells = Maps.sorted();
+    final SortedMap<SpreadsheetCellReference, SpreadsheetCell> cells = Maps.sorted(SpreadsheetSelection.IGNORES_REFERENCE_KIND_COMPARATOR);
 
     /**
      * Returns a {@link Set} with all the labels for the given {@link SpreadsheetCellReference}.
@@ -181,7 +181,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * A cache of cell references and their one or more labels.
      */
     // VisibleForTesting
-    final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = Maps.sorted();
+    final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = Maps.sorted(SpreadsheetSelection.IGNORES_REFERENCE_KIND_COMPARATOR);
 
     public boolean isMatchedCell(final SpreadsheetCellReference cell) {
         return this.matchedCells.contains(cell);
@@ -211,7 +211,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * A cache of columns, this is used mostly to track hidden columns.
      */
     // VisibleForTesting
-    final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = Maps.sorted();
+    final Map<SpreadsheetColumnReference, SpreadsheetColumn> columns = Maps.sorted(SpreadsheetSelection.IGNORES_REFERENCE_KIND_COMPARATOR);
 
     /**
      * Retrieves the width for the given {@link SpreadsheetColumnReference} using the default if none is available.
@@ -230,7 +230,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * A cache holding the max width for interesting columns. If the column is hidden it will have a width of zero.
      */
     // VisibleForTesting
-    final Map<SpreadsheetColumnReference, Length<?>> columnWidths = Maps.sorted();
+    final Map<SpreadsheetColumnReference, Length<?>> columnWidths = Maps.sorted(SpreadsheetSelection.IGNORES_REFERENCE_KIND_COMPARATOR);
 
     // @VisibleForTesting
     Length<?> defaultWidth;
@@ -283,7 +283,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     /**
      * A cache of {@link SpreadsheetLabelMapping} expanded to {@link SpreadsheetLabelName} to its {@link walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference}.
      */
-    final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel = Maps.sorted();
+    final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel = Maps.sorted(SpreadsheetSelection.IGNORES_REFERENCE_KIND_COMPARATOR);
 
     Optional<SpreadsheetRow> row(final SpreadsheetRowReference row) {
         return Optional.ofNullable(this.rows.get(row));
@@ -303,7 +303,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * A cache of rows, this is used mostly to track hidden rows.
      */
     // VisibleForTesting
-    final Map<SpreadsheetRowReference, SpreadsheetRow> rows = Maps.sorted();
+    final Map<SpreadsheetRowReference, SpreadsheetRow> rows = Maps.sorted(SpreadsheetSelection.IGNORES_REFERENCE_KIND_COMPARATOR);
 
     /**
      * Retrieves the height for the given {@link SpreadsheetRowReference} using the default if none is available.
@@ -322,7 +322,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * A cache holding the max height for interesting rows. If the row is hidden it will have a height of zero.
      */
     // VisibleForTesting
-    final Map<SpreadsheetRowReference, Length<?>> rowHeights = Maps.sorted();
+    final Map<SpreadsheetRowReference, Length<?>> rowHeights = Maps.sorted(SpreadsheetSelection.IGNORES_REFERENCE_KIND_COMPARATOR);
 
     // @VisibleForTesting
     Length<?> defaultHeight;
