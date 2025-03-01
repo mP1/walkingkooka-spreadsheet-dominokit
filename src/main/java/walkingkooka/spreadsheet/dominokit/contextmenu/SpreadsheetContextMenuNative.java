@@ -29,13 +29,13 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import org.dominokit.domino.ui.utils.PrefixAddOn;
 import org.dominokit.domino.ui.utils.Separator;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenMenuItem;
 
 import java.util.Optional;
 
-import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_orange;
 import static org.dominokit.domino.ui.style.SpacingCss.dui_font_size_5;
 import static org.dominokit.domino.ui.style.SpacingCss.dui_rounded_full;
 
@@ -84,14 +84,17 @@ final class SpreadsheetContextMenuNative {
         }
 
         if (badge.isPresent()) {
+            final String badgeText = badge.get();
+
             menuItem.appendChild(
                 PostfixAddOn.of(
-                    Badge.create(
-                        badge.get()
-                    ).addCss(
-                        dui_bg_orange,
-                        dui_rounded_full
-                    )
+                    Badge.create(badgeText)
+                        .addCss(
+                            "0".equals(badgeText) ?
+                                SpreadsheetDominoKitColor.BADGE_ZERO_COLOR :
+                                SpreadsheetDominoKitColor.BADGE_NON_ZERO_COLOR,
+                            dui_rounded_full
+                        )
                 )
             );
         }
