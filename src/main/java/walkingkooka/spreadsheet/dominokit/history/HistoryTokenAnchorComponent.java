@@ -29,6 +29,7 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.net.Url;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.tooltip.SpreadsheetTooltipComponent;
 import walkingkooka.text.CharSequences;
@@ -36,7 +37,6 @@ import walkingkooka.text.CharSequences;
 import java.util.Objects;
 import java.util.Optional;
 
-import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_orange;
 import static org.dominokit.domino.ui.style.SpacingCss.dui_rounded_xl;
 
 /**
@@ -270,7 +270,6 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
             if (null == badge) {
                 badge = Badge.create(badgeText)
                     .addCss(
-                        dui_bg_orange,
                         dui_rounded_xl
                     );
                 this.element.appendChild(
@@ -279,6 +278,17 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
                 this.badge = badge;
             }
             badge.setTextContent(badgeText);
+
+            final boolean zero = badgeText.equals("0");
+            this.badge.addCss(
+                zero ?
+                    SpreadsheetDominoKitColor.BADGE_ZERO_COLOR :
+                    SpreadsheetDominoKitColor.BADGE_NON_ZERO_COLOR
+            ).removeCss(
+                zero ?
+                    SpreadsheetDominoKitColor.BADGE_NON_ZERO_COLOR :
+                    SpreadsheetDominoKitColor.BADGE_ZERO_COLOR
+            );
         }
 
         return this;
