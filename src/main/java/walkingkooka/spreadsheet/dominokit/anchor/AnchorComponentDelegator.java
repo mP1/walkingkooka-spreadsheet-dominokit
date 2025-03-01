@@ -123,6 +123,17 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
     }
 
     @Override
+    default String badge() {
+        return this.anchorComponent().badge();
+    }
+
+    @Override
+    default A setBadge(final String text) {
+        this.anchorComponent().setBadge(text);
+        return (A) this;
+    }
+
+    @Override
     default Optional<Icon<?>> iconBefore() {
         return this.anchorComponent()
             .iconBefore();
