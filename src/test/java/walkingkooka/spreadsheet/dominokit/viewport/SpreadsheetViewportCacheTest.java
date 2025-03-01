@@ -149,24 +149,24 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     public void testEmpty() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache
         );
 
-        this.checkMatchedCells(
+        this.matchedCellsAndCheck(
             cache
         );
 
-        this.checkColumns(
+        this.columnsAndCheck(
             cache
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             Maps.empty()
         );
 
-        this.checkRows(
+        this.rowsAndCheck(
             cache
         );
     }
@@ -252,33 +252,33 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL,
             A2_CELL,
             A3_CELL
         );
 
-        this.checkMatchedCells(
+        this.matchedCellsAndCheck(
             cache,
             A1,
             A2
         );
 
-        this.checkColumns(
+        this.columnsAndCheck(
             cache,
             COLUMN_A,
             COLUMN_B
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGA1B,
             LABEL_MAPPINGB3
         );
 
-        this.checkRows(
+        this.rowsAndCheck(
             cache,
             ROW_1,
             ROW_2
@@ -286,10 +286,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
         cache.clear();
 
-        this.checkCells(cache);
-        this.checkColumns(cache);
-        this.checkCellToLabels(cache);
-        this.checkRows(cache);
+        this.cellsAndCheck(cache);
+        this.columnsAndCheck(cache);
+        this.cellToLabelsAndCheck(cache);
+        this.rowsAndCheck(cache);
     }
 
     // onSpreadsheetMetadata...........................................................................................
@@ -371,7 +371,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             b2
         );
@@ -426,7 +426,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             b2
         );
@@ -458,7 +458,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             c3
         );
@@ -498,27 +498,27 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL,
             A2_CELL,
             A3_CELL
         );
 
-        this.checkColumns(
+        this.columnsAndCheck(
             cache,
             COLUMN_A,
             COLUMN_B
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGA1B,
             LABEL_MAPPINGB3
         );
 
-        this.checkRows(
+        this.rowsAndCheck(
             cache,
             ROW_1,
             ROW_2
@@ -559,20 +559,20 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL,
             A2_CELL,
             A3_CELL
         );
 
-        this.checkColumns(
+        this.columnsAndCheck(
             cache,
             COLUMN_A,
             COLUMN_B
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGA1B,
@@ -580,7 +580,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
 
 
-        this.checkRows(
+        this.rowsAndCheck(
             cache,
             ROW_1,
             ROW_2
@@ -609,12 +609,12 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL1.setLabelMappingReference(A1),
             LABEL1.setLabelMappingReference(A2)
@@ -645,12 +645,12 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             Maps.of(
                 A1,
@@ -695,12 +695,12 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL
         );
 
-        this.checkMatchedCells(
+        this.matchedCellsAndCheck(
             cache,
             A1
         );
@@ -753,7 +753,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkColumns(
+        this.columnsAndCheck(
             cache,
             COLUMN_A.setHidden(false),
             COLUMN_B.setHidden(false)
@@ -794,7 +794,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkColumns(
+        this.columnsAndCheck(
             cache,
             COLUMN_A.setHidden(false),
             COLUMN_B.setHidden(true)
@@ -835,7 +835,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkColumns(
+        this.columnsAndCheck(
             cache,
             COLUMN_B
         );
@@ -874,7 +874,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1B
         );
@@ -921,7 +921,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGA1B
@@ -966,12 +966,12 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A2_CELL
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A
         );
@@ -1021,19 +1021,19 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
         // A1_CELL and LABEL_MAPPINGA1A not lost
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL,
             A2_CELL
         );
 
-        this.checkMatchedCells(
+        this.matchedCellsAndCheck(
             cache,
             A1,
             A2
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGB3
@@ -1072,17 +1072,17 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL
         );
 
-        this.checkMatchedCells(
+        this.matchedCellsAndCheck(
             cache,
             A1
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A
         );
@@ -1128,17 +1128,17 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A2_CELL
         );
 
-        this.checkMatchedCells(
+        this.matchedCellsAndCheck(
             cache,
             A2
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGB3
         );
@@ -1188,19 +1188,19 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL,
             A2_CELL
         );
 
-        this.checkMatchedCells(
+        this.matchedCellsAndCheck(
             cache,
             A1,
             A2
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGB3
@@ -1243,7 +1243,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkRows(
+        this.rowsAndCheck(
             cache,
             ROW_1.setHidden(false),
             ROW_2.setHidden(false)
@@ -1284,7 +1284,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkRows(
+        this.rowsAndCheck(
             cache,
             ROW_1.setHidden(false),
             ROW_2.setHidden(true)
@@ -1325,7 +1325,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkRows(
+        this.rowsAndCheck(
             cache,
             ROW_2
         );
@@ -1350,7 +1350,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkColumnsWidths(
+        this.columnsWidthsAndCheck(
             cache,
             Maps.of(
                 A, 10.0,
@@ -1390,7 +1390,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkColumnsWidths(
+        this.columnsWidthsAndCheck(
             cache,
             Maps.of(
                 A, 100.0,
@@ -1445,7 +1445,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL,
             A2_CELL,
@@ -1514,7 +1514,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL,
             A2_CELL,
@@ -1569,7 +1569,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL,
             A2_CELL,
@@ -1625,7 +1625,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL,
             A2_CELL,
@@ -1679,7 +1679,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A1_CELL,
             A2_CELL,
@@ -1783,7 +1783,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkLabelMappings(
+        this.labelMappingsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGA1B,
@@ -1807,7 +1807,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkLabelMappings(
+        this.labelMappingsAndCheck(
             cache,
             LABEL_MAPPINGA1A
         );
@@ -1825,7 +1825,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkLabelMappings(
+        this.labelMappingsAndCheck(
             cache,
             LABEL_MAPPINGA1B,
             LABEL_MAPPINGB3
@@ -1851,7 +1851,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkRowsHeights(
+        this.rowsHeightsAndCheck(
             cache,
             Maps.of(
                 ROW_REF_1, 10.0,
@@ -1891,7 +1891,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkRowsHeights(
+        this.rowsHeightsAndCheck(
             cache,
             Maps.of(
                 ROW_REF_1, 100.0,
@@ -2182,7 +2182,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGA1B
@@ -2238,7 +2238,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             Maps.of(
                 B3,
@@ -2294,7 +2294,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             Maps.of(
                 B3,
@@ -2349,7 +2349,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             Maps.of(
                 B3,
@@ -2407,7 +2407,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             Maps.of(
                 B3,
@@ -2468,7 +2468,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             Maps.of(
                 A1,
@@ -2549,7 +2549,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             Maps.of(
                 A1,
@@ -3598,8 +3598,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         }
     }
 
-    private void checkCells(final SpreadsheetViewportCache cache,
-                            final SpreadsheetCell... expected) {
+    private void cellsAndCheck(final SpreadsheetViewportCache cache,
+                               final SpreadsheetCell... expected) {
         final Map<SpreadsheetCellReference, SpreadsheetCell> expectedMaps = Maps.ordered();
         for (final SpreadsheetCell cell : expected) {
             expectedMaps.put(
@@ -3608,14 +3608,14 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             );
         }
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             expectedMaps
         );
     }
 
-    private void checkCells(final SpreadsheetViewportCache cache,
-                            final Map<SpreadsheetCellReference, SpreadsheetCell> expected) {
+    private void cellsAndCheck(final SpreadsheetViewportCache cache,
+                               final Map<SpreadsheetCellReference, SpreadsheetCell> expected) {
         this.checkEquals(
             expected,
             cache.cells,
@@ -3632,9 +3632,9 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         }
     }
 
-    private void checkMatchedCells(final SpreadsheetViewportCache cache,
-                                   final SpreadsheetCellReference... cells) {
-        this.checkMatchedCells(
+    private void matchedCellsAndCheck(final SpreadsheetViewportCache cache,
+                                      final SpreadsheetCellReference... cells) {
+        this.matchedCellsAndCheck(
             cache,
             Sets.of(cells)
         );
@@ -3648,8 +3648,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         }
     }
 
-    private void checkMatchedCells(final SpreadsheetViewportCache cache,
-                                   final Set<SpreadsheetCellReference> matchedCells) {
+    private void matchedCellsAndCheck(final SpreadsheetViewportCache cache,
+                                      final Set<SpreadsheetCellReference> matchedCells) {
         this.checkEquals(
             matchedCells,
             cache.matchedCells,
@@ -3678,8 +3678,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
     }
 
-    private void checkColumns(final SpreadsheetViewportCache cache,
-                              final SpreadsheetColumn... expected) {
+    private void columnsAndCheck(final SpreadsheetViewportCache cache,
+                                 final SpreadsheetColumn... expected) {
         final Map<SpreadsheetColumnReference, SpreadsheetColumn> expectedMaps = Maps.ordered();
         for (final SpreadsheetColumn column : expected) {
             expectedMaps.put(
@@ -3688,14 +3688,14 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             );
         }
 
-        this.checkColumns(
+        this.columnsAndCheck(
             cache,
             expectedMaps
         );
     }
 
-    private void checkColumns(final SpreadsheetViewportCache cache,
-                              final Map<SpreadsheetColumnReference, SpreadsheetColumn> expected) {
+    private void columnsAndCheck(final SpreadsheetViewportCache cache,
+                                 final Map<SpreadsheetColumnReference, SpreadsheetColumn> expected) {
         this.checkEquals(
             expected,
             cache.columns,
@@ -3712,8 +3712,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         }
     }
 
-    private void checkColumnsWidths(final SpreadsheetViewportCache cache,
-                                    final Map<SpreadsheetColumnReference, Double> expected) {
+    private void columnsWidthsAndCheck(final SpreadsheetViewportCache cache,
+                                       final Map<SpreadsheetColumnReference, Double> expected) {
         final Map<SpreadsheetColumnReference, Length<?>> expectedLengths = Maps.ordered();
         for (final Entry<SpreadsheetColumnReference, Double> widths : expected.entrySet()) {
             expectedLengths.put(
@@ -3759,16 +3759,16 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
     }
 
-    private void checkLabelMappings(final SpreadsheetViewportCache cache,
-                                    final SpreadsheetLabelMapping... mappings) {
-        this.checkLabelMappings(
+    private void labelMappingsAndCheck(final SpreadsheetViewportCache cache,
+                                       final SpreadsheetLabelMapping... mappings) {
+        this.labelMappingsAndCheck(
             cache,
             Sets.of(mappings)
         );
     }
 
-    private void checkLabelMappings(final SpreadsheetViewportCache cache,
-                                    final Set<SpreadsheetLabelMapping> mappings) {
+    private void labelMappingsAndCheck(final SpreadsheetViewportCache cache,
+                                       final Set<SpreadsheetLabelMapping> mappings) {
         this.checkEquals(
             mappings,
             cache.labelMappings(),
@@ -3776,8 +3776,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
     }
 
-    private void checkRows(final SpreadsheetViewportCache cache,
-                           final SpreadsheetRow... expected) {
+    private void rowsAndCheck(final SpreadsheetViewportCache cache,
+                              final SpreadsheetRow... expected) {
         final Map<SpreadsheetRowReference, SpreadsheetRow> expectedMaps = Maps.ordered();
         for (final SpreadsheetRow row : expected) {
             expectedMaps.put(
@@ -3786,14 +3786,14 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             );
         }
 
-        this.checkRows(
+        this.rowsAndCheck(
             cache,
             expectedMaps
         );
     }
 
-    private void checkRows(final SpreadsheetViewportCache cache,
-                           final Map<SpreadsheetRowReference, SpreadsheetRow> expected) {
+    private void rowsAndCheck(final SpreadsheetViewportCache cache,
+                              final Map<SpreadsheetRowReference, SpreadsheetRow> expected) {
         this.checkEquals(
             expected,
             cache.rows,
@@ -3810,8 +3810,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         }
     }
 
-    private void checkRowsHeights(final SpreadsheetViewportCache cache,
-                                  final Map<SpreadsheetRowReference, Double> expected) {
+    private void rowsHeightsAndCheck(final SpreadsheetViewportCache cache,
+                                     final Map<SpreadsheetRowReference, Double> expected) {
         final Map<SpreadsheetRowReference, Length<?>> expectedLengths = Maps.ordered();
         for (final Entry<SpreadsheetRowReference, Double> widths : expected.entrySet()) {
             expectedLengths.put(
@@ -3857,8 +3857,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
     }
 
-    private void checkCellToLabels(final SpreadsheetViewportCache cache,
-                                   final SpreadsheetLabelMapping... expected) {
+    private void cellToLabelsAndCheck(final SpreadsheetViewportCache cache,
+                                      final SpreadsheetLabelMapping... expected) {
         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> expectedMaps = Maps.ordered();
         for (final SpreadsheetLabelMapping mapping : expected) {
             final SpreadsheetCellReference cell = (SpreadsheetCellReference) mapping.reference();
@@ -3873,14 +3873,14 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             labels.add(mapping.label());
         }
 
-        this.checkCellToLabels(
+        this.cellToLabelsAndCheck(
             cache,
             expectedMaps
         );
     }
 
-    private void checkCellToLabels(final SpreadsheetViewportCache cache,
-                                   final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> expected) {
+    private void cellToLabelsAndCheck(final SpreadsheetViewportCache cache,
+                                      final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> expected) {
         this.checkEquals(
             expected,
             cache.cellToLabels,
@@ -4046,12 +4046,12 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.checkCells(
+        this.cellsAndCheck(
             cache,
             A2_CELL
         );
 
-        this.checkMatchedCells(
+        this.matchedCellsAndCheck(
             cache
         );
 
