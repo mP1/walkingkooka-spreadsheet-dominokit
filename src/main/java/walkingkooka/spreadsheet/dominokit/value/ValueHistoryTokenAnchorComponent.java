@@ -141,4 +141,11 @@ public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponen
     }
 
     private final HistoryTokenAnchorComponent anchor;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.anchor.toString();
+    }
 }

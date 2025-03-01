@@ -79,4 +79,11 @@ public final class PluginUploadSelectAnchorComponent implements AnchorComponentD
     }
 
     private final HistoryTokenAnchorComponent component;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.component.toString();
+    }
 }

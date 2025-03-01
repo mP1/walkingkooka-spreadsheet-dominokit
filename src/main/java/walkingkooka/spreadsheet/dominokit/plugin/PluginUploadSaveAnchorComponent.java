@@ -69,4 +69,11 @@ public final class PluginUploadSaveAnchorComponent implements AnchorComponentDel
     }
 
     private final HistoryTokenAnchorComponent component;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.component.toString();
+    }
 }

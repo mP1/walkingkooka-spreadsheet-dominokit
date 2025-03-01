@@ -114,4 +114,11 @@ public final class SpreadsheetExpressionReferenceSelectAnchorComponent implement
     final ValueHistoryTokenAnchorComponent<SpreadsheetExpressionReference> component;
 
     final HistoryTokenContext context;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.component.toString();
+    }
 }

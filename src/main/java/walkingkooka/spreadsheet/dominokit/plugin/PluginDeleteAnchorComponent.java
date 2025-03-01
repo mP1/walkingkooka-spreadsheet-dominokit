@@ -80,4 +80,11 @@ public final class PluginDeleteAnchorComponent implements AnchorComponentDelegat
 
     // @VisibleForTesting
     final ValueHistoryTokenAnchorComponent<PluginName> component;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.component.toString();
+    }
 }

@@ -92,4 +92,11 @@ public final class PluginDownloadAnchorComponent implements AnchorComponentDeleg
     }
 
     private final ValueHistoryTokenAnchorComponent<PluginDownload> component;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.component.toString();
+    }
 }
