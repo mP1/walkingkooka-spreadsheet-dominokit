@@ -48,6 +48,7 @@ import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
@@ -108,6 +109,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
         this.labelMappings.clear();
         this.cellToLabels.clear();
+        this.cellToReferences.clear();
         this.matchedCells.clear();
         this.labelToNonLabel.clear();
 
@@ -182,6 +184,22 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      */
     // VisibleForTesting
     final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = Maps.sorted(SpreadsheetSelection.IGNORES_REFERENCE_KIND_COMPARATOR);
+
+    /**
+     * Returns a {@link Set} with all the cell references for the given {@link SpreadsheetCellReference}.
+     */
+    Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetCellReference cell) {
+        return this.cellToReferences.getOrDefault(
+            cell,
+            Sets.empty()
+        );
+    }
+
+    /**
+     * A cache of cell references to their cell references.
+     */
+    // VisibleForTesting
+    final Map<SpreadsheetCellReference, Set<SpreadsheetExpressionReference>> cellToReferences = Maps.sorted();
 
     public boolean isMatchedCell(final SpreadsheetCellReference cell) {
         return this.matchedCells.contains(cell);
@@ -436,6 +454,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
                 this.labelMappings.clear();
                 this.cellToLabels.clear();
+                this.cellToReferences.clear();
                 this.labelToNonLabel.clear();
 
                 this.columns.clear();
@@ -575,10 +594,11 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
             {
                 final Map<SpreadsheetCellReference, SpreadsheetCell> cells = this.cells;
-
                 final Set<SpreadsheetCellReference> matchedCells = this.matchedCells;
 
                 final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = this.cellToLabels;
+                final Map<SpreadsheetCellReference, Set<SpreadsheetExpressionReference>> cellToReferences = this.cellToReferences;
+
                 final Map<SpreadsheetLabelName, SpreadsheetSelection> labelToNonLabel = this.labelToNonLabel;
 
                 // while removing deleted cells also remove cell-> labels, any labels will be (re)-added a few lines below.
@@ -586,6 +606,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                     cells.remove(cell);
                     matchedCells.remove(cell);
                     cellToLabels.remove(cell);
+                    cellToReferences.remove(cell);
                 }
 
                 // while adding cells also remove cell -> label, ditto.
@@ -596,6 +617,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                         cell
                     );
                     cellToLabels.remove(cellReference);
+                    cellToReferences.remove(cellReference);
                 }
 
                 matchedCells.addAll(delta.matchedCells());
@@ -612,6 +634,10 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                     cellToLabels,
                     labelToNonLabel,
                     this.windows
+                );
+
+                cellToReferences.putAll(
+                    delta.references()
                 );
             }
 
