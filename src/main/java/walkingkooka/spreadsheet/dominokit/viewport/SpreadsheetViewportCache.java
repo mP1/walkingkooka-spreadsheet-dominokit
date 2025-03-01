@@ -182,6 +182,16 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     }
 
     /**
+     * Returns true only if the column is present and hidden.
+     */
+    boolean isColumnHidden(final SpreadsheetColumnReference column) {
+        Objects.requireNonNull(column, "column");
+
+        final SpreadsheetColumn spreadsheetColumn = this.columns.get(column);
+        return null != spreadsheetColumn && spreadsheetColumn.hidden();
+    }
+
+    /**
      * A cache of columns, this is used mostly to track hidden columns.
      */
     // VisibleForTesting
@@ -277,6 +287,16 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     }
 
     /**
+     * Returns true only if the row is present and hidden.
+     */
+    boolean isRowHidden(final SpreadsheetRowReference row) {
+        Objects.requireNonNull(row, "row");
+
+        final SpreadsheetRow spreadsheetRow = this.rows.get(row);
+        return null != spreadsheetRow && spreadsheetRow.hidden();
+    }
+
+    /**
      * A cache of rows, this is used mostly to track hidden rows.
      */
     // VisibleForTesting
@@ -303,26 +323,6 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
     // @VisibleForTesting
     Length<?> defaultHeight;
-
-    /**
-     * Returns true only if the column is present and hidden.
-     */
-    boolean isColumnHidden(final SpreadsheetColumnReference column) {
-        Objects.requireNonNull(column, "column");
-
-        final SpreadsheetColumn spreadsheetColumn = this.columns.get(column);
-        return null != spreadsheetColumn && spreadsheetColumn.hidden();
-    }
-
-    /**
-     * Returns true only if the row is present and hidden.
-     */
-    boolean isRowHidden(final SpreadsheetRowReference row) {
-        Objects.requireNonNull(row, "row");
-
-        final SpreadsheetRow spreadsheetRow = this.rows.get(row);
-        return null != spreadsheetRow && spreadsheetRow.hidden();
-    }
 
     public OptionalInt columnCount() {
         return this.columnCount;
