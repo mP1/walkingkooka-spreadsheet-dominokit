@@ -90,11 +90,11 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
                 CellTextAlign.LEFT
             ),
             columnConfig(
-                "Formatted",
+                "Value",
                 CellTextAlign.LEFT
             ),
             columnConfig(
-                "Value",
+                "Formatted",
                 CellTextAlign.LEFT
             )
         );

@@ -57,11 +57,11 @@ final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCell
             case 1: // formula
                 component = renderCellFormula(cell);
                 break;
-            case 2: // cell formatted value
-                component = renderCellFormattedValue(cell);
-                break;
-            case 3: // value
+            case 2: // value
                 component = renderCellValue(cell);
+                break;
+            case 3: // cell formatted value
+                component = renderCellFormattedValue(cell);
                 break;
             default:
                 throw new IllegalArgumentException("Unknown column " + column);
