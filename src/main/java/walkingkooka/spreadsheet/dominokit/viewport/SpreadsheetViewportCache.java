@@ -167,6 +167,22 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     // VisibleForTesting
     final SortedMap<SpreadsheetCellReference, SpreadsheetCell> cells = Maps.sorted();
 
+    /**
+     * Returns a {@link Set} with all the labels for the given {@link SpreadsheetCellReference}.
+     */
+    Set<SpreadsheetLabelName> cellLabels(final SpreadsheetCellReference cell) {
+        return this.cellToLabels.getOrDefault(
+            cell,
+            Sets.empty()
+        );
+    }
+
+    /**
+     * A cache of cell references and their one or more labels.
+     */
+    // VisibleForTesting
+    final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = Maps.sorted();
+
     public boolean isMatchedCell(final SpreadsheetCellReference cell) {
         return this.matchedCells.contains(cell);
     }
@@ -227,19 +243,6 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     }
 
     private final Set<SpreadsheetLabelMapping> labelMappings = SortedSets.tree();
-
-    Set<SpreadsheetLabelName> labels(final SpreadsheetCellReference cell) {
-        return this.cellToLabels.getOrDefault(
-            cell,
-            Sets.empty()
-        );
-    }
-
-    /**
-     * A cache of cell references and their one or more labels.
-     */
-    // VisibleForTesting
-    final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> cellToLabels = Maps.sorted();
 
     /**
      * Returns all {@link SpreadsheetLabelMapping} for the given {@link SpreadsheetSelection}.
