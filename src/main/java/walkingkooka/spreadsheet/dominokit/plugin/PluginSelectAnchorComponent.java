@@ -79,4 +79,11 @@ public final class PluginSelectAnchorComponent implements AnchorComponentDelegat
     }
 
     private final ValueHistoryTokenAnchorComponent<PluginName> component;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.component.toString();
+    }
 }

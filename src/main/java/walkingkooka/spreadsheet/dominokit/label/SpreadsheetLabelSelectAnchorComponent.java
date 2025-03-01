@@ -112,4 +112,11 @@ public final class SpreadsheetLabelSelectAnchorComponent implements AnchorCompon
     final ValueHistoryTokenAnchorComponent<SpreadsheetLabelName> component;
 
     final HistoryTokenContext context;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.component.toString();
+    }
 }
