@@ -3860,40 +3860,6 @@ public abstract class HistoryToken implements HasUrlFragment,
             name.contains("Save");
     }
 
-    private <T> HistoryToken setIfSpreadsheetIdHistoryToken(final BiFunction<SpreadsheetIdHistoryToken, T, HistoryToken> setter,
-                                                            final T value) {
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetIdHistoryToken) {
-            token = setter.apply(
-                this.cast(SpreadsheetIdHistoryToken.class),
-                value
-            );
-
-            if (token.equals(this)) {
-                token = this;
-            }
-        }
-
-        return token;
-    }
-
-    private HistoryToken setIfSpreadsheetNameHistoryToken(final Function<SpreadsheetNameHistoryToken, HistoryToken> setter) {
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            token = setter.apply(
-                this.cast(SpreadsheetNameHistoryToken.class)
-            );
-
-            if (token.equals(this)) {
-                token = this;
-            }
-        }
-
-        return token;
-    }
-
     private <T> HistoryToken setIfSpreadsheetNameHistoryTokenWithValue(final BiFunction<SpreadsheetNameHistoryToken, T, HistoryToken> setter,
                                                                        final T value) {
         HistoryToken token = this;
