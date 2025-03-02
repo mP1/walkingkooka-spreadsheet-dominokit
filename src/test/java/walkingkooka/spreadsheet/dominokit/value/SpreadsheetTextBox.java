@@ -24,6 +24,7 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -46,6 +47,8 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
 
     @Override
     public SpreadsheetTextBox setId(final String id) {
+        CharSequences.failIfNullOrEmpty(id, "id");
+
         this.id = id;
         return this;
     }
