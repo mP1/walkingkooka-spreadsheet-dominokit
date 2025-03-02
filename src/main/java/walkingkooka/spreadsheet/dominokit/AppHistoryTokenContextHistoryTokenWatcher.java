@@ -62,21 +62,21 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
 
         DomGlobal.self.addEventListener(
             EventType.hashchange.getName(),
-            event -> this.onHistoryTokenChange(
+            event -> this.onHashChange(
                 this.historyToken()
             )
         );
     }
 
-    void onHistoryTokenChange(final HistoryToken token) {
+    void onHashChange(final HistoryToken token) {
         final HistoryToken previousToken = this.previousToken;
-        this.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange BEGIN from " + previousToken + " to " + token);
+        this.debug(this.getClass().getSimpleName() + ".onHashChange BEGIN from " + previousToken + " to " + token);
 
         this.previousToken = token;
 
         if (false == token.equals(previousToken)) {
             if (token instanceof UnknownHistoryToken) {
-                this.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange updated with invalid token " + token + ", will restore previous " + previousToken);
+                this.debug(this.getClass().getSimpleName() + ".onHashChange updated with invalid token " + token + ", will restore previous " + previousToken);
                 this.pushHistoryToken(previousToken);
 
             } else {
@@ -87,7 +87,7 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
             }
         }
 
-        this.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange END from " + previousToken + " to " + token);
+        this.debug(this.getClass().getSimpleName() + ".onHashChange END from " + previousToken + " to " + token);
     }
 
     /**
@@ -98,7 +98,8 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
     /**
      * Pushes the given {@link HistoryToken} to the browser location#hash.
      */
-    @Override public void pushHistoryToken(final HistoryToken token) {
+    @Override
+    public void pushHistoryToken(final HistoryToken token) {
         Objects.requireNonNull(token, "token");
 
         HistoryToken push = token;
@@ -222,7 +223,8 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
 
     // LoggingContextDelegator..........................................................................................
 
-    @Override public LoggingContext loggingContext() {
+    @Override
+    public LoggingContext loggingContext() {
         return this.appContext;
     }
 
