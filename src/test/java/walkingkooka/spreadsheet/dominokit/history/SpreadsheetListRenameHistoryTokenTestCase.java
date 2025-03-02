@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public abstract class SpreadsheetListRenameHistoryTokenTestCase<T extends SpreadsheetListRenameHistoryToken> extends SpreadsheetIdHistoryTokenTestCase<T> {
 
@@ -43,6 +44,14 @@ public abstract class SpreadsheetListRenameHistoryTokenTestCase<T extends Spread
                 ID,
                 NAME
             )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithCell() {
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            SpreadsheetSelection.A1
         );
     }
 }

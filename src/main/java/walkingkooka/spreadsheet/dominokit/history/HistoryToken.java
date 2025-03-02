@@ -3778,6 +3778,11 @@ public abstract class HistoryToken implements HasUrlFragment,
 
     // SELECTION........................................................................................................
 
+    public Optional<SpreadsheetSelection> selection() {
+        return this.anchoredSelectionOrEmpty()
+            .map(AnchoredSpreadsheetSelection::selection);
+    }
+
     /**
      * Returns an instance with the selection cleared or removed if necessary
      */
@@ -3785,6 +3790,51 @@ public abstract class HistoryToken implements HasUrlFragment,
         return this.setAnchoredSelection(
             Optional.empty()
         );
+    }
+
+    /**
+     * Returns a {@link HistoryToken} with the given {@link SpreadsheetSelection}. if the selection is different
+     * the action will be cleared.
+     */
+    public final HistoryToken setSelection(final Optional<SpreadsheetSelection> selection) {
+        Objects.requireNonNull(selection, "selection");
+
+        HistoryToken historyToken = this;
+
+        final Optional<AnchoredSpreadsheetSelection> maybeAnchoredSpreadsheetSelection = this.anchoredSelectionOrEmpty();
+
+        if (false == maybeAnchoredSpreadsheetSelection.map(AnchoredSpreadsheetSelection::selection).equals(selection)) {
+
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+
+                final SpreadsheetId id = spreadsheetNameHistoryToken.id();
+                final SpreadsheetName name = spreadsheetNameHistoryToken.name();
+
+                if (selection.isPresent()) {
+                    final SpreadsheetSelection spreadsheetSelection = selection.get();
+
+                    AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = maybeAnchoredSpreadsheetSelection.orElse(null);
+                    if (null != anchoredSpreadsheetSelection) {
+                        anchoredSpreadsheetSelection = anchoredSpreadsheetSelection.setSelection(spreadsheetSelection);
+                    } else {
+                        anchoredSpreadsheetSelection = selection.get()
+                            .setDefaultAnchor();
+                    }
+
+                    historyToken = this.setDifferentAnchoredSelection(
+                        Optional.of(anchoredSpreadsheetSelection.setSelection(spreadsheetSelection))
+                    );
+                } else {
+                    historyToken = spreadsheetSelect(
+                        id,
+                        name
+                    );
+                }
+            }
+        }
+
+        return historyToken;
     }
 
     // SORT.............................................................................................................

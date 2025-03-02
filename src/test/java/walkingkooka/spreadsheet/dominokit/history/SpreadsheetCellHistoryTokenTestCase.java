@@ -228,6 +228,147 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         this.menuWithRowAndCheck();
     }
 
+    // setSelection.....................................................................................................
+
+    @Test
+    public final void testSetSelectionWithColumn() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseColumn("Z");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithColumnRange() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseColumnRange("X:Y");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithSameCell() {
+        this.setSelectionAndCheck(
+            this.createHistoryToken(
+                CELL.setDefaultAnchor()
+            ),
+            CELL
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithDifferentCell() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseCell("Z99");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithSameCellRange() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseCellRange("A1:B2");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(
+                selection.setDefaultAnchor()
+            ),
+            selection
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithDifferentCellRange() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseCellRange("Z1:Z2");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithSameLabel() {
+        this.setSelectionAndCheck(
+            this.createHistoryToken(
+                LABEL.setDefaultAnchor()
+            ),
+            LABEL
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithDifferentLabel() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.labelName("Different");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithRow() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseRow("1");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithRowRange() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseRowRange("2:3");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    // urlFragment......................................................................................................
+
     final void urlFragmentAndCheck(final SpreadsheetExpressionReference reference,
                                    final String expected) {
         this.urlFragmentAndCheck(

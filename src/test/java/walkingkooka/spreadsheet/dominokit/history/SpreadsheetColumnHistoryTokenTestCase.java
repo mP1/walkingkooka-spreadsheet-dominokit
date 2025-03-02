@@ -243,6 +243,160 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
+    // setSelection.....................................................................................................
+
+    @Test
+    public final void testSetSelectionWithSameColumn() {
+        this.setSelectionAndCheck(
+            this.createHistoryToken(
+                COLUMN.setDefaultAnchor()
+            ),
+            COLUMN
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithDifferentColumn() {
+        final SpreadsheetSelection different = SpreadsheetSelection.parseColumn("Z");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(
+                COLUMN.setDefaultAnchor()
+            ),
+            different,
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                different.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithSameColumnRange() {
+        final SpreadsheetSelection columnRange = SpreadsheetSelection.parseColumnRange("A:C");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(
+                columnRange.setDefaultAnchor()
+            ),
+            columnRange
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithDifferentColumnRange() {
+        final SpreadsheetSelection different = SpreadsheetSelection.parseColumnRange("A:C");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(
+                SpreadsheetSelection.parseColumnRange("A:B")
+                    .setDefaultAnchor()
+            ),
+            different,
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                different.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithDifferentColumnRangeNonDefaultAnchor() {
+        final SpreadsheetSelection different = SpreadsheetSelection.parseColumnRange("A:C");
+        final SpreadsheetViewportAnchor anchor = different.defaultAnchor()
+            .opposite();
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(
+                SpreadsheetSelection.parseColumnRange("A:B")
+                    .setAnchor(anchor)
+            ),
+            different,
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                different.setAnchor(anchor)
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithCell() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseCell("Z99");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithCellRange() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseCellRange("Z1:Z2");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithLabel() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.labelName("Different");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithRow() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseRow("1");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithRowRange() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseRowRange("2:3");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
     // helpers..............................................................................................
 
     final void urlFragmentAndCheck(final SpreadsheetColumnReference reference,

@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHistoryTokenTestCase<SpreadsheetListDeleteHistoryToken> {
 
@@ -70,6 +71,14 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
     public void testPatternKind() {
         this.patternKindAndCheck(
             this.createHistoryToken()
+        );
+    }
+
+    @Test
+    public void testSetSelectionWithCell() {
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            SpreadsheetSelection.A1
         );
     }
 

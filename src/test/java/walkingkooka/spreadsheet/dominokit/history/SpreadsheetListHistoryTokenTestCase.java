@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.OptionalInt;
 
@@ -108,6 +109,14 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
     public final void testPatternKind() {
         this.patternKindAndCheck(
             this.createHistoryToken()
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithCell() {
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            SpreadsheetSelection.A1
         );
     }
 
