@@ -108,14 +108,13 @@ public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsert
                 count
             );
         context.pushHistoryToken(
-            previous.setAnchoredSelection(
-                previous.anchoredSelectionOrEmpty()
+            previous.setSelection(
+                previous.selection()
                     .map(
-                        a -> a.selection()
-                            .addSaturated(
-                                0,
-                                count
-                            ).setAnchor(a.anchor())
+                        s -> s.addSaturated(
+                            0,
+                            count
+                        )
                     )
             )
         );
