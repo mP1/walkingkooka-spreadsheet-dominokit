@@ -253,7 +253,7 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
             );
         final SpreadsheetContextMenu menu = SpreadsheetContextMenu.wrap(
             anchor,
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         ).item(
             SpreadsheetContextMenuItem.with(
                 "menu-item-1" + SpreadsheetElementIds.MENU_ITEM,

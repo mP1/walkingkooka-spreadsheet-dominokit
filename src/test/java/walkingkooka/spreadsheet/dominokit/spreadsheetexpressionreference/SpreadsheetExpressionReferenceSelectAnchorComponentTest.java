@@ -20,9 +20,9 @@ package walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -50,7 +50,7 @@ public final class SpreadsheetExpressionReferenceSelectAnchorComponentTest imple
         this.treePrintAndCheck(
             SpreadsheetExpressionReferenceSelectAnchorComponent.with(
                 "cell-select-anchor-id",
-                HistoryTokenContexts.fake()
+                HistoryContexts.fake()
             ).clearValue(),
             "\"Cell\" DISABLED id=cell-select-anchor-id"
         );
@@ -117,7 +117,7 @@ public final class SpreadsheetExpressionReferenceSelectAnchorComponentTest imple
     private SpreadsheetExpressionReferenceSelectAnchorComponent createComponent(final String currentHistoryToken) {
         return SpreadsheetExpressionReferenceSelectAnchorComponent.with(
             "cell-select-anchor-id",
-            new FakeHistoryTokenContext() {
+            new FakeHistoryContext() {
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.parseString(currentHistoryToken);

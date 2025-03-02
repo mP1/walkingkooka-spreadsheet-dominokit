@@ -18,11 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
 import java.util.Locale;
 
-public class FakeJarEntryInfoListTableComponentContext extends FakeHistoryTokenContext implements JarEntryInfoListTableComponentContext {
+public class FakeJarEntryInfoListTableComponentContext extends FakeHistoryContext implements JarEntryInfoListTableComponentContext {
     @Override
     public PluginName pluginName() {
         throw new UnsupportedOperationException();

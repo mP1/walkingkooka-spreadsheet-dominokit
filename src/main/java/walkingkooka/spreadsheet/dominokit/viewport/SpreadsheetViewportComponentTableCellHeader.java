@@ -24,9 +24,9 @@ import org.dominokit.domino.ui.utils.ElementsFactory;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -43,7 +43,7 @@ abstract class SpreadsheetViewportComponentTableCellHeader<T extends Spreadsheet
                                                 final String css,
                                                 final T selection,
                                                 final String text,
-                                                final HistoryTokenContext context) {
+                                                final HistoryContext context) {
         super();
 
         final HistoryTokenAnchorComponent anchor = context.historyToken()

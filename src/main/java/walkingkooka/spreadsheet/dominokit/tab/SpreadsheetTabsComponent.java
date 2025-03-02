@@ -22,8 +22,8 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.tabs.Tab;
 import org.dominokit.domino.ui.tabs.TabsPanel;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
 
 import java.util.List;
@@ -34,13 +34,13 @@ import java.util.Objects;
  */
 public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentLike {
 
-    public static SpreadsheetTabsComponent with(final HistoryTokenContext context) {
+    public static SpreadsheetTabsComponent with(final HistoryContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetTabsComponent(context);
     }
 
-    private SpreadsheetTabsComponent(final HistoryTokenContext context) {
+    private SpreadsheetTabsComponent(final HistoryContext context) {
         this.tabsPanel = TabsPanel.create();
         this.tabs = Lists.array();
         this.anchors = Lists.array();
@@ -77,7 +77,7 @@ public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentL
     /**
      * This is necessary to create an {@link HistoryTokenAnchorComponent} when a new tab is appended.
      */
-    private final HistoryTokenContext context;
+    private final HistoryContext context;
 
     /**
      * Returns the anchor for the given tab.

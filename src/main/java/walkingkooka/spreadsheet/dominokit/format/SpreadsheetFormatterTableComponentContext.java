@@ -17,13 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 
 /**
- * The {@link HistoryTokenContext} for {@link SpreadsheetFormatterTableComponent}.
+ * The {@link HistoryContext} for {@link SpreadsheetFormatterTableComponent}.
  */
-public interface SpreadsheetFormatterTableComponentContext extends HistoryTokenContext {
+public interface SpreadsheetFormatterTableComponentContext extends HistoryContext {
 
     /**
      * Returns the save text that will be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSaveValue(String)}.

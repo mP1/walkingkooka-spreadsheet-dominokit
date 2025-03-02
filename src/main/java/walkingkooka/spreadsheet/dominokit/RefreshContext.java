@@ -18,10 +18,10 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
 public interface RefreshContext extends CanGiveFocus,
-    HistoryTokenContext,
+    HistoryContext,
     LoggingContext {
 }

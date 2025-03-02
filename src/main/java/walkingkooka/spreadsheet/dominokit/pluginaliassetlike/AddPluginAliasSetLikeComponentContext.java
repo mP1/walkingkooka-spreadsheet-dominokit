@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
-public interface AddPluginAliasSetLikeComponentContext extends HistoryTokenContext {
+public interface AddPluginAliasSetLikeComponentContext extends HistoryContext {
 }

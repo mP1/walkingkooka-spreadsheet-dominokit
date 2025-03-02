@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.meta;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -29,7 +29,7 @@ import java.util.Locale;
 import java.util.Objects;
 
 final class AppContextSpreadsheetMetadataPanelComponentContext implements SpreadsheetMetadataPanelComponentContext,
-    HistoryTokenContextDelegator,
+    HistoryContextDelegator,
     LoggingContextDelegator {
 
     static AppContextSpreadsheetMetadataPanelComponentContext with(final AppContext context) {
@@ -64,10 +64,10 @@ final class AppContextSpreadsheetMetadataPanelComponentContext implements Spread
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
-    // HistoryTokenContext..............................................................................................
+    // HistoryContext..............................................................................................
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
+    public HistoryContext historyContext() {
         return this.context;
     }
 

@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
-public interface SpreadsheetDeltaCellsTableComponentContext extends HistoryTokenContext,
+public interface SpreadsheetDeltaCellsTableComponentContext extends HistoryContext,
     HasSpreadsheetDeltaFetcherWatchers {
 }

@@ -21,15 +21,15 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 import java.util.Objects;
 
 public final class AppContextPluginFileViewDialogComponentContext implements PluginFileViewDialogComponentContext,
     HasPluginFetcherWatchersDelegator,
-    HistoryTokenContextDelegator {
+    HistoryContextDelegator {
 
     public static AppContextPluginFileViewDialogComponentContext with(final AppContext context) {
         return new AppContextPluginFileViewDialogComponentContext(
@@ -58,10 +58,10 @@ public final class AppContextPluginFileViewDialogComponentContext implements Plu
         return this.context;
     }
 
-    // HistoryTokenContextDelegator.....................................................................................
+    // HistoryContextDelegator.....................................................................................
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
+    public HistoryContext historyContext() {
         return this.context;
     }
 

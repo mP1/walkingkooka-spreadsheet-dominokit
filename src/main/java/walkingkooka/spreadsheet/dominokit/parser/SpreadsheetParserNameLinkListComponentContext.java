@@ -17,13 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 
 import java.util.Optional;
 
-public interface SpreadsheetParserNameLinkListComponentContext extends HistoryTokenContext, SpreadsheetParserProvider {
+public interface SpreadsheetParserNameLinkListComponentContext extends HistoryContext, SpreadsheetParserProvider {
 
     /**
      * Returns the currently selected {@link SpreadsheetParserName}.

@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.contextmenu;
 
 import org.dominokit.domino.ui.menu.Menu;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 public final class SpreadsheetContextMenuFactory {
 
     public static SpreadsheetContextMenu with(final Menu<Void> menu,
-                                              final HistoryTokenContext context) {
+                                              final HistoryContext context) {
         return SpreadsheetContextMenu.with(
             menu,
             context

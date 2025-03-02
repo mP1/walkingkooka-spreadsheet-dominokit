@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.TableComponentTesting;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -198,7 +198,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
         final SpreadsheetDeltaCellsTableComponent component = SpreadsheetDeltaCellsTableComponent.with(
             "ID123-",
             SpreadsheetDeltaCellsTableComponentContexts.basic(
-                new FakeHistoryTokenContext() {
+                new FakeHistoryContext() {
                     @Override @Test
                     public HistoryToken historyToken() {
                         return HistoryToken.parseString("/1/Spreadsheet222/cell/A1/find");

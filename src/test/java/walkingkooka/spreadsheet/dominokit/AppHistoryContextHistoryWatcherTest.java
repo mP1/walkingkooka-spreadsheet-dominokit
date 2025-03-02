@@ -15,26 +15,20 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.history;
+package walkingkooka.spreadsheet.dominokit;
 
+import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.PublicStaticHelperTesting;
 
-import java.lang.reflect.Method;
+public final class AppHistoryContextHistoryWatcherTest implements ClassTesting<AppHistoryContextHistoryWatcher> {
 
-public final class HistoryTokenContextsTest implements PublicStaticHelperTesting<HistoryTokenContexts> {
     @Override
-    public Class<HistoryTokenContexts> type() {
-        return HistoryTokenContexts.class;
+    public Class<AppHistoryContextHistoryWatcher> type() {
+        return AppHistoryContextHistoryWatcher.class;
     }
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
-
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

@@ -30,9 +30,9 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifec
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponentFunctions;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
@@ -92,7 +92,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.table = SpreadsheetDeltaCellsTableComponent.with(
             ID_PREFIX,
             SpreadsheetDeltaCellsTableComponentContexts.basic(
-                context, // HistoryTokenContext
+                context, // HistoryContext
                 context //
             )
         );
@@ -109,7 +109,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
      * holding the matches on the right.
      */
     private SpreadsheetDialogComponent dialogCreate() {
-        final HistoryTokenContext context = this.context;
+        final HistoryContext context = this.context;
 
         return SpreadsheetDialogComponent.largeList(
             ID + SpreadsheetElementIds.DIALOG,

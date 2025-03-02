@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.contextmenu;
 
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
@@ -32,7 +32,7 @@ import walkingkooka.tree.text.TextStyleProperty;
 import java.util.List;
 import java.util.Set;
 
-public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryTokenContext implements SpreadsheetSelectionMenuContext {
+public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryContext implements SpreadsheetSelectionMenuContext {
 
     @Override
     public List<SpreadsheetComparatorName> sortComparatorNames() {

@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.link;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
-public class FakeSpreadsheetLinkListComponentContext extends FakeHistoryTokenContext implements SpreadsheetLinkListComponentContext {
+public class FakeSpreadsheetLinkListComponentContext extends FakeHistoryContext implements SpreadsheetLinkListComponentContext {
 
     @Override
     public boolean isDisabled(final String text) {

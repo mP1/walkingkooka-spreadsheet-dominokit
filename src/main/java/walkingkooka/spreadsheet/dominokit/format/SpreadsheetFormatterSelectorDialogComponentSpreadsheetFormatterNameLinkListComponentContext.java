@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderDelegator;
@@ -26,33 +26,33 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterProviderDelegator;
 import java.util.Optional;
 
 final class SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext implements SpreadsheetFormatterNameLinkListComponentContext,
-    HistoryTokenContextDelegator,
+    HistoryContextDelegator,
     SpreadsheetFormatterProviderDelegator {
 
-    static SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext with(final HistoryTokenContext historyTokenContext,
+    static SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext with(final HistoryContext historyContext,
                                                                                                             final SpreadsheetFormatterProvider spreadsheetFormatterProvider,
                                                                                                             final Optional<SpreadsheetFormatterName> formatterName) {
         return new SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext(
-            historyTokenContext,
+            historyContext,
             spreadsheetFormatterProvider,
             formatterName
         );
     }
 
-    private SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext(final HistoryTokenContext historyTokenContext,
+    private SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext(final HistoryContext historyContext,
                                                                                                         final SpreadsheetFormatterProvider spreadsheetFormatterProvider,
                                                                                                         final Optional<SpreadsheetFormatterName> formatterName) {
-        this.historyTokenContext = historyTokenContext;
+        this.historyContext = historyContext;
         this.spreadsheetFormatterProvider = spreadsheetFormatterProvider;
         this.formatterName = formatterName;
     }
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
-        return this.historyTokenContext;
+    public HistoryContext historyContext() {
+        return this.historyContext;
     }
 
-    private final HistoryTokenContext historyTokenContext;
+    private final HistoryContext historyContext;
 
     @Override
     public SpreadsheetFormatterProvider spreadsheetFormatterProvider() {

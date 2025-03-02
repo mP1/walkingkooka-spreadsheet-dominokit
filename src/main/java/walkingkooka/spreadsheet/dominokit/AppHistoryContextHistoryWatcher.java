@@ -21,8 +21,8 @@ import elemental2.dom.DomGlobal;
 import org.dominokit.domino.ui.events.EventType;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.history.History;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
@@ -41,17 +41,17 @@ import java.util.Optional;
 /**
  * Combines the responsibilities and features relating to History events.
  */
-final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenContext,
+final class AppHistoryContextHistoryWatcher implements HistoryContext,
     HistoryTokenWatcher,
     LoggingContextDelegator {
 
-    static AppHistoryTokenContextHistoryTokenWatcher with(final AppContext appContext) {
-        return new AppHistoryTokenContextHistoryTokenWatcher(
+    static AppHistoryContextHistoryWatcher with(final AppContext appContext) {
+        return new AppHistoryContextHistoryWatcher(
             Objects.requireNonNull(appContext, "appContext")
         );
     }
 
-    private AppHistoryTokenContextHistoryTokenWatcher(final AppContext appContext) {
+    private AppHistoryContextHistoryWatcher(final AppContext appContext) {
         this.appContext = appContext;
 
         this.history = Historys.elemental(appContext);
@@ -198,7 +198,7 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
                 .flatMap(SpreadsheetViewport::anchoredSelection);
             if (false == selection.equals(previousSelection)) {
 
-                context.debug(AppHistoryTokenContextHistoryTokenWatcher.class.getSimpleName() + ".patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
+                context.debug(AppHistoryContextHistoryWatcher.class.getSimpleName() + ".patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
 
                 // initially metadata will be empty because it has not yet loaded, context.viewport below will fail.
                 if (context.spreadsheetMetadata()

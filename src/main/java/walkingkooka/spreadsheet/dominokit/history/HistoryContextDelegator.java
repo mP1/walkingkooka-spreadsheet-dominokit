@@ -17,37 +17,37 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-public interface HistoryTokenContextDelegator extends HistoryTokenContext {
+public interface HistoryContextDelegator extends HistoryContext {
 
     @Override
     default Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-        return this.historyTokenContext()
+        return this.historyContext()
             .addHistoryTokenWatcher(watcher);
     }
 
     @Override
     default Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
-        return this.historyTokenContext()
+        return this.historyContext()
             .addHistoryTokenWatcherOnce(watcher);
     }
 
     @Override
     default HistoryToken historyToken() {
-        return this.historyTokenContext()
+        return this.historyContext()
             .historyToken();
     }
 
     @Override
     default void pushHistoryToken(final HistoryToken token) {
-        this.historyTokenContext()
+        this.historyContext()
             .pushHistoryToken(token);
     }
 
     @Override
     default void fireCurrentHistoryToken() {
-        this.historyTokenContext()
+        this.historyContext()
             .fireCurrentHistoryToken();
     }
 
-    HistoryTokenContext historyTokenContext();
+    HistoryContext historyContext();
 }

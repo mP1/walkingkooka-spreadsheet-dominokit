@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 
 import java.util.Optional;
@@ -32,7 +32,7 @@ public final class SpreadsheetTabsComponentTest implements HtmlElementComponentT
     public void testEmptyNoTabs() {
         this.treePrintAndCheck(
             SpreadsheetTabsComponent.with(
-                new FakeHistoryTokenContext() {
+                new FakeHistoryContext() {
                     @Override
                     public HistoryToken historyToken() {
                         return HistoryToken.parseString("/1/Untitled/cell/B1/formatter");
@@ -47,7 +47,7 @@ public final class SpreadsheetTabsComponentTest implements HtmlElementComponentT
     public void testSeveralTabsNonActive() {
         this.treePrintAndCheck(
             SpreadsheetTabsComponent.with(
-                    new FakeHistoryTokenContext() {
+                    new FakeHistoryContext() {
                         @Override
                         public HistoryToken historyToken() {
                             return HistoryToken.parseString("/1/Untitled/cell/B1/formatter");
@@ -70,7 +70,7 @@ public final class SpreadsheetTabsComponentTest implements HtmlElementComponentT
     public void testSeveralTabsIncludingActive() {
         this.treePrintAndCheck(
             SpreadsheetTabsComponent.with(
-                    new FakeHistoryTokenContext() {
+                    new FakeHistoryContext() {
                         @Override
                         public HistoryToken historyToken() {
                             return HistoryToken.parseString("/1/Untitled/cell/B1/formatter");
@@ -93,7 +93,7 @@ public final class SpreadsheetTabsComponentTest implements HtmlElementComponentT
     @Test
     public void testSeveralTabsIncludingActiveLinksWithAnchor() {
         final SpreadsheetTabsComponent tabs = SpreadsheetTabsComponent.with(
-                new FakeHistoryTokenContext() {
+                new FakeHistoryContext() {
                     @Override
                     public HistoryToken historyToken() {
                         return HistoryToken.parseString("/1/Untitled/cell/B1/formatter");

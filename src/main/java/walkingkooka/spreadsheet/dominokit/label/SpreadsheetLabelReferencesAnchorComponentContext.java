@@ -17,13 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
 import java.util.Set;
 
-public interface SpreadsheetLabelReferencesAnchorComponentContext extends HistoryTokenContext {
+public interface SpreadsheetLabelReferencesAnchorComponentContext extends HistoryContext {
 
     /**
      * Returns all the {@link SpreadsheetLabelMapping} for a given {@link SpreadsheetExpressionReference}.

@@ -27,8 +27,8 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
 
@@ -41,7 +41,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testItemSpreadsheetContextMenuItem() {
         SpreadsheetContextMenu.with(
             topLevelMenu(),
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         ).item(
             SpreadsheetContextMenuItem.with(
                 "id-MenuItem",
@@ -54,7 +54,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testItemIsElement() {
         SpreadsheetContextMenu.with(
                 topLevelMenu(),
-                HistoryTokenContexts.fake()
+                HistoryContexts.fake()
             ).separator()
             .item(
                 new IsElement<>() {
@@ -70,7 +70,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testSeparatorThenItem() {
         SpreadsheetContextMenu.with(
                 topLevelMenu(),
-                HistoryTokenContexts.fake()
+                HistoryContexts.fake()
             ).separator()
             .item(
                 SpreadsheetContextMenuItem.with(
@@ -84,7 +84,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testSubMenuIdText() {
         SpreadsheetContextMenu.with(
             topLevelMenu(),
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         ).subMenu(
             "id-SubMenu",
             "SubMenu"
@@ -95,7 +95,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testSubMenuIdTextBadge() {
         SpreadsheetContextMenu.with(
             topLevelMenu(),
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         ).subMenu(
             "id-SubMenu",
             "SubMenu",
@@ -107,7 +107,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testSubMenuIdTextIcon() {
         SpreadsheetContextMenu.with(
             topLevelMenu(),
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         ).subMenu(
             "id-SubMenu",
             "SubMenu",
@@ -119,7 +119,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testSubMenuIdTextIconBadge() {
         SpreadsheetContextMenu.with(
             topLevelMenu(),
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         ).subMenu(
             "id-SubMenu",
             "SubMenu",
@@ -134,7 +134,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testSubMenuIdTextThenItem() {
         SpreadsheetContextMenu.with(
             topLevelMenu(),
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         ).subMenu(
             "id-SubMenu",
             "SubMenu"
@@ -152,7 +152,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testTreePrintMenuWithItems() {
         final SpreadsheetContextMenu menu = SpreadsheetContextMenu.with(
             topLevelMenu(),
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         ).item(
             SpreadsheetContextMenuItem.with(
                 "id-MenuItem",
@@ -177,7 +177,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testTreePrintMenuWithItemsIncludingSeparator() {
         final SpreadsheetContextMenu menu = SpreadsheetContextMenu.with(
                 topLevelMenu(),
-                HistoryTokenContexts.fake()
+                HistoryContexts.fake()
             ).item(
                 SpreadsheetContextMenuItem.with(
                     "id-MenuItem",
@@ -204,7 +204,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testTreePrintMenuWithItemsWithIconAndBadge() {
         final SpreadsheetContextMenu menu = SpreadsheetContextMenu.with(
             topLevelMenu(),
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         ).item(
             SpreadsheetContextMenuItem.with(
                 "id-MenuItem",
@@ -251,7 +251,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testTreePrintMenuWithWithCheckedItem() {
         final SpreadsheetContextMenu menu = SpreadsheetContextMenu.with(
             topLevelMenu(),
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         ).item(
             SpreadsheetContextMenuItem.with(
                 "id-MenuItem",
@@ -276,7 +276,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testTreePrintMenuWithItemsWithHistoryToken() {
         final SpreadsheetContextMenu menu = SpreadsheetContextMenu.with(
             topLevelMenu(),
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         ).item(
             SpreadsheetContextMenuItem.with(
                 "id-MenuItem",
@@ -322,7 +322,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testTreePrintWithSubMenu() {
         SpreadsheetContextMenu menu = SpreadsheetContextMenu.with(
             topLevelMenu(),
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         ).item(
             SpreadsheetContextMenuItem.with(
                 "id-1-MenuItem",
@@ -359,7 +359,7 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
     public void testTreePrintWithTree() {
         SpreadsheetContextMenu menu = SpreadsheetContextMenu.with(
             topLevelMenu(),
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         ).item(
             SpreadsheetContextMenuItem.with(
                 "id-1-MenuItem",

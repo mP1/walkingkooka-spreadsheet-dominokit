@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.link;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 /**
  * Context for {@link SpreadsheetLinkListComponent}.
  */
-public interface SpreadsheetLinkListComponentContext extends HistoryTokenContext {
+public interface SpreadsheetLinkListComponentContext extends HistoryContext {
 
     /**
      * Called during a render to test if a text item is disabled.

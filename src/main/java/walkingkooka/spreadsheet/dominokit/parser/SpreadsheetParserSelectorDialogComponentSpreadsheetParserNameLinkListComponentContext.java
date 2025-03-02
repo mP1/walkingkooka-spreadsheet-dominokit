@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
@@ -26,33 +26,33 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
 import java.util.Optional;
 
 final class SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext implements SpreadsheetParserNameLinkListComponentContext,
-    HistoryTokenContextDelegator,
+    HistoryContextDelegator,
     SpreadsheetParserProviderDelegator {
 
-    static SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext with(final HistoryTokenContext historyTokenContext,
+    static SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext with(final HistoryContext historyContext,
                                                                                                       final SpreadsheetParserProvider spreadsheetParserProvider,
                                                                                                       final Optional<SpreadsheetParserName> parserName) {
         return new SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext(
-            historyTokenContext,
+            historyContext,
             spreadsheetParserProvider,
             parserName
         );
     }
 
-    private SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext(final HistoryTokenContext historyTokenContext,
+    private SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext(final HistoryContext historyContext,
                                                                                                   final SpreadsheetParserProvider spreadsheetParserProvider,
                                                                                                   final Optional<SpreadsheetParserName> parserName) {
-        this.historyTokenContext = historyTokenContext;
+        this.historyContext = historyContext;
         this.spreadsheetParserProvider = spreadsheetParserProvider;
         this.parserName = parserName;
     }
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
-        return this.historyTokenContext;
+    public HistoryContext historyContext() {
+        return this.historyContext;
     }
 
-    private final HistoryTokenContext historyTokenContext;
+    private final HistoryContext historyContext;
 
     @Override
     public SpreadsheetParserProvider spreadsheetParserProvider() {

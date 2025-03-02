@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
@@ -30,11 +30,11 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigationContext;
 import walkingkooka.tree.text.TextStyle;
 
 final class BasicSpreadsheetViewportComponentTableContext implements SpreadsheetViewportComponentTableContext,
-    HistoryTokenContextDelegator,
+    HistoryContextDelegator,
     LoggingContextDelegator {
 
 
-    static BasicSpreadsheetViewportComponentTableContext with(final HistoryTokenContext historyTokenContext,
+    static BasicSpreadsheetViewportComponentTableContext with(final HistoryContext historyContext,
                                                               final SpreadsheetViewportCache viewportCache,
                                                               final boolean hideZeroValues,
                                                               final TextStyle defaultCellStyle,
@@ -43,7 +43,7 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
                                                               final SpreadsheetViewport spreadsheetViewport,
                                                               final LoggingContext loggingContext) {
         return new BasicSpreadsheetViewportComponentTableContext(
-            historyTokenContext,
+            historyContext,
             viewportCache,
             hideZeroValues,
             defaultCellStyle,
@@ -54,7 +54,7 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
         );
     }
 
-    private BasicSpreadsheetViewportComponentTableContext(final HistoryTokenContext historyTokenContext,
+    private BasicSpreadsheetViewportComponentTableContext(final HistoryContext historyContext,
                                                           final SpreadsheetViewportCache viewportCache,
                                                           final boolean hideZeroValues,
                                                           final TextStyle defaultCellStyle,
@@ -62,7 +62,7 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
                                                           final boolean shiftKeyDown,
                                                           final SpreadsheetViewport spreadsheetViewport,
                                                           final LoggingContext loggingContext) {
-        this.historyTokenContext = historyTokenContext;
+        this.historyContext = historyContext;
         this.viewportCache = viewportCache;
         this.hideZeroValues = hideZeroValues;
         this.defaultCellStyle = defaultCellStyle;
@@ -136,14 +136,14 @@ final class BasicSpreadsheetViewportComponentTableContext implements Spreadsheet
 
     private final SpreadsheetViewportNavigationContext navigationContext;
 
-    // HistoryTokenContext..............................................................................................
+    // HistoryContext..............................................................................................
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
-        return this.historyTokenContext;
+    public HistoryContext historyContext() {
+        return this.historyContext;
     }
 
-    private final HistoryTokenContext historyTokenContext;
+    private final HistoryContext historyContext;
 
     // LoggingContext...................................................................................................
 

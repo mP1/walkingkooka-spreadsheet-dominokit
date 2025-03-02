@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.formula;
 
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
@@ -39,7 +39,7 @@ import java.util.Optional;
 public final class SpreadsheetFormulaSelectAnchorComponent implements AnchorComponentDelegator<SpreadsheetFormulaSelectAnchorComponent, SpreadsheetExpressionReference> {
 
     public static SpreadsheetFormulaSelectAnchorComponent with(final String id,
-                                                               final HistoryTokenContext context) {
+                                                               final HistoryContext context) {
         return new SpreadsheetFormulaSelectAnchorComponent(
             id,
             context
@@ -47,7 +47,7 @@ public final class SpreadsheetFormulaSelectAnchorComponent implements AnchorComp
     }
 
     private SpreadsheetFormulaSelectAnchorComponent(final String id,
-                                                    final HistoryTokenContext context) {
+                                                    final HistoryContext context) {
         this.component = ValueHistoryTokenAnchorComponent.with(
             HistoryTokenAnchorComponent.empty(),
             this::getter,
@@ -114,7 +114,7 @@ public final class SpreadsheetFormulaSelectAnchorComponent implements AnchorComp
     // @VisibleForTesting
     final ValueHistoryTokenAnchorComponent<SpreadsheetExpressionReference> component;
 
-    final HistoryTokenContext context;
+    final HistoryContext context;
 
     // toString.........................................................................................................
 

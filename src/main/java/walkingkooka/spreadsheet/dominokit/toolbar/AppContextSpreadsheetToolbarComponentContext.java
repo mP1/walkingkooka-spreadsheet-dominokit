@@ -20,13 +20,13 @@ package walkingkooka.spreadsheet.dominokit.toolbar;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 final class AppContextSpreadsheetToolbarComponentContext implements SpreadsheetToolbarComponentContext,
-    HistoryTokenContextDelegator,
+    HistoryContextDelegator,
     HasSpreadsheetDeltaFetcherWatchersDelegator {
 
     static AppContextSpreadsheetToolbarComponentContext with(final AppContext context) {
@@ -58,10 +58,10 @@ final class AppContextSpreadsheetToolbarComponentContext implements SpreadsheetT
         return this.context.spreadsheetViewportCache();
     }
 
-    // HistoryTokenContextDelegator.....................................................................................
+    // HistoryContextDelegator.....................................................................................
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
+    public HistoryContext historyContext() {
         return this.context;
     }
 

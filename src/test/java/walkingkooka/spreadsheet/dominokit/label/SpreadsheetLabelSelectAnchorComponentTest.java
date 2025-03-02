@@ -20,9 +20,9 @@ package walkingkooka.spreadsheet.dominokit.label;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -50,7 +50,7 @@ public final class SpreadsheetLabelSelectAnchorComponentTest implements AnchorCo
         this.treePrintAndCheck(
             SpreadsheetLabelSelectAnchorComponent.with(
                 "label-select-anchor-id",
-                HistoryTokenContexts.fake()
+                HistoryContexts.fake()
             ).clearValue(),
             "\"Label\" DISABLED id=label-select-anchor-id"
         );
@@ -91,7 +91,7 @@ public final class SpreadsheetLabelSelectAnchorComponentTest implements AnchorCo
     private SpreadsheetLabelSelectAnchorComponent createComponent(final String currentHistoryToken) {
         return SpreadsheetLabelSelectAnchorComponent.with(
             "label-select-anchor-id",
-            new FakeHistoryTokenContext() {
+            new FakeHistoryContext() {
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.parseString(currentHistoryToken);

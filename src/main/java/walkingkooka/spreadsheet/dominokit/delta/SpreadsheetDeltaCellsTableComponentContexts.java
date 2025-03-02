@@ -19,17 +19,17 @@ package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 public final class SpreadsheetDeltaCellsTableComponentContexts implements PublicStaticHelper {
 
     /**
      * {@see BasicSpreadsheetDeltaCellsTableComponentContext}
      */
-    public static SpreadsheetDeltaCellsTableComponentContext basic(final HistoryTokenContext historyTokenContext,
+    public static SpreadsheetDeltaCellsTableComponentContext basic(final HistoryContext historyContext,
                                                                    final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
         return BasicSpreadsheetDeltaCellsTableComponentContext.with(
-            historyTokenContext,
+            historyContext,
             hasSpreadsheetDeltaFetcherWatchers
         );
     }

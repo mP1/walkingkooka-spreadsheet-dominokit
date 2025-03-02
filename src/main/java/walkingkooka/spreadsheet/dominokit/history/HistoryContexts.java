@@ -19,19 +19,19 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.reflect.PublicStaticHelper;
 
-public final class HistoryTokenContexts implements PublicStaticHelper {
+public final class HistoryContexts implements PublicStaticHelper {
 
     /**
-     * {@see FakeHistoryTokenContext}
+     * {@see FakeHistoryContext}
      */
-    public static HistoryTokenContext fake() {
-        return new FakeHistoryTokenContext();
+    public static HistoryContext fake() {
+        return new FakeHistoryContext();
     }
 
     /**
      * Stop creation
      */
-    private HistoryTokenContexts() {
+    private HistoryContexts() {
         throw new UnsupportedOperationException();
     }
 }

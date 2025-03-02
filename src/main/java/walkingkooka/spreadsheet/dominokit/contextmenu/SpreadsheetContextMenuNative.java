@@ -31,7 +31,7 @@ import org.dominokit.domino.ui.utils.PrefixAddOn;
 import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenMenuItem;
 
 import java.util.Optional;
@@ -50,7 +50,7 @@ final class SpreadsheetContextMenuNative {
      * Factory that builds a {@link SpreadsheetContextMenu}.
      */
     static SpreadsheetContextMenu empty(final SpreadsheetContextMenuTarget<? extends Element> target,
-                                        final HistoryTokenContext context) {
+                                        final HistoryContext context) {
         final Element element = target.element();
         final Menu<Void> menu = Menu.<Void>create()
             .setContextMenu(true)

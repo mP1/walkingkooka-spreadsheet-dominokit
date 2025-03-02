@@ -264,7 +264,7 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
             return this.context.spreadsheetMetadata();
         }
 
-        // HistoryTokenContext..........................................................................................
+        // HistoryContext..........................................................................................
 
         @Override
         public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {

@@ -19,11 +19,11 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 public interface PluginFileViewDialogComponentContext extends HasPluginFetcherWatchers,
-    HistoryTokenContext {
+    HistoryContext {
 
     /**
      * Loads the text for a plugin archive file.

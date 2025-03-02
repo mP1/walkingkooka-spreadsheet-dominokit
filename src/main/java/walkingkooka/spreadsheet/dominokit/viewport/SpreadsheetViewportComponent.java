@@ -59,8 +59,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
@@ -195,7 +195,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * {@link walkingkooka.spreadsheet.parser.SpreadsheetParserSelector}.
      */
     private <T> HistoryTokenRecorder<T> recentFormatterOrParserSaves(final Function<HistoryToken, Optional<T>> mapper,
-                                                                     final HistoryTokenContext context) {
+                                                                     final HistoryContext context) {
         final HistoryTokenRecorder<T> recorder = HistoryTokenRecorder.with(
             mapper,
             MAX_RECENT_COUNT

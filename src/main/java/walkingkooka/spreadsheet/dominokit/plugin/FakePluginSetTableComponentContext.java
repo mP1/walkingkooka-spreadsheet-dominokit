@@ -17,11 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
 import java.util.Locale;
 
-public class FakePluginSetTableComponentContext extends FakeHistoryTokenContext implements PluginSetTableComponentContext {
+public class FakePluginSetTableComponentContext extends FakeHistoryContext implements PluginSetTableComponentContext {
 
     public FakePluginSetTableComponentContext() {
         super();

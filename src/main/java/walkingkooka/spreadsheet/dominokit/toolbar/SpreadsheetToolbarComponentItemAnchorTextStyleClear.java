@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.toolbar;
 import elemental2.dom.Event;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -63,7 +63,7 @@ final class SpreadsheetToolbarComponentItemAnchorTextStyleClear extends Spreadsh
      */
     @Override //
     void onFocus(final Event event) {
-        final HistoryTokenContext context = this.context;
+        final HistoryContext context = this.context;
 
         context.historyToken()
             .anchoredSelectionHistoryTokenOrEmpty()

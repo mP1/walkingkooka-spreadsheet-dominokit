@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.selector;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 /**
  * Context for {@link RemoveOrReplacePluginSelectorTokenComponent}.
  */
-public interface RemoveOrReplacePluginSelectorTokenComponentContext extends HistoryTokenContext {
+public interface RemoveOrReplacePluginSelectorTokenComponentContext extends HistoryContext {
 
     /**
      * Builds the save text that will be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSaveValue(String)}.

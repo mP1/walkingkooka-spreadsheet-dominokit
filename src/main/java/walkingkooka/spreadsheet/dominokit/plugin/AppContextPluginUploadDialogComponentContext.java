@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 
@@ -29,7 +29,7 @@ import java.util.Objects;
 
 public final class AppContextPluginUploadDialogComponentContext implements PluginUploadDialogComponentContext,
     HasPluginFetcherWatchersDelegator,
-    HistoryTokenContextDelegator,
+    HistoryContextDelegator,
     LoggingContextDelegator {
 
     public static AppContextPluginUploadDialogComponentContext with(final AppContext context) {
@@ -56,10 +56,10 @@ public final class AppContextPluginUploadDialogComponentContext implements Plugi
         return this.context;
     }
 
-    // HistoryTokenContextDelegator.....................................................................................
+    // HistoryContextDelegator.....................................................................................
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
+    public HistoryContext historyContext() {
         return this.context;
     }
 

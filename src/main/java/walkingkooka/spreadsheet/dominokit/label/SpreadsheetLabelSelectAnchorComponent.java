@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.label;
 
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
@@ -38,7 +38,7 @@ import java.util.Optional;
 public final class SpreadsheetLabelSelectAnchorComponent implements AnchorComponentDelegator<SpreadsheetLabelSelectAnchorComponent, SpreadsheetLabelName> {
 
     public static SpreadsheetLabelSelectAnchorComponent with(final String id,
-                                                             final HistoryTokenContext context) {
+                                                             final HistoryContext context) {
         return new SpreadsheetLabelSelectAnchorComponent(
             id,
             context
@@ -46,7 +46,7 @@ public final class SpreadsheetLabelSelectAnchorComponent implements AnchorCompon
     }
 
     private SpreadsheetLabelSelectAnchorComponent(final String id,
-                                                  final HistoryTokenContext context) {
+                                                  final HistoryContext context) {
         this.component = ValueHistoryTokenAnchorComponent.with(
             HistoryTokenAnchorComponent.empty(),
             this::getter,
@@ -111,7 +111,7 @@ public final class SpreadsheetLabelSelectAnchorComponent implements AnchorCompon
     // @VisibleForTesting
     final ValueHistoryTokenAnchorComponent<SpreadsheetLabelName> component;
 
-    final HistoryTokenContext context;
+    final HistoryContext context;
 
     // Object...........................................................................................................
 

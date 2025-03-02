@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.NopComponentLifecycleRefresh;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetCellComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -58,7 +58,7 @@ final class SpreadsheetToolbarComponentItemAnchorParser extends SpreadsheetToolb
 
     @Override //
     void onFocus(final Event event) {
-        final HistoryTokenContext context = this.context;
+        final HistoryContext context = this.context;
 
         context.historyToken()
             .anchoredSelectionHistoryTokenOrEmpty()

@@ -91,9 +91,9 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatche
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocuses;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListSelectHistoryToken;
@@ -156,7 +156,7 @@ import java.util.function.Predicate;
 public class App implements EntryPoint,
     AppContext,
     WindowResizeWatcher,
-    HistoryTokenContextDelegator,
+    HistoryContextDelegator,
     JsonNodeMarshallContextDelegator,
     JsonNodeUnmarshallContextDelegator,
     LoggingContextDelegator,
@@ -305,7 +305,7 @@ public class App implements EntryPoint,
         this.providerContext = ProviderContexts.fake();
 
         // history
-        this.appHistoryTokenContextHistoryTokenWatcher = AppHistoryTokenContextHistoryTokenWatcher.with(this);
+        this.apphistoryContextHistoryTokenWatcher = AppHistoryContextHistoryWatcher.with(this);
 
         this.viewportCache = SpreadsheetViewportCache.empty(this);
 
@@ -394,7 +394,7 @@ public class App implements EntryPoint,
 
     @Override
     public void onModuleLoad() {
-        this.appHistoryTokenContextHistoryTokenWatcher.onHashChange(
+        this.apphistoryContextHistoryTokenWatcher.onHashChange(
             this.historyToken()
         );
 
@@ -1164,13 +1164,13 @@ public class App implements EntryPoint,
         return LocalDateTime.now();
     }
 
-    // HistoryTokenContextDelegator.....................................................................................
+    // HistoryContextDelegator.....................................................................................
 
-    @Override public HistoryTokenContext historyTokenContext() {
-        return this.appHistoryTokenContextHistoryTokenWatcher;
+    @Override public HistoryContext historyContext() {
+        return this.apphistoryContextHistoryTokenWatcher;
     }
 
-    private final AppHistoryTokenContextHistoryTokenWatcher appHistoryTokenContextHistoryTokenWatcher;
+    private final AppHistoryContextHistoryWatcher apphistoryContextHistoryTokenWatcher;
 
     // LoggingContext...................................................................................................
 
