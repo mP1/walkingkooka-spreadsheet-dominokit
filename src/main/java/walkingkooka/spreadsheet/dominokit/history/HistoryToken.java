@@ -1602,7 +1602,193 @@ public abstract class HistoryToken implements HasUrlFragment,
     abstract HistoryToken parse0(final String component,
                                  final TextCursor cursor);
 
-    // token factory methods............................................................................................
+    // ACTION...........................................................................................................
+
+    /**
+     * Removes an action.
+     * <br>
+     * cell/menu -> cell
+     * cell -> cell
+     */
+    public abstract HistoryToken clearAction();
+
+    // ANCHORED SELECTION...............................................................................................
+
+    /**
+     * Factory that creates a {@link HistoryToken} changing the {@link AnchoredSpreadsheetSelection} ui and clearing any action.
+     */
+    public final HistoryToken setAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
+        Objects.requireNonNull(anchoredSelection, "anchoredSelection");
+
+        return this.anchoredSelectionOrEmpty().equals(anchoredSelection) ?
+            this :
+            this.setDifferentAnchoredSelection(anchoredSelection);
+    }
+
+    private HistoryToken setDifferentAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> maybeAnchoredSelection) {
+        HistoryToken token = this;
+
+        if (maybeAnchoredSelection.isPresent()) {
+            final AnchoredSpreadsheetSelection anchoredSelection = maybeAnchoredSelection.get();
+
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+                token = HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
+                    spreadsheetNameHistoryToken,
+                    anchoredSelection
+                );
+            }
+        } else {
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+                token = spreadsheetSelect(
+                    spreadsheetNameHistoryToken.id(),
+                    spreadsheetNameHistoryToken.name()
+                );
+            }
+        }
+
+        return token;
+    }
+
+    /**
+     * Returns a {@link SpreadsheetAnchoredSelectionHistoryToken} using the id, name and {@link AnchoredSpreadsheetSelection}.
+     */
+    public final Optional<HistoryToken> anchoredSelectionHistoryTokenOrEmpty() {
+        HistoryToken result = null;
+
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            final SpreadsheetAnchoredSelectionHistoryToken SpreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
+
+            result = HistoryToken.selection(
+                SpreadsheetAnchoredSelectionHistoryToken.id(),
+                SpreadsheetAnchoredSelectionHistoryToken.name(),
+                SpreadsheetAnchoredSelectionHistoryToken.anchoredSelection()
+            );
+
+            if (this.equals(result)) {
+                result = this;
+            }
+        }
+
+        return Optional.ofNullable(result);
+    }
+
+    /**
+     * Maybe used to get the {@link SpreadsheetViewport} from any {@link HistoryToken}
+     */
+    public final Optional<AnchoredSpreadsheetSelection> anchoredSelectionOrEmpty() {
+        AnchoredSpreadsheetSelection anchoredSelection = null;
+
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            anchoredSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
+                .anchoredSelection();
+        }
+
+        return Optional.ofNullable(anchoredSelection);
+    }
+
+    // CELL.............................................................................................................
+
+    /**
+     * If possible creates a {@link SpreadsheetCellClipboardCopyHistoryToken} token.
+     */
+    public final HistoryToken setCellCopy(final SpreadsheetCellClipboardKind kind) {
+        Objects.requireNonNull(kind, "kind");
+
+        final HistoryToken token;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+            token = HistoryToken.cellClipboardCopy(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection(),
+                kind
+            );
+        } else {
+            token = this;
+        }
+
+        return token;
+    }
+
+    /**
+     * If possible creates a {@link SpreadsheetCellClipboardCutHistoryToken} token.
+     */
+    public final HistoryToken setCellCut(final SpreadsheetCellClipboardKind kind) {
+        Objects.requireNonNull(kind, "kind");
+
+        final HistoryToken token;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+            token = HistoryToken.cellClipboardCut(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection(),
+                kind
+            );
+        } else {
+            token = this;
+        }
+
+        return token;
+    }
+
+    /**
+     * If possible creates a {@link SpreadsheetCellClipboardPasteHistoryToken} token.
+     */
+    public final HistoryToken setCellPaste(final SpreadsheetCellClipboardKind kind) {
+        Objects.requireNonNull(kind, "kind");
+
+        final HistoryToken token;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+            token = HistoryToken.cellClipboardPaste(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection(),
+                kind
+            );
+        } else {
+            token = this;
+        }
+
+        return token;
+    }
+
+    // clear............................................................................................................
+
+    /**
+     * if possible creates a clear.
+     */
+    public final HistoryToken clear() {
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetColumnHistoryToken) {
+            final SpreadsheetColumnHistoryToken column = this.cast(SpreadsheetColumnHistoryToken.class);
+            historyToken = columnClear(
+                column.id(),
+                column.name(),
+                column.anchoredSelection()
+            );
+        } else {
+            if (this instanceof SpreadsheetRowHistoryToken) {
+                final SpreadsheetRowHistoryToken row = this.cast(SpreadsheetRowHistoryToken.class);
+                historyToken = rowClear(
+                    row.id(),
+                    row.name(),
+                    row.anchoredSelection()
+                );
+            }
+        }
+
+        return historyToken;
+    }
+
+    // CLOSE............................................................................................................
 
     /**
      * Used to close a currently active state, such as a dialog.
@@ -1718,193 +1904,11 @@ public abstract class HistoryToken implements HasUrlFragment,
         return closed;
     }
 
-    /**
-     * Removes an action.
-     * <br>
-     * cell/menu -> cell
-     * cell -> cell
-     */
-    public abstract HistoryToken clearAction();
+    // COUNT............................................................................................................
 
     /**
-     * Returns an instance with the selection cleared or removed if necessary
+     * Returns the count property or {@link OptionalInt#empty()} if none exists
      */
-    public final HistoryToken clearSelection() {
-        return this.setAnchoredSelection(
-            Optional.empty()
-        );
-    }
-
-    /**
-     * Factory that creates a {@link HistoryToken} changing the {@link AnchoredSpreadsheetSelection} ui and clearing any action.
-     */
-    public final HistoryToken setAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
-        Objects.requireNonNull(anchoredSelection, "anchoredSelection");
-
-        return this.anchoredSelectionOrEmpty().equals(anchoredSelection) ?
-            this :
-            this.setDifferentAnchoredSelection(anchoredSelection);
-    }
-
-    private HistoryToken setDifferentAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> maybeAnchoredSelection) {
-        HistoryToken token = this;
-
-        if (maybeAnchoredSelection.isPresent()) {
-            final AnchoredSpreadsheetSelection anchoredSelection = maybeAnchoredSelection.get();
-
-            if (this instanceof SpreadsheetNameHistoryToken) {
-                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-                token = HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
-                    spreadsheetNameHistoryToken,
-                    anchoredSelection
-                );
-            }
-        } else {
-            if (this instanceof SpreadsheetNameHistoryToken) {
-                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-                token = spreadsheetSelect(
-                    spreadsheetNameHistoryToken.id(),
-                    spreadsheetNameHistoryToken.name()
-                );
-            }
-        }
-
-        return token;
-    }
-
-    /**
-     * Returns a {@link SpreadsheetAnchoredSelectionHistoryToken} using the id, name and {@link AnchoredSpreadsheetSelection}.
-     */
-    public final Optional<HistoryToken> anchoredSelectionHistoryTokenOrEmpty() {
-        HistoryToken result = null;
-
-        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-            final SpreadsheetAnchoredSelectionHistoryToken SpreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
-
-            result = HistoryToken.selection(
-                SpreadsheetAnchoredSelectionHistoryToken.id(),
-                SpreadsheetAnchoredSelectionHistoryToken.name(),
-                SpreadsheetAnchoredSelectionHistoryToken.anchoredSelection()
-            );
-
-            if (this.equals(result)) {
-                result = this;
-            }
-        }
-
-        return Optional.ofNullable(result);
-    }
-
-    /**
-     * Maybe used to get the {@link SpreadsheetViewport} from any {@link HistoryToken}
-     */
-    public final Optional<AnchoredSpreadsheetSelection> anchoredSelectionOrEmpty() {
-        AnchoredSpreadsheetSelection anchoredSelection = null;
-
-        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-            anchoredSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
-                .anchoredSelection();
-        }
-
-        return Optional.ofNullable(anchoredSelection);
-    }
-
-    /**
-     * If possible creates a {@link SpreadsheetCellClipboardCopyHistoryToken} token.
-     */
-    public final HistoryToken setCellCopy(final SpreadsheetCellClipboardKind kind) {
-        Objects.requireNonNull(kind, "kind");
-
-        final HistoryToken token;
-
-        if (this instanceof SpreadsheetCellHistoryToken) {
-            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
-            token = HistoryToken.cellClipboardCopy(
-                cell.id(),
-                cell.name(),
-                cell.anchoredSelection(),
-                kind
-            );
-        } else {
-            token = this;
-        }
-
-        return token;
-    }
-
-    /**
-     * If possible creates a {@link SpreadsheetCellClipboardCutHistoryToken} token.
-     */
-    public final HistoryToken setCellCut(final SpreadsheetCellClipboardKind kind) {
-        Objects.requireNonNull(kind, "kind");
-
-        final HistoryToken token;
-
-        if (this instanceof SpreadsheetCellHistoryToken) {
-            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
-            token = HistoryToken.cellClipboardCut(
-                cell.id(),
-                cell.name(),
-                cell.anchoredSelection(),
-                kind
-            );
-        } else {
-            token = this;
-        }
-
-        return token;
-    }
-
-    /**
-     * If possible creates a {@link SpreadsheetCellClipboardPasteHistoryToken} token.
-     */
-    public final HistoryToken setCellPaste(final SpreadsheetCellClipboardKind kind) {
-        Objects.requireNonNull(kind, "kind");
-
-        final HistoryToken token;
-
-        if (this instanceof SpreadsheetCellHistoryToken) {
-            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
-            token = HistoryToken.cellClipboardPaste(
-                cell.id(),
-                cell.name(),
-                cell.anchoredSelection(),
-                kind
-            );
-        } else {
-            token = this;
-        }
-
-        return token;
-    }
-
-    /**
-     * if possible creates a clear.
-     */
-    public final HistoryToken clear() {
-        HistoryToken historyToken = this;
-
-        if (this instanceof SpreadsheetColumnHistoryToken) {
-            final SpreadsheetColumnHistoryToken column = this.cast(SpreadsheetColumnHistoryToken.class);
-            historyToken = columnClear(
-                column.id(),
-                column.name(),
-                column.anchoredSelection()
-            );
-        } else {
-            if (this instanceof SpreadsheetRowHistoryToken) {
-                final SpreadsheetRowHistoryToken row = this.cast(SpreadsheetRowHistoryToken.class);
-                historyToken = rowClear(
-                    row.id(),
-                    row.name(),
-                    row.anchoredSelection()
-                );
-            }
-        }
-
-        return historyToken;
-    }
-
     public final OptionalInt count() {
         OptionalInt count = OptionalInt.empty();
 
@@ -2106,6 +2110,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return count;
     }
 
+    // DELETE...........................................................................................................
+
     /**
      * if possible creates a delete.
      */
@@ -2168,6 +2174,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return historyToken;
     }
 
+    // FORMATTER........................................................................................................
+
     /**
      * If possible selects a formatter {@link HistoryToken}.
      */
@@ -2190,6 +2198,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return historyToken;
     }
 
+    // FORMATTER........................................................................................................
+
     public final HistoryToken formula() {
         HistoryToken historyToken = this;
 
@@ -2205,6 +2215,8 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return historyToken;
     }
+
+    // FREEZE...........................................................................................................
 
     /**
      * if possible creates a freeze.
@@ -2260,6 +2272,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return Optional.ofNullable(token);
     }
 
+    // ID...............................................................................................................
+
     /**
      * Would be setter, returning a {@link HistoryToken} with the given {@link SpreadsheetId} and {@link SpreadsheetName},
      * creating a new instance if necessary.
@@ -2294,6 +2308,8 @@ public abstract class HistoryToken implements HasUrlFragment,
      */
     abstract HistoryToken replaceIdAndName(final SpreadsheetId id,
                                            final SpreadsheetName name);
+
+    // INSERT...........................................................................................................
 
     /**
      * if possible creates a insert after.
@@ -2361,28 +2377,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         return historyToken;
     }
 
-    /**
-     * Returns true for any metadata {@link SpreadsheetFormatterSelector} {@link HistoryToken}.
-     */
-    public final boolean isMetadataFormatter() {
-        return this.isMetadataFormatterOrParser(SpreadsheetPatternKind::isFormatPattern);
-    }
-
-    /**
-     * Returns true for any metadata {@link SpreadsheetParserSelector} {@link HistoryToken}.
-     */
-    public final boolean isMetadataParser() {
-        return this.isMetadataFormatterOrParser(SpreadsheetPatternKind::isParsePattern);
-    }
-
-    private boolean isMetadataFormatterOrParser(final Function<SpreadsheetPatternKind, Boolean> kind) {
-        return this instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
-            this.patternKind()
-                .map(kind)
-                .orElse(false);
-    }
-
-    // labelMapping.....................................................................................................
+    // LABEL MAPPING....................................................................................................
 
     public final HistoryToken labelMapping() {
         HistoryToken historyToken = this;
@@ -2472,7 +2467,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             this;
     }
 
-    // labelName........................................................................................................
+    // LABEL NAME.......................................................................................................
 
     /**
      * Getter that returns any {@link SpreadsheetLabelName} value from the given {@link HistoryToken}.
@@ -2571,7 +2566,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         return token;
     }
 
-    // labels...........................................................................................................
+    // LABELS...........................................................................................................
 
     public final HistoryToken labels(final HistoryTokenOffsetAndCount offsetAndCount) {
         Objects.requireNonNull(offsetAndCount, "offsetAndCount");
@@ -2591,7 +2586,7 @@ public abstract class HistoryToken implements HasUrlFragment,
         return token;
     }
 
-    // setList..........................................................................................................
+    // LIST.............................................................................................................
 
     public final HistoryToken setList(final HistoryTokenOffsetAndCount offsetAndCount) {
         Objects.requireNonNull(offsetAndCount, "offsetAndCount");
@@ -2635,7 +2630,7 @@ public abstract class HistoryToken implements HasUrlFragment,
             token;
     }
 
-    // menu.............................................................................................................
+    // MENU.............................................................................................................
 
     public final HistoryToken menu() {
         HistoryToken historyToken = this;
@@ -2809,6 +2804,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return historyToken;
     }
 
+    // METADATA.........................................................................................................
+
     /**
      * Returns if a possible a {@link HistoryToken} which shows the metadata panel
      */
@@ -2876,6 +2873,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return token;
     }
 
+    // name.............................................................................................................
+
     /**
      * Sets or replaces the current {@link SpreadsheetName}.
      */
@@ -2887,6 +2886,11 @@ public abstract class HistoryToken implements HasUrlFragment,
             this;
     }
 
+    // OFFSET...........................................................................................................
+
+    /**
+     * Getter that returns the offset or {@link OptionalInt} if absent.
+     */
     public final OptionalInt offset() {
         final OptionalInt offset;
 
@@ -3098,6 +3102,8 @@ public abstract class HistoryToken implements HasUrlFragment,
             );
     }
 
+    // PARSER...........................................................................................................
+
     /**
      * If possible selects a formatter {@link HistoryToken}.
      */
@@ -3119,6 +3125,8 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return historyToken;
     }
+
+    // QUERY............................................................................................................
 
     /**
      * Creates a {@link SpreadsheetCellFindHistoryToken} with the given parameters.
@@ -3144,6 +3152,8 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return historyToken;
     }
+
+    // REFERENCES.......................................................................................................
 
     final HistoryToken parseReferences(final TextCursor cursor) {
         HistoryTokenOffsetAndCount offsetAndCount;
@@ -3195,6 +3205,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return token;
     }
 
+    // RELOAD...........................................................................................................
+
     public final HistoryToken reload() {
         HistoryToken token = this;
 
@@ -3222,6 +3234,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return token;
     }
 
+    // RENAME...........................................................................................................
+
     public final HistoryToken rename() {
         HistoryToken token = this;
 
@@ -3235,6 +3249,8 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return token;
     }
+
+    // SAVE VALUE.......................................................................................................
 
     /**
      * If this is a {@link HistoryToken} with a save value that will be returned.
@@ -3750,6 +3766,19 @@ public abstract class HistoryToken implements HasUrlFragment,
         return saved;
     }
 
+    // SELECTION........................................................................................................
+
+    /**
+     * Returns an instance with the selection cleared or removed if necessary
+     */
+    public final HistoryToken clearSelection() {
+        return this.setAnchoredSelection(
+            Optional.empty()
+        );
+    }
+
+    // SORT.............................................................................................................
+
     /**
      * if possible creates a sort edit, otherwise returns this.
      */
@@ -3812,6 +3841,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return spreadsheetParserSelector;
     }
 
+    // STYLE............................................................................................................
+
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link TextStylePropertyName} property name.
      */
@@ -3852,6 +3883,8 @@ public abstract class HistoryToken implements HasUrlFragment,
         return historyToken;
     }
 
+    // TOOLBAR..........................................................................................................
+
     public final HistoryToken toolbar() {
         HistoryToken historyToken = this;
 
@@ -3875,6 +3908,8 @@ public abstract class HistoryToken implements HasUrlFragment,
 
         return historyToken;
     }
+
+    // UNFREEZE.........................................................................................................
 
     /**
      * if possible creates a unfreeze.
@@ -3942,6 +3977,8 @@ public abstract class HistoryToken implements HasUrlFragment,
             name.contains("Reload") ||
             name.contains("Save");
     }
+
+    // HELPERS..........................................................................................................
 
     private <T> HistoryToken setIfSpreadsheetNameHistoryTokenWithValue(final BiFunction<SpreadsheetNameHistoryToken, T, HistoryToken> setter,
                                                                        final T value) {
@@ -4068,6 +4105,29 @@ public abstract class HistoryToken implements HasUrlFragment,
         return saveUrlFragmentValue(
             value.orElse(null)
         );
+    }
+
+    // ISXXX............................................................................................................
+
+    /**
+     * Returns true for any metadata {@link SpreadsheetFormatterSelector} {@link HistoryToken}.
+     */
+    public final boolean isMetadataFormatter() {
+        return this.isMetadataFormatterOrParser(SpreadsheetPatternKind::isFormatPattern);
+    }
+
+    /**
+     * Returns true for any metadata {@link SpreadsheetParserSelector} {@link HistoryToken}.
+     */
+    public final boolean isMetadataParser() {
+        return this.isMetadataFormatterOrParser(SpreadsheetPatternKind::isParsePattern);
+    }
+
+    private boolean isMetadataFormatterOrParser(final Function<SpreadsheetPatternKind, Boolean> kind) {
+        return this instanceof SpreadsheetMetadataPropertySelectHistoryToken &&
+            this.patternKind()
+                .map(kind)
+                .orElse(false);
     }
 
     // Object...........................................................................................................
