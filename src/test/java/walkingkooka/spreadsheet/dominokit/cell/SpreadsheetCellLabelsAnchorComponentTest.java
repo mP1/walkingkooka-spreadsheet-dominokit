@@ -18,14 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
-import java.util.OptionalInt;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -65,7 +67,7 @@ public final class SpreadsheetCellLabelsAnchorComponentTest implements AnchorCom
                     SpreadsheetSelection.A1
                 )
             ),
-            "\"A1\" DISABLED id=cell-labels-anchor-id"
+            "\"A1\" DISABLED (1) id=cell-labels-anchor-id"
         );
     }
 
@@ -78,7 +80,7 @@ public final class SpreadsheetCellLabelsAnchorComponentTest implements AnchorCom
                         SpreadsheetSelection.A1
                     )
                 ),
-            "\"A1\" [#/1/SpreadsheetName22/cell/A1/labels] id=cell-labels-anchor-id"
+            "\"A1\" [#/1/SpreadsheetName22/cell/A1/labels] (1) id=cell-labels-anchor-id"
         );
     }
 
@@ -91,7 +93,7 @@ public final class SpreadsheetCellLabelsAnchorComponentTest implements AnchorCom
                         SpreadsheetSelection.parseCellRange("B2:C3")
                     )
                 ),
-            "\"B2:C3\" [#/1/SpreadsheetName22/cell/B2:C3/bottom-right/labels] id=cell-labels-anchor-id"
+            "\"B2:C3\" [#/1/SpreadsheetName22/cell/B2:C3/bottom-right/labels] (1) id=cell-labels-anchor-id"
         );
     }
 
@@ -104,39 +106,7 @@ public final class SpreadsheetCellLabelsAnchorComponentTest implements AnchorCom
                         SpreadsheetSelection.labelName("Label9999")
                     )
                 ),
-            "\"Label9999\" [#/1/SpreadsheetName22/cell/Label9999/labels] id=cell-labels-anchor-id"
-        );
-    }
-
-    // setCount.........................................................................................................
-
-    @Test
-    public void testSetCountZero() {
-        this.treePrintAndCheck(
-            this.createComponent()
-                .setValue(
-                    Optional.of(
-                        SpreadsheetSelection.labelName("Label9999")
-                    )
-                ).setCount(
-                    OptionalInt.of(0)
-                ),
-            "\"Label9999\" [#/1/SpreadsheetName22/cell/Label9999/labels] (0) id=cell-labels-anchor-id"
-        );
-    }
-
-    @Test
-    public void testSetCountNonZero() {
-        this.treePrintAndCheck(
-            this.createComponent()
-                .setValue(
-                    Optional.of(
-                        SpreadsheetSelection.labelName("Label9999")
-                    )
-                ).setCount(
-                    OptionalInt.of(111)
-                ),
-            "\"Label9999\" [#/1/SpreadsheetName22/cell/Label9999/labels] (111) id=cell-labels-anchor-id"
+            "\"Label9999\" [#/1/SpreadsheetName22/cell/Label9999/labels] (1) id=cell-labels-anchor-id"
         );
     }
 
@@ -151,6 +121,13 @@ public final class SpreadsheetCellLabelsAnchorComponentTest implements AnchorCom
         return SpreadsheetCellLabelsAnchorComponent.with(
             "cell-labels-anchor-id",
             new FakeSpreadsheetCellLabelsAnchorComponentContext() {
+
+                @Override
+                public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+                    return Sets.of(
+                        SpreadsheetSelection.labelName("Hello")
+                    );
+                }
 
                 @Override
                 public HistoryToken historyToken() {
