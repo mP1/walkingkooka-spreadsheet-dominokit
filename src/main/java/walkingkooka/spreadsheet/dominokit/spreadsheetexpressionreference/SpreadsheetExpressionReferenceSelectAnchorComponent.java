@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -75,9 +74,8 @@ public final class SpreadsheetExpressionReferenceSelectAnchorComponent implement
 
         if (value.isPresent()) {
             historyToken = this.context.historyToken()
-                .setAnchoredSelection(
-                    value.map(SpreadsheetSelection::setDefaultAnchor)
-                ).clearAction();
+                .setSelection(value)
+                .clearAction();
             if (false == (historyToken instanceof SpreadsheetCellSelectHistoryToken)) {
                 historyToken = null;
             }
