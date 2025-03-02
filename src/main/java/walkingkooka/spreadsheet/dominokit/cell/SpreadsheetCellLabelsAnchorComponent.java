@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 /**
  * Creates a {@link SpreadsheetCellLabelsAnchorComponent} which will display labels for the given {@link SpreadsheetExpressionReference}.
@@ -99,11 +98,6 @@ public final class SpreadsheetCellLabelsAnchorComponent implements AnchorCompone
     @Override
     public SpreadsheetCellLabelsAnchorComponent setValue(final Optional<SpreadsheetExpressionReference> value) {
         this.component.setValue(value);
-        return this;
-    }
-
-    public SpreadsheetCellLabelsAnchorComponent setCount(final OptionalInt count) {
-        this.component.setCount(count);
         return this;
     }
 
