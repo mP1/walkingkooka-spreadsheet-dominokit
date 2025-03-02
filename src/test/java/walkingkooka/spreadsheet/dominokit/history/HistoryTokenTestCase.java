@@ -879,7 +879,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
     @Test
-    public final void testEqualsDifferentTypeSameUrgent() {
+    public final void testEqualsDifferentTypeSameUrlFragment() {
         final T token = this.createHistoryToken();
 
         this.checkNotEquals(
