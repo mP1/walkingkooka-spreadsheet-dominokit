@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
@@ -27,6 +26,6 @@ public class FakeSpreadsheetCellReferencesAnchorComponentContext extends FakeHis
 
     @Override
     public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
-        return Sets.empty();
+        throw new UnsupportedOperationException();
     }
 }
