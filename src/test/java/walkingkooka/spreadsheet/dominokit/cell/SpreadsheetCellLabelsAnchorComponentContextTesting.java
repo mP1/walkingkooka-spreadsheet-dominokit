@@ -17,7 +17,43 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import org.junit.jupiter.api.Test;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextTesting;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public interface SpreadsheetCellLabelsAnchorComponentContextTesting<C extends SpreadsheetCellLabelsAnchorComponentContext> extends HistoryTokenContextTesting<C> {
+
+    @Test
+    default void testCellLabelsWithNullCellFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createContext().cellLabels(null)
+        );
+    }
+
+    default void cellLabelsAndCheck(final SpreadsheetCellLabelsAnchorComponentContext context,
+                                    final SpreadsheetCellReference cell,
+                                    final SpreadsheetLabelName... expected) {
+        this.cellLabelsAndCheck(
+            context,
+            cell,
+            Sets.of(expected)
+        );
+    }
+
+    default void cellLabelsAndCheck(final SpreadsheetCellLabelsAnchorComponentContext context,
+                                    final SpreadsheetCellReference cell,
+                                    final Set<SpreadsheetLabelName> expected) {
+        this.checkEquals(
+            expected,
+            context.cellLabels(cell),
+            "cellLabels " + cell
+        );
+    }
 }

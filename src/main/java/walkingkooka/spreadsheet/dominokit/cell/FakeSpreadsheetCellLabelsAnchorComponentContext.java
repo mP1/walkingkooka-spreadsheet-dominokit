@@ -17,7 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+
+import java.util.Set;
 
 public class FakeSpreadsheetCellLabelsAnchorComponentContext extends FakeHistoryTokenContext implements SpreadsheetCellLabelsAnchorComponentContext{
+
+    @Override
+    public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetCellReference cell) {
+        return Sets.empty();
+    }
 }
