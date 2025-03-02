@@ -21,7 +21,6 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelsHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
@@ -37,7 +36,7 @@ import java.util.Optional;
 public final class SpreadsheetCellLabelsAnchorComponent implements AnchorComponentDelegator<SpreadsheetCellLabelsAnchorComponent, SpreadsheetExpressionReference> {
 
     public static SpreadsheetCellLabelsAnchorComponent with(final String id,
-                                                            final HistoryTokenContext context) {
+                                                            final SpreadsheetCellLabelsAnchorComponentContext context) {
         return new SpreadsheetCellLabelsAnchorComponent(
             id,
             context
@@ -45,7 +44,7 @@ public final class SpreadsheetCellLabelsAnchorComponent implements AnchorCompone
     }
 
     private SpreadsheetCellLabelsAnchorComponent(final String id,
-                                                 final HistoryTokenContext context) {
+                                                 final SpreadsheetCellLabelsAnchorComponentContext context) {
         this.component = ValueHistoryTokenAnchorComponent.with(
             HistoryTokenAnchorComponent.empty(),
             this::getter,
@@ -112,7 +111,7 @@ public final class SpreadsheetCellLabelsAnchorComponent implements AnchorCompone
     // @VisibleForTesting
     final ValueHistoryTokenAnchorComponent<SpreadsheetExpressionReference> component;
 
-    final HistoryTokenContext context;
+    final SpreadsheetCellLabelsAnchorComponentContext context;
 
     // toString.........................................................................................................
 
