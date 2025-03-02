@@ -864,6 +864,83 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         }
     }
 
+    // SELECTION........................................................................................................
+
+    @Test
+    public final void testSetSelectionWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setSelection(null)
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithSame() {
+        final HistoryToken token = this.createHistoryToken();
+
+        assertSame(
+            token,
+            token.setSelection(token.selection()),
+            token::toString
+        );
+    }
+
+    final void setSelectionAndCheck(final HistoryToken token) {
+        this.setSelectionAndCheck(
+            token,
+            token.selection()
+        );
+    }
+
+    final void setSelectionAndCheck(final HistoryToken token,
+                                    final SpreadsheetSelection selection) {
+        this.setSelectionAndCheck(
+            token,
+            selection,
+            token
+        );
+    }
+
+    final void setSelectionAndCheck(final HistoryToken token,
+                                    final Optional<SpreadsheetSelection> selection) {
+        assertSame(
+            token,
+            token.setSelection(selection),
+            token::toString
+        );
+    }
+
+    final void setSelectionAndCheck(final HistoryToken token,
+                                    final HistoryToken expected) {
+        this.setSelectionAndCheck(
+            token,
+            expected
+        );
+    }
+
+    final void setSelectionAndCheck(final HistoryToken token,
+                                    final SpreadsheetSelection selection,
+                                    final HistoryToken expected) {
+        this.setSelectionAndCheck(
+            token,
+            Optional.of(selection),
+            expected
+        );
+    }
+
+    final void setSelectionAndCheck(final HistoryToken token,
+                                    final Optional<SpreadsheetSelection> selection,
+                                    final HistoryToken expected) {
+        this.checkEquals(
+            expected,
+            token.setSelection(selection),
+            () -> token + " setSelection " + selection
+        );
+    }
+
+    // factory..........................................................................................................
+
     abstract T createHistoryToken();
 
     // equals...........................................................................................................

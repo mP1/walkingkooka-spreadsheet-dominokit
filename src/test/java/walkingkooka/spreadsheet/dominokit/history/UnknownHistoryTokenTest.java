@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
@@ -35,6 +36,14 @@ public final class UnknownHistoryTokenTest extends HistoryTokenTestCase<UnknownH
             ID,
             NAME,
             HistoryToken.spreadsheetSelect(ID, NAME)
+        );
+    }
+
+    @Test
+    public void testSetSelectionWithCell() {
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            SpreadsheetSelection.A1
         );
     }
 

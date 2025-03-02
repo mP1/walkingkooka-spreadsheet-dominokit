@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import static org.junit.Assert.assertSame;
 
@@ -41,6 +42,14 @@ public abstract class PluginHistoryTokenTestCase<T extends PluginHistoryToken> e
     public final void testPatternKind() {
         this.patternKindAndCheck(
             this.createHistoryToken()
+        );
+    }
+
+    @Test
+    public final void testSetSelectionWithCell() {
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            SpreadsheetSelection.A1
         );
     }
 

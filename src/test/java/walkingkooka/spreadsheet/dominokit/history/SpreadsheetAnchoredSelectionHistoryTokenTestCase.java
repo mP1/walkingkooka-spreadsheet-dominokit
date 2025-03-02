@@ -132,6 +132,15 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
         );
     }
 
+    // setSelection.....................................................................................................
+
+    @Test
+    public final void testSetSelectionWithoutSelection() {
+        this.setSelectionAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // unfreezeOrEmpty..................................................................................................
 
     final void unfreezeOrEmptyAndCheck(final AnchoredSpreadsheetSelection anchoredSelection) {

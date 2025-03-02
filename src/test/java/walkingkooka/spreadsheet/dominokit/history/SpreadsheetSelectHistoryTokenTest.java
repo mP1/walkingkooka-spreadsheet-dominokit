@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHistoryTokenTestCase<SpreadsheetSelectHistoryToken> {
 
@@ -75,6 +76,120 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
     public void testPatternKind() {
         this.patternKindAndCheck(
             this.createHistoryToken()
+        );
+    }
+
+    // setSelection.....................................................................................................
+
+    @Test
+    public void testSetSelectionWithoutSelection() {
+        this.setSelectionAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
+    @Test
+    public void testSetSelectionWithColumn() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseColumn("A");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testSetSelectionWithColumnRange() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseColumnRange("B:C");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testSetSelectionWithCell() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.A1;
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testSetSelectionWithCellRange() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseCellRange("B2:C3");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testSetSelectionWithLabel() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.labelName("Hello");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testSetSelectionWithRow() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseRow("1");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testSetSelectionWithRowRange() {
+        final SpreadsheetSelection selection = SpreadsheetSelection.parseRowRange("2:3");
+
+        this.setSelectionAndCheck(
+            this.createHistoryToken(),
+            selection,
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                selection.setDefaultAnchor()
+            )
         );
     }
 
