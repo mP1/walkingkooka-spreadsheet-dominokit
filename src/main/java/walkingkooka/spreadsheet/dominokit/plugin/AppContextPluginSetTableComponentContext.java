@@ -18,13 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 
 import java.util.Locale;
 import java.util.Objects;
 
-final class AppContextPluginSetTableComponentContext implements PluginSetTableComponentContext, HistoryTokenContextDelegator {
+final class AppContextPluginSetTableComponentContext implements PluginSetTableComponentContext, HistoryContextDelegator {
 
     static AppContextPluginSetTableComponentContext with(final AppContext context) {
         return new AppContextPluginSetTableComponentContext(
@@ -43,10 +43,10 @@ final class AppContextPluginSetTableComponentContext implements PluginSetTableCo
         return this.context.locale();
     }
 
-    // HistoryTokenContextDelegator.....................................................................................
+    // HistoryContextDelegator.....................................................................................
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
+    public HistoryContext historyContext() {
         return this.context;
     }
 

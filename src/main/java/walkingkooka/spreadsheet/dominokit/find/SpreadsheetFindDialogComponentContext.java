@@ -22,7 +22,7 @@ import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 /**
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetFindDialogComponent}.
  */
-public interface SpreadsheetFindDialogComponentContext extends HistoryTokenContext,
+public interface SpreadsheetFindDialogComponentContext extends HistoryContext,
     HasSpreadsheetDeltaFetcherWatchers,
     HasSpreadsheetMetadata,
     HasNow,

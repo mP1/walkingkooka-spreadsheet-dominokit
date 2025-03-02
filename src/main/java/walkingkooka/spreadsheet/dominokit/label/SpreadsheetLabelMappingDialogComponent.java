@@ -28,9 +28,9 @@ import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelSaveHistoryToken;
@@ -130,7 +130,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
     // SpreadsheetLabelComponent........................................................................................
 
-    private SpreadsheetLabelComponent labelName(final HistoryTokenContext context) {
+    private SpreadsheetLabelComponent labelName(final HistoryContext context) {
         return SpreadsheetLabelComponent.with(context)
             .setId(ID_PREFIX + "label" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Label")

@@ -27,9 +27,9 @@ import org.dominokit.domino.ui.dialogs.IsDialogWidth;
 import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
@@ -56,7 +56,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
     public static SpreadsheetDialogComponent smallerPrompt(final String id,
                                                            final String title,
                                                            final boolean includeClose,
-                                                           final HistoryTokenContext context) {
+                                                           final HistoryContext context) {
         return with(
             DialogSize.MEDIUM, // width
             DialogSize.SMALL, // height
@@ -73,7 +73,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
     public static SpreadsheetDialogComponent smallEdit(final String id,
                                                        final String title,
                                                        final boolean includeClose,
-                                                       final HistoryTokenContext context) {
+                                                       final HistoryContext context) {
         return with(
             DialogSize.LARGE, // width
             DialogSize.LARGE, // height
@@ -90,7 +90,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
     public static SpreadsheetDialogComponent largeEdit(final String id,
                                                        final String title,
                                                        final boolean includeClose,
-                                                       final HistoryTokenContext context) {
+                                                       final HistoryContext context) {
         return with(
             DialogSize.LARGE, // width
             DialogSize.LARGE, // height
@@ -107,7 +107,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
     public static SpreadsheetDialogComponent largeList(final String id,
                                                        final String title,
                                                        final boolean includeClose,
-                                                       final HistoryTokenContext context) {
+                                                       final HistoryContext context) {
         return with(
             DialogSize.VERY_LARGE, // width
             DialogSize.LARGE, // height
@@ -126,7 +126,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
                                                    final String id,
                                                    final String title,
                                                    final boolean includeClose,
-                                                   final HistoryTokenContext context) {
+                                                   final HistoryContext context) {
         Objects.requireNonNull(width, "width");
         Objects.requireNonNull(height, "height");
         Objects.requireNonNull(id, "id");
@@ -148,7 +148,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
                                        final String id,
                                        final String title,
                                        final boolean includeClose,
-                                       final HistoryTokenContext context) {
+                                       final HistoryContext context) {
         this.context = context;
 
         final NavBar navBar = dialogNavBar();
@@ -183,7 +183,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
     }
 
     private HistoryTokenAnchorComponent closeLink(final String id,
-                                                  final HistoryTokenContext context) {
+                                                  final HistoryContext context) {
         return context.historyToken()
             .link(id + "-close-X")
             .setIconAfter(
@@ -230,7 +230,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
 
             // just to be sure, verify is open before firing HistoryToken#close
             if (this.isOpen()) {
-                final HistoryTokenContext context = this.context;
+                final HistoryContext context = this.context;
 
                 context.pushHistoryToken(
                     context.historyToken()
@@ -250,7 +250,7 @@ public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLik
      */
     private boolean closeListenerEnabled;
 
-    private final HistoryTokenContext context;
+    private final HistoryContext context;
 
     @Override
     public String id() {

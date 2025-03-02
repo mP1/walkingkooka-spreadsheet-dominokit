@@ -25,7 +25,7 @@ import java.util.Optional;
 /**
  * A {@link Context} that includes operations to interact with the history tokens.
  */
-public interface HistoryTokenContext extends Context {
+public interface HistoryContext extends Context {
 
     /**
      * Adds a new {@link HistoryTokenWatcher}, the returned {@link Runnable} may be invoked to remove the watcher.

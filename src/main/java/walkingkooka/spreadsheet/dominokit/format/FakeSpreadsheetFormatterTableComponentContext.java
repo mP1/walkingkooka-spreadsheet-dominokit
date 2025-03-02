@@ -17,10 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.format;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 
-public class FakeSpreadsheetFormatterTableComponentContext extends FakeHistoryTokenContext
+public class FakeSpreadsheetFormatterTableComponentContext extends FakeHistoryContext
     implements SpreadsheetFormatterTableComponentContext {
     @Override
     public String formatterTableHistoryTokenSave(final SpreadsheetFormatterSelector selector) {

@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.sort;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviderDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import java.util.Objects;
 
 final class AppContextSpreadsheetSortDialogComponentContext implements SpreadsheetSortDialogComponentContext,
-    HistoryTokenContextDelegator,
+    HistoryContextDelegator,
     LoggingContextDelegator,
     SpreadsheetComparatorProviderDelegator {
 
@@ -60,7 +60,7 @@ final class AppContextSpreadsheetSortDialogComponentContext implements Spreadshe
     // SpreadsheetDialogComponentContextDelegator.......................................................................
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
+    public HistoryContext historyContext() {
         return this.context;
     }
 

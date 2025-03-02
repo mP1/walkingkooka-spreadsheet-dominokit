@@ -29,9 +29,9 @@ import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.upload.SpreadsheetUploadFileComponent;
@@ -70,7 +70,7 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
 
     // close............................................................................................................
 
-    private void refreshClose(final HistoryTokenContext context) {
+    private void refreshClose(final HistoryContext context) {
         this.close.setHistoryToken(
             Optional.of(
                 context.historyToken().close()

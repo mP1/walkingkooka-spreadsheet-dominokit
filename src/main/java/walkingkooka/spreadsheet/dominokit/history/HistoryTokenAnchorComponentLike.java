@@ -91,7 +91,7 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
     /**
      * The {@link #historyToken()} will be pushed if this anchor is clicked or ENTER key downed.
      */
-    public final HistoryTokenAnchorComponent addPushHistoryToken(final HistoryTokenContext context) {
+    public final HistoryTokenAnchorComponent addPushHistoryToken(final HistoryContext context) {
         return this.addClickAndKeydownEnterListener(
             (e) -> {
                 e.preventDefault();

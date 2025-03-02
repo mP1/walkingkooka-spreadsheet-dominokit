@@ -17,14 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Set;
 
-public interface SpreadsheetCellLabelsAnchorComponentContext extends HistoryTokenContext {
+public interface SpreadsheetCellLabelsAnchorComponentContext extends HistoryContext {
 
     /**
      * Returns all the {@link SpreadsheetLabelName} for a given {@link SpreadsheetCellReference}.

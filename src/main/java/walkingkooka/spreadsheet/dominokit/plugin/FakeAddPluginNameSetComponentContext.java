@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
-public class FakeAddPluginNameSetComponentContext extends FakeHistoryTokenContext
+public class FakeAddPluginNameSetComponentContext extends FakeHistoryContext
     implements AddPluginNameSetComponentContext {
 }

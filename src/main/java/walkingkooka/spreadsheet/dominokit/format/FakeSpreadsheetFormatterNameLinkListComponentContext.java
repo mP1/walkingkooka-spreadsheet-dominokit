@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.plugin.ProviderContext;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterName;
@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelectorToken;
 import java.util.List;
 import java.util.Optional;
 
-public class FakeSpreadsheetFormatterNameLinkListComponentContext extends FakeHistoryTokenContext
+public class FakeSpreadsheetFormatterNameLinkListComponentContext extends FakeHistoryContext
     implements SpreadsheetFormatterNameLinkListComponentContext {
 
     @Override

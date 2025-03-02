@@ -17,18 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponentContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 
 import java.util.Optional;
 
 final class SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext implements SpreadsheetLinkListComponentContext,
-    HistoryTokenContextDelegator {
+    HistoryContextDelegator {
 
     static SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext with(final Optional<SpreadsheetParserName> name,
-                                                                                          final HistoryTokenContext context) {
+                                                                                          final HistoryContext context) {
         return new SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext(
             name,
             context
@@ -36,7 +36,7 @@ final class SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentCo
     }
 
     private SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext(final Optional<SpreadsheetParserName> name,
-                                                                                      final HistoryTokenContext context) {
+                                                                                      final HistoryContext context) {
         this.name = name;
         this.context = context;
     }
@@ -61,9 +61,9 @@ final class SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentCo
     }
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
+    public HistoryContext historyContext() {
         return this.context;
     }
 
-    private final HistoryTokenContext context;
+    private final HistoryContext context;
 }

@@ -18,11 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
 import java.util.Locale;
 
-public class FakeSpreadsheetListDialogComponentContext extends FakeHistoryTokenContext
+public class FakeSpreadsheetListDialogComponentContext extends FakeHistoryContext
     implements SpreadsheetListDialogComponentContext {
 
     @Override

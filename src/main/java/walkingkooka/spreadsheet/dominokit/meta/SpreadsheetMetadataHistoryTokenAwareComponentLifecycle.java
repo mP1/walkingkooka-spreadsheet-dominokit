@@ -23,8 +23,8 @@ import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.form.SpreadsheetFormComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
@@ -40,7 +40,7 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
     HtmlElementComponent<E, SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E>> {
 
     public static <E extends HTMLElement> SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E> with(final SpreadsheetFormComponentLifecycle<E, ?> form,
-                                                                                                         final HistoryTokenContext context) {
+                                                                                                         final HistoryContext context) {
         return new SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<>(
             Objects.requireNonNull(form, "form"),
             Objects.requireNonNull(context, "context")
@@ -48,7 +48,7 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
     }
 
     private SpreadsheetMetadataHistoryTokenAwareComponentLifecycle(final SpreadsheetFormComponentLifecycle<E, ?> form,
-                                                                   final HistoryTokenContext context) {
+                                                                   final HistoryContext context) {
         this.form = form;
         context.addHistoryTokenWatcher(this);
     }

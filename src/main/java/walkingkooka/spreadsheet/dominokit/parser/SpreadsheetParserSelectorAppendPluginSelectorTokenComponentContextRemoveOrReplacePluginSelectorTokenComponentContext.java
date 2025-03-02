@@ -17,18 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.parser;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponentContext;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponentContext;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 
 final class SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext implements AppendPluginSelectorTokenComponentContext,
     RemoveOrReplacePluginSelectorTokenComponentContext,
-    HistoryTokenContextDelegator {
+    HistoryContextDelegator {
 
     static SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext with(final SpreadsheetParserName name,
-                                                                                                                                     final HistoryTokenContext context) {
+                                                                                                                                     final HistoryContext context) {
         return new SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext(
             name,
             context
@@ -36,7 +36,7 @@ final class SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRe
     }
 
     private SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext(final SpreadsheetParserName name,
-                                                                                                                                 final HistoryTokenContext context) {
+                                                                                                                                 final HistoryContext context) {
         this.name = name;
         this.context = context;
     }
@@ -53,12 +53,12 @@ final class SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRe
 
     private final SpreadsheetParserName name;
 
-    // HistoryTokenContext..............................................................................................
+    // HistoryContext..............................................................................................
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
+    public HistoryContext historyContext() {
         return this.context;
     }
 
-    private final HistoryTokenContext context;
+    private final HistoryContext context;
 }

@@ -23,8 +23,8 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.Menu;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuContext;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -43,7 +43,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
      * Returns an empty {@link SpreadsheetContextMenu} for the given {@link Element}.
      */
     public static SpreadsheetContextMenu wrap(final SpreadsheetContextMenuTarget<? extends Element> target,
-                                              final HistoryTokenContext context) {
+                                              final HistoryContext context) {
         Objects.requireNonNull(target, "target");
         Objects.requireNonNull(context, "context");
 
@@ -56,7 +56,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     }
 
     static SpreadsheetContextMenu with(final Menu<Void> menu,
-                                       final HistoryTokenContext context) {
+                                       final HistoryContext context) {
         return new SpreadsheetContextMenu(
             menu,
             context
@@ -64,7 +64,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     }
 
     private SpreadsheetContextMenu(final Menu<Void> menu,
-                                   final HistoryTokenContext context) {
+                                   final HistoryContext context) {
         this.menu = menu;
         this.context = context;
         this.allowSeparator = false;
@@ -283,7 +283,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
 
     final Menu<Void> menu;
 
-    final HistoryTokenContext context;
+    final HistoryContext context;
 
     // Object...........................................................................................................
 

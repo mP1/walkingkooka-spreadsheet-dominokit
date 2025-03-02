@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.patternkind;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
-public class FakeSpreadsheetPatternKindTabsComponentContext extends FakeHistoryTokenContext implements SpreadsheetPatternKindTabsComponentContext {
+public class FakeSpreadsheetPatternKindTabsComponentContext extends FakeHistoryContext implements SpreadsheetPatternKindTabsComponentContext {
 }

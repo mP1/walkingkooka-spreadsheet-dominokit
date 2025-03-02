@@ -22,7 +22,7 @@ import walkingkooka.ContextTesting;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public interface HistoryTokenContextTesting<C extends HistoryTokenContext> extends ContextTesting<C> {
+public interface HistoryContextTesting<C extends HistoryContext> extends ContextTesting<C> {
 
     // addHistoryTokenWatcher...........................................................................................
 
@@ -48,7 +48,7 @@ public interface HistoryTokenContextTesting<C extends HistoryTokenContext> exten
 
     // historyToken.....................................................................................................
 
-    default void historyTokenAndCheck(final HistoryTokenContext context,
+    default void historyTokenAndCheck(final HistoryContext context,
                                       final HistoryToken expected) {
         this.checkEquals(
             expected,

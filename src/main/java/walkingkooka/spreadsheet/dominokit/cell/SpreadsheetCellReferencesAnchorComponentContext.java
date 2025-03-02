@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
 import java.util.Set;
 
-public interface SpreadsheetCellReferencesAnchorComponentContext extends HistoryTokenContext {
+public interface SpreadsheetCellReferencesAnchorComponentContext extends HistoryContext {
 
     /**
      * Returns all the {@link SpreadsheetExpressionReference} for a given {@link SpreadsheetExpressionReference}.

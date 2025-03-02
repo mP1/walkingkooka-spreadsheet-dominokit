@@ -431,7 +431,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements Spreadshe
 
         this.parserNames.refresh(
             SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext.with(
-                context, // HistoryTokenContext
+                context, // HistoryContext
                 context, // SpreadsheetParserProvider,
                 this.parserName
             )

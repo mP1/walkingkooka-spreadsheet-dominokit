@@ -19,14 +19,14 @@ package walkingkooka.spreadsheet.dominokit.label;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextTesting;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public interface SpreadsheetLabelReferencesAnchorComponentContextTesting<C extends SpreadsheetLabelReferencesAnchorComponentContext> extends HistoryTokenContextTesting<C> {
+public interface SpreadsheetLabelReferencesAnchorComponentContextTesting<C extends SpreadsheetLabelReferencesAnchorComponentContext> extends HistoryContextTesting<C> {
 
     @Test
     default void testLabelReferencesWithNullSpreadsheetExpressionReferenceFails() {

@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.reference;
 import walkingkooka.Context;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
@@ -40,7 +40,7 @@ import java.util.Set;
  */
 public interface SpreadsheetSelectionMenuContext extends Context,
     HasSpreadsheetMetadata,
-    HistoryTokenContext {
+    HistoryContext {
 
     /**
      * Returns the names of {@link SpreadsheetComparatorName} that will appear in the SORT menus.

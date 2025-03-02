@@ -20,14 +20,14 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 
 import java.util.Locale;
 import java.util.Objects;
 
 final class AppContextPluginSetDialogComponentContext implements PluginSetDialogComponentContext,
-    HistoryTokenContextDelegator,
+    HistoryContextDelegator,
     HasPluginFetcherWatchersDelegator {
 
     static AppContextPluginSetDialogComponentContext with(final AppContext context) {
@@ -54,10 +54,10 @@ final class AppContextPluginSetDialogComponentContext implements PluginSetDialog
         return this.context.locale();
     }
 
-    // HistoryTokenContextDelegator.....................................................................................
+    // HistoryContextDelegator.....................................................................................
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
+    public HistoryContext historyContext() {
         return this.context;
     }
 

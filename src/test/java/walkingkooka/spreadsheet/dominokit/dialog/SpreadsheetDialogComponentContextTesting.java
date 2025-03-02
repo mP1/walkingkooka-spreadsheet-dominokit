@@ -20,14 +20,14 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.fetcher.Fetcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextTesting;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextTesting;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public interface SpreadsheetDialogComponentContextTesting<C extends SpreadsheetDialogComponentContext> extends HistoryTokenContextTesting<C>,
+public interface SpreadsheetDialogComponentContextTesting<C extends SpreadsheetDialogComponentContext> extends HistoryContextTesting<C>,
     TreePrintableTesting {
 
     @Test

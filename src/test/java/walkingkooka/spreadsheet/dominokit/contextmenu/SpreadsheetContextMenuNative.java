@@ -22,7 +22,7 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.Menu;
 import org.gwtproject.core.shared.GwtIncompatible;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 import java.util.Optional;
 
@@ -33,7 +33,7 @@ import java.util.Optional;
 public class SpreadsheetContextMenuNative {
 
     static SpreadsheetContextMenu empty(final SpreadsheetContextMenuTarget<? extends Element> target,
-                                        final HistoryTokenContext context) {
+                                        final HistoryContext context) {
         final SpreadsheetContextMenu contextMenu = SpreadsheetContextMenu.with(
             Menu.empty(),
             context

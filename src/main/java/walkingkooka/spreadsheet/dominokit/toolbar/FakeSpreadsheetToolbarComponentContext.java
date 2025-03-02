@@ -18,11 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-public class FakeSpreadsheetToolbarComponentContext extends FakeHistoryTokenContext
+public class FakeSpreadsheetToolbarComponentContext extends FakeHistoryContext
     implements SpreadsheetToolbarComponentContext {
 
     public FakeSpreadsheetToolbarComponentContext() {

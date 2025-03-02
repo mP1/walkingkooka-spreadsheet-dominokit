@@ -26,8 +26,8 @@ import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetCompara
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Arrays;
@@ -63,7 +63,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                 MOVE_UP,
                 MOVE_DOWN,
                 SETTER,
-                HistoryTokenContexts.fake()
+                HistoryContexts.fake()
             )
         );
     }
@@ -77,7 +77,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                 MOVE_UP,
                 MOVE_DOWN,
                 SETTER,
-                HistoryTokenContexts.fake()
+                HistoryContexts.fake()
             )
         );
     }
@@ -91,7 +91,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                 null,
                 MOVE_DOWN,
                 SETTER,
-                HistoryTokenContexts.fake()
+                HistoryContexts.fake()
             )
         );
     }
@@ -105,7 +105,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                 MOVE_UP,
                 null,
                 SETTER,
-                HistoryTokenContexts.fake()
+                HistoryContexts.fake()
             )
         );
     }
@@ -119,7 +119,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetColumnOrRowSpreadshe
                 MOVE_UP,
                 MOVE_DOWN,
                 null,
-                HistoryTokenContexts.fake()
+                HistoryContexts.fake()
             )
         );
     }

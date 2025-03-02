@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 import walkingkooka.spreadsheet.dominokit.UiFormattingContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
-public interface PluginSetTableComponentContext extends HistoryTokenContext,
+public interface PluginSetTableComponentContext extends HistoryContext,
     UiFormattingContext {
 }

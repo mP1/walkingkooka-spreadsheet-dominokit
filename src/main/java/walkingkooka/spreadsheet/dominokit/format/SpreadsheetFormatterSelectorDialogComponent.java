@@ -437,7 +437,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Spread
 
         this.formatterNames.refresh(
             SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext.with(
-                context, // HistoryTokenContext
+                context, // HistoryContext
                 context, // SpreadsheetFormatterProvider,
                 this.formatterName
             )

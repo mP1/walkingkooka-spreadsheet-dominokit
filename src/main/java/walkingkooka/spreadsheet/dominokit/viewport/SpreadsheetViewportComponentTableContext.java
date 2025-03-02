@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
@@ -28,7 +28,7 @@ import walkingkooka.tree.text.TextStyle;
 /**
  * A {@link walkingkooka.Context} required by table components to refresh themselves.
  */
-interface SpreadsheetViewportComponentTableContext extends HistoryTokenContext,
+interface SpreadsheetViewportComponentTableContext extends HistoryContext,
     LoggingContext,
     HasSpreadsheetViewportCache {
 

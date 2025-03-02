@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
-public class FakeSpreadsheetDeltaCellsTableComponentContext extends FakeHistoryTokenContext implements SpreadsheetDeltaCellsTableComponentContext {
+public class FakeSpreadsheetDeltaCellsTableComponentContext extends FakeHistoryContext implements SpreadsheetDeltaCellsTableComponentContext {
 
     public FakeSpreadsheetDeltaCellsTableComponentContext() {
         super();

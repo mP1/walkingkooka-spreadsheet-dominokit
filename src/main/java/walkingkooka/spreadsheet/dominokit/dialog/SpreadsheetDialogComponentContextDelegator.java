@@ -17,17 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 
 public interface SpreadsheetDialogComponentContextDelegator extends SpreadsheetDialogComponentContext,
-    HistoryTokenContextDelegator,
+    HistoryContextDelegator,
     LoggingContextDelegator {
 
     @Override
-    default HistoryTokenContext historyTokenContext() {
+    default HistoryContext historyContext() {
         return this.spreadsheetDialogComponentContext();
     }
 

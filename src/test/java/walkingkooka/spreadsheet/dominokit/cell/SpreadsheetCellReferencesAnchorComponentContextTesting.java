@@ -19,14 +19,14 @@ package walkingkooka.spreadsheet.dominokit.cell;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextTesting;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public interface SpreadsheetCellReferencesAnchorComponentContextTesting<C extends SpreadsheetCellReferencesAnchorComponentContext> extends HistoryTokenContextTesting<C> {
+public interface SpreadsheetCellReferencesAnchorComponentContextTesting<C extends SpreadsheetCellReferencesAnchorComponentContext> extends HistoryContextTesting<C> {
 
     @Test
     default void testCellReferencesWithNullSpreadsheetExpressionReferenceFails() {

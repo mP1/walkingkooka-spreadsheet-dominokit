@@ -106,7 +106,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
                             SpreadsheetMetadataPanelComponentContexts.appContext(context)
                         ).setCssText("padding-left: 5px; padding-bottom: var(--dui-right-drawer-padding-top);") // without this fix the bottom 64px are chopped and out of view
                     ),
-                    this.context // HistoryTokenContext
+                    this.context // HistoryContext
                 )
             );
 

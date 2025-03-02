@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
 import java.util.Set;
 
-public class FakeSpreadsheetCellReferencesAnchorComponentContext extends FakeHistoryTokenContext implements SpreadsheetCellReferencesAnchorComponentContext {
+public class FakeSpreadsheetCellReferencesAnchorComponentContext extends FakeHistoryContext implements SpreadsheetCellReferencesAnchorComponentContext {
 
     @Override
     public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {

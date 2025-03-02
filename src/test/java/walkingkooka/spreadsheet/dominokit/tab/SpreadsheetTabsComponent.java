@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.tab;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.text.CharSequences;
 
 import java.util.List;
@@ -32,16 +32,16 @@ import java.util.Objects;
  */
 public final class SpreadsheetTabsComponent implements SpreadsheetTabsComponentLike, TestHtmlElementComponent<HTMLDivElement, SpreadsheetTabsComponent> {
 
-    private final HistoryTokenContext context;
+    private final HistoryContext context;
     private final List<HistoryTokenAnchorComponent> anchors;
     private int activate = -1;
 
-    private SpreadsheetTabsComponent(final HistoryTokenContext context) {
+    private SpreadsheetTabsComponent(final HistoryContext context) {
         this.anchors = Lists.array();
         this.context = context;
     }
 
-    public static SpreadsheetTabsComponent with(final HistoryTokenContext context) {
+    public static SpreadsheetTabsComponent with(final HistoryContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetTabsComponent(context);

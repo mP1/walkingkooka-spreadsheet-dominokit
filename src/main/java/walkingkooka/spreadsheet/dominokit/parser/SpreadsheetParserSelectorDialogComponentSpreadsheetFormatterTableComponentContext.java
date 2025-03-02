@@ -18,16 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.parser;
 
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterTableComponentContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 
 final class SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableComponentContext implements SpreadsheetFormatterTableComponentContext,
-    HistoryTokenContextDelegator {
+    HistoryContextDelegator {
 
     static SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableComponentContext with(final SpreadsheetParserSelector selector,
-                                                                                                  final HistoryTokenContext context) {
+                                                                                                  final HistoryContext context) {
         return new SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableComponentContext(
             selector,
             context
@@ -35,7 +35,7 @@ final class SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableCom
     }
 
     private SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableComponentContext(final SpreadsheetParserSelector selector,
-                                                                                              final HistoryTokenContext context) {
+                                                                                              final HistoryContext context) {
         this.selector = selector;
         this.context = context;
     }
@@ -48,14 +48,14 @@ final class SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableCom
 
     private final SpreadsheetParserSelector selector;
 
-    // HistoryTokenContext..............................................................................................
+    // HistoryContext..............................................................................................
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
+    public HistoryContext historyContext() {
         return this.context;
     }
 
-    private final HistoryTokenContext context;
+    private final HistoryContext context;
 
     // Object...........................................................................................................
 

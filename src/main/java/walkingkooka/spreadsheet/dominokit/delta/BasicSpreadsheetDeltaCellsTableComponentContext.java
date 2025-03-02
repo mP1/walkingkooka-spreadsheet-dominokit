@@ -19,35 +19,35 @@ package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextDelegator;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 
 import java.util.Objects;
 
 final class BasicSpreadsheetDeltaCellsTableComponentContext implements SpreadsheetDeltaCellsTableComponentContext,
-    HistoryTokenContextDelegator,
+    HistoryContextDelegator,
     HasSpreadsheetDeltaFetcherWatchers {
 
-    static BasicSpreadsheetDeltaCellsTableComponentContext with(final HistoryTokenContext historyTokenContext,
+    static BasicSpreadsheetDeltaCellsTableComponentContext with(final HistoryContext historyContext,
                                                                 final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
         return new BasicSpreadsheetDeltaCellsTableComponentContext(
-            Objects.requireNonNull(historyTokenContext, "historyTokenContext"),
+            Objects.requireNonNull(historyContext, "historyContext"),
             Objects.requireNonNull(hasSpreadsheetDeltaFetcherWatchers, "hasSpreadsheetDeltaFetcherWatchers")
         );
     }
 
-    public BasicSpreadsheetDeltaCellsTableComponentContext(final HistoryTokenContext historyTokenContext,
+    public BasicSpreadsheetDeltaCellsTableComponentContext(final HistoryContext historyContext,
                                                            final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
-        this.historyTokenContext = historyTokenContext;
+        this.historyContext = historyContext;
         this.hasSpreadsheetDeltaFetcherWatchers = hasSpreadsheetDeltaFetcherWatchers;
     }
 
     @Override
-    public HistoryTokenContext historyTokenContext() {
-        return this.historyTokenContext;
+    public HistoryContext historyContext() {
+        return this.historyContext;
     }
 
-    private final HistoryTokenContext historyTokenContext;
+    private final HistoryContext historyContext;
 
     @Override
     public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {

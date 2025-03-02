@@ -29,7 +29,7 @@ import walkingkooka.collect.set.SortedSets;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -44,11 +44,11 @@ import java.util.function.Predicate;
  */
 final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElement> {
 
-    static SpreadsheetViewportComponentTable empty(final HistoryTokenContext context) {
+    static SpreadsheetViewportComponentTable empty(final HistoryContext context) {
         return new SpreadsheetViewportComponentTable(context);
     }
 
-    private SpreadsheetViewportComponentTable(final HistoryTokenContext context) {
+    private SpreadsheetViewportComponentTable(final HistoryContext context) {
         final TableElement table = ElementsFactory.elements.table()
             .id(SpreadsheetViewportComponent.ID)
             .setOverFlow("hidden");

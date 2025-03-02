@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.cell;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextTesting;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContextTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
@@ -27,7 +27,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public interface SpreadsheetCellLabelsAnchorComponentContextTesting<C extends SpreadsheetCellLabelsAnchorComponentContext> extends HistoryTokenContextTesting<C> {
+public interface SpreadsheetCellLabelsAnchorComponentContextTesting<C extends SpreadsheetCellLabelsAnchorComponentContext> extends HistoryContextTesting<C> {
 
     @Test
     default void testCellLabelsWithNullSpreadsheetExpressionReferenceFails() {

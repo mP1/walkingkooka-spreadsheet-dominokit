@@ -30,8 +30,8 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFactory;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContexts;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
@@ -292,7 +292,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 Optional.empty(), // no icon
                 Optional.empty() // no badge
             ),
-            HistoryTokenContexts.fake()
+            HistoryContexts.fake()
         );
 
         SpreadsheetSelectionMenuSort.build(
