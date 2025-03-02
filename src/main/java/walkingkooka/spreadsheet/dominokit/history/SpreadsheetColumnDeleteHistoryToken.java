@@ -23,8 +23,6 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 
-import java.util.Optional;
-
 /**
  * Deletes the selected column or columns and any cells that may be present within them.
  * <pre>
@@ -76,7 +74,7 @@ public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistor
                                final AppContext context) {
         context.pushHistoryToken(
             context.historyToken()
-                .setAnchoredSelection(Optional.empty())
+                .clearSelection()
         );
         context.spreadsheetDeltaFetcher()
             .deleteDelta(
