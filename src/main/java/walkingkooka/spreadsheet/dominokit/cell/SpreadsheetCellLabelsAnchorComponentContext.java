@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Set;
@@ -28,5 +29,5 @@ public interface SpreadsheetCellLabelsAnchorComponentContext extends HistoryToke
     /**
      * Returns all the {@link SpreadsheetLabelName} for a given {@link SpreadsheetCellReference}.
      */
-    Set<SpreadsheetLabelName> cellLabels(final SpreadsheetCellReference cell);
+    Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference);
 }
