@@ -38,12 +38,25 @@ public abstract class PluginHistoryTokenTestCase<T extends PluginHistoryToken> e
         );
     }
 
+    // createLabel......................................................................................................
+
+    @Test
+    public final void testCreateLabel() {
+        this.createLabelAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
+    // pattern..........................................................................................................
+
     @Test
     public final void testPatternKind() {
         this.patternKindAndCheck(
             this.createHistoryToken()
         );
     }
+
+    // setSelection.....................................................................................................
 
     @Test
     public final void testSetSelectionWithCell() {

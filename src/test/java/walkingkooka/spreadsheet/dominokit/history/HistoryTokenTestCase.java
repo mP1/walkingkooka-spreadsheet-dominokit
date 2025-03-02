@@ -316,6 +316,24 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // createLabel......................................................................................................
+
+    final void createLabelAndCheck(final HistoryToken token) {
+        assertSame(
+            token,
+            token.createLabel()
+        );
+    }
+
+    final void createLabelAndCheck(final HistoryToken token,
+                                   final HistoryToken expected) {
+        this.checkEquals(
+            expected,
+            token.createLabel(),
+            token::toString
+        );
+    }
+
     // labelMappingReference...........................................................................................
 
     final void labelMappingReferenceAndCheck(final HistoryToken token) {

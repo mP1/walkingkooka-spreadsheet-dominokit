@@ -26,6 +26,15 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
         super();
     }
 
+    // label............................................................................................................
+
+    @Test
+    public final void testCreateLabel() {
+        this.createLabelAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // menu(Selection)..................................................................................................
 
     @Test

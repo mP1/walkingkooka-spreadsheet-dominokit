@@ -123,6 +123,15 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
+    // label............................................................................................................
+
+    @Test
+    public final void testCreateLabel() {
+        this.createLabelAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // setLabelMappingReference............................................................................................
 
     @Test

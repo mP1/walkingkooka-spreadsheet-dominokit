@@ -71,6 +71,17 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
         );
     }
 
+    // label............................................................................................................
+
+    @Test
+    public final void testCreateLabel() {
+        this.createLabelAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
+    // list.............................................................................................................
+
     @Test
     public final void testSetListDifferentOffsetAndCount() {
         final HistoryTokenOffsetAndCount differentCount = HistoryTokenOffsetAndCount.with(
