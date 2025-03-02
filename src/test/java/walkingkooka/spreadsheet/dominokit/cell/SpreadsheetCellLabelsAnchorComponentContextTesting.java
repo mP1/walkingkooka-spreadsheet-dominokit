@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.cell;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContextTesting;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Set;
@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public interface SpreadsheetCellLabelsAnchorComponentContextTesting<C extends SpreadsheetCellLabelsAnchorComponentContext> extends HistoryTokenContextTesting<C> {
 
     @Test
-    default void testCellLabelsWithNullCellFails() {
+    default void testCellLabelsWithNullSpreadsheetExpressionReferenceFails() {
         assertThrows(
             NullPointerException.class,
             () -> this.createContext().cellLabels(null)
@@ -38,22 +38,22 @@ public interface SpreadsheetCellLabelsAnchorComponentContextTesting<C extends Sp
     }
 
     default void cellLabelsAndCheck(final SpreadsheetCellLabelsAnchorComponentContext context,
-                                    final SpreadsheetCellReference cell,
+                                    final SpreadsheetExpressionReference spreadsheetExpressionReference,
                                     final SpreadsheetLabelName... expected) {
         this.cellLabelsAndCheck(
             context,
-            cell,
+            spreadsheetExpressionReference,
             Sets.of(expected)
         );
     }
 
     default void cellLabelsAndCheck(final SpreadsheetCellLabelsAnchorComponentContext context,
-                                    final SpreadsheetCellReference cell,
+                                    final SpreadsheetExpressionReference spreadsheetExpressionReference,
                                     final Set<SpreadsheetLabelName> expected) {
         this.checkEquals(
             expected,
-            context.cellLabels(cell),
-            "cellLabels " + cell
+            context.cellLabels(spreadsheetExpressionReference),
+            "cellLabels " + spreadsheetExpressionReference
         );
     }
 }
