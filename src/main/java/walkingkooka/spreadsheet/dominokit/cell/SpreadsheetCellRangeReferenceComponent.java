@@ -28,15 +28,16 @@ import walkingkooka.text.HasText;
  */
 public final class SpreadsheetCellRangeReferenceComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetCellRangeReferenceComponent, SpreadsheetCellRangeReference> {
 
-    public static SpreadsheetCellRangeReferenceComponent empty() {
-        return new SpreadsheetCellRangeReferenceComponent();
+    public static SpreadsheetCellRangeReferenceComponent with(final String id) {
+        return new SpreadsheetCellRangeReferenceComponent(id);
     }
 
-    private SpreadsheetCellRangeReferenceComponent() {
+    private SpreadsheetCellRangeReferenceComponent(final String id) {
         this.textBox = ValueSpreadsheetTextBox.with(
             SpreadsheetSelection::parseCellRange,
             HasText::text
         );
+        this.setId(id);
     }
 
     // ValueSpreadsheetTextBoxWrapper..................................................................................

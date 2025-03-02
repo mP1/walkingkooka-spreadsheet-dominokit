@@ -163,9 +163,9 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     // path.....................................................................................................
 
     private SpreadsheetCellRangeReferenceComponent cellRange() {
-        return SpreadsheetCellRangeReferenceComponent.empty()
-            .setId(ID_PREFIX + "cell-range" + SpreadsheetElementIds.TEXT_BOX)
-            .setLabel("Cell Range")
+        return SpreadsheetCellRangeReferenceComponent.with(
+            ID_PREFIX + "cell-range" + SpreadsheetElementIds.TEXT_BOX
+            ).setLabel("Cell Range")
             .addChangeListener(this::onCellRangeValueChange)
             .required();
     }
