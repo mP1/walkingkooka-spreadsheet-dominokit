@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -25,6 +26,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -64,12 +66,12 @@ public final class SpreadsheetCellReferencesAnchorComponentTest implements Ancho
                     SpreadsheetSelection.A1
                 )
             ),
-            "\"A1\" DISABLED id=cell-references-anchor-id"
+            "\"A1\" DISABLED (0) id=cell-references-anchor-id"
         );
     }
 
     @Test
-    public void testSetValueWithCell() {
+    public void testSetValueWithCellWithZeroSpreadsheetExpressionReferences() {
         this.treePrintAndCheck(
             this.createComponent()
                 .setValue(
@@ -77,45 +79,79 @@ public final class SpreadsheetCellReferencesAnchorComponentTest implements Ancho
                         SpreadsheetSelection.A1
                     )
                 ),
-            "\"A1\" [#/1/SpreadsheetName22/cell/A1/references] id=cell-references-anchor-id"
+            "\"A1\" [#/1/SpreadsheetName22/cell/A1/references] (0) id=cell-references-anchor-id"
+        );
+    }
+
+    @Test
+    public void testSetValueWithCellWithNonZeroSpreadsheetExpresionReferences() {
+        this.treePrintAndCheck(
+            this.createComponent(
+                SpreadsheetSelection.parseCell("B2"),
+                SpreadsheetSelection.parseCell("C3")
+            ).setValue(
+                Optional.of(
+                    SpreadsheetSelection.A1
+                )
+            ),
+            "\"A1\" [#/1/SpreadsheetName22/cell/A1/references] (2) id=cell-references-anchor-id"
         );
     }
 
     @Test
     public void testSetValueWithCellRange() {
         this.treePrintAndCheck(
-            this.createComponent()
-                .setValue(
+            this.createComponent(
+                    SpreadsheetSelection.parseCell("B2")
+                ).setValue(
                     Optional.of(
                         SpreadsheetSelection.parseCellRange("B2:C3")
                     )
                 ),
-            "\"B2:C3\" [#/1/SpreadsheetName22/cell/B2:C3/bottom-right/references] id=cell-references-anchor-id"
+            "\"B2:C3\" [#/1/SpreadsheetName22/cell/B2:C3/bottom-right/references] (1) id=cell-references-anchor-id"
         );
     }
 
     @Test
     public void testSetValueWithLabel() {
         this.treePrintAndCheck(
-            this.createComponent()
-                .setValue(
+            this.createComponent(
+                    SpreadsheetSelection.parseCell("B2"),
+                    SpreadsheetSelection.parseCellRange("C3:D4")
+                ).setValue(
                     Optional.of(
                         SpreadsheetSelection.labelName("Label9999")
                     )
                 ),
-            "\"Label9999\" [#/1/SpreadsheetName22/cell/Label9999/references] id=cell-references-anchor-id"
+            "\"Label9999\" [#/1/SpreadsheetName22/cell/Label9999/references] (2) id=cell-references-anchor-id"
         );
     }
 
     @Override
     public SpreadsheetCellReferencesAnchorComponent createComponent() {
-        return this.createComponent("/1/SpreadsheetName22");
+        return this.createComponent(
+            new SpreadsheetExpressionReference[0]
+        );
     }
 
-    private SpreadsheetCellReferencesAnchorComponent createComponent(final String currentHistoryToken) {
+    private SpreadsheetCellReferencesAnchorComponent createComponent(final SpreadsheetExpressionReference...spreadsheetExpressionReference) {
+        return this.createComponent(
+            "/1/SpreadsheetName22",
+            spreadsheetExpressionReference
+        );
+    }
+
+    private SpreadsheetCellReferencesAnchorComponent createComponent(final String currentHistoryToken,
+                                                                     final SpreadsheetExpressionReference...spreadsheetExpressionReference) {
         return SpreadsheetCellReferencesAnchorComponent.with(
             "cell-references-anchor-id",
             new FakeSpreadsheetCellReferencesAnchorComponentContext() {
+
+
+                @Override
+                public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference r) {
+                    return Sets.of(spreadsheetExpressionReference);
+                }
 
                 @Override
                 public HistoryToken historyToken() {

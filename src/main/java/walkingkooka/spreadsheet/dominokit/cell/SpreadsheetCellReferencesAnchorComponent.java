@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 
 /**
  * Creates a {@link SpreadsheetCellReferencesAnchorComponent} which will display cell reference for the given {@link SpreadsheetExpressionReference}.
@@ -98,6 +99,17 @@ public final class SpreadsheetCellReferencesAnchorComponent implements AnchorCom
     @Override
     public SpreadsheetCellReferencesAnchorComponent setValue(final Optional<SpreadsheetExpressionReference> value) {
         this.component.setValue(value);
+
+        final Optional<Integer> count = value.map(
+            ser -> this.context.cellReferences(ser)
+                .size()
+        );
+
+        this.component.setCount(
+            count.isPresent() ?
+                OptionalInt.of(count.get()) :
+                OptionalInt.empty()
+        );
         return this;
     }
 
