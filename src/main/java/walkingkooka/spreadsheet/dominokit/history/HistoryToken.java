@@ -3796,7 +3796,7 @@ public abstract class HistoryToken implements HasUrlFragment,
      * Returns a {@link HistoryToken} with the given {@link SpreadsheetSelection}. if the selection is different
      * the action will be cleared.
      */
-    public final HistoryToken setSelection(final Optional<SpreadsheetSelection> selection) {
+    public final HistoryToken setSelection(final Optional<? extends SpreadsheetSelection> selection) {
         Objects.requireNonNull(selection, "selection");
 
         HistoryToken historyToken = this;
