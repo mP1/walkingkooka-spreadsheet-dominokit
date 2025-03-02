@@ -221,6 +221,8 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
 
     @Override
     public SpreadsheetTextBox setId(final String id) {
+        CharSequences.failIfNullOrEmpty(id, "id");
+
         this.textBox.getInputElement()
             .setId(id);
         return this;

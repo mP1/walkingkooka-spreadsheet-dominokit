@@ -26,7 +26,31 @@ import walkingkooka.reflect.JavaVisibility;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<HTMLFieldSetElement, String, SpreadsheetTextBox> {
+
+    // setId............................................................................................................
+
+    @Test
+    public void testSetIdWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .setId(null)
+        );
+    }
+
+    @Test
+    public void testSetIdWithEmptyFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> this.createComponent()
+                .setId("")
+        );
+    }
+
+    // validator........................................................................................................
 
     @Test
     public void testOptionalValidationPass() {
