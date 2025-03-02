@@ -394,7 +394,7 @@ public class App implements EntryPoint,
 
     @Override
     public void onModuleLoad() {
-        this.appHistoryTokenContextHistoryTokenWatcher.onHistoryTokenChange(
+        this.appHistoryTokenContextHistoryTokenWatcher.onHashChange(
             this.historyToken()
         );
 
