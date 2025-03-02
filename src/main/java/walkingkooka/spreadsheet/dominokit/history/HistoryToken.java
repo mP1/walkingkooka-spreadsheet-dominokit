@@ -3059,12 +3059,22 @@ public abstract class HistoryToken implements HasUrlFragment,
     public final HistoryToken setPatternKind(final Optional<SpreadsheetPatternKind> kind) {
         Objects.requireNonNull(kind, "kind");
 
-        return this.patternKind().equals(kind) ?
-            this :
-            this.setIfSpreadsheetNameHistoryTokenWithValue(
-                SpreadsheetNameHistoryToken::replacePatternKind,
-                kind
-            );
+        HistoryToken token = this;
+        if (false == this.patternKind().equals(kind)) {
+
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                token = ((BiFunction<SpreadsheetNameHistoryToken, Optional<SpreadsheetPatternKind>, HistoryToken>) SpreadsheetNameHistoryToken::replacePatternKind).apply(
+                    this.cast(SpreadsheetNameHistoryToken.class),
+                    kind
+                );
+
+                if (token.equals(this)) {
+                    token = this;
+                }
+            }
+        }
+
+        return token;
     }
 
     // PARSER...........................................................................................................
@@ -3979,24 +3989,6 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     // HELPERS..........................................................................................................
-
-    private <T> HistoryToken setIfSpreadsheetNameHistoryTokenWithValue(final BiFunction<SpreadsheetNameHistoryToken, T, HistoryToken> setter,
-                                                                       final T value) {
-        HistoryToken token = this;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            token = setter.apply(
-                this.cast(SpreadsheetNameHistoryToken.class),
-                value
-            );
-
-            if (token.equals(this)) {
-                token = this;
-            }
-        }
-
-        return token;
-    }
 
     private <T> HistoryToken setIfSpreadsheetAnchoredSelectionHistoryTokenWithValue(final BiFunction<SpreadsheetAnchoredSelectionHistoryToken, T, HistoryToken> setter,
                                                                                     final T value) {
