@@ -95,6 +95,503 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
 
     private final static SpreadsheetRowRangeReference ROW_RANGE = SpreadsheetSelection.parseRowRange("22:33");
 
+    // AnchoredSelection................................................................................................
+
+    @Test
+    public void testAnchoredSelectionHistoryTokenOrEmptyNot() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
+            HistoryToken.unknown(UrlFragment.parse("/something-else")),
+            Optional.empty()
+        );
+    }
+
+    @Test
+    public void testAnchoredSelectionHistoryTokenOrEmptyCell() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testAnchoredSelectionHistoryTokenOrEmptyCellRange() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
+            )
+        );
+    }
+
+    @Test
+    public void testAnchoredSelectionHistoryTokenOrEmptyLabel() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                LABEL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testAnchoredSelectionHistoryTokenOrEmptyWhenCellFormulaSave() {
+        final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
+
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
+            HistoryToken.cellFormulaSave(
+                ID,
+                NAME,
+                viewport,
+                "=1"
+            ),
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                viewport
+            )
+        );
+    }
+
+    @Test
+    public void testAnchoredSelectionHistoryTokenOrEmptyColumn() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testAnchoredSelectionHistoryTokenOrEmptyWhenColumnClear() {
+        final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
+
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
+            HistoryToken.columnClear(
+                ID,
+                NAME,
+                viewport
+            ),
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                viewport
+            )
+        );
+    }
+
+    @Test
+    public void testAnchoredSelectionHistoryTokenOrEmptyColumnRange() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
+            HistoryToken.columnSelect(
+                ID,
+                NAME,
+                COLUMN_RANGE.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testAnchoredSelectionHistoryTokenOrEmptyRow() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testAnchoredSelectionHistoryTokenOrEmptyWhenRowClear() {
+        final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
+
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
+            HistoryToken.rowClear(
+                ID,
+                NAME,
+                viewport
+            ),
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                viewport
+            )
+        );
+    }
+
+    @Test
+    public void testAnchoredSelectionHistoryTokenOrEmptyRowRange() {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
+            HistoryToken.rowSelect(
+                ID,
+                NAME,
+                ROW_RANGE.setDefaultAnchor()
+            )
+        );
+    }
+
+    private void anchoredSelectionHistoryTokenOrEmptyAndCheck(final HistoryToken token) {
+        assertSame(
+            token,
+            token.anchoredSelectionHistoryTokenOrEmpty()
+                .orElse(null),
+            () -> token + " anchoredSelectionHistoryTokenOrEmpty"
+        );
+    }
+
+    private void anchoredSelectionHistoryTokenOrEmptyAndCheck(final HistoryToken token,
+                                                              final HistoryToken expected) {
+        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
+            token,
+            Optional.of(expected)
+        );
+    }
+
+    private void anchoredSelectionHistoryTokenOrEmptyAndCheck(final HistoryToken token,
+                                                              final Optional<HistoryToken> expected) {
+        this.checkEquals(
+            expected,
+            token.anchoredSelectionHistoryTokenOrEmpty(),
+            () -> token + " anchoredSelectionHistoryTokenOrEmpty"
+        );
+    }
+
+    // setCellCopy......................................................................................................
+
+    @Test
+    public void testSetCellCopyWithNullKindFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> HistoryToken.unknown(UrlFragment.SLASH).setCellCopy(null)
+        );
+    }
+
+    @Test
+    public void testSetCellCopyWithNonCellHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
+            historyToken
+        );
+    }
+
+    @Test
+    public void testSetCellCopyWithCellHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.cellSelect(
+            ID,
+            NAME,
+            CELL.setDefaultAnchor()
+        );
+
+        this.checkEquals(
+            HistoryToken.cellClipboardCopy(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetCellClipboardKind.CELL
+            ),
+            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL)
+        );
+    }
+
+    @Test
+    public void testSetCellCopyWithCellHistoryToken2() {
+        final AnchoredSpreadsheetSelection cell = SpreadsheetSelection.parseCellRange("A1:B2")
+            .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
+
+        final HistoryToken historyToken = HistoryToken.cellSelect(
+            ID,
+            NAME,
+            cell
+        );
+
+        for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
+            this.checkEquals(
+                HistoryToken.cellClipboardCopy(
+                    ID,
+                    NAME,
+                    cell,
+                    kind
+                ),
+                historyToken.setCellCopy(kind)
+            );
+        }
+    }
+
+    @Test
+    public void testSetCellCopyWithColumnHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.columnSelect(
+            ID,
+            NAME,
+            COLUMN.setDefaultAnchor()
+        );
+
+        assertSame(
+            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
+            historyToken
+        );
+    }
+
+    @Test
+    public void testSetCellCopyWithRowHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.rowSelect(
+            ID,
+            NAME,
+            ROW.setDefaultAnchor()
+        );
+
+        assertSame(
+            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
+            historyToken
+        );
+    }
+
+    // setCellCut.......................................................................................................
+
+    @Test
+    public void testSetCellCutWithNullKindFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> HistoryToken.unknown(UrlFragment.SLASH).setCellCut(null)
+        );
+    }
+
+    @Test
+    public void testSetCellCutWithNonCellHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
+            historyToken
+        );
+    }
+
+    @Test
+    public void testSetCellCutWithCellHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.cellSelect(
+            ID,
+            NAME,
+            CELL.setDefaultAnchor()
+        );
+
+        this.checkEquals(
+            HistoryToken.cellClipboardCut(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetCellClipboardKind.CELL
+            ),
+            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL)
+        );
+    }
+
+    @Test
+    public void testSetCellCutWithCellHistoryToken2() {
+        final AnchoredSpreadsheetSelection cell = SpreadsheetSelection.parseCellRange("A1:B2")
+            .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
+
+        final HistoryToken historyToken = HistoryToken.cellSelect(
+            ID,
+            NAME,
+            cell
+        );
+
+        for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
+            this.checkEquals(
+                HistoryToken.cellClipboardCut(
+                    ID,
+                    NAME,
+                    cell,
+                    kind
+                ),
+                historyToken.setCellCut(kind)
+            );
+        }
+    }
+
+    @Test
+    public void testSetCellCutWithColumnHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.columnSelect(
+            ID,
+            NAME,
+            COLUMN.setDefaultAnchor()
+        );
+
+        assertSame(
+            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
+            historyToken
+        );
+    }
+
+    @Test
+    public void testSetCellCutWithRowHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.rowSelect(
+            ID,
+            NAME,
+            ROW.setDefaultAnchor()
+        );
+
+        assertSame(
+            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
+            historyToken
+        );
+    }
+
+    // setCellPaste.....................................................................................................
+
+    @Test
+    public void testSetCellPasteWithNullKindFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> HistoryToken.unknown(UrlFragment.SLASH).setCellPaste(null)
+        );
+    }
+
+    @Test
+    public void testSetCellPasteWithNonCellHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
+            historyToken
+        );
+    }
+
+    @Test
+    public void testSetCellPasteWithCellHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.cellSelect(
+            ID,
+            NAME,
+            CELL.setDefaultAnchor()
+        );
+
+        this.checkEquals(
+            HistoryToken.cellClipboardPaste(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetCellClipboardKind.CELL
+            ),
+            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL)
+        );
+    }
+
+    @Test
+    public void testSetCellPasteWithCellHistoryToken2() {
+        final AnchoredSpreadsheetSelection cell = SpreadsheetSelection.parseCellRange("A1:B2")
+            .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
+
+        final HistoryToken historyToken = HistoryToken.cellSelect(
+            ID,
+            NAME,
+            cell
+        );
+
+        for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
+            this.checkEquals(
+                HistoryToken.cellClipboardPaste(
+                    ID,
+                    NAME,
+                    cell,
+                    kind
+                ),
+                historyToken.setCellPaste(kind)
+            );
+        }
+    }
+
+    @Test
+    public void testSetCellPasteWithColumnHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.columnSelect(
+            ID,
+            NAME,
+            COLUMN.setDefaultAnchor()
+        );
+
+        assertSame(
+            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
+            historyToken
+        );
+    }
+
+    @Test
+    public void testSetCellPasteWithRowHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.rowSelect(
+            ID,
+            NAME,
+            ROW.setDefaultAnchor()
+        );
+
+        assertSame(
+            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
+            historyToken
+        );
+    }
+
+    // clear............................................................................................................
+
+    @Test
+    public void testClearWithNotSpreadsheetNameHistoryTokenSubclass() {
+        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
+
+        assertSame(
+            historyToken.clear(),
+            historyToken
+        );
+    }
+
+    @Test
+    public void testClearCell() {
+        final HistoryToken historyToken = HistoryToken.cellSelect(
+            ID,
+            NAME,
+            CELL.setDefaultAnchor()
+        );
+
+        assertSame(
+            historyToken.clear(),
+            historyToken
+        );
+    }
+
+    @Test
+    public void testClearColumn() {
+        final AnchoredSpreadsheetSelection selection = COLUMN.setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.columnSelect(ID, NAME, selection);
+
+        this.checkEquals(
+            historyToken.clear(),
+            HistoryToken.columnClear(
+                ID,
+                NAME,
+                selection
+            )
+        );
+    }
+
+    @Test
+    public void testClearRow() {
+        final AnchoredSpreadsheetSelection selection = ROW.setDefaultAnchor();
+        final HistoryToken historyToken = HistoryToken.rowSelect(ID, NAME, selection);
+
+        this.checkEquals(
+            historyToken.clear(),
+            HistoryToken.rowClear(
+                ID,
+                NAME,
+                selection
+            )
+        );
+    }
+
     // setCount.........................................................................................................
 
     @Test
@@ -283,335 +780,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
-    // clear............................................................................................................
-
-    @Test
-    public void testClearWithNotSpreadsheetNameHistoryTokenSubclass() {
-        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
-
-        assertSame(
-            historyToken.clear(),
-            historyToken
-        );
-    }
-
-    @Test
-    public void testClearCell() {
-        final HistoryToken historyToken = HistoryToken.cellSelect(
-            ID,
-            NAME,
-            CELL.setDefaultAnchor()
-        );
-
-        assertSame(
-            historyToken.clear(),
-            historyToken
-        );
-    }
-
-    @Test
-    public void testClearColumn() {
-        final AnchoredSpreadsheetSelection selection = COLUMN.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.columnSelect(ID, NAME, selection);
-
-        this.checkEquals(
-            historyToken.clear(),
-            HistoryToken.columnClear(
-                ID,
-                NAME,
-                selection
-            )
-        );
-    }
-
-    @Test
-    public void testClearRow() {
-        final AnchoredSpreadsheetSelection selection = ROW.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.rowSelect(ID, NAME, selection);
-
-        this.checkEquals(
-            historyToken.clear(),
-            HistoryToken.rowClear(
-                ID,
-                NAME,
-                selection
-            )
-        );
-    }
-
-    // setCellCopy..........................................................................................................
-
-    @Test
-    public void testSetCellCopyWithNullKindFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> HistoryToken.unknown(UrlFragment.SLASH).setCellCopy(null)
-        );
-    }
-
-    @Test
-    public void testSetCellCopyWithNonCellHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
-
-        assertSame(
-            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
-            historyToken
-        );
-    }
-
-    @Test
-    public void testSetCellCopyWithCellHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.cellSelect(
-            ID,
-            NAME,
-            CELL.setDefaultAnchor()
-        );
-
-        this.checkEquals(
-            HistoryToken.cellClipboardCopy(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                SpreadsheetCellClipboardKind.CELL
-            ),
-            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL)
-        );
-    }
-
-    @Test
-    public void testSetCellCopyWithCellHistoryToken2() {
-        final AnchoredSpreadsheetSelection cell = SpreadsheetSelection.parseCellRange("A1:B2")
-            .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
-
-        final HistoryToken historyToken = HistoryToken.cellSelect(
-            ID,
-            NAME,
-            cell
-        );
-
-        for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
-            this.checkEquals(
-                HistoryToken.cellClipboardCopy(
-                    ID,
-                    NAME,
-                    cell,
-                    kind
-                ),
-                historyToken.setCellCopy(kind)
-            );
-        }
-    }
-
-    @Test
-    public void testSetCellCopyWithColumnHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.columnSelect(
-            ID,
-            NAME,
-            COLUMN.setDefaultAnchor()
-        );
-
-        assertSame(
-            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
-            historyToken
-        );
-    }
-
-    @Test
-    public void testSetCellCopyWithRowHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.rowSelect(
-            ID,
-            NAME,
-            ROW.setDefaultAnchor()
-        );
-
-        assertSame(
-            historyToken.setCellCopy(SpreadsheetCellClipboardKind.CELL),
-            historyToken
-        );
-    }
-
-    // setCellCut...........................................................................................................
-
-    @Test
-    public void testSetCellCutWithNullKindFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> HistoryToken.unknown(UrlFragment.SLASH).setCellCut(null)
-        );
-    }
-
-    @Test
-    public void testSetCellCutWithNonCellHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
-
-        assertSame(
-            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
-            historyToken
-        );
-    }
-
-    @Test
-    public void testSetCellCutWithCellHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.cellSelect(
-            ID,
-            NAME,
-            CELL.setDefaultAnchor()
-        );
-
-        this.checkEquals(
-            HistoryToken.cellClipboardCut(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                SpreadsheetCellClipboardKind.CELL
-            ),
-            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL)
-        );
-    }
-
-    @Test
-    public void testSetCellCutWithCellHistoryToken2() {
-        final AnchoredSpreadsheetSelection cell = SpreadsheetSelection.parseCellRange("A1:B2")
-            .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
-
-        final HistoryToken historyToken = HistoryToken.cellSelect(
-            ID,
-            NAME,
-            cell
-        );
-
-        for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
-            this.checkEquals(
-                HistoryToken.cellClipboardCut(
-                    ID,
-                    NAME,
-                    cell,
-                    kind
-                ),
-                historyToken.setCellCut(kind)
-            );
-        }
-    }
-
-    @Test
-    public void testSetCellCutWithColumnHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.columnSelect(
-            ID,
-            NAME,
-            COLUMN.setDefaultAnchor()
-        );
-
-        assertSame(
-            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
-            historyToken
-        );
-    }
-
-    @Test
-    public void testSetCellCutWithRowHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.rowSelect(
-            ID,
-            NAME,
-            ROW.setDefaultAnchor()
-        );
-
-        assertSame(
-            historyToken.setCellCut(SpreadsheetCellClipboardKind.CELL),
-            historyToken
-        );
-    }
-
-    // setCellPaste.....................................................................................................
-
-    @Test
-    public void testSetCellPasteWithNullKindFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> HistoryToken.unknown(UrlFragment.SLASH).setCellPaste(null)
-        );
-    }
-
-    @Test
-    public void testSetCellPasteWithNonCellHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
-
-        assertSame(
-            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
-            historyToken
-        );
-    }
-
-    @Test
-    public void testSetCellPasteWithCellHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.cellSelect(
-            ID,
-            NAME,
-            CELL.setDefaultAnchor()
-        );
-
-        this.checkEquals(
-            HistoryToken.cellClipboardPaste(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                SpreadsheetCellClipboardKind.CELL
-            ),
-            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL)
-        );
-    }
-
-    @Test
-    public void testSetCellPasteWithCellHistoryToken2() {
-        final AnchoredSpreadsheetSelection cell = SpreadsheetSelection.parseCellRange("A1:B2")
-            .setAnchor(SpreadsheetViewportAnchor.TOP_LEFT);
-
-        final HistoryToken historyToken = HistoryToken.cellSelect(
-            ID,
-            NAME,
-            cell
-        );
-
-        for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
-            this.checkEquals(
-                HistoryToken.cellClipboardPaste(
-                    ID,
-                    NAME,
-                    cell,
-                    kind
-                ),
-                historyToken.setCellPaste(kind)
-            );
-        }
-    }
-
-    @Test
-    public void testSetCellPasteWithColumnHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.columnSelect(
-            ID,
-            NAME,
-            COLUMN.setDefaultAnchor()
-        );
-
-        assertSame(
-            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
-            historyToken
-        );
-    }
-
-    @Test
-    public void testSetCellPasteWithRowHistoryToken() {
-        final HistoryToken historyToken = HistoryToken.rowSelect(
-            ID,
-            NAME,
-            ROW.setDefaultAnchor()
-        );
-
-        assertSame(
-            historyToken.setCellPaste(SpreadsheetCellClipboardKind.CELL),
-            historyToken
-        );
-    }
-
     // delete...........................................................................................................
 
     @Test
@@ -755,23 +923,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 NAME,
                 LABEL
             )
-        );
-    }
-
-    // clearSelection...................................................................................................
-
-    @Test
-    public void testClearSelection() {
-        this.checkEquals(
-            HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
-            ),
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
-            ).clearSelection()
         );
     }
 
@@ -1478,6 +1629,23 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    // SELECTION........................................................................................................
+
+    @Test
+    public void testClearSelection() {
+        this.checkEquals(
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            ),
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ).clearSelection()
+        );
+    }
+
     // setSortEdit......................................................................................................
 
     @Test
@@ -2034,174 +2202,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                 row
             ),
             historyToken
-        );
-    }
-
-    // anchoredSelectionHistoryTokenOrEmpty.............................................................................
-
-    @Test
-    public void testAnchoredSelectionHistoryTokenOrEmptyNot() {
-        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            HistoryToken.unknown(UrlFragment.parse("/something-else")),
-            Optional.empty()
-        );
-    }
-
-    @Test
-    public void testAnchoredSelectionHistoryTokenOrEmptyCell() {
-        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testAnchoredSelectionHistoryTokenOrEmptyCellRange() {
-        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
-            )
-        );
-    }
-
-    @Test
-    public void testAnchoredSelectionHistoryTokenOrEmptyLabel() {
-        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                LABEL.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testAnchoredSelectionHistoryTokenOrEmptyWhenCellFormulaSave() {
-        final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
-
-        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            HistoryToken.cellFormulaSave(
-                ID,
-                NAME,
-                viewport,
-                "=1"
-            ),
-            HistoryToken.cellSelect(
-                ID,
-                NAME,
-                viewport
-            )
-        );
-    }
-
-    @Test
-    public void testAnchoredSelectionHistoryTokenOrEmptyColumn() {
-        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            HistoryToken.columnSelect(
-                ID,
-                NAME,
-                COLUMN.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testAnchoredSelectionHistoryTokenOrEmptyWhenColumnClear() {
-        final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
-
-        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            HistoryToken.columnClear(
-                ID,
-                NAME,
-                viewport
-            ),
-            HistoryToken.columnSelect(
-                ID,
-                NAME,
-                viewport
-            )
-        );
-    }
-
-    @Test
-    public void testAnchoredSelectionHistoryTokenOrEmptyColumnRange() {
-        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            HistoryToken.columnSelect(
-                ID,
-                NAME,
-                COLUMN_RANGE.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testAnchoredSelectionHistoryTokenOrEmptyRow() {
-        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW.setDefaultAnchor()
-            )
-        );
-    }
-
-    @Test
-    public void testAnchoredSelectionHistoryTokenOrEmptyWhenRowClear() {
-        final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
-
-        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            HistoryToken.rowClear(
-                ID,
-                NAME,
-                viewport
-            ),
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                viewport
-            )
-        );
-    }
-
-    @Test
-    public void testAnchoredSelectionHistoryTokenOrEmptyRowRange() {
-        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            HistoryToken.rowSelect(
-                ID,
-                NAME,
-                ROW_RANGE.setDefaultAnchor()
-            )
-        );
-    }
-
-    private void anchoredSelectionHistoryTokenOrEmptyAndCheck(final HistoryToken token) {
-        assertSame(
-            token,
-            token.anchoredSelectionHistoryTokenOrEmpty()
-                .orElse(null),
-            () -> token + " anchoredSelectionHistoryTokenOrEmpty"
-        );
-    }
-
-    private void anchoredSelectionHistoryTokenOrEmptyAndCheck(final HistoryToken token,
-                                                              final HistoryToken expected) {
-        this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
-            token,
-            Optional.of(expected)
-        );
-    }
-
-    private void anchoredSelectionHistoryTokenOrEmptyAndCheck(final HistoryToken token,
-                                                              final Optional<HistoryToken> expected) {
-        this.checkEquals(
-            expected,
-            token.anchoredSelectionHistoryTokenOrEmpty(),
-            () -> token + " anchoredSelectionHistoryTokenOrEmpty"
         );
     }
 
