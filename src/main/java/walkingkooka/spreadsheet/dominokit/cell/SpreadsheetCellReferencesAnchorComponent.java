@@ -21,7 +21,6 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellReferencesHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
@@ -37,7 +36,7 @@ import java.util.Optional;
 public final class SpreadsheetCellReferencesAnchorComponent implements AnchorComponentDelegator<SpreadsheetCellReferencesAnchorComponent, SpreadsheetExpressionReference> {
 
     public static SpreadsheetCellReferencesAnchorComponent with(final String id,
-                                                                final HistoryTokenContext context) {
+                                                                final SpreadsheetCellReferencesAnchorComponentContext context) {
         return new SpreadsheetCellReferencesAnchorComponent(
             id,
             context
@@ -45,7 +44,7 @@ public final class SpreadsheetCellReferencesAnchorComponent implements AnchorCom
     }
 
     private SpreadsheetCellReferencesAnchorComponent(final String id,
-                                                     final HistoryTokenContext context) {
+                                                     final SpreadsheetCellReferencesAnchorComponentContext context) {
         this.component = ValueHistoryTokenAnchorComponent.with(
             HistoryTokenAnchorComponent.empty(),
             this::getter,
@@ -112,7 +111,7 @@ public final class SpreadsheetCellReferencesAnchorComponent implements AnchorCom
     // @VisibleForTesting
     final ValueHistoryTokenAnchorComponent<SpreadsheetExpressionReference> component;
 
-    final HistoryTokenContext context;
+    final SpreadsheetCellReferencesAnchorComponentContext context;
 
     // toString.........................................................................................................
 
