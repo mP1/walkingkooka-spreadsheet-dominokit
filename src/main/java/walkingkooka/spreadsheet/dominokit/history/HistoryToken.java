@@ -1727,6 +1727,89 @@ public abstract class HistoryToken implements HasUrlFragment,
     public abstract HistoryToken clearAction();
 
     /**
+     * Returns an instance with the selection cleared or removed if necessary
+     */
+    public final HistoryToken clearSelection() {
+        return this.setAnchoredSelection(
+            Optional.empty()
+        );
+    }
+
+    /**
+     * Factory that creates a {@link HistoryToken} changing the {@link AnchoredSpreadsheetSelection} ui and clearing any action.
+     */
+    public final HistoryToken setAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
+        Objects.requireNonNull(anchoredSelection, "anchoredSelection");
+
+        return this.anchoredSelectionOrEmpty().equals(anchoredSelection) ?
+            this :
+            this.setDifferentAnchoredSelection(anchoredSelection);
+    }
+
+    private HistoryToken setDifferentAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> maybeAnchoredSelection) {
+        HistoryToken token = this;
+
+        if (maybeAnchoredSelection.isPresent()) {
+            final AnchoredSpreadsheetSelection anchoredSelection = maybeAnchoredSelection.get();
+
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+                token = HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
+                    spreadsheetNameHistoryToken,
+                    anchoredSelection
+                );
+            }
+        } else {
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+                token = spreadsheetSelect(
+                    spreadsheetNameHistoryToken.id(),
+                    spreadsheetNameHistoryToken.name()
+                );
+            }
+        }
+
+        return token;
+    }
+
+    /**
+     * Returns a {@link SpreadsheetAnchoredSelectionHistoryToken} using the id, name and {@link AnchoredSpreadsheetSelection}.
+     */
+    public final Optional<HistoryToken> anchoredSelectionHistoryTokenOrEmpty() {
+        HistoryToken result = null;
+
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            final SpreadsheetAnchoredSelectionHistoryToken SpreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
+
+            result = HistoryToken.selection(
+                SpreadsheetAnchoredSelectionHistoryToken.id(),
+                SpreadsheetAnchoredSelectionHistoryToken.name(),
+                SpreadsheetAnchoredSelectionHistoryToken.anchoredSelection()
+            );
+
+            if (this.equals(result)) {
+                result = this;
+            }
+        }
+
+        return Optional.ofNullable(result);
+    }
+
+    /**
+     * Maybe used to get the {@link SpreadsheetViewport} from any {@link HistoryToken}
+     */
+    public final Optional<AnchoredSpreadsheetSelection> anchoredSelectionOrEmpty() {
+        AnchoredSpreadsheetSelection anchoredSelection = null;
+
+        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
+            anchoredSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
+                .anchoredSelection();
+        }
+
+        return Optional.ofNullable(anchoredSelection);
+    }
+
+    /**
      * If possible creates a {@link SpreadsheetCellClipboardCopyHistoryToken} token.
      */
     public final HistoryToken setCellCopy(final SpreadsheetCellClipboardKind kind) {
@@ -3894,89 +3977,6 @@ public abstract class HistoryToken implements HasUrlFragment,
         }
 
         return token;
-    }
-
-    /**
-     * Returns an instance with the selection cleared or removed if necessary
-     */
-    public final HistoryToken clearSelection() {
-        return this.setAnchoredSelection(
-            Optional.empty()
-        );
-    }
-
-    /**
-     * Factory that creates a {@link HistoryToken} changing the {@link AnchoredSpreadsheetSelection} ui and clearing any action.
-     */
-    public final HistoryToken setAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
-        Objects.requireNonNull(anchoredSelection, "anchoredSelection");
-
-        return this.anchoredSelectionOrEmpty().equals(anchoredSelection) ?
-            this :
-            this.setDifferentAnchoredSelection(anchoredSelection);
-    }
-
-    private HistoryToken setDifferentAnchoredSelection(final Optional<AnchoredSpreadsheetSelection> maybeAnchoredSelection) {
-        HistoryToken token = this;
-
-        if (maybeAnchoredSelection.isPresent()) {
-            final AnchoredSpreadsheetSelection anchoredSelection = maybeAnchoredSelection.get();
-
-            if (this instanceof SpreadsheetNameHistoryToken) {
-                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-                token = HistoryTokenSelectionSpreadsheetSelectionVisitor.selectionToken(
-                    spreadsheetNameHistoryToken,
-                    anchoredSelection
-                );
-            }
-        } else {
-            if (this instanceof SpreadsheetNameHistoryToken) {
-                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-                token = spreadsheetSelect(
-                    spreadsheetNameHistoryToken.id(),
-                    spreadsheetNameHistoryToken.name()
-                );
-            }
-        }
-
-        return token;
-    }
-
-    /**
-     * Returns a {@link SpreadsheetAnchoredSelectionHistoryToken} using the id, name and {@link AnchoredSpreadsheetSelection}.
-     */
-    public final Optional<HistoryToken> anchoredSelectionHistoryTokenOrEmpty() {
-        HistoryToken result = null;
-
-        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-            final SpreadsheetAnchoredSelectionHistoryToken SpreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
-
-            result = HistoryToken.selection(
-                SpreadsheetAnchoredSelectionHistoryToken.id(),
-                SpreadsheetAnchoredSelectionHistoryToken.name(),
-                SpreadsheetAnchoredSelectionHistoryToken.anchoredSelection()
-            );
-
-            if (this.equals(result)) {
-                result = this;
-            }
-        }
-
-        return Optional.ofNullable(result);
-    }
-
-    /**
-     * Maybe used to get the {@link SpreadsheetViewport} from any {@link HistoryToken}
-     */
-    public final Optional<AnchoredSpreadsheetSelection> anchoredSelectionOrEmpty() {
-        AnchoredSpreadsheetSelection anchoredSelection = null;
-
-        if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-            anchoredSelection = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
-                .anchoredSelection();
-        }
-
-        return Optional.ofNullable(anchoredSelection);
     }
 
     /**
