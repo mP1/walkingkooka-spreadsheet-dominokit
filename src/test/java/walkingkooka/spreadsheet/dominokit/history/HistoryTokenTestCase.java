@@ -864,6 +864,8 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         }
     }
 
+    abstract T createHistoryToken();
+
     // equals...........................................................................................................
 
     @Test
@@ -893,18 +895,18 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    @Override
+    public final T createObject() {
+        return this.createHistoryToken();
+    }
+
+    // UrlFragment......................................................................................................
+
     final void urlFragmentAndCheck(final String expected) {
         this.urlFragmentAndCheck(
             this.createHistoryToken(),
             expected
         );
-    }
-
-    abstract T createHistoryToken();
-
-    @Override
-    public final T createObject() {
-        return this.createHistoryToken();
     }
 
     // Class............................................................................................................
