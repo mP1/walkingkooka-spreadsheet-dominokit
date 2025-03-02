@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryTokenContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -28,6 +27,6 @@ public class FakeSpreadsheetCellLabelsAnchorComponentContext extends FakeHistory
 
     @Override
     public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
-        return Sets.empty();
+        throw new UnsupportedOperationException();
     }
 }
