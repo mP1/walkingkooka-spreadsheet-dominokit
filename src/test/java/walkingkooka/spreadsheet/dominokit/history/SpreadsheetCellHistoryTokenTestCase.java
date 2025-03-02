@@ -135,6 +135,22 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
+    // label............................................................................................................
+
+    @Test
+    public final void testCreateLabel() {
+        final T historyToken = this.createHistoryToken();
+
+        this.createLabelAndCheck(
+            historyToken,
+            HistoryToken.cellLabelSelect(
+                ID,
+                NAME,
+                historyToken.anchoredSelection()
+            )
+        );
+    }
+
     // setLabelMappingReference............................................................................................
 
     @Test

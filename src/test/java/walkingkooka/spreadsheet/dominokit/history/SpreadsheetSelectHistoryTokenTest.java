@@ -37,6 +37,15 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
         this.clearActionAndCheck();
     }
 
+    // label............................................................................................................
+
+    @Test
+    public void testCreateLabel() {
+        this.createLabelAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // menu(Selection)..................................................................................................
 
     @Test

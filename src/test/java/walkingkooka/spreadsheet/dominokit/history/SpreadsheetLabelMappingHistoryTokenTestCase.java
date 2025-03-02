@@ -39,6 +39,15 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
         );
     }
 
+    // createLabel......................................................................................................
+
+    @Test
+    public final void testCreateLabel() {
+        this.createLabelAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // setSelection.....................................................................................................
 
     @Test

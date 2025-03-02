@@ -37,6 +37,15 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
+    // label............................................................................................................
+
+    @Test
+    public final void testCreateLabel() {
+        this.createLabelAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Test
     public final void testSetMetadataPropertyName() {
         this.setMetadataPropertyNameAndCheck(
