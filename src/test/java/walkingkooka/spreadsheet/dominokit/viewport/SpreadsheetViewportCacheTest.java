@@ -1470,6 +1470,17 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
     }
 
+    // cellLabels.......................................................................................................
+
+    @Test
+    public void testCellLabelsWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.viewportCacheAndOpen()
+                .cellLabels(null)
+        );
+    }
+
     // cells............................................................................................................
 
     @Test
