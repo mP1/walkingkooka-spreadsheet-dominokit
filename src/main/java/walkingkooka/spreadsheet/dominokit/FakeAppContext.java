@@ -70,6 +70,7 @@ import java.math.MathContext;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
@@ -313,11 +314,15 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
         throw new UnsupportedOperationException();
     }
 
     @Override
     public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
         throw new UnsupportedOperationException();
     }
 
@@ -328,6 +333,8 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public void pushHistoryToken(final HistoryToken token) {
+        Objects.requireNonNull(token, "token");
+
         throw new UnsupportedOperationException();
     }
 
