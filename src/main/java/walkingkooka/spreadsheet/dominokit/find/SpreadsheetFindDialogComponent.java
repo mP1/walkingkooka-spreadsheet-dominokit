@@ -45,7 +45,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.expression.Expression;
 
@@ -176,13 +175,10 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     private void onCellRangeValueChange(final Optional<SpreadsheetCellRangeReference> oldCellRange,
                                         final Optional<SpreadsheetCellRangeReference> newCellRange) {
         this.setAndRefresh(
-            t -> t.setAnchoredSelection(
-                newCellRange.map(
-                    SpreadsheetSelection::setDefaultAnchor
+            t -> t.setSelection(newCellRange)
+                .setQuery(
+                    t.query()
                 )
-            ).setQuery(
-                t.query()
-            )
         );
     }
 

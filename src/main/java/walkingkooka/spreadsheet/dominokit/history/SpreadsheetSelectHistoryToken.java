@@ -133,10 +133,8 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                 maybeSelection.get()
             );
 
-            result = this.setAnchoredSelection(
-                Optional.of(
-                    selection.setDefaultAnchor()
-                )
+            result = this.setSelection(
+                Optional.of(selection)
             );
 
             final TextCursorSavePoint beforeAnchor = cursor.save();

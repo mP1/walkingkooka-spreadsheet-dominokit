@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelsHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -74,9 +73,8 @@ public final class SpreadsheetCellLabelsAnchorComponent implements AnchorCompone
 
         if (value.isPresent()) {
             historyToken = this.context.historyToken()
-                .setAnchoredSelection(
-                    value.map(SpreadsheetSelection::setDefaultAnchor)
-                ).labels(HistoryTokenOffsetAndCount.EMPTY);
+                .setSelection(value)
+                .labels(HistoryTokenOffsetAndCount.EMPTY);
             if (false == (historyToken instanceof SpreadsheetCellLabelsHistoryToken)) {
                 historyToken = null;
             }
