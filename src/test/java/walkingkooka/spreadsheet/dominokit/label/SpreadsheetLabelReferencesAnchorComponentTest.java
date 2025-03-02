@@ -55,22 +55,34 @@ public final class SpreadsheetLabelReferencesAnchorComponentTest implements Anch
     }
 
     @Test
-    public void testSetValueWithLabel() {
+    public void testSetValue() {
         this.treePrintAndCheck(
-            this.createComponent(
-                "/"
-            ).setValue(
-                Optional.of(
-                    SpreadsheetSelection.labelName("Label123")
-                )
-            ),
+            this.createComponent()
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.labelName("Label123")
+                    )
+                ),
+            "\"Label123\" [#/1/SpreadsheetName22/label/Label123/references] id=label-references-anchor-id"
+        );
+    }
+
+    @Test
+    public void testSetValueWhenDisabled() {
+        this.treePrintAndCheck(
+            this.createComponent("/")
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.labelName("Label123")
+                    )
+                ),
             "\"Label123\" DISABLED id=label-references-anchor-id"
         );
     }
 
     @Override
     public SpreadsheetLabelReferencesAnchorComponent createComponent() {
-        return this.createComponent("/1/SpreadsheetName22");
+        return this.createComponent("/1/SpreadsheetName22/label/Label444/references");
     }
 
     private SpreadsheetLabelReferencesAnchorComponent createComponent(final String currentHistoryToken) {
