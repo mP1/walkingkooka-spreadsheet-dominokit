@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
 
 /**
  * Creates a {@link SpreadsheetLabelReferencesAnchorComponent} which will display cell reference for the given {@link SpreadsheetLabelName}.
@@ -94,6 +95,17 @@ public final class SpreadsheetLabelReferencesAnchorComponent implements AnchorCo
     @Override
     public SpreadsheetLabelReferencesAnchorComponent setValue(final Optional<SpreadsheetLabelName> value) {
         this.component.setValue(value);
+
+        final Optional<Integer> count = value.map(
+            ser -> this.context.labelReferences(ser)
+                .size()
+        );
+
+        this.component.setCount(
+            count.isPresent() ?
+                OptionalInt.of(count.get()) :
+                OptionalInt.empty()
+        );
         return this;
     }
 
