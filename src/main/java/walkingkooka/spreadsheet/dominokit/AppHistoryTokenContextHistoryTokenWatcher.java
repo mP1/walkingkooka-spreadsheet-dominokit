@@ -70,13 +70,13 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
 
     void onHistoryTokenChange(final HistoryToken token) {
         final HistoryToken previousToken = this.previousToken;
-        this.debug("AppHistoryTokenContextHistoryTokenWatcher.onHistoryTokenChange BEGIN from " + previousToken + " to " + token);
+        this.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange BEGIN from " + previousToken + " to " + token);
 
         this.previousToken = token;
 
         if (false == token.equals(previousToken)) {
             if (token instanceof UnknownHistoryToken) {
-                this.debug("App.onHistoryTokenChange updated with invalid token " + token + ", will restore previous " + previousToken);
+                this.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange updated with invalid token " + token + ", will restore previous " + previousToken);
                 this.pushHistoryToken(previousToken);
 
             } else {
@@ -87,7 +87,7 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
             }
         }
 
-        this.debug("AppHistoryTokenContextHistoryTokenWatcher.onHistoryTokenChange END from " + previousToken + " to " + token);
+        this.debug(this.getClass().getSimpleName() + ".onHistoryTokenChange END from " + previousToken + " to " + token);
     }
 
     /**
@@ -197,7 +197,7 @@ final class AppHistoryTokenContextHistoryTokenWatcher implements HistoryTokenCon
                 .flatMap(SpreadsheetViewport::anchoredSelection);
             if (false == selection.equals(previousSelection)) {
 
-                context.debug("App.patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
+                context.debug(AppHistoryTokenContextHistoryTokenWatcher.class.getSimpleName() + ".patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
 
                 // initially metadata will be empty because it has not yet loaded, context.viewport below will fail.
                 if (context.spreadsheetMetadata()
