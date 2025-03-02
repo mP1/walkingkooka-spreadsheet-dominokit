@@ -18,13 +18,17 @@
 package walkingkooka.spreadsheet.dominokit.label;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -63,7 +67,7 @@ public final class SpreadsheetLabelReferencesAnchorComponentTest implements Anch
                         SpreadsheetSelection.labelName("Label123")
                     )
                 ),
-            "\"Label123\" [#/1/SpreadsheetName22/label/Label123/references] id=label-references-anchor-id"
+            "\"Label123\" [#/1/SpreadsheetName22/label/Label123/references] (1) id=label-references-anchor-id"
         );
     }
 
@@ -76,7 +80,7 @@ public final class SpreadsheetLabelReferencesAnchorComponentTest implements Anch
                         SpreadsheetSelection.labelName("Label123")
                     )
                 ),
-            "\"Label123\" DISABLED id=label-references-anchor-id"
+            "\"Label123\" DISABLED (1) id=label-references-anchor-id"
         );
     }
 
@@ -89,6 +93,14 @@ public final class SpreadsheetLabelReferencesAnchorComponentTest implements Anch
         return SpreadsheetLabelReferencesAnchorComponent.with(
             "label-references-anchor-id",
             new FakeSpreadsheetLabelReferencesAnchorComponentContext() {
+
+                @Override
+                public Set<SpreadsheetLabelMapping> labelReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+                    return Sets.of(
+                        SpreadsheetSelection.labelName("Reference")
+                            .setLabelMappingReference(spreadsheetExpressionReference)
+                    );
+                }
 
                 @Override
                 public HistoryToken historyToken() {
