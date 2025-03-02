@@ -864,8 +864,6 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         }
     }
 
-    static int q = 0;
-
     // equals...........................................................................................................
 
     @Test
