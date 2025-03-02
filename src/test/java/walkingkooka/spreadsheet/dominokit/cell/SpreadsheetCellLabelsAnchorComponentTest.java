@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
+import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -106,6 +107,40 @@ public final class SpreadsheetCellLabelsAnchorComponentTest implements AnchorCom
             "\"Label9999\" [#/1/SpreadsheetName22/cell/Label9999/labels] id=cell-labels-anchor-id"
         );
     }
+
+    // setCount.........................................................................................................
+
+    @Test
+    public void testSetCountZero() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.labelName("Label9999")
+                    )
+                ).setCount(
+                    OptionalInt.of(0)
+                ),
+            "\"Label9999\" [#/1/SpreadsheetName22/cell/Label9999/labels] (0) id=cell-labels-anchor-id"
+        );
+    }
+
+    @Test
+    public void testSetCountNonZero() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.labelName("Label9999")
+                    )
+                ).setCount(
+                    OptionalInt.of(111)
+                ),
+            "\"Label9999\" [#/1/SpreadsheetName22/cell/Label9999/labels] (111) id=cell-labels-anchor-id"
+        );
+    }
+
+    // helpers..........................................................................................................
 
     @Override
     public SpreadsheetCellLabelsAnchorComponent createComponent() {
