@@ -181,6 +181,8 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     @Override
     public HistoryTokenAnchorComponent setId(final String id) {
+        CharSequences.failIfNullOrEmpty(id, "id");
+
         this.element.setId(id);
         return this;
     }

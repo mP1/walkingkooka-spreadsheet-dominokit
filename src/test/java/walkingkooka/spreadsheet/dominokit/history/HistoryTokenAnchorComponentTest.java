@@ -35,6 +35,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Optional;
 import java.util.OptionalInt;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class HistoryTokenAnchorComponentTest implements HtmlElementComponentTesting<HistoryTokenAnchorComponent, HTMLAnchorElement> {
 
     // setCount.........................................................................................................
@@ -124,6 +126,26 @@ public final class HistoryTokenAnchorComponentTest implements HtmlElementCompone
                     Url.parseAbsoluteOrRelative(href)
                 ),
             "[" + href + "]"
+        );
+    }
+
+    // id...............................................................................................................
+
+    @Test
+    public void testSetIdWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> HistoryTokenAnchorComponent.empty()
+                .setId(null)
+        );
+    }
+
+    @Test
+    public void testSetIdWithEmptyails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> HistoryTokenAnchorComponent.empty()
+                .setId("")
         );
     }
 
