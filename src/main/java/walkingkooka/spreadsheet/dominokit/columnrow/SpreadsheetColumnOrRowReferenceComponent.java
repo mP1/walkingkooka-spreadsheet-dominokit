@@ -19,14 +19,13 @@ package walkingkooka.spreadsheet.dominokit.columnrow;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
-import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
 
 /**
- * A text box that accepts entry and validates it as a {@link SpreadsheetColumnOrRowReference}.
+ * A text box that accepts entry and validates it as a {@link SpreadsheetSelection}.
  */
-public final class SpreadsheetColumnOrRowReferenceComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetColumnOrRowReferenceComponent, SpreadsheetColumnOrRowReference> {
+public final class SpreadsheetColumnOrRowReferenceComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetColumnOrRowReferenceComponent, SpreadsheetSelection> {
 
     public static SpreadsheetColumnOrRowReferenceComponent empty() {
         return new SpreadsheetColumnOrRowReferenceComponent();
@@ -42,11 +41,11 @@ public final class SpreadsheetColumnOrRowReferenceComponent implements ValueSpre
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetColumnOrRowReference> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetSelection> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<SpreadsheetColumnOrRowReference> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetSelection> textBox;
 
     // Object...........................................................................................................
 

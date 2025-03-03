@@ -34,7 +34,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
 
@@ -280,7 +279,7 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
     }
 
     private void buildAndCheck(final HistoryToken historyToken,
-                               final SpreadsheetColumnOrRowReference columnOrRow,
+                               final SpreadsheetSelection columnOrRow,
                                final String idPrefix,
                                final Icon<?> icon,
                                final Collection<SpreadsheetComparatorName> sortComparatorNames,
