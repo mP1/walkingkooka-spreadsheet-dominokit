@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHi
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataColorPickerComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -60,7 +61,6 @@ import java.util.OptionalInt;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 /**
  * Builds a context menu for any given {@link SpreadsheetSelection}.
@@ -433,11 +433,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ).selection();
 
         // only render clear for columns and rows
-        if (selection.pick(
-            false, // cell
-            true, // column
-            true // row
-        )) {
+        if (selection.isColumnOrColumnRange() || selection.isRowOrRowRange()) {
             menu.item(
                 historyToken.clear()
                     .contextMenuItem(
@@ -458,11 +454,11 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     "Delete"
                 ).icon(
                     Optional.of(
-                        selection.<Supplier<Icon<?>>>pick(
-                            SpreadsheetIcons::cellDelete,
-                            SpreadsheetIcons::columnRemove,
-                            SpreadsheetIcons::rowRemove
-                        ).get()
+                        selection instanceof SpreadsheetExpressionReference ?
+                            SpreadsheetIcons.cellDelete() :
+                            selection.isColumnOrColumnRange() ?
+                                SpreadsheetIcons.columnRemove() :
+                                SpreadsheetIcons.rowRemove()
                     )
                 )
         );
