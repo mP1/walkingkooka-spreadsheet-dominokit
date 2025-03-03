@@ -375,7 +375,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
                     try {
                         previousColumnOrRows.iterator()
                             .next()
-                            .ifDifferentReferenceTypeFail(columnOrRow);
+                            .ifDifferentColumnOrRowTypeFail(columnOrRow);
                         if (previousColumnOrRows.contains(columnOrRow)) {
                             errorMessage = "Duplicate " + columnOrRow.textLabel() + " " + columnOrRow;
                         }
