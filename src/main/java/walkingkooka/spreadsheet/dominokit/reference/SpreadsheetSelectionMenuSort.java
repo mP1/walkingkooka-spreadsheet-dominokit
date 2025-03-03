@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 
@@ -38,7 +38,7 @@ import java.util.Collection;
 final class SpreadsheetSelectionMenuSort {
 
     static void build(final HistoryToken historyToken,
-                      final SpreadsheetColumnOrRowReference columnOrRow,
+                      final SpreadsheetSelection columnOrRow,
                       final String idPrefix,
                       final Icon<?> icon,
                       final Collection<SpreadsheetComparatorName> comparatorNames,
@@ -59,7 +59,7 @@ final class SpreadsheetSelectionMenuSort {
     }
 
     static void comparatorsMenuItem(final HistoryToken historyToken,
-                                    final SpreadsheetColumnOrRowReference columnOrRow,
+                                    final SpreadsheetSelection columnOrRow,
                                     final String idPrefix,
                                     final Collection<SpreadsheetComparatorName> comparatorNames,
                                     final SpreadsheetContextMenu menu) {
@@ -113,7 +113,7 @@ final class SpreadsheetSelectionMenuSort {
 
     // TODO add Icon
     private static SpreadsheetContextMenuItem upOrDownMenuItem(final String idPrefix,
-                                                               final SpreadsheetColumnOrRowReference columnOrRow,
+                                                               final SpreadsheetSelection columnOrRow,
                                                                final SpreadsheetComparatorName name,
                                                                final SpreadsheetComparatorDirection direction,
                                                                final HistoryToken historyToken) {
@@ -131,7 +131,7 @@ final class SpreadsheetSelectionMenuSort {
     }
 
     private static SpreadsheetContextMenuItem editMenuItem(final String idPrefix,
-                                                           final SpreadsheetColumnOrRowReference columnOrRow,
+                                                           final SpreadsheetSelection columnOrRow,
                                                            final HistoryToken historyToken) {
         return historyToken.setSortEdit(columnOrRow + "=")
             .contextMenuItem(
