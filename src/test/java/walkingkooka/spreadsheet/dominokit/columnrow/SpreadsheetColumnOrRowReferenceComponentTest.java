@@ -21,14 +21,14 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 
 import java.util.Optional;
 
-public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetSelection, SpreadsheetColumnOrRowReferenceComponent> {
+public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetColumnOrRowReferenceOrRange, SpreadsheetColumnOrRowReferenceComponent> {
 
     @Test
-    public void testSetStringValue() {
+    public void testSetStringValueWithColumn() {
         this.treePrintAndCheck(
             SpreadsheetColumnOrRowReferenceComponent.empty()
                 .setStringValue(
@@ -44,7 +44,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
     }
 
     @Test
-    public void testSetStringValueWithInvalid() {
+    public void testSetStringValueWithInvalidColumn() {
         this.treePrintAndCheck(
             SpreadsheetColumnOrRowReferenceComponent.empty()
                 .setStringValue(
@@ -58,6 +58,76 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements FormV
                 "      [A1!]\n" +
                 "      Errors\n" +
                 "        Invalid character '1' at 1\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithColumnRangeFails() {
+        this.treePrintAndCheck(
+            SpreadsheetColumnOrRowReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "C:D"
+                    )
+                ),
+            "SpreadsheetColumnOrRowReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [C:D]\n" +
+                "      Errors\n" +
+                "        Invalid character ':' at 1\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithRow() {
+        this.treePrintAndCheck(
+            SpreadsheetColumnOrRowReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "1"
+                    )
+                ),
+            "SpreadsheetColumnOrRowReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [1]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithRowRangeInvalid() {
+        this.treePrintAndCheck(
+            SpreadsheetColumnOrRowReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "1:2"
+                    )
+                ),
+            "SpreadsheetColumnOrRowReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [1:2]\n" +
+                "      Errors\n" +
+                "        Invalid character ':' at 1\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithCellFails() {
+        this.treePrintAndCheck(
+            SpreadsheetColumnOrRowReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "Z9"
+                    )
+                ),
+            "SpreadsheetColumnOrRowReferenceComponent\n" +
+                "  ValueSpreadsheetTextBox\n" +
+                "    SpreadsheetTextBox\n" +
+                "      [Z9]\n" +
+                "      Errors\n" +
+                "        Invalid character '9' at 1\n"
         );
     }
 
