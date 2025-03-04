@@ -140,13 +140,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 
@@ -241,13 +242,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/highlightQuery()] id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/highlightQuery()] id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 
@@ -342,13 +344,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/find/query/highlightQuery()] id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" DISABLED id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/find/query/highlightQuery()] id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" DISABLED id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 
@@ -441,13 +444,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
 
         dialog.table.onSpreadsheetDelta(
@@ -555,13 +559,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 
@@ -654,13 +659,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),%22*formula*%22)] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),%22*formula*%22)] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellFormula(),%22*formula*%22)] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),%22*formula*%22)] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),%22*formula*%22)] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellFormula(),%22*formula*%22)] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 
@@ -753,13 +759,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),%22*formula*%22)] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),%22*formula*%22)] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/1+textMatch(cellFormula(),%22*formula*%22)] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),%22*formula*%22)] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),%22*formula*%22)] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/1+textMatch(cellFormula(),%22*formula*%22)] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 
@@ -852,13 +859,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 
@@ -951,13 +959,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),true())] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),true())] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/or(textMatch(cellFormula(),%22*formula*%22),true())] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),true())] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),true())] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/or(textMatch(cellFormula(),%22*formula*%22),true())] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 
@@ -1050,13 +1059,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),%22*formatter*%22)] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),%22*formatter*%22)] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellFormatter(),%22*formatter*%22)] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),%22*formatter*%22)] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),%22*formatter*%22)] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellFormatter(),%22*formatter*%22)] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 
@@ -1149,13 +1159,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),%22*parser*%22)] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),%22*parser*%22)] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellParser(),%22*parser*%22)] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),%22*parser*%22)] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),%22*parser*%22)] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellParser(),%22*parser*%22)] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 
@@ -1248,13 +1259,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),%22*style*%22)] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),%22*style*%22)] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellStyle(),%22*style*%22)] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),%22*style*%22)] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),%22*style*%22)] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellStyle(),%22*style*%22)] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 
@@ -1347,13 +1359,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/cellValue()%3C999] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/cellValue()%3C999] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/cellValue()%3C999] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/cellValue()%3C999] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/cellValue()%3C999] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/cellValue()%3C999] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 
@@ -1446,13 +1459,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 
@@ -1545,13 +1559,14 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,textMatch(%22*formattedValue*%22,cellFormattedValue())))))))] id=find-find-Link\n" +
-                "              \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,textMatch(%22*formattedValue*%22,cellFormattedValue())))))))] id=find-reset-Link\n" +
-                "              \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
-                "              \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,textMatch(%22*formattedValue*%22,cellFormattedValue())))))))] id=find-save-as-highlighting-query-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
+                "          SpreadsheetLinkListComponent\n" +
+                "            SpreadsheetFlexLayout\n" +
+                "              ROW\n" +
+                "                \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,textMatch(%22*formattedValue*%22,cellFormattedValue())))))))] id=find-find-Link\n" +
+                "                \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,textMatch(%22*formattedValue*%22,cellFormattedValue())))))))] id=find-reset-Link\n" +
+                "                \"Load Highlighting Query\" DISABLED id=find-load-highlighting-query-Link\n" +
+                "                \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,textMatch(%22*formattedValue*%22,cellFormattedValue())))))))] id=find-save-as-highlighting-query-Link\n" +
+                "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
     }
 

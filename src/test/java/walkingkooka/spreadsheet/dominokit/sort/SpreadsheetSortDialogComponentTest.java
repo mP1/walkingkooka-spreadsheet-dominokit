@@ -80,10 +80,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=sort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=sort-comparatorNames-0-moveDown-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" DISABLED id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" DISABLED id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
         );
     }
 
@@ -158,10 +159,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=sort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=sort-comparatorNames-1-moveDown-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" DISABLED id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" DISABLED id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
         );
     }
 
@@ -236,10 +238,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=sort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=sort-comparatorNames-1-moveDown-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" DISABLED id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" DISABLED id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
         );
     }
 
@@ -311,10 +314,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=sort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=sort-comparatorNames-1-moveDown-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" DISABLED id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" DISABLED id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
         );
     }
 
@@ -384,10 +388,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=sort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=sort-comparatorNames-1-moveDown-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" DISABLED id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" DISABLED id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
         );
     }
 
@@ -459,10 +464,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=sort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=sort-comparatorNames-1-moveDown-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/save/B=text] id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/save/B=text] id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
         );
     }
 
@@ -533,10 +539,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=sort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=sort-comparatorNames-1-moveDown-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/save/B=text,text2] id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/save/B=text,text2] id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
         );
     }
 
@@ -630,10 +637,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
                 "                        \"text2\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text] id=sort-comparatorNames-1-remove-0-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/save/B=text;C=text2] id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/save/B=text;C=text2] id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
         );
     }
 
@@ -733,10 +741,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
                 "                        \"text2\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right/sort/edit/B=text] id=sort-comparatorNames-1-remove-0-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" DISABLED id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" DISABLED id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/cell/B2:C3/bottom-right] id=sort-close-Link\n"
         );
     }
 
@@ -844,10 +853,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=sort-comparatorNames-2-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=sort-comparatorNames-2-moveDown-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/save/B=text;C=text2] id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right/sort/save/B=text;C=text2] id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/cell/B2:D4/bottom-right] id=sort-close-Link\n"
         );
     }
 
@@ -922,10 +932,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=sort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=sort-comparatorNames-1-moveDown-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" [#/1/spreadsheetName123/column/B:C/right/sort/save/B=text] id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/column/B:C/right] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" [#/1/spreadsheetName123/column/B:C/right/sort/save/B=text] id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/column/B:C/right] id=sort-close-Link\n"
         );
     }
 
@@ -1028,10 +1039,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
                 "                        \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text] id=sort-comparatorNames-1-remove-0-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" DISABLED id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/column/B:C/right] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" DISABLED id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/column/B:C/right] id=sort-close-Link\n"
         );
     }
 
@@ -1133,10 +1145,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
                 "                        \"text-case-insensitive\" [#/1/spreadsheetName123/column/B:C/right/sort/edit/B=text] id=sort-comparatorNames-1-remove-0-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" DISABLED id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/column/B:C/right] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" DISABLED id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/column/B:C/right] id=sort-close-Link\n"
         );
     }
 
@@ -1211,10 +1224,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=sort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=sort-comparatorNames-1-moveDown-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" [#/1/spreadsheetName123/row/3:4/bottom/sort/save/3=text] id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/row/3:4/bottom] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" [#/1/spreadsheetName123/row/3:4/bottom/sort/save/3=text] id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/row/3:4/bottom] id=sort-close-Link\n"
         );
     }
 
@@ -1353,10 +1367,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
                 "                        \"text-case-insensitive\" [#/1/spreadsheetName123/row/3:5/bottom/sort/edit/3=text;4=text] id=sort-comparatorNames-2-remove-0-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" DISABLED id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/row/3:5/bottom] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" DISABLED id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/row/3:5/bottom] id=sort-close-Link\n"
         );
     }
 
@@ -1458,10 +1473,11 @@ public final class SpreadsheetSortDialogComponentTest implements SpreadsheetDial
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
                 "                        \"text\" [#/1/spreadsheetName123/row/3:4/bottom/sort/edit/3=text] id=sort-comparatorNames-1-remove-0-Link\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Sort\" DISABLED id=sort-sort-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/row/3:4/bottom] id=sort-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Sort\" DISABLED id=sort-sort-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/row/3:4/bottom] id=sort-close-Link\n"
         );
     }
 

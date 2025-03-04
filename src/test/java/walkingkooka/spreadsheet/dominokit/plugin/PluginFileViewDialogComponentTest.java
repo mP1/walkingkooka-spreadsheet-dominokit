@@ -56,10 +56,11 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                 "    id=plugin-file-view-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"\"\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
-                "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Download\" [/api/plugin/TestPluginName111/download/META-INF/MANIFEST.MF] id=plugin-download-Link\n" +
+                "            \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
         );
     }
 
@@ -82,10 +83,11 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                 "    id=plugin-file-view-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"\"\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
-                "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
+                "            \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
         );
     }
 
@@ -106,10 +108,11 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                 "    id=plugin-file-view-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"Line1\\nLine2\\n\"\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
-                "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
+                "            \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
         );
     }
 
@@ -132,10 +135,11 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                 "    id=plugin-file-view-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"\"\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
-                "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Download\" [/api/plugin/TestPluginName111/download/empty-file.txt] id=plugin-download-Link\n" +
+                "            \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
         );
 
         context.pushHistoryToken(
@@ -154,10 +158,11 @@ public final class PluginFileViewDialogComponentTest implements SpreadsheetDialo
                 "    id=plugin-file-view-Dialog includeClose=true\n" +
                 "      SpreadsheetTextViewComponent\n" +
                 "        \"Line1\\nLine2\\n\"\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
-                "          \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Download\" [/api/plugin/TestPluginName111/download/non-empty-file.txt] id=plugin-download-Link\n" +
+                "            \"Close\" [#/plugin/TestPluginName111] id=plugin-file-view-close-Link\n"
         );
     }
 

@@ -122,10 +122,11 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
                 "    id=columnRowInsert-Dialog includeClose=true\n" +
                 "      SpreadsheetIntegerBox\n" +
                 "        Count [] id=columnRowInsert-count-TextBox REQUIRED\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Go\" [#/1/spreadsheetName123/column/A:B/right/insertAfter/1] id=columnRowInsert-go-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/column/A:B/right] id=columnRowInsert-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Go\" [#/1/spreadsheetName123/column/A:B/right/insertAfter/1] id=columnRowInsert-go-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/column/A:B/right] id=columnRowInsert-close-Link\n"
         );
     }
 
@@ -194,10 +195,11 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
                 "    id=columnRowInsert-Dialog includeClose=true\n" +
                 "      SpreadsheetIntegerBox\n" +
                 "        Count [] id=columnRowInsert-count-TextBox REQUIRED\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Go\" [#/1/spreadsheetName123/row/1:23/bottom/insertAfter/1] id=columnRowInsert-go-Link\n" +
-                "          \"Close\" [#/1/spreadsheetName123/row/1:23/bottom] id=columnRowInsert-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Go\" [#/1/spreadsheetName123/row/1:23/bottom/insertAfter/1] id=columnRowInsert-go-Link\n" +
+                "            \"Close\" [#/1/spreadsheetName123/row/1:23/bottom] id=columnRowInsert-close-Link\n"
         );
     }
 

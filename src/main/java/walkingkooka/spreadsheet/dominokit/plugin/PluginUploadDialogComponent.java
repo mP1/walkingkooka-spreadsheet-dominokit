@@ -28,12 +28,12 @@ import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifec
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.upload.SpreadsheetUploadFileComponent;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
@@ -123,7 +123,7 @@ public final class PluginUploadDialogComponent implements SpreadsheetDialogCompo
         ).appendChild(
             this.uploadFile
         ).appendChild(
-            SpreadsheetFlexLayout.row()
+            SpreadsheetLinkListComponent.empty()
                 .appendChild(this.uploadLink)
                 .appendChild(this.close)
         );

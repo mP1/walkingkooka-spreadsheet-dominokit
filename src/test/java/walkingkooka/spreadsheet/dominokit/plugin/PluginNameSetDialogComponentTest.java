@@ -82,11 +82,12 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [] id=pluginNameSet-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-save-Link\n" +
-                "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=pluginNameSet-save-Link\n" +
+                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
         );
     }
 
@@ -128,11 +129,12 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [plugin111] id=pluginNameSet-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
-                "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
+                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
         );
     }
 
@@ -175,11 +177,12 @@ public final class PluginNameSetDialogComponentTest implements SpreadsheetDialog
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [plugin111] id=pluginNameSet-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
-                "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=pluginNameSet-save-Link\n" +
+                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=pluginNameSet-reset-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginNameSet-close-Link\n"
         );
     }
 

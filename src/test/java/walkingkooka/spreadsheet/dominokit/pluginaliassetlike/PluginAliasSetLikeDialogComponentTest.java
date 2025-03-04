@@ -104,11 +104,12 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [] id=pluginAliasSet-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/] id=pluginAliasSet-save-Link\n" +
-                "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=pluginAliasSet-reset-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginAliasSet-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/] id=pluginAliasSet-save-Link\n" +
+                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=pluginAliasSet-reset-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginAliasSet-close-Link\n"
         );
     }
 
@@ -159,11 +160,12 @@ public final class PluginAliasSetLikeDialogComponentTest implements SpreadsheetD
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [name1] id=pluginAliasSet-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1] id=pluginAliasSet-save-Link\n" +
-                "          \"Reset\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=pluginAliasSet-reset-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginAliasSet-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1] id=pluginAliasSet-save-Link\n" +
+                "            \"Reset\" [#/1/Spreadsheet123/spreadsheet/formula-functions/save/name1,%20name2,%20name3] id=pluginAliasSet-reset-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=pluginAliasSet-close-Link\n"
         );
     }
 

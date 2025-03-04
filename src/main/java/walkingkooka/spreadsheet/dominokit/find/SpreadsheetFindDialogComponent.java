@@ -27,7 +27,6 @@ import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableCompon
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponentContexts;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponentFunctions;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -35,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
+import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
@@ -139,7 +139,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                     )
                 ).setFooter(
                     Lists.of(
-                        SpreadsheetFlexLayout.row()
+                        SpreadsheetLinkListComponent.empty()
                             .setCssProperty("margin-top", "5px")
                             .setCssProperty("margin-left", "-5px")
                             .appendChild(this.find)
