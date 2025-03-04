@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellRangeReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.condition.ConditionRightSpreadsheetFormulaParserTokenComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponent;
-import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponentContexts;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponent;
@@ -90,10 +89,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
         this.table = SpreadsheetDeltaCellsTableComponent.with(
             ID_PREFIX,
-            SpreadsheetDeltaCellsTableComponentContexts.basic(
-                context, // HistoryContext
-                context //
-            )
+            context // SpreadsheetDeltaCellsTableComponentContext
         );
 
         this.dialog = this.dialogCreate();

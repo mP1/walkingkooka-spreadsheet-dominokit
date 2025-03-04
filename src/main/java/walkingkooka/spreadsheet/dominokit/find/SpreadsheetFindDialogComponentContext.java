@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.find;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetId;
+import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -32,6 +33,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetFindDialogComponent}.
  */
 public interface SpreadsheetFindDialogComponentContext extends HistoryContext,
+    SpreadsheetDeltaCellsTableComponentContext,
     HasSpreadsheetDeltaFetcherWatchers,
     HasSpreadsheetMetadata,
     HasNow,
