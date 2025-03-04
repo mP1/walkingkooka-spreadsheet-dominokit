@@ -19,13 +19,17 @@ package walkingkooka.spreadsheet.dominokit.columnrow;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBox;
 import walkingkooka.spreadsheet.dominokit.value.ValueSpreadsheetTextBoxWrapper;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
 
 /**
- * A text box that accepts entry and validates it as a {@link SpreadsheetSelection}.
+ * A text box that accepts entry of {@link walkingkooka.spreadsheet.reference.SpreadsheetColumnReference} or {@link walkingkooka.spreadsheet.reference.SpreadsheetRowReference}.
+ * Entering other selection types like {@link walkingkooka.spreadsheet.reference.SpreadsheetColumnRangeReference},
+ * {@link walkingkooka.spreadsheet.reference.SpreadsheetRowRangeReference} or {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference} will
+ * fail.
  */
-public final class SpreadsheetColumnOrRowReferenceComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetColumnOrRowReferenceComponent, SpreadsheetSelection> {
+public final class SpreadsheetColumnOrRowReferenceComponent implements ValueSpreadsheetTextBoxWrapper<SpreadsheetColumnOrRowReferenceComponent, SpreadsheetColumnOrRowReferenceOrRange> {
 
     public static SpreadsheetColumnOrRowReferenceComponent empty() {
         return new SpreadsheetColumnOrRowReferenceComponent();
@@ -33,7 +37,7 @@ public final class SpreadsheetColumnOrRowReferenceComponent implements ValueSpre
 
     private SpreadsheetColumnOrRowReferenceComponent() {
         this.textBox = ValueSpreadsheetTextBox.with(
-            SpreadsheetSelection::parseColumn,
+            SpreadsheetSelection::parseColumnOrRow,
             HasText::text
         );
     }
@@ -41,11 +45,11 @@ public final class SpreadsheetColumnOrRowReferenceComponent implements ValueSpre
     // ValueSpreadsheetTextBoxWrapper..................................................................................
 
     @Override
-    public ValueSpreadsheetTextBox<SpreadsheetSelection> parserSpreadsheetTextBox() {
+    public ValueSpreadsheetTextBox<SpreadsheetColumnOrRowReferenceOrRange> parserSpreadsheetTextBox() {
         return this.textBox;
     }
 
-    private final ValueSpreadsheetTextBox<SpreadsheetSelection> textBox;
+    private final ValueSpreadsheetTextBox<SpreadsheetColumnOrRowReferenceOrRange> textBox;
 
     // Object...........................................................................................................
 
