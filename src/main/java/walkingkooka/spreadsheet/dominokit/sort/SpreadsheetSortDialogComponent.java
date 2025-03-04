@@ -370,7 +370,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
             if (maybeColumnOrRow.isPresent()) {
                 String errorMessage = null;
 
-                final SpreadsheetSelection columnOrRow = maybeColumnOrRow.get();
+                final SpreadsheetColumnOrRowReferenceOrRange columnOrRow = maybeColumnOrRow.get();
                 if (false == previousColumnOrRows.isEmpty()) {
                     try {
                         previousColumnOrRows.iterator()
