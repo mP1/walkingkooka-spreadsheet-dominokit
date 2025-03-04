@@ -38,6 +38,14 @@ public interface SpreadsheetCellLabelsAnchorComponentContextTesting<C extends Sp
     }
 
     default void cellLabelsAndCheck(final SpreadsheetCellLabelsAnchorComponentContext context,
+                                    final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> context.cellLabels(spreadsheetExpressionReference)
+        );
+    }
+
+    default void cellLabelsAndCheck(final SpreadsheetCellLabelsAnchorComponentContext context,
                                     final SpreadsheetExpressionReference spreadsheetExpressionReference,
                                     final SpreadsheetLabelName... expected) {
         this.cellLabelsAndCheck(
