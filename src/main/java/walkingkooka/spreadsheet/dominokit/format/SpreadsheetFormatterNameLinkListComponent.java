@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.format;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.SpreadsheetCardLinkListComponent;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterInfo;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterProvider;
 import walkingkooka.text.CaseKind;
@@ -38,7 +38,7 @@ public final class SpreadsheetFormatterNameLinkListComponent implements HtmlElem
 
     private SpreadsheetFormatterNameLinkListComponent(final String id) {
         super();
-        this.list = SpreadsheetLinkListComponent.with(
+        this.list = SpreadsheetCardLinkListComponent.with(
             id,
             "", // title
             CaseKind::kebabToTitle
@@ -51,7 +51,7 @@ public final class SpreadsheetFormatterNameLinkListComponent implements HtmlElem
                 .stream()
                 .map(SpreadsheetFormatterNameLinkListComponent::linkText)
                 .collect(Collectors.toList()),
-            SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext.with(
+            SpreadsheetFormatterNameLinkListComponentSpreadsheetCardLinkListComponentContext.with(
                 context.formatterName(),
                 context
             ) // context
@@ -84,7 +84,7 @@ public final class SpreadsheetFormatterNameLinkListComponent implements HtmlElem
         return this.list.element();
     }
 
-    private final SpreadsheetLinkListComponent list;
+    private final SpreadsheetCardLinkListComponent list;
 
     // TreePrintable....................................................................................................
 

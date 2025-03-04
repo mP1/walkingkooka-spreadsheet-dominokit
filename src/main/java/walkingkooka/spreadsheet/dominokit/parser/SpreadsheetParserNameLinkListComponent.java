@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.parser;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.link.SpreadsheetCardLinkListComponent;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserInfo;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
@@ -39,7 +39,7 @@ public final class SpreadsheetParserNameLinkListComponent implements HtmlElement
 
     private SpreadsheetParserNameLinkListComponent(final String id) {
         super();
-        this.list = SpreadsheetLinkListComponent.with(
+        this.list = SpreadsheetCardLinkListComponent.with(
             id,
             "", // title
             CaseKind::kebabToTitle
@@ -52,7 +52,7 @@ public final class SpreadsheetParserNameLinkListComponent implements HtmlElement
                 .stream()
                 .map(SpreadsheetParserNameLinkListComponent::linkText)
                 .collect(Collectors.toList()),
-            SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext.with(
+            SpreadsheetParserNameLinkListComponentSpreadsheetCardLinkListComponentContext.with(
                 context.parserName(),
                 context
             ) // context
@@ -85,7 +85,7 @@ public final class SpreadsheetParserNameLinkListComponent implements HtmlElement
         return this.list.element();
     }
 
-    private final SpreadsheetLinkListComponent list;
+    private final SpreadsheetCardLinkListComponent list;
 
     // TreePrintable....................................................................................................
 

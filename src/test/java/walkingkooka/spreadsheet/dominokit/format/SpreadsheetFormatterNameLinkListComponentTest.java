@@ -41,7 +41,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlElemen
         this.refreshAndCheck(
             Optional.empty(),
             "SpreadsheetFormatterNameLinkListComponent\n" +
-                "  SpreadsheetLinkListComponent\n" +
+                "  SpreadsheetCardLinkListComponent\n" +
                 "    SpreadsheetCard\n" +
                 "      Card\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -65,7 +65,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlElemen
                 SpreadsheetFormatterName.DATE_FORMAT_PATTERN
             ),
             "SpreadsheetFormatterNameLinkListComponent\n" +
-                "  SpreadsheetLinkListComponent\n" +
+                "  SpreadsheetCardLinkListComponent\n" +
                 "    SpreadsheetCard\n" +
                 "      Card\n" +
                 "        SpreadsheetFlexLayout\n" +

@@ -41,7 +41,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlElementCo
         this.refreshAndCheck(
             Optional.empty(),
             "SpreadsheetParserNameLinkListComponent\n" +
-                "  SpreadsheetLinkListComponent\n" +
+                "  SpreadsheetCardLinkListComponent\n" +
                 "    SpreadsheetCard\n" +
                 "      Card\n" +
                 "        SpreadsheetFlexLayout\n" +
@@ -60,7 +60,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlElementCo
                 SpreadsheetParserName.DATE_PARSER_PATTERN
             ),
             "SpreadsheetParserNameLinkListComponent\n" +
-                "  SpreadsheetLinkListComponent\n" +
+                "  SpreadsheetCardLinkListComponent\n" +
                 "    SpreadsheetCard\n" +
                 "      Card\n" +
                 "        SpreadsheetFlexLayout\n" +
