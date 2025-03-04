@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSortSaveHisto
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortEditHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortSaveHistoryToken;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
 
@@ -217,7 +218,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
         final String text = this.columnOrRowComparatorNamesList.stringValue()
             .orElse("");
 
-        final Optional<SpreadsheetSelection> firstColumnOrRow = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseColumnOrRow(text);
+        final Optional<SpreadsheetColumnOrRowReferenceOrRange> firstColumnOrRow = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseColumnOrRow(text);
 
         final String[] tokens = toSpreadsheetColumnOrRowSpreadsheetComparatorNames(text);
 
@@ -264,7 +265,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
     }
 
     private void clearIfMax(final List<String> names,
-                            final Optional<SpreadsheetSelection> firstColumnOrRow) {
+                            final Optional<SpreadsheetColumnOrRowReferenceOrRange> firstColumnOrRow) {
         // remove if too many columns/rows for the selection.
         final int namesCount = names.size();
         final int max = maxColumnsOrRows(
@@ -286,7 +287,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
      * a cell/cell-range return the greater length.
      */
     private int maxColumnsOrRows(final SpreadsheetSelection selectionNotLabel,
-                                 final Optional<SpreadsheetSelection> firstColumnOrRow) {
+                                 final Optional<SpreadsheetColumnOrRowReferenceOrRange> firstColumnOrRow) {
         final long max;
 
         SpreadsheetSelection selectionRange = selectionNotLabel.toRange();
@@ -365,7 +366,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
             // columnOrRow might be out of selection range,
             // the wrong kind(sorting columns but got a row)
             // a duplicate
-            final Optional<SpreadsheetSelection> maybeColumnOrRow = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseColumnOrRow(text);
+            final Optional<SpreadsheetColumnOrRowReferenceOrRange> maybeColumnOrRow = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseColumnOrRow(text);
             if (maybeColumnOrRow.isPresent()) {
                 String errorMessage = null;
 

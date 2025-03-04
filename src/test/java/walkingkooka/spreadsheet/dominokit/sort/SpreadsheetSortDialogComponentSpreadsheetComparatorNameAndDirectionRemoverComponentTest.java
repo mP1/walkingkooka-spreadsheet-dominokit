@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetColumnOrRowSpreadsheetCompara
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Arrays;
@@ -191,7 +192,7 @@ public final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDir
         );
     }
 
-    private void refreshAndCheck(final Optional<SpreadsheetSelection> columnOrRow,
+    private void refreshAndCheck(final Optional<SpreadsheetColumnOrRowReferenceOrRange> columnOrRow,
                                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                                  final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter,
                                  final SpreadsheetSortDialogComponentContext context,
