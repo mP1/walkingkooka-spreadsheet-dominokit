@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
@@ -59,7 +59,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
     /**
      * Creates links to append each of the {@link walkingkooka.spreadsheet.compare.SpreadsheetComparatorName} that are missing from the current {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
      */
-    void refresh(final Optional<SpreadsheetSelection> columnOrRow,
+    void refresh(final Optional<SpreadsheetColumnOrRowReferenceOrRange> columnOrRow,
                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                  final SpreadsheetSortDialogComponentContext context) {
         final SpreadsheetCard root = this.root;
@@ -75,7 +75,7 @@ final class SpreadsheetSortDialogComponentSpreadsheetComparatorNameAndDirectionR
         }
     }
 
-    void refresh0(final SpreadsheetSelection columnOrRow,
+    void refresh0(final SpreadsheetColumnOrRowReferenceOrRange columnOrRow,
                   final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
                   final SpreadsheetSortDialogComponentContext context) {
         final SpreadsheetCard root = this.root;
