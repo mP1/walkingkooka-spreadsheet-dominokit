@@ -28,8 +28,8 @@ import walkingkooka.text.printer.TreePrintable;
 import java.util.List;
 import java.util.Objects;
 
-public final class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLike,
-    TestHtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
+public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponentLike
+    implements TestHtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
 
     /**
      * A dialog box for small prompts from the user like presenting a single text box with a few links.

@@ -38,7 +38,7 @@ import java.util.Optional;
 /**
  * A standard dialog model component with support for title and close icon.
  */
-public class SpreadsheetDialogComponent implements SpreadsheetDialogComponentLike {
+public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponentLike {
 
     /**
      * Helper that returns true if a {@link SpreadsheetDialogComponent} is currently open.
