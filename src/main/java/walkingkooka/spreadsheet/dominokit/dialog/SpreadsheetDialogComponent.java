@@ -206,7 +206,6 @@ public final class SpreadsheetDialogComponent extends SpreadsheetDialogComponent
                           final IsDialogHeight height,
                           final NavBar navBar) {
         return Dialog.create()
-            //.setType(DialogType.DEFAULT) // large
             .setStretchWidth(width)
             .setStretchHeight(height)
             .setModal(true)
