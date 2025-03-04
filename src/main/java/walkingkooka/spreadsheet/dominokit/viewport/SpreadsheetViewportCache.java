@@ -190,7 +190,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     /**
      * Returns a {@link Set} with all the cell references for the given {@link SpreadsheetCellReference}.
      */
-    Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetCellReference cell) {
+    public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetCellReference cell) {
         return this.cellToReferences.getOrDefault(
             cell,
             Sets.empty()
