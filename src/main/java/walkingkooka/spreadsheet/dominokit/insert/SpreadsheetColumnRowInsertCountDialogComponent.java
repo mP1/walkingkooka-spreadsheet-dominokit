@@ -50,7 +50,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
         this.context = context;
 
         this.count = this.count();
-        this.go = this.anchor("Go");
+        this.insert = this.anchor("Insert");
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
@@ -74,7 +74,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
             ).appendChild(this.count)
             .appendChild(
                 SpreadsheetLinkListComponent.empty()
-                    .appendChild(this.go)
+                    .appendChild(this.insert)
                     .appendChild(this.close)
             );
     }
@@ -108,9 +108,9 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
             .setLabel("Count")
             .required()
             .addKeyupListener(
-                (e) -> this.refreshGo()
+                (e) -> this.refreshInsert()
             ).addChangeListener(
-                (oldValue, newValue) -> this.refreshGo()
+                (oldValue, newValue) -> this.refreshInsert()
             );
     }
 
@@ -131,10 +131,10 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
 
     private final HistoryTokenAnchorComponent close;
 
-    // go...............................................................................................................
+    // insert...........................................................................................................
 
-    private void refreshGo() {
-        this.go.setHistoryToken(
+    private void refreshInsert() {
+        this.insert.setHistoryToken(
             Optional.of(
                 this.context.historyToken()
                     .setCount(
@@ -147,7 +147,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
         );
     }
 
-    private final HistoryTokenAnchorComponent go;
+    private final HistoryTokenAnchorComponent insert;
 
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
@@ -177,7 +177,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Spr
 
     @Override
     public void refresh(final RefreshContext context) {
-        this.refreshGo();
+        this.refreshInsert();
         this.refreshClose();
     }
 
