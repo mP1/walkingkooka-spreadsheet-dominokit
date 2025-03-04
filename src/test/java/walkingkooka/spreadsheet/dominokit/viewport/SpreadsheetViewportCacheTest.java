@@ -272,7 +272,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             COLUMN_B
         );
 
-        this.cellLabelsAndCheck(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGA1B,
@@ -289,7 +289,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
         this.cellsAndCheck(cache);
         this.columnsAndCheck(cache);
-        this.cellLabelsAndCheck(cache);
+        this.cellToLabelsAndCheck(cache);
         this.rowsAndCheck(cache);
     }
 
@@ -512,7 +512,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             COLUMN_B
         );
 
-        this.cellLabelsAndCheck(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGA1B,
@@ -573,7 +573,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             COLUMN_B
         );
 
-        this.cellLabelsAndCheck(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGA1B,
@@ -615,7 +615,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             A1_CELL
         );
 
-        this.cellLabelsAndCheck(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL1.setLabelMappingReference(A1),
             LABEL1.setLabelMappingReference(A2)
@@ -875,7 +875,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.cellLabelsAndCheck(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1B
         );
@@ -922,7 +922,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.cellLabelsAndCheck(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGA1B
@@ -972,7 +972,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             A2_CELL
         );
 
-        this.cellLabelsAndCheck(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A
         );
@@ -1034,7 +1034,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             A2
         );
 
-        this.cellLabelsAndCheck(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGB3
@@ -1083,7 +1083,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             A1
         );
 
-        this.cellLabelsAndCheck(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A
         );
@@ -1139,7 +1139,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             A2
         );
 
-        this.cellLabelsAndCheck(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGB3
         );
@@ -1201,7 +1201,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             A2
         );
 
-        this.cellLabelsAndCheck(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGB3
@@ -1478,6 +1478,99 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             NullPointerException.class,
             () -> this.viewportCacheAndOpen()
                 .cellLabels(null)
+        );
+    }
+
+    @Test
+    public void testCellLabels() {
+        final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
+
+        cache.onSpreadsheetDelta(
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL1.setLabelMappingReference(
+                            SpreadsheetSelection.A1
+                        )
+                    )
+                ),
+            CONTEXT
+        );
+
+        this.cellsAndCheck(
+            cache,
+            A1_CELL
+        );
+
+        this.cellLabelsAndCheck(
+            cache,
+            SpreadsheetSelection.A1,
+            LABEL1
+        );
+    }
+
+    @Test
+    public void testCellLabels2() {
+        final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
+
+        cache.onSpreadsheetDelta(
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL1.setLabelMappingReference(
+                            SpreadsheetSelection.parseCellRange("A1:A2")
+                        )
+                    )
+                ),
+            CONTEXT
+        );
+
+        this.cellsAndCheck(
+            cache,
+            A1_CELL
+        );
+
+        this.cellLabelsAndCheck(
+            cache,
+            SpreadsheetSelection.A1,
+            LABEL1
+        );
+
+        this.cellLabelsAndCheck(
+            cache,
+            SpreadsheetSelection.parseCell("A2"),
+            LABEL1
+        );
+    }
+
+    private void cellLabelsAndCheck(final SpreadsheetViewportCache cache,
+                                    final SpreadsheetCellReference cell,
+                                    final SpreadsheetLabelName... expected) {
+        this.cellLabelsAndCheck(
+            cache,
+            cell,
+            Sets.of(expected)
+        );
+    }
+
+    private void cellLabelsAndCheck(final SpreadsheetViewportCache cache,
+                                    final SpreadsheetCellReference cell,
+                                    final Set<SpreadsheetLabelName> expected) {
+        this.checkEquals(
+            expected,
+            cache.cellLabels(cell)
         );
     }
 
@@ -2364,7 +2457,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             CONTEXT
         );
 
-        this.cellLabelsAndCheck(
+        this.cellToLabelsAndCheck(
             cache,
             LABEL_MAPPINGA1A,
             LABEL_MAPPINGA1B
@@ -4039,8 +4132,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
     }
 
-    private void cellLabelsAndCheck(final SpreadsheetViewportCache cache,
-                                    final SpreadsheetLabelMapping... expected) {
+    private void cellToLabelsAndCheck(final SpreadsheetViewportCache cache,
+                                      final SpreadsheetLabelMapping... expected) {
         final Map<SpreadsheetCellReference, Set<SpreadsheetLabelName>> expectedMaps = Maps.ordered();
         for (final SpreadsheetLabelMapping mapping : expected) {
             final SpreadsheetCellReference cell = (SpreadsheetCellReference) mapping.reference();
