@@ -92,7 +92,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "    Formatter\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetCardLinkListComponent\n" +
                 "          SpreadsheetCard\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -170,7 +170,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "    Formatter\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetCardLinkListComponent\n" +
                 "          SpreadsheetCard\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -280,7 +280,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "    Formatter\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetCardLinkListComponent\n" +
                 "          SpreadsheetCard\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -409,7 +409,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "    Formatter\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetCardLinkListComponent\n" +
                 "          SpreadsheetCard\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -559,7 +559,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "    Formatter\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetCardLinkListComponent\n" +
                 "          SpreadsheetCard\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -635,7 +635,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "    Formatter\n" +
                 "    id=spreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetCardLinkListComponent\n" +
                 "          SpreadsheetCard\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -738,7 +738,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          TAB 4\n" +
                 "            \"Time\" [#/1/Spreadsheet123/spreadsheet/time-formatter] id=spreadsheetFormatterSelector-Tabs-time-format\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetCardLinkListComponent\n" +
                 "          SpreadsheetCard\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -860,7 +860,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          TAB 4\n" +
                 "            \"Time\" [#/1/Spreadsheet123/spreadsheet/time-formatter] id=spreadsheetFormatterSelector-Tabs-time-format\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetCardLinkListComponent\n" +
                 "          SpreadsheetCard\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -1001,7 +1001,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          TAB 4\n" +
                 "            \"Time\" [#/1/Spreadsheet123/spreadsheet/time-formatter] id=spreadsheetFormatterSelector-Tabs-time-format\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetCardLinkListComponent\n" +
                 "          SpreadsheetCard\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -1163,7 +1163,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          TAB 4\n" +
                 "            \"Time\" [#/1/Spreadsheet123/spreadsheet/time-formatter] id=spreadsheetFormatterSelector-Tabs-time-format\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetCardLinkListComponent\n" +
                 "          SpreadsheetCard\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +
@@ -1251,7 +1251,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "          TAB 4 SELECTED\n" +
                 "            \"Time\" DISABLED id=spreadsheetFormatterSelector-Tabs-time-format\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetCardLinkListComponent\n" +
                 "          SpreadsheetCard\n" +
                 "            Card\n" +
                 "              SpreadsheetFlexLayout\n" +

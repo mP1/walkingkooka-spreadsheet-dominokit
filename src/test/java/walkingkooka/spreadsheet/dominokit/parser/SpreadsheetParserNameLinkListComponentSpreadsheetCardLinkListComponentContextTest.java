@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.parser;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContextTest implements ClassTesting<SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext> {
+public final class SpreadsheetParserNameLinkListComponentSpreadsheetCardLinkListComponentContextTest implements ClassTesting<SpreadsheetParserNameLinkListComponentSpreadsheetCardLinkListComponentContext> {
 
     @Override
-    public Class<SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext> type() {
-        return SpreadsheetParserNameLinkListComponentSpreadsheetLinkListComponentContext.class;
+    public Class<SpreadsheetParserNameLinkListComponentSpreadsheetCardLinkListComponentContext> type() {
+        return SpreadsheetParserNameLinkListComponentSpreadsheetCardLinkListComponentContext.class;
     }
 
     @Override

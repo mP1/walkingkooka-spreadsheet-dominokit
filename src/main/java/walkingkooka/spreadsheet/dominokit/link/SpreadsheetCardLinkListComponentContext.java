@@ -20,9 +20,9 @@ package walkingkooka.spreadsheet.dominokit.link;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 /**
- * Context for {@link SpreadsheetLinkListComponent}.
+ * Context for {@link SpreadsheetCardLinkListComponent}.
  */
-public interface SpreadsheetLinkListComponentContext extends HistoryContext {
+public interface SpreadsheetCardLinkListComponentContext extends HistoryContext {
 
     /**
      * Called during a render to test if a text item is disabled.

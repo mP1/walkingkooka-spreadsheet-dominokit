@@ -15,20 +15,19 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.format;
+package walkingkooka.spreadsheet.dominokit.link;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
-public final class SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContextTest implements ClassTesting<SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext> {
+public class FakeSpreadsheetCardLinkListComponentContext extends FakeHistoryContext implements SpreadsheetCardLinkListComponentContext {
 
     @Override
-    public Class<SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext> type() {
-        return SpreadsheetFormatterNameLinkListComponentSpreadsheetLinkListComponentContext.class;
+    public boolean isDisabled(final String text) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public String saveValueText(final String text) {
+        throw new UnsupportedOperationException();
     }
 }

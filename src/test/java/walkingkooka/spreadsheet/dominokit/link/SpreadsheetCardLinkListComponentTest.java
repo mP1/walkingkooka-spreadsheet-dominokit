@@ -34,7 +34,7 @@ import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetLinkListComponentTest implements HtmlElementComponentTesting<SpreadsheetLinkListComponent, HTMLDivElement> {
+public final class SpreadsheetCardLinkListComponentTest implements HtmlElementComponentTesting<SpreadsheetCardLinkListComponent, HTMLDivElement> {
 
     private final static String ID = "LinkList123-";
 
@@ -48,7 +48,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
     public void testWithNullIdFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetLinkListComponent.with(
+            () -> SpreadsheetCardLinkListComponent.with(
                 null,
                 TITLE,
                 LABEL_MAKER
@@ -60,7 +60,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
     public void testWithEmptyIdFails() {
         assertThrows(
             IllegalArgumentException.class,
-            () -> SpreadsheetLinkListComponent.with(
+            () -> SpreadsheetCardLinkListComponent.with(
                 "",
                 TITLE,
                 LABEL_MAKER
@@ -72,7 +72,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
     public void testWithNullTitleFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetLinkListComponent.with(
+            () -> SpreadsheetCardLinkListComponent.with(
                 ID,
                 null,
                 LABEL_MAKER
@@ -84,7 +84,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
     public void testWithNullLabelMakerFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetLinkListComponent.with(
+            () -> SpreadsheetCardLinkListComponent.with(
                 ID,
                 TITLE,
                 null
@@ -99,7 +99,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
         this.refreshAndCheck(
             Lists.empty(),
             Optional.empty(), // no selection
-            "SpreadsheetLinkListComponent\n"
+            "SpreadsheetCardLinkListComponent\n"
         );
     }
 
@@ -114,7 +114,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
             Optional.of(
                 SpreadsheetFormatterName.with("banana2")
             ),
-            "SpreadsheetLinkListComponent\n" +
+            "SpreadsheetCardLinkListComponent\n" +
                 "  SpreadsheetCard\n" +
                 "    Card\n" +
                 "      Title123\n" +
@@ -135,7 +135,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
                 "carrot3"
             ),
             Optional.empty(),
-            "SpreadsheetLinkListComponent\n" +
+            "SpreadsheetCardLinkListComponent\n" +
                 "  SpreadsheetCard\n" +
                 "    Card\n" +
                 "      Title123\n" +
@@ -150,7 +150,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
     private void refreshAndCheck(final List<String> texts,
                                  final Optional<SpreadsheetFormatterName> selected,
                                  final String expected) {
-        final SpreadsheetLinkListComponent list = SpreadsheetLinkListComponent.with(
+        final SpreadsheetCardLinkListComponent list = SpreadsheetCardLinkListComponent.with(
             ID,
             TITLE,
             LABEL_MAKER
@@ -158,7 +158,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
 
         list.refresh(
             texts,
-            new FakeSpreadsheetLinkListComponentContext() {
+            new FakeSpreadsheetCardLinkListComponentContext() {
 
                 @Override
                 public boolean isDisabled(final String text) {
@@ -191,8 +191,8 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetLinkListComponent> type() {
-        return SpreadsheetLinkListComponent.class;
+    public Class<SpreadsheetCardLinkListComponent> type() {
+        return SpreadsheetCardLinkListComponent.class;
     }
 
     @Override

@@ -35,21 +35,21 @@ import java.util.function.Function;
  * A card that holds links, each with a save history token link.
  * The initial use-case for this component is to display available spreadsheet formatter names when the user is editing a format.
  */
-public final class SpreadsheetLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetLinkListComponent> {
+public final class SpreadsheetCardLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetCardLinkListComponent> {
 
-    public static SpreadsheetLinkListComponent with(final String id,
-                                                    final String title,
-                                                    final Function<String, String> labelMaker) {
-        return new SpreadsheetLinkListComponent(
+    public static SpreadsheetCardLinkListComponent with(final String id,
+                                                        final String title,
+                                                        final Function<String, String> labelMaker) {
+        return new SpreadsheetCardLinkListComponent(
             CharSequences.failIfNullOrEmpty(id, "id"),
             Objects.requireNonNull(title, "title"),
             Objects.requireNonNull(labelMaker, "labelMaker")
         );
     }
 
-    private SpreadsheetLinkListComponent(final String id,
-                                         final String title,
-                                         final Function<String, String> labelMaker) {
+    private SpreadsheetCardLinkListComponent(final String id,
+                                             final String title,
+                                             final Function<String, String> labelMaker) {
         this.id = id;
 
         this.flex = SpreadsheetFlexLayout.row();
@@ -64,7 +64,7 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
      * Replaces all links and creates links for each of the given text items.
      */
     public void refresh(final List<String> texts,
-                        final SpreadsheetLinkListComponentContext context) {
+                        final SpreadsheetCardLinkListComponentContext context) {
         this.refresh0(
             Lists.immutable(
                 Objects.requireNonNull(texts, "texts")
@@ -74,7 +74,7 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
     }
 
     void refresh0(final List<String> texts,
-                  final SpreadsheetLinkListComponentContext context) {
+                  final SpreadsheetCardLinkListComponentContext context) {
         this.root.hide();
 
         final SpreadsheetFlexLayout flex = this.flex.removeAllChildren();
@@ -101,7 +101,7 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
      */
     private HistoryTokenAnchorComponent anchor(final String text,
                                                final int index,
-                                               final SpreadsheetLinkListComponentContext context) {
+                                               final SpreadsheetCardLinkListComponentContext context) {
         final HistoryToken historyToken = context.historyToken();
 
         return historyToken.saveLink(
@@ -131,7 +131,7 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
     // setCssText.......................................................................................................
 
     @Override
-    public SpreadsheetLinkListComponent setCssText(final String css) {
+    public SpreadsheetCardLinkListComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
 
         this.root.setCssText(css);
@@ -141,8 +141,8 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
     // setCssProperty...................................................................................................
 
     @Override
-    public SpreadsheetLinkListComponent setCssProperty(final String name,
-                                                       final String value) {
+    public SpreadsheetCardLinkListComponent setCssProperty(final String name,
+                                                           final String value) {
         this.root.setCssProperty(
             name,
             value
