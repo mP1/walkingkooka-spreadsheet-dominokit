@@ -172,12 +172,10 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     /**
      * Returns a {@link Set} with all the labels for the given {@link SpreadsheetCellReference}.
      */
-    public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetCellReference cell) {
-        Objects.requireNonNull(cell, "cell");
-
-        return this.cellToLabels.getOrDefault(
-            cell,
-            Sets.empty()
+    public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        return this.resolveIfLabelAndGetAll(
+            spreadsheetExpressionReference,
+            this.cellToLabels
         );
     }
 
@@ -202,6 +200,52 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      */
     // VisibleForTesting
     final Map<SpreadsheetCellReference, Set<SpreadsheetExpressionReference>> cellToReferences = Maps.sorted();
+
+    /**
+     * Helper for {@link #cellLabels(SpreadsheetExpressionReference)}, resolving the {@link SpreadsheetLabelName} into a
+     * {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReferenceOrRange} and returning all labels for that.
+     */
+    private <T> Set<T> resolveIfLabelAndGetAll(final SpreadsheetExpressionReference spreadsheetExpressionReference,
+                                               final Map<SpreadsheetCellReference, Set<T>> cellToTarget) {
+        Objects.requireNonNull(spreadsheetExpressionReference, "spreadsheetExpressionReference");
+
+        SpreadsheetCellReference cell = null;
+
+        if (spreadsheetExpressionReference.isLabelName()) {
+            final SpreadsheetSelection nonLabel = this.labelToNonLabel.get(spreadsheetExpressionReference.toLabelName());
+            if (null != nonLabel) {
+                cell = nonLabel.toCell();
+            }
+        } else {
+            cell = spreadsheetExpressionReference.toCell();
+        }
+
+        Set<T> result;
+
+        if (null != cell) {
+            if (cell.isCell()) {
+                result = cellToTarget.getOrDefault(
+                    cell,
+                    Sets.<T>empty()
+                );
+            } else {
+                result = SortedSets.tree();
+
+                for (final SpreadsheetCellReference in : cell.toCellRange()) {
+                    final Set<T> targets = cellToTarget.get(in);
+                    if (null != targets) {
+                        result.addAll(targets);
+                    }
+                }
+
+                result = Sets.immutable(result);
+            }
+        } else {
+            result = Sets.empty();
+        }
+
+        return result;
+    }
 
     public boolean isMatchedCell(final SpreadsheetCellReference cell) {
         return this.matchedCells.contains(cell);
