@@ -2134,8 +2134,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
     }
 
+    // resolveIfLabel...................................................................................................
+
     @Test
-    public void testNonLabelSelectionLost() {
+    public void testResolveIfLabelWithUnknownLabel() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
@@ -2168,7 +2170,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testNonLabelSelectionCell() {
+    public void testResolveIfLabelWithCell2() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
@@ -2212,41 +2214,41 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testNonLabelSelectionCellRange() {
-        this.testNonLabelSelectionCellRange(
+    public void testResolveIfLabelWithCellRange() {
+        this.resolveIfLabelAndCheck2(
             SpreadsheetSelection.parseCellRange("A1:B2")
         );
     }
 
     @Test
-    public void testNonLabelSelectionColumn() {
-        this.testNonLabelSelectionCellRange(
+    public void testResolveIfLabelWithColumn2() {
+        this.resolveIfLabelAndCheck2(
             SpreadsheetSelection.parseColumn("A")
         );
     }
 
     @Test
-    public void testNonLabelSelectionColumnRange() {
-        this.testNonLabelSelectionCellRange(
+    public void testResolveIfLabelWithColumnRange2() {
+        this.resolveIfLabelAndCheck2(
             SpreadsheetSelection.parseColumnRange("A:B")
         );
     }
 
     @Test
-    public void testNonLabelSelectionRow() {
-        this.testNonLabelSelectionCellRange(
+    public void testResolveIfLabelWithRow2() {
+        this.resolveIfLabelAndCheck2(
             SpreadsheetSelection.parseRow("1")
         );
     }
 
     @Test
-    public void testNonLabelSelectionRowRange() {
-        this.testNonLabelSelectionCellRange(
+    public void testResolveIfLabelWithRowRange2() {
+        this.resolveIfLabelAndCheck2(
             SpreadsheetSelection.parseRowRange("2:3")
         );
     }
 
-    private void testNonLabelSelectionCellRange(final SpreadsheetSelection nonLabel) {
+    private void resolveIfLabelAndCheck2(final SpreadsheetSelection nonLabel) {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
@@ -2287,7 +2289,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testNonLabelSelectionLabelToCell() {
+    public void testResolveIfLabelWithLabelToCell() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
@@ -2328,7 +2330,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testNonLabelSelectionLabelToCell2() {
+    public void testResolveIfLabelWithLabelToCell2() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
@@ -2383,7 +2385,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
 
     @Test
-    public void testNonLabelSelectionLabelToCellRange() {
+    public void testResolveIfLabelWithLabelToCellRange() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
@@ -2446,7 +2448,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testNonLabelSelectionLabelToLabelToCell() {
+    public void testResolveIfLabelWithLabelToLabelToCell() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
@@ -2499,7 +2501,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testNonLabelSelectionLabelToLabelToCellRange() {
+    public void testResolveIfLabelWithLabelToLabelToCellRange() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
@@ -2559,7 +2561,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testNonLabelSelectionLabelToLabelToCell2() {
+    public void testResolveIfLabelWithLabelToLabelToCell2() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
@@ -2612,7 +2614,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testNonLabelSelectionLabelToLabelToCell3() {
+    public void testResolveIfLabelWithLabelToLabelToCell3() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
@@ -2690,7 +2692,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testNonLabelSelectionLabelToLabelToLabelToCell() {
+    public void testResolveIfLabelWithLabelToLabelToLabelToCell() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
