@@ -66,12 +66,13 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                    \"next\" DISABLED mdi-arrow-right id=spreadsheetList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
-                "          \"Reload\" [#/*/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
-                "          \"10 Rows\" [#/*/count/10] id=spreadsheetList-count-10-rows-Link\n" +
-                "          \"20 Rows\" [#/*/count/20] id=spreadsheetList-count-20-rows-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
+                "            \"Reload\" [#/*/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
+                "            \"10 Rows\" [#/*/count/10] id=spreadsheetList-count-10-rows-Link\n" +
+                "            \"20 Rows\" [#/*/count/20] id=spreadsheetList-count-20-rows-Link\n"
         );
     }
 
@@ -110,12 +111,13 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                    \"next\" DISABLED mdi-arrow-right id=spreadsheetList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
-                "          \"Reload\" [#/*/offset/1/count/3/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
-                "          \"10 Rows\" [#/*/offset/1/count/10] id=spreadsheetList-count-10-rows-Link\n" +
-                "          \"20 Rows\" [#/*/offset/1/count/20] id=spreadsheetList-count-20-rows-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
+                "            \"Reload\" [#/*/offset/1/count/3/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
+                "            \"10 Rows\" [#/*/offset/1/count/10] id=spreadsheetList-count-10-rows-Link\n" +
+                "            \"20 Rows\" [#/*/offset/1/count/20] id=spreadsheetList-count-20-rows-Link\n"
         );
 
         // previous history token opens the diloag, otherwise the metadata's below will be ignored.
@@ -198,12 +200,13 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                    \"next\" [#/*/offset/3/count/3] mdi-arrow-right id=spreadsheetList-next-Link\n" +
                 "              PLUGINS\n" +
                 "                EmptyStatePlugin (mdi-gauge-empty) \"No spreadsheets\"\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
-                "          \"Reload\" [#/*/offset/1/count/3/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
-                "          \"10 Rows\" [#/*/offset/1/count/10] id=spreadsheetList-count-10-rows-Link\n" +
-                "          \"20 Rows\" [#/*/offset/1/count/20] id=spreadsheetList-count-20-rows-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Create\" [#/create] id=spreadsheetList-create-Link\n" +
+                "            \"Reload\" [#/*/offset/1/count/3/reload] mdi-reload id=spreadsheetList-reload-Link\n" +
+                "            \"10 Rows\" [#/*/offset/1/count/10] id=spreadsheetList-count-10-rows-Link\n" +
+                "            \"20 Rows\" [#/*/offset/1/count/20] id=spreadsheetList-count-20-rows-Link\n"
         );
     }
 

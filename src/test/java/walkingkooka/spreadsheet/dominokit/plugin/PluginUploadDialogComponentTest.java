@@ -63,10 +63,11 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
                 "      SpreadsheetUploadFileComponent\n" +
                 "        id=pluginUpload-UploadFile\n" +
                 "        label=Drop files here or click to upload.\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
-                "          \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
+                "            \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
         );
     }
 
@@ -104,10 +105,11 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
                 "      SpreadsheetUploadFileComponent\n" +
                 "        id=pluginUpload-UploadFile\n" +
                 "        label=Drop files here or click to upload.\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
-                "          \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Upload\" DISABLED id=pluginUpload-upload-Link\n" +
+                "            \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
         );
 
         dialog.uploadFile.setValue(
@@ -136,10 +138,11 @@ public final class PluginUploadDialogComponentTest implements SpreadsheetDialogC
                 "          BrowserFileBase64\n" +
                 "            \"TestPluginName0\"\n" +
                 "              UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Upload\" [#/plugin-upload/save/base64/TestPluginName0/UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA] id=pluginUpload-upload-Link\n" +
-                "          \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Upload\" [#/plugin-upload/save/base64/TestPluginName0/UEsDBBQACAgIAEB/IigAAAAAAAAAAAAAAAAUAA0ATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAkABdjabjhYqGw44+UCAFBLBwishaIUBAAAAAIAAABQSwECFAAUAAgICABAfyIorIWiFAQAAAACAAAAFAAJAAAAAAAAAAAAAAAAAAAATUVUQS1JTkYvTUFOSUZFU1QuTUZVVAUABdjabjhQSwUGAAAAAAEAAQBLAAAAUwAAAAAA] id=pluginUpload-upload-Link\n" +
+                "            \"Close\" [#/plugin] id=pluginUpload-close-Link\n"
         );
     }
 

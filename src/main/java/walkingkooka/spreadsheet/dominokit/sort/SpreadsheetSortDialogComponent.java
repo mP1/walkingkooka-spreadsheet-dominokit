@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSortSaveHisto
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortEditHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CharSequences;
@@ -95,7 +96,7 @@ public final class SpreadsheetSortDialogComponent implements SpreadsheetDialogCo
             ).appendChild(this.columnOrRowComparatorNamesList)
             .appendChild(this.columnOrRowComparatorNamesParent)
             .appendChild(
-                SpreadsheetFlexLayout.row()
+                SpreadsheetLinkListComponent.empty()
                     .appendChild(this.sort)
                     .appendChild(this.close)
             );

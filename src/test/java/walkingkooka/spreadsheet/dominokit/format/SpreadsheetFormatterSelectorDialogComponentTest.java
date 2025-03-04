@@ -144,12 +144,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "            [date-format-pattern] id=spreadsheetFormatterSelector-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" DISABLED id=spreadsheetFormatterSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" DISABLED id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -252,12 +253,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [date-format-pattern dd/mm/yyyy] id=spreadsheetFormatterSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyy] id=spreadsheetFormatterSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-format-pattern%20dd/mm/yyyy] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -381,12 +383,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [date-time-format-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetFormatterSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -531,12 +534,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [number-format-pattern $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -607,12 +611,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [text-format-pattern @ \"Hello\"] id=spreadsheetFormatterSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -698,12 +703,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [time-format-pattern hh:mm] id=spreadsheetFormatterSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/cell/A1/formatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -820,12 +826,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [date-format-pattern dd/mm/yyyy] id=spreadsheetFormatterSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/date-format-pattern%20dd/mm/yyyy] id=spreadsheetFormatterSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/date-format-pattern%20yyyy/mm/dd] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/date-format-pattern%20dd/mm/yyyy] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/date-format-pattern%20yyyy/mm/dd] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/date-formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -961,12 +968,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [date-time-format-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetFormatterSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/date-time-format-pattern%20yyyy/mm/dd%20hh:mm] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/date-time-format-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/date-time-format-pattern%20yyyy/mm/dd%20hh:mm] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/date-time-formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -1123,12 +1131,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [number-format-pattern $#0.00] id=spreadsheetFormatterSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%200.%23] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%20$%230.00] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/number-format-pattern%200.%23] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/number-formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -1211,12 +1220,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [text-format-pattern @ \"Hello\"] id=spreadsheetFormatterSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/text-formatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/text-formatter/save/text-format-pattern%20@] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/text-formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/text-formatter/save/text-format-pattern%20@%20%22Hello%22] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/text-formatter/save/text-format-pattern%20@] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/text-formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -1314,12 +1324,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [time-format-pattern hh:mm] id=spreadsheetFormatterSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/time-formatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/time-formatter/save/time-format-pattern%20hh:mm:ss] id=spreadsheetFormatterSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/time-formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/time-formatter/save/time-format-pattern%20hh:mm] id=spreadsheetFormatterSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/time-formatter/save/time-format-pattern%20hh:mm:ss] id=spreadsheetFormatterSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/time-formatter/save/] id=spreadsheetFormatterSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetFormatterSelector-close-Link\n"
         );
     }
 

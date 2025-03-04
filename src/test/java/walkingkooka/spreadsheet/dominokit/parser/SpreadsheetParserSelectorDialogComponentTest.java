@@ -140,12 +140,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "            [date-parse-pattern] id=spreadsheetParserSelector-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" DISABLED id=spreadsheetParserSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetParserSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" DISABLED id=spreadsheetParserSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -243,12 +244,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [date-parse-pattern dd/mm/yyyy] id=spreadsheetParserSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyy] id=spreadsheetParserSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetParserSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/cell/A1/parser/save/date-parse-pattern%20dd/mm/yyyy] id=spreadsheetParserSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -367,12 +369,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [date-time-parse-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetParserSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetParserSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetParserSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/cell/A1/parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetParserSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -512,12 +515,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [number-parse-pattern $#0.00] id=spreadsheetParserSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20$%230.00] id=spreadsheetParserSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetParserSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/cell/A1/parser/save/number-parse-pattern%20$%230.00] id=spreadsheetParserSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -598,12 +602,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [time-parse-pattern hh:mm] id=spreadsheetParserSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern%20hh:mm] id=spreadsheetParserSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetParserSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/cell/A1/parser/save/time-parse-pattern%20hh:mm] id=spreadsheetParserSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/cell/A1/parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/cell/A1] id=spreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -713,12 +718,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [date-parse-pattern dd/mm/yyyy] id=spreadsheetParserSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-parse-pattern%20dd/mm/yyyy] id=spreadsheetParserSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-parse-pattern%20yyyy/mm/dd] id=spreadsheetParserSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetParserSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-parse-pattern%20dd/mm/yyyy] id=spreadsheetParserSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/date-parse-pattern%20yyyy/mm/dd] id=spreadsheetParserSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/date-parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -847,12 +853,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [date-time-parse-pattern dd/mm/yyyy hh:mm:ss] id=spreadsheetParserSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetParserSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-time-parse-pattern%20yyyy/mm/dd%20hh:mm] id=spreadsheetParserSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetParserSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-time-parse-pattern%20dd/mm/yyyy%20hh:mm:ss] id=spreadsheetParserSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/date-time-parse-pattern%20yyyy/mm/dd%20hh:mm] id=spreadsheetParserSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/date-time-parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -1002,12 +1009,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [number-parse-pattern $#0.00] id=spreadsheetParserSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20$%230.00] id=spreadsheetParserSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%200.%23] id=spreadsheetParserSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetParserSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%20$%230.00] id=spreadsheetParserSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/number-parse-pattern%200.%23] id=spreadsheetParserSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/number-parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -1098,12 +1106,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Sprea
                 "        ValueSpreadsheetTextBox\n" +
                 "          SpreadsheetTextBox\n" +
                 "            [time-parse-pattern hh:mm] id=spreadsheetParserSelector-TextBox\n" +
-                "      SpreadsheetFlexLayout\n" +
-                "        ROW\n" +
-                "          \"Save\" [#/1/Spreadsheet123/spreadsheet/time-parser/save/time-parse-pattern%20hh:mm] id=spreadsheetParserSelector-save-Link\n" +
-                "          \"Undo\" [#/1/Spreadsheet123/spreadsheet/time-parser/save/time-parse-pattern%20hh:mm:ss] id=spreadsheetParserSelector-undo-Link\n" +
-                "          \"Clear\" [#/1/Spreadsheet123/spreadsheet/time-parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
-                "          \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetParserSelector-close-Link\n"
+                "      SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetFlexLayout\n" +
+                "          ROW\n" +
+                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/time-parser/save/time-parse-pattern%20hh:mm] id=spreadsheetParserSelector-save-Link\n" +
+                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/time-parser/save/time-parse-pattern%20hh:mm:ss] id=spreadsheetParserSelector-undo-Link\n" +
+                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/time-parser/save/] id=spreadsheetParserSelector-clear-Link\n" +
+                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=spreadsheetParserSelector-close-Link\n"
         );
     }
 
