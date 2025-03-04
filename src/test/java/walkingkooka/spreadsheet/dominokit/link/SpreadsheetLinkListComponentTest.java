@@ -34,16 +34,6 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
 
     private final static String ID = "LinkList123-";
 
-    // with.............................................................................................................
-
-    @Test
-    public void testWithNullIdFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> SpreadsheetLinkListComponent.with(null)
-        );
-    }
-
     // appendChild......................................................................................................
 
 
@@ -51,7 +41,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
     public void testAppendChildWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetLinkListComponent.with(ID)
+            () -> SpreadsheetLinkListComponent.empty()
                 .appendChild(null)
         );
     }
@@ -59,7 +49,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
     @Test
     public void testAppendChild() {
         this.treePrintAndCheck(
-            SpreadsheetLinkListComponent.with(ID)
+            SpreadsheetLinkListComponent.empty()
                 .appendChild(
                     HistoryTokenAnchorComponent.empty()
                         .setTextContent("Edit spreadsheet name")
@@ -75,8 +65,7 @@ public final class SpreadsheetLinkListComponentTest implements HtmlElementCompon
             "SpreadsheetLinkListComponent\n" +
                 "  SpreadsheetFlexLayout\n" +
                 "    ROW\n" +
-                "      id=LinkList123-\n" +
-                "        \"Edit spreadsheet name\" [#/1/SpreadsheetName222]\n"
+                "      \"Edit spreadsheet name\" [#/1/SpreadsheetName222]\n"
         );
     }
 

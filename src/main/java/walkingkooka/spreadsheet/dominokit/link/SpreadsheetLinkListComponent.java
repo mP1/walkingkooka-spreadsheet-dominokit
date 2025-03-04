@@ -21,7 +21,6 @@ import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
-import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
@@ -33,15 +32,12 @@ import java.util.Objects;
  */
 public final class SpreadsheetLinkListComponent implements HtmlElementComponent<HTMLDivElement, SpreadsheetLinkListComponent> {
 
-    public static SpreadsheetLinkListComponent with(final String id) {
-        return new SpreadsheetLinkListComponent(
-            CharSequences.failIfNullOrEmpty(id, "id")
-        );
+    public static SpreadsheetLinkListComponent empty() {
+        return new SpreadsheetLinkListComponent();
     }
 
-    private SpreadsheetLinkListComponent(final String id) {
-        this.root = SpreadsheetFlexLayout.row()
-            .setId(id);
+    private SpreadsheetLinkListComponent() {
+        this.root = SpreadsheetFlexLayout.row();
     }
 
     public SpreadsheetLinkListComponent appendChild(final AnchorComponent<?, ?> anchor) {
