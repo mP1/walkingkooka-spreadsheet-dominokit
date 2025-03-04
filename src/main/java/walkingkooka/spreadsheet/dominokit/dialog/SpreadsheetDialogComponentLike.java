@@ -26,53 +26,56 @@ import walkingkooka.text.printer.IndentingPrinter;
  * Interface that defines all the PUBLIC methods of {@link SpreadsheetDialogComponent}.
  * This is used to keep the two SpreadsheetDialogComponent.java (main/test) in sync.
  */
-public interface SpreadsheetDialogComponentLike extends HtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
+abstract class SpreadsheetDialogComponentLike implements HtmlElementComponent<HTMLDivElement, SpreadsheetDialogComponent> {
+
+    SpreadsheetDialogComponentLike() {
+        super();
+    }
 
     /**
      * Getter that returns the ID.
      */
-    String id();
+    abstract public String id();
 
     /**
      * Sets a new title on the dialog.
      */
-    SpreadsheetDialogComponent setTitle(final String title);
-
+    abstract public SpreadsheetDialogComponent setTitle(final String title);
 
     /**
      * Getter that returns the current title
      */
-    String title();
+    abstract public String title();
 
     /**
      * Tests if the title includes a CLOSE X.
      */
-    boolean isTitleIncludeClose();
+    abstract public boolean isTitleIncludeClose();
 
     /**
      * Appends a new child to this {@link SpreadsheetDialogComponent}
      */
-    SpreadsheetDialogComponent appendChild(final IsElement<?> child);
+    abstract public SpreadsheetDialogComponent appendChild(final IsElement<?> child);
 
     /**
      * Tests if the dialog is open.
      */
-    boolean isOpen();
+    abstract public boolean isOpen();
 
     /**
      * Opens the dialog.
      */
-    void open();
+    abstract public void open();
 
     /**
      * Closes or hides the dialog.
      */
-    void close();
+    abstract public void close();
 
     // TreePrintable....................................................................................................
 
     @Override
-    default void printTree(final IndentingPrinter printer) {
+    public final void printTree(final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
@@ -93,5 +96,5 @@ public interface SpreadsheetDialogComponentLike extends HtmlElementComponent<HTM
         printer.outdent();
     }
 
-    void printTreeChildren(final IndentingPrinter printer);
+    abstract void printTreeChildren(final IndentingPrinter printer);
 }
