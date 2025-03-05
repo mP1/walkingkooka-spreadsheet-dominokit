@@ -52,6 +52,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -1959,10 +1960,10 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testCellReferences() {
+    public void testCellReferencesWithCell() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
-        final SpreadsheetCellRangeReference a3a4 = SpreadsheetSelection.parseCellRange("A3:A4");
+        final SpreadsheetCellReferenceOrRange a3a4 = SpreadsheetSelection.parseCellRange("A3:A4");
 
         cache.onSpreadsheetDelta(
             METHOD,
@@ -1992,6 +1993,111 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             A1,
             A2,
             a3a4,
+            LABEL1
+        );
+    }
+
+    @Test
+    public void testCellReferencesWithCellRange() {
+        final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
+
+        final SpreadsheetCellRangeReference a3a4 = SpreadsheetSelection.parseCellRange("a3:a4");
+
+        cache.onSpreadsheetDelta(
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL,
+                        A2_CELL
+                    )
+                ).setReferences(
+                    Maps.of(
+                        a3a4.begin(),
+                        Sets.of(
+                            A1
+                        ),
+                        a3a4.end(),
+                        Sets.of(
+                            A2
+                        )
+                    )
+                ),
+            CONTEXT
+        );
+
+        this.cellReferencesAndCheck(
+            cache,
+            a3a4,
+            A1,
+            A2
+        );
+    }
+
+    @Test
+    public void testCellReferencesWithLabel() {
+        final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
+
+        cache.onSpreadsheetDelta(
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL,
+                        A2_CELL,
+                        A3_CELL
+                    )
+                ).setReferences(
+                    Maps.of(
+                        A1_CELL.reference(),
+                        Sets.of(
+                            A2
+                        )
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL1.setLabelMappingReference(A1)
+                    )
+                ),
+            CONTEXT
+        );
+
+        this.cellReferencesAndCheck(
+            cache,
+            LABEL1,
+            A2
+        );
+    }
+
+    @Test
+    public void testCellReferencesWithUnknownLabel() {
+        final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
+
+        cache.onSpreadsheetDelta(
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL,
+                        A2_CELL,
+                        A3_CELL
+                    )
+                ).setReferences(
+                    Maps.of(
+                        A1_CELL.reference(),
+                        Sets.of(
+                            A2
+                        )
+                    )
+                ),
+            CONTEXT
+        );
+
+        this.cellReferencesAndCheck(
+            cache,
             LABEL1
         );
     }
@@ -2107,7 +2213,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     private void cellReferencesAndCheck(final SpreadsheetViewportCache cache,
-                                        final SpreadsheetCellReference cell,
+                                        final SpreadsheetExpressionReference cell,
                                         final SpreadsheetExpressionReference... expected) {
         this.checkEquals(
             Sets.of(expected),
