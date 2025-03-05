@@ -1482,7 +1482,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testCellLabels() {
+    public void testCellLabelsWithCell() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
@@ -1516,7 +1516,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     }
 
     @Test
-    public void testCellLabels2() {
+    public void testCellLabelsWithCells2() {
         final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
 
         cache.onSpreadsheetDelta(
@@ -1555,22 +1555,156 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
     }
 
+    @Test
+    public void testCellLabelsWithCellRange() {
+        final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
+
+        final SpreadsheetCellRangeReference cellRange = SpreadsheetSelection.parseCellRange("A1:A2");
+
+        cache.onSpreadsheetDelta(
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL1.setLabelMappingReference(cellRange)
+                    )
+                ),
+            CONTEXT
+        );
+
+        this.cellsAndCheck(
+            cache,
+            A1_CELL
+        );
+
+        this.cellLabelsAndCheck(
+            cache,
+            cellRange,
+            LABEL1
+        );
+    }
+
+    @Test
+    public void testCellLabelsWithCellRangeWhereMappingsHaveDifferentReferences() {
+        final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
+
+        final SpreadsheetCellRangeReference cellRange = SpreadsheetSelection.parseCellRange("A1:A2");
+
+        cache.onSpreadsheetDelta(
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL1.setLabelMappingReference(cellRange.begin()),
+                        LABEL2.setLabelMappingReference(cellRange.end())
+                    )
+                ),
+            CONTEXT
+        );
+
+        this.cellsAndCheck(
+            cache,
+            A1_CELL
+        );
+
+        this.cellLabelsAndCheck(
+            cache,
+            cellRange,
+            LABEL1
+        );
+    }
+
+    @Test
+    public void testCellLabelsWithUnknownLabel() {
+        final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
+
+        cache.onSpreadsheetDelta(
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL
+                    )
+                ).setLabels(
+                    Sets.empty()
+                ),
+            CONTEXT
+        );
+
+        this.cellsAndCheck(
+            cache,
+            A1_CELL
+        );
+
+        this.cellLabelsAndCheck(
+            cache,
+            LABEL1
+        );
+    }
+
+    @Test
+    public void testCellLabelsWithLabel() {
+        final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
+
+        final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
+
+        cache.onSpreadsheetDelta(
+            METHOD,
+            URL_ID1,
+            SpreadsheetDelta.EMPTY
+                .setCells(
+                    Sets.of(
+                        A1_CELL
+                    )
+                ).setLabels(
+                    Sets.of(
+                        LABEL1.setLabelMappingReference(LABEL2),
+                        LABEL2.setLabelMappingReference(cell)
+                    )
+                ),
+            CONTEXT
+        );
+
+        this.cellsAndCheck(
+            cache,
+            A1_CELL
+        );
+
+        this.cellLabelsAndCheck(
+            cache,
+            LABEL1,
+            LABEL1,
+            LABEL2
+        );
+    }
+
     private void cellLabelsAndCheck(final SpreadsheetViewportCache cache,
-                                    final SpreadsheetCellReference cell,
+                                    final SpreadsheetExpressionReference spreadsheetExpressionReference,
                                     final SpreadsheetLabelName... expected) {
         this.cellLabelsAndCheck(
             cache,
-            cell,
+            spreadsheetExpressionReference,
             Sets.of(expected)
         );
     }
 
     private void cellLabelsAndCheck(final SpreadsheetViewportCache cache,
-                                    final SpreadsheetCellReference cell,
+                                    final SpreadsheetExpressionReference spreadsheetExpressionReference,
                                     final Set<SpreadsheetLabelName> expected) {
         this.checkEquals(
             expected,
-            cache.cellLabels(cell)
+            cache.cellLabels(spreadsheetExpressionReference)
         );
     }
 
