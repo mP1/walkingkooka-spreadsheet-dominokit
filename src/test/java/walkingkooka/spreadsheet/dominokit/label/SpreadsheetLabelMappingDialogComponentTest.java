@@ -220,7 +220,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements Spreads
     }
 
     @Test
-    public void testLSpreadsheetLabelMappingSelectHistoryTokenWithLabelNameAndSpreadsheetDeltaRefresh() {
+    public void testSpreadsheetLabelMappingSelectHistoryTokenWithLabelNameAndSpreadsheetDeltaRefresh() {
         final AppContext context = appContext("/1/SpreadsheetName111/label/Label999");
 
         final SpreadsheetLabelMappingDialogComponent dialog = this.dialog(
