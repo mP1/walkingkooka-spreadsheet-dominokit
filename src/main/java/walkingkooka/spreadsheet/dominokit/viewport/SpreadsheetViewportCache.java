@@ -47,6 +47,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -209,29 +210,29 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                                                final Map<SpreadsheetCellReference, Set<T>> cellToTarget) {
         Objects.requireNonNull(spreadsheetExpressionReference, "spreadsheetExpressionReference");
 
-        SpreadsheetCellReference cell = null;
+        SpreadsheetCellReferenceOrRange cellOrCellRange = null;
 
         if (spreadsheetExpressionReference.isLabelName()) {
             final SpreadsheetSelection nonLabel = this.labelToNonLabel.get(spreadsheetExpressionReference.toLabelName());
             if (null != nonLabel) {
-                cell = nonLabel.toCell();
+                cellOrCellRange = nonLabel.toCellOrCellRange();
             }
         } else {
-            cell = spreadsheetExpressionReference.toCell();
+            cellOrCellRange = spreadsheetExpressionReference.toCellOrCellRange();
         }
 
         Set<T> result;
 
-        if (null != cell) {
-            if (cell.isCell()) {
+        if (null != cellOrCellRange) {
+            if (cellOrCellRange.isCell()) {
                 result = cellToTarget.getOrDefault(
-                    cell,
+                    cellOrCellRange,
                     Sets.<T>empty()
                 );
             } else {
                 result = SortedSets.tree();
 
-                for (final SpreadsheetCellReference in : cell.toCellRange()) {
+                for (final SpreadsheetCellReference in : cellOrCellRange.toCellRange()) {
                     final Set<T> targets = cellToTarget.get(in);
                     if (null != targets) {
                         result.addAll(targets);

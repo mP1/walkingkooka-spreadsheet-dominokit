@@ -1620,7 +1620,8 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         this.cellLabelsAndCheck(
             cache,
             cellRange,
-            LABEL1
+            LABEL1,
+            LABEL2
         );
     }
 
