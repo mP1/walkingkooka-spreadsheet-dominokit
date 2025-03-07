@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 public abstract class PluginHistoryTokenTestCase<T extends PluginHistoryToken> extends HistoryTokenTestCase<T> {
 

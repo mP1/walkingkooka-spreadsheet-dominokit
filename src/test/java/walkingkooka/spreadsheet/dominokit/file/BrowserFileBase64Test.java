@@ -25,7 +25,7 @@ import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.text.printer.TreePrintableTesting;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBase64>,
     HashCodeEqualsDefinedTesting2<BrowserFileBase64>,
