@@ -69,7 +69,7 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
     // label............................................................................................................
 
     @Test
-    public final void testCreateLabel() {
+    public void testCreateLabel() {
         this.createLabelAndCheck(
             this.createHistoryToken()
         );
