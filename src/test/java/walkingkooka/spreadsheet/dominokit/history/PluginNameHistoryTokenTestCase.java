@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.plugin.PluginName;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class PluginNameHistoryTokenTestCase<T extends PluginNameHistoryToken> extends PluginHistoryTokenTestCase<T> {
 

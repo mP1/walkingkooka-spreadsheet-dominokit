@@ -22,7 +22,7 @@ import walkingkooka.plugin.PluginName;
 
 import java.util.Optional;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class PluginSaveHistoryTokenTest extends PluginNameHistoryTokenTestCase<PluginSaveHistoryToken> {
 

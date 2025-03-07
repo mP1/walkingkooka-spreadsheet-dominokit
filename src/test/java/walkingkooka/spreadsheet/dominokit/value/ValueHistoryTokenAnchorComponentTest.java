@@ -32,7 +32,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class ValueHistoryTokenAnchorComponentTest implements ValueComponentTesting<HTMLAnchorElement, JarEntryInfoName, ValueHistoryTokenAnchorComponent<JarEntryInfoName>> {
 
