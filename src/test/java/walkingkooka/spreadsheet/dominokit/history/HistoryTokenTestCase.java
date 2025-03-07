@@ -933,6 +933,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                                     final HistoryToken expected) {
         this.setSelectionAndCheck(
             token,
+            Optional.empty(),
             expected
         );
     }
