@@ -199,7 +199,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
             "ID123-",
             SpreadsheetDeltaCellsTableComponentContexts.basic(
                 new FakeHistoryContext() {
-                    @Override @Test
+                    @Override
                     public HistoryToken historyToken() {
                         return HistoryToken.parseString("/1/Spreadsheet222/cell/A1/find");
                     }
