@@ -31,6 +31,7 @@ import java.util.Optional;
 public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends SpreadsheetLabelMappingHistoryTokenTestCase2<SpreadsheetLabelMappingSelectHistoryToken> {
 
     @Test
+    @Override
     public void testLabelMappingReference() {
         this.labelMappingReferenceAndCheck(this.createHistoryToken());
     }
