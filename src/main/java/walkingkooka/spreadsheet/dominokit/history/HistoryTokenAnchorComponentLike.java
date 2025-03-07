@@ -104,15 +104,6 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
         );
     }
 
-    // badge............................................................................................................
-
-    public abstract String badge();
-
-    /**
-     * Sets the text for a badge that appears to the right of the anchor. Empty text removes the badge completely.
-     */
-    public abstract HistoryTokenAnchorComponent setBadge(final String text);
-
     // SpreadsheetTooltipComponentTarget................................................................................
 
     /**

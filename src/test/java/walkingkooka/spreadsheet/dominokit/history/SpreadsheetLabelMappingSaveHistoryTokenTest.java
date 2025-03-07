@@ -31,6 +31,7 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
     private final static SpreadsheetExpressionReference REFERENCE = CELL;
 
     @Test
+    @Override
     public void testLabelMappingReference() {
         this.labelMappingReferenceAndCheck(
             this.createHistoryToken(),
