@@ -1609,7 +1609,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Sp
             }
 
             @Override
-            public Optional<TextNode> format(final Object value) {
+            public Optional<TextNode> format(final Optional<Object> value) {
                 return SPREADSHEET_FORMATTER_CONTEXT.format(value);
             }
 
