@@ -59,7 +59,7 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
                 break;
             case 1: // created by
                 component = hasText(
-                    SpreadsheetMetadataPropertyName.CREATOR,
+                    SpreadsheetMetadataPropertyName.CREATED_BY,
                     metadata
                 );
                 break;
