@@ -75,9 +75,9 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
                     metadata
                 );
                 break;
-            case 4: // create-date-time
+            case 4: // modified timestamp
                 component = dateTime(
-                    SpreadsheetMetadataPropertyName.MODIFIED_DATE_TIME,
+                    SpreadsheetMetadataPropertyName.MODIFIED_TIMESTAMP,
                     metadata
                 );
                 break;

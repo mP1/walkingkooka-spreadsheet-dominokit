@@ -55,7 +55,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "          Method\n" +
                 "          CRC\n" +
                 "          Created\n" +
-                "          Last modified by\n" +
+                "          Last modified timestamp\n" +
                 "          Links\n" +
                 "        PLUGINS\n" +
                 "          EmptyStatePlugin (mdi-gauge-empty) \"empty JAR file\"\n"
@@ -94,7 +94,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "          Method\n" +
                 "          CRC\n" +
                 "          Created\n" +
-                "          Last modified by\n" +
+                "          Last modified timestamp\n" +
                 "          Links\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
@@ -151,7 +151,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "          Method\n" +
                 "          CRC\n" +
                 "          Created\n" +
-                "          Last modified by\n" +
+                "          Last modified timestamp\n" +
                 "          Links\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
@@ -217,7 +217,7 @@ public final class JarEntryInfoListTableComponentTest implements TableComponentT
                 "          Method\n" +
                 "          CRC\n" +
                 "          Created\n" +
-                "          Last modified by\n" +
+                "          Last modified timestamp\n" +
                 "          Links\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +

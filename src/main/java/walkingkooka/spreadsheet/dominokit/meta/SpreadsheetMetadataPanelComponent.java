@@ -85,7 +85,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.createdBy());
         items.add(this.createdDateTime());
         items.add(this.modifiedBy());
-        items.add(this.modifiedDateTime());
+        items.add(this.modifiedTimestamp());
         items.add(this.locale());
 
         // Number
@@ -202,9 +202,9 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> modifiedDateTime() {
+    private SpreadsheetMetadataPanelComponentItem<?> modifiedTimestamp() {
         return readOnlyText(
-            SpreadsheetMetadataPropertyName.MODIFIED_DATE_TIME,
+            SpreadsheetMetadataPropertyName.MODIFIED_TIMESTAMP,
             this.context::formatDateTime
         );
     }
