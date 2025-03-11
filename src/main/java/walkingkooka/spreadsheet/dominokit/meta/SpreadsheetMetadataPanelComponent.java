@@ -82,7 +82,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         final List<SpreadsheetMetadataPanelComponentItem<?>> items = Lists.array();
         items.add(this.spreadsheetId());
         items.add(this.spreadsheetName());
-        items.add(this.creator());
+        items.add(this.createdBy());
         items.add(this.createdDateTime());
         items.add(this.modifiedBy());
         items.add(this.modifiedDateTime());
@@ -181,9 +181,9 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         return this.spreadsheetNameComponent();
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?> creator() {
+    private SpreadsheetMetadataPanelComponentItem<?> createdBy() {
         return readOnlyText(
-            SpreadsheetMetadataPropertyName.CREATOR,
+            SpreadsheetMetadataPropertyName.CREATED_BY,
             EmailAddress::toString
         );
     }
