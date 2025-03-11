@@ -65,7 +65,7 @@ final class SpreadsheetListTableComponentSpreadsheetDataTableComponentCellRender
                 break;
             case 2: // create-date-time
                 component = dateTime(
-                    SpreadsheetMetadataPropertyName.CREATE_DATE_TIME,
+                    SpreadsheetMetadataPropertyName.CREATED_TIMESTAMP,
                     metadata
                 );
                 break;

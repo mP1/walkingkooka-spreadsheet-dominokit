@@ -190,7 +190,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
     private SpreadsheetMetadataPanelComponentItem<?> createdDateTime() {
         return readOnlyText(
-            SpreadsheetMetadataPropertyName.CREATE_DATE_TIME,
+            SpreadsheetMetadataPropertyName.CREATED_TIMESTAMP,
             this.context::formatDateTime
         );
     }
