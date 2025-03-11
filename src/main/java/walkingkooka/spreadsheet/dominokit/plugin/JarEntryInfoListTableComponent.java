@@ -102,7 +102,7 @@ final class JarEntryInfoListTableComponent implements TableComponent<HTMLDivElem
                 TextAlign.LEFT
             ),
             columnConfig(
-                "Last modified by",
+                "Last modified timestamp",
                 "last-modified-by",
                 TextAlign.LEFT
             ),

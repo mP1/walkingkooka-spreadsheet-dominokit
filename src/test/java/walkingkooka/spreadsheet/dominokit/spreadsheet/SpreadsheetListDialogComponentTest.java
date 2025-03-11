@@ -56,7 +56,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                Name\n" +
                 "                Created by\n" +
                 "                Created timestamp\n" +
-                "                Last modified by\n" +
+                "                Last modified timestamp\n" +
                 "                Last modified\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
@@ -101,7 +101,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                Name\n" +
                 "                Created by\n" +
                 "                Created timestamp\n" +
-                "                Last modified by\n" +
+                "                Last modified timestamp\n" +
                 "                Last modified\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
@@ -147,7 +147,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
                 "                Name\n" +
                 "                Created by\n" +
                 "                Created timestamp\n" +
-                "                Last modified by\n" +
+                "                Last modified timestamp\n" +
                 "                Last modified\n" +
                 "                Links\n" +
                 "              ROW(S)\n" +
@@ -220,7 +220,7 @@ public final class SpreadsheetListDialogComponentTest implements SpreadsheetDial
             SpreadsheetMetadataPropertyName.CREATED_TIMESTAMP,
             LocalDateTime.of(1999, 12, 31, 12, 1, 2)
         ).set(
-            SpreadsheetMetadataPropertyName.MODIFIED_DATE_TIME,
+            SpreadsheetMetadataPropertyName.MODIFIED_TIMESTAMP,
             LocalDateTime.of(2000, 1, 31, 12, 58, 59)
         );
     }

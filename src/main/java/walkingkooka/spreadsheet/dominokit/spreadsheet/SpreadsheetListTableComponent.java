@@ -91,7 +91,7 @@ final class SpreadsheetListTableComponent implements TableComponent<HTMLDivEleme
                 TextAlign.LEFT
             ),
             columnConfig(
-                "Last modified by",
+                "Last modified timestamp",
                 "last-modified-by",
                 TextAlign.LEFT
             ),
