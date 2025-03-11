@@ -86,7 +86,7 @@ final class SpreadsheetListTableComponent implements TableComponent<HTMLDivEleme
                 TextAlign.LEFT
             ),
             columnConfig(
-                "Created",
+                "Created timestamp",
                 "create-date-time",
                 TextAlign.LEFT
             ),

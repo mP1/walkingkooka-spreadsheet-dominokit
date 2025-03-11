@@ -56,7 +56,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "        COLUMN(S)\n" +
                 "          Name\n" +
                 "          Created by\n" +
-                "          Created\n" +
+                "          Created timestamp\n" +
                 "          Last modified by\n" +
                 "          Last modified\n" +
                 "          Links\n" +
@@ -94,7 +94,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "        COLUMN(S)\n" +
                 "          Name\n" +
                 "          Created by\n" +
-                "          Created\n" +
+                "          Created timestamp\n" +
                 "          Last modified by\n" +
                 "          Last modified\n" +
                 "          Links\n" +
@@ -175,7 +175,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "        COLUMN(S)\n" +
                 "          Name\n" +
                 "          Created by\n" +
-                "          Created\n" +
+                "          Created timestamp\n" +
                 "          Last modified by\n" +
                 "          Last modified\n" +
                 "          Links\n" +
@@ -256,7 +256,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
                 "        COLUMN(S)\n" +
                 "          Name\n" +
                 "          Created by\n" +
-                "          Created\n" +
+                "          Created timestamp\n" +
                 "          Last modified by\n" +
                 "          Last modified\n" +
                 "          Links\n" +
@@ -364,7 +364,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
         ).set(
             SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, SpreadsheetName.with(name)
         ).set(
-            SpreadsheetMetadataPropertyName.CREATE_DATE_TIME,
+            SpreadsheetMetadataPropertyName.CREATED_TIMESTAMP,
             LocalDateTime.of(1999, 12, 31, 12, 1, 2)
         ).set(
             SpreadsheetMetadataPropertyName.MODIFIED_DATE_TIME,
