@@ -32,11 +32,6 @@ public final class SpreadsheetFindDialogComponentQueryConditionCellValueFunction
     ClassTesting<SpreadsheetFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate>,
     SpreadsheetMetadataTesting {
 
-    @Override
-    public void testTestNullFails() {
-        throw new UnsupportedOperationException();
-    }
-
     @Test
     public void testTestNonFunctionName() {
         this.testFalse(
