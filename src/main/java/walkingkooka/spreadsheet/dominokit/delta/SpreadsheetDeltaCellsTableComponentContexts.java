@@ -20,6 +20,11 @@ package walkingkooka.spreadsheet.dominokit.delta;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+
+import java.util.Set;
+import java.util.function.Function;
 
 public final class SpreadsheetDeltaCellsTableComponentContexts implements PublicStaticHelper {
 
@@ -27,10 +32,14 @@ public final class SpreadsheetDeltaCellsTableComponentContexts implements Public
      * {@see BasicSpreadsheetDeltaCellsTableComponentContext}
      */
     public static SpreadsheetDeltaCellsTableComponentContext basic(final HistoryContext historyContext,
-                                                                   final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
+                                                                   final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
+                                                                   final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellLabels,
+                                                                   final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences) {
         return BasicSpreadsheetDeltaCellsTableComponentContext.with(
             historyContext,
-            hasSpreadsheetDeltaFetcherWatchers
+            hasSpreadsheetDeltaFetcherWatchers,
+            cellLabels,
+            cellReferences
         );
     }
 
