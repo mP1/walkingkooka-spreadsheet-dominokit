@@ -33,6 +33,8 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelectorToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -114,6 +116,20 @@ public class FakeSpreadsheetFindDialogComponentContext extends FakeSpreadsheetDi
 
     @Override
     public Optional<EmailAddress> user() {
+        throw new UnsupportedOperationException();
+    }
+
+    // SpreadsheetCellLabelsAnchorComponentContext......................................................................
+
+    @Override
+    public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        throw new UnsupportedOperationException();
+    }
+
+    // SpreadsheetCellReferencesAnchorComponentContext..................................................................
+
+    @Override
+    public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
         throw new UnsupportedOperationException();
     }
 }

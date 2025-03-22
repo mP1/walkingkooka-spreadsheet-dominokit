@@ -19,6 +19,10 @@ package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+
+import java.util.Set;
 
 public class FakeSpreadsheetDeltaCellsTableComponentContext extends FakeHistoryContext implements SpreadsheetDeltaCellsTableComponentContext {
 
@@ -33,6 +37,16 @@ public class FakeSpreadsheetDeltaCellsTableComponentContext extends FakeHistoryC
 
     @Override
     public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
         throw new UnsupportedOperationException();
     }
 }

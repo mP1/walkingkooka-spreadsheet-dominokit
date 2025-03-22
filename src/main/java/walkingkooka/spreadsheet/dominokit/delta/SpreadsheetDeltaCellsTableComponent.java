@@ -96,6 +96,10 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
             columnConfig(
                 "Formatted",
                 CellTextAlign.LEFT
+            ),
+            columnConfig(
+                "Links",
+                CellTextAlign.LEFT
             )
         );
     }

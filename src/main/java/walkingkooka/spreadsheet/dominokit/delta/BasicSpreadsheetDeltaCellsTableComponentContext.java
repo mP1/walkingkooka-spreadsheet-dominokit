@@ -21,25 +21,38 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatc
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
+import java.util.Set;
+import java.util.function.Function;
 
 final class BasicSpreadsheetDeltaCellsTableComponentContext implements SpreadsheetDeltaCellsTableComponentContext,
     HistoryContextDelegator,
     HasSpreadsheetDeltaFetcherWatchers {
 
     static BasicSpreadsheetDeltaCellsTableComponentContext with(final HistoryContext historyContext,
-                                                                final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
+                                                                final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
+                                                                final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellLabels,
+                                                                final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences) {
         return new BasicSpreadsheetDeltaCellsTableComponentContext(
             Objects.requireNonNull(historyContext, "historyContext"),
-            Objects.requireNonNull(hasSpreadsheetDeltaFetcherWatchers, "hasSpreadsheetDeltaFetcherWatchers")
+            Objects.requireNonNull(hasSpreadsheetDeltaFetcherWatchers, "hasSpreadsheetDeltaFetcherWatchers"),
+            Objects.requireNonNull(cellLabels, "cellLabels"),
+            Objects.requireNonNull(cellReferences, "cellReferences")
         );
     }
 
     public BasicSpreadsheetDeltaCellsTableComponentContext(final HistoryContext historyContext,
-                                                           final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers) {
+                                                           final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
+                                                           final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellLabels,
+                                                           final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences) {
         this.historyContext = historyContext;
         this.hasSpreadsheetDeltaFetcherWatchers = hasSpreadsheetDeltaFetcherWatchers;
+
+        this.cellLabels = cellLabels;
+        this.cellReferences = cellReferences;
     }
 
     @Override
@@ -60,4 +73,22 @@ final class BasicSpreadsheetDeltaCellsTableComponentContext implements Spreadshe
     }
 
     private final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers;
+
+    // SpreadsheetCellLabelsAnchorComponentContext......................................................................
+
+    @Override
+    public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        return this.cellLabels.apply(spreadsheetExpressionReference);
+    }
+
+    private final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellLabels;
+
+    // SpreadsheetCellReferencesAnchorComponentContext..................................................................
+
+    @Override
+    public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        return this.cellReferences.apply(spreadsheetExpressionReference);
+    }
+
+    private final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences;
 }

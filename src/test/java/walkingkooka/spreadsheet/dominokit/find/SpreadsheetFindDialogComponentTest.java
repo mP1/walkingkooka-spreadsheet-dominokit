@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.find;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
@@ -29,9 +30,12 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -40,10 +44,13 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.Set;
 
 public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetFindDialogComponent,
     SpreadsheetFindDialogComponentContext>,
@@ -137,6 +144,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -239,6 +247,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -341,6 +350,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -361,7 +371,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
             "/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.DATE + "/query/matchXyz()"
         );
 
-        final AppContext appContext = this.appContext(
+        final TestAppContext appContext = this.appContext(
             Optional.empty(), // no highlighting query
             historyToken
         );
@@ -441,6 +451,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -454,9 +465,24 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n"
         );
 
-        dialog.table.onSpreadsheetDelta(
+        // required otherwise SpreadsheetViewportCache will "ignore delta because they belong to a different spreadsheet
+        appContext.metadataFetcherWatchers.onSpreadsheetMetadata(
+            appContext.spreadsheetMetadata(),
+            appContext
+        );
+
+        // SpreadsheetId=123
+        this.checkEquals(
+            SpreadsheetId.with(0x123),
+            appContext.spreadsheetMetadata()
+                .id()
+                .orElse(null),
+            "active spreadsheet id = 123"
+        );
+
+        appContext.deltaFetcherWatchers.onSpreadsheetDelta(
             HttpMethod.GET,
-            Url.parseRelative("/api/spreadsheet/2/cell/B1/find?cell-range-path=lrtd&query=%3Dtrue%28%29"),
+            Url.parseRelative("/api/spreadsheet/123/cell/B1/find?cell-range-path=lrtd&query=%3Dtrue%28%29"),
             SpreadsheetDelta.EMPTY.setCells(
                 Sets.of(
                     SpreadsheetSelection.A1.setFormula(
@@ -466,6 +492,22 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                         .setFormula(
                             SpreadsheetFormula.EMPTY.setText("=2")
                         )
+                )
+            ).setLabels(
+                Sets.of(
+                    SpreadsheetSelection.labelName("Label1")
+                        .setLabelMappingReference(SpreadsheetSelection.A1),
+                    SpreadsheetSelection.labelName("Label2")
+                        .setLabelMappingReference(SpreadsheetSelection.A1),
+                    SpreadsheetSelection.labelName("Label3")
+                        .setLabelMappingReference(SpreadsheetSelection.A1)
+                )
+            ).setReferences(
+                Maps.of(
+                    SpreadsheetSelection.A1,
+                    Sets.of(
+                        SpreadsheetSelection.parseCell("Z1")
+                    )
                 )
             ), // delta
             appContext
@@ -543,6 +585,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=find-cells-A1-Link\n" +
@@ -550,12 +593,26 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"\"\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
+                "                  SpreadsheetLinkListComponent\n" +
+                "                    SpreadsheetFlexLayout\n" +
+                "                      ROW\n" +
+                "                        \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=find-cells-A1-label-create-Link\n" +
+                "                        \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (3) id=find-cells-A1-labels-Link\n" +
+                "                        \"References\" [#/123/SpreadsheetName456/cell/A1/references] (1) id=find-cells-A1-references-Link\n" +
+                "                        \"Delete\" [#/123/SpreadsheetName456/cell/A1/delete] id=find-cells-A1-delete-Link\n" +
                 "                ROW 1\n" +
                 "                  \"B2\" [#/123/SpreadsheetName456/cell/B2] id=find-cells-B2-Link\n" +
                 "                  \"B2\" [#/123/SpreadsheetName456/cell/B2/formula] id=find-cells-B2-formula-Link\n" +
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"\"\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
+                "                  SpreadsheetLinkListComponent\n" +
+                "                    SpreadsheetFlexLayout\n" +
+                "                      ROW\n" +
+                "                        \"Create Label\" [#/123/SpreadsheetName456/cell/B2/label] id=find-cells-B2-label-create-Link\n" +
+                "                        \"Labels\" [#/123/SpreadsheetName456/cell/B2/labels] (0) id=find-cells-B2-labels-Link\n" +
+                "                        \"References\" [#/123/SpreadsheetName456/cell/B2/references] (0) id=find-cells-B2-references-Link\n" +
+                "                        \"Delete\" [#/123/SpreadsheetName456/cell/B2/delete] id=find-cells-B2-delete-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -656,6 +713,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -756,6 +814,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -856,6 +915,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -956,6 +1016,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -1056,6 +1117,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -1156,6 +1218,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -1256,6 +1319,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -1356,6 +1420,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -1456,6 +1521,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -1556,6 +1622,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                Formula\n" +
                 "                Value\n" +
                 "                Formatted\n" +
+                "                Links\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
                 "        Footer\n" +
@@ -1570,46 +1637,75 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         );
     }
 
-    private AppContext appContext(final Optional<SpreadsheetCellQuery> highlightingQuery,
-                                  final HistoryToken historyToken) {
-        return new FakeAppContext() {
+    private TestAppContext appContext(final Optional<SpreadsheetCellQuery> highlightingQuery,
+                                      final HistoryToken historyToken) {
+        return new TestAppContext(highlightingQuery, historyToken);
+    }
 
-            @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                return null;
-            }
+    class TestAppContext extends FakeAppContext {
 
-            @Override
-            public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-                return null;
-            }
+        TestAppContext(final Optional<SpreadsheetCellQuery> highlightingQuery,
+                       final HistoryToken historyToken) {
+            this.highlightingQuery = highlightingQuery;
+            this.historyToken = historyToken;
+        }
 
-            @Override
-            public void giveFocus(final Runnable focus) {
-                // ignore
-            }
+        @Override
+        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            return null;
+        }
 
-            @Override
-            public HistoryToken historyToken() {
-                return historyToken;
-            }
+        @Override
+        public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+            return this.deltaFetcherWatchers.add(watcher);
+        }
 
-            @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SpreadsheetId.parse("123")
-                ).setOrRemove(
-                    SpreadsheetMetadataPropertyName.FIND_QUERY,
-                    highlightingQuery.orElse(null)
-                );
-            }
+        // necessary so some tests can fire a SpreadsheetDeltaFetcherWatcher#onSpreadsheetDelta
+        final SpreadsheetDeltaFetcherWatchers deltaFetcherWatchers = SpreadsheetDeltaFetcherWatchers.empty();
 
-            @Override
-            public void debug(final Object... values) {
-                System.out.println(Arrays.toString(values));
-            }
-        };
+        @Override
+        public void giveFocus(final Runnable focus) {
+            // ignore
+        }
+
+        @Override
+        public HistoryToken historyToken() {
+            return historyToken;
+        }
+
+        private final HistoryToken historyToken;
+
+        @Override
+        public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+            return this.metadataFetcherWatchers.add(watcher);
+        }
+
+        final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers = SpreadsheetMetadataFetcherWatchers.empty();
+
+        @Override
+        public SpreadsheetMetadata spreadsheetMetadata() {
+            return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                SpreadsheetId.parse("123")
+            ).setOrRemove(
+                SpreadsheetMetadataPropertyName.FIND_QUERY,
+                highlightingQuery.orElse(null)
+            );
+        }
+
+        private final Optional<SpreadsheetCellQuery> highlightingQuery;
+
+        @Override
+        public SpreadsheetViewportCache spreadsheetViewportCache() {
+            return this.cache;
+        }
+
+        private final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(this);
+
+        @Override
+        public void debug(final Object... values) {
+            System.out.println(Arrays.toString(values));
+        }
     }
 
     static class TestSpreadsheetFindDialogComponentContext extends FakeSpreadsheetFindDialogComponentContext {
@@ -1620,10 +1716,8 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
 
         @Override
         public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-            return this.deltaFetcherWatchers.addSpreadsheetDeltaFetcherWatcher(watcher);
+            return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);
         }
-
-        private final SpreadsheetDeltaFetcherWatchers deltaFetcherWatchers = SpreadsheetDeltaFetcherWatchers.empty();
 
         @Override
         public HistoryToken historyToken() {
@@ -1640,6 +1734,18 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
             return this.context.spreadsheetMetadata();
+        }
+
+        @Override
+        public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+            return this.context.spreadsheetViewportCache()
+                .cellLabels(spreadsheetExpressionReference);
+        }
+
+        @Override
+        public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+            return this.context.spreadsheetViewportCache()
+                .cellReferences(spreadsheetExpressionReference);
         }
 
         private final AppContext context;

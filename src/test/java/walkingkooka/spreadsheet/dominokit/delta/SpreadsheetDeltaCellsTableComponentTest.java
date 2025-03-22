@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.value.TableComponentTesting;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
@@ -91,6 +92,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "      Formula\n" +
                 "      Value\n" +
                 "      Formatted\n" +
+                "      Links\n" +
                 "    PLUGINS\n" +
                 "      BodyScrollPlugin\n"
         );
@@ -124,6 +126,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "      Formula\n" +
                 "      Value\n" +
                 "      Formatted\n" +
+                "      Links\n" +
                 "    ROW(S)\n" +
                 "      ROW 0\n" +
                 "        \"A1\" [#/1/Spreadsheet222/cell/A1] id=ID123-cells-A1-Link\n" +
@@ -132,6 +135,13 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "          \"\"\n" +
                 "        SpreadsheetTextNodeComponent\n" +
                 "          Hello\n" +
+                "        SpreadsheetLinkListComponent\n" +
+                "          SpreadsheetFlexLayout\n" +
+                "            ROW\n" +
+                "              \"Create Label\" [#/1/Spreadsheet222/cell/A1/label] id=ID123-cells-A1-label-create-Link\n" +
+                "              \"Labels\" [#/1/Spreadsheet222/cell/A1/labels] (2) id=ID123-cells-A1-labels-Link\n" +
+                "              \"References\" [#/1/Spreadsheet222/cell/A1/references] (2) id=ID123-cells-A1-references-Link\n" +
+                "              \"Delete\" [#/1/Spreadsheet222/cell/A1/delete] id=ID123-cells-A1-delete-Link\n" +
                 "    PLUGINS\n" +
                 "      BodyScrollPlugin\n"
         );
@@ -173,6 +183,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "      Formula\n" +
                 "      Value\n" +
                 "      Formatted\n" +
+                "      Links\n" +
                 "    ROW(S)\n" +
                 "      ROW 0\n" +
                 "        \"A1\" [#/1/Spreadsheet222/cell/A1] id=ID123-cells-A1-Link\n" +
@@ -181,6 +192,13 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "          \"\"\n" +
                 "        SpreadsheetTextNodeComponent\n" +
                 "          Hello\n" +
+                "        SpreadsheetLinkListComponent\n" +
+                "          SpreadsheetFlexLayout\n" +
+                "            ROW\n" +
+                "              \"Create Label\" [#/1/Spreadsheet222/cell/A1/label] id=ID123-cells-A1-label-create-Link\n" +
+                "              \"Labels\" [#/1/Spreadsheet222/cell/A1/labels] (2) id=ID123-cells-A1-labels-Link\n" +
+                "              \"References\" [#/1/Spreadsheet222/cell/A1/references] (2) id=ID123-cells-A1-references-Link\n" +
+                "              \"Delete\" [#/1/Spreadsheet222/cell/A1/delete] id=ID123-cells-A1-delete-Link\n" +
                 "      ROW 1\n" +
                 "        \"A2\" [#/1/Spreadsheet222/cell/A2] id=ID123-cells-A2-Link\n" +
                 "        \"A2\" [#/1/Spreadsheet222/cell/A2/formula] id=ID123-cells-A2-formula-Link\n" +
@@ -188,6 +206,13 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "          \"\"\n" +
                 "        SpreadsheetTextNodeComponent\n" +
                 "          2222\n" +
+                "        SpreadsheetLinkListComponent\n" +
+                "          SpreadsheetFlexLayout\n" +
+                "            ROW\n" +
+                "              \"Create Label\" [#/1/Spreadsheet222/cell/A2/label] id=ID123-cells-A2-label-create-Link\n" +
+                "              \"Labels\" [#/1/Spreadsheet222/cell/A2/labels] (2) id=ID123-cells-A2-labels-Link\n" +
+                "              \"References\" [#/1/Spreadsheet222/cell/A2/references] (2) id=ID123-cells-A2-references-Link\n" +
+                "              \"Delete\" [#/1/Spreadsheet222/cell/A2/delete] id=ID123-cells-A2-delete-Link\n" +
                 "    PLUGINS\n" +
                 "      BodyScrollPlugin\n"
         );
@@ -219,7 +244,15 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                     public Runnable addSpreadsheetDeltaFetcherWatcherOnce(final SpreadsheetDeltaFetcherWatcher watcher) {
                         return null;
                     }
-                }
+                },
+                (SpreadsheetExpressionReference r) -> Sets.of(
+                    SpreadsheetSelection.labelName("LabelReference111"),
+                    SpreadsheetSelection.labelName("LabelReference222")
+                ), // cellLabels
+                (SpreadsheetExpressionReference r) -> Sets.of(
+                    SpreadsheetSelection.A1,
+                    SpreadsheetSelection.parseCell("B2")
+                ) // cellReferences
             )
         );
         component.onSpreadsheetDelta(

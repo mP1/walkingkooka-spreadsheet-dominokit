@@ -30,9 +30,12 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.Set;
 
 final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
@@ -48,6 +51,26 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
 
     private AppContextSpreadsheetFindDialogComponentContext(final AppContext context) {
         this.context = context;
+    }
+
+    // SpreadsheetCellLabelsAnchorComponentContext......................................................................
+
+    @Override
+    public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        Objects.requireNonNull(spreadsheetExpressionReference, "spreadsheetExpressionReference");
+
+        return this.context.spreadsheetViewportCache()
+            .cellLabels(spreadsheetExpressionReference);
+    }
+
+    // SpreadsheetCellReferencesAnchorComponentContext..................................................................
+
+    @Override
+    public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        Objects.requireNonNull(spreadsheetExpressionReference, "spreadsheetExpressionReference");
+
+        return this.context.spreadsheetViewportCache()
+            .cellReferences(spreadsheetExpressionReference);
     }
 
     // HasNow...........................................................................................................
