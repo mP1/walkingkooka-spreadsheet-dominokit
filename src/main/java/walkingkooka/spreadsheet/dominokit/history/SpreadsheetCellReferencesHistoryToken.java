@@ -90,6 +90,6 @@ public final class SpreadsheetCellReferencesHistoryToken extends SpreadsheetCell
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // SpreadsheetViewportComponent will open a cell menu
+        // references dialog will open
     }
 }
