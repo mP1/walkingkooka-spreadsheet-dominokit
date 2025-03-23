@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.find;
 
-import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
@@ -34,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
+import walkingkooka.spreadsheet.dominokit.row.SpreadsheetRowComponent;
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
@@ -112,29 +112,22 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
             true, // includeClose
             context
         ).appendChild(
-            SpreadsheetFindDialogComponentGridLayout.empty()
-                .setLeft(
-                    Lists.of(
-                        this.cellRange,
-                        this.path,
-                        this.valueType,
-                        this.formula,
-                        this.formatter,
-                        this.parser,
-                        this.style,
-                        this.value,
-                        this.formattedValue,
-                        this.query
-                    )
-                ).setContent(
-                    Lists.of(
-                        this.table.setCssProperty(
-                            "margin-left",
-                            "5px"
-                        )
-                    )
-                ).setFooter(
-                    Lists.of(
+            SpreadsheetRowComponent.columnSpan4()
+                .appendChild(this.cellRange)
+                .appendChild(this.path)
+                .appendChild(this.valueType)
+        ).appendChild(
+            SpreadsheetRowComponent.columnSpan4()
+                .appendChild(this.formula)
+                .appendChild(this.formatter)
+                .appendChild(this.parser)
+        ).appendChild(
+            SpreadsheetRowComponent.columnSpan4()
+                .appendChild(this.style)
+                .appendChild(this.value)
+                .appendChild(this.formattedValue)
+        ).appendChild(this.query)
+            .appendChild(
                         SpreadsheetLinkListComponent.empty()
                             .setCssProperty("margin-top", "5px")
                             .setCssProperty("margin-left", "-5px")
@@ -143,9 +136,7 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
                             .appendChild(this.loadHighlightingQuery)
                             .appendChild(this.saveAsHighlightingQuery)
                             .appendChild(this.close)
-                    )
-                )
-        );
+            ).appendChild(this.table);
     }
 
     private final SpreadsheetDialogComponent dialog;
