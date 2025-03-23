@@ -326,6 +326,20 @@ public final class SpreadsheetCellReferencesHistoryTokenTest extends Spreadsheet
         );
     }
 
+    // close............................................................................................................
+
+    @Test
+    public void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
     // freezeOrEmpty....................................................................................................
 
     @Test
