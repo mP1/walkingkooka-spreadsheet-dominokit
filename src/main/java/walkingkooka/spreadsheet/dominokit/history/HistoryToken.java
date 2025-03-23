@@ -1758,6 +1758,10 @@ public abstract class HistoryToken implements HasUrlFragment,
             closed = cellLabelSelectHistoryToken.selectionSelect();
         }
 
+        if (this instanceof SpreadsheetCellReferencesHistoryToken) {
+            closed = this.clearAction();
+        }
+
         if (this instanceof SpreadsheetCellSortHistoryToken || this instanceof SpreadsheetColumnSortHistoryToken || this instanceof SpreadsheetRowSortHistoryToken) {
             closed = this.clearAction();
         }
