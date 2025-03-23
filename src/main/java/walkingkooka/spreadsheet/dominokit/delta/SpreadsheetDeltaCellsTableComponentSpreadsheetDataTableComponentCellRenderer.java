@@ -68,7 +68,7 @@ final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCell
             case 3: // cell formatted value
                 component = renderCellFormattedValue(cell);
                 break;
-            case 4: // cell formatted value
+            case 4: // links
                 component = renderCellLinks(cell);
                 break;
             default:
