@@ -151,7 +151,7 @@ public final class SpreadsheetTextBox implements FormValueComponent<HTMLFieldSet
 
     @Override
     public SpreadsheetTextBox setDisabled(final boolean disabled) {
-        this.disabled = true;
+        this.disabled = disabled;
         return this;
     }
 
