@@ -61,5 +61,17 @@ public interface ValueComponentTesting<E extends HTMLElement, V, C extends Value
         );
     }
 
+    // isDisabled.......................................................................................................
+
+    default void isDisabledAndCheck(final C component,
+                                    final boolean expected) {
+        this.checkEquals(
+            expected,
+            component.isDisabled(),
+            component::toString
+        );
+    }
+
+
     C createComponent();
 }
