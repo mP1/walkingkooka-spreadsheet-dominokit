@@ -100,8 +100,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     // dialog...........................................................................................................
 
     /**
-     * Creates the modal dialog, which includes a 2 panel layout with the find form on the left, and the table
-     * holding the matches on the right.
+     * Creates the modal dialog, which holds first the form including the query field, links and then the table showing
+     * the matching cells.
      */
     private SpreadsheetDialogComponent dialogCreate() {
         final HistoryContext context = this.context;
