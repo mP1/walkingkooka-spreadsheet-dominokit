@@ -50,6 +50,28 @@ public final class SpreadsheetTextBoxTest implements FormValueComponentTesting<H
         );
     }
 
+    // setDisabled......................................................................................................
+
+    @Test
+    public void testSetDisabledFalse() {
+        final SpreadsheetTextBox box = this.createComponent();
+        box.setDisabled(false);
+        this.isDisabledAndCheck(
+            box,
+            false
+        );
+    }
+
+    @Test
+    public void testSetDisabledTrue() {
+        final SpreadsheetTextBox box = this.createComponent();
+        box.setDisabled(true);
+        this.isDisabledAndCheck(
+            box,
+            true
+        );
+    }
+
     // validator........................................................................................................
 
     @Test
