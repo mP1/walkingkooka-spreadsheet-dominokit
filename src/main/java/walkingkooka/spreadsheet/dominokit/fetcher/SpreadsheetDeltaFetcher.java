@@ -449,7 +449,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     /**
      * Invokes the end-point
      * <pre>
-     * GET /api/spreadsheet/{SpreadsheetId}/cell/{reference}/labels?offset=1&count=1
+     * GET /api/spreadsheet/{SpreadsheetId}/cell/{@link SpreadsheetExpressionReference}/labels?offset=1&count=1
      * </pre>
      */
     public void loadCellLabels(final SpreadsheetId id,
@@ -458,7 +458,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                final int count) {
         final UrlQueryString queryString = UrlQueryString.parse("offset=" + offset + "&count=" + count);
 
-        // GET /api/spreadsheet/{SpreadsheetId}/cell/{reference}/labels?offset=1&count=1
+        // GET /api/spreadsheet/{SpreadsheetId}/cell/{SpreadsheetExpressionReference}/labels?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
                     id
@@ -477,7 +477,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     /**
      * Invokes the end-point
      * <pre>
-     * GET /api/spreadsheet/{SpreadsheetId}/cell/{reference}/references?offset=1&count=1
+     * GET /api/spreadsheet/{@link SpreadsheetId}/cell/{@link SpreadsheetExpressionReference}/references?offset=1&count=1
      * </pre>
      */
     public void loadCellReferences(final SpreadsheetId id,
@@ -486,7 +486,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                    final int count) {
         final UrlQueryString queryString = UrlQueryString.parse("offset=" + offset + "&count=" + count);
 
-        // GET /api/spreadsheet/{SpreadsheetId}/cell/{reference}/references?offset=1&count=1
+        // GET /api/spreadsheet/{SpreadsheetId}/cell/{SpreadsheetExpressionReference}/references?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
                     id
@@ -505,7 +505,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     /**
      * Invokes the end-point
      * <pre>
-     * GET /api/spreadsheet/{SpreadsheetId}/label/{reference}/references?offset=1&count=1
+     * GET /api/spreadsheet/{@link SpreadsheetId}/label/{reference}/references?offset=1&count=1
      * </pre>
      */
     public void loadLabelReferences(final SpreadsheetId id,
@@ -532,7 +532,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     }
 
     /**
-     * Deletes the cells also passing the viewport.
+     * Deletes the cells also passing the {@link SpreadsheetViewport}.
      */
     public void deleteCells(final SpreadsheetId id,
                             final SpreadsheetViewport viewport) {
@@ -553,7 +553,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     }
 
     /**
-     * Loads the cells to fill the given rectangular area typically a viewport.
+     * Loads the cells to fill the given rectangular area typically a {@link SpreadsheetViewport}.
      */
     public void loadCells(final SpreadsheetId id,
                           final SpreadsheetViewport viewport) {
