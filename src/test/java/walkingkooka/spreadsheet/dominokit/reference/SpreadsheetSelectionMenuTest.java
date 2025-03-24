@@ -1621,6 +1621,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/Label123/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/Label123/unfreeze] id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
+                "  \"Labels\" [1] id=test-label-SubMenu\n" +
+                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/Label123/label] id=test-label-create-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/Label123/references] [0] id=test-references-MenuItem\n"
         );
     }
@@ -2241,7 +2244,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             @Override
             public Set<SpreadsheetLabelMapping> labelMappings(final SpreadsheetSelection selection) {
                 return Sets.of(
-                    LABEL.setLabelMappingReference(selection.toCell())
+                    selection.isLabelName() ?
+                        selection.toLabelName()
+                            .setLabelMappingReference(SpreadsheetSelection.A1) :
+                        LABEL.setLabelMappingReference(
+                            selection.toCell()
+                        )
                 );
             }
 

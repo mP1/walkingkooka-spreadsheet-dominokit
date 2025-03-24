@@ -158,10 +158,14 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         menu.separator();
 
         {
-            if (selection.isCellOrCellRange()) {
-                label(historyToken, selection, menu, context);
-            }
-            if(selection.isExternalReference()) {
+            if (selection.isExternalReference()) {
+                label(
+                    historyToken,
+                    selection,
+                    menu,
+                    context
+                );
+
                 references(
                     historyToken,
                     selection,
