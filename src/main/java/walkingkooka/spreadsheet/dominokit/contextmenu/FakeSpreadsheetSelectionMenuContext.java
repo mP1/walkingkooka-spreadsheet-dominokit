@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.tree.text.TextStyleProperty;
@@ -82,6 +83,13 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryContext impl
 
     @Override
     public SpreadsheetMetadata spreadsheetMetadata() {
+        throw new UnsupportedOperationException();
+    }
+
+    // SpreadsheetLabelNameResolver.....................................................................................
+
+    @Override
+    public SpreadsheetSelection resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
         throw new UnsupportedOperationException();
     }
 }

@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.tree.text.TextStyleProperty;
@@ -41,7 +42,8 @@ import java.util.Set;
  */
 public interface SpreadsheetSelectionMenuContext extends Context,
     HasSpreadsheetMetadata,
-    HistoryContext {
+    HistoryContext,
+    SpreadsheetLabelNameResolver {
 
     /**
      * Returns the names of {@link SpreadsheetComparatorName} that will appear in the SORT menus.
