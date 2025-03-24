@@ -118,6 +118,13 @@ public final class SpreadsheetFormulaSelectAnchorComponent implements AnchorComp
     }
 
     /**
+     * Activates using the formula text for any given {@link SpreadsheetExpressionReference}.
+     */
+    public SpreadsheetFormulaSelectAnchorComponent showFormulaText() {
+        return this.setShowFormulaText(true);
+    }
+
+    /**
      * When true the anchor text will show the {@link SpreadsheetFormula#text()} or the {@link SpreadsheetExpressionReference}
      * when false.
      */

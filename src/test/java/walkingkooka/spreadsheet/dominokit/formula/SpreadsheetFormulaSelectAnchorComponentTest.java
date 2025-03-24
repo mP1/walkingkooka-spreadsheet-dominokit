@@ -135,6 +135,21 @@ public final class SpreadsheetFormulaSelectAnchorComponentTest implements Anchor
         );
     }
 
+    @Test
+    public void testShowFormulaTextSetValueWithCell() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .showFormulaText()
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.A1
+                    )
+                ),
+            "\"=1+2+3000\" [#/1/SpreadsheetName22/cell/A1/formula] id=formula-anchor-id"
+        );
+    }
+
+
     @Override
     public SpreadsheetFormulaSelectAnchorComponent createComponent() {
         return this.createComponent("/1/SpreadsheetName22");
