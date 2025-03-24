@@ -21,6 +21,7 @@ import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.Text;
 import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.elements.AnchorElement;
 import org.dominokit.domino.ui.events.EventType;
@@ -67,7 +68,9 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     private HistoryTokenAnchorComponent(final AnchorElement element) {
         super();
 
-        this.element = element;
+        this.text = ElementsFactory.elements.text();
+
+        this.element = element.appendChild(this.text);
         this.setCssText("margin: 5px; font-family: \"Inter\"; font-size: 15px; font-weight: 400; text-wrap: nowrap;");
         this.setDisabled(true);
 
@@ -237,14 +240,20 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     @Override
     public String textContent() {
-        return this.element.getTextContent();
+        return this.text.textContent;
     }
 
     @Override
     public HistoryTokenAnchorComponent setTextContent(final String text) {
-        this.element.setTextContent(text);
+        this.text.textContent = text;
         return this;
     }
+
+    /**
+     * This is the {@link Text} that receives text.
+     * Element#setTextContent cannot be used as it will replace any badges etc.
+     */
+    private final Text text;
 
     // badge............................................................................................................
 
