@@ -17,7 +17,51 @@
 
 package walkingkooka.spreadsheet.dominokit.formula;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextTesting;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public interface SpreadsheetFormulaSelectAnchorComponentContextTesting<C extends SpreadsheetFormulaSelectAnchorComponentContext> extends HistoryContextTesting<C> {
+
+    // formulaText......................................................................................................
+
+    @Test
+    default void testFormulaTextWithNullSpreadsheetExpressionReferenceFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createContext().formulaText(null)
+        );
+    }
+
+    default void formulaTextAndCheck(final SpreadsheetExpressionReference spreadsheetExpressionReference,
+                                     final C context) {
+        this.formulaTextAndCheck(
+            spreadsheetExpressionReference,
+            context,
+            Optional.empty()
+        );
+    }
+
+    default void formulaTextAndCheck(final SpreadsheetExpressionReference spreadsheetExpressionReference,
+                                     final C context,
+                                     final String expected) {
+        this.formulaTextAndCheck(
+            spreadsheetExpressionReference,
+            context,
+            Optional.of(expected)
+        );
+    }
+
+    default void formulaTextAndCheck(final SpreadsheetExpressionReference spreadsheetExpressionReference,
+                                     final C context,
+                                     final Optional<String> expected) {
+        this.checkEquals(
+            expected,
+            context.formulaText(spreadsheetExpressionReference)
+        );
+    }
 }

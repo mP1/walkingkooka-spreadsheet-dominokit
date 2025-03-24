@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
+import java.util.Optional;
 import java.util.Set;
 
 public class FakeSpreadsheetDeltaCellsTableComponentContext extends FakeHistoryContext implements SpreadsheetDeltaCellsTableComponentContext {
@@ -47,6 +48,11 @@ public class FakeSpreadsheetDeltaCellsTableComponentContext extends FakeHistoryC
 
     @Override
     public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
         throw new UnsupportedOperationException();
     }
 }

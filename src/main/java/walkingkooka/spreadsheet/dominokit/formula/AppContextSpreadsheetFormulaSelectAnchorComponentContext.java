@@ -20,8 +20,10 @@ package walkingkooka.spreadsheet.dominokit.formula;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
 import java.util.Objects;
+import java.util.Optional;
 
 final class AppContextSpreadsheetFormulaSelectAnchorComponentContext implements SpreadsheetFormulaSelectAnchorComponentContext,
     HistoryContextDelegator {
@@ -42,6 +44,12 @@ final class AppContextSpreadsheetFormulaSelectAnchorComponentContext implements 
     }
 
     private final AppContext context;
+
+    @Override
+    public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        return this.context.spreadsheetViewportCache()
+            .formulaText(spreadsheetExpressionReference);
+    }
 
     @Override
     public String toString() {

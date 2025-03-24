@@ -132,4 +132,11 @@ public class FakeSpreadsheetFindDialogComponentContext extends FakeSpreadsheetDi
     public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
         throw new UnsupportedOperationException();
     }
+
+    // SpreadsheetFormulaSelectAnchorComponentContext...................................................................
+
+    @Override
+    public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        throw new UnsupportedOperationException();
+    }
 }

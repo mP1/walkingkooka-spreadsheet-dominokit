@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
+import java.util.Optional;
 import java.util.Set;
 
 public class FakeSpreadsheetCellReferencesDialogComponentContext extends FakeSpreadsheetDialogComponentContext implements SpreadsheetCellReferencesDialogComponentContext {
@@ -67,6 +68,13 @@ public class FakeSpreadsheetCellReferencesDialogComponentContext extends FakeSpr
 
     @Override
     public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        throw new UnsupportedOperationException();
+    }
+
+    // SpreadsheetFormulaSelectAnchorComponentContext...................................................................
+
+    @Override
+    public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
         throw new UnsupportedOperationException();
     }
 }

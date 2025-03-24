@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 
@@ -35,24 +36,29 @@ final class BasicSpreadsheetDeltaCellsTableComponentContext implements Spreadshe
     static BasicSpreadsheetDeltaCellsTableComponentContext with(final HistoryContext historyContext,
                                                                 final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
                                                                 final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellLabels,
-                                                                final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences) {
+                                                                final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences,
+                                                                final Function<SpreadsheetExpressionReference, Optional<String>> formulaText) {
         return new BasicSpreadsheetDeltaCellsTableComponentContext(
             Objects.requireNonNull(historyContext, "historyContext"),
             Objects.requireNonNull(hasSpreadsheetDeltaFetcherWatchers, "hasSpreadsheetDeltaFetcherWatchers"),
             Objects.requireNonNull(cellLabels, "cellLabels"),
-            Objects.requireNonNull(cellReferences, "cellReferences")
+            Objects.requireNonNull(cellReferences, "cellReferences"),
+            Objects.requireNonNull(formulaText, "formulaText")
         );
     }
 
     public BasicSpreadsheetDeltaCellsTableComponentContext(final HistoryContext historyContext,
                                                            final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
                                                            final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellLabels,
-                                                           final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences) {
+                                                           final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences,
+                                                           final Function<SpreadsheetExpressionReference, Optional<String>> formulaText) {
         this.historyContext = historyContext;
         this.hasSpreadsheetDeltaFetcherWatchers = hasSpreadsheetDeltaFetcherWatchers;
 
         this.cellLabels = cellLabels;
         this.cellReferences = cellReferences;
+
+        this.formulaText = formulaText;
     }
 
     @Override
@@ -91,4 +97,13 @@ final class BasicSpreadsheetDeltaCellsTableComponentContext implements Spreadshe
     }
 
     private final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences;
+
+    // SpreadsheetFormulaSelectAnchorComponentContext...................................................................
+
+    @Override
+    public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        return this.formulaText.apply(spreadsheetExpressionReference);
+    }
+
+    private final Function<SpreadsheetExpressionReference, Optional<String>> formulaText;
 }

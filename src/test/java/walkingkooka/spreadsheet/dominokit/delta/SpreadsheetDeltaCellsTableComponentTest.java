@@ -252,7 +252,15 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 (SpreadsheetExpressionReference r) -> Sets.of(
                     SpreadsheetSelection.A1,
                     SpreadsheetSelection.parseCell("B2")
-                ) // cellReferences
+                ), // cellReferences
+                (SpreadsheetExpressionReference r) -> {
+                    switch(r.toString().toUpperCase()) {
+                        case "A1":
+                            return Optional.of("A1=1+2+3000");
+                        default:
+                            return Optional.empty();
+                    }
+                } // formulaText
             )
         );
         component.onSpreadsheetDelta(

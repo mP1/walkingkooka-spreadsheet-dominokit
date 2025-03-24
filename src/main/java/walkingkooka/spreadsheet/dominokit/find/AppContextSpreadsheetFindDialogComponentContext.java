@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 final class AppContextSpreadsheetFindDialogComponentContext implements SpreadsheetFindDialogComponentContext,
@@ -71,6 +72,14 @@ final class AppContextSpreadsheetFindDialogComponentContext implements Spreadshe
 
         return this.context.spreadsheetViewportCache()
             .cellReferences(spreadsheetExpressionReference);
+    }
+
+    // SpreadsheetFormulaSelectAnchorComponentContext...................................................................
+
+    @Override
+    public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        return this.context.spreadsheetViewportCache()
+            .formulaText(spreadsheetExpressionReference);
     }
 
     // HasNow...........................................................................................................
