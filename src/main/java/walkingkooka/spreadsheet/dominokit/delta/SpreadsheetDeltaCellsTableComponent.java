@@ -25,6 +25,7 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.card.SpreadsheetCard;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
@@ -60,6 +61,8 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
                                                 final SpreadsheetDeltaCellsTableComponentContext context) {
         final String idPrefix = id + "cells-";
 
+        this.card = SpreadsheetCard.empty();
+
         this.dataTable = SpreadsheetDataTableComponent.with(
             idPrefix, // id-prefix
             columnConfigs(), // column configs
@@ -68,6 +71,10 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
                 context
             )
         ).bodyScrollPlugin();
+
+        this.card.appendChild(
+            this.dataTable.previousNextLinks(id)
+        );
 
         context.addSpreadsheetDeltaFetcherWatcher(this);
     }
@@ -154,28 +161,36 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
         );
     }
 
-    // HtmlElementComponent.............................................................................................
-
-    @Override
-    public HTMLDivElement element() {
-        return this.dataTable.element();
-    }
+    // setCssText.......................................................................................................
 
     @Override
     public SpreadsheetDeltaCellsTableComponent setCssText(final String css) {
-        this.dataTable.setCssText(css);
+        Objects.requireNonNull(css, "css");
+
+        this.card.setCssText(css);
         return this;
     }
 
+    // setCssProperty...................................................................................................
+
     @Override
     public SpreadsheetDeltaCellsTableComponent setCssProperty(final String name,
-                                                              final String value) {
-        this.dataTable.setCssProperty(
+                                                        final String value) {
+        this.card.setCssProperty(
             name,
             value
         );
         return this;
     }
+
+    // HtmlElementComponent.............................................................................................
+
+    @Override
+    public HTMLDivElement element() {
+        return this.card.element();
+    }
+
+    private final SpreadsheetCard card;
 
     // TreePrintable....................................................................................................
 
@@ -183,7 +198,9 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
     public void printTree(final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();
-        this.dataTable.printTree(printer);
+        {
+            this.card.printTree(printer);
+        }
         printer.outdent();
     }
 
