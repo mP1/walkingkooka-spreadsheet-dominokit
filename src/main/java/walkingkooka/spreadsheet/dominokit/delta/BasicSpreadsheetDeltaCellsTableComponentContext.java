@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.delta;
 
+import walkingkooka.ToStringBuilder;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -106,4 +107,22 @@ final class BasicSpreadsheetDeltaCellsTableComponentContext implements Spreadshe
     }
 
     private final Function<SpreadsheetExpressionReference, Optional<String>> formulaText;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.empty()
+            .label("historyContext")
+            .value(this.historyContext)
+            .label("hasSpreadsheetDeltaFetcherWatchers")
+            .value(this.hasSpreadsheetDeltaFetcherWatchers)
+            .label("cellLabels")
+            .value(this.cellLabels)
+            .label("cellReferences")
+            .value(this.cellReferences)
+            .label("formulaText")
+            .value(this.formulaText)
+            .build();
+    }
 }
