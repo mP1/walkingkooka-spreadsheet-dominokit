@@ -93,11 +93,12 @@ final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCell
         final SpreadsheetCellReference reference = cell.reference();
 
         return SpreadsheetFormulaSelectAnchorComponent.with(
-            this.idPrefix + reference + "-formula" + SpreadsheetElementIds.LINK,
-            this.context
-        ).setValue(
-            Optional.of(reference)
-        );
+                this.idPrefix + reference + "-formula" + SpreadsheetElementIds.LINK,
+                this.context
+            ).showFormulaText()
+            .setValue(
+                Optional.of(reference)
+            );
     }
 
     private SpreadsheetTextNodeComponent renderCellFormattedValue(final SpreadsheetCell cell) {
