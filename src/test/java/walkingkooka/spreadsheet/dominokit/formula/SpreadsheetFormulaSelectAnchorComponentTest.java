@@ -20,8 +20,6 @@ package walkingkooka.spreadsheet.dominokit.formula;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -50,7 +48,7 @@ public final class SpreadsheetFormulaSelectAnchorComponentTest implements Anchor
         this.treePrintAndCheck(
             SpreadsheetFormulaSelectAnchorComponent.with(
                 "formula-anchor-id",
-                HistoryContexts.fake()
+                SpreadsheetFormulaSelectAnchorComponentContexts.fake()
             ).clearValue(),
             "\"Formula\" DISABLED id=formula-anchor-id"
         );
@@ -117,7 +115,7 @@ public final class SpreadsheetFormulaSelectAnchorComponentTest implements Anchor
     private SpreadsheetFormulaSelectAnchorComponent createComponent(final String currentHistoryToken) {
         return SpreadsheetFormulaSelectAnchorComponent.with(
             "formula-anchor-id",
-            new FakeHistoryContext() {
+            new FakeSpreadsheetFormulaSelectAnchorComponentContext() {
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.parseString(currentHistoryToken);
