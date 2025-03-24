@@ -47,6 +47,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.Set;
 
 public final class SpreadsheetCellReferencesDialogComponentTest implements SpreadsheetDialogComponentLifecycleTesting<SpreadsheetCellReferencesDialogComponent,
@@ -286,6 +287,12 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
         public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
             return this.context.spreadsheetViewportCache()
                 .cellReferences(spreadsheetExpressionReference);
+        }
+
+        @Override
+        public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+            return this.context.spreadsheetViewportCache()
+                .formulaText(spreadsheetExpressionReference);
         }
 
         private final AppContext context;
