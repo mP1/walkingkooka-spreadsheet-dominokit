@@ -263,7 +263,9 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
         this.refreshFind(
             this.context.historyToken()
                 .cast(SpreadsheetCellFindHistoryToken.class)
-                .setQuery(cellFindQuery)
+                .setSelection(
+                    this.cellRange.value()
+                ).setQuery(cellFindQuery)
                 .cast(SpreadsheetCellFindHistoryToken.class)
         );
         this.findCells(cellFindQuery);
