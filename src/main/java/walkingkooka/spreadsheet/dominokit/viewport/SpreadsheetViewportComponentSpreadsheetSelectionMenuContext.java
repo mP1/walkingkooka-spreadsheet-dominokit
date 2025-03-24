@@ -179,6 +179,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
 
     private final AppContext context;
 
+    @Override
     public String toString() {
         return this.context.toString();
     }
