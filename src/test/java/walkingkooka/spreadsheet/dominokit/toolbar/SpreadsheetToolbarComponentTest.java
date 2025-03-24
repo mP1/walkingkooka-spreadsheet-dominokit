@@ -188,7 +188,7 @@ public final class SpreadsheetToolbarComponentTest implements HistoryTokenAwareC
                 "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/label] id=toolbar-label-create-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Create Label\"\n" +
-                "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
+                "      mdi-reload \"Reload\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/reload] id=toolbar-reload-Link\n" +
                 "        SpreadsheetTooltipComponent\n" +
                 "          \"Reload\"\n" +
                 "      mdi-power-plug \"Plugin\" [#/plugin] id=toolbar-plugin-Link\n" +

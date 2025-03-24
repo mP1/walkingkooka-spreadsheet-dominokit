@@ -548,6 +548,19 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
+     * {@see SpreadsheetCellReloadHistoryToken}
+     */
+    public static SpreadsheetCellReloadHistoryToken cellReload(final SpreadsheetId id,
+                                                               final SpreadsheetName name,
+                                                               final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellReloadHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+
+    /**
      * {@see SpreadsheetCellSaveCellHistoryToken}
      */
     public static SpreadsheetCellSaveCellHistoryToken cellSaveCell(final SpreadsheetId id,
@@ -3222,10 +3235,23 @@ public abstract class HistoryToken implements HasUrlFragment,
             } else {
                 if (this instanceof SpreadsheetNameHistoryToken) {
                     final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-                    token = spreadsheetReload(
-                        spreadsheetNameHistoryToken.id(),
-                        spreadsheetNameHistoryToken.name()
-                    );
+                    final SpreadsheetId id = spreadsheetNameHistoryToken.id();
+                    final SpreadsheetName name = spreadsheetNameHistoryToken.name();
+
+                    if (this instanceof SpreadsheetCellHistoryToken) {
+                        token = cellReload(
+                            id,
+                            name,
+                            this.cast(SpreadsheetCellHistoryToken.class)
+                                .anchoredSelection()
+                        );
+                    } else {
+                        token = spreadsheetReload(
+                            id,
+                            name
+                        );
+                    }
+
                 }
             }
         }

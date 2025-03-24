@@ -1617,6 +1617,24 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
         );
     }
 
+    @Test
+    public void testReloadWithSpreadsheetCellSelectHistoryToken() {
+        final HistoryToken historyToken = HistoryToken.cellSelect(
+            ID,
+            NAME,
+            CELL.setDefaultAnchor()
+        );
+
+        this.checkEquals(
+            historyToken.reload(),
+            HistoryToken.cellReload(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test
@@ -3105,6 +3123,20 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>, Parse
                     OptionalInt.of(111), // offset
                     OptionalInt.of(222) // count
                 )
+            )
+        );
+    }
+
+    // cell/reload......................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellReload() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/reload",
+            HistoryToken.cellReload(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
             )
         );
     }

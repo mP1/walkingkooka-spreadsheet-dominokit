@@ -127,6 +127,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             case REFERENCES_STRING:
                 result = this.parseReferences(cursor);
                 break;
+            case RELOAD_STRING:
+                result = this.reload();
+                break;
             case SAVE_STRING:
                 result = this.parseSave(cursor);
                 break;
