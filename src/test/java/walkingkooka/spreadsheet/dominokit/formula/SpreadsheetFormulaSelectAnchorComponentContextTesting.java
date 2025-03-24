@@ -37,27 +37,27 @@ public interface SpreadsheetFormulaSelectAnchorComponentContextTesting<C extends
         );
     }
 
-    default void formulaTextAndCheck(final SpreadsheetExpressionReference spreadsheetExpressionReference,
-                                     final C context) {
+    default void formulaTextAndCheck(final C context,
+                                     final SpreadsheetExpressionReference spreadsheetExpressionReference) {
         this.formulaTextAndCheck(
-            spreadsheetExpressionReference,
             context,
+            spreadsheetExpressionReference,
             Optional.empty()
         );
     }
 
-    default void formulaTextAndCheck(final SpreadsheetExpressionReference spreadsheetExpressionReference,
-                                     final C context,
+    default void formulaTextAndCheck(final C context,
+                                     final SpreadsheetExpressionReference spreadsheetExpressionReference,
                                      final String expected) {
         this.formulaTextAndCheck(
-            spreadsheetExpressionReference,
             context,
+            spreadsheetExpressionReference,
             Optional.of(expected)
         );
     }
 
-    default void formulaTextAndCheck(final SpreadsheetExpressionReference spreadsheetExpressionReference,
-                                     final C context,
+    default void formulaTextAndCheck(final C context,
+                                     final SpreadsheetExpressionReference spreadsheetExpressionReference,
                                      final Optional<String> expected) {
         this.checkEquals(
             expected,
