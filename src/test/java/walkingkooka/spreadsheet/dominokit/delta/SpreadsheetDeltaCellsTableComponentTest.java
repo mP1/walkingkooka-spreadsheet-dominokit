@@ -85,16 +85,23 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
         this.renderAndCheck(
             SpreadsheetDelta.EMPTY,
             "SpreadsheetDeltaCellsTableComponent\n" +
-                "  SpreadsheetDataTableComponent\n" +
-                "    id=ID123-cells-Table\n" +
-                "    COLUMN(S)\n" +
-                "      Cell\n" +
-                "      Formula\n" +
-                "      Value\n" +
-                "      Formatted\n" +
-                "      Links\n" +
-                "    PLUGINS\n" +
-                "      BodyScrollPlugin\n"
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      SpreadsheetDataTableComponent\n" +
+                "        id=ID123-cells-Table\n" +
+                "        COLUMN(S)\n" +
+                "          Cell\n" +
+                "          Formula\n" +
+                "          Value\n" +
+                "          Formatted\n" +
+                "          Links\n" +
+                "        CHILDREN\n" +
+                "          SpreadsheetFlexLayout\n" +
+                "            ROW\n" +
+                "              mdi-arrow-left \"previous\" DISABLED id=ID123-previous-Link\n" +
+                "              \"next\" DISABLED mdi-arrow-right id=ID123-next-Link\n" +
+                "        PLUGINS\n" +
+                "          BodyScrollPlugin\n"
         );
     }
 
@@ -119,31 +126,38 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 )
             ),
             "SpreadsheetDeltaCellsTableComponent\n" +
-                "  SpreadsheetDataTableComponent\n" +
-                "    id=ID123-cells-Table\n" +
-                "    COLUMN(S)\n" +
-                "      Cell\n" +
-                "      Formula\n" +
-                "      Value\n" +
-                "      Formatted\n" +
-                "      Links\n" +
-                "    ROW(S)\n" +
-                "      ROW 0\n" +
-                "        \"A1\" [#/1/Spreadsheet222/cell/A1] id=ID123-cells-A1-Link\n" +
-                "        \"A1=1+2+3000\" [#/1/Spreadsheet222/cell/A1/formula] id=ID123-cells-A1-formula-Link\n" +
-                "        SpreadsheetTextComponent\n" +
-                "          \"\"\n" +
-                "        SpreadsheetTextNodeComponent\n" +
-                "          Hello\n" +
-                "        SpreadsheetLinkListComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      SpreadsheetDataTableComponent\n" +
+                "        id=ID123-cells-Table\n" +
+                "        COLUMN(S)\n" +
+                "          Cell\n" +
+                "          Formula\n" +
+                "          Value\n" +
+                "          Formatted\n" +
+                "          Links\n" +
+                "        ROW(S)\n" +
+                "          ROW 0\n" +
+                "            \"A1\" [#/1/Spreadsheet222/cell/A1] id=ID123-cells-A1-Link\n" +
+                "            \"A1=1+2+3000\" [#/1/Spreadsheet222/cell/A1/formula] id=ID123-cells-A1-formula-Link\n" +
+                "            SpreadsheetTextComponent\n" +
+                "              \"\"\n" +
+                "            SpreadsheetTextNodeComponent\n" +
+                "              Hello\n" +
+                "            SpreadsheetLinkListComponent\n" +
+                "              SpreadsheetFlexLayout\n" +
+                "                ROW\n" +
+                "                  \"Create Label\" [#/1/Spreadsheet222/cell/A1/label] id=ID123-cells-A1-label-create-Link\n" +
+                "                  \"Labels\" [#/1/Spreadsheet222/cell/A1/labels] (2) id=ID123-cells-A1-labels-Link\n" +
+                "                  \"References\" [#/1/Spreadsheet222/cell/A1/references] (2) id=ID123-cells-A1-references-Link\n" +
+                "                  \"Delete\" [#/1/Spreadsheet222/cell/A1/delete] id=ID123-cells-A1-delete-Link\n" +
+                "        CHILDREN\n" +
                 "          SpreadsheetFlexLayout\n" +
                 "            ROW\n" +
-                "              \"Create Label\" [#/1/Spreadsheet222/cell/A1/label] id=ID123-cells-A1-label-create-Link\n" +
-                "              \"Labels\" [#/1/Spreadsheet222/cell/A1/labels] (2) id=ID123-cells-A1-labels-Link\n" +
-                "              \"References\" [#/1/Spreadsheet222/cell/A1/references] (2) id=ID123-cells-A1-references-Link\n" +
-                "              \"Delete\" [#/1/Spreadsheet222/cell/A1/delete] id=ID123-cells-A1-delete-Link\n" +
-                "    PLUGINS\n" +
-                "      BodyScrollPlugin\n"
+                "              mdi-arrow-left \"previous\" DISABLED id=ID123-previous-Link\n" +
+                "              \"next\" DISABLED mdi-arrow-right id=ID123-next-Link\n" +
+                "        PLUGINS\n" +
+                "          BodyScrollPlugin\n"
         );
     }
 
@@ -176,45 +190,52 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 )
             ),
             "SpreadsheetDeltaCellsTableComponent\n" +
-                "  SpreadsheetDataTableComponent\n" +
-                "    id=ID123-cells-Table\n" +
-                "    COLUMN(S)\n" +
-                "      Cell\n" +
-                "      Formula\n" +
-                "      Value\n" +
-                "      Formatted\n" +
-                "      Links\n" +
-                "    ROW(S)\n" +
-                "      ROW 0\n" +
-                "        \"A1\" [#/1/Spreadsheet222/cell/A1] id=ID123-cells-A1-Link\n" +
-                "        \"A1=1+2+3000\" [#/1/Spreadsheet222/cell/A1/formula] id=ID123-cells-A1-formula-Link\n" +
-                "        SpreadsheetTextComponent\n" +
-                "          \"\"\n" +
-                "        SpreadsheetTextNodeComponent\n" +
-                "          Hello\n" +
-                "        SpreadsheetLinkListComponent\n" +
+                "  SpreadsheetCard\n" +
+                "    Card\n" +
+                "      SpreadsheetDataTableComponent\n" +
+                "        id=ID123-cells-Table\n" +
+                "        COLUMN(S)\n" +
+                "          Cell\n" +
+                "          Formula\n" +
+                "          Value\n" +
+                "          Formatted\n" +
+                "          Links\n" +
+                "        ROW(S)\n" +
+                "          ROW 0\n" +
+                "            \"A1\" [#/1/Spreadsheet222/cell/A1] id=ID123-cells-A1-Link\n" +
+                "            \"A1=1+2+3000\" [#/1/Spreadsheet222/cell/A1/formula] id=ID123-cells-A1-formula-Link\n" +
+                "            SpreadsheetTextComponent\n" +
+                "              \"\"\n" +
+                "            SpreadsheetTextNodeComponent\n" +
+                "              Hello\n" +
+                "            SpreadsheetLinkListComponent\n" +
+                "              SpreadsheetFlexLayout\n" +
+                "                ROW\n" +
+                "                  \"Create Label\" [#/1/Spreadsheet222/cell/A1/label] id=ID123-cells-A1-label-create-Link\n" +
+                "                  \"Labels\" [#/1/Spreadsheet222/cell/A1/labels] (2) id=ID123-cells-A1-labels-Link\n" +
+                "                  \"References\" [#/1/Spreadsheet222/cell/A1/references] (2) id=ID123-cells-A1-references-Link\n" +
+                "                  \"Delete\" [#/1/Spreadsheet222/cell/A1/delete] id=ID123-cells-A1-delete-Link\n" +
+                "          ROW 1\n" +
+                "            \"A2\" [#/1/Spreadsheet222/cell/A2] id=ID123-cells-A2-Link\n" +
+                "            \"A2\" [#/1/Spreadsheet222/cell/A2/formula] id=ID123-cells-A2-formula-Link\n" +
+                "            SpreadsheetTextComponent\n" +
+                "              \"\"\n" +
+                "            SpreadsheetTextNodeComponent\n" +
+                "              2222\n" +
+                "            SpreadsheetLinkListComponent\n" +
+                "              SpreadsheetFlexLayout\n" +
+                "                ROW\n" +
+                "                  \"Create Label\" [#/1/Spreadsheet222/cell/A2/label] id=ID123-cells-A2-label-create-Link\n" +
+                "                  \"Labels\" [#/1/Spreadsheet222/cell/A2/labels] (2) id=ID123-cells-A2-labels-Link\n" +
+                "                  \"References\" [#/1/Spreadsheet222/cell/A2/references] (2) id=ID123-cells-A2-references-Link\n" +
+                "                  \"Delete\" [#/1/Spreadsheet222/cell/A2/delete] id=ID123-cells-A2-delete-Link\n" +
+                "        CHILDREN\n" +
                 "          SpreadsheetFlexLayout\n" +
                 "            ROW\n" +
-                "              \"Create Label\" [#/1/Spreadsheet222/cell/A1/label] id=ID123-cells-A1-label-create-Link\n" +
-                "              \"Labels\" [#/1/Spreadsheet222/cell/A1/labels] (2) id=ID123-cells-A1-labels-Link\n" +
-                "              \"References\" [#/1/Spreadsheet222/cell/A1/references] (2) id=ID123-cells-A1-references-Link\n" +
-                "              \"Delete\" [#/1/Spreadsheet222/cell/A1/delete] id=ID123-cells-A1-delete-Link\n" +
-                "      ROW 1\n" +
-                "        \"A2\" [#/1/Spreadsheet222/cell/A2] id=ID123-cells-A2-Link\n" +
-                "        \"A2\" [#/1/Spreadsheet222/cell/A2/formula] id=ID123-cells-A2-formula-Link\n" +
-                "        SpreadsheetTextComponent\n" +
-                "          \"\"\n" +
-                "        SpreadsheetTextNodeComponent\n" +
-                "          2222\n" +
-                "        SpreadsheetLinkListComponent\n" +
-                "          SpreadsheetFlexLayout\n" +
-                "            ROW\n" +
-                "              \"Create Label\" [#/1/Spreadsheet222/cell/A2/label] id=ID123-cells-A2-label-create-Link\n" +
-                "              \"Labels\" [#/1/Spreadsheet222/cell/A2/labels] (2) id=ID123-cells-A2-labels-Link\n" +
-                "              \"References\" [#/1/Spreadsheet222/cell/A2/references] (2) id=ID123-cells-A2-references-Link\n" +
-                "              \"Delete\" [#/1/Spreadsheet222/cell/A2/delete] id=ID123-cells-A2-delete-Link\n" +
-                "    PLUGINS\n" +
-                "      BodyScrollPlugin\n"
+                "              mdi-arrow-left \"previous\" DISABLED id=ID123-previous-Link\n" +
+                "              \"next\" DISABLED mdi-arrow-right id=ID123-next-Link\n" +
+                "        PLUGINS\n" +
+                "          BodyScrollPlugin\n"
         );
     }
 

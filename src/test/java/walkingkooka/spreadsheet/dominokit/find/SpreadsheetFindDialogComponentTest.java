@@ -145,16 +145,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
@@ -247,16 +254,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
@@ -349,16 +363,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" DISABLED id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
@@ -449,16 +470,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
 
         // required otherwise SpreadsheetViewportCache will "ignore delta because they belong to a different spreadsheet
@@ -582,43 +610,50 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/matchXyz()] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          ROW(S)\n" +
-                "            ROW 0\n" +
-                "              \"A1\" [#/123/SpreadsheetName456/cell/A1] id=find-cells-A1-Link\n" +
-                "              \"=1\" [#/123/SpreadsheetName456/cell/A1/formula] id=find-cells-A1-formula-Link\n" +
-                "              SpreadsheetTextComponent\n" +
-                "                \"\"\n" +
-                "              SpreadsheetTextNodeComponent\n" +
-                "              SpreadsheetLinkListComponent\n" +
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              ROW(S)\n" +
+                "                ROW 0\n" +
+                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=find-cells-A1-Link\n" +
+                "                  \"=1\" [#/123/SpreadsheetName456/cell/A1/formula] id=find-cells-A1-formula-Link\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"\"\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                  SpreadsheetLinkListComponent\n" +
+                "                    SpreadsheetFlexLayout\n" +
+                "                      ROW\n" +
+                "                        \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=find-cells-A1-label-create-Link\n" +
+                "                        \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (3) id=find-cells-A1-labels-Link\n" +
+                "                        \"References\" [#/123/SpreadsheetName456/cell/A1/references] (1) id=find-cells-A1-references-Link\n" +
+                "                        \"Delete\" [#/123/SpreadsheetName456/cell/A1/delete] id=find-cells-A1-delete-Link\n" +
+                "                ROW 1\n" +
+                "                  \"B2\" [#/123/SpreadsheetName456/cell/B2] id=find-cells-B2-Link\n" +
+                "                  \"=2\" [#/123/SpreadsheetName456/cell/B2/formula] id=find-cells-B2-formula-Link\n" +
+                "                  SpreadsheetTextComponent\n" +
+                "                    \"\"\n" +
+                "                  SpreadsheetTextNodeComponent\n" +
+                "                  SpreadsheetLinkListComponent\n" +
+                "                    SpreadsheetFlexLayout\n" +
+                "                      ROW\n" +
+                "                        \"Create Label\" [#/123/SpreadsheetName456/cell/B2/label] id=find-cells-B2-label-create-Link\n" +
+                "                        \"Labels\" [#/123/SpreadsheetName456/cell/B2/labels] (0) id=find-cells-B2-labels-Link\n" +
+                "                        \"References\" [#/123/SpreadsheetName456/cell/B2/references] (0) id=find-cells-B2-references-Link\n" +
+                "                        \"Delete\" [#/123/SpreadsheetName456/cell/B2/delete] id=find-cells-B2-delete-Link\n" +
+                "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=find-cells-A1-label-create-Link\n" +
-                "                    \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (3) id=find-cells-A1-labels-Link\n" +
-                "                    \"References\" [#/123/SpreadsheetName456/cell/A1/references] (1) id=find-cells-A1-references-Link\n" +
-                "                    \"Delete\" [#/123/SpreadsheetName456/cell/A1/delete] id=find-cells-A1-delete-Link\n" +
-                "            ROW 1\n" +
-                "              \"B2\" [#/123/SpreadsheetName456/cell/B2] id=find-cells-B2-Link\n" +
-                "              \"=2\" [#/123/SpreadsheetName456/cell/B2/formula] id=find-cells-B2-formula-Link\n" +
-                "              SpreadsheetTextComponent\n" +
-                "                \"\"\n" +
-                "              SpreadsheetTextNodeComponent\n" +
-                "              SpreadsheetLinkListComponent\n" +
-                "                SpreadsheetFlexLayout\n" +
-                "                  ROW\n" +
-                "                    \"Create Label\" [#/123/SpreadsheetName456/cell/B2/label] id=find-cells-B2-label-create-Link\n" +
-                "                    \"Labels\" [#/123/SpreadsheetName456/cell/B2/labels] (0) id=find-cells-B2-labels-Link\n" +
-                "                    \"References\" [#/123/SpreadsheetName456/cell/B2/references] (0) id=find-cells-B2-references-Link\n" +
-                "                    \"Delete\" [#/123/SpreadsheetName456/cell/B2/delete] id=find-cells-B2-delete-Link\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
@@ -709,16 +744,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellFormula(),%22*formula*%22)] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
@@ -809,16 +851,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/1+textMatch(cellFormula(),%22*formula*%22)] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
@@ -909,16 +958,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
@@ -1009,16 +1065,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/or(textMatch(cellFormula(),%22*formula*%22),true())] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
@@ -1109,16 +1172,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellFormatter(),%22*formatter*%22)] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
@@ -1209,16 +1279,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellParser(),%22*parser*%22)] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
@@ -1309,16 +1386,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellStyle(),%22*style*%22)] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
@@ -1409,16 +1493,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/cellValue()%3C999] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
@@ -1509,16 +1600,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
@@ -1609,16 +1707,23 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/find-query/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,textMatch(%22*formattedValue*%22,cellFormattedValue())))))))] id=find-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=find-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
-                "        SpreadsheetDataTableComponent\n" +
-                "          id=find-cells-Table\n" +
-                "          COLUMN(S)\n" +
-                "            Cell\n" +
-                "            Formula\n" +
-                "            Value\n" +
-                "            Formatted\n" +
-                "            Links\n" +
-                "          PLUGINS\n" +
-                "            BodyScrollPlugin\n"
+                "        SpreadsheetCard\n" +
+                "          Card\n" +
+                "            SpreadsheetDataTableComponent\n" +
+                "              id=find-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                SpreadsheetFlexLayout\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=find-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=find-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
         );
     }
 
