@@ -20,10 +20,12 @@ package walkingkooka.spreadsheet.dominokit.delta;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLabelsAnchorComponentContext;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesAnchorComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaSelectAnchorComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 public interface SpreadsheetDeltaCellsTableComponentContext extends HistoryContext,
     HasSpreadsheetDeltaFetcherWatchers,
     SpreadsheetCellLabelsAnchorComponentContext,
-    SpreadsheetCellReferencesAnchorComponentContext {
+    SpreadsheetCellReferencesAnchorComponentContext,
+    SpreadsheetFormulaSelectAnchorComponentContext {
 }
