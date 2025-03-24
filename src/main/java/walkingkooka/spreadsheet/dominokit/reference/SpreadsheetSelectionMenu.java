@@ -174,6 +174,17 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 );
             }
         }
+
+        menu.separator();
+        {
+            if (selection.isExternalReference()) {
+                reload(
+                    historyToken,
+                    menu,
+                    context
+                );
+            }
+        }
     }
 
     private static void clipboard(final HistoryToken historyToken,
@@ -1174,6 +1185,21 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ).historyToken(
                 Optional.of(
                     historyToken.references(HistoryTokenOffsetAndCount.EMPTY)
+                )
+            )
+        );
+    }
+
+    private static void reload(final HistoryToken historyToken,
+                               final SpreadsheetContextMenu menu,
+                               final SpreadsheetSelectionMenuContext context) {
+        menu.item(
+            SpreadsheetContextMenuItem.with(
+                context.idPrefix() + "reload" + SpreadsheetElementIds.MENU_ITEM,
+                "Reload"
+            ).historyToken(
+                Optional.of(
+                    historyToken.reload()
                 )
             )
         );
