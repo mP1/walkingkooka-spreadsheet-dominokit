@@ -197,6 +197,24 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     }
 
     /**
+     * Tries to return the formula text for a given {@link SpreadsheetExpressionReference} which may include
+     * resolving labels to a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference}.
+     */
+    public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        return this.cell(spreadsheetExpressionReference)
+            .flatMap(c -> {
+                final String text = c.formula()
+                    .text();
+
+                return Optional.ofNullable(
+                    text.isEmpty() ?
+                        null :
+                        text
+                );
+            });
+    }
+
+    /**
      * A cache of cell references to their cell references.
      */
     // VisibleForTesting

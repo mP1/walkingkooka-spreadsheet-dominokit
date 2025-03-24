@@ -4584,6 +4584,69 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
     }
 
+    // formulaText......................................................................................................
+
+    @Test
+    public void testFormulaTextWithMissingCell() {
+        this.formulaTextAndCheck(
+            this.viewportCache(),
+            SpreadsheetSelection.A1
+        );
+    }
+
+    @Test
+    public void testFormulaTextWithCellContainingFormula() {
+        final String text = "=1+2+3000";
+
+        final SpreadsheetViewportCache cache = this.viewportCacheAndOpen();
+        cache.onSpreadsheetDelta(
+            HttpMethod.GET,
+            Url.parseRelative("/api/spreadsheet/1/cell"),
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setText(text)
+                    )
+                )
+            ),
+            CONTEXT
+        );
+
+        this.formulaTextAndCheck(
+            cache,
+            SpreadsheetSelection.A1,
+            text
+        );
+    }
+
+    private void formulaTextAndCheck(final SpreadsheetViewportCache cache,
+                                     final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        this.formulaTextAndCheck(
+            cache,
+            spreadsheetExpressionReference,
+            Optional.empty()
+        );
+    }
+
+    private void formulaTextAndCheck(final SpreadsheetViewportCache cache,
+                                     final SpreadsheetExpressionReference spreadsheetExpressionReference,
+                                     final String expected) {
+        this.formulaTextAndCheck(
+            cache,
+            spreadsheetExpressionReference,
+            Optional.of(expected)
+        );
+    }
+
+    private void formulaTextAndCheck(final SpreadsheetViewportCache cache,
+                                     final SpreadsheetExpressionReference spreadsheetExpressionReference,
+                                     final Optional<String> expected) {
+        this.checkEquals(
+            expected,
+            cache.formulaText(spreadsheetExpressionReference)
+        );
+    }
+
     // SpreadsheetLabelNameResolver.....................................................................................
 
     @Override
