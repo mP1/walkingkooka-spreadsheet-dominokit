@@ -18,8 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.formula;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
 public final class SpreadsheetFormulaSelectAnchorComponentContexts implements PublicStaticHelper {
+
+    /**
+     * {@see AppContextSpreadsheetFormulaSelectAnchorComponentContext}
+     */
+    public static SpreadsheetFormulaSelectAnchorComponentContext appContext(final AppContext context) {
+        return AppContextSpreadsheetFormulaSelectAnchorComponentContext.with(context);
+    }
 
     /**
      * {@see FakeSpreadsheetFormulaSelectAnchorComponentContext}
