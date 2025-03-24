@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 final class AppContextSpreadsheetCellReferencesDialogComponentContext implements SpreadsheetCellReferencesDialogComponentContext,
@@ -80,6 +81,14 @@ final class AppContextSpreadsheetCellReferencesDialogComponentContext implements
 
         return this.context.spreadsheetViewportCache()
             .cellReferences(spreadsheetExpressionReference);
+    }
+
+    // SpreadsheetFormulaSelectAnchorComponentContext...................................................................
+
+    @Override
+    public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        return this.context.spreadsheetViewportCache()
+            .formulaText(spreadsheetExpressionReference);
     }
 
     // HasSpreadsheetDeltaFetcherWatcher................................................................................

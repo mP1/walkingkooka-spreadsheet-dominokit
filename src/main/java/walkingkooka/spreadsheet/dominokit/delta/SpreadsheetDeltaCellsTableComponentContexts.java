@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 
@@ -34,12 +35,14 @@ public final class SpreadsheetDeltaCellsTableComponentContexts implements Public
     public static SpreadsheetDeltaCellsTableComponentContext basic(final HistoryContext historyContext,
                                                                    final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
                                                                    final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellLabels,
-                                                                   final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences) {
+                                                                   final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences,
+                                                                   final Function<SpreadsheetExpressionReference, Optional<String>> formulaText) {
         return BasicSpreadsheetDeltaCellsTableComponentContext.with(
             historyContext,
             hasSpreadsheetDeltaFetcherWatchers,
             cellLabels,
-            cellReferences
+            cellReferences,
+            formulaText
         );
     }
 

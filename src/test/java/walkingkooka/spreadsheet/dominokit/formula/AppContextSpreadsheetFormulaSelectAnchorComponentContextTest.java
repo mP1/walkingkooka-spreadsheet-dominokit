@@ -19,13 +19,41 @@ package walkingkooka.spreadsheet.dominokit.formula;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.AppContexts;
+import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+
+import java.util.Objects;
 
 import static org.junit.Assert.assertThrows;
 
 public final class AppContextSpreadsheetFormulaSelectAnchorComponentContextTest implements SpreadsheetFormulaSelectAnchorComponentContextTesting<AppContextSpreadsheetFormulaSelectAnchorComponentContext> {
 
-    private final static AppContext APP_CONTEXT = AppContexts.fake();
+    private final static AppContext APP_CONTEXT = new FakeAppContext() {
+
+        @Override
+        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher historyTokenWatcher) {
+            Objects.requireNonNull(historyTokenWatcher, "historyTokenWatcher");
+            return null;
+        }
+
+        @Override
+        public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher spreadsheetDeltaFetcherWatcher) {
+            return null;
+        }
+
+        @Override
+        public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher spreadsheetMetadataFetcherWatcher) {
+            return null;
+        }
+
+        @Override
+        public SpreadsheetViewportCache spreadsheetViewportCache() {
+            return SpreadsheetViewportCache.empty(this);
+        }
+    };
 
     @Test
     public void testWithNullAppContextFails() {

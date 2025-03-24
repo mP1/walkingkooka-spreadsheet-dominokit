@@ -18,11 +18,21 @@
 package walkingkooka.spreadsheet.dominokit.formula;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+
+import java.util.Optional;
 
 public class FakeSpreadsheetFormulaSelectAnchorComponentContext extends FakeHistoryContext
     implements SpreadsheetFormulaSelectAnchorComponentContext {
 
     public FakeSpreadsheetFormulaSelectAnchorComponentContext() {
         super();
+    }
+
+    // SpreadsheetFormulaSelectAnchorComponentContext...................................................................
+
+    @Override
+    public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        throw new UnsupportedOperationException();
     }
 }
