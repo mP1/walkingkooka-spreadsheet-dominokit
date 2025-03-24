@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueHistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
 import java.util.Objects;
@@ -53,6 +54,7 @@ public final class SpreadsheetFormulaSelectAnchorComponent implements AnchorComp
         );
         this.setId(id);
         this.context = Objects.requireNonNull(context, "context");
+        this.showFormulaText = false;
     }
 
     /**
@@ -76,11 +78,25 @@ public final class SpreadsheetFormulaSelectAnchorComponent implements AnchorComp
             historyToken = this.context.historyToken()
                 .setSelection(value)
                 .formula();
-            if (false == (historyToken instanceof SpreadsheetCellFormulaSelectHistoryToken)) {
+            if (historyToken instanceof SpreadsheetCellFormulaSelectHistoryToken) {
+                final SpreadsheetCellFormulaSelectHistoryToken spreadsheetCellFormulaSelectHistoryToken = historyToken.cast(SpreadsheetCellFormulaSelectHistoryToken.class);
+
+                if (this.showFormulaText) {
+                    text = this.context.formulaText(
+                        spreadsheetCellFormulaSelectHistoryToken.selection()
+                            .get()
+                            .toExpressionReference()
+                    ).orElse(null);
+                }
+
+            } else {
                 historyToken = null;
             }
-            text = value.get()
-                .text();
+
+            if (null == text) {
+                text = value.get()
+                    .text();
+            }
         } else {
             text = "Formula";
         }
@@ -100,6 +116,18 @@ public final class SpreadsheetFormulaSelectAnchorComponent implements AnchorComp
         this.component.setValue(value);
         return this;
     }
+
+    /**
+     * When true the anchor text will show the {@link SpreadsheetFormula#text()} or the {@link SpreadsheetExpressionReference}
+     * when false.
+     */
+    public SpreadsheetFormulaSelectAnchorComponent setShowFormulaText(final boolean showFormulaText) {
+        this.showFormulaText = showFormulaText;
+
+        return this;
+    }
+
+    private boolean showFormulaText;
 
     // AnchorComponentDelegator.........................................................................................
 
