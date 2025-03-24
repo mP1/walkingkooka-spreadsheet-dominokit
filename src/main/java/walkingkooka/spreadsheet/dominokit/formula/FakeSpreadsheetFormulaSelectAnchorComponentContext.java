@@ -17,21 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.formula;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
-public final class SpreadsheetFormulaSelectAnchorComponentContexts implements PublicStaticHelper {
+public class FakeSpreadsheetFormulaSelectAnchorComponentContext extends FakeHistoryContext
+    implements SpreadsheetFormulaSelectAnchorComponentContext {
 
-    /**
-     * {@see FakeSpreadsheetFormulaSelectAnchorComponentContext}
-     */
-    public static SpreadsheetFormulaSelectAnchorComponentContext fake() {
-        return new FakeSpreadsheetFormulaSelectAnchorComponentContext();
-    }
-
-    /**
-     * Stop creation
-     */
-    private SpreadsheetFormulaSelectAnchorComponentContexts() {
-        throw new UnsupportedOperationException();
+    public FakeSpreadsheetFormulaSelectAnchorComponentContext() {
+        super();
     }
 }
