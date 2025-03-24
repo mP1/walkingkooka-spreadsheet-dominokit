@@ -1618,6 +1618,28 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/Label123/delete] id=test-delete-MenuItem\n" +
                 "  -----\n" +
+                "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
+                "    \"1\" [/1/SpreadsheetName-1/column/Z/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
+                "    \"2\" [/1/SpreadsheetName-1/column/Z/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
+                "    \"3\" [/1/SpreadsheetName-1/column/Z/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
+                "    \"...\" [/1/SpreadsheetName-1/column/Z/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
+                "  (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
+                "    \"1\" [/1/SpreadsheetName-1/column/Z/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
+                "    \"2\" [/1/SpreadsheetName-1/column/Z/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
+                "    \"3\" [/1/SpreadsheetName-1/column/Z/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
+                "    \"...\" [/1/SpreadsheetName-1/column/Z/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
+                "  -----\n" +
+                "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
+                "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
+                "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
+                "    \"3\" [/1/SpreadsheetName-1/row/1/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
+                "    \"...\" [/1/SpreadsheetName-1/row/1/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
+                "  (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
+                "    \"1\" [/1/SpreadsheetName-1/row/1/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
+                "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
+                "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
+                "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
+                "  -----\n" +
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/Label123/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/Label123/unfreeze] id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
@@ -1625,6 +1647,186 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/Label123/label] id=test-label-create-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/Label123/references] [0] id=test-references-MenuItem\n"
+        );
+    }
+
+    // because label is unknown it is not possible to create insertXXX column/row because the column/row components are unavailable.
+    @Test
+    public void testUnknownLabel() {
+        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
+            SpreadsheetId.with(1), // id
+            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SpreadsheetSelection.labelName("UnknownLabel")
+                .setDefaultAnchor()
+        );
+        final SpreadsheetSelectionMenuContext context = this.context(
+            token
+        );
+
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
+            Menu.create(
+                "Cell-MenuId",
+                "Cell A1 Menu",
+                Optional.empty(), // no icon
+                Optional.empty() // no badge
+            ),
+            context
+        );
+
+        SpreadsheetSelectionMenu.build(
+            token,
+            menu,
+            context
+        );
+
+        this.treePrintAndCheck(
+            menu,
+            "\"Cell A1 Menu\" id=Cell-MenuId\n" +
+                "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
+                "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
+                "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
+                "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
+                "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
+                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
+                "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
+                "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
+                "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
+                "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
+                "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
+                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
+                "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
+                "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
+                "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
+                "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
+                "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
+                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
+                "  -----\n" +
+                "  \"Style\" id=test-style-SubMenu\n" +
+                "    \"Alignment\" id=test-alignment-SubMenu\n" +
+                "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/LEFT] id=test-left-MenuItem key=L \n" +
+                "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/CENTER] id=test-center-MenuItem key=C \n" +
+                "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/RIGHT] id=test-right-MenuItem key=R \n" +
+                "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/JUSTIFY] id=test-justify-MenuItem key=J \n" +
+                "    \"Vertical Alignment\" id=test-vertical-alignment-SubMenu\n" +
+                "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/TOP] id=test-top-MenuItem\n" +
+                "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
+                "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
+                "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
+                "      metadata color picker\n" +
+                "    (mdi-palette) \"Background color\" id=test-background-color-SubMenu\n" +
+                "      metadata color picker\n" +
+                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-weight/save/bold] id=test-bold-MenuItem key=b \n" +
+                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-style/save/ITALIC] id=test-italics-MenuItem key=i \n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem key=s \n" +
+                "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem key=u \n" +
+                "    \"Text case\" id=test-text-case-SubMenu\n" +
+                "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/] id=test-normal-MenuItem\n" +
+                "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/CAPITALIZE] id=test-capitalize-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/LOWERCASE] id=test-lower-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/UPPERCASE] id=test-upper-MenuItem\n" +
+                "    \"Wrapping\" id=test-text-wrapping-SubMenu\n" +
+                "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/overflow-wrap/save/NORMAL] id=test-clip-MenuItem\n" +
+                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/overflow-x/save/VISIBLE] id=test-overflow-MenuItem\n" +
+                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/overflow-x/save/HIDDEN] id=test-wrap-MenuItem\n" +
+                "    \"Border\" id=test-border-SubMenu\n" +
+                "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
+                "        (mdi-palette) \"Color\" id=test-test-border-top-color-SubMenu\n" +
+                "          metadata color picker\n" +
+                "        \"Style\" id=test-border-top-style-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/DOTTED] id=test-border-top-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/SOLID] id=test-border-top-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/] id=test-border-top-style-clear-MenuItem\n" +
+                "        \"Width\" id=test-border-top-width-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/0px] id=test-border-top-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/1px] id=test-border-top-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
+                "        (mdi-palette) \"Color\" id=test-test-border-left-color-SubMenu\n" +
+                "          metadata color picker\n" +
+                "        \"Style\" id=test-border-left-style-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/DOTTED] id=test-border-left-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/SOLID] id=test-border-left-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/] id=test-border-left-style-clear-MenuItem\n" +
+                "        \"Width\" id=test-border-left-width-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/0px] id=test-border-left-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/1px] id=test-border-left-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
+                "        (mdi-palette) \"Color\" id=test-test-border-right-color-SubMenu\n" +
+                "          metadata color picker\n" +
+                "        \"Style\" id=test-border-right-style-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/DOTTED] id=test-border-right-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/SOLID] id=test-border-right-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/] id=test-border-right-style-clear-MenuItem\n" +
+                "        \"Width\" id=test-border-right-width-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/0px] id=test-border-right-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/1px] id=test-border-right-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
+                "        (mdi-palette) \"Color\" id=test-test-border-bottom-color-SubMenu\n" +
+                "          metadata color picker\n" +
+                "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/DOTTED] id=test-border-bottom-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/SOLID] id=test-border-bottom-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/] id=test-border-bottom-style-clear-MenuItem\n" +
+                "        \"Width\" id=test-border-bottom-width-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/0px] id=test-border-bottom-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/1px] id=test-border-bottom-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
+                "        (mdi-palette) \"Color\" id=test-test-border-all-color-SubMenu\n" +
+                "          metadata color picker\n" +
+                "        \"Style\" id=test-border-all-style-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/DOTTED] id=test-border-all-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/SOLID] id=test-border-all-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/] id=test-border-all-style-clear-MenuItem\n" +
+                "        \"Width\" id=test-border-all-width-SubMenu\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/0px] id=test-border-all-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/1px] id=test-border-all-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/*/save/] id=test-clear-style-MenuItem\n" +
+                "  \"Formatter\" id=test-menu-SubMenu\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter] id=test-formatter-edit-MenuItem\n" +
+                "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hide-zero-values/save/true] id=test-hideIfZero-MenuItem\n" +
+                "  -----\n" +
+                "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/UnknownLabel/delete] id=test-delete-MenuItem\n" +
+                "  -----\n" +
+                "  \"Freeze\" [/1/SpreadsheetName-1/cell/UnknownLabel/freeze] id=test-freeze-MenuItem\n" +
+                "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/UnknownLabel/unfreeze] id=test-unfreeze-MenuItem\n" +
+                "  -----\n" +
+                "  \"Labels\" [1] id=test-label-SubMenu\n" +
+                "    \"UnknownLabel (A1)\" [/1/SpreadsheetName-1/label/UnknownLabel] id=test-label-0-MenuItem\n" +
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/UnknownLabel/label] id=test-label-create-MenuItem\n" +
+                "  \"References\" [/1/SpreadsheetName-1/cell/UnknownLabel/references] [0] id=test-references-MenuItem\n"
         );
     }
 
@@ -2265,6 +2467,17 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                         SpreadsheetSelection.parseCell("Z99")
                     ) :
                     Sets.empty();
+            }
+
+            // SpreadsheetLabelNameResolver.....................................................................................
+
+            @Override
+            public SpreadsheetSelection resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
+                if (spreadsheetLabelName.equals(LABEL)) {
+                    return SpreadsheetSelection.parseCell("Z1");
+                }
+
+                throw new IllegalArgumentException("Unknown label " + spreadsheetLabelName);
             }
 
             @Override

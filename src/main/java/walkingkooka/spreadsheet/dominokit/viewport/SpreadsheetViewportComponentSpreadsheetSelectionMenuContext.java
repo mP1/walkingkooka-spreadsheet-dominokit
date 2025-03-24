@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
 import walkingkooka.tree.text.TextStyleProperty;
@@ -167,6 +168,13 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     @Override
     public HistoryContext historyContext() {
         return this.context;
+    }
+
+    // SpreadsheetLabelNameResolver.....................................................................................
+
+    @Override
+    public SpreadsheetSelection resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
+        return this.context.resolveLabel(spreadsheetLabelName);
     }
 
     private final AppContext context;

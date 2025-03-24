@@ -907,10 +907,17 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
-        if (selection.isColumnOrColumnRange() | selection.isCellOrCellRange()) {
+        SpreadsheetSelection selectionNotLabel;
+        try {
+            selectionNotLabel = context.resolveIfLabel(selection);
+        } catch (final RuntimeException ignore) {
+            selectionNotLabel = null;
+        }
+
+        if (null != selectionNotLabel && (selection.isColumnOrColumnRange() | selection.isExternalReference())) {
             final HistoryToken columnHistoryToken = historyToken.setAnchoredSelection(
                 Optional.of(
-                    selection.toColumnOrColumnRange()
+                    selectionNotLabel.toColumnOrColumnRange()
                         .setAnchor(
                             anchoredSpreadsheetSelection.anchor()
                                 .toColumnOrColumnRangeAnchor()
@@ -950,10 +957,17 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
 
-        if (selection.isRowOrRowRange() | selection.isCellOrCellRange()) {
+        SpreadsheetSelection selectionNotLabel;
+        try {
+            selectionNotLabel = context.resolveIfLabel(selection);
+        } catch (final RuntimeException ignore) {
+            selectionNotLabel = null;
+        }
+
+        if (null != selectionNotLabel && (selection.isRowOrRowRange() | selection.isExternalReference())) {
             final HistoryToken rowHistoryToken = historyToken.setAnchoredSelection(
                 Optional.of(
-                    selection.toRowOrRowRange()
+                    selectionNotLabel.toRowOrRowRange()
                         .setAnchor(
                             anchoredSpreadsheetSelection.anchor()
                                 .toRowOrRowRangeAnchor()
@@ -994,22 +1008,30 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                     final SpreadsheetContextMenu menu,
                                     final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
+        SpreadsheetSelection selectionNotLabel;
+        try {
+            selectionNotLabel = context.resolveIfLabel(selection);
+        } catch (final RuntimeException ignore) {
+            selectionNotLabel = null;
+        }
 
-        final boolean columns = selection.isColumnOrColumnRange();
+        if(null != selectionNotLabel) {
+            final boolean columns = selection.isColumnOrColumnRange();
 
-        if (columns || selection.isCellOrCellRange()) {
-            if (columns || selection.toRowRange().count() > 1) {
-                final String idPrefix = context.idPrefix() + "column-sort-";
+            if (columns || selection.isExternalReference()) {
+                if (columns || selectionNotLabel.toRowRange().count() > 1) {
+                    final String idPrefix = context.idPrefix() + "column-sort-";
 
-                SpreadsheetSelectionMenuSort.build(
-                    historyToken,
-                    selection.toColumnOrColumnRange()
-                        .toColumn(),
-                    idPrefix, // id prefix
-                    SpreadsheetIcons.columnSort(),
-                    context.sortComparatorNames(),
-                    menu
-                );
+                    SpreadsheetSelectionMenuSort.build(
+                        historyToken,
+                        selectionNotLabel.toColumnOrColumnRange()
+                            .toColumn(),
+                        idPrefix, // id prefix
+                        SpreadsheetIcons.columnSort(),
+                        context.sortComparatorNames(),
+                        menu
+                    );
+                }
             }
         }
     }
@@ -1019,22 +1041,30 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                  final SpreadsheetContextMenu menu,
                                  final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
+        SpreadsheetSelection selectionNotLabel;
+        try {
+            selectionNotLabel = context.resolveIfLabel(selection);
+        } catch (final RuntimeException ignore) {
+            selectionNotLabel = null;
+        }
 
-        final boolean rows = selection.isRowOrRowRange();
-        if (rows || selection.isCellOrCellRange()) {
+        if(null != selectionNotLabel) {
+            final boolean rows = selection.isRowOrRowRange();
+            if (rows || selection.isExternalReference()) {
 
-            if (rows || selection.toColumnOrColumnRange().count() > 1) {
-                final String idPrefix = context.idPrefix() + "row-sort-";
+                if (rows || selectionNotLabel.toColumnOrColumnRange().count() > 1) {
+                    final String idPrefix = context.idPrefix() + "row-sort-";
 
-                SpreadsheetSelectionMenuSort.build(
-                    historyToken,
-                    selection.toRowOrRowRange()
-                        .toRow(),
-                    idPrefix, // id prefix
-                    SpreadsheetIcons.columnSort(),
-                    context.sortComparatorNames(),
-                    menu
-                );
+                    SpreadsheetSelectionMenuSort.build(
+                        historyToken,
+                        selectionNotLabel.toRowOrRowRange()
+                            .toRow(),
+                        idPrefix, // id prefix
+                        SpreadsheetIcons.columnSort(),
+                        context.sortComparatorNames(),
+                        menu
+                    );
+                }
             }
         }
     }
