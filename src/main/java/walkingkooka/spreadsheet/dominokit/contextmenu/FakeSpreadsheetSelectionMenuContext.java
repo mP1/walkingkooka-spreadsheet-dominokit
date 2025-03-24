@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
@@ -46,6 +47,11 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeHistoryContext impl
 
     @Override
     public List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<SpreadsheetExpressionReference> references(final SpreadsheetSelection selection) {
         throw new UnsupportedOperationException();
     }
 

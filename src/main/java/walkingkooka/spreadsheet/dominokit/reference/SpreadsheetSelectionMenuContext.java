@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetSelectionSummary;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
@@ -56,6 +57,11 @@ public interface SpreadsheetSelectionMenuContext extends Context,
      * Returns recent {@link SpreadsheetFormatterSelector}.
      */
     List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors();
+
+    /**
+     * Returns all the references for the given {@link SpreadsheetSelection}
+     */
+    Set<SpreadsheetExpressionReference> references(final SpreadsheetSelection selection);
 
     /**
      * Returns the {@link List<SpreadsheetFormatterSelectorMenu>} for the current {@link walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector}.
