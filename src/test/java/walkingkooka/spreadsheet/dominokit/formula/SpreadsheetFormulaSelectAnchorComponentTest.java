@@ -107,6 +107,34 @@ public final class SpreadsheetFormulaSelectAnchorComponentTest implements Anchor
         );
     }
 
+    @Test
+    public void testSetShowFormulaTextSetValueWithCell() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setShowFormulaText(true)
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.A1
+                    )
+                ),
+            "\"=1+2+3000\" [#/1/SpreadsheetName22/cell/A1/formula] id=formula-anchor-id"
+        );
+    }
+
+    @Test
+    public void testSetShowFormulaTextSetValueWithCellMissingFormula() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setShowFormulaText(true)
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.parseCell("B2")
+                    )
+                ),
+            "\"B2\" [#/1/SpreadsheetName22/cell/B2/formula] id=formula-anchor-id"
+        );
+    }
+
     @Override
     public SpreadsheetFormulaSelectAnchorComponent createComponent() {
         return this.createComponent("/1/SpreadsheetName22");
@@ -124,6 +152,15 @@ public final class SpreadsheetFormulaSelectAnchorComponentTest implements Anchor
                 @Override
                 public String toString() {
                     return currentHistoryToken;
+                }
+
+                @Override
+                public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+                    return Optional.ofNullable(
+                        SpreadsheetSelection.A1.equals(spreadsheetExpressionReference) ?
+                        "=1+2+3000" :
+                        null
+                    );
                 }
             }
         );
