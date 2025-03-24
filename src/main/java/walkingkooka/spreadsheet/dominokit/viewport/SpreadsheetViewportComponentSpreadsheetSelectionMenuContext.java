@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAlias;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
@@ -31,6 +32,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenu;
@@ -105,6 +107,14 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     private final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors;
+
+    @Override
+    public Set<SpreadsheetExpressionReference> references(final SpreadsheetSelection selection) {
+        return selection.isExternalReference() ?
+            Sets.empty() :
+            this.context.spreadsheetViewportCache()
+                .cellReferences(selection.toExpressionReference());
+    }
 
     @Override
     public List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus() {

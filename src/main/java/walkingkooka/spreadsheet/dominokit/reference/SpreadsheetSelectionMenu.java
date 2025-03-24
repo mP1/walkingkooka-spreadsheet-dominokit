@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.hidezerovalues.HideZeroValues;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataColorPickerComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -159,6 +160,14 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         {
             if (selection.isCellOrCellRange()) {
                 label(historyToken, selection, menu, context);
+            }
+            if(selection.isExternalReference()) {
+                references(
+                    historyToken,
+                    selection,
+                    menu,
+                    context
+                );
             }
         }
     }
@@ -1110,6 +1119,28 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             ).contextMenuItem(
                 idPrefix + "-prompt" + SpreadsheetElementIds.MENU_ITEM,
                 "..."
+            )
+        );
+    }
+
+    private static void references(final HistoryToken historyToken,
+                                   final SpreadsheetSelection selection,
+                                   final SpreadsheetContextMenu menu,
+                                   final SpreadsheetSelectionMenuContext context) {
+        final Set<SpreadsheetExpressionReference> references = context.references(selection);
+
+        menu.item(
+            SpreadsheetContextMenuItem.with(
+                context.idPrefix() + "references" + SpreadsheetElementIds.MENU_ITEM,
+                "References"
+            ).badge(
+                Optional.of(
+                    String.valueOf(references.size())
+                )
+            ).historyToken(
+                Optional.of(
+                    historyToken.references(HistoryTokenOffsetAndCount.EMPTY)
+                )
             )
         );
     }

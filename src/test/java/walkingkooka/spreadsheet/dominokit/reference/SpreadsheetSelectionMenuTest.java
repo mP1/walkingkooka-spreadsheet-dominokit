@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
@@ -259,7 +260,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n"
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n"
         );
     }
 
@@ -472,7 +474,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n"
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n"
         );
     }
 
@@ -680,7 +683,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n"
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n"
         );
     }
 
@@ -903,7 +907,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n"
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n"
         );
     }
 
@@ -1139,7 +1144,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n"
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n"
         );
     }
 
@@ -1436,7 +1442,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Label123 (B2)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/label] id=test-label-create-MenuItem\n"
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/label] id=test-label-create-MenuItem\n" +
+                "  \"References\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/references] [0] id=test-references-MenuItem\n"
         );
     }
 
@@ -2064,6 +2071,15 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             @Override
             public List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors() {
                 return recentSpreadsheetFormatterSelectors;
+            }
+
+            @Override
+            public Set<SpreadsheetExpressionReference> references(final SpreadsheetSelection selection) {
+                return selection.equalsIgnoreReferenceKind(SpreadsheetSelection.A1) ?
+                    Sets.of(
+                        SpreadsheetSelection.parseCell("Z99")
+                    ) :
+                    Sets.empty();
             }
 
             @Override
