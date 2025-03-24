@@ -101,7 +101,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // -------
         // LABELS
 
-        if (selection.isCellOrCellRange() || selection.isLabelName()) {
+        if (selection.isExternalReference()) {
             clipboard(
                 historyToken,
                 menu,
