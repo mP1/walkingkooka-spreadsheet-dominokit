@@ -26,13 +26,14 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-final class BasicSpreadsheetViewportComponentTableContextSpreadsheetViewportNavigationContext extends FakeSpreadsheetViewportNavigationContext {
+final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContextSpreadsheetViewportNavigationContext extends FakeSpreadsheetViewportNavigationContext {
 
-    static BasicSpreadsheetViewportComponentTableContextSpreadsheetViewportNavigationContext with(final SpreadsheetViewportCache cache) {
-        return new BasicSpreadsheetViewportComponentTableContextSpreadsheetViewportNavigationContext(cache);
+    static SpreadsheetViewportComponentSpreadsheetViewportComponentTableContextSpreadsheetViewportNavigationContext with(final SpreadsheetViewportCache cache) {
+        return new SpreadsheetViewportComponentSpreadsheetViewportComponentTableContextSpreadsheetViewportNavigationContext(cache);
     }
 
-    private BasicSpreadsheetViewportComponentTableContextSpreadsheetViewportNavigationContext(final SpreadsheetViewportCache cache) {
+    // @VisibleForTesting
+    SpreadsheetViewportComponentSpreadsheetViewportComponentTableContextSpreadsheetViewportNavigationContext(final SpreadsheetViewportCache cache) {
         this.cache = cache;
     }
 

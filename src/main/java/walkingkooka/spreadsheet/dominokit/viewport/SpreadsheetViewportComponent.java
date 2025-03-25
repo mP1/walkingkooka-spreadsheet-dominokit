@@ -93,6 +93,7 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMen
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorMenuList;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStyleProperty;
 
 import java.util.List;
@@ -263,7 +264,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     /**
      * True when the SHIFT key is down. Column and Row headers will create {@link SpreadsheetViewportNavigation#extendColumn(SpreadsheetColumnReference)} etc rather than {@link SpreadsheetViewportNavigation#column(SpreadsheetColumnReference)}, navigations.
      */
-    private boolean shiftKeyDown;
+    boolean shiftKeyDown;
 
     // setCssText.......................................................................................................
 
@@ -328,7 +329,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     // table............................................................................................................
 
     private SpreadsheetViewportComponentTable table() {
-        final SpreadsheetViewportComponentTable table = SpreadsheetViewportComponentTable.empty(this.context);
+        final SpreadsheetViewportComponentTable table = SpreadsheetViewportComponentTable.empty(
+            SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext.with(
+                this
+            )
+        );
 
         final HTMLTableElement element = table.element();
 
@@ -1012,10 +1017,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         final HistoryToken historyToken = context.historyToken();
         final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection = historyToken.anchoredSelectionOrEmpty();
 
-        this.refreshTable(
-            maybeAnchorSelection,
-            context
-        );
+        this.refreshTable(maybeAnchorSelection);
 
         if (historyToken instanceof SpreadsheetCellSelectHistoryToken ||
             historyToken instanceof SpreadsheetColumnSelectHistoryToken ||
@@ -1038,8 +1040,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         this.scrollbarsRefresh();
     }
 
-    private void refreshTable(final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection,
-                              final RefreshContext context) {
+    private void refreshTable(final Optional<AnchoredSpreadsheetSelection> maybeAnchorSelection) {
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
         final SpreadsheetViewportCache cache = this.context.spreadsheetViewportCache();
         final SpreadsheetViewportWindows windows = cache.windows();
@@ -1058,27 +1059,34 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 (false == s.isCellRange() && selectionNotLabel.test(s));
         }
 
+        this.hideZeroValues = metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES);
+        this.defaultCellStyle = metadata.effectiveStyle()
+            .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE);
+        this.mustRefresh = metadata.shouldViewRefresh(this.refreshMetadata);
+        this.spreadsheetViewport = this.spreadsheetViewport();
+
         this.table.refresh(
-            metadata.id().get(),
+            metadata.id()
+                .get(),
             metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME),
             windows,
-            selected,
-            BasicSpreadsheetViewportComponentTableContext.with(
-                context,
-                cache,
-                metadata.getOrFail(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES),
-                metadata.effectiveStyle()
-                    .merge(SpreadsheetViewportComponentTableCell.CELL_STYLE),
-                metadata.shouldViewRefresh(this.refreshMetadata),
-                this.shiftKeyDown,
-                this.spreadsheetViewport(),
-                context
-            )
+            selected
         );
         this.refreshMetadata = metadata;
     }
 
     private SpreadsheetMetadata refreshMetadata;
+
+    boolean hideZeroValues;
+
+    TextStyle defaultCellStyle;
+
+    boolean mustRefresh;
+
+    /**
+     * Cached {@link SpreadsheetViewport} shared by {@link SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext}.
+     */
+    SpreadsheetViewport spreadsheetViewport;
 
     @Override
     public void openGiveFocus(final RefreshContext context) {
@@ -1369,7 +1377,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         return Optional.ofNullable(element);
     }
 
-    private final AppContext context;
+    final AppContext context;
 
     // helpers..........................................................................................................
 
