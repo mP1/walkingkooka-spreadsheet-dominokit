@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.delete.SpreadsheetCellDeleteAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
+import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -63,7 +63,7 @@ public final class SpreadsheetCellLinksComponent implements HtmlElementComponent
             context
         );
 
-        this.root = SpreadsheetFlexLayout.row()
+        this.root = SpreadsheetLinkListComponent.empty()
             .appendChild(this.createLabels)
             .appendChild(this.labels)
             .appendChild(this.references)
@@ -130,7 +130,7 @@ public final class SpreadsheetCellLinksComponent implements HtmlElementComponent
         return this.root.element();
     }
 
-    private final SpreadsheetFlexLayout root;
+    private final SpreadsheetLinkListComponent root;
 
     // TreePrintable....................................................................................................
 

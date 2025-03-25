@@ -186,13 +186,14 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Sprea
                 "                  SpreadsheetTextComponent\n" +
                 "                    \"\"\n" +
                 "                  SpreadsheetTextNodeComponent\n" +
-                "                  SpreadsheetLinkListComponent\n" +
-                "                    SpreadsheetFlexLayout\n" +
-                "                      ROW\n" +
-                "                        \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=references-cells-A1-label-create-Link\n" +
-                "                        \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (0) id=references-cells-A1-labels-Link\n" +
-                "                        \"References\" [#/123/SpreadsheetName456/cell/A1/references] (0) id=references-cells-A1-references-Link\n" +
-                "                        \"Delete\" [#/123/SpreadsheetName456/cell/A1/delete] id=references-cells-A1-delete-Link\n" +
+                "                  SpreadsheetCellLinksComponent\n" +
+                "                    SpreadsheetLinkListComponent\n" +
+                "                      SpreadsheetFlexLayout\n" +
+                "                        ROW\n" +
+                "                          \"Create Labels\" [#/123/SpreadsheetName456/cell/A1/label] id=references-cells-A1-createLabels-Link\n" +
+                "                          \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (0) id=references-cells-A1-label-Link\n" +
+                "                          \"References\" [#/123/SpreadsheetName456/cell/A1/references] (0) id=references-cells-A1-references-Link\n" +
+                "                          \"Delete\" [#/123/SpreadsheetName456/cell/A1/delete] id=references-cells-A1-delete-Link\n" +
                 "              CHILDREN\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +

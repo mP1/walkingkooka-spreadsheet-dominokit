@@ -20,13 +20,9 @@ package walkingkooka.spreadsheet.dominokit.delta;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellCreateLabelSelectAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLabelsAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponent;
 import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponentCellRenderer;
-import walkingkooka.spreadsheet.dominokit.delete.SpreadsheetCellDeleteAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaSelectAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.link.SpreadsheetLinkListComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference.SpreadsheetExpressionReferenceSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextComponent;
 import walkingkooka.spreadsheet.dominokit.value.SpreadsheetTextNodeComponent;
@@ -115,42 +111,15 @@ final class SpreadsheetDeltaCellsTableComponentSpreadsheetDataTableComponentCell
         );
     }
 
-    private SpreadsheetLinkListComponent renderCellLinks(final SpreadsheetCell cell) {
+    private SpreadsheetCellLinksComponent renderCellLinks(final SpreadsheetCell cell) {
         final SpreadsheetCellReference cellReference = cell.reference();
-        final String prefix = this.idPrefix + cellReference + "-";
-        final SpreadsheetDeltaCellsTableComponentContext context = this.context;
 
-        // createLabels, labels, reference, delete
-        return SpreadsheetLinkListComponent.empty()
-            .appendChild(
-                SpreadsheetCellCreateLabelSelectAnchorComponent.with(
-                    prefix + "label-create" + SpreadsheetElementIds.LINK,
-                    context // HistoryContext
-                ).setValue(
-                    Optional.of(cellReference)
-                ).setTextContent("Create Label")
-            ).appendChild(
-                SpreadsheetCellLabelsAnchorComponent.with(
-                    prefix + "labels" + SpreadsheetElementIds.LINK,
-                    context // SpreadsheetCellLabelsAnchorComponentContext
-                ).setValue(
-                    Optional.of(cellReference)
-                ).setTextContent("Labels")
-            ).appendChild(
-                SpreadsheetCellReferencesAnchorComponent.with(
-                    prefix + "references" + SpreadsheetElementIds.LINK,
-                    context // SpreadsheetCellReferencesAnchorComponentContext
-                ).setValue(
-                    Optional.of(cellReference)
-                ).setTextContent("References")
-            ).appendChild(
-                SpreadsheetCellDeleteAnchorComponent.with(
-                    prefix + "delete" + SpreadsheetElementIds.LINK,
-                    context // HistoryContext
-                ).setValue(
-                    Optional.of(cellReference)
-                ).setTextContent("Delete")
-            );
+        return SpreadsheetCellLinksComponent.empty(
+            this.idPrefix + cellReference + "-",
+            this.context
+        ).setValue(
+            Optional.of(cellReference)
+        );
     }
 
     private final String idPrefix;
