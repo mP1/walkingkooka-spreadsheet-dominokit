@@ -29,7 +29,6 @@ import walkingkooka.collect.set.SortedSets;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.SpreadsheetViewportWindows;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -44,11 +43,13 @@ import java.util.function.Predicate;
  */
 final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElement> {
 
-    static SpreadsheetViewportComponentTable empty(final HistoryContext context) {
+    static SpreadsheetViewportComponentTable empty(final SpreadsheetViewportComponentTableContext context) {
         return new SpreadsheetViewportComponentTable(context);
     }
 
-    private SpreadsheetViewportComponentTable(final HistoryContext context) {
+    private SpreadsheetViewportComponentTable(final SpreadsheetViewportComponentTableContext context) {
+        this.context = context;
+
         final TableElement table = ElementsFactory.elements.table()
             .id(SpreadsheetViewportComponent.ID)
             .setOverFlow("hidden");
@@ -82,9 +83,10 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
     void refresh(final SpreadsheetId id,
                  final SpreadsheetName name,
                  final SpreadsheetViewportWindows windows,
-                 final Predicate<SpreadsheetSelection> selected,
-                 final SpreadsheetViewportComponentTableContext context) {
+                 final Predicate<SpreadsheetSelection> selected) {
         Objects.requireNonNull(windows, "windows");
+
+        final SpreadsheetViewportComponentTableContext context = this.context;
 
         if (false == id.equals(this.id) || false == name.equals(this.name)) {
             this.id = id;
@@ -184,4 +186,6 @@ final class SpreadsheetViewportComponentTable implements IsElement<HTMLTableElem
     private final TableElement table;
 
     private final TBodyElement tbody;
+
+    private final SpreadsheetViewportComponentTableContext context;
 }
