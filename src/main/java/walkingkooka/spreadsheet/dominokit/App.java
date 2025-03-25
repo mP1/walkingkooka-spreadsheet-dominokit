@@ -102,6 +102,7 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentContexts;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.SpreadsheetExporterProvider;
@@ -309,7 +310,9 @@ public class App implements EntryPoint,
 
         this.viewportCache = SpreadsheetViewportCache.empty(this);
 
-        this.viewportComponent = SpreadsheetViewportComponent.empty(this);
+        this.viewportComponent = SpreadsheetViewportComponent.empty(
+            SpreadsheetViewportComponentContexts.appContext(this)
+        );
 
         AppSpreadsheetDialogComponents.register(this);
 
