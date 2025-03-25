@@ -867,9 +867,8 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         this.loadViewportCellsIfNecessary(context);
     }
 
-    public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> anchoredSelection,
-                                        final AppContext context) {
-        final SpreadsheetCellReference home = context.spreadsheetMetadata()
+    public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
+        final SpreadsheetCellReference home = this.context.spreadsheetMetadata()
             .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT)
             .rectangle()
             .home();
