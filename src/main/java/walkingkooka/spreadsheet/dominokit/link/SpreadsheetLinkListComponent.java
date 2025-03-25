@@ -23,8 +23,6 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.flex.SpreadsheetFlexLayout;
 import walkingkooka.text.printer.IndentingPrinter;
 
-import java.util.Objects;
-
 /**
  * Holds a list of {@link AnchorComponent}, and is a dumb container and does not support refreshing all anchors. Refreshing
  * the anchors must be done externally.
@@ -41,8 +39,6 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
     }
 
     public SpreadsheetLinkListComponent appendChild(final AnchorComponent<?, ?> anchor) {
-        Objects.requireNonNull(anchor, "anchor");
-
         this.root.appendChild(anchor);
         return this;
     }
