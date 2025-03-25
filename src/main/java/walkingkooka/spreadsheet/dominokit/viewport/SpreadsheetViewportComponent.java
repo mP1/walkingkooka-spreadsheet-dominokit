@@ -301,7 +301,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     // formulaComponent.................................................................................................
 
     private SpreadsheetViewportFormulaComponent formula() {
-        return SpreadsheetViewportFormulaComponent.with(this.context);
+        return SpreadsheetViewportFormulaComponent.with(
+            AppContextSpreadsheetViewportFormulaComponentContext.with(this.context)
+        );
     }
 
     private final SpreadsheetViewportFormulaComponent formula;

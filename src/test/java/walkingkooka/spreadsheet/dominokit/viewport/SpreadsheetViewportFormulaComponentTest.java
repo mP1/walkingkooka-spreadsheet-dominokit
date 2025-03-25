@@ -54,7 +54,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlElemen
     @Test
     public void testRefresh() {
 
-        final TestAppContext context = new TestAppContext();
+        final TestSpreadsheetViewportFormulaComponentContext context = new TestSpreadsheetViewportFormulaComponentContext();
 
         final SpreadsheetViewportFormulaComponent component = SpreadsheetViewportFormulaComponent.with(context);
 
@@ -93,7 +93,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlElemen
         );
     }
 
-    static class TestAppContext extends FakeAppContext {
+    static class TestSpreadsheetViewportFormulaComponentContext extends FakeAppContext implements SpreadsheetViewportFormulaComponentContext {
 
         @Override
         public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {

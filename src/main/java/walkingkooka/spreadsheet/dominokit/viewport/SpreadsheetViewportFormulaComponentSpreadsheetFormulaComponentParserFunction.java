@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
@@ -40,13 +39,13 @@ import java.util.function.Function;
  */
 final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction implements Function<String, SpreadsheetFormula> {
 
-    public static SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction with(final AppContext context) {
+    public static SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction with(final SpreadsheetViewportFormulaComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction(context);
     }
 
-    private SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction(final AppContext context) {
+    private SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction(final SpreadsheetViewportFormulaComponentContext context) {
         this.context = context;
     }
 
@@ -54,7 +53,7 @@ final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParser
     public SpreadsheetFormula apply(final String text) {
         Parser<SpreadsheetParserContext> parser = null;
 
-        final AppContext context = this.context;
+        final SpreadsheetViewportFormulaComponentContext context = this.context;
         final SpreadsheetViewportCache viewportCache = context.spreadsheetViewportCache();
 
         final Optional<SpreadsheetCell> maybeCell = viewportCache.cell(
@@ -91,7 +90,7 @@ final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParser
         );
     }
 
-    private final AppContext context;
+    private final SpreadsheetViewportFormulaComponentContext context;
 
     @Override
     public String toString() {

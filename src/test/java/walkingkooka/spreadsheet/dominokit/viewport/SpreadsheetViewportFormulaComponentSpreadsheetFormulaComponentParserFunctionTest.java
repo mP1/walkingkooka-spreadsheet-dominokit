@@ -26,7 +26,6 @@ import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.SpreadsheetErrorKind;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -71,7 +70,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                this.appContext(
+                this.createContext(
                     SpreadsheetSelection.labelName("Unknown"),
                     SpreadsheetMetadata.EMPTY
                 )
@@ -85,7 +84,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
 
         this.applyAndCheck(
             SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                this.appContext(
+                this.createContext(
                     SpreadsheetSelection.A1,
                     METADATA
                 )
@@ -106,7 +105,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     public void testCellMissingWithNumber() {
         this.applyAndCheck2(
             SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                this.appContext(
+                this.createContext(
                     SpreadsheetSelection.A1,
                     METADATA_EN_AU
                 )
@@ -119,7 +118,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     public void testCellMissingWithDate() {
         this.applyAndCheck2(
             SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                this.appContext(
+                this.createContext(
                     SpreadsheetSelection.A1,
                     METADATA
                 )
@@ -132,7 +131,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     public void testCellMissingWithDateTime() {
         this.applyAndCheck2(
             SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                this.appContext(
+                this.createContext(
                     SpreadsheetSelection.A1,
                     METADATA
                 )
@@ -145,7 +144,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     public void testCellMissingWithTime() {
         this.applyAndCheck2(
             SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                this.appContext(
+                this.createContext(
                     SpreadsheetSelection.A1,
                     METADATA
                 )
@@ -158,7 +157,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     public void testCellMissingWithCellReference() {
         this.applyAndCheck2(
             SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                this.appContext(
+                this.createContext(
                     SpreadsheetSelection.A1,
                     METADATA
                 )
@@ -171,7 +170,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     public void testCellMissingWithLabelReference() {
         this.applyAndCheck2(
             SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                this.appContext(
+                this.createContext(
                     SpreadsheetSelection.A1,
                     METADATA
                 )
@@ -184,7 +183,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     public void testCellMissingWithFunction() {
         this.applyAndCheck2(
             SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                this.appContext(
+                this.createContext(
                     SpreadsheetSelection.A1,
                     METADATA
                 )
@@ -196,7 +195,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     @Test
     public void testCellPresentWithoutParser() {
         final SpreadsheetCellReference cellReference = SpreadsheetSelection.parseCell("B2");
-        final AppContext context = this.appContext(
+        final SpreadsheetViewportFormulaComponentContext context = this.createContext(
             cellReference,
             METADATA
         );
@@ -225,7 +224,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
 
         this.applyAndCheck(
             SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-                this.appContext(
+                this.createContext(
                     cellReference,
                     metadata
                 )
@@ -245,7 +244,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     @Test
     public void testCellPresentUsingParser() {
         final SpreadsheetCellReference cellReference = SpreadsheetSelection.parseCell("B2");
-        final AppContext context = this.appContext(
+        final SpreadsheetViewportFormulaComponentContext context = this.createContext(
             cellReference,
             METADATA
         );
@@ -291,7 +290,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         final SpreadsheetCellReference cellReference = SpreadsheetSelection.parseCell("B2");
         final SpreadsheetLabelName label = SpreadsheetSelection.labelName("Label123");
 
-        final AppContext context = this.appContext(
+        final SpreadsheetViewportFormulaComponentContext context = this.createContext(
             label,
             METADATA
         );
@@ -354,59 +353,75 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     @Override
     public SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction createFunction() {
         return SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
-            AppContexts.fake()
+            new FakeSpreadsheetViewportFormulaComponentContext()
         );
     }
 
-    private AppContext appContext(final SpreadsheetSelection selection,
-                                  final SpreadsheetMetadata metadata) {
-        return new FakeAppContext() {
+    private SpreadsheetViewportFormulaComponentContext createContext(final SpreadsheetSelection selection,
+                                                                     final SpreadsheetMetadata metadata) {
+        return new TestSpreadsheetViewportFormulaComponentContext(
+            selection,
+            metadata
+        );
+    }
 
-            @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                return null;
-            }
 
-            @Override
-            public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
-                return null;
-            }
+    class TestSpreadsheetViewportFormulaComponentContext extends FakeAppContext implements SpreadsheetViewportFormulaComponentContext {
 
-            @Override
-            public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-                return null;
-            }
+        TestSpreadsheetViewportFormulaComponentContext(final SpreadsheetSelection selection,
+                                                       final SpreadsheetMetadata metadata) {
+            this.selection = selection;
+            this.metadata = metadata;
+        }
 
-            @Override
-            public HistoryToken historyToken() {
-                return HistoryToken.selection(
-                    SpreadsheetId.with(1),
-                    SpreadsheetName.with("Spreadsheet123"),
-                    selection.setDefaultAnchor()
-                );
-            }
+        @Override
+        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            return null;
+        }
 
-            @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return metadata;
-            }
+        @Override
+        public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
+            return null;
+        }
 
-            @Override
-            public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
-                                                       final ProviderContext context) {
-                return SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(
-                    selector,
-                    context
-                );
-            }
+        @Override
+        public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+            return null;
+        }
 
-            @Override
-            public SpreadsheetViewportCache spreadsheetViewportCache() {
-                return viewportCache;
-            }
+        @Override
+        public HistoryToken historyToken() {
+            return HistoryToken.selection(
+                SpreadsheetId.with(1),
+                SpreadsheetName.with("Spreadsheet123"),
+                selection.setDefaultAnchor()
+            );
+        }
 
-            private final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty(this);
-        };
+        private final SpreadsheetSelection selection;
+
+        @Override
+        public SpreadsheetMetadata spreadsheetMetadata() {
+            return metadata;
+        }
+
+        private final SpreadsheetMetadata metadata;
+
+        @Override
+        public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
+                                                   final ProviderContext context) {
+            return SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(
+                selector,
+                context
+            );
+        }
+
+        @Override
+        public SpreadsheetViewportCache spreadsheetViewportCache() {
+            return viewportCache;
+        }
+
+        private final SpreadsheetViewportCache viewportCache = SpreadsheetViewportCache.empty(this);
     }
 
     @Override
