@@ -337,37 +337,36 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
         final HTMLTableElement element = table.element();
 
-        this.addFocusInEventListener(element);
-        this.addFocusOutEventListener(element);
+        element.addEventListener(
+            "focusin",
+            (event) -> this.focused = true
+        );
+        element.addEventListener(
+            "focusout",
+            (event) -> this.focused = false
+        );
 
-        this.addClickEventListener(element);
-        this.addKeyDownEventListener(element);
-        this.addContextMenuEventListener(element);
+        element.addEventListener(
+            EventType.click.getName(),
+            (event) -> onTableClickEvent(
+                Js.cast(event)
+            )
+        );
+        element.addEventListener(
+            EventType.keydown.getName(),
+            (event) -> onTableKeyDownEvent(
+                Js.cast(event)
+            )
+        );
+        element.addEventListener(
+            EventType.contextmenu.getName(),
+            this::onTableContextMenu
+        );
 
         return table;
     }
 
     // focus ...........................................................................................................
-
-    /**
-     * Registers a focusin event handler which SETS a flag which tracks whether the viewport TABLE (cell-grid) has focus or not.
-     */
-    private void addFocusInEventListener(final Element element) {
-        element.addEventListener(
-            "focusin",
-            (event) -> this.focused = true
-        );
-    }
-
-    /**
-     * Registers a focusout event handler which CLEARS a flag which tracks whether the viewport TABLE (cell-grid) has focus or not.
-     */
-    private void addFocusOutEventListener(final Element element) {
-        element.addEventListener(
-            "focusout",
-            (event) -> this.focused = false
-        );
-    }
 
     /**
      * When true indicates that some part of the viewport has FOCUS.
@@ -376,19 +375,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     // click ...........................................................................................................
 
-    /**
-     * Registers a click event handler on the given {@link Element table} and computes the selected {@link SpreadsheetCellReference}.
-     */
-    private void addClickEventListener(final Element element) {
-        element.addEventListener(
-            EventType.click.getName(),
-            (event) -> onClickEvent(
-                Js.cast(event)
-            )
-        );
-    }
-
-    private void onClickEvent(final MouseEvent event) {
+    private void onTableClickEvent(final MouseEvent event) {
         event.preventDefault();
 
         final EventTarget eventTarget = event.target;
@@ -440,21 +427,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     // key down.........................................................................................................
 
     /**
-     * Registers a keydown event handler on the given {@link Element}.
-     */
-    private void addKeyDownEventListener(final Element element) {
-        element.addEventListener(
-            EventType.keydown.getName(),
-            (event) -> onKeyDownEvent(
-                Js.cast(event)
-            )
-        );
-    }
-
-    /**
      * Generic key event handler that handles any key events for cell/column OR row.
      */
-    private void onKeyDownEvent(final KeyboardEvent event) {
+    private void onTableKeyDownEvent(final KeyboardEvent event) {
         event.preventDefault();
 
         final boolean shifted = event.shiftKey;
@@ -512,18 +487,11 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     // context menu.....................................................................................................
 
-    private void addContextMenuEventListener(final Element element) {
-        element.addEventListener(
-            EventType.contextmenu.getName(),
-            this::onContextMenu
-        );
-    }
-
     /**
      * First tries to find the outer parent element be it a column/row or cell trying to find an id and then extracting the
      * selection from the id. Once this is found, the context menu is updated with the {@link SpreadsheetSelection}.
      */
-    private void onContextMenu(final Event event) {
+    private void onTableContextMenu(final Event event) {
         event.preventDefault();
 
         final EventTarget eventTarget = event.target;
