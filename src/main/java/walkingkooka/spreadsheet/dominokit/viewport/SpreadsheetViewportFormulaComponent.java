@@ -192,11 +192,11 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
         final SpreadsheetCellHistoryToken token = context.historyToken()
             .cast(SpreadsheetCellHistoryToken.class);
         final SpreadsheetFormulaComponent formula = this.formula;
-        final SpreadsheetSelection notLabelSelection = this.context.spreadsheetViewportCache()
-            .resolveIfLabel(
-                token.anchoredSelection()
-                    .selection()
-            );
+        final SpreadsheetViewportCache cache = this.context.spreadsheetViewportCache();
+        final SpreadsheetSelection notLabelSelection = cache.resolveIfLabel(
+            token.anchoredSelection()
+                .selection()
+        );
         final boolean isCell = notLabelSelection.isCell();
         formula.setEnabled(isCell);
 
@@ -210,7 +210,6 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
                     context
                 );
             } else {
-                final SpreadsheetViewportCache cache = this.context.spreadsheetViewportCache();
                 // refresh could have happened before label from selection has returned from server.
                 // remove try/catch and if != null when https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2575 implemented.
                 Optional<SpreadsheetCell> cell;
