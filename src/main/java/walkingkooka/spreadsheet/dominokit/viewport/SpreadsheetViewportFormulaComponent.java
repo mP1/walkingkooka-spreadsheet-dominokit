@@ -58,13 +58,13 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
     SpreadsheetDeltaFetcherWatcher,
     LoadedSpreadsheetMetadataRequired {
 
-    public static SpreadsheetViewportFormulaComponent with(final AppContext context) {
+    public static SpreadsheetViewportFormulaComponent with(final SpreadsheetViewportFormulaComponentContext context) {
         return new SpreadsheetViewportFormulaComponent(
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetViewportFormulaComponent(final AppContext context) {
+    private SpreadsheetViewportFormulaComponent(final SpreadsheetViewportFormulaComponentContext context) {
         this.formula = SpreadsheetFormulaComponent.empty(
                 SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(context)
             ).alwaysShowHelperText()
@@ -83,7 +83,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
     }
 
     private void onFocus(final Event event) {
-        final AppContext context = this.context;
+        final SpreadsheetViewportFormulaComponentContext context = this.context;
         final HistoryToken historyToken = context.historyToken();
 
         context.debug("SpreadsheetViewportFormulaComponent.onFocus " + historyToken.anchoredSelectionOrEmpty());
@@ -94,7 +94,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
     }
 
     private void onKeyDownEvent(final KeyboardEvent event) {
-        final AppContext context = this.context;
+        final SpreadsheetViewportFormulaComponentContext context = this.context;
 
         switch (Key.fromEvent(event)) {
             case Enter:
@@ -332,5 +332,5 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlElementCom
 
     private final SpreadsheetFormulaComponent formula;
 
-    private final AppContext context;
+    private final SpreadsheetViewportFormulaComponentContext context;
 }
