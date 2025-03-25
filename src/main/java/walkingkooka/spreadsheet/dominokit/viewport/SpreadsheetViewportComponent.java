@@ -133,7 +133,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     private SpreadsheetViewportComponent(final AppContext context) {
         this.context = context;
 
-        this.formulaComponent = this.formula();
+        this.formula = this.formula();
 
         this.table = this.table();
 
@@ -212,7 +212,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         // overflow:hidden required to prevent scrollbars...
         root.style("width:100%; border: none; margin: 0px; padding: none; overflow: hidden");
 
-        root.appendChild(this.formulaComponent);
+        root.appendChild(this.formula);
         root.appendChild(this.tableContainer);
 
         root.addEventListener(
@@ -303,7 +303,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         return SpreadsheetViewportFormulaComponent.with(this.context);
     }
 
-    private final SpreadsheetViewportFormulaComponent formulaComponent;
+    private final SpreadsheetViewportFormulaComponent formula;
 
     // table container..................................................................................................
 
@@ -921,7 +921,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     }
 
     private int height() {
-        return this.height - this.formulaComponent.element()
+        return this.height - this.formula.element()
             .offsetHeight;
     }
 
