@@ -49,6 +49,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCacheContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -90,6 +91,7 @@ public interface AppContext extends CanGiveFocus,
     HistoryContext,
     LoggingContext,
     RefreshContext,
+    SpreadsheetViewportCacheContext,
     Context {
 
     /**
