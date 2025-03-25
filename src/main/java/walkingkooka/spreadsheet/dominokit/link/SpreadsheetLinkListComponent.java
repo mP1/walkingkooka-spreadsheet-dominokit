@@ -56,8 +56,6 @@ public final class SpreadsheetLinkListComponent implements HtmlElementComponent<
 
     @Override
     public SpreadsheetLinkListComponent setCssText(final String css) {
-        Objects.requireNonNull(css, "css");
-
         this.root.setCssText(css);
         return this;
     }
