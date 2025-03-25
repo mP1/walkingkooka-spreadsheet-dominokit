@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProviderDelegator;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuContext;
@@ -54,7 +53,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
                                                                             final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus,
                                                                             final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
                                                                             final List<TextStyleProperty<?>> recentTextStyleProperties,
-                                                                            final AppContext context) {
+                                                                            final SpreadsheetViewportComponentContext context) {
         return new SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(
             recentSpreadsheetFormatterSelectors,
             spreadsheetFormatterSelectorsMenus,
@@ -68,7 +67,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
                                                                         final List<SpreadsheetFormatterSelectorMenu> spreadsheetFormatterSelectorsMenus,
                                                                         final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
                                                                         final List<TextStyleProperty<?>> recentTextStyleProperties,
-                                                                        final AppContext context) {
+                                                                        final SpreadsheetViewportComponentContext context) {
         this.recentSpreadsheetFormatterSelectors = recentSpreadsheetFormatterSelectors;
         this.spreadsheetFormatterSelectorsMenus = spreadsheetFormatterSelectorsMenus;
 
@@ -177,7 +176,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         return this.context.resolveLabel(spreadsheetLabelName);
     }
 
-    private final AppContext context;
+    private final SpreadsheetViewportComponentContext context;
 
     @Override
     public String toString() {

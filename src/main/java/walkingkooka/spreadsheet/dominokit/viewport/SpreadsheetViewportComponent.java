@@ -125,13 +125,13 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     final static int MAX_RECENT_COUNT = 3;
 
-    public static SpreadsheetViewportComponent empty(final AppContext context) {
+    public static SpreadsheetViewportComponent empty(final SpreadsheetViewportComponentContext context) {
         Objects.requireNonNull(context, "context");
 
         return new SpreadsheetViewportComponent(context);
     }
 
-    private SpreadsheetViewportComponent(final AppContext context) {
+    private SpreadsheetViewportComponent(final SpreadsheetViewportComponentContext context) {
         this.context = context;
 
         this.formula = this.formula();
@@ -301,9 +301,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     // formulaComponent.................................................................................................
 
     private SpreadsheetViewportFormulaComponent formula() {
-        return SpreadsheetViewportFormulaComponent.with(
-            AppContextSpreadsheetViewportFormulaComponentContext.with(this.context)
-        );
+        return SpreadsheetViewportFormulaComponent.with(this.context);
     }
 
     private final SpreadsheetViewportFormulaComponent formula;
@@ -394,7 +392,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      */
     private void findSelectionAndNavigate(final Element element,
                                           final boolean shiftKeyDown) {
-        final AppContext context = this.context;
+        final SpreadsheetViewportComponentContext context = this.context;
 
         Element walk = element;
         for (; ; ) {
@@ -435,7 +433,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         event.preventDefault();
 
         final boolean shifted = event.shiftKey;
-        final AppContext context = this.context;
+        final SpreadsheetViewportComponentContext context = this.context;
 
         SpreadsheetViewportNavigation navigation = null;
         switch (Key.fromEvent(event)) {
@@ -509,7 +507,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 if (maybeSelection.isPresent()) {
                     final SpreadsheetSelection selection = maybeSelection.get();
 
-                    final AppContext context = this.context;
+                    final SpreadsheetViewportComponentContext context = this.context;
 
                     context.pushHistoryToken(
                         context.historyToken()
@@ -850,7 +848,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                                   final int height) {
         final boolean reload = width > this.width || height > this.height;
 
-        final AppContext context = this.context;
+        final SpreadsheetViewportComponentContext context = this.context;
         context.debug("SpreadsheetViewportComponent.setWidthAndHeight " + width + "x" + height + " was " + this.width + "x" + this.height + " reload: " + reload);
 
         this.width = width;
@@ -864,7 +862,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         this.table.setWidth(this.tableWidth());
         this.table.setHeight(this.tableHeight());
 
-        this.loadViewportCellsIfNecessary(context);
+        this.loadViewportCellsIfNecessary();
     }
 
     public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
@@ -1143,7 +1141,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             );
         }
         this.componentLifecycleHistoryTokenQuery(context);
-        this.loadViewportCellsIfNecessary(context);
+        this.loadViewportCellsIfNecessary();
     }
 
     /**
@@ -1223,7 +1221,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         }
         this.metadata = metadata;
 
-        this.loadViewportCellsIfNecessary(context);
+        this.loadViewportCellsIfNecessary();
 
         // the returned metadata isnt any different from the current metadata skip rendering again.
         if (this.reload) {
@@ -1247,7 +1245,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     /**
      * Tests if various requirements are ready and the viewport should be loaded again.
      */
-    private void loadViewportCellsIfNecessary(final AppContext context) {
+    private void loadViewportCellsIfNecessary() {
+        final SpreadsheetViewportComponentContext context = this.context;
+
         if (context.spreadsheetDeltaFetcher().waitingRequestCount() == 0) {
             final boolean reload = this.reload;
             final int width = this.width;
@@ -1270,7 +1270,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * Unconditionally Loads all the cells to fill the viewport using the {@link #navigations} buffer. Assumes that a metadata with id is present.
      */
     public void loadViewportCells() {
-        final AppContext context = this.context;
+        final SpreadsheetViewportComponentContext context = this.context;
 
         final SpreadsheetId id = context.spreadsheetMetadata()
             .getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
@@ -1311,13 +1311,13 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * sends it to the server for actioning.
      */
     private void onNavigation(final SpreadsheetViewportNavigation navigation,
-                              final AppContext context) {
+                              final SpreadsheetViewportComponentContext context) {
         Objects.requireNonNull(navigation, "navigation");
         Objects.requireNonNull(context, "context");
 
         this.navigations = this.navigations.concat(navigation);
         this.reload = true;
-        this.loadViewportCellsIfNecessary(context);
+        this.loadViewportCellsIfNecessary();
 
     }
 
@@ -1348,7 +1348,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         return Optional.ofNullable(element);
     }
 
-    final AppContext context;
+    final SpreadsheetViewportComponentContext context;
 
     // helpers..........................................................................................................
 
