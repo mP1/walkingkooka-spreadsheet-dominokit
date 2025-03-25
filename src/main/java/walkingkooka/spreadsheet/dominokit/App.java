@@ -1111,7 +1111,7 @@ public class App implements EntryPoint,
 
     @Override
     public void reload() {
-        this.viewportComponent.loadViewportCells(this);
+        this.viewportComponent.loadViewportCells();
     }
 
     @Override

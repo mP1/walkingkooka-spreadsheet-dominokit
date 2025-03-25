@@ -1258,7 +1258,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
                 if (metadata.isEmpty()) {
                     context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary waiting for metadata");
                 } else {
-                    this.loadViewportCells(context);
+                    this.loadViewportCells();
                 }
             } else {
                 context.debug("SpreadsheetViewportComponent.loadViewportCellsIfNecessary not ready, reload: " + reload + " width: " + width + " height: " + height + " metadata.isEmpty: " + metadata.isEmpty() + " open " + this.open);
@@ -1269,7 +1269,9 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     /**
      * Unconditionally Loads all the cells to fill the viewport using the {@link #navigations} buffer. Assumes that a metadata with id is present.
      */
-    public void loadViewportCells(final AppContext context) {
+    public void loadViewportCells() {
+        final AppContext context = this.context;
+
         final SpreadsheetId id = context.spreadsheetMetadata()
             .getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
 
