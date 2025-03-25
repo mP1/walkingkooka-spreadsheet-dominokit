@@ -796,8 +796,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
      * done using the last window.
      */
     private void scrollbarsRefresh() {
-        final AppContext context = this.context;
-        final SpreadsheetViewportCache cache = context.spreadsheetViewportCache();
+        final SpreadsheetViewportCache cache = this.spreadsheetViewportCache();
         final Optional<SpreadsheetCellRangeReference> maybeLast = cache.windows()
             .last();
         final OptionalInt maybeColumnCount = cache.columnCount();
@@ -957,7 +956,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
 
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final RefreshContext context) {
-        final SpreadsheetSelection nonLabelSelection = this.context.spreadsheetViewportCache()
+        final SpreadsheetSelection nonLabelSelection = this.spreadsheetViewportCache()
             .resolveIfLabel(
                 selection.selection()
             );
