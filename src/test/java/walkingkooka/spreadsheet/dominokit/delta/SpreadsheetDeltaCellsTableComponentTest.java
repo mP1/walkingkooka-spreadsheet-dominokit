@@ -148,7 +148,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "              SpreadsheetLinkListComponent\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    \"Create Labels\" [#/1/Spreadsheet222/cell/A1/label] id=ID123-cells-A1-createLabels-Link\n" +
+                "                    \"Create Label\" [#/1/Spreadsheet222/cell/A1/label] id=ID123-cells-A1-createLabel-Link\n" +
                 "                    \"Labels\" [#/1/Spreadsheet222/cell/A1/labels] (2) id=ID123-cells-A1-label-Link\n" +
                 "                    \"References\" [#/1/Spreadsheet222/cell/A1/references] (2) id=ID123-cells-A1-references-Link\n" +
                 "                    \"Delete\" [#/1/Spreadsheet222/cell/A1/delete] id=ID123-cells-A1-delete-Link\n" +
@@ -213,7 +213,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "              SpreadsheetLinkListComponent\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    \"Create Labels\" [#/1/Spreadsheet222/cell/A1/label] id=ID123-cells-A1-createLabels-Link\n" +
+                "                    \"Create Label\" [#/1/Spreadsheet222/cell/A1/label] id=ID123-cells-A1-createLabel-Link\n" +
                 "                    \"Labels\" [#/1/Spreadsheet222/cell/A1/labels] (2) id=ID123-cells-A1-label-Link\n" +
                 "                    \"References\" [#/1/Spreadsheet222/cell/A1/references] (2) id=ID123-cells-A1-references-Link\n" +
                 "                    \"Delete\" [#/1/Spreadsheet222/cell/A1/delete] id=ID123-cells-A1-delete-Link\n" +
@@ -228,7 +228,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "              SpreadsheetLinkListComponent\n" +
                 "                SpreadsheetFlexLayout\n" +
                 "                  ROW\n" +
-                "                    \"Create Labels\" [#/1/Spreadsheet222/cell/A2/label] id=ID123-cells-A2-createLabels-Link\n" +
+                "                    \"Create Label\" [#/1/Spreadsheet222/cell/A2/label] id=ID123-cells-A2-createLabel-Link\n" +
                 "                    \"Labels\" [#/1/Spreadsheet222/cell/A2/labels] (2) id=ID123-cells-A2-label-Link\n" +
                 "                    \"References\" [#/1/Spreadsheet222/cell/A2/references] (2) id=ID123-cells-A2-references-Link\n" +
                 "                    \"Delete\" [#/1/Spreadsheet222/cell/A2/delete] id=ID123-cells-A2-delete-Link\n" +
