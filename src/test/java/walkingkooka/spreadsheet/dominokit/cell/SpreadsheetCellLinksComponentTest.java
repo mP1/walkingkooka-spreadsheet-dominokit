@@ -55,7 +55,7 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlElementCompo
                 "  SpreadsheetLinkListComponent\n" +
                 "    SpreadsheetFlexLayout\n" +
                 "      ROW\n" +
-                "        \"Create Labels\" DISABLED id=cells-createLabels-Link\n" +
+                "        \"Create Label\" DISABLED id=cells-createLabel-Link\n" +
                 "        \"Labels\" DISABLED id=cells-label-Link\n" +
                 "        \"References\" DISABLED id=cells-references-Link\n" +
                 "        \"Delete\" DISABLED id=cells-delete-Link\n"
@@ -102,7 +102,7 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlElementCompo
                 "  SpreadsheetLinkListComponent\n" +
                 "    SpreadsheetFlexLayout\n" +
                 "      ROW\n" +
-                "        \"Create Labels\" [#/1/SpreadsheetName222/cell/A1/label] id=cells-createLabels-Link\n" +
+                "        \"Create Label\" [#/1/SpreadsheetName222/cell/A1/label] id=cells-createLabel-Link\n" +
                 "        \"Labels\" [#/1/SpreadsheetName222/cell/A1/labels] (1) id=cells-label-Link\n" +
                 "        \"References\" [#/1/SpreadsheetName222/cell/A1/references] (2) id=cells-references-Link\n" +
                 "        \"Delete\" [#/1/SpreadsheetName222/cell/A1/delete] id=cells-delete-Link\n"

@@ -43,8 +43,8 @@ public final class SpreadsheetCellLinksComponent implements HtmlElementComponent
 
     private SpreadsheetCellLinksComponent(final String id,
                                           final SpreadsheetCellLinksComponentContext context) {
-        this.createLabels = SpreadsheetCellCreateLabelSelectAnchorComponent.with(
-            id + "createLabels" + SpreadsheetElementIds.LINK,
+        this.createLabel = SpreadsheetCellCreateLabelSelectAnchorComponent.with(
+            id + "createLabel" + SpreadsheetElementIds.LINK,
             context
         );
 
@@ -64,7 +64,7 @@ public final class SpreadsheetCellLinksComponent implements HtmlElementComponent
         );
 
         this.root = SpreadsheetLinkListComponent.empty()
-            .appendChild(this.createLabels)
+            .appendChild(this.createLabel)
             .appendChild(this.labels)
             .appendChild(this.references)
             .appendChild(this.delete);
@@ -73,14 +73,14 @@ public final class SpreadsheetCellLinksComponent implements HtmlElementComponent
     }
 
     public Optional<SpreadsheetExpressionReference> value() {
-        return this.createLabels.value();
+        return this.createLabel.value();
     }
 
     public SpreadsheetCellLinksComponent setValue(final Optional<SpreadsheetExpressionReference> value) {
         Objects.requireNonNull(value, "value");
 
-        this.createLabels.setValue(value)
-            .setTextContent("Create Labels");
+        this.createLabel.setValue(value)
+            .setTextContent("Create Label");
         this.labels.setValue(value)
             .setTextContent("Labels");
         this.references.setValue(value)
@@ -95,7 +95,7 @@ public final class SpreadsheetCellLinksComponent implements HtmlElementComponent
         return this.setValue(Optional.empty());
     }
 
-    private final SpreadsheetCellCreateLabelSelectAnchorComponent createLabels;
+    private final SpreadsheetCellCreateLabelSelectAnchorComponent createLabel;
 
     private final SpreadsheetCellLabelsAnchorComponent labels;
 

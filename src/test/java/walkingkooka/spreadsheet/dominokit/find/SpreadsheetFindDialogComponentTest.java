@@ -631,7 +631,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
-                "                          \"Create Labels\" [#/123/SpreadsheetName456/cell/A1/label] id=find-cells-A1-createLabels-Link\n" +
+                "                          \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=find-cells-A1-createLabel-Link\n" +
                 "                          \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (3) id=find-cells-A1-label-Link\n" +
                 "                          \"References\" [#/123/SpreadsheetName456/cell/A1/references] (1) id=find-cells-A1-references-Link\n" +
                 "                          \"Delete\" [#/123/SpreadsheetName456/cell/A1/delete] id=find-cells-A1-delete-Link\n" +
@@ -645,7 +645,7 @@ public final class SpreadsheetFindDialogComponentTest implements SpreadsheetDial
                 "                    SpreadsheetLinkListComponent\n" +
                 "                      SpreadsheetFlexLayout\n" +
                 "                        ROW\n" +
-                "                          \"Create Labels\" [#/123/SpreadsheetName456/cell/B2/label] id=find-cells-B2-createLabels-Link\n" +
+                "                          \"Create Label\" [#/123/SpreadsheetName456/cell/B2/label] id=find-cells-B2-createLabel-Link\n" +
                 "                          \"Labels\" [#/123/SpreadsheetName456/cell/B2/labels] (0) id=find-cells-B2-label-Link\n" +
                 "                          \"References\" [#/123/SpreadsheetName456/cell/B2/references] (0) id=find-cells-B2-references-Link\n" +
                 "                          \"Delete\" [#/123/SpreadsheetName456/cell/B2/delete] id=find-cells-B2-delete-Link\n" +
