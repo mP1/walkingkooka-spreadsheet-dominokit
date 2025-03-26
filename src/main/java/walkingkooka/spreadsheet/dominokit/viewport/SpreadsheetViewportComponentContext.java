@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.compare.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetFormatterFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
@@ -37,5 +38,6 @@ public interface SpreadsheetViewportComponentContext extends HistoryContext,
     RefreshContext,
     SpreadsheetComparatorProvider,
     SpreadsheetLabelNameResolver,
-    SpreadsheetViewportFormulaComponentContext {
+    SpreadsheetViewportFormulaComponentContext,
+    SpreadsheetCellLinksComponentContext {
 }

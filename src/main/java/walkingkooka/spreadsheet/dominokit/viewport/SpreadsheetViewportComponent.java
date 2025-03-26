@@ -48,8 +48,10 @@ import walkingkooka.spreadsheet.dominokit.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.VisibleHtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuTargets;
+import walkingkooka.spreadsheet.dominokit.div.SpreadsheetDivComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
@@ -64,6 +66,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormulaHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
@@ -135,6 +138,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         this.context = context;
 
         this.formula = this.formula();
+        this.formulaCellLinks = this.formulaCellLinks();
 
         this.table = this.table();
 
@@ -213,7 +217,12 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
         // overflow:hidden required to prevent scrollbars...
         root.style("width:100%; border: none; margin: 0px; padding: none; overflow: hidden");
 
-        root.appendChild(this.formula);
+        root.appendChild(
+            SpreadsheetDivComponent.empty()
+                .setCssText("position: relative;")
+                .appendChild(this.formula)
+                .appendChild(this.formulaCellLinks.setCssText("position:absolute; bottom: 0px; right: 15px; height: fit-content;"))
+        );
         root.appendChild(this.tableContainer);
 
         root.addEventListener(
@@ -305,6 +314,47 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
     }
 
     private final SpreadsheetViewportFormulaComponent formula;
+
+    /**
+     * Place formula links at the bottom/right of formula component.
+     */
+    private SpreadsheetCellLinksComponent formulaCellLinks() {
+        return SpreadsheetCellLinksComponent.empty(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    private final SpreadsheetCellLinksComponent formulaCellLinks;
+
+    /**
+     * Refreshes the value of {@link #formulaCellLinks} from the current {@link HistoryToken}.
+     */
+    private void formulaCellLinksRefresh() {
+        final SpreadsheetCellLinksComponent formulaCellLinks = this.formulaCellLinks;
+
+        final HistoryToken historyToken = this.context.historyToken();
+        final boolean show = historyToken instanceof SpreadsheetCellFormulaHistoryToken;
+
+        formulaCellLinks.setCssProperty(
+            "Visibility",
+            show ?
+                "visible" :
+                "hidden"
+        );
+        if (show) {
+            formulaCellLinks.setValue(
+                historyToken.selection()
+                    .flatMap(s ->
+                        Optional.ofNullable(
+                            s.isExternalReference() ?
+                                s.toExpressionReference() :
+                                null
+                        )
+                    )
+            );
+        }
+    }
 
     // table container..................................................................................................
 
@@ -1004,6 +1054,7 @@ public final class SpreadsheetViewportComponent implements HtmlElementComponent<
             );
         }
 
+        this.formulaCellLinksRefresh();
         this.scrollbarsRefresh();
     }
 

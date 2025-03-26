@@ -39,11 +39,13 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserProviderDelegator;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
+import java.util.Set;
 
 final class AppContextSpreadsheetViewportComponentContext implements SpreadsheetViewportComponentContext,
     HistoryContextDelegator,
@@ -136,6 +138,18 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     @Override
     public void giveFocus(final Runnable focus) {
         this.context.giveFocus(focus);
+    }
+
+    @Override
+    public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        return this.spreadsheetViewportCache()
+            .cellLabels(spreadsheetExpressionReference);
+    }
+
+    @Override
+    public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+        return this.spreadsheetViewportCache()
+            .cellReferences(spreadsheetExpressionReference);
     }
 
     private final AppContext context;
