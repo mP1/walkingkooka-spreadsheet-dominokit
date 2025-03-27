@@ -40,6 +40,19 @@ public interface HtmlElementComponent<E extends HTMLElement, C extends HtmlEleme
     C setCssProperty(final String name,
                      final String value);
 
+    String VISIBILITY = "visibility";
+    String HIDDEN = "hidden";
+    String VISIBLE = "visible";
+
+    default C setVisibility(final boolean visibility) {
+        return this.setCssProperty(
+            VISIBILITY,
+            visibility ?
+                VISIBLE :
+                HIDDEN
+        );
+    }
+
     // node.............................................................................................................
 
     @Override
