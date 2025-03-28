@@ -64,7 +64,7 @@ public class SpreadsheetContextMenuNative {
     }
 
     static void menuAppendChildSeparator(final SpreadsheetContextMenu menu) {
-        menu.menu.appendChild("-----");
+        menu.menu.appendChild(SpreadsheetContextMenuNativeSeparator.INSTANCE);
     }
 
     static void menuDisable(final SpreadsheetContextMenu menu) {
