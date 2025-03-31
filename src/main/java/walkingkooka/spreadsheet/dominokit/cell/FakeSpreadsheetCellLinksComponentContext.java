@@ -17,10 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Set;
 
@@ -30,38 +27,9 @@ public class FakeSpreadsheetCellLinksComponentContext extends FakeSpreadsheetCel
         super();
     }
 
-    @Override
-    public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
-        throw new UnsupportedOperationException();
-    }
 
     @Override
     public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public HistoryToken historyToken() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void pushHistoryToken(final HistoryToken token) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void fireCurrentHistoryToken() {
         throw new UnsupportedOperationException();
     }
 }
