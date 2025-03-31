@@ -266,7 +266,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
      */
     public SpreadsheetContextMenu focus() {
         this.menu.open(true);
-        this.context.addHistoryTokenWatcherOnce(
+        this.context.addHistoryTokenWatcher(
             (final HistoryToken previous,
              final AppContext context) ->
                 SpreadsheetContextMenu.this.close()
@@ -275,10 +275,16 @@ public final class SpreadsheetContextMenu implements TreePrintable {
     }
 
     /**
-     * Closes the menu if it is open.
+     * Closes the menu if it is open and cleans up the menu target removing the right mouse listener that DominoUI adds.
      */
+    // https://github.com/DominoKit/domino-ui/issues/1027
+    // Cant cleanly remove MenuTarget from Menu - aka Menu.setTarget(null) fails with NPE
     public void close() {
         this.menu.close();
+        this.menu.remove();
+
+        // remove the context menu listener added by domino, so SpreadsheetViewportComponent rebuilds the menu
+        this.menu.setTarget(null);
     }
 
     final Menu<Void> menu;
