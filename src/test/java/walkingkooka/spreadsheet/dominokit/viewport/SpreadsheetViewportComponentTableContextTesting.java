@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextTesting;
+import walkingkooka.spreadsheet.dominokit.log.LoggingContextTesting;
 
-public interface SpreadsheetViewportComponentTableContextTesting<C extends SpreadsheetViewportComponentTableContext> extends HistoryContextTesting<C> {
+public interface SpreadsheetViewportComponentTableContextTesting<C extends SpreadsheetViewportComponentTableContext> extends HistoryContextTesting<C>,
+    LoggingContextTesting<C> {
 }
