@@ -15,9 +15,8 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.reference;
+package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLabelsAnchorComponentContextTesting;
 import walkingkooka.spreadsheet.dominokit.dialog.SpreadsheetDialogComponentContextTesting;
 
 public interface SpreadsheetCellReferencesDialogComponentContextTesting<C extends SpreadsheetCellReferencesDialogComponentContext> extends SpreadsheetDialogComponentContextTesting<C>,
