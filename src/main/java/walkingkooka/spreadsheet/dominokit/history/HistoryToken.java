@@ -910,21 +910,6 @@ public abstract class HistoryToken implements HasUrlFragment,
     }
 
     /**
-     * {@see SpreadsheetLabelMappingReferencesHistoryToken}
-     */
-    public static SpreadsheetLabelMappingReferencesHistoryToken labelMappingReferences(final SpreadsheetId id,
-                                                                                       final SpreadsheetName name,
-                                                                                       final SpreadsheetLabelName labelName,
-                                                                                       final HistoryTokenOffsetAndCount offsetAndCount) {
-        return SpreadsheetLabelMappingReferencesHistoryToken.with(
-            id,
-            name,
-            labelName,
-            offsetAndCount
-        );
-    }
-
-    /**
      * {@see SpreadsheetLabelMappingSaveHistoryToken}
      */
     public static SpreadsheetLabelMappingSaveHistoryToken labelMappingSave(final SpreadsheetId id,
@@ -1894,11 +1879,6 @@ public abstract class HistoryToken implements HasUrlFragment,
                 .offsetAndCount
                 .count;
         }
-        if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
-            count = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class)
-                .offsetAndCount
-                .count;
-        }
 
         return count;
     }
@@ -2024,16 +2004,6 @@ public abstract class HistoryToken implements HasUrlFragment,
                             this.cast(SpreadsheetLabelMappingListHistoryToken.class)
                                 .offsetAndCount
                                 .setCount(count)
-                        );
-                    }
-                    if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
-                        final SpreadsheetLabelMappingReferencesHistoryToken references = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class);
-
-                        with = labelMappingReferences(
-                            id,
-                            name,
-                            references.labelName,
-                            references.offsetAndCount.setCount(count)
                         );
                     }
                 }
@@ -2460,18 +2430,14 @@ public abstract class HistoryToken implements HasUrlFragment,
         if(this instanceof SpreadsheetCellLabelSaveHistoryToken) {
             labelName = this.cast(SpreadsheetCellLabelSaveHistoryToken.class).labelName;
         } else {
-            if(this instanceof SpreadsheetLabelMappingDeleteHistoryToken) {
+            if (this instanceof SpreadsheetLabelMappingDeleteHistoryToken) {
                 labelName = this.cast(SpreadsheetLabelMappingDeleteHistoryToken.class).labelName;
             } else {
-                if(this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
-                    labelName = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class).labelName;
+                if (this instanceof SpreadsheetLabelMappingSaveHistoryToken) {
+                    labelName = this.cast(SpreadsheetLabelMappingSaveHistoryToken.class).value();
                 } else {
-                    if (this instanceof SpreadsheetLabelMappingSaveHistoryToken) {
-                        labelName = this.cast(SpreadsheetLabelMappingSaveHistoryToken.class).value();
-                    } else {
-                        if (this instanceof SpreadsheetLabelMappingSelectHistoryToken) {
-                            labelName = this.cast(SpreadsheetLabelMappingSelectHistoryToken.class).labelName;
-                        }
+                    if (this instanceof SpreadsheetLabelMappingSelectHistoryToken) {
+                        labelName = this.cast(SpreadsheetLabelMappingSelectHistoryToken.class).labelName;
                     }
                 }
             }
@@ -2895,13 +2861,7 @@ public abstract class HistoryToken implements HasUrlFragment,
                                 .offsetAndCount
                                 .offset;
                         } else {
-                            if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
-                                offset = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class)
-                                    .offsetAndCount
-                                    .offset;
-                            } else {
-                                offset = OptionalInt.empty();
-                            }
+                            offset = OptionalInt.empty();
                         }
                     }
                 }
@@ -2993,17 +2953,6 @@ public abstract class HistoryToken implements HasUrlFragment,
                             name,
                             this.cast(SpreadsheetLabelMappingListHistoryToken.class)
                                 .offsetAndCount
-                                .setOffset(offset)
-                        );
-                    }
-                    if (this instanceof SpreadsheetLabelMappingReferencesHistoryToken) {
-                        final SpreadsheetLabelMappingReferencesHistoryToken references = this.cast(SpreadsheetLabelMappingReferencesHistoryToken.class);
-
-                        after = labelMappingReferences(
-                            id,
-                            name,
-                            references.labelName,
-                            references.offsetAndCount
                                 .setOffset(offset)
                         );
                     }
@@ -3199,18 +3148,6 @@ public abstract class HistoryToken implements HasUrlFragment,
                     cell.anchoredSelection(),
                     offsetAndCount
                 );
-            } else {
-                final SpreadsheetLabelMappingHistoryToken labelMappingHistoryToken = this.cast(SpreadsheetLabelMappingHistoryToken.class);
-                final Optional<SpreadsheetLabelName> labelName = labelMappingHistoryToken.labelName();
-                if(labelName.isPresent()) {
-                    token = labelMappingReferences(
-                        id,
-                        name,
-                        labelMappingHistoryToken.labelName()
-                            .get(),
-                        offsetAndCount
-                    );
-                }
             }
         }
 
