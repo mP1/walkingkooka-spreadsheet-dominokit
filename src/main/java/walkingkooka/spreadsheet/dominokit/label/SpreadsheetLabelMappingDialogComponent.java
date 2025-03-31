@@ -72,7 +72,10 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
 
         this.save = this.anchor("Save");
         this.undo = this.anchor("Undo");
-        this.delete = this.anchor("Delete");
+        this.delete = SpreadsheetLabelDeleteAnchorComponent.with(
+            ID_PREFIX + "delete" + SpreadsheetElementIds.LINK,
+            context
+        );
         this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
@@ -234,22 +237,12 @@ public final class SpreadsheetLabelMappingDialogComponent implements Spreadsheet
     // delete...........................................................................................................
 
     private void refreshDelete() {
-        final Optional<SpreadsheetLabelName> label = this.labelName.value();
-
-        final HistoryToken historyToken = this.context.historyToken();
-
-        // dont enable when SpreadsheetCellLabelHistoryToken
-        this.delete.setHistoryToken(
-            Optional.ofNullable(
-                label.isPresent() && historyToken instanceof SpreadsheetLabelMappingHistoryToken ?
-                    historyToken.setLabelName(label)
-                        .delete() :
-                    null
-            )
-        );
+        this.delete.setValue(
+            this.labelName.value()
+        ).setTextContent("Delete");
     }
 
-    private final HistoryTokenAnchorComponent delete;
+    private final SpreadsheetLabelDeleteAnchorComponent delete;
 
     // close............................................................................................................
 
