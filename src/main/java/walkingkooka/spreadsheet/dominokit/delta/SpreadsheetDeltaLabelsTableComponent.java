@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.datatable.SpreadsheetDataTableComponen
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.TableComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.text.CharSequences;
@@ -46,6 +47,8 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
     SpreadsheetDeltaFetcherWatcher {
+
+    final static int DEFAULT_COUNT = 10;
 
     public static SpreadsheetDeltaLabelsTableComponent with(final String id,
                                                             final SpreadsheetDeltaLabelsTableComponentContext context) {
@@ -153,6 +156,16 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
     private Optional<SpreadsheetDelta> value;
 
     private final SpreadsheetDeltaLabelsTableComponentContext context;
+
+    // refresh..........................................................................................................
+
+    public SpreadsheetDeltaLabelsTableComponent refresh(final HistoryToken token) {
+        this.dataTable.refreshPreviousNextLinks(
+            token,
+            DEFAULT_COUNT
+        );
+        return this;
+    }
 
     // SpreadsheetDeltaFetcherWatcher...................................................................................
 
