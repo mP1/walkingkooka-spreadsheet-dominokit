@@ -30,6 +30,8 @@ import walkingkooka.spreadsheet.dominokit.insert.SpreadsheetColumnRowInsertCount
 import walkingkooka.spreadsheet.dominokit.insert.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogComponent;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingListDialogComponent;
+import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.plugin.JarEntryInfoListDialogComponent;
@@ -112,6 +114,10 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     private static void label(final AppContext context) {
         SpreadsheetLabelMappingDialogComponent.with(
             SpreadsheetLabelMappingDialogComponentContexts.appContext(context)
+        );
+
+        SpreadsheetLabelMappingListDialogComponent.with(
+            SpreadsheetLabelMappingListDialogComponentContexts.appContext(context)
         );
     }
 
