@@ -138,7 +138,7 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
                 .map(m ->
                     SpreadsheetDeltaLabelsTableComponentRow.with(
                         m,
-                        this.context.resolveCellForLabel(
+                        this.context.labelCell(
                             m.label()
                         )
                     )

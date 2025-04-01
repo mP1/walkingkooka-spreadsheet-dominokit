@@ -34,12 +34,12 @@ public class FakeSpreadsheetDeltaLabelsTableComponentContext extends FakeSpreads
     }
 
     @Override
-    public Optional<SpreadsheetCell> resolveCellForLabel(final SpreadsheetLabelName label) {
+    public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+    public Optional<SpreadsheetCell> labelCell(final SpreadsheetLabelName label) {
         throw new UnsupportedOperationException();
     }
 
