@@ -34,5 +34,5 @@ public interface SpreadsheetDeltaLabelsTableComponentContext extends HistoryCont
     /**
      * Returns a {@link SpreadsheetCell} for the given {@link SpreadsheetLabelName}.
      */
-    Optional<SpreadsheetCell> resolveCellForLabel(final SpreadsheetLabelName label);
+    Optional<SpreadsheetCell> labelCell(final SpreadsheetLabelName label);
 }

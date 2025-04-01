@@ -55,19 +55,12 @@ final class BasicSpreadsheetDeltaLabelsTableComponentContext implements Spreadsh
                                                              final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
                                                              final HistoryContext historyContext) {
         this.cellToFormulaText = cellToFormulaText;
-        this.labelToCell = labelToCell;
         this.cellToReferences = cellToReferences;
+        this.labelToCell = labelToCell;
 
         this.hasSpreadsheetDeltaFetcherWatchers = hasSpreadsheetDeltaFetcherWatchers;
         this.historyContext = historyContext;
     }
-
-    @Override
-    public Optional<SpreadsheetCell> resolveCellForLabel(final SpreadsheetLabelName label) {
-        return this.labelToCell.apply(label);
-    }
-
-    private final Function<SpreadsheetLabelName, Optional<SpreadsheetCell>> labelToCell;
 
     @Override
     public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
@@ -77,18 +70,25 @@ final class BasicSpreadsheetDeltaLabelsTableComponentContext implements Spreadsh
     private final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellToReferences;
 
     @Override
-    public HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers() {
-        return this.hasSpreadsheetDeltaFetcherWatchers;
-    }
-
-    private final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers;
-
-    @Override
     public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
         return this.cellToFormulaText.apply(spreadsheetExpressionReference);
     }
 
     private final Function<SpreadsheetExpressionReference, Optional<String>> cellToFormulaText;
+
+    @Override
+    public Optional<SpreadsheetCell> labelCell(final SpreadsheetLabelName label) {
+        return this.labelToCell.apply(label);
+    }
+
+    private final Function<SpreadsheetLabelName, Optional<SpreadsheetCell>> labelToCell;
+
+    @Override
+    public HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers() {
+        return this.hasSpreadsheetDeltaFetcherWatchers;
+    }
+
+    private final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers;
 
     // HistoryContextDelegator..........................................................................................
 
