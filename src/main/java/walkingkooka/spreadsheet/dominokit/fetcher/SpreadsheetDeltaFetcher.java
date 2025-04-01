@@ -631,6 +631,29 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
+    /**
+     * Invokes the end-point
+     * <pre>
+     * GET /api/spreadsheet/{@link SpreadsheetId}/label/{reference}/references?offset=1&count=1
+     * </pre>
+     */
+    public void loadLabelMappings(final SpreadsheetId id,
+                                  final int offset,
+                                  final int count) {
+        final UrlQueryString queryString = UrlQueryString.parse("offset=" + offset + "&count=" + count);
+
+        // GET /api/spreadsheet/{SpreadsheetId}/label/*?offset=1&count=1
+        this.get(
+            SpreadsheetMetadataFetcher.url(
+                    id
+                ).appendPath(
+                    UrlPath.EMPTY.append(
+                        SpreadsheetHateosResourceNames.LABEL.toUrlPathName()
+                    ).append(UrlPathName.WILDCARD)
+            ).setQuery(queryString)
+        );
+    }
+
     public void patchCellsFormula(final SpreadsheetId id,
                                   final SpreadsheetSelection selection,
                                   final Map<SpreadsheetCellReference, SpreadsheetFormula> cellToFormulas) {
