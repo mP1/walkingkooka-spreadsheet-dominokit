@@ -52,6 +52,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetViewport;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportAnchor;
 import walkingkooka.spreadsheet.reference.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
+import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaUrlQueryParameters;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -425,11 +426,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                    final int count) {
         final AppContext context = this.context;
 
-        final UrlQueryString queryString = UrlQueryString.parse("count=" + count)
-            .addParameters(
-                context.viewportAndWindowQueryString()
-            );
-
         // /api/spreadsheet/SpreadsheetId/column/A:B/insertBefore?count=1
         this.post(
             SpreadsheetMetadataFetcher.url(
@@ -441,7 +437,14 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                             selection.toStringMaybeStar()
                     )
                 ).appendPathName(afterOrBefore.toUrlPathName())
-                .setQuery(queryString),
+                .setQuery(
+                    offsetAndCountQueryString(
+                        0, // offset
+                        count
+                    ).addParameters(
+                        context.viewportAndWindowQueryString()
+                    )
+                ),
             FetcherRequestBody.string("")
         );
     }
@@ -456,8 +459,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                final SpreadsheetExpressionReference reference,
                                final int offset,
                                final int count) {
-        final UrlQueryString queryString = UrlQueryString.parse("offset=" + offset + "&count=" + count);
-
         // GET /api/spreadsheet/{SpreadsheetId}/cell/{SpreadsheetExpressionReference}/labels?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
@@ -470,7 +471,12 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                             UrlPath.SEPARATOR
                     )
                 ).appendPathName(SpreadsheetServerLinkRelations.LABELS.toUrlPathName())
-                .setQuery(queryString)
+                .setQuery(
+                    offsetAndCountQueryString(
+                        offset,
+                        count
+                    )
+                )
         );
     }
 
@@ -484,8 +490,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                    final SpreadsheetExpressionReference reference,
                                    final int offset,
                                    final int count) {
-        final UrlQueryString queryString = UrlQueryString.parse("offset=" + offset + "&count=" + count);
-
         // GET /api/spreadsheet/{SpreadsheetId}/cell/{SpreadsheetExpressionReference}/references?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
@@ -498,7 +502,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                             UrlPath.SEPARATOR
                     )
                 ).appendPathName(SpreadsheetServerLinkRelations.REFERENCES.toUrlPathName())
-                .setQuery(queryString)
+                .setQuery(
+                    offsetAndCountQueryString(offset, count)
+                )
         );
     }
 
@@ -512,8 +518,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                                     final SpreadsheetLabelName label,
                                     final int offset,
                                     final int count) {
-        final UrlQueryString queryString = UrlQueryString.parse("offset=" + offset + "&count=" + count);
-
         // GET /api/spreadsheet/{SpreadsheetId}/label/{label}/references?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
@@ -527,7 +531,12 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                             UrlPath.SEPARATOR
                     )
                 ).appendPathName(SpreadsheetServerLinkRelations.REFERENCES.toUrlPathName())
-                .setQuery(queryString)
+                .setQuery(
+                    offsetAndCountQueryString(
+                        offset,
+                        count
+                    )
+                )
         );
     }
 
@@ -640,8 +649,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     public void loadLabelMappings(final SpreadsheetId id,
                                   final int offset,
                                   final int count) {
-        final UrlQueryString queryString = UrlQueryString.parse("offset=" + offset + "&count=" + count);
-
         // GET /api/spreadsheet/{SpreadsheetId}/label/*?offset=1&count=1
         this.get(
             SpreadsheetMetadataFetcher.url(
@@ -650,7 +657,12 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                     UrlPath.EMPTY.append(
                         SpreadsheetHateosResourceNames.LABEL.toUrlPathName()
                     ).append(UrlPathName.WILDCARD)
-            ).setQuery(queryString)
+            ).setQuery(
+                offsetAndCountQueryString(
+                    offset,
+                    count
+                )
+            )
         );
     }
 
@@ -1001,5 +1013,28 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             default:
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
+    }
+
+    // helpers..........................................................................................................
+
+    private static UrlQueryString offsetAndCountQueryString(final int offset,
+                                                            final int count) {
+        UrlQueryString queryString = UrlQueryString.EMPTY;
+
+        if (offset > 0) {
+            queryString = UrlQueryString.EMPTY.addParameter(
+                SpreadsheetUrlQueryParameters.OFFSET,
+                String.valueOf(offset)
+            );
+        }
+
+        if (count > 0) {
+            queryString = UrlQueryString.EMPTY.addParameter(
+                SpreadsheetUrlQueryParameters.COUNT,
+                String.valueOf(count)
+            );
+        }
+
+        return queryString;
     }
 }
