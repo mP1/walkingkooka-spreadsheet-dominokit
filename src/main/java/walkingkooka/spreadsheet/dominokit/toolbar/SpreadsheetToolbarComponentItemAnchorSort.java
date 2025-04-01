@@ -74,7 +74,8 @@ final class SpreadsheetToolbarComponentItemAnchorSort extends SpreadsheetToolbar
             final SpreadsheetAnchoredSelectionHistoryToken anchored = token.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
             final SpreadsheetSelection selection = anchored.anchoredSelection()
                 .selection();
-            if (selection.count() > 1) {
+            // FIXME https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/4777
+            if (false == selection.isLabelName() && selection.count() > 1) {
                 match = true;
             }
         }
