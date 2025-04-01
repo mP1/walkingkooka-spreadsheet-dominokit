@@ -143,6 +143,12 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
 
     private final SpreadsheetFindDialogComponentContext context;
 
+    // table............................................................................................................
+
+    private void refreshTable(final HistoryToken token) {
+        this.table.refresh(token);
+    }
+
     // @VisibleForTesting.
     final SpreadsheetDeltaCellsTableComponent table;
 
@@ -543,6 +549,8 @@ public final class SpreadsheetFindDialogComponent implements SpreadsheetDialogCo
     public void refresh(final RefreshContext context) {
         final SpreadsheetCellFindHistoryToken historyToken = context.historyToken()
             .cast(SpreadsheetCellFindHistoryToken.class);
+
+        this.refreshTable(historyToken);
 
         this.cellRange.setValue(
             Optional.of(
