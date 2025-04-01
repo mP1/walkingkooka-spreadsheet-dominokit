@@ -822,7 +822,8 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             ),
             SpreadsheetDelta.EMPTY.setCells(
                 Sets.of(
-                    selection.toCell()
+                    context.resolveIfLabel(selection)
+                        .toCell()
                         .setFormula(
                             SpreadsheetFormula.EMPTY.setText(
                                 formulaText
