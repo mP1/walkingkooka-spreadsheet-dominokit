@@ -91,6 +91,12 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
 
     private final SpreadsheetCellReferencesDialogComponentContext context;
 
+    // table............................................................................................................
+
+    private void refreshTable(final HistoryToken historyToken) {
+        this.table.refresh(historyToken);
+    }
+
     // @VisibleForTesting.
     final SpreadsheetDeltaCellsTableComponent table;
 
@@ -146,6 +152,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements Spreadshe
             .cast(SpreadsheetCellReferencesHistoryToken.class);
 
         this.refreshClose(historyToken);
+        this.refreshTable(historyToken);
 
         this.references(
             HistoryTokenOffsetAndCount.with(
