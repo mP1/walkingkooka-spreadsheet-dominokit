@@ -247,12 +247,6 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
         final SpreadsheetDeltaCellsTableComponent component = SpreadsheetDeltaCellsTableComponent.with(
             "ID123-",
             SpreadsheetDeltaCellsTableComponentContexts.basic(
-                new FakeHistoryContext() {
-                    @Override
-                    public HistoryToken historyToken() {
-                        return HistoryToken.parseString("/1/Spreadsheet222/cell/A1/find");
-                    }
-                },
                 new HasSpreadsheetDeltaFetcher() {
                     @Override
                     public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
@@ -284,7 +278,13 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                         default:
                             return Optional.empty();
                     }
-                } // formulaText
+                }, // formulaText
+                new FakeHistoryContext() {
+                    @Override
+                    public HistoryToken historyToken() {
+                        return HistoryToken.parseString("/1/Spreadsheet222/cell/A1/find");
+                    }
+                }
             )
         );
         component.onSpreadsheetDelta(

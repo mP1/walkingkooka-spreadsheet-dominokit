@@ -34,32 +34,32 @@ final class BasicSpreadsheetDeltaCellsTableComponentContext implements Spreadshe
     HistoryContextDelegator,
     HasSpreadsheetDeltaFetcherWatchers {
 
-    static BasicSpreadsheetDeltaCellsTableComponentContext with(final HistoryContext historyContext,
-                                                                final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
-                                                                final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellLabels,
-                                                                final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences,
-                                                                final Function<SpreadsheetExpressionReference, Optional<String>> formulaText) {
+    static BasicSpreadsheetDeltaCellsTableComponentContext with(final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
+                                                                final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellToLabels,
+                                                                final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellToReferences,
+                                                                final Function<SpreadsheetExpressionReference, Optional<String>> cellToFormulaText,
+                                                                final HistoryContext historyContext) {
         return new BasicSpreadsheetDeltaCellsTableComponentContext(
-            Objects.requireNonNull(historyContext, "historyContext"),
             Objects.requireNonNull(hasSpreadsheetDeltaFetcherWatchers, "hasSpreadsheetDeltaFetcherWatchers"),
-            Objects.requireNonNull(cellLabels, "cellLabels"),
-            Objects.requireNonNull(cellReferences, "cellReferences"),
-            Objects.requireNonNull(formulaText, "formulaText")
+            Objects.requireNonNull(cellToLabels, "cellToLabels"),
+            Objects.requireNonNull(cellToReferences, "cellToReferences"),
+            Objects.requireNonNull(cellToFormulaText, "cellToFormulaText"),
+            Objects.requireNonNull(historyContext, "historyContext")
         );
     }
 
-    public BasicSpreadsheetDeltaCellsTableComponentContext(final HistoryContext historyContext,
-                                                           final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
-                                                           final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellLabels,
-                                                           final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences,
-                                                           final Function<SpreadsheetExpressionReference, Optional<String>> formulaText) {
-        this.historyContext = historyContext;
+    public BasicSpreadsheetDeltaCellsTableComponentContext(final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
+                                                           final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellToLabels,
+                                                           final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellToReferences,
+                                                           final Function<SpreadsheetExpressionReference, Optional<String>> cellToFormulaText,
+                                                           final HistoryContext historyContext) {
         this.hasSpreadsheetDeltaFetcherWatchers = hasSpreadsheetDeltaFetcherWatchers;
 
-        this.cellLabels = cellLabels;
-        this.cellReferences = cellReferences;
+        this.cellToLabels = cellToLabels;
+        this.cellToReferences = cellToReferences;
+        this.cellToFormulaText = cellToFormulaText;
 
-        this.formulaText = formulaText;
+        this.historyContext = historyContext;
     }
 
     @Override
@@ -85,28 +85,28 @@ final class BasicSpreadsheetDeltaCellsTableComponentContext implements Spreadshe
 
     @Override
     public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
-        return this.cellLabels.apply(spreadsheetExpressionReference);
+        return this.cellToLabels.apply(spreadsheetExpressionReference);
     }
 
-    private final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellLabels;
+    private final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellToLabels;
 
     // SpreadsheetCellReferencesAnchorComponentContext..................................................................
 
     @Override
     public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
-        return this.cellReferences.apply(spreadsheetExpressionReference);
+        return this.cellToReferences.apply(spreadsheetExpressionReference);
     }
 
-    private final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences;
+    private final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellToReferences;
 
     // SpreadsheetFormulaSelectAnchorComponentContext...................................................................
 
     @Override
     public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
-        return this.formulaText.apply(spreadsheetExpressionReference);
+        return this.cellToFormulaText.apply(spreadsheetExpressionReference);
     }
 
-    private final Function<SpreadsheetExpressionReference, Optional<String>> formulaText;
+    private final Function<SpreadsheetExpressionReference, Optional<String>> cellToFormulaText;
 
     // Object...........................................................................................................
 
@@ -117,12 +117,12 @@ final class BasicSpreadsheetDeltaCellsTableComponentContext implements Spreadshe
             .value(this.historyContext)
             .label("hasSpreadsheetDeltaFetcherWatchers")
             .value(this.hasSpreadsheetDeltaFetcherWatchers)
-            .label("cellLabels")
-            .value(this.cellLabels)
-            .label("cellReferences")
-            .value(this.cellReferences)
-            .label("formulaText")
-            .value(this.formulaText)
+            .label("cellToLabels")
+            .value(this.cellToLabels)
+            .label("cellToReferences")
+            .value(this.cellToReferences)
+            .label("cellToFormulaText")
+            .value(this.cellToFormulaText)
             .build();
     }
 }

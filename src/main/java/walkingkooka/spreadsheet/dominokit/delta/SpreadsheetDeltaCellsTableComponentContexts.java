@@ -32,17 +32,17 @@ public final class SpreadsheetDeltaCellsTableComponentContexts implements Public
     /**
      * {@see BasicSpreadsheetDeltaCellsTableComponentContext}
      */
-    public static SpreadsheetDeltaCellsTableComponentContext basic(final HistoryContext historyContext,
-                                                                   final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
-                                                                   final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellLabels,
-                                                                   final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellReferences,
-                                                                   final Function<SpreadsheetExpressionReference, Optional<String>> formulaText) {
+    public static SpreadsheetDeltaCellsTableComponentContext basic(final HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers,
+                                                                   final Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> cellToLabels,
+                                                                   final Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> cellToReferences,
+                                                                   final Function<SpreadsheetExpressionReference, Optional<String>> cellToFormulaText,
+                                                                   final HistoryContext historyContext) {
         return BasicSpreadsheetDeltaCellsTableComponentContext.with(
-            historyContext,
             hasSpreadsheetDeltaFetcherWatchers,
-            cellLabels,
-            cellReferences,
-            formulaText
+            cellToLabels,
+            cellToReferences,
+            cellToFormulaText,
+            historyContext
         );
     }
 
