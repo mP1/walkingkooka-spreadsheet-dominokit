@@ -35,8 +35,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implements SpreadsheetDeltaCellsTableComponentContextTesting<BasicSpreadsheetDeltaCellsTableComponentContext> {
 
-    private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
-
     private final static HasSpreadsheetDeltaFetcherWatchers HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS = new HasSpreadsheetDeltaFetcherWatchers() {
 
         @Override
@@ -50,17 +48,17 @@ public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implement
         }
     };
 
-    private final static Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> CELL_LABELS = (SpreadsheetExpressionReference reference) -> {
+    private final static Function<SpreadsheetExpressionReference, Set<SpreadsheetLabelName>> CELL_TO_LABELS = (SpreadsheetExpressionReference reference) -> {
         Objects.requireNonNull(reference, "reference");
         throw new UnsupportedOperationException();
     };
 
-    private final static Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> CELL_REFERENCES = (SpreadsheetExpressionReference reference) -> {
+    private final static Function<SpreadsheetExpressionReference, Set<SpreadsheetExpressionReference>> CELL_TO_REFERENCES = (SpreadsheetExpressionReference reference) -> {
         Objects.requireNonNull(reference, "reference");
         throw new UnsupportedOperationException();
     };
 
-    private final static Function<SpreadsheetExpressionReference, Optional<String>> FORMULA_TEXT = (SpreadsheetExpressionReference reference) -> {
+    private final static Function<SpreadsheetExpressionReference, Optional<String>> CELL_TO_FORMULA_TEXT = (SpreadsheetExpressionReference reference) -> {
         Objects.requireNonNull(reference, "reference");
 
         if(reference.equals(SpreadsheetSelection.A1)) {
@@ -70,73 +68,75 @@ public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implement
         throw new UnsupportedOperationException();
     };
 
-    // with.............................................................................................................
+    private final static HistoryContext HISTORY_CONTEXT = HistoryContexts.fake();
 
-    @Test
-    public void testWithNullHistoryContextFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> BasicSpreadsheetDeltaCellsTableComponentContext.with(
-                null,
-                HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
-                CELL_LABELS,
-                CELL_REFERENCES,
-                FORMULA_TEXT
-            )
-        );
-    }
+    // with.............................................................................................................
 
     @Test
     public void testWithNullHasSpreadsheetDeltaFetcherWatchersFails() {
         assertThrows(
             NullPointerException.class,
             () -> BasicSpreadsheetDeltaCellsTableComponentContext.with(
-                HISTORY_CONTEXT,
                 null,
-                CELL_LABELS,
-                CELL_REFERENCES,
-                FORMULA_TEXT
+                CELL_TO_LABELS,
+                CELL_TO_REFERENCES,
+                CELL_TO_FORMULA_TEXT,
+                HISTORY_CONTEXT
             )
         );
     }
 
     @Test
-    public void testWithNullCellLabelsFails() {
+    public void testWithNullCellToLabelsFails() {
         assertThrows(
             NullPointerException.class,
             () -> BasicSpreadsheetDeltaCellsTableComponentContext.with(
-                HISTORY_CONTEXT,
                 HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
                 null,
-                CELL_REFERENCES,
-                FORMULA_TEXT
+                CELL_TO_REFERENCES,
+                CELL_TO_FORMULA_TEXT,
+                HISTORY_CONTEXT
             )
         );
     }
 
     @Test
-    public void testWithNullCellReferencesFails() {
+    public void testWithNullCellToReferencesFails() {
         assertThrows(
             NullPointerException.class,
             () -> BasicSpreadsheetDeltaCellsTableComponentContext.with(
-                HISTORY_CONTEXT,
                 HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
-                CELL_LABELS,
+                CELL_TO_LABELS,
                 null,
-                FORMULA_TEXT
+                CELL_TO_FORMULA_TEXT,
+                HISTORY_CONTEXT
             )
         );
     }
 
     @Test
-    public void testWithNullFormulaTextFails() {
+    public void testWithNullCellToFormulaTextFails() {
         assertThrows(
             NullPointerException.class,
             () -> BasicSpreadsheetDeltaCellsTableComponentContext.with(
-                HISTORY_CONTEXT,
                 HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
-                CELL_LABELS,
-                CELL_REFERENCES,
+                CELL_TO_LABELS,
+                CELL_TO_REFERENCES,
+                null,
+                HISTORY_CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullHistoryContextFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> BasicSpreadsheetDeltaCellsTableComponentContext.with(
+                HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
+                CELL_TO_LABELS,
+                CELL_TO_REFERENCES,
+                CELL_TO_FORMULA_TEXT,
                 null
             )
         );
@@ -169,11 +169,11 @@ public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implement
     @Override
     public BasicSpreadsheetDeltaCellsTableComponentContext createContext() {
         return BasicSpreadsheetDeltaCellsTableComponentContext.with(
-            HISTORY_CONTEXT,
             HAS_SPREADSHEET_DELTA_FETCHER_WATCHERS,
-            CELL_LABELS,
-            CELL_REFERENCES,
-            FORMULA_TEXT
+            CELL_TO_LABELS,
+            CELL_TO_REFERENCES,
+            CELL_TO_FORMULA_TEXT,
+            HISTORY_CONTEXT
         );
     }
 
