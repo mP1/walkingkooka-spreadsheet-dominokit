@@ -84,7 +84,7 @@ public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorCo
                     SPREADSHEET_NAME
                 )
             ).clearValue(),
-            "\"Create\" DISABLED id=cell-create-label-id"
+            "\"Create\" [#/1/SpreadsheetName222] id=cell-create-label-id"
         );
     }
 
@@ -146,7 +146,7 @@ public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorCo
                     SpreadsheetSelection.labelName("Label999")
                 )
             ),
-            "\"Label999\" DISABLED id=cell-create-label-id"
+            "\"Create\" DISABLED id=cell-create-label-id"
         );
     }
 
