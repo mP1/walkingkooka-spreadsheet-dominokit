@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 final class AppContextSpreadsheetViewportComponentContext implements SpreadsheetViewportComponentContext,
@@ -131,7 +132,7 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     }
 
     @Override
-    public SpreadsheetSelection resolveLabel(final SpreadsheetLabelName label) {
+    public Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName label) {
         return this.context.resolveLabel(label);
     }
 

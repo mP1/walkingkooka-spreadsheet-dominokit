@@ -352,15 +352,12 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * This is useful when trying to show selected cells for a label.
      */
     @Override
-    public SpreadsheetSelection resolveLabel(final SpreadsheetLabelName labelName) {
+    public Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName labelName) {
         Objects.requireNonNull(labelName, "labelName");
 
-        final SpreadsheetSelection nonLabel = this.labelToNonLabel.get(labelName);
-        if (null == nonLabel) {
-            throw new IllegalArgumentException("Unknown label " + labelName);
-        }
-
-        return nonLabel;
+        return Optional.ofNullable(
+            this.labelToNonLabel.get(labelName)
+        );
     }
 
     /**

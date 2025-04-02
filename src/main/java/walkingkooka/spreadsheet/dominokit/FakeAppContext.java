@@ -548,7 +548,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
-    public SpreadsheetSelection resolveLabel(final SpreadsheetLabelName name) {
+    public Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName name) {
         throw new UnsupportedOperationException();
     }
 

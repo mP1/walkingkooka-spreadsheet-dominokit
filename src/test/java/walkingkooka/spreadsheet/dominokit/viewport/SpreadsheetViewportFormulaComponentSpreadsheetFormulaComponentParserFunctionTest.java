@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserSelector;
+import walkingkooka.spreadsheet.reference.LabelNotFoundException;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -68,7 +69,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
     @Test
     public void testUnknownLabelFails() {
         assertThrows(
-            IllegalArgumentException.class,
+            LabelNotFoundException.class,
             () -> SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(
                 this.createContext(
                     SpreadsheetSelection.labelName("Unknown"),
